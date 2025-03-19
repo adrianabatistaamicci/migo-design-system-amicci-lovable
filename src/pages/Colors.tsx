@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
@@ -6,10 +5,8 @@ import CodeBlock from '@/components/CodeBlock';
 import { Separator } from '@/components/ui/separator';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-
 const Colors = () => {
-  return (
-    <div className="space-y-8">
+  return <div className="space-y-8">
       <div>
         <h1 className="text-3xl font-bold tracking-tight mb-2">Sistema de Cores</h1>
         <p className="text-mui-text-secondary text-lg">
@@ -20,16 +17,13 @@ const Colors = () => {
       <Tabs defaultValue="overview" className="w-full">
         <TabsList className="mb-4">
           <TabsTrigger value="overview">Visão Geral</TabsTrigger>
-          <TabsTrigger value="baseColors">Cores Básicas</TabsTrigger>
+          <TabsTrigger value="baseColors">Cores básicas</TabsTrigger>
           <TabsTrigger value="palettes">Paletas Compostas</TabsTrigger>
           <TabsTrigger value="usage">Uso</TabsTrigger>
         </TabsList>
 
         <TabsContent value="overview" className="space-y-6">
-          <ComponentCard 
-            title="Sistema de Cores"
-            description="Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização."
-          >
+          <ComponentCard title="Sistema de Cores" description="Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização.">
             <p className="text-mui-text-secondary mb-4">
               O sistema é organizado em dois níveis principais:
             </p>
@@ -127,173 +121,135 @@ const Colors = () => {
             {/* Amicci Colors */}
             <h3 className="text-xl font-medium mb-4">Amicci</h3>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => (
-                <div key={`amicci-${weight}`} className="flex flex-col">
-                  <div 
-                    className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2`}
-                    style={{ backgroundColor: `var(--amicci-${weight}, #000)` }}
-                  >
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`amicci-${weight}`} className="flex flex-col">
+                  <div className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2`} style={{
+                backgroundColor: `var(--amicci-${weight}, #000)`
+              }}>
                     {weight}
                   </div>
                   <div className="p-2 border border-t-0 rounded-b-md text-sm">
                     <code className="text-xs">bg-amicci-{weight}</code>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
             
             {/* AmicciDark Colors */}
             <h3 className="text-xl font-medium mb-4">AmicciDark</h3>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => (
-                <div key={`amicciDark-${weight}`} className="flex flex-col">
-                  <div 
-                    className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2`}
-                    style={{ backgroundColor: `var(--amicciDark-${weight}, #000)` }}
-                  >
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`amicciDark-${weight}`} className="flex flex-col">
+                  <div className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2`} style={{
+                backgroundColor: `var(--amicciDark-${weight}, #000)`
+              }}>
                     {weight}
                   </div>
                   <div className="p-2 border border-t-0 rounded-b-md text-sm">
                     <code className="text-xs">bg-amicciDark-{weight}</code>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
             
             {/* Magenta Colors */}
             <h3 className="text-xl font-medium mb-4">Magenta</h3>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => (
-                <div key={`magenta-${weight}`} className="flex flex-col">
-                  <div 
-                    className={`h-16 rounded-t-md ${weight >= 400 ? 'text-white' : 'text-black'} flex items-end p-2 bg-magenta-${weight}`}
-                  >
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`magenta-${weight}`} className="flex flex-col">
+                  <div className={`h-16 rounded-t-md ${weight >= 400 ? 'text-white' : 'text-black'} flex items-end p-2 bg-magenta-${weight}`}>
                     {weight}
                   </div>
                   <div className="p-2 border border-t-0 rounded-b-md text-sm">
                     <code className="text-xs">bg-magenta-{weight}</code>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
             
             {/* Blue Colors */}
             <h3 className="text-xl font-medium mb-4">Blue</h3>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => (
-                <div key={`blue-${weight}`} className="flex flex-col">
-                  <div 
-                    className={`h-16 rounded-t-md ${weight >= 400 ? 'text-white' : 'text-black'} flex items-end p-2 bg-blue-${weight}`}
-                  >
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`blue-${weight}`} className="flex flex-col">
+                  <div className={`h-16 rounded-t-md ${weight >= 400 ? 'text-white' : 'text-black'} flex items-end p-2 bg-blue-${weight}`}>
                     {weight}
                   </div>
                   <div className="p-2 border border-t-0 rounded-b-md text-sm">
                     <code className="text-xs">bg-blue-{weight}</code>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
             
             {/* Green Colors */}
             <h3 className="text-xl font-medium mb-4">Green</h3>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => (
-                <div key={`green-${weight}`} className="flex flex-col">
-                  <div 
-                    className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2 bg-green-${weight}`}
-                  >
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`green-${weight}`} className="flex flex-col">
+                  <div className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2 bg-green-${weight}`}>
                     {weight}
                   </div>
                   <div className="p-2 border border-t-0 rounded-b-md text-sm">
                     <code className="text-xs">bg-green-{weight}</code>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
             
             {/* Red Colors */}
             <h3 className="text-xl font-medium mb-4">Red</h3>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => (
-                <div key={`red-${weight}`} className="flex flex-col">
-                  <div 
-                    className={`h-16 rounded-t-md ${weight >= 300 ? 'text-white' : 'text-black'} flex items-end p-2 bg-red-${weight}`}
-                  >
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`red-${weight}`} className="flex flex-col">
+                  <div className={`h-16 rounded-t-md ${weight >= 300 ? 'text-white' : 'text-black'} flex items-end p-2 bg-red-${weight}`}>
                     {weight}
                   </div>
                   <div className="p-2 border border-t-0 rounded-b-md text-sm">
                     <code className="text-xs">bg-red-{weight}</code>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
             
             {/* Yellow Colors */}
             <h3 className="text-xl font-medium mb-4">Yellow</h3>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => (
-                <div key={`yellow-${weight}`} className="flex flex-col">
-                  <div 
-                    className="h-16 rounded-t-md text-black flex items-end p-2 bg-yellow-${weight}"
-                  >
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`yellow-${weight}`} className="flex flex-col">
+                  <div className="h-16 rounded-t-md text-black flex items-end p-2 bg-yellow-${weight}">
                     {weight}
                   </div>
                   <div className="p-2 border border-t-0 rounded-b-md text-sm">
                     <code className="text-xs">bg-yellow-{weight}</code>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
             
             {/* Amber Colors */}
             <h3 className="text-xl font-medium mb-4">Amber</h3>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => (
-                <div key={`amber-${weight}`} className="flex flex-col">
-                  <div 
-                    className={`h-16 rounded-t-md ${weight >= 800 ? 'text-white' : 'text-black'} flex items-end p-2 bg-amber-${weight}`}
-                  >
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`amber-${weight}`} className="flex flex-col">
+                  <div className={`h-16 rounded-t-md ${weight >= 800 ? 'text-white' : 'text-black'} flex items-end p-2 bg-amber-${weight}`}>
                     {weight}
                   </div>
                   <div className="p-2 border border-t-0 rounded-b-md text-sm">
                     <code className="text-xs">bg-amber-{weight}</code>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
             
             {/* Orange Colors */}
             <h3 className="text-xl font-medium mb-4">Orange</h3>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => (
-                <div key={`orange-${weight}`} className="flex flex-col">
-                  <div 
-                    className={`h-16 rounded-t-md ${weight >= 500 ? 'text-white' : 'text-black'} flex items-end p-2 bg-orange-${weight}`}
-                  >
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`orange-${weight}`} className="flex flex-col">
+                  <div className={`h-16 rounded-t-md ${weight >= 500 ? 'text-white' : 'text-black'} flex items-end p-2 bg-orange-${weight}`}>
                     {weight}
                   </div>
                   <div className="p-2 border border-t-0 rounded-b-md text-sm">
                     <code className="text-xs">bg-orange-{weight}</code>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
             
             {/* Gray Colors */}
             <h3 className="text-xl font-medium mb-4">Gray</h3>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => (
-                <div key={`gray-${weight}`} className="flex flex-col">
-                  <div 
-                    className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2 bg-gray-${weight}`}
-                  >
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`gray-${weight}`} className="flex flex-col">
+                  <div className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2 bg-gray-${weight}`}>
                     {weight}
                   </div>
                   <div className="p-2 border border-t-0 rounded-b-md text-sm">
                     <code className="text-xs">bg-gray-{weight}</code>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </ComponentCard>
         </TabsContent>
@@ -636,10 +592,7 @@ const Colors = () => {
             
             <div className="space-y-4 mt-8">
               <h3 className="text-lg font-medium">Exemplo de Código</h3>
-              <CodeBlock
-                language="html"
-                title="Exemplo de uso em componentes"
-                code={`<!-- Botão primário -->
+              <CodeBlock language="html" title="Exemplo de uso em componentes" code={`<!-- Botão primário -->
 <button class="bg-primary-main hover:bg-primary-hover text-primary-contrast px-4 py-2 rounded">
   Botão Primário
 </button>
@@ -652,14 +605,11 @@ const Colors = () => {
 <!-- Badge de sucesso -->
 <span class="bg-success-main text-success-contrast px-2 py-1 rounded-full text-xs">
   Concluído
-</span>`}
-              />
+</span>`} />
             </div>
           </ComponentCard>
         </TabsContent>
       </Tabs>
-    </div>
-  );
+    </div>;
 };
-
 export default Colors;
