@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
@@ -122,96 +121,127 @@ const Colors = () => {
             {/* Amicci Colors */}
             <h3 className="text-xl font-medium mb-4">Amicci</h3>
             <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`amicci-${weight}`} className="flex flex-col">
-                  <div className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2`} style={{
-                backgroundColor: `var(--amicci-${weight}, #000)`
-              }}>
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
+                <div key={`amicci-${weight}`} className="flex flex-col">
+                  <div 
+                    className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2`} 
+                    style={{ backgroundColor: `var(--amicci-${weight}, #000)` }}
+                  >
                     {weight}
                   </div>
                   <div className="p-1 border border-t-0 rounded-b-md text-xs">
                     <code className="text-xs">amicci-{weight}</code>
                   </div>
-                </div>)}
+                </div>
+              ))}
             </div>
             
             {/* AmicciDark Colors */}
             <h3 className="text-xl font-medium mb-4">AmicciDark</h3>
             <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`amicciDark-${weight}`} className="flex flex-col">
-                  <div className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2`} style={{
-                backgroundColor: `var(--amicciDark-${weight}, #000)`
-              }}>
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
+                <div key={`amicciDark-${weight}`} className="flex flex-col">
+                  <div 
+                    className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2`} 
+                    style={{ backgroundColor: `var(--amicciDark-${weight}, #000)` }}
+                  >
                     {weight}
                   </div>
                   <div className="p-1 border border-t-0 rounded-b-md text-xs">
                     <code className="text-xs">amicciDark-{weight}</code>
                   </div>
-                </div>)}
+                </div>
+              ))}
             </div>
             
             {/* Magenta Colors */}
             <h3 className="text-xl font-medium mb-4">Magenta</h3>
             <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`magenta-${weight}`} className="flex flex-col">
-                  <div className={`h-16 rounded-t-md ${weight >= 400 ? 'text-white' : 'text-black'} flex items-end p-2 bg-magenta-${weight}`}>
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
+                <div key={`magenta-${weight}`} className="flex flex-col">
+                  <div 
+                    className={`h-16 rounded-t-md ${weight >= 400 ? 'text-white' : 'text-black'} flex items-end p-2`} 
+                    style={{ backgroundColor: `var(--magenta-${weight}, #000)` }}
+                  >
                     {weight}
                   </div>
                   <div className="p-1 border border-t-0 rounded-b-md text-xs">
                     <code className="text-xs">magenta-{weight}</code>
                   </div>
-                </div>)}
+                </div>
+              ))}
             </div>
             
             {/* Blue Colors */}
             <h3 className="text-xl font-medium mb-4">Blue</h3>
             <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`blue-${weight}`} className="flex flex-col">
-                  <div className={`h-16 rounded-t-md ${weight >= 400 ? 'text-white' : 'text-black'} flex items-end p-2 bg-blue-${weight}`}>
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
+                <div key={`blue-${weight}`} className="flex flex-col">
+                  <div 
+                    className={`h-16 rounded-t-md ${weight >= 400 ? 'text-white' : 'text-black'} flex items-end p-2`} 
+                    style={{ backgroundColor: `var(--blue-${weight}, #000)` }}
+                  >
                     {weight}
                   </div>
                   <div className="p-1 border border-t-0 rounded-b-md text-xs">
                     <code className="text-xs">blue-{weight}</code>
                   </div>
-                </div>)}
+                </div>
+              ))}
             </div>
             
             {/* Green Colors */}
             <h3 className="text-xl font-medium mb-4">Green</h3>
             <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`green-${weight}`} className="flex flex-col">
-                  <div className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2 bg-green-${weight}`}>
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
+                <div key={`green-${weight}`} className="flex flex-col">
+                  <div 
+                    className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2`} 
+                    style={{ backgroundColor: `var(--green-${weight}, #000)` }}
+                  >
                     {weight}
                   </div>
                   <div className="p-1 border border-t-0 rounded-b-md text-xs">
                     <code className="text-xs">green-{weight}</code>
                   </div>
-                </div>)}
+                </div>
+              ))}
             </div>
             
             {/* Red Colors */}
             <h3 className="text-xl font-medium mb-4">Red</h3>
             <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`red-${weight}`} className="flex flex-col">
-                  <div className={`h-16 rounded-t-md ${weight >= 300 ? 'text-white' : 'text-black'} flex items-end p-2 bg-red-${weight}`}>
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
+                <div key={`red-${weight}`} className="flex flex-col">
+                  <div 
+                    className={`h-16 rounded-t-md ${weight >= 300 ? 'text-white' : 'text-black'} flex items-end p-2`} 
+                    style={{ backgroundColor: `var(--red-${weight}, #000)` }}
+                  >
                     {weight}
                   </div>
                   <div className="p-1 border border-t-0 rounded-b-md text-xs">
                     <code className="text-xs">red-{weight}</code>
                   </div>
-                </div>)}
+                </div>
+              ))}
             </div>
             
             {/* Yellow Colors */}
             <h3 className="text-xl font-medium mb-4">Yellow</h3>
             <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`yellow-${weight}`} className="flex flex-col">
-                  <div className="h-16 rounded-t-md text-black flex items-end p-2 bg-yellow-${weight}">
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
+                <div key={`yellow-${weight}`} className="flex flex-col">
+                  <div 
+                    className="h-16 rounded-t-md text-black flex items-end p-2"
+                    style={{ backgroundColor: `var(--yellow-${weight}, #000)` }}
+                  >
                     {weight}
                   </div>
                   <div className="p-1 border border-t-0 rounded-b-md text-xs">
                     <code className="text-xs">yellow-{weight}</code>
                   </div>
-                </div>)}
+                </div>
+              ))}
             </div>
             
             {/* Amber Colors */}
@@ -230,27 +260,37 @@ const Colors = () => {
             {/* Orange Colors */}
             <h3 className="text-xl font-medium mb-4">Orange</h3>
             <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`orange-${weight}`} className="flex flex-col">
-                  <div className={`h-16 rounded-t-md ${weight >= 500 ? 'text-white' : 'text-black'} flex items-end p-2 bg-orange-${weight}`}>
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
+                <div key={`orange-${weight}`} className="flex flex-col">
+                  <div 
+                    className={`h-16 rounded-t-md ${weight >= 500 ? 'text-white' : 'text-black'} flex items-end p-2`} 
+                    style={{ backgroundColor: `var(--orange-${weight}, #000)` }}
+                  >
                     {weight}
                   </div>
                   <div className="p-1 border border-t-0 rounded-b-md text-xs">
                     <code className="text-xs">orange-{weight}</code>
                   </div>
-                </div>)}
+                </div>
+              ))}
             </div>
             
             {/* Gray Colors */}
             <h3 className="text-xl font-medium mb-4">Gray</h3>
             <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`gray-${weight}`} className="flex flex-col">
-                  <div className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2 bg-gray-${weight}`}>
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
+                <div key={`gray-${weight}`} className="flex flex-col">
+                  <div 
+                    className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2`} 
+                    style={{ backgroundColor: `var(--gray-${weight}, #000)` }}
+                  >
                     {weight}
                   </div>
                   <div className="p-1 border border-t-0 rounded-b-md text-xs">
                     <code className="text-xs">gray-{weight}</code>
                   </div>
-                </div>)}
+                </div>
+              ))}
             </div>
           </ComponentCard>
         </TabsContent>
@@ -594,23 +634,4 @@ const Colors = () => {
             <div className="space-y-4 mt-8">
               <h3 className="text-lg font-medium">Exemplo de Código</h3>
               <CodeBlock language="html" title="Exemplo de uso em componentes" code={`<!-- Botão primário -->
-<button class="bg-primary-main hover:bg-primary-hover text-primary-contrast px-4 py-2 rounded">
-  Botão Primário
-</button>
-
-<!-- Alerta de erro -->
-<div class="bg-error-light border border-error-main text-error-dark px-4 py-3 rounded">
-  <strong>Erro!</strong> Algo deu errado.
-</div>
-
-<!-- Badge de sucesso -->
-<span class="bg-success-main text-success-contrast px-2 py-1 rounded-full text-xs">
-  Concluído
-</span>`} />
-            </div>
-          </ComponentCard>
-        </TabsContent>
-      </Tabs>
-    </div>;
-};
-export default Colors;
+<button class="bg-primary-main hover:bg-primary-hover text-primary-contrast
