@@ -123,6 +123,17 @@ const Colors = () => {
   };
 
   const SemanticPaletteTable = ({ title, colorBase, palettePrefix }: { title: string; colorBase: string; palettePrefix: string }) => {
+    const variantBaseColorMap: Record<string, string> = {
+      main: `${colorBase}-500`,
+      dark: `${colorBase}-700`,
+      light: `${colorBase}-100`,
+      hover: `${colorBase}-600`,
+      selected: `${colorBase}-700`,
+      focusVisible: `${colorBase}-100`,
+      outlinedBorder: `${colorBase}-200`,
+      contrast: 'white'
+    };
+    
     return (
       <div className="mb-10">
         <div className="flex items-center gap-2 mb-4">
@@ -134,14 +145,15 @@ const Colors = () => {
           <Table>
             <TableHeader>
               <TableRow className="border-b">
-                <TableHead className="w-[15%]">Variação</TableHead>
-                <TableHead className="w-[10%]">Amostra</TableHead>
-                <TableHead className="w-[15%]">Token CSS</TableHead>
-                <TableHead className="w-[15%]">Hexadecimal</TableHead>
-                <TableHead className="w-[15%]">RGB</TableHead>
-                <TableHead className="w-[15%]">Uso recomendado</TableHead>
-                {showWCAG && <TableHead className="w-[7.5%]">Contraste (Branco)</TableHead>}
-                {showWCAG && <TableHead className="w-[7.5%]">Contraste (Preto)</TableHead>}
+                <TableHead className="w-[12%]">Variação</TableHead>
+                <TableHead className="w-[8%]">Amostra</TableHead>
+                <TableHead className="w-[12%]">Token CSS</TableHead>
+                <TableHead className="w-[12%]">Hexadecimal</TableHead>
+                <TableHead className="w-[12%]">RGB</TableHead>
+                <TableHead className="w-[12%]">Base Color</TableHead>
+                <TableHead className="w-[14%]">Uso recomendado</TableHead>
+                {showWCAG && <TableHead className="w-[9%]">Contraste (Branco)</TableHead>}
+                {showWCAG && <TableHead className="w-[9%]">Contraste (Preto)</TableHead>}
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -152,6 +164,7 @@ const Colors = () => {
                 const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
                 const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
                 const needsDarkText = ['light', 'focusVisible', 'outlinedBorder', 'contrast'].includes(variant);
+                const baseColor = variantBaseColorMap[variant];
                 
                 const usageMap: Record<string, string> = {
                   main: 'Cor principal para elementos de destaque',
@@ -201,6 +214,9 @@ const Colors = () => {
                           {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
                         </button>
                       </div>
+                    </TableCell>
+                    <TableCell>
+                      <code className="bg-gray-100 px-2 py-1 rounded text-sm">{baseColor}</code>
                     </TableCell>
                     <TableCell className="text-mui-text-secondary text-sm">
                       {usageMap[variant]}
@@ -455,7 +471,7 @@ const Colors = () => {
                   <li>Para estados hover, utilize a variação <code>-hover</code> da cor correspondente</li>
                   <li>Para estados selecionados, utilize a variação <code>-selected</code></li>
                   <li>Para estados de foco visível, utilize a variação <code>-focusVisible</code></li>
-                  <li>Para bordas em elementos com contorno, utilize a variaç��o <code>-outlinedBorder</code></li>
+                  <li>Para bordas em elementos com contorno, utilize a variaç���o <code>-outlinedBorder</code></li>
                 </ul>
               </div>
               
