@@ -56,7 +56,7 @@ const Colors = () => {
                     </TableCell>
                     <TableCell>
                       <div 
-                        className={`h-8 w-16 rounded ${needsDarkText ? 'text-black' : 'text-white'} flex items-center justify-center`} 
+                        className={`h-8 w-16 rounded ${needsDarkText ? 'text-black' : 'text-white'} flex items-center justify-center border border-gray-100`} 
                         style={{ backgroundColor: hexColor }}
                       >
                         {weight}
@@ -174,7 +174,7 @@ const Colors = () => {
                     </TableCell>
                     <TableCell>
                       <div 
-                        className={`h-8 w-16 rounded ${needsDarkText ? 'text-black' : 'text-white'} flex items-center justify-center`} 
+                        className={`h-8 w-16 rounded ${needsDarkText ? 'text-black' : 'text-white'} flex items-center justify-center border border-gray-100`} 
                         style={{ backgroundColor: hexColor }}
                       >
                         Aa
