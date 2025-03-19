@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -68,16 +67,16 @@ export default {
 					900: '#02282A', // Original value maintained
 				},
 				magenta: {
-					50: '#F8F4F7',
-					100: '#E7CDE0',
-					200: '#D3A0C7',
-					300: '#BF74AD',
-					400: '#AE4E97',
-					500: '#9B247F',
-					600: '#821E6A',
-					700: '#681855',
-					800: '#551445',
-					900: '#390D2F',
+					50: '#FDF5FA',
+					100: '#F9E5F4',
+					200: '#F2CAEB',
+					300: '#E7A4DD',
+					400: '#C963BA',
+					500: '#9B247F', // Original value maintained
+					600: '#841E6C',
+					700: '#6D1959',
+					800: '#571447',
+					900: '#3E0F32',
 				},
 				green: {
 					50: '#ECFDF3',
