@@ -10,6 +10,16 @@ interface ColorSwatchProps {
 }
 
 const ColorSwatch = ({ color, className = "", onClick, textOverlay, weight }: ColorSwatchProps) => {
+  // Determine text color based on background color
+  const getTextColor = () => {
+    const lightColors = ['white', 'light', '50', '100', '200', '300'];
+    const isLightBackground = lightColors.some(lightColor => 
+      color.toLowerCase().includes(lightColor)
+    );
+    
+    return isLightBackground ? 'text-gray-800' : 'text-white';
+  };
+
   return (
     <div 
       className={`w-full h-12 rounded-md ${color} ${className} flex items-center justify-center`} 
@@ -18,7 +28,7 @@ const ColorSwatch = ({ color, className = "", onClick, textOverlay, weight }: Co
       tabIndex={onClick ? 0 : undefined}
     >
       {textOverlay && (
-        <span className={`text-sm font-medium ${color.includes('white') || color.includes('light') || color.includes('50') || color.includes('100') ? 'text-gray-800' : 'text-white'}`}>
+        <span className={`text-sm font-medium ${getTextColor()}`}>
           {textOverlay}
         </span>
       )}

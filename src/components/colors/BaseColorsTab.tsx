@@ -68,12 +68,12 @@ const baseColorsData = [
 
 const BaseColorsTab = () => {
   return (
-    <div>
+    <ComponentCard title="Cores Base">
       <p className="text-mui-text-secondary mb-6">
         As cores base são um conjunto completo de cores de 50 a 900 que servem como fundação para todo o sistema.
       </p>
       <BaseColorsTable baseColors={baseColorsData} />
-    </div>
+    </ComponentCard>
   );
 };
 
