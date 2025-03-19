@@ -10,7 +10,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-primary-main text-primary-contrast hover:bg-primary-hover focus:bg-primary-focus focus-visible:bg-primary-focusVisible",
-        secondary: "border border-mui-text-primary/[0.0023] bg-transparent text-mui-text-primary hover:bg-gray-100/20 focus:bg-gray-200/20 focus-visible:bg-gray-100/20",
+        secondary: "border border-mui-text-primary/[0.23] bg-transparent text-mui-text-primary hover:bg-gray-100/20 focus:bg-gray-200/20 focus-visible:bg-gray-100/20",
         error: "bg-error-main text-error-contrast hover:bg-error-hover focus:bg-error-focus focus-visible:bg-error-focusVisible",
         warning: "bg-warning-main text-warning-contrast hover:bg-warning-hover focus:bg-warning-hover focus-visible:bg-warning-focusVisible",
         info: "bg-info-main text-info-contrast hover:bg-info-hover focus:bg-info-focus focus-visible:bg-info-focusVisible",
@@ -18,7 +18,7 @@ const buttonVariants = cva(
         
         // Outline variants
         "outline-default": "border border-primary-outlinedBorder bg-transparent text-primary-main hover:bg-primary-hover hover:text-primary-contrast",
-        "outline-secondary": "border border-mui-text-primary/[0.0023] bg-transparent text-mui-text-primary hover:bg-gray-100/20 hover:text-mui-text-primary",
+        "outline-secondary": "border border-mui-text-primary/[0.23] bg-transparent text-mui-text-primary hover:bg-gray-100/20 hover:text-mui-text-primary",
         "outline-error": "border border-error-outlinedBorder bg-transparent text-error-main hover:bg-error-hover hover:text-error-contrast",
         "outline-warning": "border border-warning-outlinedBorder bg-transparent text-warning-main hover:bg-warning-hover hover:text-warning-contrast",
         "outline-info": "border border-info-outlinedBorder bg-transparent text-info-main hover:bg-info-hover hover:text-info-contrast",
