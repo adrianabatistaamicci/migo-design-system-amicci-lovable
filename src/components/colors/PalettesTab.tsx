@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import PaletteTable from './PaletteTable';
@@ -6,30 +5,150 @@ import PaletteTable from './PaletteTable';
 const paletteData = [
   {
     name: 'Primary',
-    description: 'Amicci',
+    description: 'amicci',
     variants: [
-      { name: 'main', colorClass: 'bg-primary-main', baseColor: 'amicci-500', textColor: 'text-primary-contrast' },
-      { name: 'dark', colorClass: 'bg-primary-dark', baseColor: 'amicci-700', textColor: 'text-primary-contrast' },
-      { name: 'light', colorClass: 'bg-primary-light', baseColor: 'amicci-300', textColor: 'text-black' },
-      { name: 'hover', colorClass: 'bg-primary-hover', baseColor: 'amicci-600', textColor: 'text-primary-contrast' },
-      { name: 'selected', colorClass: 'bg-primary-selected', baseColor: 'amicci-700', textColor: 'text-primary-contrast' },
-      { name: 'focusVisible', colorClass: 'bg-primary-focusVisible', baseColor: 'amicci-200', textColor: 'text-black' },
-      { name: 'outlinedBorder', colorClass: 'bg-primary-outlinedBorder', baseColor: 'amicci-300', textColor: 'text-black' },
-      { name: 'contrast', colorClass: 'bg-primary-contrast', baseColor: 'white', textColor: 'text-primary-main' }
+      { 
+        name: 'main', 
+        colorClass: 'bg-primary-main', 
+        baseColor: 'amicci-500', 
+        textColor: 'text-primary-contrast',
+        opacity: '100%',
+        usage: 'Cor principal para elementos de destaque'
+      },
+      { 
+        name: 'dark', 
+        colorClass: 'bg-primary-dark', 
+        baseColor: 'amicci-700', 
+        textColor: 'text-primary-contrast',
+        opacity: '100%',
+        usage: 'Variação mais escura para contraste'
+      },
+      { 
+        name: 'light', 
+        colorClass: 'bg-primary-light', 
+        baseColor: 'amicci-300', 
+        textColor: 'text-black',
+        opacity: '100%',
+        usage: 'Variação mais clara para fundos e elementos sutis'
+      },
+      { 
+        name: 'contrast', 
+        colorClass: 'bg-primary-contrast', 
+        baseColor: 'common-white-main', 
+        textColor: 'text-primary-main',
+        opacity: '100%',
+        usage: 'Cor de texto sobre fundos primários'
+      },
+      { 
+        name: 'hover', 
+        colorClass: 'bg-primary-hover', 
+        baseColor: 'amicci-500', 
+        textColor: 'text-primary-contrast',
+        opacity: '4%',
+        usage: 'Estado de hover para elementos interativos'
+      },
+      { 
+        name: 'selected', 
+        colorClass: 'bg-primary-selected', 
+        baseColor: 'amicci-500', 
+        textColor: 'text-primary-contrast',
+        opacity: '8%',
+        usage: 'Estado selecionado para elementos interativos'
+      },
+      { 
+        name: 'focus', 
+        colorClass: 'bg-primary-focus', 
+        baseColor: 'amicci-500', 
+        textColor: 'text-black',
+        opacity: '12%',
+        usage: 'Estado de foco para elementos interativos'
+      },
+      { 
+        name: 'focusVisible', 
+        colorClass: 'bg-primary-focusVisible', 
+        baseColor: 'amicci-500', 
+        textColor: 'text-black',
+        opacity: '30%',
+        usage: 'Estado de foco visível para acessibilidade'
+      },
+      { 
+        name: 'outlinedBorder', 
+        colorClass: 'bg-primary-outlinedBorder', 
+        baseColor: 'amicci-500', 
+        textColor: 'text-black',
+        opacity: '50%',
+        usage: 'Cor para bordas e contornos'
+      }
     ]
   },
   {
     name: 'Secondary',
     description: 'AmicciDark',
     variants: [
-      { name: 'main', colorClass: 'bg-secondary-main', baseColor: 'amicciDark-500', textColor: 'text-secondary-contrast' },
-      { name: 'dark', colorClass: 'bg-secondary-dark', baseColor: 'amicciDark-700', textColor: 'text-secondary-contrast' },
-      { name: 'light', colorClass: 'bg-secondary-light', baseColor: 'amicciDark-300', textColor: 'text-black' },
-      { name: 'hover', colorClass: 'bg-secondary-hover', baseColor: 'amicciDark-600', textColor: 'text-secondary-contrast' },
-      { name: 'selected', colorClass: 'bg-secondary-selected', baseColor: 'amicciDark-700', textColor: 'text-secondary-contrast' },
-      { name: 'focusVisible', colorClass: 'bg-secondary-focusVisible', baseColor: 'amicciDark-200', textColor: 'text-black' },
-      { name: 'outlinedBorder', colorClass: 'bg-secondary-outlinedBorder', baseColor: 'amicciDark-300', textColor: 'text-black' },
-      { name: 'contrast', colorClass: 'bg-secondary-contrast', baseColor: 'white', textColor: 'text-secondary-main' }
+      { 
+        name: 'main', 
+        colorClass: 'bg-secondary-main', 
+        baseColor: 'amicciDark-500', 
+        textColor: 'text-secondary-contrast',
+        opacity: '100%',
+        usage: 'Cor secundária para elementos de suporte'
+      },
+      { 
+        name: 'dark', 
+        colorClass: 'bg-secondary-dark', 
+        baseColor: 'amicciDark-700', 
+        textColor: 'text-secondary-contrast',
+        opacity: '100%',
+        usage: 'Variação mais escura para contraste'
+      },
+      { 
+        name: 'light', 
+        colorClass: 'bg-secondary-light', 
+        baseColor: 'amicciDark-300', 
+        textColor: 'text-black',
+        opacity: '100%',
+        usage: 'Variação mais clara para fundos e elementos sutis'
+      },
+      { 
+        name: 'contrast', 
+        colorClass: 'bg-secondary-contrast', 
+        baseColor: 'common-white-main', 
+        textColor: 'text-secondary-main',
+        opacity: '100%',
+        usage: 'Cor de texto sobre fundos secundários'
+      },
+      { 
+        name: 'hover', 
+        colorClass: 'bg-secondary-hover', 
+        baseColor: 'amicciDark-600', 
+        textColor: 'text-secondary-contrast',
+        opacity: '100%',
+        usage: 'Estado de hover para elementos interativos'
+      },
+      { 
+        name: 'selected', 
+        colorClass: 'bg-secondary-selected', 
+        baseColor: 'amicciDark-700', 
+        textColor: 'text-secondary-contrast',
+        opacity: '100%',
+        usage: 'Estado selecionado para elementos interativos'
+      },
+      { 
+        name: 'focusVisible', 
+        colorClass: 'bg-secondary-focusVisible', 
+        baseColor: 'amicciDark-200', 
+        textColor: 'text-black',
+        opacity: '100%',
+        usage: 'Estado de foco visível para acessibilidade'
+      },
+      { 
+        name: 'outlinedBorder', 
+        colorClass: 'bg-secondary-outlinedBorder', 
+        baseColor: 'amicciDark-300', 
+        textColor: 'text-black',
+        opacity: '100%',
+        usage: 'Cor para bordas e contornos'
+      }
     ]
   },
   {
@@ -121,7 +240,7 @@ const paletteData = [
 const PalettesTab = () => {
   return (
     <ComponentCard title="Paletas Compostas">
-      <p className="text-mui-text-secondary mb-4">
+      <p className="text-mui-text-secondary mb-6">
         As paletas compostas são construídas utilizando as cores básicas como base.
         Cada paleta semântica inclui variações para diferentes estados e usos.
       </p>

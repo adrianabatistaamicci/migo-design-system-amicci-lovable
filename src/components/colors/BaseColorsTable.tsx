@@ -40,7 +40,9 @@ const BaseColorsTable = ({ baseColors }: BaseColorsTableProps) => {
                 </TableCell>
               )}
               <TableCell>
-                <ColorSwatch color={weight.colorClass} />
+                <ColorSwatch 
+                  color={weight.colorClass} 
+                />
               </TableCell>
               <TableCell>{weight.weight}</TableCell>
               <TableCell><code>{weight.colorClass}</code></TableCell>
