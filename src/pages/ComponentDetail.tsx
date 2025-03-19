@@ -14,32 +14,76 @@ const componentData = {
     title: 'Button',
     description: 'Interactive elements that enable users to trigger actions.',
     api: [
-      { prop: 'variant', type: '"default" | "outline" | "secondary" | "ghost" | "link"', default: '"default"', description: 'Visual style of the button' },
+      { prop: 'variant', type: '"default" | "secondary" | "error" | "warning" | "info" | "success" | "outline-*" | "text-*"', default: '"default"', description: 'Visual style of the button' },
       { prop: 'size', type: '"default" | "sm" | "lg" | "icon"', default: '"default"', description: 'Size of the button' },
+      { prop: 'state', type: '"default" | "hover" | "focus" | "disabled" | "loading"', default: '"default"', description: 'State of the button' },
       { prop: 'disabled', type: 'boolean', default: 'false', description: 'When true, prevents user interaction' },
+      { prop: 'isLoading', type: 'boolean', default: 'false', description: 'When true, shows a loading spinner' },
     ],
     examples: [
       {
-        title: 'Button Variants',
-        description: 'Different visual styles for various contexts.',
+        title: 'Basic Button Variants',
+        description: 'Diferentes estilos visuais para vários contextos.',
         component: (
           <div className="flex flex-wrap gap-4">
-            <Button>Default</Button>
+            <Button>Primary</Button>
             <Button variant="secondary">Secondary</Button>
-            <Button variant="outline">Outline</Button>
-            <Button variant="ghost">Ghost</Button>
-            <Button variant="link">Link</Button>
+            <Button variant="error">Error</Button>
+            <Button variant="warning">Warning</Button>
+            <Button variant="info">Info</Button>
+            <Button variant="success">Success</Button>
           </div>
         ),
-        code: `<Button>Default</Button>
+        code: `<Button>Primary</Button>
 <Button variant="secondary">Secondary</Button>
-<Button variant="outline">Outline</Button>
-<Button variant="ghost">Ghost</Button>
-<Button variant="link">Link</Button>`
+<Button variant="error">Error</Button>
+<Button variant="warning">Warning</Button>
+<Button variant="info">Info</Button>
+<Button variant="success">Success</Button>`
+      },
+      {
+        title: 'Outline Button Variants',
+        description: 'Botões com contorno para estilos sutis.',
+        component: (
+          <div className="flex flex-wrap gap-4">
+            <Button variant="outline-default">Primary</Button>
+            <Button variant="outline-secondary">Secondary</Button>
+            <Button variant="outline-error">Error</Button>
+            <Button variant="outline-warning">Warning</Button>
+            <Button variant="outline-info">Info</Button>
+            <Button variant="outline-success">Success</Button>
+          </div>
+        ),
+        code: `<Button variant="outline-default">Primary</Button>
+<Button variant="outline-secondary">Secondary</Button>
+<Button variant="outline-error">Error</Button>
+<Button variant="outline-warning">Warning</Button>
+<Button variant="outline-info">Info</Button>
+<Button variant="outline-success">Success</Button>`
+      },
+      {
+        title: 'Text Button Variants',
+        description: 'Botões apenas de texto, sem fundo nem contorno.',
+        component: (
+          <div className="flex flex-wrap gap-4">
+            <Button variant="text-default">Primary</Button>
+            <Button variant="text-secondary">Secondary</Button>
+            <Button variant="text-error">Error</Button>
+            <Button variant="text-warning">Warning</Button>
+            <Button variant="text-info">Info</Button>
+            <Button variant="text-success">Success</Button>
+          </div>
+        ),
+        code: `<Button variant="text-default">Primary</Button>
+<Button variant="text-secondary">Secondary</Button>
+<Button variant="text-error">Error</Button>
+<Button variant="text-warning">Warning</Button>
+<Button variant="text-info">Info</Button>
+<Button variant="text-success">Success</Button>`
       },
       {
         title: 'Button Sizes',
-        description: 'Different sizes for various contexts.',
+        description: 'Diferentes tamanhos para vários contextos.',
         component: (
           <div className="flex items-center flex-wrap gap-4">
             <Button size="sm">Small</Button>
@@ -50,6 +94,20 @@ const componentData = {
         code: `<Button size="sm">Small</Button>
 <Button>Default</Button>
 <Button size="lg">Large</Button>`
+      },
+      {
+        title: 'Button States',
+        description: 'Diferentes estados do botão.',
+        component: (
+          <div className="flex flex-wrap gap-4">
+            <Button>Default</Button>
+            <Button disabled>Disabled</Button>
+            <Button isLoading>Loading</Button>
+          </div>
+        ),
+        code: `<Button>Default</Button>
+<Button disabled>Disabled</Button>
+<Button isLoading>Loading</Button>`
       },
     ]
   },
