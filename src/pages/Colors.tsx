@@ -16,7 +16,7 @@ const Colors = () => {
 
       <Tabs defaultValue="overview" className="w-full">
         <TabsList className="mb-4">
-          <TabsTrigger value="overview">Visão Geral</TabsTrigger>
+          <TabsTrigger value="overview">Visão geral</TabsTrigger>
           <TabsTrigger value="baseColors">Cores básicas</TabsTrigger>
           <TabsTrigger value="palettes">Paletas Compostas</TabsTrigger>
           <TabsTrigger value="usage">Uso</TabsTrigger>
