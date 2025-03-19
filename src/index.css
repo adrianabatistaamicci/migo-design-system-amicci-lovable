@@ -16,6 +16,106 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
+    /* Cores básicas */
+    --blue-50: #E3F2FD;
+    --blue-100: #BBDEFB;
+    --blue-200: #90CAF9;
+    --blue-300: #64B5F6;
+    --blue-400: #42A5F5;
+    --blue-500: #2196F3;
+    --blue-600: #1E88E5;
+    --blue-700: #0057B2;
+    --blue-800: #1565C0;
+    --blue-900: #0D47A1;
+
+    --amicci-50: #EDF9F8;
+    --amicci-100: #D9F4F2;
+    --amicci-200: #ACE0DD;
+    --amicci-300: #6FE0DC;
+    --amicci-400: #37D4D1;
+    --amicci-500: #10C2C0;
+    --amicci-600: #199BA0;
+    --amicci-700: #127279;
+    --amicci-800: #285E70;
+    --amicci-900: #062630;
+
+    --amicciDark-50: #D9F4F2;
+    --amicciDark-100: #ACE0DD;
+    --amicciDark-200: #6FE0DC;
+    --amicciDark-300: #10C2C0;
+    --amicciDark-400: #199BA0;
+    --amicciDark-500: #0A686F;
+    --amicciDark-600: #075B61;
+    --amicciDark-700: #06454A;
+    --amicciDark-800: #033538;
+    --amicciDark-900: #02282A;
+
+    --magenta-50: #F8F4F7;
+    --magenta-100: #E7CDE0;
+    --magenta-200: #D3A0C7;
+    --magenta-300: #BF74AD;
+    --magenta-400: #AE4E97;
+    --magenta-500: #9B247F;
+    --magenta-600: #821E6A;
+    --magenta-700: #681855;
+    --magenta-800: #551445;
+    --magenta-900: #390D2F;
+
+    --green-50: #ECFDF3;
+    --green-100: #D1FADF;
+    --green-200: #A6F4C5;
+    --green-300: #6CE9A6;
+    --green-400: #32D583;
+    --green-500: #12B76A;
+    --green-600: #039855;
+    --green-700: #027A48;
+    --green-800: #05603A;
+    --green-900: #054F31;
+
+    --gray-50: #F9FBFB;
+    --gray-100: #F3F6F5;
+    --gray-200: #EAEFF0;
+    --gray-300: #CED6D6;
+    --gray-400: #AFB9BA;
+    --gray-500: #808586;
+    --gray-600: #656969;
+    --gray-700: #4A4F4F;
+    --gray-800: #313536;
+    --gray-900: #212323;
+
+    --orange-50: #FFFAEB;
+    --orange-100: #FEF0C7;
+    --orange-200: #FEDF89;
+    --orange-300: #FEC84B;
+    --orange-400: #FDB022;
+    --orange-500: #F79009;
+    --orange-600: #DC6803;
+    --orange-700: #B54708;
+    --orange-800: #93370D;
+    --orange-900: #7A2E0E;
+
+    --red-50: #FEF3F2;
+    --red-100: #FEE4E2;
+    --red-200: #FECDCA;
+    --red-300: #FDA29B;
+    --red-400: #F97066;
+    --red-500: #F04438;
+    --red-600: #D92D20;
+    --red-700: #B42318;
+    --red-800: #912018;
+    --red-900: #7A271A;
+
+    --yellow-50: #FFFDE7;
+    --yellow-100: #FFF9C4;
+    --yellow-200: #FFF59D;
+    --yellow-300: #FFF176;
+    --yellow-400: #FFEE58;
+    --yellow-500: #FFEB3B;
+    --yellow-600: #FDD835;
+    --yellow-700: #FBC02D;
+    --yellow-800: #F9A825;
+    --yellow-900: #F57F17;
+
     /* Primary (Amicci) */
     --primary: 180 85% 41%;
     --primary-foreground: 180 40% 98%;
@@ -31,76 +131,76 @@
     /* Secondary (AmicciDark) */
     --secondary: 210 20% 96%;
     --secondary-foreground: 215 25% 27%;
-    --secondary-main: #00A8CB;
-    --secondary-dark: #00657A;
-    --secondary-light: #66CBE0;
+    --secondary-main: #0A686F;
+    --secondary-dark: #06454A;
+    --secondary-light: #10C2C0;
     --secondary-contrast: #ffffff;
-    --secondary-hover: #0086A2;
-    --secondary-selected: #00657A;
-    --secondary-focusVisible: #99DCEA;
-    --secondary-outlinedBorder: #CCEEF5;
+    --secondary-hover: #075B61;
+    --secondary-selected: #06454A;
+    --secondary-focusVisible: #6FE0DC;
+    --secondary-outlinedBorder: #D9F4F2;
 
     /* Tertiary (Magenta) */
-    --tertiary-main: #E91E63;
-    --tertiary-dark: #C2185B;
-    --tertiary-light: #F06292;
+    --tertiary-main: #9B247F;
+    --tertiary-dark: #681855;
+    --tertiary-light: #D3A0C7;
     --tertiary-contrast: #ffffff;
-    --tertiary-hover: #D81B60;
-    --tertiary-selected: #C2185B;
-    --tertiary-focusVisible: #F48FB1;
-    --tertiary-outlinedBorder: #F8BBD0;
+    --tertiary-hover: #821E6A;
+    --tertiary-selected: #681855;
+    --tertiary-focusVisible: #E7CDE0;
+    --tertiary-outlinedBorder: #F8F4F7;
 
     /* Action (Gray) */
-    --action-main: #9E9E9E;
-    --action-dark: #616161;
-    --action-light: #E0E0E0;
+    --action-main: #808586;
+    --action-dark: #4A4F4F;
+    --action-light: #EAEFF0;
     --action-contrast: #ffffff;
-    --action-hover: #757575;
-    --action-selected: #616161;
-    --action-focusVisible: #EEEEEE;
-    --action-outlinedBorder: #F5F5F5;
+    --action-hover: #656969;
+    --action-selected: #4A4F4F;
+    --action-focusVisible: #F3F6F5;
+    --action-outlinedBorder: #F9FBFB;
 
     /* Error (Red) */
     --error: 0 84% 60%;
     --error-foreground: 0 0% 100%;
-    --error-main: #F44336;
-    --error-dark: #D32F2F;
-    --error-light: #E57373;
+    --error-main: #F04438;
+    --error-dark: #B42318;
+    --error-light: #FDA29B;
     --error-contrast: #ffffff;
-    --error-hover: #E53935;
-    --error-selected: #D32F2F;
-    --error-focusVisible: #EF9A9A;
-    --error-outlinedBorder: #FFCDD2;
+    --error-hover: #D92D20;
+    --error-selected: #B42318;
+    --error-focusVisible: #FEE4E2;
+    --error-outlinedBorder: #FEF3F2;
 
     /* Warning (Yellow) */
     --warning-main: #FFEB3B;
     --warning-dark: #FBC02D;
-    --warning-light: #FFF176;
+    --warning-light: #FFF59D;
     --warning-contrast: #000000;
     --warning-hover: #FDD835;
     --warning-selected: #FBC02D;
-    --warning-focusVisible: #FFF59D;
-    --warning-outlinedBorder: #FFF9C4;
+    --warning-focusVisible: #FFF9C4;
+    --warning-outlinedBorder: #FFFDE7;
 
     /* Info (Blue) */
     --info-main: #2196F3;
-    --info-dark: #1976D2;
-    --info-light: #64B5F6;
+    --info-dark: #0057B2;
+    --info-light: #90CAF9;
     --info-contrast: #ffffff;
     --info-hover: #1E88E5;
-    --info-selected: #1976D2;
-    --info-focusVisible: #90CAF9;
-    --info-outlinedBorder: #BBDEFB;
+    --info-selected: #0057B2;
+    --info-focusVisible: #BBDEFB;
+    --info-outlinedBorder: #E3F2FD;
 
     /* Success (Green) */
-    --success-main: #4CAF50;
-    --success-dark: #388E3C;
-    --success-light: #81C784;
+    --success-main: #12B76A;
+    --success-dark: #027A48;
+    --success-light: #A6F4C5;
     --success-contrast: #ffffff;
-    --success-hover: #43A047;
-    --success-selected: #388E3C;
-    --success-focusVisible: #A5D6A7;
-    --success-outlinedBorder: #C8E6C9;
+    --success-hover: #039855;
+    --success-selected: #027A48;
+    --success-focusVisible: #D1FADF;
+    --success-outlinedBorder: #ECFDF3;
 
     /* Legacy sistema de cores */
     --muted: 210 20% 96%;
