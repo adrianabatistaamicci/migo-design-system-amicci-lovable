@@ -531,28 +531,489 @@ const Colors = () => {
               </table>
             </div>
             
-            {/* Only showing a few palettes in detail, adding buttons to see other palettes */}
-            <div className="flex flex-wrap gap-3 mb-6">
-              <Button variant="outline" className="flex gap-2 items-center">
-                <div className="w-4 h-4 rounded-full bg-green-500"></div>
-                Ver paleta Green
-              </Button>
-              <Button variant="outline" className="flex gap-2 items-center">
-                <div className="w-4 h-4 rounded-full bg-red-500"></div>
-                Ver paleta Red
-              </Button>
-              <Button variant="outline" className="flex gap-2 items-center">
-                <div className="w-4 h-4 rounded-full bg-yellow-500"></div>
-                Ver paleta Yellow
-              </Button>
-              <Button variant="outline" className="flex gap-2 items-center">
-                <div className="w-4 h-4 rounded-full bg-orange-500"></div>
-                Ver paleta Orange
-              </Button>
-              <Button variant="outline" className="flex gap-2 items-center">
-                <div className="w-4 h-4 rounded-full bg-gray-500"></div>
-                Ver paleta Gray
-              </Button>
+            {/* Green Colors */}
+            <h3 className="text-xl font-medium mb-4">Green</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full mb-8 border-collapse">
+                <thead>
+                  <tr className="border-b">
+                    <th className="p-2 text-left">Variação</th>
+                    <th className="p-2 text-left">Amostra</th>
+                    <th className="p-2 text-left">Token CSS</th>
+                    <th className="p-2 text-left">Hexadecimal</th>
+                    <th className="p-2 text-left">RGB</th>
+                    <th className="p-2 text-left">HSL</th>
+                    {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
+                    {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => {
+                    const colorCode = `var(--green-${weight})`;
+                    const hexColor = colorUtils.getComputedColor(colorCode);
+                    const rgbColor = colorUtils.hexToRgb(hexColor);
+                    const hslColor = colorUtils.hexToHsl(hexColor);
+                    const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
+                    const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
+                    
+                    return (
+                      <tr key={`green-${weight}`} className="border-b hover:bg-gray-50">
+                        <td className="p-2">
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">green-{weight}</code>
+                        </td>
+                        <td className="p-2">
+                          <div 
+                            className={`h-8 w-16 rounded ${weight >= 600 ? 'text-white' : 'text-black'} flex items-center justify-center`} 
+                            style={{ backgroundColor: hexColor }}
+                          >
+                            {weight}
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">--green-{weight}</code>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{hexColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(hexColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{rgbColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(rgbColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{hslColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(hslColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === hslColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        {showWCAG && (
+                          <td className="p-2">
+                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                              {contrastWithWhite.toFixed(2)}
+                              <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
+                            </div>
+                          </td>
+                        )}
+                        {showWCAG && (
+                          <td className="p-2">
+                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                              {contrastWithBlack.toFixed(2)}
+                              <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
+                            </div>
+                          </td>
+                        )}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+            
+            {/* Red Colors */}
+            <h3 className="text-xl font-medium mb-4">Red</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full mb-8 border-collapse">
+                <thead>
+                  <tr className="border-b">
+                    <th className="p-2 text-left">Variação</th>
+                    <th className="p-2 text-left">Amostra</th>
+                    <th className="p-2 text-left">Token CSS</th>
+                    <th className="p-2 text-left">Hexadecimal</th>
+                    <th className="p-2 text-left">RGB</th>
+                    <th className="p-2 text-left">HSL</th>
+                    {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
+                    {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => {
+                    const colorCode = `var(--red-${weight})`;
+                    const hexColor = colorUtils.getComputedColor(colorCode);
+                    const rgbColor = colorUtils.hexToRgb(hexColor);
+                    const hslColor = colorUtils.hexToHsl(hexColor);
+                    const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
+                    const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
+                    
+                    return (
+                      <tr key={`red-${weight}`} className="border-b hover:bg-gray-50">
+                        <td className="p-2">
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">red-{weight}</code>
+                        </td>
+                        <td className="p-2">
+                          <div 
+                            className={`h-8 w-16 rounded ${weight >= 400 ? 'text-white' : 'text-black'} flex items-center justify-center`} 
+                            style={{ backgroundColor: hexColor }}
+                          >
+                            {weight}
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">--red-{weight}</code>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{hexColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(hexColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{rgbColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(rgbColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{hslColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(hslColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === hslColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        {showWCAG && (
+                          <td className="p-2">
+                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                              {contrastWithWhite.toFixed(2)}
+                              <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
+                            </div>
+                          </td>
+                        )}
+                        {showWCAG && (
+                          <td className="p-2">
+                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                              {contrastWithBlack.toFixed(2)}
+                              <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
+                            </div>
+                          </td>
+                        )}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+            
+            {/* Yellow Colors */}
+            <h3 className="text-xl font-medium mb-4">Yellow</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full mb-8 border-collapse">
+                <thead>
+                  <tr className="border-b">
+                    <th className="p-2 text-left">Variação</th>
+                    <th className="p-2 text-left">Amostra</th>
+                    <th className="p-2 text-left">Token CSS</th>
+                    <th className="p-2 text-left">Hexadecimal</th>
+                    <th className="p-2 text-left">RGB</th>
+                    <th className="p-2 text-left">HSL</th>
+                    {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
+                    {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => {
+                    const colorCode = `var(--yellow-${weight})`;
+                    const hexColor = colorUtils.getComputedColor(colorCode);
+                    const rgbColor = colorUtils.hexToRgb(hexColor);
+                    const hslColor = colorUtils.hexToHsl(hexColor);
+                    const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
+                    const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
+                    
+                    return (
+                      <tr key={`yellow-${weight}`} className="border-b hover:bg-gray-50">
+                        <td className="p-2">
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">yellow-{weight}</code>
+                        </td>
+                        <td className="p-2">
+                          <div 
+                            className={`h-8 w-16 rounded ${weight >= 800 ? 'text-white' : 'text-black'} flex items-center justify-center`} 
+                            style={{ backgroundColor: hexColor }}
+                          >
+                            {weight}
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">--yellow-{weight}</code>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{hexColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(hexColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{rgbColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(rgbColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{hslColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(hslColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === hslColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        {showWCAG && (
+                          <td className="p-2">
+                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                              {contrastWithWhite.toFixed(2)}
+                              <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
+                            </div>
+                          </td>
+                        )}
+                        {showWCAG && (
+                          <td className="p-2">
+                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                              {contrastWithBlack.toFixed(2)}
+                              <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
+                            </div>
+                          </td>
+                        )}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+            
+            {/* Orange Colors */}
+            <h3 className="text-xl font-medium mb-4">Orange</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full mb-8 border-collapse">
+                <thead>
+                  <tr className="border-b">
+                    <th className="p-2 text-left">Variação</th>
+                    <th className="p-2 text-left">Amostra</th>
+                    <th className="p-2 text-left">Token CSS</th>
+                    <th className="p-2 text-left">Hexadecimal</th>
+                    <th className="p-2 text-left">RGB</th>
+                    <th className="p-2 text-left">HSL</th>
+                    {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
+                    {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => {
+                    const colorCode = `var(--orange-${weight})`;
+                    const hexColor = colorUtils.getComputedColor(colorCode);
+                    const rgbColor = colorUtils.hexToRgb(hexColor);
+                    const hslColor = colorUtils.hexToHsl(hexColor);
+                    const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
+                    const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
+                    
+                    return (
+                      <tr key={`orange-${weight}`} className="border-b hover:bg-gray-50">
+                        <td className="p-2">
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">orange-{weight}</code>
+                        </td>
+                        <td className="p-2">
+                          <div 
+                            className={`h-8 w-16 rounded ${weight >= 600 ? 'text-white' : 'text-black'} flex items-center justify-center`} 
+                            style={{ backgroundColor: hexColor }}
+                          >
+                            {weight}
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">--orange-{weight}</code>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{hexColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(hexColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{rgbColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(rgbColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{hslColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(hslColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === hslColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        {showWCAG && (
+                          <td className="p-2">
+                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                              {contrastWithWhite.toFixed(2)}
+                              <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
+                            </div>
+                          </td>
+                        )}
+                        {showWCAG && (
+                          <td className="p-2">
+                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                              {contrastWithBlack.toFixed(2)}
+                              <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
+                            </div>
+                          </td>
+                        )}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+            
+            {/* Gray Colors */}
+            <h3 className="text-xl font-medium mb-4">Gray</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full mb-8 border-collapse">
+                <thead>
+                  <tr className="border-b">
+                    <th className="p-2 text-left">Variação</th>
+                    <th className="p-2 text-left">Amostra</th>
+                    <th className="p-2 text-left">Token CSS</th>
+                    <th className="p-2 text-left">Hexadecimal</th>
+                    <th className="p-2 text-left">RGB</th>
+                    <th className="p-2 text-left">HSL</th>
+                    {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
+                    {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => {
+                    const colorCode = `var(--gray-${weight})`;
+                    const hexColor = colorUtils.getComputedColor(colorCode);
+                    const rgbColor = colorUtils.hexToRgb(hexColor);
+                    const hslColor = colorUtils.hexToHsl(hexColor);
+                    const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
+                    const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
+                    
+                    return (
+                      <tr key={`gray-${weight}`} className="border-b hover:bg-gray-50">
+                        <td className="p-2">
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">gray-{weight}</code>
+                        </td>
+                        <td className="p-2">
+                          <div 
+                            className={`h-8 w-16 rounded ${weight >= 600 ? 'text-white' : 'text-black'} flex items-center justify-center`} 
+                            style={{ backgroundColor: hexColor }}
+                          >
+                            {weight}
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">--gray-{weight}</code>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{hexColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(hexColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{rgbColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(rgbColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{hslColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(hslColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === hslColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        {showWCAG && (
+                          <td className="p-2">
+                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                              {contrastWithWhite.toFixed(2)}
+                              <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
+                            </div>
+                          </td>
+                        )}
+                        {showWCAG && (
+                          <td className="p-2">
+                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                              {contrastWithBlack.toFixed(2)}
+                              <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
+                            </div>
+                          </td>
+                        )}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
           </ComponentCard>
         </TabsContent>
@@ -667,6 +1128,188 @@ const Colors = () => {
                     })}
                   </tbody>
                 </table>
+              </div>
+            </div>
+          </ComponentCard>
+        </TabsContent>
+        
+        <TabsContent value="usage" className="space-y-6">
+          <ComponentCard title="Uso das Cores">
+            <p className="text-mui-text-secondary mb-6">
+              Diretrizes para o uso correto das cores na interface.
+            </p>
+            
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-xl font-medium mb-3">Utilização de Cores Básicas</h3>
+                <p className="text-mui-text-secondary mb-3">
+                  As cores básicas devem ser utilizadas como alicerce para construir interfaces consistentes:
+                </p>
+                <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
+                  <li>Para cores de texto, utilize <code>gray-800</code> (texto principal) e <code>gray-500</code> (texto secundário)</li>
+                  <li>Para fundos, utilize <code>white</code> (fundo padrão) ou <code>gray-50</code> (fundo alternativo)</li>
+                  <li>Para bordas, utilize <code>gray-200</code> (bordas padrão) ou <code>gray-300</code> (bordas com mais ênfase)</li>
+                  <li>Para elementos de destaque, utilize as cores primárias (amicci) ou secundárias (amicciDark)</li>
+                  <li>Para estados de erro, utilize <code>red-500</code> ou a paleta composta <code>error-main</code></li>
+                  <li>Para sucesso, utilize <code>green-500</code> ou a paleta composta <code>success-main</code></li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-medium mb-3">Utilização de Paletas Compostas</h3>
+                <p className="text-mui-text-secondary mb-3">
+                  As paletas compostas facilitam a criação de interfaces consistentes para diferentes estados:
+                </p>
+                <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
+                  <li>Para botões primários, utilize <code>primary-main</code> (fundo) e <code>primary-contrast</code> (texto)</li>
+                  <li>Para estados hover, utilize a variação <code>-hover</code> da cor correspondente</li>
+                  <li>Para estados selecionados, utilize a variação <code>-selected</code></li>
+                  <li>Para estados de foco visível, utilize a variação <code>-focusVisible</code></li>
+                  <li>Para bordas em elementos com contorno, utilize a variação <code>-outlinedBorder</code></li>
+                </ul>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="border rounded-lg p-5">
+                  <h4 className="text-lg font-medium mb-3 flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full bg-green-500"></span>
+                    Recomendado
+                  </h4>
+                  <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
+                    <li>Use a cor primária para destacar ações principais</li>
+                    <li>Utilize tons de cinza para elementos secundários</li>
+                    <li>Mantenha uma proporção de 60/30/10 (neutro/primário/acentuação)</li>
+                    <li>Utilize as variações de cores para indicar hierarquia</li>
+                    <li>Garanta que as combinações de cores atendam aos critérios WCAG AA</li>
+                  </ul>
+                </div>
+                
+                <div className="border rounded-lg p-5">
+                  <h4 className="text-lg font-medium mb-3 flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full bg-red-500"></span>
+                    Evitar
+                  </h4>
+                  <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
+                    <li>Evite misturar muitas cores vibrantes na mesma interface</li>
+                    <li>Não utilize cores de forma inconsistente para os mesmos elementos</li>
+                    <li>Evite combinações com baixo contraste que dificultam a leitura</li>
+                    <li>Não confie apenas na cor para transmitir informações importantes</li>
+                    <li>Evite combinações de cores que possam causar vibração visual</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </ComponentCard>
+        </TabsContent>
+        
+        <TabsContent value="accessibility" className="space-y-6">
+          <ComponentCard title="Acessibilidade das Cores">
+            <p className="text-mui-text-secondary mb-6">
+              Nossas diretrizes de cores foram projetadas para garantir que a interface seja acessível para todos os usuários.
+            </p>
+            
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-xl font-medium mb-3">WCAG 2.1 Critérios de Conformidade</h3>
+                <p className="text-mui-text-secondary mb-3">
+                  Nosso sistema segue os critérios de conformidade WCAG 2.1 para contraste de cores:
+                </p>
+                <div className="space-y-4 mb-6">
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <h4 className="font-medium mb-2">Nível AA (nosso padrão mínimo)</h4>
+                    <ul className="list-disc list-inside ml-3 space-y-1 text-mui-text-secondary">
+                      <li>Contraste mínimo de 4.5:1 para texto normal (menor que 18pt)</li>
+                      <li>Contraste mínimo de 3:1 para texto grande (18pt ou maior, ou 14pt bold)</li>
+                      <li>Contraste mínimo de 3:1 para elementos gráficos e componentes de interface</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <h4 className="font-medium mb-2">Nível AAA (recomendado para conteúdo crítico)</h4>
+                    <ul className="list-disc list-inside ml-3 space-y-1 text-mui-text-secondary">
+                      <li>Contraste mínimo de 7:1 para texto normal (menor que 18pt)</li>
+                      <li>Contraste mínimo de 4.5:1 para texto grande (18pt ou maior, ou 14pt bold)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-medium mb-3">Ferramentas e Testes</h3>
+                <p className="text-mui-text-secondary mb-3">
+                  Utilizamos as seguintes ferramentas para garantir a acessibilidade das cores:
+                </p>
+                <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
+                  <li>Análise automática de contraste usando as funções <code>getContrastRatio</code>, <code>meetsWCAGAA</code> e <code>meetsWCAGAAA</code></li>
+                  <li>Testes com filtros de simulação de daltonismo</li>
+                  <li>Revisões manuais por especialistas em acessibilidade</li>
+                  <li>Feedback de usuários com diferentes tipos de deficiência visual</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-medium mb-3">Melhores Práticas</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="bg-white border rounded-lg p-5">
+                    <h4 className="text-lg font-medium mb-3">Para Desenvolvedores</h4>
+                    <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
+                      <li>Utilize sempre os tokens de cores predefinidos</li>
+                      <li>Verifique o contraste das combinações de cores</li>
+                      <li>Adicione foco visível para elementos interativos</li>
+                      <li>Não transmita informações apenas através da cor</li>
+                      <li>Utilize o utilitário <code>colorUtils</code> para verificar o contraste</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-white border rounded-lg p-5">
+                    <h4 className="text-lg font-medium mb-3">Para Designers</h4>
+                    <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
+                      <li>Mantenha consistência no uso das cores em toda a aplicação</li>
+                      <li>Utilize contraste suficiente entre texto e fundo</li>
+                      <li>Adicione outros indicadores além da cor (ícones, padrões, texto)</li>
+                      <li>Teste designs com ferramentas de simulação de daltonismo</li>
+                      <li>Considere usuários com baixa visão ao escolher combinações de cores</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-medium mb-3">Exemplos de Combinações Acessíveis</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  <div className="border rounded-lg overflow-hidden">
+                    <div className="p-4 bg-amicci-500 text-white">
+                      <p className="font-medium">Amicci 500 + Branco</p>
+                      <p className="text-sm">Contraste: {colorUtils.getContrastRatio('#10C2C0', '#FFFFFF').toFixed(2)}</p>
+                    </div>
+                    <div className="p-3 bg-white text-sm">
+                      <p className="font-medium">✓ WCAG AA para texto normal</p>
+                      <p className="font-medium">✓ WCAG AAA para texto grande</p>
+                    </div>
+                  </div>
+                  
+                  <div className="border rounded-lg overflow-hidden">
+                    <div className="p-4 bg-amicciDark-700 text-white">
+                      <p className="font-medium">AmicciDark 700 + Branco</p>
+                      <p className="text-sm">Contraste: {colorUtils.getContrastRatio('#06454A', '#FFFFFF').toFixed(2)}</p>
+                    </div>
+                    <div className="p-3 bg-white text-sm">
+                      <p className="font-medium">✓ WCAG AA para texto normal</p>
+                      <p className="font-medium">✓ WCAG AAA para texto normal</p>
+                    </div>
+                  </div>
+                  
+                  <div className="border rounded-lg overflow-hidden">
+                    <div className="p-4 bg-amicci-100 text-gray-800">
+                      <p className="font-medium">Amicci 100 + Gray 800</p>
+                      <p className="text-sm">Contraste: {colorUtils.getContrastRatio('#E3FAF9', '#313536').toFixed(2)}</p>
+                    </div>
+                    <div className="p-3 bg-white text-sm">
+                      <p className="font-medium">✓ WCAG AA para texto normal</p>
+                      <p className="font-medium">✓ WCAG AAA para texto normal</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </ComponentCard>
