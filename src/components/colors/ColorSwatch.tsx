@@ -27,16 +27,23 @@ const ColorSwatch = ({ color, className = "", onClick, textOverlay, weight }: Co
       role={onClick ? "button" : undefined}
       tabIndex={onClick ? 0 : undefined}
     >
-      {textOverlay && (
-        <span className={`text-sm font-medium ${getTextColor()}`}>
-          {textOverlay || "Aa"}
-        </span>
-      )}
-      {!textOverlay && (
-        <span className={`text-sm font-medium ${getTextColor()}`}>
-          Aa
-        </span>
-      )}
+      <div className="flex items-center">
+        {textOverlay && (
+          <span className={`text-sm font-semibold ${getTextColor()}`}>
+            {textOverlay}
+          </span>
+        )}
+        {!textOverlay && (
+          <span className={`text-sm font-semibold ${getTextColor()}`}>
+            Aa
+          </span>
+        )}
+        {weight && (
+          <span className={`ml-2 text-xs ${getTextColor()} opacity-75`}>
+            {weight}
+          </span>
+        )}
+      </div>
     </div>
   );
 };
