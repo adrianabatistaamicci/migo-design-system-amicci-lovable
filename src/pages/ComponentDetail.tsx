@@ -42,6 +42,20 @@ const componentData = {
 <Button variant="success">Success</Button>`
       },
       {
+        title: 'Secondary Button Example',
+        description: 'O botão secundário tem apenas contorno, sem fundo.',
+        component: (
+          <div className="flex flex-wrap gap-4">
+            <Button variant="secondary">Secondary</Button>
+            <Button variant="secondary" disabled>Disabled</Button>
+            <Button variant="secondary" state="hover">Hover</Button>
+            <Button variant="secondary" state="focus">Focus</Button>
+          </div>
+        ),
+        code: `<Button variant="secondary">Secondary</Button>
+<Button variant="secondary" disabled>Disabled</Button>`
+      },
+      {
         title: 'Outline Button Variants',
         description: 'Botões com contorno para estilos sutis.',
         component: (
