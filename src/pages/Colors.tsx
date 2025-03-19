@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
@@ -245,8 +246,8 @@ const Colors = () => {
       <Tabs defaultValue="overview" className="w-full">
         <TabsList className="mb-4">
           <TabsTrigger value="overview">Visão geral</TabsTrigger>
-          <TabsTrigger value="baseColors">Cores básicas</TabsTrigger>
-          <TabsTrigger value="palettes">Paletas compostas</TabsTrigger>
+          <TabsTrigger value="baseColors">Base colors</TabsTrigger>
+          <TabsTrigger value="palettes">Palettes</TabsTrigger>
           <TabsTrigger value="usage">Uso</TabsTrigger>
           <TabsTrigger value="accessibility">Acessibilidade</TabsTrigger>
         </TabsList>
@@ -352,7 +353,7 @@ const Colors = () => {
         
         {/* Base Colors Tab Content */}
         <TabsContent value="baseColors" className="space-y-6">
-          <ComponentCard title="Cores Básicas">
+          <ComponentCard title="Base colors">
             <p className="text-mui-text-secondary mb-6">
               Estas são as cores básicas que servem como alicerce para todo o sistema de design.
               Cada cor tem 10 variações (de 50 a 900) que podem ser usadas conforme necessário.
@@ -372,7 +373,7 @@ const Colors = () => {
         
         {/* Palettes Tab Content */}
         <TabsContent value="palettes" className="space-y-6">
-          <ComponentCard title="Paletas Compostas">
+          <ComponentCard title="Palettes">
             <p className="text-mui-text-secondary mb-6">
               As paletas compostas são construídas a partir das cores básicas e fornecem variações
               semânticas para diferentes estados e usos na interface.
