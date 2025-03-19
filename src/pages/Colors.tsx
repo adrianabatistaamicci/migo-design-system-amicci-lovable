@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
@@ -615,4 +616,99 @@ const Colors = () => {
               </div>
               
               <div>
-                <h3 className="text-xl font-medium
+                <h3 className="text-xl font-medium mb-3">Utilização de Paletas Compostas</h3>
+                <p className="text-mui-text-secondary mb-3">
+                  As paletas compostas fornecem um conjunto de variações semânticas para diferentes estados e usos:
+                </p>
+                <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
+                  <li>Use <code>primary-main</code> para elementos de ação principal e destaques</li>
+                  <li>Use <code>secondary-main</code> para elementos de apoio e ações secundárias</li>
+                  <li>Use <code>error-main</code> para mensagens de erro e alertas críticos</li>
+                  <li>Use <code>warning-main</code> para avisos e alertas não críticos</li>
+                  <li>Use <code>info-main</code> para mensagens informativas e dicas</li>
+                  <li>Use <code>success-main</code> para confirmações e mensagens de sucesso</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-medium mb-3">Estados de Interação</h3>
+                <p className="text-mui-text-secondary mb-3">
+                  Para estados de interação, utilize as variações específicas de cada paleta:
+                </p>
+                <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
+                  <li>Use <code>primary-hover</code> para o estado de hover em botões primários</li>
+                  <li>Use <code>primary-selected</code> para itens selecionados em listas ou menus</li>
+                  <li>Use <code>primary-focusVisible</code> para destacar elementos em foco (acessibilidade)</li>
+                  <li>Use <code>primary-outlinedBorder</code> para bordas de elementos outlined</li>
+                  <li>Use <code>primary-contrast</code> para texto sobre fundos coloridos</li>
+                </ul>
+              </div>
+            </div>
+          </ComponentCard>
+        </TabsContent>
+        
+        <TabsContent value="accessibility" className="space-y-6">
+          <ComponentCard title="Acessibilidade">
+            <p className="text-mui-text-secondary mb-6">
+              Diretrizes para garantir acessibilidade com o uso das cores.
+            </p>
+            
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-xl font-medium mb-3">Contraste de Cores</h3>
+                <p className="text-mui-text-secondary mb-3">
+                  Para atender aos padrões WCAG 2.1 AA:
+                </p>
+                <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
+                  <li>Texto normal: contraste mínimo de 4.5:1 entre texto e fundo</li>
+                  <li>Texto grande: contraste mínimo de 3:1 entre texto e fundo</li>
+                  <li>Elementos interativos: contraste mínimo de 3:1 com elementos adjacentes</li>
+                  <li>Use a ferramenta de contraste WCAG para verificar a conformidade</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-medium mb-3">Não Confie Apenas na Cor</h3>
+                <p className="text-mui-text-secondary mb-3">
+                  Para usuários com daltonismo ou baixa visão:
+                </p>
+                <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
+                  <li>Combine cores com ícones, formas ou padrões para transmitir informações</li>
+                  <li>Use texto descritivo junto com indicadores de cor</li>
+                  <li>Inclua legendas para gráficos e visualizações baseadas em cores</li>
+                  <li>Teste a interface em modo escala de cinza para verificar a usabilidade</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-medium mb-3">Estados de Foco Visíveis</h3>
+                <p className="text-mui-text-secondary mb-3">
+                  Para usuários de teclado e tecnologias assistivas:
+                </p>
+                <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
+                  <li>Mantenha os indicadores de foco visíveis (não remova os outlines)</li>
+                  <li>Use <code>primary-focusVisible</code> para destacar elementos em foco</li>
+                  <li>Garanta que o contraste do estado de foco seja de pelo menos 3:1</li>
+                  <li>Faça indicadores de foco mais visíveis e consistentes em toda a interface</li>
+                </ul>
+              </div>
+              
+              <div className="mt-6">
+                <Button 
+                  variant="outline" 
+                  onClick={() => setShowWCAG(!showWCAG)}
+                  className="text-sm flex gap-2 items-center"
+                >
+                  {showWCAG ? <EyeOff size={16} /> : <Eye size={16} />}
+                  {showWCAG ? 'Ocultar dados WCAG' : 'Mostrar dados WCAG'}
+                </Button>
+              </div>
+            </div>
+          </ComponentCard>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+};
+
+export default Colors;
