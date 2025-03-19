@@ -151,6 +151,7 @@ const Colors = () => {
                   <tr className="border-b">
                     <th className="p-2 text-left">Variação</th>
                     <th className="p-2 text-left">Amostra</th>
+                    <th className="p-2 text-left">Token CSS</th>
                     <th className="p-2 text-left">Hexadecimal</th>
                     <th className="p-2 text-left">RGB</th>
                     <th className="p-2 text-left">HSL</th>
@@ -179,6 +180,9 @@ const Colors = () => {
                           >
                             {weight}
                           </div>
+                        </td>
+                        <td className="p-2">
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">--amicci-{weight}</code>
                         </td>
                         <td className="p-2">
                           <div className="flex items-center gap-1">
@@ -244,6 +248,7 @@ const Colors = () => {
                   <tr className="border-b">
                     <th className="p-2 text-left">Variação</th>
                     <th className="p-2 text-left">Amostra</th>
+                    <th className="p-2 text-left">Token CSS</th>
                     <th className="p-2 text-left">Hexadecimal</th>
                     <th className="p-2 text-left">RGB</th>
                     <th className="p-2 text-left">HSL</th>
@@ -272,6 +277,9 @@ const Colors = () => {
                           >
                             {weight}
                           </div>
+                        </td>
+                        <td className="p-2">
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">--amicciDark-{weight}</code>
                         </td>
                         <td className="p-2">
                           <div className="flex items-center gap-1">
@@ -337,6 +345,7 @@ const Colors = () => {
                   <tr className="border-b">
                     <th className="p-2 text-left">Variação</th>
                     <th className="p-2 text-left">Amostra</th>
+                    <th className="p-2 text-left">Token CSS</th>
                     <th className="p-2 text-left">Hexadecimal</th>
                     <th className="p-2 text-left">RGB</th>
                     <th className="p-2 text-left">HSL</th>
@@ -365,6 +374,9 @@ const Colors = () => {
                           >
                             {weight}
                           </div>
+                        </td>
+                        <td className="p-2">
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">--magenta-{weight}</code>
                         </td>
                         <td className="p-2">
                           <div className="flex items-center gap-1">
@@ -430,6 +442,7 @@ const Colors = () => {
                   <tr className="border-b">
                     <th className="p-2 text-left">Variação</th>
                     <th className="p-2 text-left">Amostra</th>
+                    <th className="p-2 text-left">Token CSS</th>
                     <th className="p-2 text-left">Hexadecimal</th>
                     <th className="p-2 text-left">RGB</th>
                     <th className="p-2 text-left">HSL</th>
@@ -458,6 +471,9 @@ const Colors = () => {
                           >
                             {weight}
                           </div>
+                        </td>
+                        <td className="p-2">
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">--blue-{weight}</code>
                         </td>
                         <td className="p-2">
                           <div className="flex items-center gap-1">
@@ -561,6 +577,7 @@ const Colors = () => {
                     <tr className="border-b">
                       <th className="p-2 text-left">Variação</th>
                       <th className="p-2 text-left">Amostra</th>
+                      <th className="p-2 text-left">Token CSS</th>
                       <th className="p-2 text-left">Hexadecimal</th>
                       <th className="p-2 text-left">RGB</th>
                       <th className="p-2 text-left">Uso recomendado</th>
@@ -600,6 +617,9 @@ const Colors = () => {
                             >
                               Aa
                             </div>
+                          </td>
+                          <td className="p-2">
+                            <code className="bg-gray-100 px-2 py-1 rounded text-sm">--primary-{variant}</code>
                           </td>
                           <td className="p-2">
                             <div className="flex items-center gap-1">
