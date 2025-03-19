@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import ComponentCard from '@/components/ComponentCard';
@@ -7,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
+import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 
 // Mock component data
 const componentData = {
@@ -196,26 +196,26 @@ const ComponentDetail = () => {
           </h2>
           
           <div className="border border-mui-border rounded-lg overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-mui-sidebar border-b border-mui-border">
-                  <th className="py-3 px-4 text-left font-medium text-mui-text-primary">Prop</th>
-                  <th className="py-3 px-4 text-left font-medium text-mui-text-primary">Type</th>
-                  <th className="py-3 px-4 text-left font-medium text-mui-text-primary">Default</th>
-                  <th className="py-3 px-4 text-left font-medium text-mui-text-primary">Description</th>
-                </tr>
-              </thead>
-              <tbody>
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-mui-sidebar">
+                  <TableHead className="w-1/4">Prop</TableHead>
+                  <TableHead className="w-1/4">Type</TableHead>
+                  <TableHead className="w-1/4">Default</TableHead>
+                  <TableHead className="w-1/4">Description</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
                 {component.api.map((prop, index) => (
-                  <tr key={index} className="border-b border-mui-border last:border-0">
-                    <td className="py-3 px-4 font-mono text-mui-text-primary">{prop.prop}</td>
-                    <td className="py-3 px-4 font-mono text-mui-text-secondary">{prop.type}</td>
-                    <td className="py-3 px-4 font-mono text-mui-text-secondary">{prop.default}</td>
-                    <td className="py-3 px-4 text-mui-text-secondary">{prop.description}</td>
-                  </tr>
+                  <TableRow key={index}>
+                    <TableCell className="font-mono text-mui-text-primary">{prop.prop}</TableCell>
+                    <TableCell className="font-mono text-mui-text-secondary">{prop.type}</TableCell>
+                    <TableCell className="font-mono text-mui-text-secondary">{prop.default}</TableCell>
+                    <TableCell className="text-mui-text-secondary">{prop.description}</TableCell>
+                  </TableRow>
                 ))}
-              </tbody>
-            </table>
+              </TableBody>
+            </Table>
           </div>
         </div>
       </div>
