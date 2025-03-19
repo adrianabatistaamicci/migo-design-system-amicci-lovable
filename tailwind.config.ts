@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -138,6 +137,12 @@ export default {
 					700: '#FBC02D',
 					800: '#F9A825',
 					900: '#F57F17',
+				},
+				// Common colors
+				common: {
+					white: {
+						main: '#FFFFFF'
+					}
 				},
 				
 				// Paletas compostas

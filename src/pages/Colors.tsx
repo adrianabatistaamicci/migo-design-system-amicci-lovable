@@ -143,7 +143,7 @@ const Colors = () => {
       selected: `${colorBase}-700`,
       focusVisible: `${colorBase}-200`,
       outlinedBorder: `${colorBase}-100`,
-      contrast: 'white'
+      contrast: 'common-white-main'
     };
     
     return (
@@ -435,6 +435,7 @@ const Colors = () => {
                   <Badge className="bg-orange-500 text-white">base-color-orange</Badge>
                   <Badge className="bg-red-500 text-white">base-color-red</Badge>
                   <Badge className="bg-yellow-500 text-black">base-color-yellow</Badge>
+                  <Badge className="bg-white text-black border border-gray-200">base-color-common-white</Badge>
                 </div>
               </div>
               
@@ -614,167 +615,4 @@ const Colors = () => {
               </div>
               
               <div>
-                <h3 className="text-xl font-medium mb-3">Utilização de Paletas Compostas</h3>
-                <p className="text-mui-text-secondary mb-3">
-                  As paletas compostas facilitam a criação de interfaces consistentes para diferentes estados:
-                </p>
-                <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
-                  <li>Para botões primários, utilize <code>primary-main</code> (fundo) e <code>primary-contrast</code> (texto)</li>
-                  <li>Para estados hover, utilize a variação <code>-hover</code> da cor correspondente</li>
-                  <li>Para estados selecionados, utilize a variação <code>-selected</code></li>
-                  <li>Para estados de foco visível, utilize a variação <code>-focusVisible</code></li>
-                  <li>Para bordas em elementos com contorno, utilize a variaç���o <code>-outlinedBorder</code></li>
-                </ul>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="border rounded-lg p-5">
-                  <h4 className="text-lg font-medium mb-3 flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-green-500"></span>
-                    Recomendado
-                  </h4>
-                  <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
-                    <li>Use a cor primária para destacar ações principais</li>
-                    <li>Utilize tons de cinza para elementos secundários</li>
-                    <li>Mantenha uma proporção de 60/30/10 (neutro/primário/acentuação)</li>
-                    <li>Utilize as variações de cores para indicar hierarquia</li>
-                    <li>Garanta que as combinações de cores atendam aos critérios WCAG AA</li>
-                  </ul>
-                </div>
-                
-                <div className="border rounded-lg p-5">
-                  <h4 className="text-lg font-medium mb-3 flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-red-500"></span>
-                    Evitar
-                  </h4>
-                  <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
-                    <li>Evite misturar muitas cores vibrantes na mesma interface</li>
-                    <li>Não utilize cores de forma inconsistente para os mesmos elementos</li>
-                    <li>Evite combinações com baixo contraste que dificultam a leitura</li>
-                    <li>Não confie apenas na cor para transmitir informações importantes</li>
-                    <li>Evite combinações de cores que possam causar vibração visual</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </ComponentCard>
-        </TabsContent>
-        
-        <TabsContent value="accessibility" className="space-y-6">
-          <ComponentCard title="Acessibilidade das Cores">
-            <p className="text-mui-text-secondary mb-6">
-              Nossas diretrizes de cores foram projetadas para garantir que a interface seja acessível para todos os usuários.
-            </p>
-            
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-xl font-medium mb-3">WCAG 2.1 Critérios de Conformidade</h3>
-                <p className="text-mui-text-secondary mb-3">
-                  Nosso sistema segue os critérios de conformidade WCAG 2.1 para contraste de cores:
-                </p>
-                <div className="space-y-4 mb-6">
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <h4 className="font-medium mb-2">Nível AA (nosso padrão mínimo)</h4>
-                    <ul className="list-disc list-inside ml-3 space-y-1 text-mui-text-secondary">
-                      <li>Contraste mínimo de 4.5:1 para texto normal (menor que 18pt)</li>
-                      <li>Contraste mínimo de 3:1 para texto grande (18pt ou maior, ou 14pt bold)</li>
-                      <li>Contraste mínimo de 3:1 para elementos gráficos e componentes de interface</li>
-                    </ul>
-                  </div>
-                  
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <h4 className="font-medium mb-2">Nível AAA (recomendado para conteúdo crítico)</h4>
-                    <ul className="list-disc list-inside ml-3 space-y-1 text-mui-text-secondary">
-                      <li>Contraste mínimo de 7:1 para texto normal (menor que 18pt)</li>
-                      <li>Contraste mínimo de 4.5:1 para texto grande (18pt ou maior, ou 14pt bold)</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-medium mb-3">Ferramentas e Testes</h3>
-                <p className="text-mui-text-secondary mb-3">
-                  Utilizamos as seguintes ferramentas para garantir a acessibilidade das cores:
-                </p>
-                <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
-                  <li>Análise automática de contraste usando as funções <code>getContrastRatio</code>, <code>meetsWCAGAA</code> e <code>meetsWCAGAAA</code></li>
-                  <li>Testes com filtros de simulação de daltonismo</li>
-                  <li>Revisões manuais por especialistas em acessibilidade</li>
-                  <li>Feedback de usuários com diferentes tipos de deficiência visual</li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-medium mb-3">Melhores Práticas</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-white border rounded-lg p-5">
-                    <h4 className="text-lg font-medium mb-3">Para Desenvolvedores</h4>
-                    <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
-                      <li>Utilize sempre os tokens de cores predefinidos</li>
-                      <li>Verifique o contraste das combinações de cores</li>
-                      <li>Adicione foco visível para elementos interativos</li>
-                      <li>Não transmita informações apenas através da cor</li>
-                      <li>Utilize o utilitário <code>colorUtils</code> para verificar o contraste</li>
-                    </ul>
-                  </div>
-                  
-                  <div className="bg-white border rounded-lg p-5">
-                    <h4 className="text-lg font-medium mb-3">Para Designers</h4>
-                    <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
-                      <li>Mantenha consistência no uso das cores em toda a aplicação</li>
-                      <li>Utilize contraste suficiente entre texto e fundo</li>
-                      <li>Adicione outros indicadores além da cor (ícones, padrões, texto)</li>
-                      <li>Teste designs com ferramentas de simulação de daltonismo</li>
-                      <li>Considere usuários com baixa visão ao escolher combinações de cores</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-medium mb-3">Exemplos de Combinações Acessíveis</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                  <div className="border rounded-lg overflow-hidden">
-                    <div className="p-4 bg-amicci-500 text-white">
-                      <p className="font-medium">Amicci 500 + Branco</p>
-                      <p className="text-sm">Contraste: {colorUtils.getContrastRatio('#10C2C0', '#FFFFFF').toFixed(2)}</p>
-                    </div>
-                    <div className="p-3 bg-white text-sm">
-                      <p className="font-medium">✓ WCAG AA para texto normal</p>
-                      <p className="font-medium">✓ WCAG AAA para texto grande</p>
-                    </div>
-                  </div>
-                  
-                  <div className="border rounded-lg overflow-hidden">
-                    <div className="p-4 bg-amicciDark-700 text-white">
-                      <p className="font-medium">AmicciDark 700 + Branco</p>
-                      <p className="text-sm">Contraste: {colorUtils.getContrastRatio('#06454A', '#FFFFFF').toFixed(2)}</p>
-                    </div>
-                    <div className="p-3 bg-white text-sm">
-                      <p className="font-medium">✓ WCAG AA para texto normal</p>
-                      <p className="font-medium">✓ WCAG AAA para texto normal</p>
-                    </div>
-                  </div>
-                  
-                  <div className="border rounded-lg overflow-hidden">
-                    <div className="p-4 bg-amicci-100 text-gray-800">
-                      <p className="font-medium">Amicci 100 + Gray 800</p>
-                      <p className="text-sm">Contraste: {colorUtils.getContrastRatio('#E3FAF9', '#313536').toFixed(2)}</p>
-                    </div>
-                    <div className="p-3 bg-white text-sm">
-                      <p className="font-medium">✓ WCAG AA para texto normal</p>
-                      <p className="font-medium">✓ WCAG AAA para texto normal</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ComponentCard>
-        </TabsContent>
-      </Tabs>
-    </div>
-  );
-};
-
-export default Colors;
+                <h3 className="text-xl font-medium

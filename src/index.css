@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap');
 
 @tailwind base;
@@ -116,13 +115,16 @@
     --yellow-800: #F9A825;
     --yellow-900: #F57F17;
 
+    /* Common colors */
+    --common-white-main: #FFFFFF;
+
     /* Primary (Amicci) */
     --primary: 180 85% 41%;
     --primary-foreground: 180 40% 98%;
     --primary-main: var(--amicci-500);
     --primary-dark: var(--amicci-700);
     --primary-light: var(--amicci-100);
-    --primary-contrast: #ffffff;
+    --primary-contrast: var(--common-white-main);
     --primary-hover: rgba(16, 194, 192, 0.04);
     --primary-selected: rgba(16, 194, 192, 0.08);
     --primary-focus: rgba(16, 194, 192, 0.12);
