@@ -16,8 +16,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    --primary: 210 100% 50%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 180 85% 41%;
+    --primary-foreground: 180 40% 98%;
 
     --secondary: 210 20% 96%;
     --secondary-foreground: 215 25% 27%;
@@ -33,7 +33,7 @@
 
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 210 100% 50%;
+    --ring: 180 85% 41%;
 
     --radius: 8px;
   }
@@ -48,7 +48,7 @@
   }
   
   ::selection {
-    @apply bg-mui-primary text-white;
+    @apply bg-primary-500 text-white;
   }
 }
 
