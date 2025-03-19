@@ -1,11 +1,10 @@
-
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
 import CodeBlock from '@/components/CodeBlock';
 import { Separator } from '@/components/ui/separator';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Clipboard, Check, Eye, EyeOff } from 'lucide-react';
 import { colorUtils } from '@/utils/colorUtils';
@@ -18,6 +17,220 @@ const Colors = () => {
     navigator.clipboard.writeText(value);
     setCopied(value);
     setTimeout(() => setCopied(null), 2000);
+  };
+
+  // Create a standardized color table component for consistency
+  const ColorTable = ({ title, colorPrefix }: { title: string; colorPrefix: string }) => {
+    return (
+      <>
+        <h3 className="text-xl font-medium mb-4">{title}</h3>
+        <div className="overflow-x-auto mb-8">
+          <Table>
+            <TableHeader>
+              <TableRow className="border-b">
+                <TableHead className="w-[15%]">Variação</TableHead>
+                <TableHead className="w-[10%]">Amostra</TableHead>
+                <TableHead className="w-[15%]">Token CSS</TableHead>
+                <TableHead className="w-[15%]">Hexadecimal</TableHead>
+                <TableHead className="w-[15%]">RGB</TableHead>
+                <TableHead className="w-[15%]">HSL</TableHead>
+                {showWCAG && <TableHead className="w-[7.5%]">Contraste (Branco)</TableHead>}
+                {showWCAG && <TableHead className="w-[7.5%]">Contraste (Preto)</TableHead>}
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => {
+                const colorCode = `var(--${colorPrefix}-${weight})`;
+                const hexColor = colorUtils.getComputedColor(colorCode);
+                const rgbColor = colorUtils.hexToRgb(hexColor);
+                const hslColor = colorUtils.hexToHsl(hexColor);
+                const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
+                const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
+                const needsDarkText = weight < 600 || ['yellow'].includes(colorPrefix);
+                
+                return (
+                  <TableRow key={`${colorPrefix}-${weight}`} className="border-b hover:bg-gray-50">
+                    <TableCell>
+                      <code className="bg-gray-100 px-2 py-1 rounded text-sm">{colorPrefix}-{weight}</code>
+                    </TableCell>
+                    <TableCell>
+                      <div 
+                        className={`h-8 w-16 rounded ${needsDarkText ? 'text-black' : 'text-white'} flex items-center justify-center`} 
+                        style={{ backgroundColor: hexColor }}
+                      >
+                        {weight}
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <code className="bg-gray-100 px-2 py-1 rounded text-sm">--{colorPrefix}-{weight}</code>
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-1">
+                        <span>{hexColor}</span>
+                        <button 
+                          onClick={() => copyToClipboard(hexColor)}
+                          className="text-gray-500 hover:text-gray-700"
+                        >
+                          {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
+                        </button>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-1">
+                        <span>{rgbColor}</span>
+                        <button 
+                          onClick={() => copyToClipboard(rgbColor)}
+                          className="text-gray-500 hover:text-gray-700"
+                        >
+                          {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
+                        </button>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-1">
+                        <span>{hslColor}</span>
+                        <button 
+                          onClick={() => copyToClipboard(hslColor)}
+                          className="text-gray-500 hover:text-gray-700"
+                        >
+                          {copied === hslColor ? <Check size={14} /> : <Clipboard size={14} />}
+                        </button>
+                      </div>
+                    </TableCell>
+                    {showWCAG && (
+                      <TableCell>
+                        <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                          {contrastWithWhite.toFixed(2)}
+                          <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
+                        </div>
+                      </TableCell>
+                    )}
+                    {showWCAG && (
+                      <TableCell>
+                        <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                          {contrastWithBlack.toFixed(2)}
+                          <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
+                        </div>
+                      </TableCell>
+                    )}
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </div>
+      </>
+    );
+  };
+
+  // Create a component for semantic palette tables
+  const SemanticPaletteTable = ({ title, colorBase, palettePrefix }: { title: string; colorBase: string; palettePrefix: string }) => {
+    return (
+      <div className="mb-10">
+        <div className="flex items-center gap-2 mb-4">
+          <h3 className="text-xl font-medium">{title} (baseada em {colorBase})</h3>
+          <Badge className={`bg-${colorBase}-500`}>{colorBase}</Badge>
+        </div>
+        
+        <div className="overflow-x-auto">
+          <Table>
+            <TableHeader>
+              <TableRow className="border-b">
+                <TableHead className="w-[15%]">Variação</TableHead>
+                <TableHead className="w-[10%]">Amostra</TableHead>
+                <TableHead className="w-[15%]">Token CSS</TableHead>
+                <TableHead className="w-[15%]">Hexadecimal</TableHead>
+                <TableHead className="w-[15%]">RGB</TableHead>
+                <TableHead className="w-[15%]">Uso recomendado</TableHead>
+                {showWCAG && <TableHead className="w-[7.5%]">Contraste (Branco)</TableHead>}
+                {showWCAG && <TableHead className="w-[7.5%]">Contraste (Preto)</TableHead>}
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {['main', 'dark', 'light', 'hover', 'selected', 'focusVisible', 'outlinedBorder', 'contrast'].map((variant) => {
+                const colorCode = `var(--${palettePrefix}-${variant})`;
+                const hexColor = colorUtils.getComputedColor(colorCode);
+                const rgbColor = colorUtils.hexToRgb(hexColor);
+                const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
+                const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
+                const needsDarkText = ['light', 'focusVisible', 'outlinedBorder', 'contrast'].includes(variant);
+                
+                const usageMap: Record<string, string> = {
+                  main: 'Cor principal para elementos de destaque',
+                  dark: 'Variação mais escura para contraste',
+                  light: 'Variação mais clara para fundos e elementos sutis',
+                  hover: 'Estado de hover para elementos interativos',
+                  selected: 'Estado selecionado para elementos interativos',
+                  focusVisible: 'Estado de foco visível para acessibilidade',
+                  outlinedBorder: 'Cor para bordas e contornos',
+                  contrast: 'Cor de texto sobre fundos primários'
+                };
+                
+                return (
+                  <TableRow key={`${palettePrefix}-${variant}`} className="border-b hover:bg-gray-50">
+                    <TableCell>
+                      <code className="bg-gray-100 px-2 py-1 rounded text-sm">{palettePrefix}-{variant}</code>
+                    </TableCell>
+                    <TableCell>
+                      <div 
+                        className={`h-8 w-16 rounded ${needsDarkText ? 'text-black' : 'text-white'} flex items-center justify-center`} 
+                        style={{ backgroundColor: hexColor }}
+                      >
+                        Aa
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <code className="bg-gray-100 px-2 py-1 rounded text-sm">--{palettePrefix}-{variant}</code>
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-1">
+                        <span>{hexColor}</span>
+                        <button 
+                          onClick={() => copyToClipboard(hexColor)}
+                          className="text-gray-500 hover:text-gray-700"
+                        >
+                          {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
+                        </button>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-1">
+                        <span>{rgbColor}</span>
+                        <button 
+                          onClick={() => copyToClipboard(rgbColor)}
+                          className="text-gray-500 hover:text-gray-700"
+                        >
+                          {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
+                        </button>
+                      </div>
+                    </TableCell>
+                    <TableCell className="text-mui-text-secondary text-sm">
+                      {usageMap[variant]}
+                    </TableCell>
+                    {showWCAG && (
+                      <TableCell>
+                        <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                          {contrastWithWhite.toFixed(2)}
+                          <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
+                        </div>
+                      </TableCell>
+                    )}
+                    {showWCAG && (
+                      <TableCell>
+                        <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                          {contrastWithBlack.toFixed(2)}
+                          <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
+                        </div>
+                      </TableCell>
+                    )}
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -38,6 +251,7 @@ const Colors = () => {
           <TabsTrigger value="accessibility">Acessibilidade</TabsTrigger>
         </TabsList>
 
+        {/* Overview Tab Content */}
         <TabsContent value="overview" className="space-y-6">
           <ComponentCard title="Sistema de Cores" description="Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização.">
             <p className="text-mui-text-secondary mb-4">
@@ -136,6 +350,7 @@ const Colors = () => {
           </div>
         </TabsContent>
         
+        {/* Base Colors Tab Content */}
         <TabsContent value="baseColors" className="space-y-6">
           <ComponentCard title="Cores Básicas">
             <p className="text-mui-text-secondary mb-6">
@@ -143,881 +358,19 @@ const Colors = () => {
               Cada cor tem 10 variações (de 50 a 900) que podem ser usadas conforme necessário.
             </p>
             
-            {/* Amicci Colors */}
-            <h3 className="text-xl font-medium mb-4">Amicci</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full mb-8 border-collapse">
-                <thead>
-                  <tr className="border-b">
-                    <th className="p-2 text-left">Variação</th>
-                    <th className="p-2 text-left">Amostra</th>
-                    <th className="p-2 text-left">Token CSS</th>
-                    <th className="p-2 text-left">Hexadecimal</th>
-                    <th className="p-2 text-left">RGB</th>
-                    <th className="p-2 text-left">HSL</th>
-                    {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
-                    {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
-                  </tr>
-                </thead>
-                <tbody>
-                  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => {
-                    const colorCode = `var(--amicci-${weight})`;
-                    const hexColor = colorUtils.getComputedColor(colorCode);
-                    const rgbColor = colorUtils.hexToRgb(hexColor);
-                    const hslColor = colorUtils.hexToHsl(hexColor);
-                    const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
-                    const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
-                    
-                    return (
-                      <tr key={`amicci-${weight}`} className="border-b hover:bg-gray-50">
-                        <td className="p-2">
-                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">amicci-{weight}</code>
-                        </td>
-                        <td className="p-2">
-                          <div 
-                            className={`h-8 w-16 rounded ${weight >= 600 ? 'text-white' : 'text-black'} flex items-center justify-center`} 
-                            style={{ backgroundColor: hexColor }}
-                          >
-                            {weight}
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">--amicci-{weight}</code>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{hexColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(hexColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{rgbColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(rgbColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{hslColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(hslColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === hslColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        {showWCAG && (
-                          <td className="p-2">
-                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                              {contrastWithWhite.toFixed(2)}
-                              <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
-                            </div>
-                          </td>
-                        )}
-                        {showWCAG && (
-                          <td className="p-2">
-                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                              {contrastWithBlack.toFixed(2)}
-                              <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
-                            </div>
-                          </td>
-                        )}
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-            
-            {/* AmicciDark Colors */}
-            <h3 className="text-xl font-medium mb-4">AmicciDark</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full mb-8 border-collapse">
-                <thead>
-                  <tr className="border-b">
-                    <th className="p-2 text-left">Variação</th>
-                    <th className="p-2 text-left">Amostra</th>
-                    <th className="p-2 text-left">Token CSS</th>
-                    <th className="p-2 text-left">Hexadecimal</th>
-                    <th className="p-2 text-left">RGB</th>
-                    <th className="p-2 text-left">HSL</th>
-                    {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
-                    {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
-                  </tr>
-                </thead>
-                <tbody>
-                  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => {
-                    const colorCode = `var(--amicciDark-${weight})`;
-                    const hexColor = colorUtils.getComputedColor(colorCode);
-                    const rgbColor = colorUtils.hexToRgb(hexColor);
-                    const hslColor = colorUtils.hexToHsl(hexColor);
-                    const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
-                    const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
-                    
-                    return (
-                      <tr key={`amicciDark-${weight}`} className="border-b hover:bg-gray-50">
-                        <td className="p-2">
-                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">amicciDark-{weight}</code>
-                        </td>
-                        <td className="p-2">
-                          <div 
-                            className={`h-8 w-16 rounded ${weight >= 600 ? 'text-white' : 'text-black'} flex items-center justify-center`} 
-                            style={{ backgroundColor: hexColor }}
-                          >
-                            {weight}
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">--amicciDark-{weight}</code>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{hexColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(hexColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{rgbColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(rgbColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{hslColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(hslColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === hslColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        {showWCAG && (
-                          <td className="p-2">
-                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                              {contrastWithWhite.toFixed(2)}
-                              <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
-                            </div>
-                          </td>
-                        )}
-                        {showWCAG && (
-                          <td className="p-2">
-                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                              {contrastWithBlack.toFixed(2)}
-                              <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
-                            </div>
-                          </td>
-                        )}
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-            
-            {/* Magenta Colors */}
-            <h3 className="text-xl font-medium mb-4">Magenta</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full mb-8 border-collapse">
-                <thead>
-                  <tr className="border-b">
-                    <th className="p-2 text-left">Variação</th>
-                    <th className="p-2 text-left">Amostra</th>
-                    <th className="p-2 text-left">Token CSS</th>
-                    <th className="p-2 text-left">Hexadecimal</th>
-                    <th className="p-2 text-left">RGB</th>
-                    <th className="p-2 text-left">HSL</th>
-                    {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
-                    {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
-                  </tr>
-                </thead>
-                <tbody>
-                  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => {
-                    const colorCode = `var(--magenta-${weight})`;
-                    const hexColor = colorUtils.getComputedColor(colorCode);
-                    const rgbColor = colorUtils.hexToRgb(hexColor);
-                    const hslColor = colorUtils.hexToHsl(hexColor);
-                    const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
-                    const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
-                    
-                    return (
-                      <tr key={`magenta-${weight}`} className="border-b hover:bg-gray-50">
-                        <td className="p-2">
-                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">magenta-{weight}</code>
-                        </td>
-                        <td className="p-2">
-                          <div 
-                            className={`h-8 w-16 rounded ${weight >= 400 ? 'text-white' : 'text-black'} flex items-center justify-center`} 
-                            style={{ backgroundColor: hexColor }}
-                          >
-                            {weight}
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">--magenta-{weight}</code>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{hexColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(hexColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{rgbColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(rgbColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{hslColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(hslColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === hslColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        {showWCAG && (
-                          <td className="p-2">
-                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                              {contrastWithWhite.toFixed(2)}
-                              <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
-                            </div>
-                          </td>
-                        )}
-                        {showWCAG && (
-                          <td className="p-2">
-                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                              {contrastWithBlack.toFixed(2)}
-                              <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
-                            </div>
-                          </td>
-                        )}
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-            
-            {/* Blue Colors */}
-            <h3 className="text-xl font-medium mb-4">Blue</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full mb-8 border-collapse">
-                <thead>
-                  <tr className="border-b">
-                    <th className="p-2 text-left">Variação</th>
-                    <th className="p-2 text-left">Amostra</th>
-                    <th className="p-2 text-left">Token CSS</th>
-                    <th className="p-2 text-left">Hexadecimal</th>
-                    <th className="p-2 text-left">RGB</th>
-                    <th className="p-2 text-left">HSL</th>
-                    {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
-                    {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
-                  </tr>
-                </thead>
-                <tbody>
-                  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => {
-                    const colorCode = `var(--blue-${weight})`;
-                    const hexColor = colorUtils.getComputedColor(colorCode);
-                    const rgbColor = colorUtils.hexToRgb(hexColor);
-                    const hslColor = colorUtils.hexToHsl(hexColor);
-                    const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
-                    const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
-                    
-                    return (
-                      <tr key={`blue-${weight}`} className="border-b hover:bg-gray-50">
-                        <td className="p-2">
-                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">blue-{weight}</code>
-                        </td>
-                        <td className="p-2">
-                          <div 
-                            className={`h-8 w-16 rounded ${weight >= 400 ? 'text-white' : 'text-black'} flex items-center justify-center`} 
-                            style={{ backgroundColor: hexColor }}
-                          >
-                            {weight}
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">--blue-{weight}</code>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{hexColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(hexColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{rgbColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(rgbColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{hslColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(hslColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === hslColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        {showWCAG && (
-                          <td className="p-2">
-                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                              {contrastWithWhite.toFixed(2)}
-                              <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
-                            </div>
-                          </td>
-                        )}
-                        {showWCAG && (
-                          <td className="p-2">
-                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                              {contrastWithBlack.toFixed(2)}
-                              <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
-                            </div>
-                          </td>
-                        )}
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-            
-            {/* Green Colors */}
-            <h3 className="text-xl font-medium mb-4">Green</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full mb-8 border-collapse">
-                <thead>
-                  <tr className="border-b">
-                    <th className="p-2 text-left">Variação</th>
-                    <th className="p-2 text-left">Amostra</th>
-                    <th className="p-2 text-left">Token CSS</th>
-                    <th className="p-2 text-left">Hexadecimal</th>
-                    <th className="p-2 text-left">RGB</th>
-                    <th className="p-2 text-left">HSL</th>
-                    {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
-                    {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
-                  </tr>
-                </thead>
-                <tbody>
-                  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => {
-                    const colorCode = `var(--green-${weight})`;
-                    const hexColor = colorUtils.getComputedColor(colorCode);
-                    const rgbColor = colorUtils.hexToRgb(hexColor);
-                    const hslColor = colorUtils.hexToHsl(hexColor);
-                    const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
-                    const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
-                    
-                    return (
-                      <tr key={`green-${weight}`} className="border-b hover:bg-gray-50">
-                        <td className="p-2">
-                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">green-{weight}</code>
-                        </td>
-                        <td className="p-2">
-                          <div 
-                            className={`h-8 w-16 rounded ${weight >= 600 ? 'text-white' : 'text-black'} flex items-center justify-center`} 
-                            style={{ backgroundColor: hexColor }}
-                          >
-                            {weight}
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">--green-{weight}</code>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{hexColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(hexColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{rgbColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(rgbColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{hslColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(hslColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === hslColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        {showWCAG && (
-                          <td className="p-2">
-                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                              {contrastWithWhite.toFixed(2)}
-                              <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
-                            </div>
-                          </td>
-                        )}
-                        {showWCAG && (
-                          <td className="p-2">
-                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                              {contrastWithBlack.toFixed(2)}
-                              <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
-                            </div>
-                          </td>
-                        )}
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-            
-            {/* Red Colors */}
-            <h3 className="text-xl font-medium mb-4">Red</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full mb-8 border-collapse">
-                <thead>
-                  <tr className="border-b">
-                    <th className="p-2 text-left">Variação</th>
-                    <th className="p-2 text-left">Amostra</th>
-                    <th className="p-2 text-left">Token CSS</th>
-                    <th className="p-2 text-left">Hexadecimal</th>
-                    <th className="p-2 text-left">RGB</th>
-                    <th className="p-2 text-left">HSL</th>
-                    {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
-                    {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
-                  </tr>
-                </thead>
-                <tbody>
-                  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => {
-                    const colorCode = `var(--red-${weight})`;
-                    const hexColor = colorUtils.getComputedColor(colorCode);
-                    const rgbColor = colorUtils.hexToRgb(hexColor);
-                    const hslColor = colorUtils.hexToHsl(hexColor);
-                    const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
-                    const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
-                    
-                    return (
-                      <tr key={`red-${weight}`} className="border-b hover:bg-gray-50">
-                        <td className="p-2">
-                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">red-{weight}</code>
-                        </td>
-                        <td className="p-2">
-                          <div 
-                            className={`h-8 w-16 rounded ${weight >= 400 ? 'text-white' : 'text-black'} flex items-center justify-center`} 
-                            style={{ backgroundColor: hexColor }}
-                          >
-                            {weight}
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">--red-{weight}</code>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{hexColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(hexColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{rgbColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(rgbColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{hslColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(hslColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === hslColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        {showWCAG && (
-                          <td className="p-2">
-                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                              {contrastWithWhite.toFixed(2)}
-                              <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
-                            </div>
-                          </td>
-                        )}
-                        {showWCAG && (
-                          <td className="p-2">
-                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                              {contrastWithBlack.toFixed(2)}
-                              <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
-                            </div>
-                          </td>
-                        )}
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-            
-            {/* Yellow Colors */}
-            <h3 className="text-xl font-medium mb-4">Yellow</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full mb-8 border-collapse">
-                <thead>
-                  <tr className="border-b">
-                    <th className="p-2 text-left">Variação</th>
-                    <th className="p-2 text-left">Amostra</th>
-                    <th className="p-2 text-left">Token CSS</th>
-                    <th className="p-2 text-left">Hexadecimal</th>
-                    <th className="p-2 text-left">RGB</th>
-                    <th className="p-2 text-left">HSL</th>
-                    {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
-                    {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
-                  </tr>
-                </thead>
-                <tbody>
-                  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => {
-                    const colorCode = `var(--yellow-${weight})`;
-                    const hexColor = colorUtils.getComputedColor(colorCode);
-                    const rgbColor = colorUtils.hexToRgb(hexColor);
-                    const hslColor = colorUtils.hexToHsl(hexColor);
-                    const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
-                    const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
-                    
-                    return (
-                      <tr key={`yellow-${weight}`} className="border-b hover:bg-gray-50">
-                        <td className="p-2">
-                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">yellow-{weight}</code>
-                        </td>
-                        <td className="p-2">
-                          <div 
-                            className={`h-8 w-16 rounded ${weight >= 800 ? 'text-white' : 'text-black'} flex items-center justify-center`} 
-                            style={{ backgroundColor: hexColor }}
-                          >
-                            {weight}
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">--yellow-{weight}</code>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{hexColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(hexColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{rgbColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(rgbColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{hslColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(hslColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === hslColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        {showWCAG && (
-                          <td className="p-2">
-                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                              {contrastWithWhite.toFixed(2)}
-                              <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
-                            </div>
-                          </td>
-                        )}
-                        {showWCAG && (
-                          <td className="p-2">
-                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                              {contrastWithBlack.toFixed(2)}
-                              <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
-                            </div>
-                          </td>
-                        )}
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-            
-            {/* Orange Colors */}
-            <h3 className="text-xl font-medium mb-4">Orange</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full mb-8 border-collapse">
-                <thead>
-                  <tr className="border-b">
-                    <th className="p-2 text-left">Variação</th>
-                    <th className="p-2 text-left">Amostra</th>
-                    <th className="p-2 text-left">Token CSS</th>
-                    <th className="p-2 text-left">Hexadecimal</th>
-                    <th className="p-2 text-left">RGB</th>
-                    <th className="p-2 text-left">HSL</th>
-                    {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
-                    {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
-                  </tr>
-                </thead>
-                <tbody>
-                  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => {
-                    const colorCode = `var(--orange-${weight})`;
-                    const hexColor = colorUtils.getComputedColor(colorCode);
-                    const rgbColor = colorUtils.hexToRgb(hexColor);
-                    const hslColor = colorUtils.hexToHsl(hexColor);
-                    const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
-                    const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
-                    
-                    return (
-                      <tr key={`orange-${weight}`} className="border-b hover:bg-gray-50">
-                        <td className="p-2">
-                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">orange-{weight}</code>
-                        </td>
-                        <td className="p-2">
-                          <div 
-                            className={`h-8 w-16 rounded ${weight >= 600 ? 'text-white' : 'text-black'} flex items-center justify-center`} 
-                            style={{ backgroundColor: hexColor }}
-                          >
-                            {weight}
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">--orange-{weight}</code>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{hexColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(hexColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{rgbColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(rgbColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{hslColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(hslColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === hslColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        {showWCAG && (
-                          <td className="p-2">
-                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                              {contrastWithWhite.toFixed(2)}
-                              <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
-                            </div>
-                          </td>
-                        )}
-                        {showWCAG && (
-                          <td className="p-2">
-                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                              {contrastWithBlack.toFixed(2)}
-                              <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
-                            </div>
-                          </td>
-                        )}
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-            
-            {/* Gray Colors */}
-            <h3 className="text-xl font-medium mb-4">Gray</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full mb-8 border-collapse">
-                <thead>
-                  <tr className="border-b">
-                    <th className="p-2 text-left">Variação</th>
-                    <th className="p-2 text-left">Amostra</th>
-                    <th className="p-2 text-left">Token CSS</th>
-                    <th className="p-2 text-left">Hexadecimal</th>
-                    <th className="p-2 text-left">RGB</th>
-                    <th className="p-2 text-left">HSL</th>
-                    {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
-                    {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
-                  </tr>
-                </thead>
-                <tbody>
-                  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => {
-                    const colorCode = `var(--gray-${weight})`;
-                    const hexColor = colorUtils.getComputedColor(colorCode);
-                    const rgbColor = colorUtils.hexToRgb(hexColor);
-                    const hslColor = colorUtils.hexToHsl(hexColor);
-                    const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
-                    const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
-                    
-                    return (
-                      <tr key={`gray-${weight}`} className="border-b hover:bg-gray-50">
-                        <td className="p-2">
-                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">gray-{weight}</code>
-                        </td>
-                        <td className="p-2">
-                          <div 
-                            className={`h-8 w-16 rounded ${weight >= 600 ? 'text-white' : 'text-black'} flex items-center justify-center`} 
-                            style={{ backgroundColor: hexColor }}
-                          >
-                            {weight}
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">--gray-{weight}</code>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{hexColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(hexColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{rgbColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(rgbColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="flex items-center gap-1">
-                            <span>{hslColor}</span>
-                            <button 
-                              onClick={() => copyToClipboard(hslColor)}
-                              className="text-gray-500 hover:text-gray-700"
-                            >
-                              {copied === hslColor ? <Check size={14} /> : <Clipboard size={14} />}
-                            </button>
-                          </div>
-                        </td>
-                        {showWCAG && (
-                          <td className="p-2">
-                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                              {contrastWithWhite.toFixed(2)}
-                              <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
-                            </div>
-                          </td>
-                        )}
-                        {showWCAG && (
-                          <td className="p-2">
-                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                              {contrastWithBlack.toFixed(2)}
-                              <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
-                            </div>
-                          </td>
-                        )}
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
+            <ColorTable title="Amicci" colorPrefix="amicci" />
+            <ColorTable title="AmicciDark" colorPrefix="amicciDark" />
+            <ColorTable title="Magenta" colorPrefix="magenta" />
+            <ColorTable title="Blue" colorPrefix="blue" />
+            <ColorTable title="Green" colorPrefix="green" />
+            <ColorTable title="Red" colorPrefix="red" />
+            <ColorTable title="Yellow" colorPrefix="yellow" />
+            <ColorTable title="Orange" colorPrefix="orange" />
+            <ColorTable title="Gray" colorPrefix="gray" />
           </ComponentCard>
         </TabsContent>
         
+        {/* Palettes Tab Content */}
         <TabsContent value="palettes" className="space-y-6">
           <ComponentCard title="Paletas Compostas">
             <p className="text-mui-text-secondary mb-6">
@@ -1025,114 +378,57 @@ const Colors = () => {
               semânticas para diferentes estados e usos na interface.
             </p>
             
-            {/* Primary Palette */}
-            <div className="mb-10">
-              <div className="flex items-center gap-2 mb-4">
-                <h3 className="text-xl font-medium">Primary (baseada em Amicci)</h3>
-                <Badge className="bg-amicci-500">amicci</Badge>
-              </div>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full mb-8 border-collapse">
-                  <thead>
-                    <tr className="border-b">
-                      <th className="p-2 text-left">Variação</th>
-                      <th className="p-2 text-left">Amostra</th>
-                      <th className="p-2 text-left">Token CSS</th>
-                      <th className="p-2 text-left">Hexadecimal</th>
-                      <th className="p-2 text-left">RGB</th>
-                      <th className="p-2 text-left">Uso recomendado</th>
-                      {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
-                      {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {['main', 'dark', 'light', 'hover', 'selected', 'focusVisible', 'outlinedBorder', 'contrast'].map((variant) => {
-                      const colorCode = `var(--primary-${variant})`;
-                      const hexColor = colorUtils.getComputedColor(colorCode);
-                      const rgbColor = colorUtils.hexToRgb(hexColor);
-                      const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
-                      const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
-                      const needsDarkText = ['light', 'focusVisible', 'outlinedBorder', 'contrast'].includes(variant);
-                      
-                      const usageMap = {
-                        main: 'Cor principal para elementos de destaque',
-                        dark: 'Variação mais escura para contraste',
-                        light: 'Variação mais clara para fundos e elementos sutis',
-                        hover: 'Estado de hover para elementos interativos',
-                        selected: 'Estado selecionado para elementos interativos',
-                        focusVisible: 'Estado de foco visível para acessibilidade',
-                        outlinedBorder: 'Cor para bordas e contornos',
-                        contrast: 'Cor de texto sobre fundos primários'
-                      };
-                      
-                      return (
-                        <tr key={`primary-${variant}`} className="border-b hover:bg-gray-50">
-                          <td className="p-2">
-                            <code className="bg-gray-100 px-2 py-1 rounded text-sm">primary-{variant}</code>
-                          </td>
-                          <td className="p-2">
-                            <div 
-                              className={`h-8 w-16 rounded ${needsDarkText ? 'text-black' : 'text-white'} flex items-center justify-center`} 
-                              style={{ backgroundColor: hexColor }}
-                            >
-                              Aa
-                            </div>
-                          </td>
-                          <td className="p-2">
-                            <code className="bg-gray-100 px-2 py-1 rounded text-sm">--primary-{variant}</code>
-                          </td>
-                          <td className="p-2">
-                            <div className="flex items-center gap-1">
-                              <span>{hexColor}</span>
-                              <button 
-                                onClick={() => copyToClipboard(hexColor)}
-                                className="text-gray-500 hover:text-gray-700"
-                              >
-                                {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
-                              </button>
-                            </div>
-                          </td>
-                          <td className="p-2">
-                            <div className="flex items-center gap-1">
-                              <span>{rgbColor}</span>
-                              <button 
-                                onClick={() => copyToClipboard(rgbColor)}
-                                className="text-gray-500 hover:text-gray-700"
-                              >
-                                {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
-                              </button>
-                            </div>
-                          </td>
-                          <td className="p-2 text-mui-text-secondary text-sm">
-                            {usageMap[variant as keyof typeof usageMap]}
-                          </td>
-                          {showWCAG && (
-                            <td className="p-2">
-                              <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                                {contrastWithWhite.toFixed(2)}
-                                <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
-                              </div>
-                            </td>
-                          )}
-                          {showWCAG && (
-                            <td className="p-2">
-                              <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                                {contrastWithBlack.toFixed(2)}
-                                <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
-                              </div>
-                            </td>
-                          )}
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </div>
+            <SemanticPaletteTable 
+              title="Primary" 
+              colorBase="amicci" 
+              palettePrefix="primary" 
+            />
+            
+            <SemanticPaletteTable 
+              title="Secondary" 
+              colorBase="amicciDark" 
+              palettePrefix="secondary" 
+            />
+            
+            <SemanticPaletteTable 
+              title="Tertiary" 
+              colorBase="magenta" 
+              palettePrefix="tertiary" 
+            />
+            
+            <SemanticPaletteTable 
+              title="Action" 
+              colorBase="blue" 
+              palettePrefix="action" 
+            />
+            
+            <SemanticPaletteTable 
+              title="Error" 
+              colorBase="red" 
+              palettePrefix="error" 
+            />
+            
+            <SemanticPaletteTable 
+              title="Warning" 
+              colorBase="yellow" 
+              palettePrefix="warning" 
+            />
+            
+            <SemanticPaletteTable 
+              title="Info" 
+              colorBase="blue" 
+              palettePrefix="info" 
+            />
+            
+            <SemanticPaletteTable 
+              title="Success" 
+              colorBase="green" 
+              palettePrefix="success" 
+            />
           </ComponentCard>
         </TabsContent>
         
+        {/* Usage Tab Content */}
         <TabsContent value="usage" className="space-y-6">
           <ComponentCard title="Uso das Cores">
             <p className="text-mui-text-secondary mb-6">
@@ -1202,6 +498,7 @@ const Colors = () => {
           </ComponentCard>
         </TabsContent>
         
+        {/* Accessibility Tab Content */}
         <TabsContent value="accessibility" className="space-y-6">
           <ComponentCard title="Acessibilidade das Cores">
             <p className="text-mui-text-secondary mb-6">
