@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
@@ -136,7 +135,6 @@ const Colors = () => {
       { name: 'outlinedBorder', baseColor: '10C2C0', opacity: '50%', description: 'Cor para bordas e contornos' },
     ] : null;
     
-    // Normal variants mapping for non-primary palettes
     const variantBaseColorMap: Record<string, string> = {
       main: `${colorBase}-500`,
       dark: `${colorBase}-700`,
@@ -155,7 +153,7 @@ const Colors = () => {
           <Badge className={`bg-${colorBase}-500 text-${
             ['yellow', 'amicci-100', 'amicci-200', 'amicci-300'].includes(`${colorBase}-500`) ? 'black' : 'white'
           }`}>
-            {palettePrefix === 'primary' ? 'base-color-amicci' : `${palettePrefix}-${colorBase}`}
+            {palettePrefix === 'primary' ? 'base-color-amicci' : `base-color-${colorBase}`}
           </Badge>
         </div>
         
@@ -227,7 +225,6 @@ const Colors = () => {
                   );
                 })
               ) : (
-                // Standard variant rows for non-primary palettes
                 ['main', 'dark', 'light', 'hover', 'selected', 'focusVisible', 'outlinedBorder', 'contrast'].map((variant) => {
                   const colorCode = `var(--${palettePrefix}-${variant})`;
                   const hexColor = colorUtils.getComputedColor(colorCode);
@@ -296,7 +293,6 @@ const Colors = () => {
     );
   };
 
-  // Text palette table component
   const TextPaletteTable = () => {
     const textVariants = [
       { name: 'primary', baseColor: 'gray-900', opacity: '100%', description: 'Texto principal para conteúdo importante' },
@@ -331,20 +327,16 @@ const Colors = () => {
             </TableHeader>
             <TableBody>
               {textVariants.map((variant) => {
-                // For the first three items (primary, secondary, disabled), use the baseColor directly
-                // For the others with opacity, apply the hex with calculated opacity
                 const isHexColor = !variant.baseColor.includes('-');
                 let hexColor;
                 
                 if (isHexColor) {
-                  // Convert hex and opacity to RGBA
                   const r = parseInt(variant.baseColor.substring(0, 2), 16);
                   const g = parseInt(variant.baseColor.substring(2, 4), 16);
                   const b = parseInt(variant.baseColor.substring(4, 6), 16);
                   const opacityValue = parseInt(variant.opacity) / 100;
                   hexColor = `rgba(${r}, ${g}, ${b}, ${opacityValue})`;
                 } else {
-                  // Use the token directly
                   hexColor = colorUtils.getComputedColor(`var(--${variant.baseColor})`);
                 }
                 
@@ -452,15 +444,15 @@ const Colors = () => {
                   Paletas semânticas que utilizam as cores básicas como base:
                 </p>
                 <div className="flex flex-wrap gap-1 mt-2">
-                  <Badge className="bg-primary-main text-primary-contrast">primary-amicci</Badge>
-                  <Badge className="bg-secondary-main text-secondary-contrast">secondary-amicciDark</Badge>
-                  <Badge className="bg-tertiary-main text-tertiary-contrast">tertiary-magenta</Badge>
-                  <Badge className="bg-action-main text-action-contrast">action-blue</Badge>
-                  <Badge className="bg-error-main text-error-contrast">error-red</Badge>
-                  <Badge className="bg-warning-main text-black">warning-yellow</Badge>
-                  <Badge className="bg-info-main text-info-contrast">info-blue</Badge>
-                  <Badge className="bg-success-main text-success-contrast">success-green</Badge>
-                  <Badge className="bg-gray-900 text-white">text-gray</Badge>
+                  <Badge className="bg-primary-main text-primary-contrast">base-color-amicci</Badge>
+                  <Badge className="bg-secondary-main text-secondary-contrast">base-color-amicciDark</Badge>
+                  <Badge className="bg-tertiary-main text-tertiary-contrast">base-color-magenta</Badge>
+                  <Badge className="bg-action-main text-action-contrast">base-color-gray</Badge>
+                  <Badge className="bg-error-main text-error-contrast">base-color-red</Badge>
+                  <Badge className="bg-warning-main text-black">base-color-yellow</Badge>
+                  <Badge className="bg-info-main text-info-contrast">base-color-blue</Badge>
+                  <Badge className="bg-success-main text-success-contrast">base-color-green</Badge>
+                  <Badge className="bg-gray-900 text-white">base-color-gray</Badge>
                 </div>
               </div>
             </div>
@@ -548,7 +540,7 @@ const Colors = () => {
             
             <SemanticPaletteTable 
               title="Action" 
-              colorBase="blue" 
+              colorBase="gray" 
               palettePrefix="action" 
             />
             
@@ -786,3 +778,4 @@ const Colors = () => {
 };
 
 export default Colors;
+
