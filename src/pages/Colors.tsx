@@ -6,6 +6,7 @@ import { Separator } from '@/components/ui/separator';
 import { Eye, EyeOff } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 const Colors = () => {
   const [showWCAG, setShowWCAG] = useState(false);
@@ -145,6 +146,7 @@ const Colors = () => {
                 <li>Cada paleta inclui versões de contraste dedicadas</li>
                 <li>As cores seguem uma hierarquia visual clara</li>
                 <li>Estados de interação (hover, focus, selected) são visualmente distintos</li>
+                <li>Estados de interação (hover, focus, selected) são visualmente distintos</li>
               </ul>
               <div className="mt-4">
                 <Button 
@@ -162,249 +164,484 @@ const Colors = () => {
         
         <TabsContent value="palettes">
           <ComponentCard title="Paletas Compostas">
-            <p className="text-mui-text-secondary">
+            <p className="text-mui-text-secondary mb-4">
               As paletas compostas são construídas utilizando as cores básicas como base.
-              Cada paleta inclui variações para diferentes estados e usos.
+              Cada paleta semântica inclui variações para diferentes estados e usos.
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-              <div className="space-y-2">
-                <h4 className="font-medium">Primary (Amicci)</h4>
-                <div className="p-2 border rounded bg-primary-main text-primary-contrast">main</div>
-                <div className="p-2 border rounded bg-primary-dark text-primary-contrast">dark</div>
-                <div className="p-2 border rounded bg-primary-light text-black">light</div>
-                <div className="p-2 border rounded bg-primary-hover text-primary-contrast">hover</div>
-                <div className="p-2 border rounded bg-primary-selected text-primary-contrast">selected</div>
-                <div className="p-2 border rounded bg-primary-focusVisible text-black">focusVisible</div>
-                <div className="p-2 border rounded bg-primary-outlinedBorder text-black">outlinedBorder</div>
-                <div className="p-2 border rounded bg-primary-contrast text-primary-main">contrast</div>
-              </div>
-              
-              <div className="space-y-2">
-                <h4 className="font-medium">Secondary (AmicciDark)</h4>
-                <div className="p-2 border rounded bg-secondary-main text-secondary-contrast">main</div>
-                <div className="p-2 border rounded bg-secondary-dark text-secondary-contrast">dark</div>
-                <div className="p-2 border rounded bg-secondary-light text-black">light</div>
-                <div className="p-2 border rounded bg-secondary-main text-secondary-contrast">hover</div>
-                <div className="p-2 border rounded bg-secondary-main text-secondary-contrast">selected</div>
-                <div className="p-2 border rounded bg-secondary-main text-secondary-contrast">focusVisible</div>
-                <div className="p-2 border rounded bg-secondary-main text-secondary-contrast">outlinedBorder</div>
-                <div className="p-2 border rounded bg-secondary-contrast text-secondary-main">contrast</div>
-              </div>
-              
-              <div className="space-y-2">
-                <h4 className="font-medium">Tertiary (Magenta)</h4>
-                <div className="p-2 border rounded bg-tertiary-main text-tertiary-contrast">main</div>
-                <div className="p-2 border rounded bg-tertiary-dark text-tertiary-contrast">dark</div>
-                <div className="p-2 border rounded bg-tertiary-light text-black">light</div>
-                <div className="p-2 border rounded bg-tertiary-main text-tertiary-contrast">hover</div>
-                <div className="p-2 border rounded bg-tertiary-main text-tertiary-contrast">selected</div>
-                <div className="p-2 border rounded bg-tertiary-main text-tertiary-contrast">focusVisible</div>
-                <div className="p-2 border rounded bg-tertiary-main text-tertiary-contrast">outlinedBorder</div>
-                <div className="p-2 border rounded bg-tertiary-contrast text-tertiary-main">contrast</div>
-              </div>
-              
-              <div className="space-y-2">
-                <h4 className="font-medium">Action (Gray)</h4>
-                <div className="p-2 border rounded bg-action-main text-action-contrast">main</div>
-                <div className="p-2 border rounded bg-action-dark text-action-contrast">dark</div>
-                <div className="p-2 border rounded bg-action-light text-black">light</div>
-                <div className="p-2 border rounded bg-action-main text-action-contrast">hover</div>
-                <div className="p-2 border rounded bg-action-main text-action-contrast">selected</div>
-                <div className="p-2 border rounded bg-action-main text-action-contrast">focusVisible</div>
-                <div className="p-2 border rounded bg-action-main text-action-contrast">outlinedBorder</div>
-                <div className="p-2 border rounded bg-action-contrast text-action-main">contrast</div>
-              </div>
-              
-              <div className="space-y-2">
-                <h4 className="font-medium">Error (Red)</h4>
-                <div className="p-2 border rounded bg-error-main text-error-contrast">main</div>
-                <div className="p-2 border rounded bg-error-dark text-error-contrast">dark</div>
-                <div className="p-2 border rounded bg-error-light text-black">light</div>
-                <div className="p-2 border rounded bg-error-main text-error-contrast">hover</div>
-                <div className="p-2 border rounded bg-error-main text-error-contrast">selected</div>
-                <div className="p-2 border rounded bg-error-main text-error-contrast">focusVisible</div>
-                <div className="p-2 border rounded bg-error-main text-error-contrast">outlinedBorder</div>
-                <div className="p-2 border rounded bg-error-contrast text-error-main">contrast</div>
-              </div>
-              
-              <div className="space-y-2">
-                <h4 className="font-medium">Warning (Yellow)</h4>
-                <div className="p-2 border rounded bg-warning-main text-black">main</div>
-                <div className="p-2 border rounded bg-warning-dark text-black">dark</div>
-                <div className="p-2 border rounded bg-warning-light text-black">light</div>
-                <div className="p-2 border rounded bg-warning-main text-black">hover</div>
-                <div className="p-2 border rounded bg-warning-main text-black">selected</div>
-                <div className="p-2 border rounded bg-warning-main text-black">focusVisible</div>
-                <div className="p-2 border rounded bg-warning-main text-black">outlinedBorder</div>
-                <div className="p-2 border rounded bg-warning-contrast text-warning-main">contrast</div>
-              </div>
-              
-              <div className="space-y-2">
-                <h4 className="font-medium">Info (Blue)</h4>
-                <div className="p-2 border rounded bg-info-main text-info-contrast">main</div>
-                <div className="p-2 border rounded bg-info-dark text-info-contrast">dark</div>
-                <div className="p-2 border rounded bg-info-light text-black">light</div>
-                <div className="p-2 border rounded bg-info-main text-info-contrast">hover</div>
-                <div className="p-2 border rounded bg-info-main text-info-contrast">selected</div>
-                <div className="p-2 border rounded bg-info-main text-info-contrast">focusVisible</div>
-                <div className="p-2 border rounded bg-info-main text-info-contrast">outlinedBorder</div>
-                <div className="p-2 border rounded bg-info-contrast text-info-main">contrast</div>
-              </div>
-              
-              <div className="space-y-2">
-                <h4 className="font-medium">Success (Green)</h4>
-                <div className="p-2 border rounded bg-success-main text-success-contrast">main</div>
-                <div className="p-2 border rounded bg-success-dark text-success-contrast">dark</div>
-                <div className="p-2 border rounded bg-success-light text-black">light</div>
-                <div className="p-2 border rounded bg-success-main text-success-contrast">hover</div>
-                <div className="p-2 border rounded bg-success-main text-success-contrast">selected</div>
-                <div className="p-2 border rounded bg-success-main text-success-contrast">focusVisible</div>
-                <div className="p-2 border rounded bg-success-main text-success-contrast">outlinedBorder</div>
-                <div className="p-2 border rounded bg-success-contrast text-success-main">contrast</div>
-              </div>
-            </div>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Paleta</TableHead>
+                  <TableHead>Variante</TableHead>
+                  <TableHead>Amostra</TableHead>
+                  <TableHead>Classe Tailwind</TableHead>
+                  <TableHead>Cor Base</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {/* Primary (Amicci) */}
+                <TableRow>
+                  <TableCell rowSpan={8} className="font-medium">Primary<br/>(Amicci)</TableCell>
+                  <TableCell>main</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-primary-main"></div></TableCell>
+                  <TableCell><code>bg-primary-main</code></TableCell>
+                  <TableCell>amicci-500</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>dark</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-primary-dark"></div></TableCell>
+                  <TableCell><code>bg-primary-dark</code></TableCell>
+                  <TableCell>amicci-700</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>light</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-primary-light"></div></TableCell>
+                  <TableCell><code>bg-primary-light</code></TableCell>
+                  <TableCell>amicci-300</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>hover</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-primary-hover"></div></TableCell>
+                  <TableCell><code>bg-primary-hover</code></TableCell>
+                  <TableCell>amicci-600</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>selected</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-primary-selected"></div></TableCell>
+                  <TableCell><code>bg-primary-selected</code></TableCell>
+                  <TableCell>amicci-700</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>focusVisible</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-primary-focusVisible"></div></TableCell>
+                  <TableCell><code>bg-primary-focusVisible</code></TableCell>
+                  <TableCell>amicci-200</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>outlinedBorder</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-primary-outlinedBorder"></div></TableCell>
+                  <TableCell><code>bg-primary-outlinedBorder</code></TableCell>
+                  <TableCell>amicci-300</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>contrast</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-primary-contrast"></div></TableCell>
+                  <TableCell><code>bg-primary-contrast</code></TableCell>
+                  <TableCell>white</TableCell>
+                </TableRow>
+
+                {/* Secondary (AmicciDark) */}
+                <TableRow>
+                  <TableCell rowSpan={8} className="font-medium">Secondary<br/>(AmicciDark)</TableCell>
+                  <TableCell>main</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-secondary-main"></div></TableCell>
+                  <TableCell><code>bg-secondary-main</code></TableCell>
+                  <TableCell>amicciDark-500</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>dark</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-secondary-dark"></div></TableCell>
+                  <TableCell><code>bg-secondary-dark</code></TableCell>
+                  <TableCell>amicciDark-700</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>light</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-secondary-light"></div></TableCell>
+                  <TableCell><code>bg-secondary-light</code></TableCell>
+                  <TableCell>amicciDark-300</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>hover</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-secondary-hover"></div></TableCell>
+                  <TableCell><code>bg-secondary-hover</code></TableCell>
+                  <TableCell>amicciDark-600</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>selected</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-secondary-selected"></div></TableCell>
+                  <TableCell><code>bg-secondary-selected</code></TableCell>
+                  <TableCell>amicciDark-700</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>focusVisible</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-secondary-focusVisible"></div></TableCell>
+                  <TableCell><code>bg-secondary-focusVisible</code></TableCell>
+                  <TableCell>amicciDark-200</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>outlinedBorder</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-secondary-outlinedBorder"></div></TableCell>
+                  <TableCell><code>bg-secondary-outlinedBorder</code></TableCell>
+                  <TableCell>amicciDark-300</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>contrast</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-secondary-contrast"></div></TableCell>
+                  <TableCell><code>bg-secondary-contrast</code></TableCell>
+                  <TableCell>white</TableCell>
+                </TableRow>
+
+                {/* Tertiary (Magenta) */}
+                <TableRow>
+                  <TableCell rowSpan={8} className="font-medium">Tertiary<br/>(Magenta)</TableCell>
+                  <TableCell>main</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-tertiary-main"></div></TableCell>
+                  <TableCell><code>bg-tertiary-main</code></TableCell>
+                  <TableCell>magenta-500</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>dark</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-tertiary-dark"></div></TableCell>
+                  <TableCell><code>bg-tertiary-dark</code></TableCell>
+                  <TableCell>magenta-700</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>light</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-tertiary-light"></div></TableCell>
+                  <TableCell><code>bg-tertiary-light</code></TableCell>
+                  <TableCell>magenta-300</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>hover</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-tertiary-hover"></div></TableCell>
+                  <TableCell><code>bg-tertiary-hover</code></TableCell>
+                  <TableCell>magenta-600</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>selected</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-tertiary-selected"></div></TableCell>
+                  <TableCell><code>bg-tertiary-selected</code></TableCell>
+                  <TableCell>magenta-700</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>focusVisible</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-tertiary-focusVisible"></div></TableCell>
+                  <TableCell><code>bg-tertiary-focusVisible</code></TableCell>
+                  <TableCell>magenta-200</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>outlinedBorder</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-tertiary-outlinedBorder"></div></TableCell>
+                  <TableCell><code>bg-tertiary-outlinedBorder</code></TableCell>
+                  <TableCell>magenta-300</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>contrast</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-tertiary-contrast"></div></TableCell>
+                  <TableCell><code>bg-tertiary-contrast</code></TableCell>
+                  <TableCell>white</TableCell>
+                </TableRow>
+
+                {/* Action (Gray) */}
+                <TableRow>
+                  <TableCell rowSpan={8} className="font-medium">Action<br/>(Gray)</TableCell>
+                  <TableCell>main</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-action-main"></div></TableCell>
+                  <TableCell><code>bg-action-main</code></TableCell>
+                  <TableCell>gray-700</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>dark</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-action-dark"></div></TableCell>
+                  <TableCell><code>bg-action-dark</code></TableCell>
+                  <TableCell>gray-800</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>light</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-action-light"></div></TableCell>
+                  <TableCell><code>bg-action-light</code></TableCell>
+                  <TableCell>gray-200</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>hover</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-action-hover"></div></TableCell>
+                  <TableCell><code>bg-action-hover</code></TableCell>
+                  <TableCell>gray-800</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>selected</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-action-selected"></div></TableCell>
+                  <TableCell><code>bg-action-selected</code></TableCell>
+                  <TableCell>gray-900</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>focusVisible</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-action-focusVisible"></div></TableCell>
+                  <TableCell><code>bg-action-focusVisible</code></TableCell>
+                  <TableCell>gray-100</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>outlinedBorder</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-action-outlinedBorder"></div></TableCell>
+                  <TableCell><code>bg-action-outlinedBorder</code></TableCell>
+                  <TableCell>gray-300</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>contrast</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-action-contrast"></div></TableCell>
+                  <TableCell><code>bg-action-contrast</code></TableCell>
+                  <TableCell>white</TableCell>
+                </TableRow>
+
+                {/* Error (Red) */}
+                <TableRow>
+                  <TableCell rowSpan={8} className="font-medium">Error<br/>(Red)</TableCell>
+                  <TableCell>main</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-error-main"></div></TableCell>
+                  <TableCell><code>bg-error-main</code></TableCell>
+                  <TableCell>red-500</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>dark</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-error-dark"></div></TableCell>
+                  <TableCell><code>bg-error-dark</code></TableCell>
+                  <TableCell>red-700</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>light</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-error-light"></div></TableCell>
+                  <TableCell><code>bg-error-light</code></TableCell>
+                  <TableCell>red-300</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>hover</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-error-hover"></div></TableCell>
+                  <TableCell><code>bg-error-hover</code></TableCell>
+                  <TableCell>red-600</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>selected</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-error-selected"></div></TableCell>
+                  <TableCell><code>bg-error-selected</code></TableCell>
+                  <TableCell>red-700</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>focusVisible</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-error-focusVisible"></div></TableCell>
+                  <TableCell><code>bg-error-focusVisible</code></TableCell>
+                  <TableCell>red-200</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>outlinedBorder</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-error-outlinedBorder"></div></TableCell>
+                  <TableCell><code>bg-error-outlinedBorder</code></TableCell>
+                  <TableCell>red-300</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>contrast</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-error-contrast"></div></TableCell>
+                  <TableCell><code>bg-error-contrast</code></TableCell>
+                  <TableCell>white</TableCell>
+                </TableRow>
+
+                {/* Warning (Yellow) */}
+                <TableRow>
+                  <TableCell rowSpan={8} className="font-medium">Warning<br/>(Yellow)</TableCell>
+                  <TableCell>main</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-warning-main"></div></TableCell>
+                  <TableCell><code>bg-warning-main</code></TableCell>
+                  <TableCell>yellow-500</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>dark</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-warning-dark"></div></TableCell>
+                  <TableCell><code>bg-warning-dark</code></TableCell>
+                  <TableCell>yellow-700</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>light</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-warning-light"></div></TableCell>
+                  <TableCell><code>bg-warning-light</code></TableCell>
+                  <TableCell>yellow-300</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>hover</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-warning-hover"></div></TableCell>
+                  <TableCell><code>bg-warning-hover</code></TableCell>
+                  <TableCell>yellow-600</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>selected</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-warning-selected"></div></TableCell>
+                  <TableCell><code>bg-warning-selected</code></TableCell>
+                  <TableCell>yellow-700</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>focusVisible</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-warning-focusVisible"></div></TableCell>
+                  <TableCell><code>bg-warning-focusVisible</code></TableCell>
+                  <TableCell>yellow-200</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>outlinedBorder</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-warning-outlinedBorder"></div></TableCell>
+                  <TableCell><code>bg-warning-outlinedBorder</code></TableCell>
+                  <TableCell>yellow-300</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>contrast</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-warning-contrast"></div></TableCell>
+                  <TableCell><code>bg-warning-contrast</code></TableCell>
+                  <TableCell>black</TableCell>
+                </TableRow>
+
+                {/* Info (Blue) */}
+                <TableRow>
+                  <TableCell rowSpan={8} className="font-medium">Info<br/>(Blue)</TableCell>
+                  <TableCell>main</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-info-main"></div></TableCell>
+                  <TableCell><code>bg-info-main</code></TableCell>
+                  <TableCell>blue-500</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>dark</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-info-dark"></div></TableCell>
+                  <TableCell><code>bg-info-dark</code></TableCell>
+                  <TableCell>blue-700</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>light</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-info-light"></div></TableCell>
+                  <TableCell><code>bg-info-light</code></TableCell>
+                  <TableCell>blue-300</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>hover</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-info-hover"></div></TableCell>
+                  <TableCell><code>bg-info-hover</code></TableCell>
+                  <TableCell>blue-600</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>selected</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-info-selected"></div></TableCell>
+                  <TableCell><code>bg-info-selected</code></TableCell>
+                  <TableCell>blue-700</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>focusVisible</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-info-focusVisible"></div></TableCell>
+                  <TableCell><code>bg-info-focusVisible</code></TableCell>
+                  <TableCell>blue-200</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>outlinedBorder</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-info-outlinedBorder"></div></TableCell>
+                  <TableCell><code>bg-info-outlinedBorder</code></TableCell>
+                  <TableCell>blue-300</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>contrast</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-info-contrast"></div></TableCell>
+                  <TableCell><code>bg-info-contrast</code></TableCell>
+                  <TableCell>white</TableCell>
+                </TableRow>
+
+                {/* Success (Green) */}
+                <TableRow>
+                  <TableCell rowSpan={8} className="font-medium">Success<br/>(Green)</TableCell>
+                  <TableCell>main</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-success-main"></div></TableCell>
+                  <TableCell><code>bg-success-main</code></TableCell>
+                  <TableCell>green-500</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>dark</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-success-dark"></div></TableCell>
+                  <TableCell><code>bg-success-dark</code></TableCell>
+                  <TableCell>green-700</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>light</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-success-light"></div></TableCell>
+                  <TableCell><code>bg-success-light</code></TableCell>
+                  <TableCell>green-300</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>hover</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-success-hover"></div></TableCell>
+                  <TableCell><code>bg-success-hover</code></TableCell>
+                  <TableCell>green-600</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>selected</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-success-selected"></div></TableCell>
+                  <TableCell><code>bg-success-selected</code></TableCell>
+                  <TableCell>green-700</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>focusVisible</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-success-focusVisible"></div></TableCell>
+                  <TableCell><code>bg-success-focusVisible</code></TableCell>
+                  <TableCell>green-200</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>outlinedBorder</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-success-outlinedBorder"></div></TableCell>
+                  <TableCell><code>bg-success-outlinedBorder</code></TableCell>
+                  <TableCell>green-300</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>contrast</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-success-contrast"></div>TableCell>
+                  <TableCell><code>bg-success-contrast</code></TableCell>
+                  <TableCell>white</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
           </ComponentCard>
         </TabsContent>
 
         <TabsContent value="baseColors">
           <ComponentCard title="Cores Base">
-            <p className="text-mui-text-secondary">
-              As cores base são um conjunto completo de cores de 50 a 900.
+            <p className="text-mui-text-secondary mb-4">
+              As cores base são um conjunto completo de cores de 50 a 900 que servem como fundação para todo o sistema.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-              <div className="space-y-2">
-                <h4 className="font-medium">Amicci</h4>
-                <div className="p-2 border rounded bg-amicci-50 text-gray-900">50</div>
-                <div className="p-2 border rounded bg-amicci-100 text-gray-900">100</div>
-                <div className="p-2 border rounded bg-amicci-200 text-gray-900">200</div>
-                <div className="p-2 border rounded bg-amicci-300 text-gray-900">300</div>
-                <div className="p-2 border rounded bg-amicci-400 text-gray-900">400</div>
-                <div className="p-2 border rounded bg-amicci-500 text-white">500</div>
-                <div className="p-2 border rounded bg-amicci-600 text-white">600</div>
-                <div className="p-2 border rounded bg-amicci-700 text-white">700</div>
-                <div className="p-2 border rounded bg-amicci-800 text-white">800</div>
-                <div className="p-2 border rounded bg-amicci-900 text-white">900</div>
-              </div>
-
-              <div className="space-y-2">
-                <h4 className="font-medium">AmicciDark</h4>
-                <div className="p-2 border rounded bg-amicciDark-50 text-gray-900">50</div>
-                <div className="p-2 border rounded bg-amicciDark-100 text-gray-900">100</div>
-                <div className="p-2 border rounded bg-amicciDark-200 text-gray-900">200</div>
-                <div className="p-2 border rounded bg-amicciDark-300 text-gray-900">300</div>
-                <div className="p-2 border rounded bg-amicciDark-400 text-white">400</div>
-                <div className="p-2 border rounded bg-amicciDark-500 text-white">500</div>
-                <div className="p-2 border rounded bg-amicciDark-600 text-white">600</div>
-                <div className="p-2 border rounded bg-amicciDark-700 text-white">700</div>
-                <div className="p-2 border rounded bg-amicciDark-800 text-white">800</div>
-                <div className="p-2 border rounded bg-amicciDark-900 text-white">900</div>
-              </div>
-
-              <div className="space-y-2">
-                <h4 className="font-medium">Blue</h4>
-                <div className="p-2 border rounded bg-blue-50 text-gray-900">50</div>
-                <div className="p-2 border rounded bg-blue-100 text-gray-900">100</div>
-                <div className="p-2 border rounded bg-blue-200 text-gray-900">200</div>
-                <div className="p-2 border rounded bg-blue-300 text-gray-900">300</div>
-                <div className="p-2 border rounded bg-blue-400 text-white">400</div>
-                <div className="p-2 border rounded bg-blue-500 text-white">500</div>
-                <div className="p-2 border rounded bg-blue-600 text-white">600</div>
-                <div className="p-2 border rounded bg-blue-700 text-white">700</div>
-                <div className="p-2 border rounded bg-blue-800 text-white">800</div>
-                <div className="p-2 border rounded bg-blue-900 text-white">900</div>
-              </div>
-
-              <div className="space-y-2">
-                <h4 className="font-medium">Magenta</h4>
-                <div className="p-2 border rounded bg-magenta-50 text-gray-900">50</div>
-                <div className="p-2 border rounded bg-magenta-100 text-gray-900">100</div>
-                <div className="p-2 border rounded bg-magenta-200 text-gray-900">200</div>
-                <div className="p-2 border rounded bg-magenta-300 text-gray-900">300</div>
-                <div className="p-2 border rounded bg-magenta-400 text-white">400</div>
-                <div className="p-2 border rounded bg-magenta-500 text-white">500</div>
-                <div className="p-2 border rounded bg-magenta-600 text-white">600</div>
-                <div className="p-2 border rounded bg-magenta-700 text-white">700</div>
-                <div className="p-2 border rounded bg-magenta-800 text-white">800</div>
-                <div className="p-2 border rounded bg-magenta-900 text-white">900</div>
-              </div>
-
-              <div className="space-y-2">
-                <h4 className="font-medium">Green</h4>
-                <div className="p-2 border rounded bg-green-50 text-gray-900">50</div>
-                <div className="p-2 border rounded bg-green-100 text-gray-900">100</div>
-                <div className="p-2 border rounded bg-green-200 text-gray-900">200</div>
-                <div className="p-2 border rounded bg-green-300 text-gray-900">300</div>
-                <div className="p-2 border rounded bg-green-400 text-gray-900">400</div>
-                <div className="p-2 border rounded bg-green-500 text-white">500</div>
-                <div className="p-2 border rounded bg-green-600 text-white">600</div>
-                <div className="p-2 border rounded bg-green-700 text-white">700</div>
-                <div className="p-2 border rounded bg-green-800 text-white">800</div>
-                <div className="p-2 border rounded bg-green-900 text-white">900</div>
-              </div>
-
-              <div className="space-y-2">
-                <h4 className="font-medium">Gray</h4>
-                <div className="p-2 border rounded bg-gray-50 text-gray-900">50</div>
-                <div className="p-2 border rounded bg-gray-100 text-gray-900">100</div>
-                <div className="p-2 border rounded bg-gray-200 text-gray-900">200</div>
-                <div className="p-2 border rounded bg-gray-300 text-gray-900">300</div>
-                <div className="p-2 border rounded bg-gray-400 text-gray-900">400</div>
-                <div className="p-2 border rounded bg-gray-500 text-white">500</div>
-                <div className="p-2 border rounded bg-gray-600 text-white">600</div>
-                <div className="p-2 border rounded bg-gray-700 text-white">700</div>
-                <div className="p-2 border rounded bg-gray-800 text-white">800</div>
-                <div className="p-2 border rounded bg-gray-900 text-white">900</div>
-              </div>
-
-              <div className="space-y-2">
-                <h4 className="font-medium">Orange</h4>
-                <div className="p-2 border rounded bg-orange-50 text-gray-900">50</div>
-                <div className="p-2 border rounded bg-orange-100 text-gray-900">100</div>
-                <div className="p-2 border rounded bg-orange-200 text-gray-900">200</div>
-                <div className="p-2 border rounded bg-orange-300 text-gray-900">300</div>
-                <div className="p-2 border rounded bg-orange-400 text-gray-900">400</div>
-                <div className="p-2 border rounded bg-orange-500 text-white">500</div>
-                <div className="p-2 border rounded bg-orange-600 text-white">600</div>
-                <div className="p-2 border rounded bg-orange-700 text-white">700</div>
-                <div className="p-2 border rounded bg-orange-800 text-white">800</div>
-                <div className="p-2 border rounded bg-orange-900 text-white">900</div>
-              </div>
-
-              <div className="space-y-2">
-                <h4 className="font-medium">Red</h4>
-                <div className="p-2 border rounded bg-red-50 text-gray-900">50</div>
-                <div className="p-2 border rounded bg-red-100 text-gray-900">100</div>
-                <div className="p-2 border rounded bg-red-200 text-gray-900">200</div>
-                <div className="p-2 border rounded bg-red-300 text-gray-900">300</div>
-                <div className="p-2 border rounded bg-red-400 text-white">400</div>
-                <div className="p-2 border rounded bg-red-500 text-white">500</div>
-                <div className="p-2 border rounded bg-red-600 text-white">600</div>
-                <div className="p-2 border rounded bg-red-700 text-white">700</div>
-                <div className="p-2 border rounded bg-red-800 text-white">800</div>
-                <div className="p-2 border rounded bg-red-900 text-white">900</div>
-              </div>
-
-              <div className="space-y-2">
-                <h4 className="font-medium">Yellow</h4>
-                <div className="p-2 border rounded bg-yellow-50 text-gray-900">50</div>
-                <div className="p-2 border rounded bg-yellow-100 text-gray-900">100</div>
-                <div className="p-2 border rounded bg-yellow-200 text-gray-900">200</div>
-                <div className="p-2 border rounded bg-yellow-300 text-gray-900">300</div>
-                <div className="p-2 border rounded bg-yellow-400 text-gray-900">400</div>
-                <div className="p-2 border rounded bg-yellow-500 text-gray-900">500</div>
-                <div className="p-2 border rounded bg-yellow-600 text-gray-900">600</div>
-                <div className="p-2 border rounded bg-yellow-700 text-gray-900">700</div>
-                <div className="p-2 border rounded bg-yellow-800 text-gray-900">800</div>
-                <div className="p-2 border rounded bg-yellow-900 text-gray-900">900</div>
-              </div>
-            </div>
-          </ComponentCard>
-        </TabsContent>
-      </Tabs>
-    </div>
-  );
-};
-
-export default Colors;
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Cor Base</TableHead>
+                  <TableHead>Amostra</TableHead>
+                  <TableHead>Peso</TableHead>
+                  <TableHead>Classe Tailwind</TableHead>
+                  <TableHead>Valor Hex</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {/* Amicci */}
+                <TableRow>
+                  <TableCell rowSpan={10} className="font-medium">Amicci</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-amicci-50"></div></TableCell>
+                  <TableCell>50</TableCell>
+                  <TableCell><code>bg-amicci-50</code></TableCell>
+                  <TableCell>#FFF5F7</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-amicci-100"></div></TableCell>
+                  <TableCell>100</TableCell>
+                  <TableCell><code>bg-amicci-100</code></TableCell>
+                  <TableCell>#FFE0E5</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-amicci-200"></div></TableCell>
+                  <TableCell>200</TableCell>
+                  <TableCell><code>bg-amicci-200</code></TableCell>
+                  <TableCell>#FFCCD4</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-amicci-300"></div></TableCell>
+                  <TableCell>300</TableCell>
+                  <TableCell><code>bg-amicci-300</code></TableCell>
+                  <TableCell>#FFB8C1</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-amicci-400"></div></TableCell>
+                  <TableCell>400</TableCell>
+                  <TableCell><code>bg-amicci-400</code></TableCell>
+                  <TableCell>#FFA3B0</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-amicci-500"></div></TableCell>
+                  <TableCell>500</TableCell>
+                  <TableCell><code>bg
