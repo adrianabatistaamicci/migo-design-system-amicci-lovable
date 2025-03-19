@@ -11,7 +11,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-primary-main text-primary-contrast hover:bg-primary-hover focus:bg-primary-focus focus-visible:bg-primary-focusVisible",
-        secondary: "bg-secondary-main text-secondary-contrast hover:bg-secondary-hover focus:bg-secondary-focus focus-visible:bg-secondary-focusVisible",
+        secondary: "bg-gray-500 text-gray-50 hover:bg-gray-600 focus:bg-gray-700 focus-visible:bg-gray-600",
         error: "bg-error-main text-error-contrast hover:bg-error-hover focus:bg-error-focus focus-visible:bg-error-focusVisible",
         warning: "bg-warning-main text-warning-contrast hover:bg-warning-hover focus:bg-warning-hover focus-visible:bg-warning-focusVisible",
         info: "bg-info-main text-info-contrast hover:bg-info-hover focus:bg-info-focus focus-visible:bg-info-focusVisible",
@@ -19,7 +19,7 @@ const buttonVariants = cva(
         
         // Outline variants
         "outline-default": "border border-primary-outlinedBorder bg-transparent text-primary-main hover:bg-primary-hover hover:text-primary-contrast",
-        "outline-secondary": "border border-secondary-outlinedBorder bg-transparent text-secondary-main hover:bg-secondary-hover hover:text-secondary-contrast",
+        "outline-secondary": "border border-gray-400 bg-transparent text-gray-600 hover:bg-gray-500 hover:text-gray-50",
         "outline-error": "border border-error-outlinedBorder bg-transparent text-error-main hover:bg-error-hover hover:text-error-contrast",
         "outline-warning": "border border-warning-outlinedBorder bg-transparent text-warning-main hover:bg-warning-hover hover:text-warning-contrast",
         "outline-info": "border border-info-outlinedBorder bg-transparent text-info-main hover:bg-info-hover hover:text-info-contrast",
@@ -27,7 +27,7 @@ const buttonVariants = cva(
         
         // Text variants
         "text-default": "bg-transparent text-primary-main hover:bg-primary-hover hover:text-primary-contrast",
-        "text-secondary": "bg-transparent text-secondary-main hover:bg-secondary-hover hover:text-secondary-contrast",
+        "text-secondary": "bg-transparent text-gray-600 hover:bg-gray-500 hover:text-gray-50",
         "text-error": "bg-transparent text-error-main hover:bg-error-hover hover:text-error-contrast",
         "text-warning": "bg-transparent text-warning-main hover:bg-warning-hover hover:text-warning-contrast",
         "text-info": "bg-transparent text-info-main hover:bg-info-hover hover:text-info-contrast",
