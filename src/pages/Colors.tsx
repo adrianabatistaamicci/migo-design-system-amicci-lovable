@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
@@ -226,6 +227,113 @@ const Colors = () => {
     );
   };
 
+  // New component for Text palette
+  const TextPaletteTable = () => {
+    const textVariants = [
+      { name: 'primary', baseColor: 'gray-900', opacity: '100%', description: 'Texto principal para conteúdo importante' },
+      { name: 'secondary', baseColor: 'gray-500', opacity: '100%', description: 'Texto secundário para descrições e detalhes' },
+      { name: 'disabled', baseColor: 'gray-400', opacity: '100%', description: 'Texto para elementos desabilitados' },
+      { name: 'hover', baseColor: '212323', opacity: '4%', description: 'Estado de hover para texto interativo' },
+      { name: 'selected', baseColor: '212323', opacity: '8%', description: 'Estado selecionado para texto interativo' },
+      { name: 'focus', baseColor: '212323', opacity: '12%', description: 'Estado de foco para texto interativo' },
+      { name: 'focusVisible', baseColor: '212323', opacity: '30%', description: 'Estado de foco visível para acessibilidade' },
+    ];
+    
+    return (
+      <div className="mb-10">
+        <div className="flex items-center gap-2 mb-4">
+          <h3 className="text-xl font-medium">Text</h3>
+          <Badge className="bg-gray-900 text-white">text-gray</Badge>
+        </div>
+        
+        <div className="overflow-x-auto">
+          <Table>
+            <TableHeader>
+              <TableRow className="border-b">
+                <TableHead className="w-[15%]">Variação</TableHead>
+                <TableHead className="w-[10%]">Amostra</TableHead>
+                <TableHead className="w-[15%]">Token CSS</TableHead>
+                <TableHead className="w-[15%]">Base Color</TableHead>
+                <TableHead className="w-[10%]">Opacidade</TableHead>
+                <TableHead className="w-[20%]">Uso recomendado</TableHead>
+                {showWCAG && <TableHead className="w-[7.5%]">Contraste (Branco)</TableHead>}
+                {showWCAG && <TableHead className="w-[7.5%]">Contraste (Preto)</TableHead>}
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {textVariants.map((variant) => {
+                // For the first three items (primary, secondary, disabled), use the baseColor directly
+                // For the others with opacity, apply the hex with calculated opacity
+                const isHexColor = !variant.baseColor.includes('-');
+                let hexColor;
+                
+                if (isHexColor) {
+                  // Convert hex and opacity to RGBA
+                  const r = parseInt(variant.baseColor.substring(0, 2), 16);
+                  const g = parseInt(variant.baseColor.substring(2, 4), 16);
+                  const b = parseInt(variant.baseColor.substring(4, 6), 16);
+                  const opacityValue = parseInt(variant.opacity) / 100;
+                  hexColor = `rgba(${r}, ${g}, ${b}, ${opacityValue})`;
+                } else {
+                  // Use the token directly
+                  hexColor = colorUtils.getComputedColor(`var(--${variant.baseColor})`);
+                }
+                
+                const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
+                const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
+                const needsDarkText = variant.name === 'disabled' || ['hover', 'selected', 'focus', 'focusVisible'].includes(variant.name);
+                
+                return (
+                  <TableRow key={`text-${variant.name}`} className="border-b hover:bg-gray-50">
+                    <TableCell>
+                      <code className="bg-gray-100 px-2 py-1 rounded text-sm">text-{variant.name}</code>
+                    </TableCell>
+                    <TableCell>
+                      <div 
+                        className={`h-8 w-16 rounded ${needsDarkText ? 'text-black' : 'text-white'} flex items-center justify-center border border-gray-200`} 
+                        style={{ backgroundColor: hexColor }}
+                      >
+                        Aa
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <code className="bg-gray-100 px-2 py-1 rounded text-sm">--text-{variant.name}</code>
+                    </TableCell>
+                    <TableCell>
+                      <code className="bg-gray-100 px-2 py-1 rounded text-sm">{variant.baseColor}</code>
+                    </TableCell>
+                    <TableCell>
+                      {variant.opacity}
+                    </TableCell>
+                    <TableCell className="text-mui-text-secondary text-sm">
+                      {variant.description}
+                    </TableCell>
+                    {showWCAG && (
+                      <TableCell>
+                        <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                          {contrastWithWhite.toFixed(2)}
+                          <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
+                        </div>
+                      </TableCell>
+                    )}
+                    {showWCAG && (
+                      <TableCell>
+                        <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                          {contrastWithBlack.toFixed(2)}
+                          <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
+                        </div>
+                      </TableCell>
+                    )}
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="space-y-8">
       <div>
@@ -283,6 +391,7 @@ const Colors = () => {
                   <Badge className="bg-warning-main text-black">warning-yellow</Badge>
                   <Badge className="bg-info-main text-info-contrast">info-blue</Badge>
                   <Badge className="bg-success-main text-success-contrast">success-green</Badge>
+                  <Badge className="bg-gray-900 text-white">text-gray</Badge>
                 </div>
               </div>
             </div>
@@ -315,6 +424,7 @@ const Colors = () => {
                 <li><code className="bg-mui-sidebar px-1 rounded">text-error-main</code> - Texto na cor de erro</li>
                 <li><code className="bg-mui-sidebar px-1 rounded">border-warning-outlinedBorder</code> - Borda na cor de contorno de aviso</li>
                 <li><code className="bg-mui-sidebar px-1 rounded">bg-amicci-500</code> - Cor básica amicci (500)</li>
+                <li><code className="bg-mui-sidebar px-1 rounded">text-gray-900</code> - Texto principal</li>
               </ul>
             </ComponentCard>
             
@@ -396,6 +506,8 @@ const Colors = () => {
               colorBase="green" 
               palettePrefix="success" 
             />
+            
+            <TextPaletteTable />
           </ComponentCard>
         </TabsContent>
         
