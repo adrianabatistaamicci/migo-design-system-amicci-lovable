@@ -29,7 +29,12 @@ const ColorSwatch = ({ color, className = "", onClick, textOverlay, weight }: Co
     >
       {textOverlay && (
         <span className={`text-sm font-medium ${getTextColor()}`}>
-          {textOverlay}
+          {textOverlay || "Aa"}
+        </span>
+      )}
+      {!textOverlay && (
+        <span className={`text-sm font-medium ${getTextColor()}`}>
+          Aa
         </span>
       )}
     </div>

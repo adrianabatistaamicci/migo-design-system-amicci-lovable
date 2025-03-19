@@ -2,6 +2,7 @@
 import React from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import ColorSwatch from './ColorSwatch';
+import { ClipboardCopy } from 'lucide-react';
 
 // Define interfaces for our data
 interface PaletteVariant {
@@ -12,6 +13,7 @@ interface PaletteVariant {
   cssToken?: string;
   opacity?: string;
   usage?: string;
+  hexValue?: string;
 }
 
 interface ColorPalette {
@@ -25,6 +27,20 @@ interface PaletteTableProps {
 }
 
 const PaletteTable = ({ palettes }: PaletteTableProps) => {
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
+    // You could add a toast notification here
+  };
+
+  const renderCopyButton = (text: string) => (
+    <button 
+      onClick={() => copyToClipboard(text)}
+      className="ml-2 text-gray-400 hover:text-gray-600 transition-colors"
+    >
+      <ClipboardCopy size={14} />
+    </button>
+  );
+
   return (
     <div className="space-y-8">
       {palettes.map((palette) => (
@@ -43,8 +59,8 @@ const PaletteTable = ({ palettes }: PaletteTableProps) => {
                 <TableHead>Amostra</TableHead>
                 <TableHead>Token CSS</TableHead>
                 <TableHead>Base Color</TableHead>
+                <TableHead>Hexadecimal</TableHead>
                 <TableHead>Opacidade</TableHead>
-                <TableHead>Uso recomendado</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -53,14 +69,19 @@ const PaletteTable = ({ palettes }: PaletteTableProps) => {
                   <TableCell className="font-mono">{`${palette.name.toLowerCase()}-${variant.name}`}</TableCell>
                   <TableCell>
                     <ColorSwatch 
-                      color={variant.colorClass} 
-                      textOverlay={variant.name === 'main' || variant.name === 'dark' || variant.name === 'light' ? 'Aa' : undefined}
+                      color={variant.colorClass}
                     />
                   </TableCell>
-                  <TableCell><code>{`--${palette.name.toLowerCase()}-${variant.name}`}</code></TableCell>
+                  <TableCell className="font-mono">
+                    <code>{`--${palette.name.toLowerCase()}-${variant.name}`}</code>
+                    {renderCopyButton(`--${palette.name.toLowerCase()}-${variant.name}`)}
+                  </TableCell>
                   <TableCell>{variant.baseColor}</TableCell>
+                  <TableCell className="font-mono">
+                    {variant.hexValue || "#F0F0F0"}
+                    {renderCopyButton(variant.hexValue || "#F0F0F0")}
+                  </TableCell>
                   <TableCell>{variant.opacity || '100%'}</TableCell>
-                  <TableCell>{variant.usage || ''}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
