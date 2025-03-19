@@ -16,16 +16,16 @@
     --popover-foreground: 222 47% 11%;
 
     /* Cores básicas */
-    --blue-50: #E3F2FD;
-    --blue-100: #BBDEFB;
-    --blue-200: #90CAF9;
-    --blue-300: #64B5F6;
-    --blue-400: #42A5F5;
-    --blue-500: #2196F3;
-    --blue-600: #1E88E5;
+    --blue-50: #EBF5FF;
+    --blue-100: #D6E8FF;
+    --blue-200: #ADC8FF;
+    --blue-300: #84A9FF;
+    --blue-400: #5A8CF8;
+    --blue-500: #2970FF;
+    --blue-600: #1F5AE8;
     --blue-700: #0057B2;
-    --blue-800: #1565C0;
-    --blue-900: #0D47A1;
+    --blue-800: #0C41A0;
+    --blue-900: #072B7A;
 
     --amicci-50: #F1FDFC;
     --amicci-100: #E3FAF9;
@@ -182,14 +182,14 @@
     --warning-outlinedBorder: #FFFDE7;
 
     /* Info (Blue) */
-    --info-main: #2196F3;
+    --info-main: #2970FF;
     --info-dark: #0057B2;
-    --info-light: #90CAF9;
+    --info-light: #ADC8FF;
     --info-contrast: #ffffff;
-    --info-hover: #1E88E5;
+    --info-hover: #1F5AE8;
     --info-selected: #0057B2;
-    --info-focusVisible: #BBDEFB;
-    --info-outlinedBorder: #E3F2FD;
+    --info-focusVisible: #D6E8FF;
+    --info-outlinedBorder: #EBF5FF;
 
     /* Success (Green) */
     --success-main: #12B76A;
