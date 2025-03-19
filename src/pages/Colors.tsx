@@ -18,7 +18,7 @@ const Colors = () => {
         <TabsList className="mb-4">
           <TabsTrigger value="overview">Visão geral</TabsTrigger>
           <TabsTrigger value="baseColors">Cores básicas</TabsTrigger>
-          <TabsTrigger value="palettes">Paletas Compostas</TabsTrigger>
+          <TabsTrigger value="palettes">Paletas compostas</TabsTrigger>
           <TabsTrigger value="usage">Uso</TabsTrigger>
         </TabsList>
 
