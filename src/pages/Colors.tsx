@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
@@ -19,6 +18,19 @@ const Colors = () => {
     setCopied(value);
     setTimeout(() => setCopied(null), 2000);
   };
+
+  // Explanation of variation types that will be displayed centrally
+  const variationTypesExplanation = [
+    { name: 'main', description: 'Cor principal para elementos de destaque' },
+    { name: 'dark', description: 'Variação mais escura para contraste' },
+    { name: 'light', description: 'Variação mais clara para fundos e elementos sutis' },
+    { name: 'hover', description: 'Estado de hover para elementos interativos' },
+    { name: 'selected', description: 'Estado selecionado para elementos interativos' },
+    { name: 'focus', description: 'Estado de foco para elementos interativos' },
+    { name: 'focusVisible', description: 'Estado de foco visível para acessibilidade' },
+    { name: 'outlinedBorder', description: 'Cor para bordas e contornos' },
+    { name: 'contrast', description: 'Cor de texto sobre fundos primários' }
+  ];
 
   const ColorTable = ({ title, colorPrefix }: { title: string; colorPrefix: string }) => {
     return (
@@ -125,15 +137,15 @@ const Colors = () => {
 
   const SemanticPaletteTable = ({ title, colorBase, palettePrefix }: { title: string; colorBase: string; palettePrefix: string }) => {
     const primaryVariants = palettePrefix === 'primary' ? [
-      { name: 'main', baseColor: 'amicci-500', opacity: '100%', description: 'Cor principal para elementos de destaque' },
-      { name: 'dark', baseColor: 'amicci-700', opacity: '100%', description: 'Variação mais escura para contraste' },
-      { name: 'light', baseColor: 'amicci-100', opacity: '100%', description: 'Variação mais clara para fundos e elementos sutis' },
-      { name: 'contrast', baseColor: 'common-white-main', opacity: '100%', description: 'Cor de texto sobre fundos primários' },
-      { name: 'hover', baseColor: 'amicci-500', opacity: '4%', description: 'Estado de hover para elementos interativos' },
-      { name: 'selected', baseColor: 'amicci-500', opacity: '8%', description: 'Estado selecionado para elementos interativos' },
-      { name: 'focus', baseColor: 'amicci-500', opacity: '12%', description: 'Estado de foco para elementos interativos' },
-      { name: 'focusVisible', baseColor: 'amicci-500', opacity: '30%', description: 'Estado de foco visível para acessibilidade' },
-      { name: 'outlinedBorder', baseColor: 'amicci-500', opacity: '50%', description: 'Cor para bordas e contornos' },
+      { name: 'main', baseColor: 'amicci-500', opacity: '100%' },
+      { name: 'dark', baseColor: 'amicci-700', opacity: '100%' },
+      { name: 'light', baseColor: 'amicci-100', opacity: '100%' },
+      { name: 'contrast', baseColor: 'common-white-main', opacity: '100%' },
+      { name: 'hover', baseColor: 'amicci-500', opacity: '4%' },
+      { name: 'selected', baseColor: 'amicci-500', opacity: '8%' },
+      { name: 'focus', baseColor: 'amicci-500', opacity: '12%' },
+      { name: 'focusVisible', baseColor: 'amicci-500', opacity: '30%' },
+      { name: 'outlinedBorder', baseColor: 'amicci-500', opacity: '50%' },
     ] : null;
     
     const variantBaseColorMap: Record<string, string> = {
@@ -159,17 +171,16 @@ const Colors = () => {
         </div>
         
         <div className="overflow-x-auto">
-          <Table>
+          <Table compact>
             <TableHeader>
               <TableRow className="border-b">
-                <TableHead className="w-[15%]">Variação</TableHead>
-                <TableHead className="w-[10%]">Amostra</TableHead>
-                <TableHead className="w-[15%]">Token CSS</TableHead>
-                <TableHead className="w-[15%]">Base Color</TableHead>
-                {palettePrefix === 'primary' && <TableHead className="w-[10%]">Opacidade</TableHead>}
-                <TableHead className="w-[30%]">Uso recomendado</TableHead>
-                {showWCAG && <TableHead className="w-[7.5%]">Contraste (Branco)</TableHead>}
-                {showWCAG && <TableHead className="w-[7.5%]">Contraste (Preto)</TableHead>}
+                <TableHead className="w-[20%]">Variação</TableHead>
+                <TableHead className="w-[15%]">Amostra</TableHead>
+                <TableHead className="w-[25%]">Token CSS</TableHead>
+                <TableHead className="w-[25%]">Base Color</TableHead>
+                {palettePrefix === 'primary' && <TableHead className="w-[15%]">Opacidade</TableHead>}
+                {showWCAG && <TableHead className="w-[12.5%]">Contr. (Branco)</TableHead>}
+                {showWCAG && <TableHead className="w-[12.5%]">Contr. (Preto)</TableHead>}
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -203,12 +214,9 @@ const Colors = () => {
                       <TableCell>
                         {variant.opacity}
                       </TableCell>
-                      <TableCell className="text-mui-text-secondary text-sm">
-                        {variant.description}
-                      </TableCell>
                       {showWCAG && (
                         <TableCell>
-                          <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                          <div className={`px-2 py-1 rounded text-center w-full ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
                             {contrastWithWhite.toFixed(2)}
                             <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
                           </div>
@@ -216,7 +224,7 @@ const Colors = () => {
                       )}
                       {showWCAG && (
                         <TableCell>
-                          <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                          <div className={`px-2 py-1 rounded text-center w-full ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
                             {contrastWithBlack.toFixed(2)}
                             <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
                           </div>
@@ -233,17 +241,6 @@ const Colors = () => {
                   const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
                   const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
                   const needsDarkText = ['light', 'focusVisible', 'outlinedBorder', 'contrast'].includes(variant);
-                  
-                  const usageMap: Record<string, string> = {
-                    main: 'Cor principal para elementos de destaque',
-                    dark: 'Variação mais escura para contraste',
-                    light: 'Variação mais clara para fundos e elementos sutis',
-                    hover: 'Estado de hover para elementos interativos',
-                    selected: 'Estado selecionado para elementos interativos',
-                    focusVisible: 'Estado de foco visível para acessibilidade',
-                    outlinedBorder: 'Cor para bordas e contornos',
-                    contrast: 'Cor de texto sobre fundos primários'
-                  };
                   
                   return (
                     <TableRow key={`${palettePrefix}-${variant}`} className="border-b hover:bg-gray-50">
@@ -264,12 +261,9 @@ const Colors = () => {
                       <TableCell>
                         <code className="bg-gray-100 px-2 py-1 rounded text-sm">{baseColorToken}</code>
                       </TableCell>
-                      <TableCell className="text-mui-text-secondary text-sm">
-                        {usageMap[variant]}
-                      </TableCell>
                       {showWCAG && (
                         <TableCell>
-                          <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                          <div className={`px-2 py-1 rounded text-center w-full ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
                             {contrastWithWhite.toFixed(2)}
                             <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
                           </div>
@@ -277,7 +271,7 @@ const Colors = () => {
                       )}
                       {showWCAG && (
                         <TableCell>
-                          <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                          <div className={`px-2 py-1 rounded text-center w-full ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
                             {contrastWithBlack.toFixed(2)}
                             <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
                           </div>
@@ -296,13 +290,13 @@ const Colors = () => {
 
   const TextPaletteTable = () => {
     const textVariants = [
-      { name: 'primary', baseColor: 'gray-900', opacity: '100%', description: 'Texto principal para conteúdo importante' },
-      { name: 'secondary', baseColor: 'gray-500', opacity: '100%', description: 'Texto secundário para descrições e detalhes' },
-      { name: 'disabled', baseColor: 'gray-400', opacity: '100%', description: 'Texto para elementos desabilitados' },
-      { name: 'hover', baseColor: '212323', opacity: '4%', description: 'Estado de hover para texto interativo' },
-      { name: 'selected', baseColor: '212323', opacity: '8%', description: 'Estado selecionado para texto interativo' },
-      { name: 'focus', baseColor: '212323', opacity: '12%', description: 'Estado de foco para texto interativo' },
-      { name: 'focusVisible', baseColor: '212323', opacity: '30%', description: 'Estado de foco visível para acessibilidade' },
+      { name: 'primary', baseColor: 'gray-900', opacity: '100%' },
+      { name: 'secondary', baseColor: 'gray-500', opacity: '100%' },
+      { name: 'disabled', baseColor: 'gray-400', opacity: '100%' },
+      { name: 'hover', baseColor: '212323', opacity: '4%' },
+      { name: 'selected', baseColor: '212323', opacity: '8%' },
+      { name: 'focus', baseColor: '212323', opacity: '12%' },
+      { name: 'focusVisible', baseColor: '212323', opacity: '30%' },
     ];
     
     return (
@@ -313,17 +307,16 @@ const Colors = () => {
         </div>
         
         <div className="overflow-x-auto">
-          <Table>
+          <Table compact>
             <TableHeader>
               <TableRow className="border-b">
-                <TableHead className="w-[15%]">Variação</TableHead>
-                <TableHead className="w-[10%]">Amostra</TableHead>
-                <TableHead className="w-[15%]">Token CSS</TableHead>
-                <TableHead className="w-[15%]">Base Color</TableHead>
-                <TableHead className="w-[10%]">Opacidade</TableHead>
-                <TableHead className="w-[20%]">Uso recomendado</TableHead>
-                {showWCAG && <TableHead className="w-[7.5%]">Contraste (Branco)</TableHead>}
-                {showWCAG && <TableHead className="w-[7.5%]">Contraste (Preto)</TableHead>}
+                <TableHead className="w-[20%]">Variação</TableHead>
+                <TableHead className="w-[15%]">Amostra</TableHead>
+                <TableHead className="w-[25%]">Token CSS</TableHead>
+                <TableHead className="w-[25%]">Base Color</TableHead>
+                <TableHead className="w-[15%]">Opacidade</TableHead>
+                {showWCAG && <TableHead className="w-[12.5%]">Contr. (Branco)</TableHead>}
+                {showWCAG && <TableHead className="w-[12.5%]">Contr. (Preto)</TableHead>}
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -367,12 +360,9 @@ const Colors = () => {
                     <TableCell>
                       {variant.opacity}
                     </TableCell>
-                    <TableCell className="text-mui-text-secondary text-sm">
-                      {variant.description}
-                    </TableCell>
                     {showWCAG && (
                       <TableCell>
-                        <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                        <div className={`px-2 py-1 rounded text-center w-full ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
                           {contrastWithWhite.toFixed(2)}
                           <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
                         </div>
@@ -380,7 +370,7 @@ const Colors = () => {
                     )}
                     {showWCAG && (
                       <TableCell>
-                        <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                        <div className={`px-2 py-1 rounded text-center w-full ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
                           {contrastWithBlack.toFixed(2)}
                           <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
                         </div>
@@ -395,6 +385,24 @@ const Colors = () => {
       </div>
     );
   };
+
+  // Central explanation component for all variation types
+  const VariationTypesExplanation = () => (
+    <div className="bg-gray-50 p-4 rounded-lg mb-8 border border-gray-200">
+      <h3 className="text-lg font-medium mb-3">Tipos de Variação de Cores</h3>
+      <p className="text-mui-text-secondary mb-3">
+        Cada paleta de cores inclui as seguintes variações para diferentes contextos e estados:
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {variationTypesExplanation.map((item) => (
+          <div key={item.name} className="flex items-start gap-2">
+            <code className="bg-gray-100 px-2 py-1 rounded text-sm shrink-0 mt-0.5">{item.name}</code>
+            <span className="text-sm text-mui-text-secondary">{item.description}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 
   return (
     <div className="space-y-8">
@@ -459,8 +467,10 @@ const Colors = () => {
               </div>
             </div>
             
+            <VariationTypesExplanation />
+            
             <p className="text-mui-text-secondary mb-4">
-              Cada paleta composta inclui variações para diferentes estados e usos:
+              Exemplos de variações em uma paleta composta:
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
@@ -521,6 +531,8 @@ const Colors = () => {
               As paletas compostas são construídas a partir das cores básicas e fornecem variações
               semânticas para diferentes estados e usos na interface.
             </p>
+            
+            <VariationTypesExplanation />
             
             <SemanticPaletteTable 
               title="Primary" 
@@ -599,6 +611,8 @@ const Colors = () => {
               Diretrizes para o uso correto das cores na interface.
             </p>
             
+            <VariationTypesExplanation />
+            
             <div className="space-y-8">
               <div>
                 <h3 className="text-xl font-medium mb-3">Utilização de Cores Básicas</h3>
@@ -611,104 +625,3 @@ const Colors = () => {
                   <li>Para bordas, utilize <code>gray-200</code> (bordas padrão) ou <code>gray-300</code> (bordas com mais ênfase)</li>
                   <li>Para elementos de destaque, utilize as cores primárias (amicci) ou secundárias (amicciDark)</li>
                   <li>Para estados de erro, utilize <code>red-500</code> ou a paleta composta <code>error-main</code></li>
-                  <li>Para sucesso, utilize <code>green-500</code> ou a paleta composta <code>success-main</code></li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-medium mb-3">Utilização de Paletas Compostas</h3>
-                <p className="text-mui-text-secondary mb-3">
-                  As paletas compostas fornecem um conjunto de variações semânticas para diferentes estados e usos:
-                </p>
-                <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
-                  <li>Use <code>primary-main</code> para elementos de ação principal e destaques</li>
-                  <li>Use <code>secondary-main</code> para elementos de apoio e ações secundárias</li>
-                  <li>Use <code>error-main</code> para mensagens de erro e alertas críticos</li>
-                  <li>Use <code>warning-main</code> para avisos e alertas não críticos</li>
-                  <li>Use <code>info-main</code> para mensagens informativas e dicas</li>
-                  <li>Use <code>success-main</code> para confirmações e mensagens de sucesso</li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-medium mb-3">Estados de Interação</h3>
-                <p className="text-mui-text-secondary mb-3">
-                  Para estados de interação, utilize as variações específicas de cada paleta:
-                </p>
-                <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
-                  <li>Use <code>primary-hover</code> para o estado de hover em botões primários</li>
-                  <li>Use <code>primary-selected</code> para itens selecionados em listas ou menus</li>
-                  <li>Use <code>primary-focusVisible</code> para destacar elementos em foco (acessibilidade)</li>
-                  <li>Use <code>primary-outlinedBorder</code> para bordas de elementos outlined</li>
-                  <li>Use <code>primary-contrast</code> para texto sobre fundos coloridos</li>
-                </ul>
-              </div>
-            </div>
-          </ComponentCard>
-        </TabsContent>
-        
-        <TabsContent value="accessibility" className="space-y-6">
-          <ComponentCard title="Acessibilidade">
-            <p className="text-mui-text-secondary mb-6">
-              Diretrizes para garantir acessibilidade com o uso das cores.
-            </p>
-            
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-xl font-medium mb-3">Contraste de Cores</h3>
-                <p className="text-mui-text-secondary mb-3">
-                  Para atender aos padrões WCAG 2.1 AA:
-                </p>
-                <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
-                  <li>Texto normal: contraste mínimo de 4.5:1 entre texto e fundo</li>
-                  <li>Texto grande: contraste mínimo de 3:1 entre texto e fundo</li>
-                  <li>Elementos interativos: contraste mínimo de 3:1 com elementos adjacentes</li>
-                  <li>Use a ferramenta de contraste WCAG para verificar a conformidade</li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-medium mb-3">Não Confie Apenas na Cor</h3>
-                <p className="text-mui-text-secondary mb-3">
-                  Para usuários com daltonismo ou baixa visão:
-                </p>
-                <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
-                  <li>Combine cores com ícones, formas ou padrões para transmitir informações</li>
-                  <li>Use texto descritivo junto com indicadores de cor</li>
-                  <li>Inclua legendas para gráficos e visualizações baseadas em cores</li>
-                  <li>Teste a interface em modo escala de cinza para verificar a usabilidade</li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-medium mb-3">Estados de Foco Visíveis</h3>
-                <p className="text-mui-text-secondary mb-3">
-                  Para usuários de teclado e tecnologias assistivas:
-                </p>
-                <ul className="list-disc list-inside ml-3 space-y-2 text-mui-text-secondary">
-                  <li>Mantenha os indicadores de foco visíveis (não remova os outlines)</li>
-                  <li>Use <code>primary-focusVisible</code> para destacar elementos em foco</li>
-                  <li>Garanta que o contraste do estado de foco seja de pelo menos 3:1</li>
-                  <li>Faça indicadores de foco mais visíveis e consistentes em toda a interface</li>
-                </ul>
-              </div>
-              
-              <div className="mt-6">
-                <Button 
-                  variant="outline" 
-                  onClick={() => setShowWCAG(!showWCAG)}
-                  className="text-sm flex gap-2 items-center"
-                >
-                  {showWCAG ? <EyeOff size={16} /> : <Eye size={16} />}
-                  {showWCAG ? 'Ocultar dados WCAG' : 'Mostrar dados WCAG'}
-                </Button>
-              </div>
-            </div>
-          </ComponentCard>
-        </TabsContent>
-      </Tabs>
-    </div>
-  );
-};
-
-export default Colors;
