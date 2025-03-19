@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Search as SearchIcon, GitHub, Moon, Sun } from 'lucide-react';
+import { Menu, X, Search as SearchIcon, Github, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
@@ -103,7 +102,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar, isSidebarOpen }) => {
             aria-label="GitHub repository"
           >
             <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-              <GitHub size={20} />
+              <Github size={20} />
             </a>
           </Button>
         </div>
