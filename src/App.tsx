@@ -8,6 +8,7 @@ import MainLayout from "./layouts/MainLayout";
 import Index from "./pages/Index";
 import Components from "./pages/Components";
 import ComponentDetail from "./pages/ComponentDetail";
+import Colors from "./pages/Colors";
 import NotFound from "./pages/NotFound";
 
 // Create a client
@@ -25,6 +26,7 @@ const App = () => {
               <Route path="/" element={<Index />} />
               <Route path="/components" element={<Components />} />
               <Route path="/components/:componentId" element={<ComponentDetail />} />
+              <Route path="/colors" element={<Colors />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             </Route>
             <Route path="*" element={<NotFound />} />
