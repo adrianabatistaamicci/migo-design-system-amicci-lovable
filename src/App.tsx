@@ -11,6 +11,7 @@ import ComponentDetail from "./pages/ComponentDetail";
 import Colors from "./pages/Colors";
 import Typography from "./pages/Typography";
 import Spacing from "./pages/Spacing";
+import Icons from "./pages/Icons";
 import NotFound from "./pages/NotFound";
 
 // Create a client
@@ -36,6 +37,8 @@ const App = () => {
               <Route path="/foundations/typography" element={<Typography />} />
               <Route path="/spacing" element={<Spacing />} />
               <Route path="/foundations/spacing" element={<Spacing />} />
+              <Route path="/icons" element={<Icons />} />
+              <Route path="/foundations/icons" element={<Icons />} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             </Route>
