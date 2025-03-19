@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import Components from "./pages/Components";
 import ComponentDetail from "./pages/ComponentDetail";
 import Colors from "./pages/Colors";
+import Typography from "./pages/Typography";
 import NotFound from "./pages/NotFound";
 
 // Create a client
@@ -30,6 +31,8 @@ const App = () => {
               {/* Foundation routes */}
               <Route path="/colors" element={<Colors />} />
               <Route path="/foundations/colors" element={<Colors />} />
+              <Route path="/typography" element={<Typography />} />
+              <Route path="/foundations/typography" element={<Typography />} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             </Route>
