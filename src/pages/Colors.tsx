@@ -124,15 +124,15 @@ const Colors = () => {
 
   const SemanticPaletteTable = ({ title, colorBase, palettePrefix }: { title: string; colorBase: string; palettePrefix: string }) => {
     const primaryVariants = palettePrefix === 'primary' ? [
-      { name: 'main', baseColor: 'amicci/500', opacity: '100%', description: 'Cor principal para elementos de destaque' },
-      { name: 'dark', baseColor: 'amicci/700', opacity: '100%', description: 'Variação mais escura para contraste' },
-      { name: 'light', baseColor: 'amicci/100', opacity: '100%', description: 'Variação mais clara para fundos e elementos sutis' },
-      { name: 'contrast', baseColor: 'common/white/main', opacity: '100%', description: 'Cor de texto sobre fundos primários' },
-      { name: 'hover', baseColor: '10C2C0', opacity: '4%', description: 'Estado de hover para elementos interativos' },
-      { name: 'selected', baseColor: '10C2C0', opacity: '8%', description: 'Estado selecionado para elementos interativos' },
-      { name: 'focus', baseColor: '10C2C0', opacity: '12%', description: 'Estado de foco para elementos interativos' },
-      { name: 'focusVisible', baseColor: '10C2C0', opacity: '30%', description: 'Estado de foco visível para acessibilidade' },
-      { name: 'outlinedBorder', baseColor: '10C2C0', opacity: '50%', description: 'Cor para bordas e contornos' },
+      { name: 'main', baseColor: 'amicci-500', opacity: '100%', description: 'Cor principal para elementos de destaque' },
+      { name: 'dark', baseColor: 'amicci-700', opacity: '100%', description: 'Variação mais escura para contraste' },
+      { name: 'light', baseColor: 'amicci-100', opacity: '100%', description: 'Variação mais clara para fundos e elementos sutis' },
+      { name: 'contrast', baseColor: 'common-white-main', opacity: '100%', description: 'Cor de texto sobre fundos primários' },
+      { name: 'hover', baseColor: 'amicci-500', opacity: '4%', description: 'Estado de hover para elementos interativos' },
+      { name: 'selected', baseColor: 'amicci-500', opacity: '8%', description: 'Estado selecionado para elementos interativos' },
+      { name: 'focus', baseColor: 'amicci-500', opacity: '12%', description: 'Estado de foco para elementos interativos' },
+      { name: 'focusVisible', baseColor: 'amicci-500', opacity: '30%', description: 'Estado de foco visível para acessibilidade' },
+      { name: 'outlinedBorder', baseColor: 'amicci-500', opacity: '50%', description: 'Cor para bordas e contornos' },
     ] : null;
     
     const variantBaseColorMap: Record<string, string> = {
@@ -153,7 +153,7 @@ const Colors = () => {
           <Badge className={`bg-${colorBase}-500 text-${
             ['yellow', 'amicci-100', 'amicci-200', 'amicci-300'].includes(`${colorBase}-500`) ? 'black' : 'white'
           }`}>
-            {palettePrefix === 'primary' ? 'base-color-amicci' : `base-color-${colorBase}`}
+            {`base-color-${colorBase}`}
           </Badge>
         </div>
         
@@ -778,4 +778,3 @@ const Colors = () => {
 };
 
 export default Colors;
-
