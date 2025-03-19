@@ -126,11 +126,11 @@ const Colors = () => {
     const variantBaseColorMap: Record<string, string> = {
       main: `${colorBase}-500`,
       dark: `${colorBase}-700`,
-      light: `${colorBase}-100`,
+      light: `${colorBase}-300`,
       hover: `${colorBase}-600`,
       selected: `${colorBase}-700`,
-      focusVisible: `${colorBase}-100`,
-      outlinedBorder: `${colorBase}-200`,
+      focusVisible: `${colorBase}-200`,
+      outlinedBorder: `${colorBase}-100`,
       contrast: 'white'
     };
     
@@ -145,26 +145,23 @@ const Colors = () => {
           <Table>
             <TableHeader>
               <TableRow className="border-b">
-                <TableHead className="w-[12%]">Variação</TableHead>
-                <TableHead className="w-[8%]">Amostra</TableHead>
-                <TableHead className="w-[12%]">Token CSS</TableHead>
-                <TableHead className="w-[12%]">Hexadecimal</TableHead>
-                <TableHead className="w-[12%]">RGB</TableHead>
-                <TableHead className="w-[12%]">Base Color</TableHead>
-                <TableHead className="w-[14%]">Uso recomendado</TableHead>
-                {showWCAG && <TableHead className="w-[9%]">Contraste (Branco)</TableHead>}
-                {showWCAG && <TableHead className="w-[9%]">Contraste (Preto)</TableHead>}
+                <TableHead className="w-[15%]">Variação</TableHead>
+                <TableHead className="w-[10%]">Amostra</TableHead>
+                <TableHead className="w-[15%]">Token CSS</TableHead>
+                <TableHead className="w-[15%]">Base Color</TableHead>
+                <TableHead className="w-[30%]">Uso recomendado</TableHead>
+                {showWCAG && <TableHead className="w-[7.5%]">Contraste (Branco)</TableHead>}
+                {showWCAG && <TableHead className="w-[7.5%]">Contraste (Preto)</TableHead>}
               </TableRow>
             </TableHeader>
             <TableBody>
               {['main', 'dark', 'light', 'hover', 'selected', 'focusVisible', 'outlinedBorder', 'contrast'].map((variant) => {
                 const colorCode = `var(--${palettePrefix}-${variant})`;
                 const hexColor = colorUtils.getComputedColor(colorCode);
-                const rgbColor = colorUtils.hexToRgb(hexColor);
+                const baseColorToken = variantBaseColorMap[variant];
                 const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
                 const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
                 const needsDarkText = ['light', 'focusVisible', 'outlinedBorder', 'contrast'].includes(variant);
-                const baseColor = variantBaseColorMap[variant];
                 
                 const usageMap: Record<string, string> = {
                   main: 'Cor principal para elementos de destaque',
@@ -194,29 +191,7 @@ const Colors = () => {
                       <code className="bg-gray-100 px-2 py-1 rounded text-sm">--{palettePrefix}-{variant}</code>
                     </TableCell>
                     <TableCell>
-                      <div className="flex items-center gap-1">
-                        <span>{hexColor}</span>
-                        <button 
-                          onClick={() => copyToClipboard(hexColor)}
-                          className="text-gray-500 hover:text-gray-700"
-                        >
-                          {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
-                        </button>
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <div className="flex items-center gap-1">
-                        <span>{rgbColor}</span>
-                        <button 
-                          onClick={() => copyToClipboard(rgbColor)}
-                          className="text-gray-500 hover:text-gray-700"
-                        >
-                          {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
-                        </button>
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <code className="bg-gray-100 px-2 py-1 rounded text-sm">{baseColor}</code>
+                      <code className="bg-gray-100 px-2 py-1 rounded text-sm">{baseColorToken}</code>
                     </TableCell>
                     <TableCell className="text-mui-text-secondary text-sm">
                       {usageMap[variant]}
