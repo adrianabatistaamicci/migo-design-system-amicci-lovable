@@ -13,6 +13,9 @@ import Typography from "./pages/Typography";
 import Spacing from "./pages/Spacing";
 import Icons from "./pages/Icons";
 import NotFound from "./pages/NotFound";
+// Import new component pages
+import InputPage from "./pages/components/Input";
+import CheckboxPage from "./pages/components/Checkbox";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -29,6 +32,10 @@ const App = () => {
               <Route path="/" element={<Index />} />
               <Route path="/components" element={<Components />} />
               <Route path="/components/:componentId" element={<ComponentDetail />} />
+              
+              {/* Component specific pages */}
+              <Route path="/components/input" element={<InputPage />} />
+              <Route path="/components/checkbox" element={<CheckboxPage />} />
               
               {/* Foundation routes */}
               <Route path="/colors" element={<Colors />} />
