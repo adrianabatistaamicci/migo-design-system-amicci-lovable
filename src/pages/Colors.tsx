@@ -124,6 +124,19 @@ const Colors = () => {
   };
 
   const SemanticPaletteTable = ({ title, colorBase, palettePrefix }: { title: string; colorBase: string; palettePrefix: string }) => {
+    const primaryVariants = palettePrefix === 'primary' ? [
+      { name: 'main', baseColor: 'amicci/500', opacity: '100%', description: 'Cor principal para elementos de destaque' },
+      { name: 'dark', baseColor: 'amicci/700', opacity: '100%', description: 'Variação mais escura para contraste' },
+      { name: 'light', baseColor: 'amicci/100', opacity: '100%', description: 'Variação mais clara para fundos e elementos sutis' },
+      { name: 'contrast', baseColor: 'common/white/main', opacity: '100%', description: 'Cor de texto sobre fundos primários' },
+      { name: 'hover', baseColor: '10C2C0', opacity: '4%', description: 'Estado de hover para elementos interativos' },
+      { name: 'selected', baseColor: '10C2C0', opacity: '8%', description: 'Estado selecionado para elementos interativos' },
+      { name: 'focus', baseColor: '10C2C0', opacity: '12%', description: 'Estado de foco para elementos interativos' },
+      { name: 'focusVisible', baseColor: '10C2C0', opacity: '30%', description: 'Estado de foco visível para acessibilidade' },
+      { name: 'outlinedBorder', baseColor: '10C2C0', opacity: '50%', description: 'Cor para bordas e contornos' },
+    ] : null;
+    
+    // Normal variants mapping for non-primary palettes
     const variantBaseColorMap: Record<string, string> = {
       main: `${colorBase}-500`,
       dark: `${colorBase}-700`,
@@ -142,7 +155,7 @@ const Colors = () => {
           <Badge className={`bg-${colorBase}-500 text-${
             ['yellow', 'amicci-100', 'amicci-200', 'amicci-300'].includes(`${colorBase}-500`) ? 'black' : 'white'
           }`}>
-            {`${palettePrefix}-${colorBase}`}
+            {palettePrefix === 'primary' ? 'base-color-amicci' : `${palettePrefix}-${colorBase}`}
           </Badge>
         </div>
         
@@ -154,72 +167,128 @@ const Colors = () => {
                 <TableHead className="w-[10%]">Amostra</TableHead>
                 <TableHead className="w-[15%]">Token CSS</TableHead>
                 <TableHead className="w-[15%]">Base Color</TableHead>
+                {palettePrefix === 'primary' && <TableHead className="w-[10%]">Opacidade</TableHead>}
                 <TableHead className="w-[30%]">Uso recomendado</TableHead>
                 {showWCAG && <TableHead className="w-[7.5%]">Contraste (Branco)</TableHead>}
                 {showWCAG && <TableHead className="w-[7.5%]">Contraste (Preto)</TableHead>}
               </TableRow>
             </TableHeader>
             <TableBody>
-              {['main', 'dark', 'light', 'hover', 'selected', 'focusVisible', 'outlinedBorder', 'contrast'].map((variant) => {
-                const colorCode = `var(--${palettePrefix}-${variant})`;
-                const hexColor = colorUtils.getComputedColor(colorCode);
-                const baseColorToken = variantBaseColorMap[variant];
-                const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
-                const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
-                const needsDarkText = ['light', 'focusVisible', 'outlinedBorder', 'contrast'].includes(variant);
-                
-                const usageMap: Record<string, string> = {
-                  main: 'Cor principal para elementos de destaque',
-                  dark: 'Variação mais escura para contraste',
-                  light: 'Variação mais clara para fundos e elementos sutis',
-                  hover: 'Estado de hover para elementos interativos',
-                  selected: 'Estado selecionado para elementos interativos',
-                  focusVisible: 'Estado de foco visível para acessibilidade',
-                  outlinedBorder: 'Cor para bordas e contornos',
-                  contrast: 'Cor de texto sobre fundos primários'
-                };
-                
-                return (
-                  <TableRow key={`${palettePrefix}-${variant}`} className="border-b hover:bg-gray-50">
-                    <TableCell>
-                      <code className="bg-gray-100 px-2 py-1 rounded text-sm">{palettePrefix}-{variant}</code>
-                    </TableCell>
-                    <TableCell>
-                      <div 
-                        className={`h-8 w-16 rounded ${needsDarkText ? 'text-black' : 'text-white'} flex items-center justify-center border border-gray-200`} 
-                        style={{ backgroundColor: hexColor }}
-                      >
-                        Aa
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <code className="bg-gray-100 px-2 py-1 rounded text-sm">--{palettePrefix}-{variant}</code>
-                    </TableCell>
-                    <TableCell>
-                      <code className="bg-gray-100 px-2 py-1 rounded text-sm">{baseColorToken}</code>
-                    </TableCell>
-                    <TableCell className="text-mui-text-secondary text-sm">
-                      {usageMap[variant]}
-                    </TableCell>
-                    {showWCAG && (
+              {primaryVariants && palettePrefix === 'primary' ? (
+                primaryVariants.map((variant) => {
+                  const colorCode = `var(--${palettePrefix}-${variant.name})`;
+                  const hexColor = colorUtils.getComputedColor(colorCode);
+                  const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
+                  const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
+                  const needsDarkText = ['light', 'hover', 'selected', 'focus', 'focusVisible', 'outlinedBorder'].includes(variant.name);
+                  
+                  return (
+                    <TableRow key={`${palettePrefix}-${variant.name}`} className="border-b hover:bg-gray-50">
                       <TableCell>
-                        <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                          {contrastWithWhite.toFixed(2)}
-                          <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
+                        <code className="bg-gray-100 px-2 py-1 rounded text-sm">{palettePrefix}-{variant.name}</code>
+                      </TableCell>
+                      <TableCell>
+                        <div 
+                          className={`h-8 w-16 rounded ${needsDarkText ? 'text-black' : 'text-white'} flex items-center justify-center border border-gray-200`} 
+                          style={{ backgroundColor: hexColor }}
+                        >
+                          Aa
                         </div>
                       </TableCell>
-                    )}
-                    {showWCAG && (
                       <TableCell>
-                        <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
-                          {contrastWithBlack.toFixed(2)}
-                          <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
+                        <code className="bg-gray-100 px-2 py-1 rounded text-sm">--{palettePrefix}-{variant.name}</code>
+                      </TableCell>
+                      <TableCell>
+                        <code className="bg-gray-100 px-2 py-1 rounded text-sm">{variant.baseColor}</code>
+                      </TableCell>
+                      <TableCell>
+                        {variant.opacity}
+                      </TableCell>
+                      <TableCell className="text-mui-text-secondary text-sm">
+                        {variant.description}
+                      </TableCell>
+                      {showWCAG && (
+                        <TableCell>
+                          <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                            {contrastWithWhite.toFixed(2)}
+                            <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
+                          </div>
+                        </TableCell>
+                      )}
+                      {showWCAG && (
+                        <TableCell>
+                          <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                            {contrastWithBlack.toFixed(2)}
+                            <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
+                          </div>
+                        </TableCell>
+                      )}
+                    </TableRow>
+                  );
+                })
+              ) : (
+                // Standard variant rows for non-primary palettes
+                ['main', 'dark', 'light', 'hover', 'selected', 'focusVisible', 'outlinedBorder', 'contrast'].map((variant) => {
+                  const colorCode = `var(--${palettePrefix}-${variant})`;
+                  const hexColor = colorUtils.getComputedColor(colorCode);
+                  const baseColorToken = variantBaseColorMap[variant];
+                  const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
+                  const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
+                  const needsDarkText = ['light', 'focusVisible', 'outlinedBorder', 'contrast'].includes(variant);
+                  
+                  const usageMap: Record<string, string> = {
+                    main: 'Cor principal para elementos de destaque',
+                    dark: 'Variação mais escura para contraste',
+                    light: 'Variação mais clara para fundos e elementos sutis',
+                    hover: 'Estado de hover para elementos interativos',
+                    selected: 'Estado selecionado para elementos interativos',
+                    focusVisible: 'Estado de foco visível para acessibilidade',
+                    outlinedBorder: 'Cor para bordas e contornos',
+                    contrast: 'Cor de texto sobre fundos primários'
+                  };
+                  
+                  return (
+                    <TableRow key={`${palettePrefix}-${variant}`} className="border-b hover:bg-gray-50">
+                      <TableCell>
+                        <code className="bg-gray-100 px-2 py-1 rounded text-sm">{palettePrefix}-{variant}</code>
+                      </TableCell>
+                      <TableCell>
+                        <div 
+                          className={`h-8 w-16 rounded ${needsDarkText ? 'text-black' : 'text-white'} flex items-center justify-center border border-gray-200`} 
+                          style={{ backgroundColor: hexColor }}
+                        >
+                          Aa
                         </div>
                       </TableCell>
-                    )}
-                  </TableRow>
-                );
-              })}
+                      <TableCell>
+                        <code className="bg-gray-100 px-2 py-1 rounded text-sm">--{palettePrefix}-{variant}</code>
+                      </TableCell>
+                      <TableCell>
+                        <code className="bg-gray-100 px-2 py-1 rounded text-sm">{baseColorToken}</code>
+                      </TableCell>
+                      <TableCell className="text-mui-text-secondary text-sm">
+                        {usageMap[variant]}
+                      </TableCell>
+                      {showWCAG && (
+                        <TableCell>
+                          <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                            {contrastWithWhite.toFixed(2)}
+                            <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
+                          </div>
+                        </TableCell>
+                      )}
+                      {showWCAG && (
+                        <TableCell>
+                          <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                            {contrastWithBlack.toFixed(2)}
+                            <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
+                          </div>
+                        </TableCell>
+                      )}
+                    </TableRow>
+                  );
+                })
+              )}
             </TableBody>
           </Table>
         </div>
@@ -227,7 +296,7 @@ const Colors = () => {
     );
   };
 
-  // New component for Text palette
+  // Text palette table component
   const TextPaletteTable = () => {
     const textVariants = [
       { name: 'primary', baseColor: 'gray-900', opacity: '100%', description: 'Texto principal para conteúdo importante' },

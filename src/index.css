@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap');
 
 @tailwind base;
@@ -118,14 +119,15 @@
     /* Primary (Amicci) */
     --primary: 180 85% 41%;
     --primary-foreground: 180 40% 98%;
-    --primary-main: #10C2C0;
-    --primary-dark: #0C8482;
-    --primary-light: #93EDEA;
+    --primary-main: var(--amicci-500);
+    --primary-dark: var(--amicci-700);
+    --primary-light: var(--amicci-100);
     --primary-contrast: #ffffff;
-    --primary-hover: #0EA3A1;
-    --primary-selected: #0C8482;
-    --primary-focusVisible: #C7F5F3;
-    --primary-outlinedBorder: #E3FAF9;
+    --primary-hover: rgba(16, 194, 192, 0.04);
+    --primary-selected: rgba(16, 194, 192, 0.08);
+    --primary-focus: rgba(16, 194, 192, 0.12);
+    --primary-focusVisible: rgba(16, 194, 192, 0.30);
+    --primary-outlinedBorder: rgba(16, 194, 192, 0.50);
 
     /* Secondary (AmicciDark) */
     --secondary: 210 20% 96%;
