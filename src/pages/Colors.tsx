@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
@@ -648,7 +649,11 @@ const Colors = () => {
                 </table>
               </div>
             </div>
-            
-            {/* Secondary Palette */}
-            <div className="mb-10">
-              <div className="flex items-center gap-2 mb-4">
+          </ComponentCard>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+};
+
+export default Colors;

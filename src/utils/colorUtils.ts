@@ -142,4 +142,3 @@ export const colorUtils = {
     return isLargeText ? contrastRatio >= 4.5 : contrastRatio >= 7;
   }
 };
-
