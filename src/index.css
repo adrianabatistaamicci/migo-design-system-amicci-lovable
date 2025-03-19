@@ -16,21 +16,99 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
+    /* Primary (Amicci) */
     --primary: 180 85% 41%;
     --primary-foreground: 180 40% 98%;
+    --primary-main: #10C2C0;
+    --primary-dark: #127279;
+    --primary-light: #6FE0DC;
+    --primary-contrast: #ffffff;
+    --primary-hover: #199BA0;
+    --primary-selected: #127279;
+    --primary-focusVisible: #ACE0DD;
+    --primary-outlinedBorder: #D9F4F2;
 
+    /* Secondary (AmicciDark) */
     --secondary: 210 20% 96%;
     --secondary-foreground: 215 25% 27%;
+    --secondary-main: #00A8CB;
+    --secondary-dark: #00657A;
+    --secondary-light: #66CBE0;
+    --secondary-contrast: #ffffff;
+    --secondary-hover: #0086A2;
+    --secondary-selected: #00657A;
+    --secondary-focusVisible: #99DCEA;
+    --secondary-outlinedBorder: #CCEEF5;
 
+    /* Tertiary (Magenta) */
+    --tertiary-main: #E91E63;
+    --tertiary-dark: #C2185B;
+    --tertiary-light: #F06292;
+    --tertiary-contrast: #ffffff;
+    --tertiary-hover: #D81B60;
+    --tertiary-selected: #C2185B;
+    --tertiary-focusVisible: #F48FB1;
+    --tertiary-outlinedBorder: #F8BBD0;
+
+    /* Action (Gray) */
+    --action-main: #9E9E9E;
+    --action-dark: #616161;
+    --action-light: #E0E0E0;
+    --action-contrast: #ffffff;
+    --action-hover: #757575;
+    --action-selected: #616161;
+    --action-focusVisible: #EEEEEE;
+    --action-outlinedBorder: #F5F5F5;
+
+    /* Error (Red) */
+    --error: 0 84% 60%;
+    --error-foreground: 0 0% 100%;
+    --error-main: #F44336;
+    --error-dark: #D32F2F;
+    --error-light: #E57373;
+    --error-contrast: #ffffff;
+    --error-hover: #E53935;
+    --error-selected: #D32F2F;
+    --error-focusVisible: #EF9A9A;
+    --error-outlinedBorder: #FFCDD2;
+
+    /* Warning (Yellow) */
+    --warning-main: #FFEB3B;
+    --warning-dark: #FBC02D;
+    --warning-light: #FFF176;
+    --warning-contrast: #000000;
+    --warning-hover: #FDD835;
+    --warning-selected: #FBC02D;
+    --warning-focusVisible: #FFF59D;
+    --warning-outlinedBorder: #FFF9C4;
+
+    /* Info (Blue) */
+    --info-main: #2196F3;
+    --info-dark: #1976D2;
+    --info-light: #64B5F6;
+    --info-contrast: #ffffff;
+    --info-hover: #1E88E5;
+    --info-selected: #1976D2;
+    --info-focusVisible: #90CAF9;
+    --info-outlinedBorder: #BBDEFB;
+
+    /* Success (Green) */
+    --success-main: #4CAF50;
+    --success-dark: #388E3C;
+    --success-light: #81C784;
+    --success-contrast: #ffffff;
+    --success-hover: #43A047;
+    --success-selected: #388E3C;
+    --success-focusVisible: #A5D6A7;
+    --success-outlinedBorder: #C8E6C9;
+
+    /* Legacy sistema de cores */
     --muted: 210 20% 96%;
     --muted-foreground: 215 16% 47%;
-
     --accent: 210 20% 96%;
     --accent-foreground: 215 25% 27%;
-
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 214 32% 91%;
     --input: 214 32% 91%;
     --ring: 180 85% 41%;
@@ -48,7 +126,7 @@
   }
   
   ::selection {
-    @apply bg-primary-500 text-white;
+    @apply bg-primary-main text-white;
   }
 }
 

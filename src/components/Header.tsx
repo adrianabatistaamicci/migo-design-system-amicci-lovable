@@ -44,7 +44,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar, isSidebarOpen }) => {
           
           <Link 
             to="/" 
-            className="flex items-center gap-2 font-medium text-primary-800"
+            className="flex items-center gap-2 font-medium text-primary-dark"
           >
             <img 
               src="/lovable-uploads/f8b89c21-724c-4c22-a8f9-4c1f698665dd.png" 
@@ -84,7 +84,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar, isSidebarOpen }) => {
             onClick={() => setSearchActive(true)}
             aria-label="Search"
           >
-            <SearchIcon size={20} className="text-primary-700" />
+            <SearchIcon size={20} className="text-primary-dark" />
           </Button>
           
           <Button 
@@ -93,7 +93,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar, isSidebarOpen }) => {
             className="hidden sm:flex"
             aria-label="Toggle theme"
           >
-            <Sun size={20} className="rotate-0 scale-100 transition-transform text-primary-700" />
+            <Sun size={20} className="rotate-0 scale-100 transition-transform text-primary-dark" />
           </Button>
           
           <Button 
@@ -104,7 +104,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar, isSidebarOpen }) => {
             aria-label="GitHub repository"
           >
             <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-              <Github size={20} className="text-primary-700" />
+              <Github size={20} className="text-primary-dark" />
             </a>
           </Button>
         </div>
