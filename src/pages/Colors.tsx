@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
@@ -137,7 +138,7 @@ const Colors = () => {
     return (
       <div className="mb-10">
         <div className="flex items-center gap-2 mb-4">
-          <h3 className="text-xl font-medium">{title} (baseada em {colorBase})</h3>
+          <h3 className="text-xl font-medium">{title}</h3>
           <Badge className={`bg-${colorBase}-500`}>{colorBase}</Badge>
         </div>
         
