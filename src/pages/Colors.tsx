@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
@@ -139,7 +138,11 @@ const Colors = () => {
       <div className="mb-10">
         <div className="flex items-center gap-2 mb-4">
           <h3 className="text-xl font-medium">{title}</h3>
-          <Badge className={`bg-${colorBase}-500`}>{colorBase}</Badge>
+          <Badge className={`bg-${colorBase}-500 text-${
+            ['yellow', 'amicci-100', 'amicci-200', 'amicci-300'].includes(`${colorBase}-500`) ? 'black' : 'white'
+          }`}>
+            {`${palettePrefix}-${colorBase}`}
+          </Badge>
         </div>
         
         <div className="overflow-x-auto">
@@ -254,15 +257,15 @@ const Colors = () => {
                   Um conjunto completo de cores de 50 a 900 para:
                 </p>
                 <div className="flex flex-wrap gap-1 mt-2">
-                  <Badge className="bg-amicci-500">amicci</Badge>
-                  <Badge className="bg-amicciDark-500">amicciDark</Badge>
-                  <Badge className="bg-blue-500">blue</Badge>
-                  <Badge className="bg-magenta-500">magenta</Badge>
-                  <Badge className="bg-green-500">green</Badge>
-                  <Badge className="bg-gray-500">gray</Badge>
-                  <Badge className="bg-orange-500">orange</Badge>
-                  <Badge className="bg-red-500">red</Badge>
-                  <Badge className="bg-yellow-500 text-black">yellow</Badge>
+                  <Badge className="bg-amicci-500 text-white">base-color-amicci</Badge>
+                  <Badge className="bg-amicciDark-500 text-white">base-color-amicciDark</Badge>
+                  <Badge className="bg-blue-500 text-white">base-color-blue</Badge>
+                  <Badge className="bg-magenta-500 text-white">base-color-magenta</Badge>
+                  <Badge className="bg-green-500 text-white">base-color-green</Badge>
+                  <Badge className="bg-gray-500 text-white">base-color-gray</Badge>
+                  <Badge className="bg-orange-500 text-white">base-color-orange</Badge>
+                  <Badge className="bg-red-500 text-white">base-color-red</Badge>
+                  <Badge className="bg-yellow-500 text-black">base-color-yellow</Badge>
                 </div>
               </div>
               
@@ -272,14 +275,14 @@ const Colors = () => {
                   Paletas semânticas que utilizam as cores básicas como base:
                 </p>
                 <div className="flex flex-wrap gap-1 mt-2">
-                  <Badge className="bg-primary-main">primary</Badge>
-                  <Badge className="bg-secondary-main">secondary</Badge>
-                  <Badge className="bg-tertiary-main">tertiary</Badge>
-                  <Badge className="bg-action-main">action</Badge>
-                  <Badge className="bg-error-main">error</Badge>
-                  <Badge className="bg-warning-main text-black">warning</Badge>
-                  <Badge className="bg-info-main">info</Badge>
-                  <Badge className="bg-success-main">success</Badge>
+                  <Badge className="bg-primary-main text-primary-contrast">primary-amicci</Badge>
+                  <Badge className="bg-secondary-main text-secondary-contrast">secondary-amicciDark</Badge>
+                  <Badge className="bg-tertiary-main text-tertiary-contrast">tertiary-magenta</Badge>
+                  <Badge className="bg-action-main text-action-contrast">action-blue</Badge>
+                  <Badge className="bg-error-main text-error-contrast">error-red</Badge>
+                  <Badge className="bg-warning-main text-black">warning-yellow</Badge>
+                  <Badge className="bg-info-main text-info-contrast">info-blue</Badge>
+                  <Badge className="bg-success-main text-success-contrast">success-green</Badge>
                 </div>
               </div>
             </div>
