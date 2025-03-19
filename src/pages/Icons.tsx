@@ -1,80 +1,106 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Search } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Search, Copy, Check } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { toast } from "@/components/ui/use-toast";
+import { 
+  getMaterialIconUrl, 
+  ICON_SIZES, 
+  getIconSizeClass, 
+  shouldInvertIcon,
+  formatIconName,
+  ICON_CATEGORIES,
+  MATERIAL_ICONS
+} from '@/utils/iconUtils';
 
-// Material Design Icons component
-const IconsGrid = ({ filteredIcons }: { filteredIcons: { name: string; path: string }[] }) => {
+// Material Design Icons component with copy functionality
+const IconsGrid = ({ filteredIcons }: { filteredIcons: string[] }) => {
+  const [copiedIcon, setCopiedIcon] = useState<string | null>(null);
+
   const copyIconName = (iconName: string) => {
     navigator.clipboard.writeText(iconName);
+    setCopiedIcon(iconName);
+    
     toast({
       title: "Icon name copied",
       description: `"${iconName}" has been copied to your clipboard.`,
     });
+    
+    // Reset the copied state after 2 seconds
+    setTimeout(() => {
+      setCopiedIcon(null);
+    }, 2000);
   };
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-6">
-      {filteredIcons.map((icon) => (
+      {filteredIcons.map((iconName) => (
         <Button
-          key={icon.name}
+          key={iconName}
           variant="outline"
-          className="h-24 flex flex-col items-center justify-center gap-2 p-2 hover:bg-muted hover:border-primary"
-          onClick={() => copyIconName(icon.name)}
+          className="h-24 flex flex-col items-center justify-center gap-2 p-2 hover:bg-muted hover:border-primary group relative"
+          onClick={() => copyIconName(iconName)}
         >
-          <img src={icon.path} alt={icon.name} className="w-8 h-8" />
-          <span className="text-xs text-center truncate w-full">{icon.name}</span>
+          <img src={getMaterialIconUrl(iconName)} alt={iconName} className="w-8 h-8" />
+          <span className="text-xs text-center truncate w-full">{formatIconName(iconName)}</span>
+          <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            {copiedIcon === iconName ? (
+              <Check className="h-4 w-4 text-green-500" />
+            ) : (
+              <Copy className="h-4 w-4 text-muted-foreground" />
+            )}
+          </div>
         </Button>
       ))}
+      {filteredIcons.length === 0 && (
+        <div className="col-span-full text-center py-8 text-muted-foreground">
+          No icons found matching your search criteria.
+        </div>
+      )}
     </div>
   );
 };
 
-// Sample of Material Design icons (in a real implementation, you would have all icons)
-const materialIcons = [
-  { name: "account_circle", path: "https://fonts.gstatic.com/s/i/materialiconsoutlined/account_circle/v12/24px.svg" },
-  { name: "add", path: "https://fonts.gstatic.com/s/i/materialiconsoutlined/add/v12/24px.svg" },
-  { name: "check", path: "https://fonts.gstatic.com/s/i/materialiconsoutlined/check/v12/24px.svg" },
-  { name: "close", path: "https://fonts.gstatic.com/s/i/materialiconsoutlined/close/v12/24px.svg" },
-  { name: "delete", path: "https://fonts.gstatic.com/s/i/materialiconsoutlined/delete/v12/24px.svg" },
-  { name: "edit", path: "https://fonts.gstatic.com/s/i/materialiconsoutlined/edit/v12/24px.svg" },
-  { name: "favorite", path: "https://fonts.gstatic.com/s/i/materialiconsoutlined/favorite/v12/24px.svg" },
-  { name: "home", path: "https://fonts.gstatic.com/s/i/materialiconsoutlined/home/v12/24px.svg" },
-  { name: "info", path: "https://fonts.gstatic.com/s/i/materialiconsoutlined/info/v12/24px.svg" },
-  { name: "menu", path: "https://fonts.gstatic.com/s/i/materialiconsoutlined/menu/v12/24px.svg" },
-  { name: "more_vert", path: "https://fonts.gstatic.com/s/i/materialiconsoutlined/more_vert/v12/24px.svg" },
-  { name: "notifications", path: "https://fonts.gstatic.com/s/i/materialiconsoutlined/notifications/v12/24px.svg" },
-  { name: "person", path: "https://fonts.gstatic.com/s/i/materialiconsoutlined/person/v12/24px.svg" },
-  { name: "search", path: "https://fonts.gstatic.com/s/i/materialiconsoutlined/search/v12/24px.svg" },
-  { name: "settings", path: "https://fonts.gstatic.com/s/i/materialiconsoutlined/settings/v12/24px.svg" },
-  { name: "star", path: "https://fonts.gstatic.com/s/i/materialiconsoutlined/star/v12/24px.svg" },
-  { name: "visibility", path: "https://fonts.gstatic.com/s/i/materialiconsoutlined/visibility/v12/24px.svg" },
-  { name: "warning", path: "https://fonts.gstatic.com/s/i/materialiconsoutlined/warning/v12/24px.svg" },
-];
-
-// More categories of icons
-const uiIcons = materialIcons.filter(icon => 
-  ["check", "close", "add", "edit", "delete", "menu", "more_vert"].includes(icon.name)
-);
-
-const navigationIcons = materialIcons.filter(icon => 
-  ["home", "search", "settings", "account_circle"].includes(icon.name)
-);
-
-const statusIcons = materialIcons.filter(icon => 
-  ["info", "warning", "favorite", "star", "visibility"].includes(icon.name)
-);
-
 const Icons = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [category, setCategory] = useState<string>("all");
+  const [filteredIcons, setFilteredIcons] = useState<string[]>(MATERIAL_ICONS);
   
-  const filteredIcons = materialIcons.filter(icon => 
-    icon.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Apply filters whenever search query or category changes
+  useEffect(() => {
+    let filtered = [...MATERIAL_ICONS];
+    
+    // Apply search filter
+    if (searchQuery.trim()) {
+      filtered = filtered.filter(icon => 
+        icon.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+    
+    // Apply category filter
+    if (category !== "all") {
+      // This is a simplified category filtering
+      // In a real implementation, you would have a proper mapping
+      filtered = filtered.filter(icon => {
+        if (category === "navigation") {
+          return icon.includes("arrow") || icon.includes("menu") || icon.includes("chevron") || icon.includes("expand");
+        }
+        if (category === "actions") {
+          return icon.includes("add") || icon.includes("remove") || icon.includes("edit") || icon.includes("delete");
+        }
+        if (category === "alerts") {
+          return icon.includes("warning") || icon.includes("error") || icon.includes("info") || icon.includes("notification");
+        }
+        return true;
+      });
+    }
+    
+    setFilteredIcons(filtered);
+  }, [searchQuery, category]);
 
   return (
     <div className="container py-10">
@@ -170,57 +196,41 @@ const Icons = () => {
         
         <TabsContent value="library" className="space-y-6">
           <div className="rounded-lg border p-6 mt-6">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-              <h2 className="text-xl font-semibold">Icon Library</h2>
-              <div className="relative w-full md:w-64">
-                <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-500 h-4 w-4" />
-                <Input 
-                  placeholder="Search icons..." 
-                  className="pl-8"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
+            <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row justify-between items-center gap-4 mb-6">
+              <h2 className="text-xl font-semibold">Material Design Icon Library</h2>
+              <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
+                <div className="relative w-full sm:w-64">
+                  <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-500 h-4 w-4" />
+                  <Input 
+                    placeholder="Search icons..." 
+                    className="pl-8"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                </div>
+                <Select value={category} onValueChange={setCategory}>
+                  <SelectTrigger className="w-full sm:w-40">
+                    <SelectValue placeholder="Category" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Categories</SelectItem>
+                    <SelectItem value="navigation">Navigation</SelectItem>
+                    <SelectItem value="actions">Actions</SelectItem>
+                    <SelectItem value="alerts">Alerts</SelectItem>
+                    <SelectItem value="communication">Communication</SelectItem>
+                    <SelectItem value="content">Content</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
             </div>
             
-            {filteredIcons.length > 0 ? (
-              <>
-                <Tabs defaultValue="all" className="w-full">
-                  <TabsList className="mb-4">
-                    <TabsTrigger value="all">All Icons</TabsTrigger>
-                    <TabsTrigger value="ui">UI Controls</TabsTrigger>
-                    <TabsTrigger value="navigation">Navigation</TabsTrigger>
-                    <TabsTrigger value="status">Status</TabsTrigger>
-                  </TabsList>
-                  
-                  <TabsContent value="all">
-                    <IconsGrid filteredIcons={filteredIcons} />
-                  </TabsContent>
-                  
-                  <TabsContent value="ui">
-                    <IconsGrid filteredIcons={uiIcons.filter(icon => 
-                      icon.name.toLowerCase().includes(searchQuery.toLowerCase())
-                    )} />
-                  </TabsContent>
-                  
-                  <TabsContent value="navigation">
-                    <IconsGrid filteredIcons={navigationIcons.filter(icon => 
-                      icon.name.toLowerCase().includes(searchQuery.toLowerCase())
-                    )} />
-                  </TabsContent>
-                  
-                  <TabsContent value="status">
-                    <IconsGrid filteredIcons={statusIcons.filter(icon => 
-                      icon.name.toLowerCase().includes(searchQuery.toLowerCase())
-                    )} />
-                  </TabsContent>
-                </Tabs>
-              </>
-            ) : (
-              <div className="text-center py-8">
-                <p>No icons found matching "{searchQuery}"</p>
-              </div>
-            )}
+            <div className="mt-6">
+              <h3 className="text-sm font-medium text-muted-foreground mb-2">
+                {filteredIcons.length} icons found
+              </h3>
+              
+              <IconsGrid filteredIcons={filteredIcons} />
+            </div>
           </div>
         </TabsContent>
         
@@ -247,9 +257,13 @@ const Icons = () => {
                 
                 <div className="rounded border p-4">
                   <h4 className="font-medium mb-2">2. SVG Icons</h4>
-                  <p className="text-sm mb-3">Download SVG files from Material Icons and use them directly:</p>
+                  <p className="text-sm mb-3">Use SVG URLs directly from Google Fonts:</p>
                   <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
-                    &lt;img src="path/to/home_icon.svg" alt="Home"&gt;
+                    &lt;img src="https://fonts.gstatic.com/s/i/materialiconsoutlined/home/v12/24px.svg" alt="Home"&gt;
+                  </div>
+                  <p className="text-sm mt-3">You can create a utility function to generate these URLs:</p>
+                  <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
+                    {`const getMaterialIconUrl = (name, size = 24) => \`https://fonts.gstatic.com/s/i/materialiconsoutlined/\${name}/v12/\${size}px.svg\`;`}
                   </div>
                 </div>
                 
@@ -265,6 +279,15 @@ const Icons = () => {
                   </div>
                 </div>
               </div>
+            </div>
+            
+            <div className="mt-8">
+              <h3 className="text-lg font-medium mb-2">Official Resources</h3>
+              <ul className="list-disc list-inside space-y-2 text-sm">
+                <li><a href="https://fonts.google.com/icons" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google Fonts Icons Library</a> - Browse and download Material icons</li>
+                <li><a href="https://m3.material.io/styles/icons/overview" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Material Design 3 Icons</a> - Official guidelines</li>
+                <li><a href="https://github.com/google/material-design-icons" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Material Design Icons GitHub</a> - Official repository</li>
+              </ul>
             </div>
           </div>
         </TabsContent>
