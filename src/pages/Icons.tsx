@@ -86,14 +86,21 @@ const Icons = () => {
       // This is a simplified category filtering
       // In a real implementation, you would have a proper mapping
       filtered = filtered.filter(icon => {
-        if (category === "navigation") {
+        const categoryLower = category.toLowerCase();
+        if (categoryLower === "navigation") {
           return icon.includes("arrow") || icon.includes("menu") || icon.includes("chevron") || icon.includes("expand");
         }
-        if (category === "actions") {
+        if (categoryLower === "actions") {
           return icon.includes("add") || icon.includes("remove") || icon.includes("edit") || icon.includes("delete");
         }
-        if (category === "alerts") {
+        if (categoryLower === "alerts") {
           return icon.includes("warning") || icon.includes("error") || icon.includes("info") || icon.includes("notification");
+        }
+        if (categoryLower === "communication") {
+          return icon.includes("email") || icon.includes("message") || icon.includes("chat") || icon.includes("phone");
+        }
+        if (categoryLower === "content") {
+          return icon.includes("file") || icon.includes("folder") || icon.includes("save") || icon.includes("document");
         }
         return true;
       });
@@ -124,17 +131,17 @@ const Icons = () => {
             
             <div className="flex flex-col md:flex-row gap-6 mt-6">
               <div className="flex-1 p-4 border rounded-lg flex flex-col items-center justify-center">
-                <img src="https://fonts.gstatic.com/s/i/materialiconsoutlined/account_circle/v12/24px.svg" alt="Account Icon" className="w-10 h-10 mb-2" />
+                <img src={getMaterialIconUrl("account_circle")} alt="Account Icon" className="w-10 h-10 mb-2" />
                 <h3 className="font-medium">Simple</h3>
                 <p className="text-sm text-center text-muted-foreground">Clean, minimalist design that works well at small sizes</p>
               </div>
               <div className="flex-1 p-4 border rounded-lg flex flex-col items-center justify-center">
-                <img src="https://fonts.gstatic.com/s/i/materialiconsoutlined/settings/v12/24px.svg" alt="Settings Icon" className="w-10 h-10 mb-2" />
+                <img src={getMaterialIconUrl("settings")} alt="Settings Icon" className="w-10 h-10 mb-2" />
                 <h3 className="font-medium">Consistent</h3>
                 <p className="text-sm text-center text-muted-foreground">Uniform style across all icons in the system</p>
               </div>
               <div className="flex-1 p-4 border rounded-lg flex flex-col items-center justify-center">
-                <img src="https://fonts.gstatic.com/s/i/materialiconsoutlined/visibility/v12/24px.svg" alt="Visibility Icon" className="w-10 h-10 mb-2" />
+                <img src={getMaterialIconUrl("visibility")} alt="Visibility Icon" className="w-10 h-10 mb-2" />
                 <h3 className="font-medium">Meaningful</h3>
                 <p className="text-sm text-center text-muted-foreground">Recognizable metaphors that quickly communicate meaning</p>
               </div>
@@ -152,19 +159,19 @@ const Icons = () => {
               
               <div className="grid grid-cols-4 gap-4 my-6">
                 <div className="flex flex-col items-center">
-                  <img src="https://fonts.gstatic.com/s/i/materialiconsoutlined/home/v12/24px.svg" alt="Home Icon" className="w-6 h-6" />
+                  <img src={getMaterialIconUrl("home", 24)} alt="Home Icon" className="w-6 h-6" />
                   <span className="text-sm mt-2">24px</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <img src="https://fonts.gstatic.com/s/i/materialiconsoutlined/home/v12/24px.svg" alt="Home Icon" className="w-8 h-8" />
+                  <img src={getMaterialIconUrl("home", 24)} alt="Home Icon" className="w-8 h-8" />
                   <span className="text-sm mt-2">32px</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <img src="https://fonts.gstatic.com/s/i/materialiconsoutlined/home/v12/24px.svg" alt="Home Icon" className="w-10 h-10" />
+                  <img src={getMaterialIconUrl("home", 24)} alt="Home Icon" className="w-10 h-10" />
                   <span className="text-sm mt-2">40px</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <img src="https://fonts.gstatic.com/s/i/materialiconsoutlined/home/v12/24px.svg" alt="Home Icon" className="w-12 h-12" />
+                  <img src={getMaterialIconUrl("home", 24)} alt="Home Icon" className="w-12 h-12" />
                   <span className="text-sm mt-2">48px</span>
                 </div>
               </div>
@@ -178,15 +185,15 @@ const Icons = () => {
               
               <div className="grid grid-cols-3 gap-4 my-6">
                 <div className="flex flex-col items-center p-4 bg-white border rounded-md">
-                  <img src="https://fonts.gstatic.com/s/i/materialiconsoutlined/info/v12/24px.svg" alt="Info Icon" className="w-8 h-8" />
+                  <img src={getMaterialIconUrl("info")} alt="Info Icon" className="w-8 h-8" />
                   <span className="text-sm mt-2">Primary</span>
                 </div>
                 <div className="flex flex-col items-center p-4 bg-white border rounded-md">
-                  <img src="https://fonts.gstatic.com/s/i/materialiconsoutlined/info/v12/24px.svg" alt="Info Icon" className="w-8 h-8 opacity-60" />
+                  <img src={getMaterialIconUrl("info")} alt="Info Icon" className="w-8 h-8 opacity-60" />
                   <span className="text-sm mt-2">Secondary</span>
                 </div>
                 <div className="flex flex-col items-center p-4 bg-primary text-white rounded-md">
-                  <img src="https://fonts.gstatic.com/s/i/materialicons/info/v12/24px.svg" alt="Info Icon" className="w-8 h-8 filter invert" />
+                  <img src={getMaterialIconUrl("info")} alt="Info Icon" className="w-8 h-8 filter invert" />
                   <span className="text-sm mt-2">Inverted</span>
                 </div>
               </div>
@@ -251,7 +258,7 @@ const Icons = () => {
                   </div>
                   <p className="text-sm mt-3">Then use icons with:</p>
                   <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
-                    &lt;span class="material-icons-outlined"&gt;home&lt;/span&gt;
+                    &lt;span className="material-icons-outlined"&gt;home&lt;/span&gt;
                   </div>
                 </div>
                 
