@@ -1,3 +1,4 @@
+
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
@@ -5,35 +6,36 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary-main text-primary-contrast hover:bg-primary-hover focus:bg-primary-focus focus-visible:bg-primary-focusVisible",
-        secondary: "border border-mui-text-primary/[0.23] bg-transparent text-mui-text-primary hover:bg-gray-100/20 focus:bg-gray-200/20 focus-visible:bg-gray-100/20",
-        error: "bg-error-main text-error-contrast hover:bg-error-hover focus:bg-error-focus focus-visible:bg-error-focusVisible",
-        warning: "bg-warning-main text-warning-contrast hover:bg-warning-hover focus:bg-warning-hover focus-visible:bg-warning-focusVisible",
-        info: "bg-info-main text-info-contrast hover:bg-info-hover focus:bg-info-focus focus-visible:bg-info-focusVisible",
-        success: "bg-success-main text-success-contrast hover:bg-success-hover focus:bg-success-focus focus-visible:bg-success-focusVisible",
+        // Contained variants (equivalent to MUI contained buttons)
+        default: "bg-primary-main text-primary-contrast hover:bg-primary-dark shadow-sm hover:shadow-md active:shadow-inner",
+        secondary: "bg-secondary-main text-secondary-contrast hover:bg-secondary-dark shadow-sm hover:shadow-md active:shadow-inner",
+        error: "bg-error-main text-error-contrast hover:bg-error-dark shadow-sm hover:shadow-md active:shadow-inner",
+        warning: "bg-warning-main text-warning-contrast hover:bg-warning-dark shadow-sm hover:shadow-md active:shadow-inner",
+        info: "bg-info-main text-info-contrast hover:bg-info-dark shadow-sm hover:shadow-md active:shadow-inner",
+        success: "bg-success-main text-success-contrast hover:bg-success-dark shadow-sm hover:shadow-md active:shadow-inner",
         
-        // Outline variants
-        "outline-default": "border border-primary-outlinedBorder bg-transparent text-primary-main hover:bg-primary-hover hover:text-primary-contrast",
-        "outline-secondary": "border border-mui-text-primary/[0.23] bg-transparent text-mui-text-primary hover:bg-gray-100/20 hover:text-mui-text-primary",
-        "outline-error": "border border-error-outlinedBorder bg-transparent text-error-main hover:bg-error-hover hover:text-error-contrast",
-        "outline-warning": "border border-warning-outlinedBorder bg-transparent text-warning-main hover:bg-warning-hover hover:text-warning-contrast",
-        "outline-info": "border border-info-outlinedBorder bg-transparent text-info-main hover:bg-info-hover hover:text-info-contrast",
-        "outline-success": "border border-success-outlinedBorder bg-transparent text-success-main hover:bg-success-hover hover:text-success-contrast",
+        // Outlined variants (equivalent to MUI outlined buttons)
+        "outline-default": "border border-primary-outlinedBorder bg-transparent text-primary-main hover:bg-primary-hover/10 active:bg-primary-hover/20",
+        "outline-secondary": "border border-mui-text-primary/[0.23] bg-transparent text-mui-text-primary hover:bg-gray-100/10 active:bg-gray-100/20",
+        "outline-error": "border border-error-outlinedBorder bg-transparent text-error-main hover:bg-error-hover/10 active:bg-error-hover/20",
+        "outline-warning": "border border-warning-outlinedBorder bg-transparent text-warning-main hover:bg-warning-hover/10 active:bg-warning-hover/20",
+        "outline-info": "border border-info-outlinedBorder bg-transparent text-info-main hover:bg-info-hover/10 active:bg-info-hover/20",
+        "outline-success": "border border-success-outlinedBorder bg-transparent text-success-main hover:bg-success-hover/10 active:bg-success-hover/20",
         
-        // Text variants
-        "text-default": "bg-transparent text-primary-main hover:bg-primary-hover hover:text-primary-contrast",
-        "text-secondary": "bg-transparent text-mui-text-primary hover:bg-gray-100/20 hover:text-mui-text-primary",
-        "text-error": "bg-transparent text-error-main hover:bg-error-hover hover:text-error-contrast",
-        "text-warning": "bg-transparent text-warning-main hover:bg-warning-hover hover:text-warning-contrast",
-        "text-info": "bg-transparent text-info-main hover:bg-info-hover hover:text-info-contrast",
-        "text-success": "bg-transparent text-success-main hover:bg-success-hover hover:text-success-contrast",
+        // Text variants (equivalent to MUI text buttons)
+        "text-default": "bg-transparent text-primary-main hover:bg-primary-hover/10 active:bg-primary-hover/20",
+        "text-secondary": "bg-transparent text-mui-text-primary hover:bg-gray-100/10 active:bg-gray-100/20",
+        "text-error": "bg-transparent text-error-main hover:bg-error-hover/10 active:bg-error-hover/20",
+        "text-warning": "bg-transparent text-warning-main hover:bg-warning-hover/10 active:bg-warning-hover/20",
+        "text-info": "bg-transparent text-info-main hover:bg-info-hover/10 active:bg-info-hover/20",
+        "text-success": "bg-transparent text-success-main hover:bg-success-hover/10 active:bg-success-hover/20",
         
-        // Legacy variants (mantendo para compatibilidade)
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        // Legacy variants (maintaining for compatibility)
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-sm",
         outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
@@ -65,10 +67,12 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   isLoading?: boolean;
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, state, asChild = false, isLoading = false, disabled, children, ...props }, ref) => {
+  ({ className, variant, size, state, asChild = false, isLoading = false, disabled, children, startIcon, endIcon, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
     
     // Handle loading state
@@ -83,14 +87,18 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {isLoading ? (
           <>
-            <svg className="animate-spin mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
             {children}
           </>
         ) : (
-          children
+          <>
+            {startIcon && <span className="mr-1">{startIcon}</span>}
+            {children}
+            {endIcon && <span className="ml-1">{endIcon}</span>}
+          </>
         )}
       </Comp>
     )

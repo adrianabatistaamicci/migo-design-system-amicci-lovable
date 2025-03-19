@@ -19,11 +19,13 @@ const componentData = {
       { prop: 'state', type: '"default" | "hover" | "focus" | "disabled" | "loading"', default: '"default"', description: 'State of the button' },
       { prop: 'disabled', type: 'boolean', default: 'false', description: 'When true, prevents user interaction' },
       { prop: 'isLoading', type: 'boolean', default: 'false', description: 'When true, shows a loading spinner' },
+      { prop: 'startIcon', type: 'ReactNode', default: 'undefined', description: 'Icon displayed before the button text' },
+      { prop: 'endIcon', type: 'ReactNode', default: 'undefined', description: 'Icon displayed after the button text' },
     ],
     examples: [
       {
-        title: 'Basic Button Variants',
-        description: 'Diferentes estilos visuais para vários contextos.',
+        title: 'Contained Button Variants',
+        description: 'Material UI styled contained buttons with raised appearance.',
         component: (
           <div className="flex flex-wrap gap-4">
             <Button>Primary</Button>
@@ -42,22 +44,8 @@ const componentData = {
 <Button variant="success">Success</Button>`
       },
       {
-        title: 'Secondary Button Example',
-        description: 'O botão secundário tem apenas contorno, sem fundo.',
-        component: (
-          <div className="flex flex-wrap gap-4">
-            <Button variant="secondary">Secondary</Button>
-            <Button variant="secondary" disabled>Disabled</Button>
-            <Button variant="secondary" state="hover">Hover</Button>
-            <Button variant="secondary" state="focus">Focus</Button>
-          </div>
-        ),
-        code: `<Button variant="secondary">Secondary</Button>
-<Button variant="secondary" disabled>Disabled</Button>`
-      },
-      {
-        title: 'Outline Button Variants',
-        description: 'Botões com contorno para estilos sutis.',
+        title: 'Outlined Button Variants',
+        description: 'Buttons with outline for less pronounced actions.',
         component: (
           <div className="flex flex-wrap gap-4">
             <Button variant="outline-default">Primary</Button>
@@ -77,7 +65,7 @@ const componentData = {
       },
       {
         title: 'Text Button Variants',
-        description: 'Botões apenas de texto, sem fundo nem contorno.',
+        description: 'Buttons without background or outline for subtle actions.',
         component: (
           <div className="flex flex-wrap gap-4">
             <Button variant="text-default">Primary</Button>
@@ -97,7 +85,7 @@ const componentData = {
       },
       {
         title: 'Button Sizes',
-        description: 'Diferentes tamanhos para vários contextos.',
+        description: 'Different button sizes for various contexts.',
         component: (
           <div className="flex items-center flex-wrap gap-4">
             <Button size="sm">Small</Button>
@@ -111,7 +99,7 @@ const componentData = {
       },
       {
         title: 'Button States',
-        description: 'Diferentes estados do botão.',
+        description: 'Different button states.',
         component: (
           <div className="flex flex-wrap gap-4">
             <Button>Default</Button>
@@ -122,6 +110,20 @@ const componentData = {
         code: `<Button>Default</Button>
 <Button disabled>Disabled</Button>
 <Button isLoading>Loading</Button>`
+      },
+      {
+        title: 'Buttons with Icons',
+        description: 'Buttons with start and end icons.',
+        component: (
+          <div className="flex flex-wrap gap-4">
+            <Button startIcon={<span className="i-lucide-heart" />}>Like</Button>
+            <Button endIcon={<span className="i-lucide-arrow-right" />}>Next</Button>
+            <Button startIcon={<span className="i-lucide-save" />} endIcon={<span className="i-lucide-check" />}>Save</Button>
+          </div>
+        ),
+        code: `<Button startIcon={<Icon name="heart" />}>Like</Button>
+<Button endIcon={<Icon name="arrow-right" />}>Next</Button>
+<Button startIcon={<Icon name="save" />} endIcon={<Icon name="check" />}>Save</Button>`
       },
     ]
   },
