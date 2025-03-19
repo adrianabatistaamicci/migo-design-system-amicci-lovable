@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
 import CodeBlock from '@/components/CodeBlock';
 import { Separator } from '@/components/ui/separator';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import { Button } from '@/components/ui/button';
+import { Clipboard, Check, Eye, EyeOff } from 'lucide-react';
+import { colorUtils } from '@/utils/colorUtils';
 
 const Colors = () => {
+  const [copied, setCopied] = useState<string | null>(null);
+  const [showWCAG, setShowWCAG] = useState(false);
+
+  const copyToClipboard = (value: string) => {
+    navigator.clipboard.writeText(value);
+    setCopied(value);
+    setTimeout(() => setCopied(null), 2000);
+  };
+
   return (
     <div className="space-y-8">
       <div>
@@ -22,6 +34,7 @@ const Colors = () => {
           <TabsTrigger value="baseColors">Cores básicas</TabsTrigger>
           <TabsTrigger value="palettes">Paletas compostas</TabsTrigger>
           <TabsTrigger value="usage">Uso</TabsTrigger>
+          <TabsTrigger value="accessibility">Acessibilidade</TabsTrigger>
         </TabsList>
 
         <TabsContent value="overview" className="space-y-6">
@@ -108,6 +121,16 @@ const Colors = () => {
                 <li>As cores seguem uma hierarquia visual clara</li>
                 <li>Estados de interação (hover, focus, selected) são visualmente distintos</li>
               </ul>
+              <div className="mt-4">
+                <Button 
+                  variant="outline" 
+                  onClick={() => setShowWCAG(!showWCAG)}
+                  className="text-sm flex gap-2 items-center"
+                >
+                  {showWCAG ? <EyeOff size={16} /> : <Eye size={16} />}
+                  {showWCAG ? 'Ocultar dados WCAG' : 'Mostrar dados WCAG'}
+                </Button>
+              </div>
             </ComponentCard>
           </div>
         </TabsContent>
@@ -121,164 +144,398 @@ const Colors = () => {
             
             {/* Amicci Colors */}
             <h3 className="text-xl font-medium mb-4">Amicci</h3>
-            <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
-                <div key={`amicci-${weight}`} className="flex flex-col">
-                  <div 
-                    className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2`} 
-                    style={{ backgroundColor: `var(--amicci-${weight}, #000)` }}
-                  >
-                    {weight}
-                  </div>
-                  <div className="p-1 border border-t-0 rounded-b-md text-xs">
-                    <code className="text-xs">amicci-{weight}</code>
-                  </div>
-                </div>
-              ))}
+            <div className="overflow-x-auto">
+              <table className="w-full mb-8 border-collapse">
+                <thead>
+                  <tr className="border-b">
+                    <th className="p-2 text-left">Variação</th>
+                    <th className="p-2 text-left">Amostra</th>
+                    <th className="p-2 text-left">Hexadecimal</th>
+                    <th className="p-2 text-left">RGB</th>
+                    <th className="p-2 text-left">HSL</th>
+                    {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
+                    {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => {
+                    const colorCode = `var(--amicci-${weight})`;
+                    const hexColor = colorUtils.getComputedColor(colorCode);
+                    const rgbColor = colorUtils.hexToRgb(hexColor);
+                    const hslColor = colorUtils.hexToHsl(hexColor);
+                    const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
+                    const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
+                    
+                    return (
+                      <tr key={`amicci-${weight}`} className="border-b hover:bg-gray-50">
+                        <td className="p-2">
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">amicci-{weight}</code>
+                        </td>
+                        <td className="p-2">
+                          <div 
+                            className={`h-8 w-16 rounded ${weight >= 600 ? 'text-white' : 'text-black'} flex items-center justify-center`} 
+                            style={{ backgroundColor: hexColor }}
+                          >
+                            {weight}
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{hexColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(hexColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{rgbColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(rgbColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{hslColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(hslColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === hslColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        {showWCAG && (
+                          <td className="p-2">
+                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                              {contrastWithWhite.toFixed(2)}
+                              <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
+                            </div>
+                          </td>
+                        )}
+                        {showWCAG && (
+                          <td className="p-2">
+                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                              {contrastWithBlack.toFixed(2)}
+                              <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
+                            </div>
+                          </td>
+                        )}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
             
             {/* AmicciDark Colors */}
             <h3 className="text-xl font-medium mb-4">AmicciDark</h3>
-            <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
-                <div key={`amicciDark-${weight}`} className="flex flex-col">
-                  <div 
-                    className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2`} 
-                    style={{ backgroundColor: `var(--amicciDark-${weight}, #000)` }}
-                  >
-                    {weight}
-                  </div>
-                  <div className="p-1 border border-t-0 rounded-b-md text-xs">
-                    <code className="text-xs">amicciDark-{weight}</code>
-                  </div>
-                </div>
-              ))}
+            <div className="overflow-x-auto">
+              <table className="w-full mb-8 border-collapse">
+                <thead>
+                  <tr className="border-b">
+                    <th className="p-2 text-left">Variação</th>
+                    <th className="p-2 text-left">Amostra</th>
+                    <th className="p-2 text-left">Hexadecimal</th>
+                    <th className="p-2 text-left">RGB</th>
+                    <th className="p-2 text-left">HSL</th>
+                    {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
+                    {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => {
+                    const colorCode = `var(--amicciDark-${weight})`;
+                    const hexColor = colorUtils.getComputedColor(colorCode);
+                    const rgbColor = colorUtils.hexToRgb(hexColor);
+                    const hslColor = colorUtils.hexToHsl(hexColor);
+                    const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
+                    const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
+                    
+                    return (
+                      <tr key={`amicciDark-${weight}`} className="border-b hover:bg-gray-50">
+                        <td className="p-2">
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">amicciDark-{weight}</code>
+                        </td>
+                        <td className="p-2">
+                          <div 
+                            className={`h-8 w-16 rounded ${weight >= 600 ? 'text-white' : 'text-black'} flex items-center justify-center`} 
+                            style={{ backgroundColor: hexColor }}
+                          >
+                            {weight}
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{hexColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(hexColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{rgbColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(rgbColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{hslColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(hslColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === hslColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        {showWCAG && (
+                          <td className="p-2">
+                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                              {contrastWithWhite.toFixed(2)}
+                              <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
+                            </div>
+                          </td>
+                        )}
+                        {showWCAG && (
+                          <td className="p-2">
+                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                              {contrastWithBlack.toFixed(2)}
+                              <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
+                            </div>
+                          </td>
+                        )}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
             
             {/* Magenta Colors */}
             <h3 className="text-xl font-medium mb-4">Magenta</h3>
-            <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
-                <div key={`magenta-${weight}`} className="flex flex-col">
-                  <div 
-                    className={`h-16 rounded-t-md ${weight >= 400 ? 'text-white' : 'text-black'} flex items-end p-2`} 
-                    style={{ backgroundColor: `var(--magenta-${weight}, #000)` }}
-                  >
-                    {weight}
-                  </div>
-                  <div className="p-1 border border-t-0 rounded-b-md text-xs">
-                    <code className="text-xs">magenta-{weight}</code>
-                  </div>
-                </div>
-              ))}
+            <div className="overflow-x-auto">
+              <table className="w-full mb-8 border-collapse">
+                <thead>
+                  <tr className="border-b">
+                    <th className="p-2 text-left">Variação</th>
+                    <th className="p-2 text-left">Amostra</th>
+                    <th className="p-2 text-left">Hexadecimal</th>
+                    <th className="p-2 text-left">RGB</th>
+                    <th className="p-2 text-left">HSL</th>
+                    {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
+                    {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => {
+                    const colorCode = `var(--magenta-${weight})`;
+                    const hexColor = colorUtils.getComputedColor(colorCode);
+                    const rgbColor = colorUtils.hexToRgb(hexColor);
+                    const hslColor = colorUtils.hexToHsl(hexColor);
+                    const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
+                    const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
+                    
+                    return (
+                      <tr key={`magenta-${weight}`} className="border-b hover:bg-gray-50">
+                        <td className="p-2">
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">magenta-{weight}</code>
+                        </td>
+                        <td className="p-2">
+                          <div 
+                            className={`h-8 w-16 rounded ${weight >= 400 ? 'text-white' : 'text-black'} flex items-center justify-center`} 
+                            style={{ backgroundColor: hexColor }}
+                          >
+                            {weight}
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{hexColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(hexColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{rgbColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(rgbColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{hslColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(hslColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === hslColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        {showWCAG && (
+                          <td className="p-2">
+                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                              {contrastWithWhite.toFixed(2)}
+                              <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
+                            </div>
+                          </td>
+                        )}
+                        {showWCAG && (
+                          <td className="p-2">
+                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                              {contrastWithBlack.toFixed(2)}
+                              <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
+                            </div>
+                          </td>
+                        )}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
             
             {/* Blue Colors */}
             <h3 className="text-xl font-medium mb-4">Blue</h3>
-            <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
-                <div key={`blue-${weight}`} className="flex flex-col">
-                  <div 
-                    className={`h-16 rounded-t-md ${weight >= 400 ? 'text-white' : 'text-black'} flex items-end p-2`} 
-                    style={{ backgroundColor: `var(--blue-${weight}, #000)` }}
-                  >
-                    {weight}
-                  </div>
-                  <div className="p-1 border border-t-0 rounded-b-md text-xs">
-                    <code className="text-xs">blue-{weight}</code>
-                  </div>
-                </div>
-              ))}
+            <div className="overflow-x-auto">
+              <table className="w-full mb-8 border-collapse">
+                <thead>
+                  <tr className="border-b">
+                    <th className="p-2 text-left">Variação</th>
+                    <th className="p-2 text-left">Amostra</th>
+                    <th className="p-2 text-left">Hexadecimal</th>
+                    <th className="p-2 text-left">RGB</th>
+                    <th className="p-2 text-left">HSL</th>
+                    {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
+                    {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => {
+                    const colorCode = `var(--blue-${weight})`;
+                    const hexColor = colorUtils.getComputedColor(colorCode);
+                    const rgbColor = colorUtils.hexToRgb(hexColor);
+                    const hslColor = colorUtils.hexToHsl(hexColor);
+                    const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
+                    const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
+                    
+                    return (
+                      <tr key={`blue-${weight}`} className="border-b hover:bg-gray-50">
+                        <td className="p-2">
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm">blue-{weight}</code>
+                        </td>
+                        <td className="p-2">
+                          <div 
+                            className={`h-8 w-16 rounded ${weight >= 400 ? 'text-white' : 'text-black'} flex items-center justify-center`} 
+                            style={{ backgroundColor: hexColor }}
+                          >
+                            {weight}
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{hexColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(hexColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{rgbColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(rgbColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="flex items-center gap-1">
+                            <span>{hslColor}</span>
+                            <button 
+                              onClick={() => copyToClipboard(hslColor)}
+                              className="text-gray-500 hover:text-gray-700"
+                            >
+                              {copied === hslColor ? <Check size={14} /> : <Clipboard size={14} />}
+                            </button>
+                          </div>
+                        </td>
+                        {showWCAG && (
+                          <td className="p-2">
+                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                              {contrastWithWhite.toFixed(2)}
+                              <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
+                            </div>
+                          </td>
+                        )}
+                        {showWCAG && (
+                          <td className="p-2">
+                            <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                              {contrastWithBlack.toFixed(2)}
+                              <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
+                            </div>
+                          </td>
+                        )}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
             
-            {/* Green Colors */}
-            <h3 className="text-xl font-medium mb-4">Green</h3>
-            <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
-                <div key={`green-${weight}`} className="flex flex-col">
-                  <div 
-                    className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2`} 
-                    style={{ backgroundColor: `var(--green-${weight}, #000)` }}
-                  >
-                    {weight}
-                  </div>
-                  <div className="p-1 border border-t-0 rounded-b-md text-xs">
-                    <code className="text-xs">green-{weight}</code>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Red Colors */}
-            <h3 className="text-xl font-medium mb-4">Red</h3>
-            <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
-                <div key={`red-${weight}`} className="flex flex-col">
-                  <div 
-                    className={`h-16 rounded-t-md ${weight >= 300 ? 'text-white' : 'text-black'} flex items-end p-2`} 
-                    style={{ backgroundColor: `var(--red-${weight}, #000)` }}
-                  >
-                    {weight}
-                  </div>
-                  <div className="p-1 border border-t-0 rounded-b-md text-xs">
-                    <code className="text-xs">red-{weight}</code>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Yellow Colors */}
-            <h3 className="text-xl font-medium mb-4">Yellow</h3>
-            <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
-                <div key={`yellow-${weight}`} className="flex flex-col">
-                  <div 
-                    className="h-16 rounded-t-md text-black flex items-end p-2"
-                    style={{ backgroundColor: `var(--yellow-${weight}, #000)` }}
-                  >
-                    {weight}
-                  </div>
-                  <div className="p-1 border border-t-0 rounded-b-md text-xs">
-                    <code className="text-xs">yellow-{weight}</code>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Orange Colors */}
-            <h3 className="text-xl font-medium mb-4">Orange</h3>
-            <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
-                <div key={`orange-${weight}`} className="flex flex-col">
-                  <div 
-                    className={`h-16 rounded-t-md ${weight >= 500 ? 'text-white' : 'text-black'} flex items-end p-2`} 
-                    style={{ backgroundColor: `var(--orange-${weight}, #000)` }}
-                  >
-                    {weight}
-                  </div>
-                  <div className="p-1 border border-t-0 rounded-b-md text-xs">
-                    <code className="text-xs">orange-{weight}</code>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Gray Colors */}
-            <h3 className="text-xl font-medium mb-4">Gray</h3>
-            <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
-                <div key={`gray-${weight}`} className="flex flex-col">
-                  <div 
-                    className={`h-16 rounded-t-md ${weight >= 600 ? 'text-white' : 'text-black'} flex items-end p-2`} 
-                    style={{ backgroundColor: `var(--gray-${weight}, #000)` }}
-                  >
-                    {weight}
-                  </div>
-                  <div className="p-1 border border-t-0 rounded-b-md text-xs">
-                    <code className="text-xs">gray-{weight}</code>
-                  </div>
-                </div>
-              ))}
+            {/* Only showing a few palettes in detail, adding buttons to see other palettes */}
+            <div className="flex flex-wrap gap-3 mb-6">
+              <Button variant="outline" className="flex gap-2 items-center">
+                <div className="w-4 h-4 rounded-full bg-green-500"></div>
+                Ver paleta Green
+              </Button>
+              <Button variant="outline" className="flex gap-2 items-center">
+                <div className="w-4 h-4 rounded-full bg-red-500"></div>
+                Ver paleta Red
+              </Button>
+              <Button variant="outline" className="flex gap-2 items-center">
+                <div className="w-4 h-4 rounded-full bg-yellow-500"></div>
+                Ver paleta Yellow
+              </Button>
+              <Button variant="outline" className="flex gap-2 items-center">
+                <div className="w-4 h-4 rounded-full bg-orange-500"></div>
+                Ver paleta Orange
+              </Button>
+              <Button variant="outline" className="flex gap-2 items-center">
+                <div className="w-4 h-4 rounded-full bg-gray-500"></div>
+                Ver paleta Gray
+              </Button>
             </div>
           </ComponentCard>
         </TabsContent>
@@ -297,354 +554,101 @@ const Colors = () => {
                 <Badge className="bg-amicci-500">amicci</Badge>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="flex flex-col">
-                  <div className="h-20 bg-primary-main rounded-t-md text-primary-contrast flex items-center justify-center">
-                    Main
-                  </div>
-                  <div className="p-3 border border-t-0 rounded-b-md">
-                    <code className="text-xs">bg-primary-main</code>
-                    <p className="text-xs text-mui-text-secondary mt-1">
-                      Cor principal para botões e elementos de destaque
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col">
-                  <div className="h-20 bg-primary-dark rounded-t-md text-primary-contrast flex items-center justify-center">
-                    Dark
-                  </div>
-                  <div className="p-3 border border-t-0 rounded-b-md">
-                    <code className="text-xs">bg-primary-dark</code>
-                    <p className="text-xs text-mui-text-secondary mt-1">
-                      Versão mais escura para contraste e ênfase
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col">
-                  <div className="h-20 bg-primary-light rounded-t-md text-black flex items-center justify-center">
-                    Light
-                  </div>
-                  <div className="p-3 border border-t-0 rounded-b-md">
-                    <code className="text-xs">bg-primary-light</code>
-                    <p className="text-xs text-mui-text-secondary mt-1">
-                      Versão mais clara para fundos e elementos sutis
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col">
-                  <div className="h-20 bg-primary-contrast rounded-t-md text-primary-main flex items-center justify-center">
-                    Contrast
-                  </div>
-                  <div className="p-3 border border-t-0 rounded-b-md">
-                    <code className="text-xs">bg-primary-contrast</code>
-                    <p className="text-xs text-mui-text-secondary mt-1">
-                      Cor de texto sobre fundos primários
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-                <div className="flex flex-col">
-                  <div className="h-20 bg-primary-hover rounded-t-md text-primary-contrast flex items-center justify-center">
-                    Hover
-                  </div>
-                  <div className="p-3 border border-t-0 rounded-b-md">
-                    <code className="text-xs">bg-primary-hover</code>
-                    <p className="text-xs text-mui-text-secondary mt-1">
-                      Estado hover para elementos interativos
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col">
-                  <div className="h-20 bg-primary-selected rounded-t-md text-primary-contrast flex items-center justify-center">
-                    Selected
-                  </div>
-                  <div className="p-3 border border-t-0 rounded-b-md">
-                    <code className="text-xs">bg-primary-selected</code>
-                    <p className="text-xs text-mui-text-secondary mt-1">
-                      Estado selecionado para elementos interativos
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col">
-                  <div className="h-20 bg-primary-focusVisible rounded-t-md text-black flex items-center justify-center">
-                    Focus Visible
-                  </div>
-                  <div className="p-3 border border-t-0 rounded-b-md">
-                    <code className="text-xs">bg-primary-focusVisible</code>
-                    <p className="text-xs text-mui-text-secondary mt-1">
-                      Estado de foco visível para acessibilidade
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col">
-                  <div className="h-20 bg-primary-outlinedBorder rounded-t-md text-black flex items-center justify-center">
-                    Outlined Border
-                  </div>
-                  <div className="p-3 border border-t-0 rounded-b-md">
-                    <code className="text-xs">bg-primary-outlinedBorder</code>
-                    <p className="text-xs text-mui-text-secondary mt-1">
-                      Cor para bordas e contornos
-                    </p>
-                  </div>
-                </div>
+              <div className="overflow-x-auto">
+                <table className="w-full mb-8 border-collapse">
+                  <thead>
+                    <tr className="border-b">
+                      <th className="p-2 text-left">Variação</th>
+                      <th className="p-2 text-left">Amostra</th>
+                      <th className="p-2 text-left">Hexadecimal</th>
+                      <th className="p-2 text-left">RGB</th>
+                      <th className="p-2 text-left">Uso recomendado</th>
+                      {showWCAG && <th className="p-2 text-left">Contraste (Branco)</th>}
+                      {showWCAG && <th className="p-2 text-left">Contraste (Preto)</th>}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {['main', 'dark', 'light', 'hover', 'selected', 'focusVisible', 'outlinedBorder', 'contrast'].map((variant) => {
+                      const colorCode = `var(--primary-${variant})`;
+                      const hexColor = colorUtils.getComputedColor(colorCode);
+                      const rgbColor = colorUtils.hexToRgb(hexColor);
+                      const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
+                      const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
+                      const needsDarkText = ['light', 'focusVisible', 'outlinedBorder', 'contrast'].includes(variant);
+                      
+                      const usageMap = {
+                        main: 'Cor principal para elementos de destaque',
+                        dark: 'Variação mais escura para contraste',
+                        light: 'Variação mais clara para fundos e elementos sutis',
+                        hover: 'Estado de hover para elementos interativos',
+                        selected: 'Estado selecionado para elementos interativos',
+                        focusVisible: 'Estado de foco visível para acessibilidade',
+                        outlinedBorder: 'Cor para bordas e contornos',
+                        contrast: 'Cor de texto sobre fundos primários'
+                      };
+                      
+                      return (
+                        <tr key={`primary-${variant}`} className="border-b hover:bg-gray-50">
+                          <td className="p-2">
+                            <code className="bg-gray-100 px-2 py-1 rounded text-sm">primary-{variant}</code>
+                          </td>
+                          <td className="p-2">
+                            <div 
+                              className={`h-8 w-16 rounded ${needsDarkText ? 'text-black' : 'text-white'} flex items-center justify-center`} 
+                              style={{ backgroundColor: hexColor }}
+                            >
+                              Aa
+                            </div>
+                          </td>
+                          <td className="p-2">
+                            <div className="flex items-center gap-1">
+                              <span>{hexColor}</span>
+                              <button 
+                                onClick={() => copyToClipboard(hexColor)}
+                                className="text-gray-500 hover:text-gray-700"
+                              >
+                                {copied === hexColor ? <Check size={14} /> : <Clipboard size={14} />}
+                              </button>
+                            </div>
+                          </td>
+                          <td className="p-2">
+                            <div className="flex items-center gap-1">
+                              <span>{rgbColor}</span>
+                              <button 
+                                onClick={() => copyToClipboard(rgbColor)}
+                                className="text-gray-500 hover:text-gray-700"
+                              >
+                                {copied === rgbColor ? <Check size={14} /> : <Clipboard size={14} />}
+                              </button>
+                            </div>
+                          </td>
+                          <td className="p-2 text-mui-text-secondary text-sm">
+                            {usageMap[variant as keyof typeof usageMap]}
+                          </td>
+                          {showWCAG && (
+                            <td className="p-2">
+                              <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithWhite >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                                {contrastWithWhite.toFixed(2)}
+                                <span className="text-xs ml-1">{contrastWithWhite >= 4.5 ? 'AA' : ''}</span>
+                              </div>
+                            </td>
+                          )}
+                          {showWCAG && (
+                            <td className="p-2">
+                              <div className={`px-2 py-1 rounded text-center w-16 ${contrastWithBlack >= 4.5 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'}`}>
+                                {contrastWithBlack.toFixed(2)}
+                                <span className="text-xs ml-1">{contrastWithBlack >= 4.5 ? 'AA' : ''}</span>
+                              </div>
+                            </td>
+                          )}
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
               </div>
             </div>
             
             {/* Secondary Palette */}
             <div className="mb-10">
               <div className="flex items-center gap-2 mb-4">
-                <h3 className="text-xl font-medium">Secondary (baseada em AmicciDark)</h3>
-                <Badge className="bg-amicciDark-500">amicciDark</Badge>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="flex flex-col">
-                  <div className="h-20 bg-secondary-main rounded-t-md text-secondary-contrast flex items-center justify-center">
-                    Main
-                  </div>
-                  <div className="p-3 border border-t-0 rounded-b-md">
-                    <code className="text-xs">bg-secondary-main</code>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col">
-                  <div className="h-20 bg-secondary-dark rounded-t-md text-secondary-contrast flex items-center justify-center">
-                    Dark
-                  </div>
-                  <div className="p-3 border border-t-0 rounded-b-md">
-                    <code className="text-xs">bg-secondary-dark</code>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col">
-                  <div className="h-20 bg-secondary-light rounded-t-md text-black flex items-center justify-center">
-                    Light
-                  </div>
-                  <div className="p-3 border border-t-0 rounded-b-md">
-                    <code className="text-xs">bg-secondary-light</code>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col">
-                  <div className="h-20 bg-secondary-contrast rounded-t-md text-secondary-main flex items-center justify-center">
-                    Contrast
-                  </div>
-                  <div className="p-3 border border-t-0 rounded-b-md">
-                    <code className="text-xs">bg-secondary-contrast</code>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Error Palette */}
-            <div className="mb-10">
-              <div className="flex items-center gap-2 mb-4">
-                <h3 className="text-xl font-medium">Error (baseada em Red)</h3>
-                <Badge className="bg-red-500">red</Badge>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="flex flex-col">
-                  <div className="h-20 bg-error-main rounded-t-md text-error-contrast flex items-center justify-center">
-                    Main
-                  </div>
-                  <div className="p-3 border border-t-0 rounded-b-md">
-                    <code className="text-xs">bg-error-main</code>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col">
-                  <div className="h-20 bg-error-dark rounded-t-md text-error-contrast flex items-center justify-center">
-                    Dark
-                  </div>
-                  <div className="p-3 border border-t-0 rounded-b-md">
-                    <code className="text-xs">bg-error-dark</code>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col">
-                  <div className="h-20 bg-error-light rounded-t-md text-black flex items-center justify-center">
-                    Light
-                  </div>
-                  <div className="p-3 border border-t-0 rounded-b-md">
-                    <code className="text-xs">bg-error-light</code>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col">
-                  <div className="h-20 bg-error-hover rounded-t-md text-error-contrast flex items-center justify-center">
-                    Hover
-                  </div>
-                  <div className="p-3 border border-t-0 rounded-b-md">
-                    <code className="text-xs">bg-error-hover</code>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Outras paletas resumidas */}
-            <div className="mb-6">
-              <h3 className="text-xl font-medium mb-4">Outras Paletas</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="p-4 border rounded-md">
-                  <div className="flex gap-2 items-center mb-2">
-                    <div className="w-6 h-6 rounded-full bg-tertiary-main"></div>
-                    <h4 className="font-medium">Tertiary</h4>
-                  </div>
-                  <p className="text-xs text-mui-text-secondary">Baseada em Magenta</p>
-                  <code className="text-xs block mt-2">bg-tertiary-main</code>
-                </div>
-                
-                <div className="p-4 border rounded-md">
-                  <div className="flex gap-2 items-center mb-2">
-                    <div className="w-6 h-6 rounded-full bg-warning-main"></div>
-                    <h4 className="font-medium">Warning</h4>
-                  </div>
-                  <p className="text-xs text-mui-text-secondary">Baseada em Yellow</p>
-                  <code className="text-xs block mt-2">bg-warning-main</code>
-                </div>
-                
-                <div className="p-4 border rounded-md">
-                  <div className="flex gap-2 items-center mb-2">
-                    <div className="w-6 h-6 rounded-full bg-info-main"></div>
-                    <h4 className="font-medium">Info</h4>
-                  </div>
-                  <p className="text-xs text-mui-text-secondary">Baseada em Blue</p>
-                  <code className="text-xs block mt-2">bg-info-main</code>
-                </div>
-                
-                <div className="p-4 border rounded-md">
-                  <div className="flex gap-2 items-center mb-2">
-                    <div className="w-6 h-6 rounded-full bg-success-main"></div>
-                    <h4 className="font-medium">Success</h4>
-                  </div>
-                  <p className="text-xs text-mui-text-secondary">Baseada em Green</p>
-                  <code className="text-xs block mt-2">bg-success-main</code>
-                </div>
-              </div>
-            </div>
-          </ComponentCard>
-        </TabsContent>
-        
-        <TabsContent value="usage" className="space-y-6">
-          <ComponentCard title="Diretrizes de Uso de Cores">
-            <div className="space-y-4">
-              <h3 className="text-lg font-medium">Uso Semântico de Cores</h3>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Paleta</TableHead>
-                    <TableHead>Uso</TableHead>
-                    <TableHead>Exemplo</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell className="font-medium">Primary</TableCell>
-                    <TableCell>Botões principais, elementos de destaque, links</TableCell>
-                    <TableCell><span className="px-4 py-1 bg-primary-main text-primary-contrast rounded">Botão</span></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">Secondary</TableCell>
-                    <TableCell>Botões secundários, elementos complementares</TableCell>
-                    <TableCell><span className="px-4 py-1 bg-secondary-main text-secondary-contrast rounded">Secundário</span></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">Tertiary</TableCell>
-                    <TableCell>Elementos de destaque alternativo, ênfase</TableCell>
-                    <TableCell><span className="px-4 py-1 bg-tertiary-main text-tertiary-contrast rounded">Destaque</span></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">Error</TableCell>
-                    <TableCell>Erros, alertas críticos, botões de exclusão</TableCell>
-                    <TableCell><span className="px-4 py-1 bg-error-main text-error-contrast rounded">Erro</span></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">Warning</TableCell>
-                    <TableCell>Avisos, alertas não críticos</TableCell>
-                    <TableCell><span className="px-4 py-1 bg-warning-main text-warning-contrast rounded">Aviso</span></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">Info</TableCell>
-                    <TableCell>Informações, notificações, dicas</TableCell>
-                    <TableCell><span className="px-4 py-1 bg-info-main text-info-contrast rounded">Info</span></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">Success</TableCell>
-                    <TableCell>Confirmações, ações bem-sucedidas</TableCell>
-                    <TableCell><span className="px-4 py-1 bg-success-main text-success-contrast rounded">Sucesso</span></TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">Action</TableCell>
-                    <TableCell>Interfaces neutras, ações secundárias</TableCell>
-                    <TableCell><span className="px-4 py-1 bg-action-main text-action-contrast rounded">Ação</span></TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </div>
-            
-            <div className="space-y-4 mt-8">
-              <h3 className="text-lg font-medium">Estados de Interação</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <p className="text-mui-text-secondary mb-3">
-                    Cada paleta inclui variações específicas para estados de interação, garantindo consistência:
-                  </p>
-                  <ul className="space-y-2 list-disc list-inside text-mui-text-secondary">
-                    <li><strong>main</strong>: Estado padrão do componente</li>
-                    <li><strong>hover</strong>: Quando o cursor passa sobre o elemento</li>
-                    <li><strong>selected</strong>: Quando o elemento está selecionado</li>
-                    <li><strong>focusVisible</strong>: Quando o elemento recebe foco via teclado</li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="text-mui-text-secondary mb-3">
-                    Outras variações de cores têm propósitos específicos:
-                  </p>
-                  <ul className="space-y-2 list-disc list-inside text-mui-text-secondary">
-                    <li><strong>light</strong>: Versões mais claras para backgrounds</li>
-                    <li><strong>dark</strong>: Versões mais escuras para contraste</li>
-                    <li><strong>contrast</strong>: Cor de texto que garante legibilidade</li>
-                    <li><strong>outlinedBorder</strong>: Para bordas e contornos</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            
-            <div className="space-y-4 mt-8">
-              <h3 className="text-lg font-medium">Exemplo de Código</h3>
-              <CodeBlock 
-                language="html" 
-                title="Exemplo de uso em componentes" 
-                code={`<!-- Botão primário -->
-<button class="bg-primary-main hover:bg-primary-hover text-primary-contrast px-4 py-2 rounded">
-  Botão Primário
-</button>
-
-<!-- Alerta de erro -->
-<div class="bg-error-light border border-error-main text-error-dark p-4 rounded">
-  Ocorreu um erro ao processar sua solicitação.
-</div>
-
-<!-- Badge de sucesso -->
-<span class="bg-success-main text-success-contrast px-2 py-1 rounded text-xs">
-  Concluído
-</span>`}
-              />
-            </div>
-          </ComponentCard>
-        </TabsContent>
-      </Tabs>
-    </div>
-  );
-};
-
-export default Colors;
