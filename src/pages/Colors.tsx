@@ -243,8 +243,8 @@ const Colors = () => {
       <Tabs defaultValue="overview" className="w-full">
         <TabsList className="mb-4">
           <TabsTrigger value="overview">Visão geral</TabsTrigger>
-          <TabsTrigger value="baseColors">Base colors</TabsTrigger>
           <TabsTrigger value="palettes">Palettes</TabsTrigger>
+          <TabsTrigger value="baseColors">Base colors</TabsTrigger>
           <TabsTrigger value="usage">Uso</TabsTrigger>
           <TabsTrigger value="accessibility">Acessibilidade</TabsTrigger>
         </TabsList>
@@ -347,25 +347,6 @@ const Colors = () => {
           </div>
         </TabsContent>
         
-        <TabsContent value="baseColors" className="space-y-6">
-          <ComponentCard title="Base colors">
-            <p className="text-mui-text-secondary mb-6">
-              Estas são as cores básicas que servem como alicerce para todo o sistema de design.
-              Cada cor tem 10 variações (de 50 a 900) que podem ser usadas conforme necessário.
-            </p>
-            
-            <ColorTable title="Amicci" colorPrefix="amicci" />
-            <ColorTable title="AmicciDark" colorPrefix="amicciDark" />
-            <ColorTable title="Magenta" colorPrefix="magenta" />
-            <ColorTable title="Blue" colorPrefix="blue" />
-            <ColorTable title="Green" colorPrefix="green" />
-            <ColorTable title="Red" colorPrefix="red" />
-            <ColorTable title="Yellow" colorPrefix="yellow" />
-            <ColorTable title="Orange" colorPrefix="orange" />
-            <ColorTable title="Gray" colorPrefix="gray" />
-          </ComponentCard>
-        </TabsContent>
-        
         <TabsContent value="palettes" className="space-y-6">
           <ComponentCard title="Palettes">
             <p className="text-mui-text-secondary mb-6">
@@ -423,6 +404,25 @@ const Colors = () => {
           </ComponentCard>
         </TabsContent>
         
+        <TabsContent value="baseColors" className="space-y-6">
+          <ComponentCard title="Base colors">
+            <p className="text-mui-text-secondary mb-6">
+              Estas são as cores básicas que servem como alicerce para todo o sistema de design.
+              Cada cor tem 10 variações (de 50 a 900) que podem ser usadas conforme necessário.
+            </p>
+            
+            <ColorTable title="Amicci" colorPrefix="amicci" />
+            <ColorTable title="AmicciDark" colorPrefix="amicciDark" />
+            <ColorTable title="Magenta" colorPrefix="magenta" />
+            <ColorTable title="Blue" colorPrefix="blue" />
+            <ColorTable title="Green" colorPrefix="green" />
+            <ColorTable title="Red" colorPrefix="red" />
+            <ColorTable title="Yellow" colorPrefix="yellow" />
+            <ColorTable title="Orange" colorPrefix="orange" />
+            <ColorTable title="Gray" colorPrefix="gray" />
+          </ComponentCard>
+        </TabsContent>
+        
         <TabsContent value="usage" className="space-y-6">
           <ComponentCard title="Uso das Cores">
             <p className="text-mui-text-secondary mb-6">
@@ -455,7 +455,7 @@ const Colors = () => {
                   <li>Para estados hover, utilize a variação <code>-hover</code> da cor correspondente</li>
                   <li>Para estados selecionados, utilize a variação <code>-selected</code></li>
                   <li>Para estados de foco visível, utilize a variação <code>-focusVisible</code></li>
-                  <li>Para bordas em elementos com contorno, utilize a variação <code>-outlinedBorder</code></li>
+                  <li>Para bordas em elementos com contorno, utilize a variaç��o <code>-outlinedBorder</code></li>
                 </ul>
               </div>
               
