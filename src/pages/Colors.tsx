@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
@@ -145,7 +146,6 @@ const Colors = () => {
                 <li>Os pares de cores atendem aos requisitos de contraste WCAG 2.1 AA</li>
                 <li>Cada paleta inclui versões de contraste dedicadas</li>
                 <li>As cores seguem uma hierarquia visual clara</li>
-                <li>Estados de interação (hover, focus, selected) são visualmente distintos</li>
                 <li>Estados de interação (hover, focus, selected) são visualmente distintos</li>
               </ul>
               <div className="mt-4">
@@ -583,7 +583,7 @@ const Colors = () => {
                 </TableRow>
                 <TableRow>
                   <TableCell>contrast</TableCell>
-                  <TableCell><div className="w-full h-8 rounded bg-success-contrast"></div>TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-success-contrast"></div></TableCell>
                   <TableCell><code>bg-success-contrast</code></TableCell>
                   <TableCell>white</TableCell>
                 </TableRow>
@@ -644,4 +644,436 @@ const Colors = () => {
                 <TableRow>
                   <TableCell><div className="w-full h-8 rounded bg-amicci-500"></div></TableCell>
                   <TableCell>500</TableCell>
-                  <TableCell><code>bg
+                  <TableCell><code>bg-amicci-500</code></TableCell>
+                  <TableCell>#FF8F9F</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-amicci-600"></div></TableCell>
+                  <TableCell>600</TableCell>
+                  <TableCell><code>bg-amicci-600</code></TableCell>
+                  <TableCell>#E6808F</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-amicci-700"></div></TableCell>
+                  <TableCell>700</TableCell>
+                  <TableCell><code>bg-amicci-700</code></TableCell>
+                  <TableCell>#CC7080</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-amicci-800"></div></TableCell>
+                  <TableCell>800</TableCell>
+                  <TableCell><code>bg-amicci-800</code></TableCell>
+                  <TableCell>#B36070</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-amicci-900"></div></TableCell>
+                  <TableCell>900</TableCell>
+                  <TableCell><code>bg-amicci-900</code></TableCell>
+                  <TableCell>#995060</TableCell>
+                </TableRow>
+
+                {/* AmicciDark */}
+                <TableRow>
+                  <TableCell rowSpan={10} className="font-medium">AmicciDark</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-amicciDark-50"></div></TableCell>
+                  <TableCell>50</TableCell>
+                  <TableCell><code>bg-amicciDark-50</code></TableCell>
+                  <TableCell>#F0F0F5</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-amicciDark-100"></div></TableCell>
+                  <TableCell>100</TableCell>
+                  <TableCell><code>bg-amicciDark-100</code></TableCell>
+                  <TableCell>#D6D6E0</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-amicciDark-200"></div></TableCell>
+                  <TableCell>200</TableCell>
+                  <TableCell><code>bg-amicciDark-200</code></TableCell>
+                  <TableCell>#ADADC0</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-amicciDark-300"></div></TableCell>
+                  <TableCell>300</TableCell>
+                  <TableCell><code>bg-amicciDark-300</code></TableCell>
+                  <TableCell>#8585A0</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-amicciDark-400"></div></TableCell>
+                  <TableCell>400</TableCell>
+                  <TableCell><code>bg-amicciDark-400</code></TableCell>
+                  <TableCell>#5C5C80</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-amicciDark-500"></div></TableCell>
+                  <TableCell>500</TableCell>
+                  <TableCell><code>bg-amicciDark-500</code></TableCell>
+                  <TableCell>#333360</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-amicciDark-600"></div></TableCell>
+                  <TableCell>600</TableCell>
+                  <TableCell><code>bg-amicciDark-600</code></TableCell>
+                  <TableCell>#2E2E56</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-amicciDark-700"></div></TableCell>
+                  <TableCell>700</TableCell>
+                  <TableCell><code>bg-amicciDark-700</code></TableCell>
+                  <TableCell>#29294D</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-amicciDark-800"></div></TableCell>
+                  <TableCell>800</TableCell>
+                  <TableCell><code>bg-amicciDark-800</code></TableCell>
+                  <TableCell>#242444</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-amicciDark-900"></div></TableCell>
+                  <TableCell>900</TableCell>
+                  <TableCell><code>bg-amicciDark-900</code></TableCell>
+                  <TableCell>#1A1A3A</TableCell>
+                </TableRow>
+
+                {/* Blue */}
+                <TableRow>
+                  <TableCell rowSpan={10} className="font-medium">Blue</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-blue-50"></div></TableCell>
+                  <TableCell>50</TableCell>
+                  <TableCell><code>bg-blue-50</code></TableCell>
+                  <TableCell>#F0F7FF</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-blue-100"></div></TableCell>
+                  <TableCell>100</TableCell>
+                  <TableCell><code>bg-blue-100</code></TableCell>
+                  <TableCell>#E0EEFF</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-blue-200"></div></TableCell>
+                  <TableCell>200</TableCell>
+                  <TableCell><code>bg-blue-200</code></TableCell>
+                  <TableCell>#C2DDFF</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-blue-300"></div></TableCell>
+                  <TableCell>300</TableCell>
+                  <TableCell><code>bg-blue-300</code></TableCell>
+                  <TableCell>#A3CCFF</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-blue-400"></div></TableCell>
+                  <TableCell>400</TableCell>
+                  <TableCell><code>bg-blue-400</code></TableCell>
+                  <TableCell>#85BBFF</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-blue-500"></div></TableCell>
+                  <TableCell>500</TableCell>
+                  <TableCell><code>bg-blue-500</code></TableCell>
+                  <TableCell>#66AAFF</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-blue-600"></div></TableCell>
+                  <TableCell>600</TableCell>
+                  <TableCell><code>bg-blue-600</code></TableCell>
+                  <TableCell>#5C99E6</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-blue-700"></div></TableCell>
+                  <TableCell>700</TableCell>
+                  <TableCell><code>bg-blue-700</code></TableCell>
+                  <TableCell>#5288CC</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-blue-800"></div></TableCell>
+                  <TableCell>800</TableCell>
+                  <TableCell><code>bg-blue-800</code></TableCell>
+                  <TableCell>#4777B3</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-blue-900"></div></TableCell>
+                  <TableCell>900</TableCell>
+                  <TableCell><code>bg-blue-900</code></TableCell>
+                  <TableCell>#3D6699</TableCell>
+                </TableRow>
+
+                {/* Magenta */}
+                <TableRow>
+                  <TableCell rowSpan={10} className="font-medium">Magenta</TableCell>
+                  <TableCell><div className="w-full h-8 rounded bg-magenta-50"></div></TableCell>
+                  <TableCell>50</TableCell>
+                  <TableCell><code>bg-magenta-50</code></TableCell>
+                  <TableCell>#FDF0F7</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-magenta-100"></div></TableCell>
+                  <TableCell>100</TableCell>
+                  <TableCell><code>bg-magenta-100</code></TableCell>
+                  <TableCell>#FAE0EF</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-magenta-200"></div></TableCell>
+                  <TableCell>200</TableCell>
+                  <TableCell><code>bg-magenta-200</code></TableCell>
+                  <TableCell>#F7C2DE</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-magenta-300"></div></TableCell>
+                  <TableCell>300</TableCell>
+                  <TableCell><code>bg-magenta-300</code></TableCell>
+                  <TableCell>#F5A3CD</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-magenta-400"></div></TableCell>
+                  <TableCell>400</TableCell>
+                  <TableCell><code>bg-magenta-400</code></TableCell>
+                  <TableCell>#F285BC</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-magenta-500"></div></TableCell>
+                  <TableCell>500</TableCell>
+                  <TableCell><code>bg-magenta-500</code></TableCell>
+                  <TableCell>#EF66AB</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-magenta-600"></div></TableCell>
+                  <TableCell>600</TableCell>
+                  <TableCell><code>bg-magenta-600</code></TableCell>
+                  <TableCell>#D75C99</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-magenta-700"></div></TableCell>
+                  <TableCell>700</TableCell>
+                  <TableCell><code>bg-magenta-700</code></TableCell>
+                  <TableCell>#BF5288</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-magenta-800"></div></TableCell>
+                  <TableCell>800</TableCell>
+                  <TableCell><code>bg-magenta-800</code></TableCell>
+                  <TableCell>#A74777</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><div className="w-full h-8 rounded bg-magenta-900"></div></TableCell>
+                  <TableCell>900</TableCell>
+                  <TableCell><code>bg-magenta-900</code></TableCell>
+                  <TableCell>#8F3D66</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </ComponentCard>
+        </TabsContent>
+        
+        <TabsContent value="usage">
+          <ComponentCard title="Uso das Cores" description="Como aplicar cores corretamente em sua interface.">
+            <div className="space-y-4">
+              <h3 className="text-lg font-medium">Princípios Gerais</h3>
+              <ul className="list-disc list-inside space-y-2 text-mui-text-secondary">
+                <li>Use cores de maneira consistente para criar uma experiência coesa</li>
+                <li>Mantenha o contraste adequado para garantir legibilidade e acessibilidade</li>
+                <li>Utilize cores semânticas para comunicar significado e estado</li>
+                <li>Limite o uso de cores de destaque para não sobrecarregar a interface</li>
+              </ul>
+              
+              <h3 className="text-lg font-medium mt-6">Cores Semânticas</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="rounded-lg border p-4">
+                  <div className="flex items-center mb-3">
+                    <div className="w-6 h-6 rounded-full bg-primary-main mr-2"></div>
+                    <h4 className="font-medium">Primary (Amicci)</h4>
+                  </div>
+                  <p className="text-mui-text-secondary text-sm">
+                    Use para elementos de destaque, botões principais, links e elementos de navegação primários.
+                  </p>
+                </div>
+                
+                <div className="rounded-lg border p-4">
+                  <div className="flex items-center mb-3">
+                    <div className="w-6 h-6 rounded-full bg-secondary-main mr-2"></div>
+                    <h4 className="font-medium">Secondary (AmicciDark)</h4>
+                  </div>
+                  <p className="text-mui-text-secondary text-sm">
+                    Use para elementos secundários, botões alternativos e detalhes visuais complementares.
+                  </p>
+                </div>
+                
+                <div className="rounded-lg border p-4">
+                  <div className="flex items-center mb-3">
+                    <div className="w-6 h-6 rounded-full bg-error-main mr-2"></div>
+                    <h4 className="font-medium">Error (Red)</h4>
+                  </div>
+                  <p className="text-mui-text-secondary text-sm">
+                    Use para mensagens de erro, estados de erro e ações destrutivas como exclusão.
+                  </p>
+                </div>
+                
+                <div className="rounded-lg border p-4">
+                  <div className="flex items-center mb-3">
+                    <div className="w-6 h-6 rounded-full bg-success-main mr-2"></div>
+                    <h4 className="font-medium">Success (Green)</h4>
+                  </div>
+                  <p className="text-mui-text-secondary text-sm">
+                    Use para confirmações, mensagens de sucesso e indicadores positivos.
+                  </p>
+                </div>
+                
+                <div className="rounded-lg border p-4">
+                  <div className="flex items-center mb-3">
+                    <div className="w-6 h-6 rounded-full bg-warning-main mr-2"></div>
+                    <h4 className="font-medium">Warning (Yellow)</h4>
+                  </div>
+                  <p className="text-mui-text-secondary text-sm">
+                    Use para alertas, notificações importantes e ações que requerem atenção.
+                  </p>
+                </div>
+                
+                <div className="rounded-lg border p-4">
+                  <div className="flex items-center mb-3">
+                    <div className="w-6 h-6 rounded-full bg-info-main mr-2"></div>
+                    <h4 className="font-medium">Info (Blue)</h4>
+                  </div>
+                  <p className="text-mui-text-secondary text-sm">
+                    Use para mensagens informativas, dicas e elementos de ajuda contextual.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ComponentCard>
+        </TabsContent>
+        
+        <TabsContent value="accessibility">
+          <ComponentCard title="Acessibilidade de Cores" description="Garantindo que nosso sistema de cores seja acessível a todos.">
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-lg font-medium mb-2">Contraste</h3>
+                <p className="text-mui-text-secondary">
+                  Todas as combinações de cores de texto e fundo atendem aos requisitos de contraste WCAG 2.1 AA:
+                </p>
+                <ul className="list-disc list-inside mt-2 text-mui-text-secondary">
+                  <li>Texto normal: Contraste mínimo de 4.5:1</li>
+                  <li>Texto grande (18pt ou 14pt bold): Contraste mínimo de 3:1</li>
+                  <li>Componentes de interface e gráficos: Contraste mínimo de 3:1</li>
+                </ul>
+              </div>
+              
+              {showWCAG && (
+                <div className="mt-6 border rounded-lg p-4">
+                  <h4 className="font-medium mb-3">Tabela de Contraste WCAG AA</h4>
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Combinação</TableHead>
+                        <TableHead>Proporção</TableHead>
+                        <TableHead>Texto Normal</TableHead>
+                        <TableHead>Texto Grande</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      <TableRow>
+                        <TableCell>
+                          <div className="flex items-center">
+                            <div className="w-8 h-8 rounded mr-2 bg-primary-main"></div>
+                            <span>Primary sobre Branco</span>
+                          </div>
+                        </TableCell>
+                        <TableCell>4.6:1</TableCell>
+                        <TableCell>Passa ✓</TableCell>
+                        <TableCell>Passa ✓</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell>
+                          <div className="flex items-center">
+                            <div className="w-8 h-8 rounded mr-2 bg-white flex items-center justify-center">
+                              <div className="w-4 h-4 bg-primary-main"></div>
+                            </div>
+                            <span>Branco sobre Primary</span>
+                          </div>
+                        </TableCell>
+                        <TableCell>4.6:1</TableCell>
+                        <TableCell>Passa ✓</TableCell>
+                        <TableCell>Passa ✓</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell>
+                          <div className="flex items-center">
+                            <div className="w-8 h-8 rounded mr-2 bg-secondary-main"></div>
+                            <span>Secondary sobre Branco</span>
+                          </div>
+                        </TableCell>
+                        <TableCell>13.2:1</TableCell>
+                        <TableCell>Passa ✓</TableCell>
+                        <TableCell>Passa ✓</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell>
+                          <div className="flex items-center">
+                            <div className="w-8 h-8 rounded mr-2 bg-error-main"></div>
+                            <span>Error sobre Branco</span>
+                          </div>
+                        </TableCell>
+                        <TableCell>4.8:1</TableCell>
+                        <TableCell>Passa ✓</TableCell>
+                        <TableCell>Passa ✓</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell>
+                          <div className="flex items-center">
+                            <div className="w-8 h-8 rounded mr-2 bg-warning-main"></div>
+                            <span>Warning sobre Preto</span>
+                          </div>
+                        </TableCell>
+                        <TableCell>13.5:1</TableCell>
+                        <TableCell>Passa ✓</TableCell>
+                        <TableCell>Passa ✓</TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </div>
+              )}
+              
+              <div className="mt-4">
+                <h3 className="text-lg font-medium mb-2">Não Dependa Apenas da Cor</h3>
+                <p className="text-mui-text-secondary">
+                  Para garantir que as informações sejam acessíveis a pessoas com deficiência visual ou daltonismo, não usamos apenas cor para transmitir informações importantes:
+                </p>
+                <ul className="list-disc list-inside mt-2 text-mui-text-secondary">
+                  <li>Combinamos cores com ícones, textos e padrões</li>
+                  <li>Oferecemos alternativas textuais para informações baseadas em cores</li>
+                  <li>Mantemos contraste suficiente mesmo em visualizações monocromáticas</li>
+                </ul>
+              </div>
+              
+              <div className="mt-4">
+                <h3 className="text-lg font-medium mb-2">Teste de Daltonismo</h3>
+                <p className="text-mui-text-secondary">
+                  Nosso sistema de cores foi testado para os seguintes tipos de daltonismo:
+                </p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-3">
+                  <div className="border rounded-lg p-3">
+                    <h4 className="font-medium text-sm mb-2">Deuteranopia</h4>
+                    <p className="text-xs text-mui-text-secondary">Deficiência de percepção do verde</p>
+                  </div>
+                  <div className="border rounded-lg p-3">
+                    <h4 className="font-medium text-sm mb-2">Protanopia</h4>
+                    <p className="text-xs text-mui-text-secondary">Deficiência de percepção do vermelho</p>
+                  </div>
+                  <div className="border rounded-lg p-3">
+                    <h4 className="font-medium text-sm mb-2">Tritanopia</h4>
+                    <p className="text-xs text-mui-text-secondary">Deficiência de percepção do azul</p>
+                  </div>
+                  <div className="border rounded-lg p-3">
+                    <h4 className="font-medium text-sm mb-2">Acromatopsia</h4>
+                    <p className="text-xs text-mui-text-secondary">Ausência completa de percepção de cores</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ComponentCard>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+};
+
+export default Colors;
