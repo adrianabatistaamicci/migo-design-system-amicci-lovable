@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, ChevronRight, Package, Layers, PenTool, Palette, Coffee, MousePointer, Edit3, ToggleRight, MessageSquare, BarChart2, Browser } from 'lucide-react';
+import { ChevronDown, ChevronRight, Package, Layers, PenTool, Palette, Coffee, MousePointer, Edit3, ToggleRight, MessageSquare, BarChart2, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface SidebarItem {
@@ -90,7 +89,7 @@ const sidebarItems: SidebarItem[] = [
       },
       { 
         title: 'Surfaces', 
-        icon: Browser,
+        icon: Globe,
         items: [
           { title: 'Accordion', href: '/components/accordion' },
           { title: 'App Bar', href: '/components/app-bar' },
@@ -157,7 +156,6 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
   const location = useLocation();
   const [expanded, setExpanded] = useState(true);
   
-  // Check if this section or any child is active
   const isActive = (href?: string, items?: SidebarItem[]): boolean => {
     if (href && location.pathname === href) return true;
     if (items) {
@@ -170,11 +168,9 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
   
   const active = isActive(item.href, item.items);
   
-  // If it's a section with children
   if (item.items && item.items.length > 0) {
     return (
       <div className="mb-2">
-        {/* Section header */}
         <div className={cn(
           "flex items-center justify-between py-2 px-3 rounded-md text-sm font-medium",
           level === 0 ? "text-mui-text-secondary" : "text-mui-text-primary",
@@ -212,7 +208,6 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
           )}
         </div>
         
-        {/* Section children */}
         {expanded && item.items && (
           <div className={cn("mt-1 transition-all duration-200", expanded ? "opacity-100" : "opacity-0 h-0 overflow-hidden")}>
             {item.items.map((child, index) => (
@@ -224,7 +219,6 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
     );
   }
   
-  // If it's a leaf node (no children)
   return (
     <Link
       to={item.href || '#'}

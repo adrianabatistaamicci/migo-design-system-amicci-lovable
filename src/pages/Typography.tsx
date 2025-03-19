@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
@@ -329,7 +328,7 @@ const Typography = () => {
                     <div>
                       <div className="flex items-center gap-2">
                         <h3 className="text-xl font-medium">{style.name}</h3>
-                        <Badge variant="outline">{style.description}</Badge>
+                        <Badge variant="standard">{style.description}</Badge>
                       </div>
                       <p className="text-mui-text-secondary mt-1">
                         {style.description === "Heading 1" && "Título principal para páginas e seções de destaque"}

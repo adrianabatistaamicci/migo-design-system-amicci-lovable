@@ -35,14 +35,18 @@ const badgeVariants = cva(
   }
 )
 
+// Define the color type to avoid conflicts
+type BadgeColor = "default" | "primary" | "secondary" | "error" | "info" | "success" | "warning";
+
 export interface BadgeProps
-  extends React.HTMLAttributes<HTMLSpanElement>,
-    VariantProps<typeof badgeVariants> {
+  extends Omit<React.HTMLAttributes<HTMLSpanElement>, "color">,
+    Omit<VariantProps<typeof badgeVariants>, "color"> {
   badgeContent?: React.ReactNode;
   max?: number;
   showZero?: boolean;
   invisible?: boolean;
   overlap?: "rectangular" | "circular";
+  color?: BadgeColor;
   anchorOrigin?: {
     vertical: "top" | "bottom";
     horizontal: "left" | "right";
@@ -55,7 +59,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
     children, 
     variant, 
     size, 
-    color, 
+    color = "primary", 
     badgeContent, 
     max = 99, 
     showZero = false, 

@@ -99,21 +99,25 @@ const chipVariants = cva(
   }
 )
 
+// Define the color type to avoid conflicts
+type ChipColor = "default" | "primary" | "secondary" | "success" | "error" | "info" | "warning";
+
 export interface ChipProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof chipVariants> {
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, "color">,
+    Omit<VariantProps<typeof chipVariants>, "color"> {
   onDelete?: () => void;
   icon?: React.ReactNode;
   avatar?: React.ReactNode;
   clickable?: boolean;
   disabled?: boolean;
+  color?: ChipColor;
 }
 
 function Chip({ 
   className, 
   variant, 
   size, 
-  color,
+  color = "default",
   onDelete,
   icon,
   avatar,

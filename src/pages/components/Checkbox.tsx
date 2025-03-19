@@ -138,14 +138,14 @@ const [indeterminate, setIndeterminate] = useState(true);
 
 <Checkbox 
   checked={checked}
-  onCheckedChange={setChecked}
+  onCheckedChange={(checked) => setChecked(checked === true)}
   label={checked ? "Checked" : "Unchecked"}
 />`}
           >
             <div className="flex flex-col gap-4">
               <Checkbox 
                 checked={checked}
-                onCheckedChange={setChecked}
+                onCheckedChange={(checked) => setChecked(checked === true)}
                 label={checked ? "Checked" : "Unchecked"}
               />
             </div>
