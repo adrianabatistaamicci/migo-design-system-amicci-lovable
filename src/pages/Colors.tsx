@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
@@ -5,8 +6,10 @@ import CodeBlock from '@/components/CodeBlock';
 import { Separator } from '@/components/ui/separator';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+
 const Colors = () => {
-  return <div className="space-y-8">
+  return (
+    <div className="space-y-8">
       <div>
         <h1 className="text-3xl font-bold tracking-tight mb-2">Sistema de Cores</h1>
         <p className="text-mui-text-secondary text-lg">
@@ -247,14 +250,19 @@ const Colors = () => {
             {/* Amber Colors */}
             <h3 className="text-xl font-medium mb-4">Amber</h3>
             <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => <div key={`amber-${weight}`} className="flex flex-col">
-                  <div className={`h-16 rounded-t-md ${weight >= 800 ? 'text-white' : 'text-black'} flex items-end p-2 bg-amber-${weight}`}>
+              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => (
+                <div key={`amber-${weight}`} className="flex flex-col">
+                  <div 
+                    className={`h-16 rounded-t-md ${weight >= 800 ? 'text-white' : 'text-black'} flex items-end p-2`}
+                    style={{ backgroundColor: `var(--amber-${weight}, #000)` }}
+                  >
                     {weight}
                   </div>
                   <div className="p-1 border border-t-0 rounded-b-md text-xs">
                     <code className="text-xs">amber-{weight}</code>
                   </div>
-                </div>)}
+                </div>
+              ))}
             </div>
             
             {/* Orange Colors */}
@@ -633,5 +641,30 @@ const Colors = () => {
             
             <div className="space-y-4 mt-8">
               <h3 className="text-lg font-medium">Exemplo de Código</h3>
-              <CodeBlock language="html" title="Exemplo de uso em componentes" code={`<!-- Botão primário -->
-<button class="bg-primary-main hover:bg-primary-hover text-primary-contrast
+              <CodeBlock 
+                language="html" 
+                title="Exemplo de uso em componentes" 
+                code={`<!-- Botão primário -->
+<button class="bg-primary-main hover:bg-primary-hover text-primary-contrast px-4 py-2 rounded">
+  Botão Primário
+</button>
+
+<!-- Alerta de erro -->
+<div class="bg-error-light border border-error-main text-error-dark p-4 rounded">
+  Ocorreu um erro ao processar sua solicitação.
+</div>
+
+<!-- Badge de sucesso -->
+<span class="bg-success-main text-success-contrast px-2 py-1 rounded text-xs">
+  Concluído
+</span>`}
+              />
+            </div>
+          </ComponentCard>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+};
+
+export default Colors;
