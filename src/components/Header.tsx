@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Search as SearchIcon, Github, Moon, Sun } from 'lucide-react';
@@ -45,10 +46,11 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar, isSidebarOpen }) => {
             to="/" 
             className="flex items-center gap-2 font-medium text-mui-text-primary"
           >
-            <div className="h-8 w-8 rounded-md bg-mui-primary flex items-center justify-center">
-              <span className="text-white font-bold text-lg">DS</span>
-            </div>
-            <span className="font-medium hidden sm:block">Design System</span>
+            <img 
+              src="/lovable-uploads/9ed1e05d-dad1-45db-b46f-1c6768505737.png" 
+              alt="Amicci Migo" 
+              className="h-8" 
+            />
           </Link>
         </div>
 
