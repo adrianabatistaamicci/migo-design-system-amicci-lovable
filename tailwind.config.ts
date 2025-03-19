@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -55,16 +56,16 @@ export default {
 					900: '#062630',
 				},
 				amicciDark: {
-					50: '#D9F4F2',
-					100: '#ACE0DD',
-					200: '#6FE0DC',
-					300: '#10C2C0',
-					400: '#199BA0',
-					500: '#0A686F',
-					600: '#075B61',
-					700: '#06454A',
-					800: '#033538',
-					900: '#02282A',
+					50: '#E6F5F5',
+					100: '#C7E8E9',
+					200: '#A1D6D8',
+					300: '#72BEC2',
+					400: '#3A9CA1',
+					500: '#14818A',
+					600: '#0D646D',
+					700: '#06454A', // Original value maintained
+					800: '#043A3E',
+					900: '#02282A', // Original value maintained
 				},
 				magenta: {
 					50: '#F8F4F7',

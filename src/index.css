@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap');
 
 @tailwind base;
@@ -36,17 +37,17 @@
     --amicci-600: #0EA3A1;
     --amicci-700: #0C8482;
     --amicci-800: #096665;
-    --amicci-900: #074A4A;
+    --amicci-900: #062630;
 
-    --amicciDark-50: #D9F4F2;
-    --amicciDark-100: #ACE0DD;
-    --amicciDark-200: #6FE0DC;
-    --amicciDark-300: #10C2C0;
-    --amicciDark-400: #199BA0;
-    --amicciDark-500: #0A686F;
-    --amicciDark-600: #075B61;
+    --amicciDark-50: #E6F5F5;
+    --amicciDark-100: #C7E8E9;
+    --amicciDark-200: #A1D6D8;
+    --amicciDark-300: #72BEC2;
+    --amicciDark-400: #3A9CA1;
+    --amicciDark-500: #14818A;
+    --amicciDark-600: #0D646D;
     --amicciDark-700: #06454A;
-    --amicciDark-800: #033538;
+    --amicciDark-800: #043A3E;
     --amicciDark-900: #02282A;
 
     --magenta-50: #F8F4F7;
