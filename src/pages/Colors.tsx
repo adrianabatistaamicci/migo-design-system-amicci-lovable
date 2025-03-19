@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
@@ -20,7 +19,6 @@ const Colors = () => {
     setTimeout(() => setCopied(null), 2000);
   };
 
-  // Create a standardized color table component for consistency
   const ColorTable = ({ title, colorPrefix }: { title: string; colorPrefix: string }) => {
     return (
       <>
@@ -56,7 +54,7 @@ const Colors = () => {
                     </TableCell>
                     <TableCell>
                       <div 
-                        className={`h-8 w-16 rounded ${needsDarkText ? 'text-black' : 'text-white'} flex items-center justify-center border border-gray-100`} 
+                        className={`h-8 w-16 rounded ${needsDarkText ? 'text-black' : 'text-white'} flex items-center justify-center border border-gray-200`} 
                         style={{ backgroundColor: hexColor }}
                       >
                         {weight}
@@ -124,7 +122,6 @@ const Colors = () => {
     );
   };
 
-  // Create a component for semantic palette tables
   const SemanticPaletteTable = ({ title, colorBase, palettePrefix }: { title: string; colorBase: string; palettePrefix: string }) => {
     return (
       <div className="mb-10">
@@ -174,7 +171,7 @@ const Colors = () => {
                     </TableCell>
                     <TableCell>
                       <div 
-                        className={`h-8 w-16 rounded ${needsDarkText ? 'text-black' : 'text-white'} flex items-center justify-center border border-gray-100`} 
+                        className={`h-8 w-16 rounded ${needsDarkText ? 'text-black' : 'text-white'} flex items-center justify-center border border-gray-200`} 
                         style={{ backgroundColor: hexColor }}
                       >
                         Aa
@@ -252,7 +249,6 @@ const Colors = () => {
           <TabsTrigger value="accessibility">Acessibilidade</TabsTrigger>
         </TabsList>
 
-        {/* Overview Tab Content */}
         <TabsContent value="overview" className="space-y-6">
           <ComponentCard title="Sistema de Cores" description="Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização.">
             <p className="text-mui-text-secondary mb-4">
@@ -351,7 +347,6 @@ const Colors = () => {
           </div>
         </TabsContent>
         
-        {/* Base Colors Tab Content */}
         <TabsContent value="baseColors" className="space-y-6">
           <ComponentCard title="Base colors">
             <p className="text-mui-text-secondary mb-6">
@@ -371,7 +366,6 @@ const Colors = () => {
           </ComponentCard>
         </TabsContent>
         
-        {/* Palettes Tab Content */}
         <TabsContent value="palettes" className="space-y-6">
           <ComponentCard title="Palettes">
             <p className="text-mui-text-secondary mb-6">
@@ -429,7 +423,6 @@ const Colors = () => {
           </ComponentCard>
         </TabsContent>
         
-        {/* Usage Tab Content */}
         <TabsContent value="usage" className="space-y-6">
           <ComponentCard title="Uso das Cores">
             <p className="text-mui-text-secondary mb-6">
@@ -499,7 +492,6 @@ const Colors = () => {
           </ComponentCard>
         </TabsContent>
         
-        {/* Accessibility Tab Content */}
         <TabsContent value="accessibility" className="space-y-6">
           <ComponentCard title="Acessibilidade das Cores">
             <p className="text-mui-text-secondary mb-6">
