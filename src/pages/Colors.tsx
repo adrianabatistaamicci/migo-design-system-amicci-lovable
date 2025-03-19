@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
@@ -40,7 +39,6 @@ const Colors = () => {
                 <div className="flex flex-wrap gap-1 mt-2">
                   <Badge className="bg-amicci-500">amicci</Badge>
                   <Badge className="bg-amicciDark-500">amicciDark</Badge>
-                  <Badge className="bg-amber-500 text-black">amber</Badge>
                   <Badge className="bg-blue-500">blue</Badge>
                   <Badge className="bg-magenta-500">magenta</Badge>
                   <Badge className="bg-green-500">green</Badge>
@@ -242,24 +240,6 @@ const Colors = () => {
                   </div>
                   <div className="p-1 border border-t-0 rounded-b-md text-xs">
                     <code className="text-xs">yellow-{weight}</code>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Amber Colors */}
-            <h3 className="text-xl font-medium mb-4">Amber</h3>
-            <div className="grid grid-cols-10 gap-2 mb-8">
-              {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight, index) => (
-                <div key={`amber-${weight}`} className="flex flex-col">
-                  <div 
-                    className={`h-16 rounded-t-md ${weight >= 800 ? 'text-white' : 'text-black'} flex items-end p-2`}
-                    style={{ backgroundColor: `var(--amber-${weight}, #000)` }}
-                  >
-                    {weight}
-                  </div>
-                  <div className="p-1 border border-t-0 rounded-b-md text-xs">
-                    <code className="text-xs">amber-{weight}</code>
                   </div>
                 </div>
               ))}
