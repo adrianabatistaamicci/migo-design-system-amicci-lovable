@@ -26,7 +26,11 @@ const App = () => {
               <Route path="/" element={<Index />} />
               <Route path="/components" element={<Components />} />
               <Route path="/components/:componentId" element={<ComponentDetail />} />
+              
+              {/* Foundation routes */}
               <Route path="/colors" element={<Colors />} />
+              <Route path="/foundations/colors" element={<Colors />} />
+              
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             </Route>
             <Route path="*" element={<NotFound />} />
