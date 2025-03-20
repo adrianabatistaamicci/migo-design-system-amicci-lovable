@@ -83,16 +83,9 @@ const ColorSwatch = ({
       tabIndex={0}
       style={hexValue && !color.startsWith('bg-') ? { backgroundColor: hexValue } : undefined}
     >
-      {textOverlay && (
-        <span className={`text-sm font-semibold ${textColor}`}>
-          {textOverlay}
-        </span>
-      )}
-      {!textOverlay && (
-        <span className={`text-sm font-semibold ${textColor}`}>
-          Aa
-        </span>
-      )}
+      <span className={`text-lg font-semibold ${textColor}`}>
+        {textOverlay || 'Aa'}
+      </span>
 
       <div className={`absolute right-2 top-2 transition-opacity ${copied ? 'opacity-100' : 'opacity-0 group-hover:opacity-70'}`}>
         {copied ? (

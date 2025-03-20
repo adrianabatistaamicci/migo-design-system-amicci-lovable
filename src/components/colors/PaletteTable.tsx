@@ -116,7 +116,6 @@ const PaletteTable = ({ palettes }: PaletteTableProps) => {
                     <TableCell>
                       <ColorSwatch 
                         color={variant.colorClass}
-                        textOverlay="Aa"
                         hexValue={variant.hexValue}
                         copyValue={variant.hexValue}
                       />
@@ -137,10 +136,10 @@ const PaletteTable = ({ palettes }: PaletteTableProps) => {
                           <div>
                             <span className="font-medium">Contraste:</span> {wcagInfo.ratio}:1 (com {wcagInfo.bestContrastWith})
                           </div>
-                          <div className={wcagInfo.passesAA ? "text-success-main font-medium" : "text-error-main font-medium"}>
+                          <div className={`${wcagInfo.passesAA ? "text-success-main" : "text-error-main"} font-medium`}>
                             WCAG AA: {wcagInfo.passesAA ? '✓' : '✗'}
                           </div>
-                          <div className={wcagInfo.passesAAA ? "text-success-main font-medium" : "text-error-main font-medium"}>
+                          <div className={`${wcagInfo.passesAAA ? "text-success-main" : "text-error-main"} font-medium`}>
                             WCAG AAA: {wcagInfo.passesAAA ? '✓' : '✗'}
                           </div>
                         </div>
