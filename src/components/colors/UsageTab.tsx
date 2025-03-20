@@ -2,27 +2,28 @@
 import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import ColorSwatch from './ColorSwatch';
+import { Button } from '@/components/ui/button';
 
 const UsageTab = () => {
   return (
     <ComponentCard title="Uso das Cores" description="Como aplicar cores corretamente em sua interface.">
       <div className="space-y-4">
-        <h3 className="text-lg font-medium">Princípios Gerais</h3>
-        <ul className="list-disc list-inside space-y-2 text-mui-text-secondary">
+        <h3 className="text-lg font-medium text-gray-800">Princípios Gerais</h3>
+        <ul className="list-disc list-inside space-y-2 text-gray-600">
           <li>Use cores de maneira consistente para criar uma experiência coesa</li>
           <li>Mantenha o contraste adequado para garantir legibilidade e acessibilidade</li>
           <li>Utilize cores semânticas para comunicar significado e estado</li>
           <li>Limite o uso de cores de destaque para não sobrecarregar a interface</li>
         </ul>
         
-        <h3 className="text-lg font-medium mt-6">Cores Semânticas</h3>
+        <h3 className="text-lg font-medium mt-6 text-gray-800">Cores Semânticas</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="rounded-lg border p-4">
+          <div className="rounded-lg border border-gray-200 p-4">
             <div className="flex items-center mb-3">
               <div className="w-6 h-6 rounded-full bg-primary-main mr-2"></div>
-              <h4 className="font-medium">Primary (Amicci)</h4>
+              <h4 className="font-medium text-gray-800">Primary (Amicci)</h4>
             </div>
-            <p className="text-mui-text-secondary text-sm">
+            <p className="text-gray-600 text-sm">
               Use para elementos de destaque, botões principais, links e elementos de navegação primários.
             </p>
             <div className="mt-3 grid grid-cols-1 gap-1">
@@ -32,12 +33,12 @@ const UsageTab = () => {
             </div>
           </div>
           
-          <div className="rounded-lg border p-4">
+          <div className="rounded-lg border border-gray-200 p-4">
             <div className="flex items-center mb-3">
               <div className="w-6 h-6 rounded-full bg-secondary-main mr-2"></div>
-              <h4 className="font-medium">Secondary (AmicciDark)</h4>
+              <h4 className="font-medium text-gray-800">Secondary (AmicciDark)</h4>
             </div>
-            <p className="text-mui-text-secondary text-sm">
+            <p className="text-gray-600 text-sm">
               Use para elementos secundários, botões alternativos e detalhes visuais complementares.
             </p>
             <div className="mt-3 grid grid-cols-1 gap-1">
@@ -47,12 +48,12 @@ const UsageTab = () => {
             </div>
           </div>
           
-          <div className="rounded-lg border p-4">
+          <div className="rounded-lg border border-gray-200 p-4">
             <div className="flex items-center mb-3">
               <div className="w-6 h-6 rounded-full bg-error-main mr-2"></div>
-              <h4 className="font-medium">Error (Red)</h4>
+              <h4 className="font-medium text-gray-800">Error (Red)</h4>
             </div>
-            <p className="text-mui-text-secondary text-sm">
+            <p className="text-gray-600 text-sm">
               Use para mensagens de erro, estados de erro e ações destrutivas como exclusão.
             </p>
             <div className="mt-3 grid grid-cols-1 gap-1">
@@ -62,12 +63,12 @@ const UsageTab = () => {
             </div>
           </div>
           
-          <div className="rounded-lg border p-4">
+          <div className="rounded-lg border border-gray-200 p-4">
             <div className="flex items-center mb-3">
               <div className="w-6 h-6 rounded-full bg-success-main mr-2"></div>
-              <h4 className="font-medium">Success (Green)</h4>
+              <h4 className="font-medium text-gray-800">Success (Green)</h4>
             </div>
-            <p className="text-mui-text-secondary text-sm">
+            <p className="text-gray-600 text-sm">
               Use para confirmações, mensagens de sucesso e indicadores positivos.
             </p>
             <div className="mt-3 grid grid-cols-1 gap-1">
@@ -77,12 +78,12 @@ const UsageTab = () => {
             </div>
           </div>
           
-          <div className="rounded-lg border p-4">
+          <div className="rounded-lg border border-gray-200 p-4">
             <div className="flex items-center mb-3">
               <div className="w-6 h-6 rounded-full bg-warning-main mr-2"></div>
-              <h4 className="font-medium">Warning (Yellow)</h4>
+              <h4 className="font-medium text-gray-800">Warning (Yellow)</h4>
             </div>
-            <p className="text-mui-text-secondary text-sm">
+            <p className="text-gray-600 text-sm">
               Use para alertas, notificações importantes e ações que requerem atenção.
             </p>
             <div className="mt-3 grid grid-cols-1 gap-1">
@@ -92,12 +93,12 @@ const UsageTab = () => {
             </div>
           </div>
           
-          <div className="rounded-lg border p-4">
+          <div className="rounded-lg border border-gray-200 p-4">
             <div className="flex items-center mb-3">
               <div className="w-6 h-6 rounded-full bg-info-main mr-2"></div>
-              <h4 className="font-medium">Info (Blue)</h4>
+              <h4 className="font-medium text-gray-800">Info (Blue)</h4>
             </div>
-            <p className="text-mui-text-secondary text-sm">
+            <p className="text-gray-600 text-sm">
               Use para mensagens informativas, dicas e elementos de ajuda contextual.
             </p>
             <div className="mt-3 grid grid-cols-1 gap-1">
@@ -108,23 +109,23 @@ const UsageTab = () => {
           </div>
         </div>
         
-        <h3 className="text-lg font-medium mt-6">Aplicação em Componentes</h3>
+        <h3 className="text-lg font-medium mt-6 text-gray-800">Aplicação em Componentes</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="rounded-lg border p-4">
-            <h4 className="font-medium mb-2">Botões</h4>
+          <div className="rounded-lg border border-gray-200 p-4">
+            <h4 className="font-medium mb-2 text-gray-800">Botões</h4>
             <div className="space-x-2">
-              <button className="bg-primary-main text-white px-4 py-2 rounded-md">Primary</button>
-              <button className="bg-secondary-main text-white px-4 py-2 rounded-md">Secondary</button>
-              <button className="border border-primary-outlinedBorder text-primary-main px-4 py-2 rounded-md">Outlined</button>
+              <Button variant="default">Primary</Button>
+              <Button variant="secondary">Secondary</Button>
+              <Button variant="outline-default">Outlined</Button>
             </div>
           </div>
           
-          <div className="rounded-lg border p-4">
-            <h4 className="font-medium mb-2">Estados</h4>
+          <div className="rounded-lg border border-gray-200 p-4">
+            <h4 className="font-medium mb-2 text-gray-800">Estados</h4>
             <div className="flex space-x-2">
-              <div className="px-3 py-1 rounded-full bg-success-light text-success-dark text-sm">Ativo</div>
-              <div className="px-3 py-1 rounded-full bg-error-light text-error-dark text-sm">Inativo</div>
-              <div className="px-3 py-1 rounded-full bg-warning-light text-warning-dark text-sm">Pendente</div>
+              <div className="px-3 py-1 rounded-full bg-green-100 text-success-dark text-sm">Ativo</div>
+              <div className="px-3 py-1 rounded-full bg-red-100 text-error-dark text-sm">Inativo</div>
+              <div className="px-3 py-1 rounded-full bg-yellow-100 text-warning-dark text-sm">Pendente</div>
             </div>
           </div>
         </div>

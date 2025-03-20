@@ -1,131 +1,117 @@
 
 import React from 'react';
+import { ArrowRight, Book, FileText, Layers, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Package, Palette, Layers, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import CodeBlock from '@/components/CodeBlock';
 
 const Index = () => {
   return (
-    <div className="animate-slide-in">
-      <div className="max-w-3xl">
-        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2 animate-fade-in">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mui-primary/10 text-mui-primary">
-            Documentation
-          </span>
+    <div className="space-y-16">
+      <section className="py-12">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-gray-800">
+            Design System Amicci
+          </h1>
+          <p className="text-xl text-gray-600 mb-8">
+            Um sistema de design consistente para criar interfaces de usuário modernas e acessíveis com React.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button asChild size="lg">
+              <Link to="/foundations/colors">
+                Começar
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button variant="outline-default" size="lg" asChild>
+              <Link to="/components">
+                Ver componentes
+              </Link>
+            </Button>
+          </div>
         </div>
-        
-        <h1 className="text-4xl font-medium text-mui-text-primary mb-4">
-          Design System Documentation
-        </h1>
-        
-        <p className="text-xl text-mui-text-secondary mb-8">
-          A comprehensive guide to our design system — everything you need to create consistent, beautiful interfaces.
-        </p>
-        
-        <div className="flex flex-wrap gap-4 mb-12">
-          <Button asChild size="lg" className="gap-1">
-            <Link to="/components">
-              Browse Components
-              <ChevronRight size={16} className="ml-1" />
-            </Link>
-          </Button>
-          
-          <Button asChild variant="outline" size="lg">
-            <Link to="/installation">
-              Installation Guide
-            </Link>
-          </Button>
-        </div>
-        
-        <div className="mb-12">
-          <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
-            Quick Installation
-          </h2>
-          
-          <CodeBlock 
-            title="Install via npm"
-            language="bash"
-            code="npm install @yourdomain/design-system"
-          />
-          
-          <CodeBlock 
-            title="Import and use components"
-            language="jsx"
-            code={`import { Button } from '@yourdomain/design-system';
+      </section>
 
-function App() {
-  return (
-    <Button variant="primary">
-      Get Started
-    </Button>
-  );
-}`}
-          />
+      <section>
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-8 text-gray-800">
+            Recursos principais
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-primary-light/30 rounded-lg text-primary-main flex items-center justify-center mb-4">
+                <Layers size={24} />
+              </div>
+              <h3 className="text-lg font-semibold mb-2 text-gray-800">Fundações</h3>
+              <p className="text-gray-600 mb-4">
+                Cores, tipografia, espaçamento e outros elementos fundamentais do sistema.
+              </p>
+              <Link to="/foundations/colors" className="text-primary-main hover:text-primary-dark inline-flex items-center">
+                Explorar fundações
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-primary-light/30 rounded-lg text-primary-main flex items-center justify-center mb-4">
+                <Package size={24} />
+              </div>
+              <h3 className="text-lg font-semibold mb-2 text-gray-800">Componentes</h3>
+              <p className="text-gray-600 mb-4">
+                Biblioteca de componentes reutilizáveis prontos para uso em seus projetos.
+              </p>
+              <Link to="/components" className="text-primary-main hover:text-primary-dark inline-flex items-center">
+                Ver componentes
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-primary-light/30 rounded-lg text-primary-main flex items-center justify-center mb-4">
+                <Book size={24} />
+              </div>
+              <h3 className="text-lg font-semibold mb-2 text-gray-800">Diretrizes</h3>
+              <p className="text-gray-600 mb-4">
+                Boas práticas para acessibilidade, responsividade e experiência do usuário.
+              </p>
+              <Link to="/guidelines/accessibility" className="text-primary-main hover:text-primary-dark inline-flex items-center">
+                Ler diretrizes
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-primary-light/30 rounded-lg text-primary-main flex items-center justify-center mb-4">
+                <FileText size={24} />
+              </div>
+              <h3 className="text-lg font-semibold mb-2 text-gray-800">Recursos</h3>
+              <p className="text-gray-600 mb-4">
+                Bibliotecas de design, kits de UI e outros recursos complementares.
+              </p>
+              <Link to="/resources/figma-library" className="text-primary-main hover:text-primary-dark inline-flex items-center">
+                Acessar recursos
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-        <Link 
-          to="/components" 
-          className="block rounded-lg border border-mui-border bg-white p-6 transition-all duration-200 hover:shadow-mui-sm hover:border-mui-primary/20"
-        >
-          <div className="mb-4 text-mui-primary">
-            <Package size={24} />
-          </div>
-          <h3 className="text-lg font-medium text-mui-text-primary mb-2">
-            Components
-          </h3>
-          <p className="text-mui-text-secondary">
-            Explore our library of UI components, with examples and API references.
+      <section className="bg-gray-50 py-12 rounded-lg">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4 text-gray-800">
+            Pronto para começar?
+          </h2>
+          <p className="text-lg text-gray-600 mb-8">
+            Explore nosso sistema de design e comece a criar interfaces consistentes e acessíveis.
           </p>
-        </Link>
-        
-        <Link 
-          to="/foundations/colors" 
-          className="block rounded-lg border border-mui-border bg-white p-6 transition-all duration-200 hover:shadow-mui-sm hover:border-mui-primary/20"
-        >
-          <div className="mb-4 text-mui-primary">
-            <Palette size={24} />
-          </div>
-          <h3 className="text-lg font-medium text-mui-text-primary mb-2">
-            Foundations
-          </h3>
-          <p className="text-mui-text-secondary">
-            Colors, typography, spacing, and other building blocks of our design system.
-          </p>
-        </Link>
-        
-        <Link 
-          to="/guidelines/accessibility" 
-          className="block rounded-lg border border-mui-border bg-white p-6 transition-all duration-200 hover:shadow-mui-sm hover:border-mui-primary/20"
-        >
-          <div className="mb-4 text-mui-primary">
-            <Layers size={24} />
-          </div>
-          <h3 className="text-lg font-medium text-mui-text-primary mb-2">
-            Guidelines
-          </h3>
-          <p className="text-mui-text-secondary">
-            Best practices for accessibility, responsive design, and usability.
-          </p>
-        </Link>
-        
-        <Link 
-          to="/resources/figma-library" 
-          className="block rounded-lg border border-mui-border bg-white p-6 transition-all duration-200 hover:shadow-mui-sm hover:border-mui-primary/20"
-        >
-          <div className="mb-4 text-mui-primary">
-            <BookOpen size={24} />
-          </div>
-          <h3 className="text-lg font-medium text-mui-text-primary mb-2">
-            Resources
-          </h3>
-          <p className="text-mui-text-secondary">
-            Figma libraries, Storybook documentation, and other helpful resources.
-          </p>
-        </Link>
-      </div>
+          <Button asChild size="lg">
+            <Link to="/foundations/colors">
+              Ver documentação
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+      </section>
     </div>
   );
 };

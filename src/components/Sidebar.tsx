@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, ChevronRight, Package, Layers, PenTool, Palette, Coffee, MousePointer, Edit3, ToggleRight, MessageSquare, BarChart2, Globe } from 'lucide-react';
@@ -132,22 +133,22 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
       <div className="mb-2">
         <div className={cn(
           "flex items-center justify-between py-2 px-3 rounded-md text-sm font-medium",
-          level === 0 ? "text-mui-text-secondary" : "text-mui-text-primary",
-          active && !item.href ? "text-mui-primary" : "",
+          level === 0 ? "text-gray-700" : "text-gray-800",
+          active && !item.href ? "text-primary-main" : "",
           level > 0 && "pl-8",
-          item.href ? "hover:bg-mui-hover cursor-pointer" : ""
+          item.href ? "hover:bg-gray-100 cursor-pointer" : ""
         )}>
           <div 
             className="flex items-center gap-2 w-full"
             onClick={() => item.href ? null : setExpanded(!expanded)}
           >
-            {item.icon && <item.icon size={18} />}
+            {item.icon && <item.icon size={18} className="text-primary-main" />}
             {item.href ? (
               <Link 
                 to={item.href} 
                 className={cn(
                   "w-full",
-                  location.pathname === item.href ? "text-mui-primary font-medium" : ""
+                  location.pathname === item.href ? "text-primary-main font-medium" : ""
                 )}
               >
                 {item.title}
@@ -160,7 +161,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
           {item.items && item.items.length > 0 && (
             <button 
               onClick={() => setExpanded(!expanded)}
-              className="text-mui-text-secondary hover:text-mui-text-primary p-1 rounded-md"
+              className="text-gray-500 hover:text-primary-main p-1 rounded-md"
             >
               {expanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
             </button>
@@ -184,12 +185,12 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
       className={cn(
         "flex items-center py-2 px-3 text-sm rounded-md",
         location.pathname === item.href 
-          ? "text-mui-primary bg-mui-hover font-medium" 
-          : "text-mui-text-secondary hover:text-mui-text-primary hover:bg-mui-hover",
+          ? "text-primary-main bg-primary-hover font-medium" 
+          : "text-gray-700 hover:text-primary-main hover:bg-gray-100",
         level > 0 && "pl-8",
       )}
     >
-      {item.icon && <item.icon size={18} className="mr-2" />}
+      {item.icon && <item.icon size={18} className="mr-2 text-primary-main" />}
       {item.title}
     </Link>
   );
@@ -198,7 +199,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
 const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
   return (
     <aside className={cn(
-      "fixed top-16 left-0 bottom-0 w-64 bg-mui-sidebar border-r border-mui-border overflow-y-auto transition-transform duration-300 ease-elastic z-30",
+      "fixed top-16 left-0 bottom-0 w-64 bg-white border-r border-gray-200 overflow-y-auto transition-transform duration-300 ease-elastic z-30",
       isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
     )}>
       <div className="pt-6 pb-8 px-4">
