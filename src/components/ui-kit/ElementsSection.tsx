@@ -9,31 +9,31 @@ const ElementsSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <ComponentPreview 
           title="Avatars" 
-          imageSrc="/lovable-uploads/f842772b-6892-47e1-9884-3e79bf5fe918.png" 
+          imageSrc="/lovable-uploads/ec5626c9-736f-4de7-a969-4f4e60812388.png" 
           variantCount={3} 
         />
         
         <ComponentPreview 
           title="Badges" 
-          imageSrc="/lovable-uploads/a48fffca-50b5-41eb-867b-66f9081d2390.png" 
+          imageSrc="/lovable-uploads/93eec571-57df-4c3a-9958-cb6930361d88.png" 
           variantCount={6} 
         />
         
         <ComponentPreview 
           title="Dropdowns" 
-          imageSrc="/lovable-uploads/a8858b43-cf90-4c5e-be18-8f2fb45d2a5e.png" 
+          imageSrc="/lovable-uploads/81490ad1-e5d2-4044-9f7f-f527c64081e7.png" 
           variantCount={4} 
         />
         
         <ComponentPreview 
           title="Buttons" 
-          imageSrc="/lovable-uploads/23e9f1e4-ec12-4198-a04d-ce6226702b03.png" 
+          imageSrc="/lovable-uploads/be058021-3c4e-45d5-884f-04074c8c2562.png" 
           variantCount={8} 
         />
         
         <ComponentPreview 
           title="Button Groups" 
-          imageSrc="/lovable-uploads/5ea80b3c-ada0-4735-a77b-c5d9ade72312.png" 
+          imageSrc="/lovable-uploads/da2da260-cb83-491e-8d76-d4f4519ce2ac.png" 
           variantCount={3} 
         />
       </div>
