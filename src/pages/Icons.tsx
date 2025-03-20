@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Chip } from '@/components/ui/chip';
@@ -7,7 +6,6 @@ import { getMaterialIconUrl, ICON_SIZES, getIconSizeClass, shouldInvertIcon, for
 import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-
 const Icons = () => {
   return <div className="w-full animate-fade-in">
       <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
@@ -46,14 +44,11 @@ const Icons = () => {
             </div>
             
             <Alert className="mt-8 bg-primary/10 border-amicci-500 rounded">
-              <AlertTitle className="text-primary font-medium">Icon Library</AlertTitle>
+              
               <AlertDescription className="flex flex-col gap-2">
                 The complete library of Material Design icons can be accessed at:
                 <div>
-                  <Button 
-                    variant="default" 
-                    onClick={() => window.open("https://fonts.google.com/icons", "_blank", "noopener,noreferrer")}
-                  >
+                  <Button variant="default" onClick={() => window.open("https://fonts.google.com/icons", "_blank", "noopener,noreferrer")}>
                     Explore Material Icons
                   </Button>
                 </div>
