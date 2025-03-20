@@ -104,6 +104,7 @@ const PaletteTable = ({ palettes }: PaletteTableProps) => {
                         hexValue={variant.hexValue}
                         copyValue={variant.hexValue}
                         textOverlay={variant.hexValue || '#F0F0F0'}
+                        className="h-12" // Increased height by 50% (from ~8 to 12)
                       />
                     </TableCell>
                     <TableCell className="font-mono">

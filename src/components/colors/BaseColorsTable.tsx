@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import ColorSwatch from './ColorSwatch';
@@ -49,7 +50,11 @@ const BaseColorsTable = ({
                       {baseColor.name.toLowerCase()}-{weight.weight}
                     </TableCell>
                     <TableCell>
-                      <ColorSwatch color={weight.colorClass} textOverlay={weight.weight} />
+                      <ColorSwatch 
+                        color={weight.colorClass} 
+                        textOverlay={weight.weight} 
+                        className="h-12" // Increased height by 50% (from ~8 to 12)
+                      />
                     </TableCell>
                     <TableCell className="font-mono">
                       --{baseColor.name.toLowerCase()}-{weight.weight}
