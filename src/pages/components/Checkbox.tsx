@@ -8,8 +8,8 @@ const CheckboxPage = () => {
   const [indeterminate, setIndeterminate] = useState(true);
   
   return (
-    <div className="container animate-slide-in">
-      <div className="max-w-3xl mb-12">
+    <div className="w-full animate-slide-in">
+      <div className="mb-12">
         <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mui-primary/10 text-mui-primary">
             Component
