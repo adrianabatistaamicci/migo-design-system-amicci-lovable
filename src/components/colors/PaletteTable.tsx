@@ -70,6 +70,9 @@ const PaletteTable = ({ palettes }: PaletteTableProps) => {
                   <TableCell>
                     <ColorSwatch 
                       color={variant.colorClass}
+                      textOverlay={variant.name}
+                      hexValue={variant.hexValue}
+                      copyValue={variant.hexValue}
                     />
                   </TableCell>
                   <TableCell className="font-mono">

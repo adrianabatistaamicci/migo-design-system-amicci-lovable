@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Check, Copy } from 'lucide-react';
+import { colorUtils } from '@/utils/colorUtils';
 
 interface ColorSwatchProps {
   color: string;
@@ -23,14 +24,27 @@ const ColorSwatch = ({
 }: ColorSwatchProps) => {
   const [copied, setCopied] = useState(false);
 
-  // Determine text color based on background color
+  // Determine text color based on background color luminance
   const getTextColor = () => {
+    // Se a cor não inclui um valor hex, tentamos usar algumas heurísticas baseadas no nome
     const lightColors = ['white', 'light', '50', '100', '200', '300'];
-    const isLightBackground = lightColors.some(lightColor => 
+    const isLightColorName = lightColors.some(lightColor => 
       color.toLowerCase().includes(lightColor)
     );
     
-    return isLightBackground ? 'text-gray-800' : 'text-white';
+    // Para cores que têm um valor hex, usamos o cálculo de luminância para determinar o contraste
+    if (hexValue) {
+      try {
+        const luminance = colorUtils.getLuminance(hexValue);
+        return luminance > 0.5 ? 'text-gray-800' : 'text-white';
+      } catch (e) {
+        // Fallback para a heurística baseada no nome em caso de erro
+        return isLightColorName ? 'text-gray-800' : 'text-white';
+      }
+    }
+    
+    // Se não temos um valor hex, usamos apenas a heurística baseada no nome
+    return isLightColorName ? 'text-gray-800' : 'text-white';
   };
 
   const handleCopy = () => {
@@ -39,6 +53,8 @@ const ColorSwatch = ({
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  const textColor = getTextColor();
 
   return (
     <div 
@@ -49,33 +65,33 @@ const ColorSwatch = ({
     >
       <div className="flex items-center">
         {textOverlay && (
-          <span className={`text-sm font-semibold ${getTextColor()}`}>
+          <span className={`text-sm font-semibold ${textColor}`}>
             {textOverlay}
           </span>
         )}
         {!textOverlay && (
-          <span className={`text-sm font-semibold ${getTextColor()}`}>
+          <span className={`text-sm font-semibold ${textColor}`}>
             Aa
           </span>
         )}
         {weight && (
-          <span className={`ml-2 text-xs ${getTextColor()} opacity-75`}>
+          <span className={`ml-2 text-xs ${textColor} opacity-75`}>
             {weight}
           </span>
         )}
       </div>
 
       {hexValue && (
-        <span className={`text-xs font-mono ${getTextColor()} opacity-90`}>
+        <span className={`text-xs font-mono ${textColor} opacity-90`}>
           {hexValue}
         </span>
       )}
 
       <div className={`absolute right-2 top-2 transition-opacity ${copied ? 'opacity-100' : 'opacity-0 group-hover:opacity-70'}`}>
         {copied ? (
-          <Check className={`w-4 h-4 ${getTextColor()}`} />
+          <Check className={`w-4 h-4 ${textColor}`} />
         ) : (
-          <Copy className={`w-4 h-4 ${getTextColor()}`} />
+          <Copy className={`w-4 h-4 ${textColor}`} />
         )}
       </div>
     </div>
