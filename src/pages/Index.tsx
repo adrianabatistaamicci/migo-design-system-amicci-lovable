@@ -2,10 +2,11 @@ import React from 'react';
 import { ArrowRight, Book, FileText, Layers, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+
 const Index = () => {
   return <div className="space-y-16">
       <section className="max-w-7xl mx-auto px-0">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container">
           <h2 className="text-4xl tracking-tight mb-4 text-text-primary font-medium md:text-6xl">Migo, o Design System da Amicci</h2>
           <h6 className="text-lg mb-8 text-text-secondary">Um sistema de design Tailwind consistente para criar interfaces de usuário modernas e acessíveis com React.</h6>
           <div className="flex flex-wrap justify-center gap-4">
@@ -20,7 +21,7 @@ const Index = () => {
       </section>
 
       <section>
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container">
           <h5 className="text-xl tracking-tight mb-8 text-text-primary font-medium md:text-3xl">
             Recursos principais
           </h5>
@@ -83,8 +84,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
-      
     </div>;
 };
+
 export default Index;

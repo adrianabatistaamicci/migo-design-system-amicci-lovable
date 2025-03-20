@@ -1,16 +1,14 @@
-
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
-import { Label } from '@/components/ui/label';
 
 const CheckboxPage = () => {
   const [checked, setChecked] = useState(true);
   const [indeterminate, setIndeterminate] = useState(true);
   
   return (
-    <div className="animate-slide-in">
+    <div className="container animate-slide-in">
       <div className="max-w-3xl mb-12">
         <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mui-primary/10 text-mui-primary">
