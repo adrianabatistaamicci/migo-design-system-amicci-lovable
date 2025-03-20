@@ -3,7 +3,7 @@ import React from 'react';
 
 interface ComponentPreviewProps {
   title: string;
-  children?: React.ReactNode; // Made optional 
+  children?: React.ReactNode; // Optional when imageSrc is provided
   imageSrc?: string;
 }
 
