@@ -3,7 +3,7 @@ import React from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import ColorSwatch from './ColorSwatch';
 import { colorUtils } from '@/utils/colorUtils';
-import { ClipboardCopy } from 'lucide-react';
+import { Copy } from 'lucide-react';
 
 interface ColorWeight {
   weight: string;
@@ -31,7 +31,7 @@ const BaseColorsTable = ({ baseColors }: BaseColorsTableProps) => {
       onClick={() => copyToClipboard(text)}
       className="ml-2 text-gray-400 hover:text-gray-600 transition-colors"
     >
-      <ClipboardCopy size={14} />
+      <Copy size={14} />
     </button>
   );
 

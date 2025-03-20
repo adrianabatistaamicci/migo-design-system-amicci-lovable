@@ -2,7 +2,7 @@
 import React from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import ColorSwatch from './ColorSwatch';
-import { ClipboardCopy } from 'lucide-react';
+import { Copy } from 'lucide-react';
 import { colorUtils } from '@/utils/colorUtils';
 
 // Define interfaces for our data
@@ -38,7 +38,7 @@ const PaletteTable = ({ palettes }: PaletteTableProps) => {
       onClick={() => copyToClipboard(text)}
       className="ml-2 text-gray-400 hover:text-gray-600 transition-colors"
     >
-      <ClipboardCopy size={14} />
+      <Copy size={14} />
     </button>
   );
 
