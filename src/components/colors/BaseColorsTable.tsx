@@ -1,44 +1,32 @@
-
 import React from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import ColorSwatch from './ColorSwatch';
 import { colorUtils } from '@/utils/colorUtils';
 import { Copy } from 'lucide-react';
-
 interface ColorWeight {
   weight: string;
   colorClass: string;
   hexValue: string;
 }
-
 interface BaseColor {
   name: string;
   weights: ColorWeight[];
 }
-
 interface BaseColorsTableProps {
   baseColors: BaseColor[];
 }
-
-const BaseColorsTable = ({ baseColors }: BaseColorsTableProps) => {
+const BaseColorsTable = ({
+  baseColors
+}: BaseColorsTableProps) => {
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
     // You could add a toast notification here
   };
-
-  const renderCopyButton = (text: string) => (
-    <button 
-      onClick={() => copyToClipboard(text)}
-      className="ml-2 text-gray-400 hover:text-gray-600 transition-colors"
-    >
+  const renderCopyButton = (text: string) => <button onClick={() => copyToClipboard(text)} className="ml-2 text-gray-400 hover:text-gray-600 transition-colors">
       <Copy size={14} />
-    </button>
-  );
-
-  return (
-    <div className="space-y-8">
-      {baseColors.map((baseColor) => (
-        <div key={baseColor.name} className="space-y-2">
+    </button>;
+  return <div className="space-y-8">
+      {baseColors.map(baseColor => <div key={baseColor.name} className="space-y-2">
           <h3 className="text-xl font-semibold">{baseColor.name}</h3>
           <Table className="border rounded-lg overflow-hidden">
             <TableHeader>
@@ -52,21 +40,16 @@ const BaseColorsTable = ({ baseColors }: BaseColorsTableProps) => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {baseColor.weights.map((weight) => {
-                const hexValue = weight.hexValue;
-                const rgbValue = colorUtils.hexToRgb(hexValue);
-                const hslValue = colorUtils.hexToHsl(hexValue);
-                
-                return (
-                  <TableRow key={`${baseColor.name}-${weight.weight}`}>
-                    <TableCell className="font-mono bg-gray-50">
+              {baseColor.weights.map(weight => {
+            const hexValue = weight.hexValue;
+            const rgbValue = colorUtils.hexToRgb(hexValue);
+            const hslValue = colorUtils.hexToHsl(hexValue);
+            return <TableRow key={`${baseColor.name}-${weight.weight}`}>
+                    <TableCell className="font-mono bg-inherit">
                       {baseColor.name.toLowerCase()}-{weight.weight}
                     </TableCell>
                     <TableCell>
-                      <ColorSwatch 
-                        color={weight.colorClass} 
-                        textOverlay={weight.weight}
-                      />
+                      <ColorSwatch color={weight.colorClass} textOverlay={weight.weight} />
                     </TableCell>
                     <TableCell className="font-mono">
                       --{baseColor.name.toLowerCase()}-{weight.weight}
@@ -84,15 +67,11 @@ const BaseColorsTable = ({ baseColors }: BaseColorsTableProps) => {
                       {hslValue}
                       {renderCopyButton(hslValue)}
                     </TableCell>
-                  </TableRow>
-                );
-              })}
+                  </TableRow>;
+          })}
             </TableBody>
           </Table>
-        </div>
-      ))}
-    </div>
-  );
+        </div>)}
+    </div>;
 };
-
 export default BaseColorsTable;
