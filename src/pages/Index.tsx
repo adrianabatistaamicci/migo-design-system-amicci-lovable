@@ -1,14 +1,11 @@
-
 import React from 'react';
 import { ArrowRight, Book, FileText, Layers, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-
 const Index = () => {
-  return (
-    <div className="space-y-16">
-      <section className="py-12">
-        <div className="max-w-4xl mx-auto text-center">
+  return <div className="space-y-16">
+      <section className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-gray-800">
             Design System Amicci
           </h1>
@@ -17,15 +14,10 @@ const Index = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button asChild size="lg">
-              <Link to="/foundations/colors">
-                Começar
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+              
             </Button>
             <Button variant="outline-default" size="lg" asChild>
-              <Link to="/components">
-                Ver componentes
-              </Link>
+              
             </Button>
           </div>
         </div>
@@ -112,8 +104,6 @@ const Index = () => {
           </Button>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
