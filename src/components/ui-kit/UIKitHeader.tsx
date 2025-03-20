@@ -9,7 +9,7 @@ const UIKitHeader = () => {
         <Chip variant="filled" color="primary" size="sm">Components</Chip>
       </div>
       <h1 className="text-3xl font-bold tracking-tight mb-2">UI Kit</h1>
-      <p className="text-muted-foreground text-lg mb-6">An overview of the main elements of our Design System</p>
+      <p className="text-muted-foreground text-lg mb-6">Uma visão geral dos principais componentes do nosso Design System</p>
     </div>
   );
 };
