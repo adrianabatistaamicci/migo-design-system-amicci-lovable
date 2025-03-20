@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Chip } from '@/components/ui/chip';
@@ -46,14 +45,11 @@ const Icons = () => {
             </div>
             
             <Alert className="mt-8 bg-primary/10 border-amicci-500 rounded">
-              
-              <AlertDescription className="flex flex-col gap-2">
-                A biblioteca completa de ícones do Material Design pode ser acessada em:
-                <div>
-                  <Button variant="default" onClick={() => window.open("https://fonts.google.com/icons", "_blank", "noopener,noreferrer")}>
-                    Explorar Ícones do Material
-                  </Button>
-                </div>
+              <AlertDescription className="flex flex-row justify-between items-center">
+                <span>A biblioteca completa de ícones do Material Design pode ser acessada em:</span>
+                <Button variant="default" onClick={() => window.open("https://fonts.google.com/icons", "_blank", "noopener,noreferrer")}>
+                  Explorar Ícones do Material
+                </Button>
               </AlertDescription>
             </Alert>
             
