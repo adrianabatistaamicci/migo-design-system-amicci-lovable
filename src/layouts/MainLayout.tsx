@@ -36,7 +36,7 @@ const MainLayout: React.FC = () => {
         >
           <main 
             className={cn(
-              "mui-container transition-opacity duration-300",
+              "transition-opacity duration-300 mx-auto max-w-[1280px] px-4",
               isTransitioning ? "opacity-0" : "opacity-100",
               !showContent && "hidden"
             )}
