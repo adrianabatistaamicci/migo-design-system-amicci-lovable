@@ -137,11 +137,11 @@ const paletteData = [
 
 const PalettesTab = () => {
   return (
-    <ComponentCard title="Paletas Compostas">
-      <p className="text-text-secondary mb-6">
-        As paletas compostas são construídas utilizando as cores básicas como base.
-        Cada paleta semântica inclui variações para diferentes estados e usos.
-      </p>
+    <ComponentCard 
+      title="Paletas Compostas" 
+      description="As paletas compostas são construídas utilizando as cores básicas como base. Cada paleta semântica inclui variações para diferentes estados e usos."
+      height="auto"
+    >
       <PaletteTable palettes={paletteData} />
     </ComponentCard>
   );
