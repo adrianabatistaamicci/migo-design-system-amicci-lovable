@@ -4,14 +4,10 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 const Index = () => {
   return <div className="space-y-16">
-      <section className="max-w-7xl mx-auto px-4">
+      <section className="max-w-7xl mx-auto px-0">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-gray-800">
-            Design System Amicci
-          </h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Um sistema de design consistente para criar interfaces de usuário modernas e acessíveis com React.
-          </p>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-gray-800">Migo, o Design System da Amicci</h1>
+          <p className="text-xl text-gray-600 mb-8">Um sistema de design Tailwind consistente para criar interfaces de usuário modernas e acessíveis com React.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button asChild size="lg">
               
