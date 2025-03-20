@@ -39,13 +39,13 @@ const UIKit = () => {
       <section>
         <h2 className="text-xl font-semibold mb-6">Application Shells</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <ComponentPreview title="Stacked Layouts" imageSrc="/lovable-uploads/application-shells-1-stacked-layouts.png" variantCount={3} />
+          <ComponentPreview title="Stacked Layouts" imageSrc="/lovable-uploads/2164823d-9e27-4ff7-a19d-e5117a64f1f6.png" variantCount={3} />
           
-          <ComponentPreview title="Sidebar Layouts" imageSrc="/lovable-uploads/application-shells-2-sidebar-layouts.png" variantCount={4} />
+          <ComponentPreview title="Sidebar Layouts" imageSrc="/lovable-uploads/03d9daef-5728-4f4a-add3-20b56bff88f4.png" variantCount={4} />
           
-          <ComponentPreview title="Multi-Column Layouts" imageSrc="/lovable-uploads/application-shells-3-multi-column-layouts.png" variantCount={2} />
+          <ComponentPreview title="Multi-Column Layouts" imageSrc="/lovable-uploads/570a05aa-c89b-4fc3-95fa-08883ec83a75.png" variantCount={2} />
           
-          <ComponentPreview title="Detail Screens" imageSrc="/lovable-uploads/application-shells-4-detail-screens.png" variantCount={5} />
+          <ComponentPreview title="Detail Screens" imageSrc="/lovable-uploads/0dacb6bd-565c-42ca-ab1f-bf4a6d377240.png" variantCount={5} />
         </div>
       </section>
       
@@ -53,13 +53,13 @@ const UIKit = () => {
       <section>
         <h2 className="text-xl font-semibold mb-6">Headings</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <ComponentPreview title="Page Headings" imageSrc="/lovable-uploads/headings-1-page-headings.png" variantCount={3} />
+          <ComponentPreview title="Page Headings" imageSrc="/lovable-uploads/cd97f79a-7ce7-4168-a624-15dd1ccee99c.png" variantCount={3} />
           
-          <ComponentPreview title="Card Headings" imageSrc="/lovable-uploads/headings-2-card-headings.png" variantCount={2} />
+          <ComponentPreview title="Card Headings" imageSrc="/lovable-uploads/018ed9e8-ed99-4c9b-af96-de82433f6326.png" variantCount={2} />
           
-          <ComponentPreview title="Section Headings" imageSrc="/lovable-uploads/headings-3-section-headings.png" variantCount={4} />
+          <ComponentPreview title="Section Headings" imageSrc="/lovable-uploads/6c0ac1f2-af8a-4aab-8742-68e08a3d31ae.png" variantCount={4} />
           
-          <ComponentPreview title="Home Screens" imageSrc="/lovable-uploads/headings-4-home-screens.png" variantCount={2} />
+          <ComponentPreview title="Home Screens" imageSrc="/lovable-uploads/8193019c-5cbc-4e3d-a119-72e97a79a59e.png" variantCount={2} />
         </div>
       </section>
       
@@ -67,13 +67,13 @@ const UIKit = () => {
       <section>
         <h2 className="text-xl font-semibold mb-6">Data Display</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <ComponentPreview title="Description Lists" imageSrc="/lovable-uploads/data-display-1-description-lists.png" variantCount={3} />
+          <ComponentPreview title="Description Lists" imageSrc="/lovable-uploads/d7edca7c-f43f-4754-97f2-2d961d0acf08.png" variantCount={3} />
           
-          <ComponentPreview title="Stats" imageSrc="/lovable-uploads/data-display-2-stats.png" variantCount={5} />
+          <ComponentPreview title="Stats" imageSrc="/lovable-uploads/88ada6a8-a524-4b6f-9888-0c49115fd73d.png" variantCount={5} />
           
-          <ComponentPreview title="Calendars" imageSrc="/lovable-uploads/data-display-3-calendars.png" variantCount={2} />
+          <ComponentPreview title="Calendars" imageSrc="/lovable-uploads/e19570ed-0c12-4b55-90f8-f351b9a7003e.png" variantCount={2} />
           
-          <ComponentPreview title="Settings Screens" imageSrc="/lovable-uploads/data-display-4-settings-screens.png" variantCount={3} />
+          <ComponentPreview title="Settings Screens" imageSrc="/lovable-uploads/67b83589-4c0e-4697-944f-de6e741e2a65.png" variantCount={3} />
         </div>
       </section>
       
@@ -81,13 +81,13 @@ const UIKit = () => {
       <section>
         <h2 className="text-xl font-semibold mb-6">Lists</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <ComponentPreview title="Stacked Lists" imageSrc="/lovable-uploads/lists-1-stacked-lists.png" variantCount={6} />
+          <ComponentPreview title="Stacked Lists" imageSrc="/lovable-uploads/967f6bf5-53fe-49b2-a0ea-7dfdefaa04b8.png" variantCount={6} />
           
-          <ComponentPreview title="Tables" imageSrc="/lovable-uploads/lists-2-tables.png" variantCount={4} />
+          <ComponentPreview title="Tables" imageSrc="/lovable-uploads/6f212a1f-109f-4d5c-97b4-1ab91ac5a5da.png" variantCount={4} />
           
-          <ComponentPreview title="Grid Lists" imageSrc="/lovable-uploads/lists-3-grid-lists.png" variantCount={3} />
+          <ComponentPreview title="Grid Lists" imageSrc="/lovable-uploads/66d34b06-0d7e-4f25-a32d-17565498c1e3.png" variantCount={3} />
           
-          <ComponentPreview title="Feeds" imageSrc="/lovable-uploads/lists-4-feeds.png" variantCount={2} />
+          <ComponentPreview title="Feeds" imageSrc="/lovable-uploads/a8ac550a-539d-498e-a282-b116df5f70d3.png" variantCount={2} />
         </div>
       </section>
       
@@ -95,25 +95,25 @@ const UIKit = () => {
       <section>
         <h2 className="text-xl font-semibold mb-6">Forms</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <ComponentPreview title="Form Layouts" imageSrc="/lovable-uploads/forms-1-form-layouts.png" variantCount={5} />
+          <ComponentPreview title="Form Layouts" imageSrc="/lovable-uploads/a04f9fe3-c673-4a54-b6e7-025f3e7ba3a6.png" variantCount={5} />
           
-          <ComponentPreview title="Input Groups" imageSrc="/lovable-uploads/forms-2-input-groups.png" variantCount={3} />
+          <ComponentPreview title="Input Groups" imageSrc="/lovable-uploads/1fc9d88b-184d-4d31-8377-99acc696e2f0.png" variantCount={3} />
           
-          <ComponentPreview title="Select Menus" imageSrc="/lovable-uploads/forms-3-select-menus.png" variantCount={4} />
+          <ComponentPreview title="Select Menus" imageSrc="/lovable-uploads/c217ea26-5cf8-47d4-92c7-75592787bb07.png" variantCount={4} />
           
-          <ComponentPreview title="Sign-in and Registration" imageSrc="/lovable-uploads/forms-4-sign-in-registration.png" variantCount={3} />
+          <ComponentPreview title="Sign-in and Registration" imageSrc="/lovable-uploads/d0c061d5-3344-4c6b-b76b-da463da793c5.png" variantCount={3} />
           
-          <ComponentPreview title="Textareas" imageSrc="/lovable-uploads/forms-5-textareas.png" variantCount={2} />
+          <ComponentPreview title="Textareas" imageSrc="/lovable-uploads/dd4143dc-b862-421d-a3b5-bb3d22203360.png" variantCount={2} />
           
-          <ComponentPreview title="Radio Groups" imageSrc="/lovable-uploads/forms-6-radio-groups.png" variantCount={3} />
+          <ComponentPreview title="Radio Groups" imageSrc="/lovable-uploads/2415b0da-f36f-47f9-9277-aecd156b8a46.png" variantCount={3} />
           
-          <ComponentPreview title="Checkboxes" imageSrc="/lovable-uploads/forms-7-checkboxes.png" variantCount={4} />
+          <ComponentPreview title="Checkboxes" imageSrc="/lovable-uploads/274d4db9-0e2f-4185-b0fd-4ce83da8a193.png" variantCount={4} />
           
-          <ComponentPreview title="Toggles" imageSrc="/lovable-uploads/forms-8-toggles.png" variantCount={3} />
+          <ComponentPreview title="Toggles" imageSrc="/lovable-uploads/13d757f0-0e61-47ea-9d35-3a80b79cda01.png" variantCount={3} />
           
-          <ComponentPreview title="Action Panels" imageSrc="/lovable-uploads/forms-9-action-panels.png" variantCount={2} />
+          <ComponentPreview title="Action Panels" imageSrc="/lovable-uploads/82349cc0-ca46-4f0c-b941-d564dc88b753.png" variantCount={2} />
           
-          <ComponentPreview title="Comboboxes" imageSrc="/lovable-uploads/forms-10-comboboxes.png" variantCount={3} />
+          <ComponentPreview title="Comboboxes" imageSrc="/lovable-uploads/4fff47f1-c6b9-402d-8bf4-4ab2df2d2ab8.png" variantCount={3} />
         </div>
       </section>
       
@@ -121,13 +121,13 @@ const UIKit = () => {
       <section>
         <h2 className="text-xl font-semibold mb-6">Feedback</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <ComponentPreview title="Alerts" imageSrc="/lovable-uploads/feedback-1-alerts.png" variantCount={4} />
+          <ComponentPreview title="Alerts" imageSrc="/lovable-uploads/d2e49c4c-1339-407d-8744-e7c8747bce34.png" variantCount={4} />
           
-          <ComponentPreview title="Empty States" imageSrc="/lovable-uploads/feedback-2-empty-states.png" variantCount={3} />
+          <ComponentPreview title="Empty States" imageSrc="/lovable-uploads/dacdc4fe-2a1f-45c1-bd8d-4f62e1c70ac5.png" variantCount={3} />
           
-          <ComponentPreview title="Notifications - Toast" imageSrc="/lovable-uploads/feedback-3-notifications-toast.png" variantCount={5} />
+          <ComponentPreview title="Notifications - Toast" imageSrc="/lovable-uploads/6dbda8df-f86d-4aff-aded-56c42527f006.png" variantCount={5} />
           
-          <ComponentPreview title="Modal Dialogs" imageSrc="/lovable-uploads/feedback-4-modal-dialogs.png" variantCount={4} />
+          <ComponentPreview title="Modal Dialogs" imageSrc="/lovable-uploads/cfffbed2-625a-48c0-b6f4-37610fcf4bf8.png" variantCount={4} />
         </div>
       </section>
       
@@ -135,21 +135,21 @@ const UIKit = () => {
       <section>
         <h2 className="text-xl font-semibold mb-6">Navigation</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <ComponentPreview title="Navbars" imageSrc="/lovable-uploads/navigation-1-navbars.png" variantCount={6} />
+          <ComponentPreview title="Navbars" imageSrc="/lovable-uploads/ab401c97-3309-4d18-ae91-d6f9863337b0.png" variantCount={6} />
           
-          <ComponentPreview title="Pagination" imageSrc="/lovable-uploads/navigation-2-pagination.png" variantCount={3} />
+          <ComponentPreview title="Pagination" imageSrc="/lovable-uploads/d1418a09-7ea9-49dd-be4a-d772504a1c9c.png" variantCount={3} />
           
-          <ComponentPreview title="Tabs" imageSrc="/lovable-uploads/navigation-3-tabs.png" variantCount={4} />
+          <ComponentPreview title="Tabs" imageSrc="/lovable-uploads/8ba357b7-4c81-4fe1-a3ee-81c628bb9d57.png" variantCount={4} />
           
-          <ComponentPreview title="Vertical Navigation" imageSrc="/lovable-uploads/navigation-4-vertical-navigation.png" variantCount={3} />
+          <ComponentPreview title="Vertical Navigation" imageSrc="/lovable-uploads/85be3370-eb8a-441f-8fb2-35c870429048.png" variantCount={3} />
           
-          <ComponentPreview title="Sidebar Navigation" imageSrc="/lovable-uploads/navigation-5-sidebar-navigation.png" variantCount={4} />
+          <ComponentPreview title="Sidebar Navigation" imageSrc="/lovable-uploads/22c8fbc8-4037-4ab1-8410-7592e488e6aa.png" variantCount={4} />
           
-          <ComponentPreview title="Breadcrumbs" imageSrc="/lovable-uploads/navigation-6-breadcrumbs.png" variantCount={2} />
+          <ComponentPreview title="Breadcrumbs" imageSrc="/lovable-uploads/06c18f19-010a-475b-8aca-5f8919671e23.png" variantCount={2} />
           
-          <ComponentPreview title="Progress Bars" imageSrc="/lovable-uploads/navigation-7-progress-bars.png" variantCount={3} />
+          <ComponentPreview title="Progress Bars" imageSrc="/lovable-uploads/7b1986af-9535-4999-a791-96fb7456fccd.png" variantCount={3} />
           
-          <ComponentPreview title="Command Palettes" imageSrc="/lovable-uploads/navigation-8-command-palettes.png" variantCount={2} />
+          <ComponentPreview title="Command Palettes" imageSrc="/lovable-uploads/354482fc-f67c-45e5-a378-e6d835005c05.png" variantCount={2} />
         </div>
       </section>
       
@@ -157,13 +157,13 @@ const UIKit = () => {
       <section>
         <h2 className="text-xl font-semibold mb-6">Overlays</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <ComponentPreview title="Modal Dialogs" imageSrc="/lovable-uploads/overlays-1-modal-dialogs.png" variantCount={4} />
+          <ComponentPreview title="Modal Dialogs" imageSrc="/lovable-uploads/9edc0220-a8fc-4935-a6d0-d27cd6c6b49f.png" variantCount={4} />
           
-          <ComponentPreview title="Drawers" imageSrc="/lovable-uploads/overlays-2-drawers.png" variantCount={3} />
+          <ComponentPreview title="Drawers" imageSrc="/lovable-uploads/bbc1b531-583f-4092-9766-e9c04680183e.png" variantCount={3} />
           
-          <ComponentPreview title="Notifications" imageSrc="/lovable-uploads/overlays-3-notifications.png" variantCount={5} />
+          <ComponentPreview title="Notifications" imageSrc="/lovable-uploads/cdc177ff-a734-4717-aa15-df3407ecf64c.png" variantCount={5} />
           
-          <ComponentPreview title="Command Palette Overlays" imageSrc="/lovable-uploads/overlays-4-command-palette-overlays.png" variantCount={2} />
+          <ComponentPreview title="Command Palette Overlays" imageSrc="/lovable-uploads/4b052cad-ca8a-48f6-ae89-d0bbce0c02b2.png" variantCount={2} />
         </div>
       </section>
       
@@ -171,21 +171,22 @@ const UIKit = () => {
       <section>
         <h2 className="text-xl font-semibold mb-6">Elements</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <ComponentPreview title="Avatars" imageSrc="/lovable-uploads/elements-1-avatars.png" variantCount={3} />
+          <ComponentPreview title="Avatars" imageSrc="/lovable-uploads/f842772b-6892-47e1-9884-3e79bf5fe918.png" variantCount={3} />
           
-          <ComponentPreview title="Badges" imageSrc="/lovable-uploads/elements-2-badges.png" variantCount={6} />
+          <ComponentPreview title="Badges" imageSrc="/lovable-uploads/a48fffca-50b5-41eb-867b-66f9081d2390.png" variantCount={6} />
           
-          <ComponentPreview title="Dropdowns" imageSrc="/lovable-uploads/elements-3-dropdowns.png" variantCount={4} />
+          <ComponentPreview title="Dropdowns" imageSrc="/lovable-uploads/a8858b43-cf90-4c5e-be18-8f2fb45d2a5e.png" variantCount={4} />
           
-          <ComponentPreview title="Buttons" imageSrc="/lovable-uploads/elements-4-buttons.png" variantCount={8} />
+          <ComponentPreview title="Buttons" imageSrc="/lovable-uploads/23e9f1e4-ec12-4198-a04d-ce6226702b03.png" variantCount={8} />
           
-          <ComponentPreview title="Button Groups" imageSrc="/lovable-uploads/elements-5-button-groups.png" variantCount={3} />
+          <ComponentPreview title="Button Groups" imageSrc="/lovable-uploads/5ea80b3c-ada0-4735-a77b-c5d9ade72312.png" variantCount={3} />
           
-          <ComponentPreview title="Step Indicators" imageSrc="/lovable-uploads/elements-6-step-indicators.png" variantCount={4} />
+          <ComponentPreview title="Step Indicators" imageSrc="/lovable-uploads/ee154c49-785a-4853-9bb1-0da58e913208.png" variantCount={4} />
           
-          <ComponentPreview title="Input Fields" imageSrc="/lovable-uploads/elements-7-input-fields.png" variantCount={5} />
+          <ComponentPreview title="Input Fields" imageSrc="/lovable-uploads/a524e964-803b-41f6-975c-e3969c2cc443.png" variantCount={5} />
         </div>
       </section>
     </div>;
 };
 export default UIKit;
+
