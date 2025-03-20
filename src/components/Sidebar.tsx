@@ -21,6 +21,7 @@ const sidebarItems: SidebarItem[] = [
       { title: 'Introduction', href: '/' },
       { title: 'Installation', href: '/installation' },
       { title: 'Usage', href: '/usage' },
+      { title: 'UI Kit', href: '/ui-kit' },
     ]
   },
   {
@@ -38,88 +39,46 @@ const sidebarItems: SidebarItem[] = [
     href: '/components',
     icon: Package,
     items: [
-      { 
-        title: 'Inputs', 
-        icon: Edit3,
-        items: [
-          { title: 'Button', href: '/components/buttons' },
-          { title: 'Checkbox', href: '/components/checkbox' },
-          { title: 'Input', href: '/components/input' },
-          { title: 'Radio', href: '/components/radio-group' },
-          { title: 'Select', href: '/components/select' },
-          { title: 'Slider', href: '/components/slider' },
-          { title: 'Switch', href: '/components/switch' },
-        ]
-      },
-      { 
-        title: 'Data Display', 
-        icon: BarChart2,
-        items: [
-          { title: 'Avatar', href: '/components/avatar' },
-          { title: 'Badge', href: '/components/badge' },
-          { title: 'Chip', href: '/components/chip' },
-          { title: 'Divider', href: '/components/divider' },
-          { title: 'Icons', href: '/components/icons' },
-          { title: 'Table', href: '/components/table' },
-          { title: 'Typography', href: '/components/typography' },
-        ]
-      },
-      { 
-        title: 'Feedback', 
-        icon: MessageSquare,
-        items: [
-          { title: 'Alert', href: '/components/alert' },
-          { title: 'Dialog', href: '/components/dialog' },
-          { title: 'Progress', href: '/components/progress' },
-          { title: 'Skeleton', href: '/components/skeleton' },
-          { title: 'Snackbar', href: '/components/snackbar' },
-        ]
-      },
-      { 
-        title: 'Navigation', 
-        icon: MousePointer,
-        items: [
-          { title: 'Breadcrumbs', href: '/components/breadcrumb' },
-          { title: 'Drawer', href: '/components/drawer' },
-          { title: 'Menu', href: '/components/menu' },
-          { title: 'Pagination', href: '/components/pagination' },
-          { title: 'Stepper', href: '/components/stepper' },
-          { title: 'Tabs', href: '/components/tabs' },
-        ]
-      },
-      { 
-        title: 'Surfaces', 
-        icon: Globe,
-        items: [
-          { title: 'Accordion', href: '/components/accordion' },
-          { title: 'App Bar', href: '/components/app-bar' },
-          { title: 'Card', href: '/components/cards' },
-          { title: 'Paper', href: '/components/paper' },
-        ]
-      },
-      { 
-        title: 'Utils', 
-        icon: ToggleRight,
-        items: [
-          { title: 'Click Away Listener', href: '/components/click-away-listener' },
-          { title: 'CSS Baseline', href: '/components/css-baseline' },
-          { title: 'Modal', href: '/components/modal' },
-          { title: 'No SSR', href: '/components/no-ssr' },
-          { title: 'Popover', href: '/components/popover' },
-          { title: 'Popper', href: '/components/popper' },
-          { title: 'Portal', href: '/components/portal' },
-          { title: 'Textarea Autosize', href: '/components/textarea-autosize' },
-          { title: 'Transitions', href: '/components/transitions' },
-        ]
-      },
-      {
-        title: 'Data Grid',
-        href: '/components/data-grid',
-      },
-      {
-        title: 'Date & Time Pickers',
-        href: '/components/date-picker',
-      }
+      { title: 'Button', href: '/components/buttons' },
+      { title: 'Checkbox', href: '/components/checkbox' },
+      { title: 'Input', href: '/components/input' },
+      { title: 'Radio', href: '/components/radio-group' },
+      { title: 'Select', href: '/components/select' },
+      { title: 'Slider', href: '/components/slider' },
+      { title: 'Switch', href: '/components/switch' },
+      { title: 'Avatar', href: '/components/avatar' },
+      { title: 'Badge', href: '/components/badge' },
+      { title: 'Chip', href: '/components/chip' },
+      { title: 'Divider', href: '/components/divider' },
+      { title: 'Icons', href: '/components/icons' },
+      { title: 'Table', href: '/components/table' },
+      { title: 'Typography', href: '/components/typography' },
+      { title: 'Alert', href: '/components/alert' },
+      { title: 'Dialog', href: '/components/dialog' },
+      { title: 'Progress', href: '/components/progress' },
+      { title: 'Skeleton', href: '/components/skeleton' },
+      { title: 'Snackbar', href: '/components/snackbar' },
+      { title: 'Breadcrumbs', href: '/components/breadcrumb' },
+      { title: 'Drawer', href: '/components/drawer' },
+      { title: 'Menu', href: '/components/menu' },
+      { title: 'Pagination', href: '/components/pagination' },
+      { title: 'Stepper', href: '/components/stepper' },
+      { title: 'Tabs', href: '/components/tabs' },
+      { title: 'Accordion', href: '/components/accordion' },
+      { title: 'App Bar', href: '/components/app-bar' },
+      { title: 'Card', href: '/components/cards' },
+      { title: 'Paper', href: '/components/paper' },
+      { title: 'Click Away Listener', href: '/components/click-away-listener' },
+      { title: 'CSS Baseline', href: '/components/css-baseline' },
+      { title: 'Modal', href: '/components/modal' },
+      { title: 'No SSR', href: '/components/no-ssr' },
+      { title: 'Popover', href: '/components/popover' },
+      { title: 'Popper', href: '/components/popper' },
+      { title: 'Portal', href: '/components/portal' },
+      { title: 'Textarea Autosize', href: '/components/textarea-autosize' },
+      { title: 'Transitions', href: '/components/transitions' },
+      { title: 'Data Grid', href: '/components/data-grid' },
+      { title: 'Date & Time Pickers', href: '/components/date-picker' },
     ]
   },
   {
