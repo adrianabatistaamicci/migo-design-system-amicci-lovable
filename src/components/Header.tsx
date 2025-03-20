@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar, isSidebarOpen }) => {
   return (
     <header 
       className={`sticky top-0 z-40 w-full transition-all duration-200 ease-elastic ${
-        scrolled ? 'bg-white shadow-mui-sm' : 'bg-white'
+        scrolled ? 'bg-white shadow-[0px_12px_16px_-4px_rgba(14,24,41,0.08),0px_4px_6px_-2px_rgba(14,24,41,0.03)]' : 'bg-white shadow-[0px_12px_16px_-4px_rgba(14,24,41,0.08),0px_4px_6px_-2px_rgba(14,24,41,0.03)]'
       }`}
     >
       <div className="w-full h-16 flex items-center justify-between px-6">
