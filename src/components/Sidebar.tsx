@@ -19,7 +19,7 @@ const sidebarItems: SidebarItem[] = [
   {
     title: 'Getting Started',
     items: [
-      { title: 'Introduction', href: '/' },
+      { title: 'Oi, Migo', href: '/' },
       { title: 'Installation', href: '/installation' },
       { title: 'Guidelines', href: '/guidelines' },
       { title: 'UI Kit', href: '/ui-kit' },
