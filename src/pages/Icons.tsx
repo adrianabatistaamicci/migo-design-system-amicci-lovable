@@ -10,6 +10,8 @@ import {
   shouldInvertIcon,
   formatIconName
 } from '@/utils/iconUtils';
+import { Card, CardContent } from "@/components/ui/card";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 
 const Icons = () => {
   return (
@@ -51,9 +53,12 @@ const Icons = () => {
               </div>
             </div>
             
-            <div className="mt-8">
-              <p className="mb-4">The complete library of Material Design icons can be accessed at: <a href="https://fonts.google.com/icons" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://fonts.google.com/icons</a></p>
-            </div>
+            <Alert className="mt-8 bg-primary/10 border-primary">
+              <AlertTitle className="text-primary font-medium">Icon Library</AlertTitle>
+              <AlertDescription>
+                The complete library of Material Design icons can be accessed at: <a href="https://fonts.google.com/icons" target="_blank" rel="noopener noreferrer" className="text-primary font-medium hover:underline">https://fonts.google.com/icons</a>
+              </AlertDescription>
+            </Alert>
             
             <Separator className="my-6" />
 
