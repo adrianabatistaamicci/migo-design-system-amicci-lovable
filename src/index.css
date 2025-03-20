@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap');
 
 @tailwind base;
@@ -25,7 +26,8 @@
     --blue-600: #1F5AE8;
     --blue-700: #0057B2;
     --blue-800: #0C41A0;
-    --blue-900: #072B7A;
+    --blue-900: #093186; /* New intermediate color */
+    --blue-950: #072B7A; /* Renamed from 900 */
 
     --amicci-50: #F1FDFC;
     --amicci-100: #E3FAF9;
@@ -36,7 +38,8 @@
     --amicci-600: #0EA3A1;
     --amicci-700: #0C8482;
     --amicci-800: #096665;
-    --amicci-900: #062630;
+    --amicci-900: #074A47; /* New intermediate color */
+    --amicci-950: #062630; /* Renamed from 900 */
 
     --amicciDark-50: #E6F5F5;
     --amicciDark-100: #C7E8E9;
@@ -47,7 +50,8 @@
     --amicciDark-600: #0D646D;
     --amicciDark-700: #06454A;
     --amicciDark-800: #043A3E;
-    --amicciDark-900: #02282A;
+    --amicciDark-900: #033034; /* New intermediate color */
+    --amicciDark-950: #02282A; /* Renamed from 900 */
 
     --magenta-50: #FDF5FA;
     --magenta-100: #F9E5F4;
@@ -58,7 +62,8 @@
     --magenta-600: #841E6C;
     --magenta-700: #6D1959;
     --magenta-800: #571447;
-    --magenta-900: #3E0F32;
+    --magenta-900: #49123C; /* New intermediate color */
+    --magenta-950: #3E0F32; /* Renamed from 900 */
 
     --green-50: #ECFDF3;
     --green-100: #D1FADF;
@@ -69,7 +74,8 @@
     --green-600: #039855;
     --green-700: #027A48;
     --green-800: #05603A;
-    --green-900: #054F31;
+    --green-900: #055735; /* New intermediate color */
+    --green-950: #054F31; /* Renamed from 900 */
 
     --gray-50: #F9FBFB;
     --gray-100: #F3F6F5;
@@ -80,7 +86,8 @@
     --gray-600: #656969;
     --gray-700: #4A4F4F;
     --gray-800: #313536;
-    --gray-900: #212323;
+    --gray-900: #292C2D; /* New intermediate color */
+    --gray-950: #212323; /* Renamed from 900 */
 
     --orange-50: #FFFAEB;
     --orange-100: #FEF0C7;
@@ -91,7 +98,8 @@
     --orange-600: #DC6803;
     --orange-700: #B54708;
     --orange-800: #93370D;
-    --orange-900: #7A2E0E;
+    --orange-900: #86320D; /* New intermediate color */
+    --orange-950: #7A2E0E; /* Renamed from 900 */
 
     --red-50: #FEF3F2;
     --red-100: #FEE4E2;
@@ -102,7 +110,8 @@
     --red-600: #D92D20;
     --red-700: #B42318;
     --red-800: #912018;
-    --red-900: #7A271A;
+    --red-900: #862017; /* New intermediate color */
+    --red-950: #7A271A; /* Renamed from 900 */
 
     --yellow-50: #FFFDE7;
     --yellow-100: #FFF9C4;
@@ -113,7 +122,8 @@
     --yellow-600: #FDD835;
     --yellow-700: #FBC02D;
     --yellow-800: #F9A825;
-    --yellow-900: #F57F17;
+    --yellow-900: #F78F1E; /* New intermediate color */
+    --yellow-950: #F57F17; /* Renamed from 900 */
 
     /* Common colors */
     --common-white-main: #FFFFFF;

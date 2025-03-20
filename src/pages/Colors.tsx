@@ -13,7 +13,7 @@ const Colors = () => {
       <div>
         <h1 className="text-3xl font-bold tracking-tight mb-2">Sistema de Cores</h1>
         <p className="text-mui-text-secondary text-lg">
-          Paleta de cores e tokens de design utilizados na aplicação.
+          Paleta de cores e tokens de design utilizados na aplicação (50-950).
         </p>
       </div>
 
