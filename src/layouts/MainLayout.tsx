@@ -36,7 +36,8 @@ const MainLayout: React.FC = () => {
         >
           <main 
             className={cn(
-              "transition-opacity duration-300 mx-auto max-w-[1280px] px-4",
+              "transition-opacity duration-300 mx-auto px-4 w-full",
+              "max-w-[1280px]", // Standardized max-width
               isTransitioning ? "opacity-0" : "opacity-100",
               !showContent && "hidden"
             )}

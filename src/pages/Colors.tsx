@@ -9,7 +9,7 @@ import AccessibilityTab from '@/components/colors/AccessibilityTab';
 
 const Colors = () => {
   return (
-    <div className="container space-y-8">
+    <div className="w-full space-y-8">
       <div>
         <h1 className="text-3xl font-bold tracking-tight mb-2">Sistema de Cores</h1>
         <p className="text-mui-text-secondary text-lg">
