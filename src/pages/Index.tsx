@@ -35,7 +35,7 @@ const Index = () => {
                 Biblioteca de componentes reutilizáveis prontos para uso em seus projetos.
               </p>
               <Link to="/components" className="text-primary-main hover:text-primary-dark inline-flex items-center">
-                Ver componentes
+                Acessar instalação
                 <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </div>
@@ -63,7 +63,7 @@ const Index = () => {
                 Cores, tipografia, espaçamento e outros elementos fundamentais do sistema.
               </p>
               <Link to="/foundations/colors" className="text-primary-main hover:text-primary-dark inline-flex items-center">
-                Explorar fundações
+                Explorar kit
                 <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </div>
