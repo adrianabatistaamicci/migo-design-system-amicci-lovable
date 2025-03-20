@@ -47,9 +47,9 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar, isSidebarOpen }) => {
             className="flex items-center gap-2 font-medium text-primary-dark"
           >
             <img 
-              src="/lovable-uploads/f8b89c21-724c-4c22-a8f9-4c1f698665dd.png" 
-              alt="Amicci Migo" 
-              className="h-8" 
+              src="https://amicci.com.br/wp-content/uploads/2024/09/Amicci-Logo_Turquesa-EscuroTurquesa.svg" 
+              alt="Amicci" 
+              className="h-auto w-[120px]" 
             />
           </Link>
         </div>
