@@ -9,49 +9,49 @@ const NavigationSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <ComponentPreview 
           title="Navbars" 
-          imageSrc="/lovable-uploads/ab401c97-3309-4d18-ae91-d6f9863337b0.png" 
+          imageSrc="/lovable-uploads/b423f99a-3cca-4147-8f6e-548ac78afc37.png" 
           variantCount={6} 
         />
         
         <ComponentPreview 
           title="Pagination" 
-          imageSrc="/lovable-uploads/d1418a09-7ea9-49dd-be4a-d772504a1c9c.png" 
+          imageSrc="/lovable-uploads/2781a435-658c-4efb-9000-188a41da5368.png" 
           variantCount={3} 
         />
         
         <ComponentPreview 
           title="Tabs" 
-          imageSrc="/lovable-uploads/8ba357b7-4c81-4fe1-a3ee-81c628bb9d57.png" 
+          imageSrc="/lovable-uploads/176919aa-cdc0-47fe-8ab4-b4d6f6fd057e.png" 
           variantCount={4} 
         />
         
         <ComponentPreview 
           title="Vertical Navigation" 
-          imageSrc="/lovable-uploads/85be3370-eb8a-441f-8fb2-35c870429048.png" 
+          imageSrc="/lovable-uploads/b0959128-432b-438f-ad52-0b74f343f142.png" 
           variantCount={3} 
         />
         
         <ComponentPreview 
           title="Sidebar Navigation" 
-          imageSrc="/lovable-uploads/22c8fbc8-4037-4ab1-8410-7592e488e6aa.png" 
+          imageSrc="/lovable-uploads/475a7cfa-efa4-40ad-8a4a-372f07982b64.png" 
           variantCount={4} 
         />
         
         <ComponentPreview 
           title="Breadcrumbs" 
-          imageSrc="/lovable-uploads/06c18f19-010a-475b-8aca-5f8919671e23.png" 
+          imageSrc="/lovable-uploads/c294819f-846b-4508-ab9d-ff4079bcfc74.png" 
           variantCount={2} 
         />
         
         <ComponentPreview 
           title="Progress Bars" 
-          imageSrc="/lovable-uploads/7b1986af-9535-4999-a791-96fb7456fccd.png" 
+          imageSrc="/lovable-uploads/af8bf5fa-891c-432c-95a7-a34361b8a712.png" 
           variantCount={3} 
         />
         
         <ComponentPreview 
           title="Command Palettes" 
-          imageSrc="/lovable-uploads/354482fc-f67c-45e5-a378-e6d835005c05.png" 
+          imageSrc="/lovable-uploads/2d68f64d-a10b-407e-a762-7245ea124dc9.png" 
           variantCount={2} 
         />
       </div>
