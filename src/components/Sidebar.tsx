@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, ChevronRight, Package, Layers, PenTool, Palette, Coffee, MousePointer, Edit3, ToggleRight, MessageSquare, BarChart2, Globe } from 'lucide-react';
@@ -20,7 +21,9 @@ const sidebarItems: SidebarItem[] = [
     items: [
       { title: 'Introduction', href: '/' },
       { title: 'Installation', href: '/installation' },
+      { title: 'Guidelines', href: '/guidelines' },
       { title: 'UI Kit', href: '/ui-kit' },
+      { title: 'Resources', href: '/resources' },
     ]
   },
   {
