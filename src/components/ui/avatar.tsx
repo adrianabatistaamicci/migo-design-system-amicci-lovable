@@ -29,7 +29,7 @@ const Avatar = React.forwardRef<
   };
   
   const colorClasses = {
-    default: "bg-background-paper text-text-primary",
+    default: "bg-background-paper text-foreground",
     primary: "bg-primary-main text-primary-contrast",
     secondary: "bg-secondary-main text-secondary-contrast",
     error: "bg-error-main text-error-contrast",

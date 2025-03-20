@@ -39,7 +39,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             htmlFor={id} 
             className={cn(
               "mb-1 text-sm font-medium transition-colors",
-              error ? "text-error-main" : "text-mui-text-secondary"
+              error ? "text-error-main" : "text-text-secondary"
             )}
           >
             {label}
@@ -51,7 +51,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           fullWidth && "w-full"
         )}>
           {startAdornment && (
-            <div className="absolute left-3 flex items-center pointer-events-none text-mui-text-secondary">
+            <div className="absolute left-3 flex items-center pointer-events-none text-text-secondary">
               {startAdornment}
             </div>
           )}
@@ -68,8 +68,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               endAdornment && "pr-10",
               {
                 "rounded-md border border-input bg-background px-3 py-2 ring-offset-background placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary": variant === "outlined",
-                "border-b-2 border-mui-border px-1 py-1 bg-mui-background-subtle focus-visible:border-primary-main": variant === "standard",
-                "rounded-t-md border-b-2 border-mui-border px-3 py-2 bg-mui-background-subtle focus-visible:border-primary-main": variant === "filled",
+                "border-b-2 border-border-default px-1 py-1 bg-background-subtle focus-visible:border-primary-main": variant === "standard",
+                "rounded-t-md border-b-2 border-border-default px-3 py-2 bg-background-subtle focus-visible:border-primary-main": variant === "filled",
               },
               error && {
                 "border-error-main focus-visible:ring-error-main": variant === "outlined",
@@ -81,7 +81,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           />
           
           {endAdornment && (
-            <div className="absolute right-3 flex items-center pointer-events-none text-mui-text-secondary">
+            <div className="absolute right-3 flex items-center pointer-events-none text-text-secondary">
               {endAdornment}
             </div>
           )}
@@ -90,7 +90,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {helperText && (
           <span className={cn(
             "mt-1 text-xs",
-            error ? "text-error-main" : "text-mui-text-secondary"
+            error ? "text-error-main" : "text-text-secondary"
           )}>
             {helperText}
           </span>

@@ -27,7 +27,7 @@ export default {
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
-				foreground: 'hsl(var(--foreground))',
+				foreground: 'var(--text-primary)',
 				
 				// Cores básicas
 				blue: {
@@ -261,6 +261,11 @@ export default {
 				card: {
 					DEFAULT: 'var(--card)',
 					foreground: 'var(--card-foreground)'
+				},
+				text: {
+					primary: 'var(--text-primary)',
+					secondary: 'var(--text-secondary)',
+					disabled: 'var(--text-disabled)',
 				},
 				mui: {
 					primary: '#007FFF',
