@@ -13,7 +13,8 @@ import Typography from "./pages/Typography";
 import Spacing from "./pages/Spacing";
 import Icons from "./pages/Icons";
 import NotFound from "./pages/NotFound";
-// Import new component pages
+import UIKit from "./pages/UIKit";
+// Import component pages
 import InputPage from "./pages/components/Input";
 import CheckboxPage from "./pages/components/Checkbox";
 
@@ -46,6 +47,9 @@ const App = () => {
               <Route path="/foundations/spacing" element={<Spacing />} />
               <Route path="/icons" element={<Icons />} />
               <Route path="/foundations/icons" element={<Icons />} />
+              
+              {/* UI Kit route */}
+              <Route path="/ui-kit" element={<UIKit />} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             </Route>
