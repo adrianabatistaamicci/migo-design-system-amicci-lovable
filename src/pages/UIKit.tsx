@@ -57,7 +57,7 @@ const UIKit = () => {
           
           <ComponentPreview title="Card Headings" imageSrc="/lovable-uploads/018ed9e8-ed99-4c9b-af96-de82433f6326.png" variantCount={2} />
           
-          <ComponentPreview title="Section Headings" imageSrc="/lovable-uploads/6c0ac1f2-af8a-4aab-8742-68e08a3d31ae.png" variantCount={4} />
+          <ComponentPreview title="Section Headings" imageSrc="/lovable-uploads/e5eba8eb-9f15-4f26-ae44-30a33100af73.png" variantCount={4} />
           
           <ComponentPreview title="Home Screens" imageSrc="/lovable-uploads/8193019c-5cbc-4e3d-a119-72e97a79a59e.png" variantCount={2} />
         </div>
