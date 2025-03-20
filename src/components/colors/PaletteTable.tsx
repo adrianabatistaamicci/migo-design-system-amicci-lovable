@@ -137,15 +137,11 @@ const PaletteTable = ({ palettes }: PaletteTableProps) => {
                           <div>
                             <span className="font-medium">Contraste:</span> {wcagInfo.ratio}:1 (com {wcagInfo.bestContrastWith})
                           </div>
-                          <div>
-                            <span className={wcagInfo.passesAA ? "text-success-main font-medium" : "text-error-main font-medium"}>
-                              WCAG AA: {wcagInfo.passesAA ? '✓' : '✗'}
-                            </span>
+                          <div className={wcagInfo.passesAA ? "text-success-main font-medium" : "text-error-main font-medium"}>
+                            WCAG AA: {wcagInfo.passesAA ? '✓' : '✗'}
                           </div>
-                          <div>
-                            <span className={wcagInfo.passesAAA ? "text-success-main font-medium" : "text-error-main font-medium"}>
-                              WCAG AAA: {wcagInfo.passesAAA ? '✓' : '✗'}
-                            </span>
+                          <div className={wcagInfo.passesAAA ? "text-success-main font-medium" : "text-error-main font-medium"}>
+                            WCAG AAA: {wcagInfo.passesAAA ? '✓' : '✗'}
                           </div>
                         </div>
                       </TableCell>

@@ -26,24 +26,27 @@ const ColorSwatch = ({
 
   // Determine text color based on background color luminance
   const getTextColor = () => {
-    // Se a cor não inclui um valor hex, tentamos usar algumas heurísticas baseadas no nome
-    const lightColors = ['white', 'light', '50', '100', '200', '300'];
-    const isLightColorName = lightColors.some(lightColor => 
-      color.toLowerCase().includes(lightColor)
-    );
-    
-    // Para cores que têm um valor hex, usamos o cálculo de luminância para determinar o contraste
+    // If we have a hex value, use luminance calculation for determining contrast
     if (hexValue) {
       try {
         const luminance = colorUtils.getLuminance(hexValue);
         return luminance > 0.5 ? 'text-gray-800' : 'text-white';
       } catch (e) {
-        // Fallback para a heurística baseada no nome em caso de erro
-        return isLightColorName ? 'text-gray-800' : 'text-white';
+        // Fallback to heuristic based on color name
+        return getLightDarkFromName();
       }
     }
     
-    // Se não temos um valor hex, usamos apenas a heurística baseada no nome
+    // If we don't have a hex value, use heuristic based on color name
+    return getLightDarkFromName();
+  };
+  
+  // Helper function to determine if a color is light based on its name
+  const getLightDarkFromName = () => {
+    const lightColors = ['white', 'light', '50', '100', '200', '300'];
+    const isLightColorName = lightColors.some(lightColor => 
+      color.toLowerCase().includes(lightColor)
+    );
     return isLightColorName ? 'text-gray-800' : 'text-white';
   };
 
@@ -56,19 +59,19 @@ const ColorSwatch = ({
 
   const textColor = getTextColor();
 
-  // Determinar o estilo de fundo correto
+  // Determine the correct background style
   const getBackgroundStyle = () => {
-    // Se a cor começa com 'bg-', estamos usando uma classe Tailwind
+    // If color starts with 'bg-', we're using a Tailwind class
     if (color.startsWith('bg-')) {
       return color;
     }
     
-    // Se a cor é um valor hexadecimal, usamos style inline
+    // If color is a hex value and doesn't start with 'bg-', use inline style
     if (hexValue && !color.startsWith('bg-')) {
       return `bg-[${hexValue}]`;
     }
     
-    // Fallback para a classe original
+    // Fallback to the original class
     return color;
   };
 
