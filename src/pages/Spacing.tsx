@@ -1,12 +1,17 @@
+
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { tokenToPixels, pixelsToToken, getSpacingClass } from '@/utils/spacingUtils';
 import { cn } from '@/lib/utils';
+import { Chip } from '@/components/ui/chip';
 
 const SpacingPage = () => {
   return (
     <div className="w-full animate-fade-in">
       <div className="space-y-4">
+        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
+          <Chip variant="filled" color="primary" size="sm">Foundations</Chip>
+        </div>
         <h1 className="text-3xl font-bold tracking-tight">Spacing</h1>
         <p className="text-mui-text-secondary max-w-3xl">
           Our spacing system provides consistent sizes that help create visual rhythm and hierarchy.

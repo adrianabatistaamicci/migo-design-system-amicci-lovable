@@ -6,11 +6,15 @@ import PalettesTab from '@/components/colors/PalettesTab';
 import BaseColorsTab from '@/components/colors/BaseColorsTab';
 import UsageTab from '@/components/colors/UsageTab';
 import AccessibilityTab from '@/components/colors/AccessibilityTab';
+import { Chip } from '@/components/ui/chip';
 
 const Colors = () => {
   return (
     <div className="w-full space-y-8">
       <div>
+        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
+          <Chip variant="filled" color="primary" size="sm">Foundations</Chip>
+        </div>
         <h1 className="text-3xl font-bold tracking-tight mb-2">Sistema de Cores</h1>
         <p className="text-mui-text-secondary text-lg">
           Paleta de cores e tokens de design utilizados na aplicação (50-950).

@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Search, Copy, Check } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { toast } from "@/components/ui/use-toast";
+import { Chip } from '@/components/ui/chip';
 import { 
   getMaterialIconUrl, 
   ICON_SIZES, 
@@ -104,6 +105,9 @@ const Icons = () => {
 
   return (
     <div className="w-full animate-fade-in">
+      <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
+        <Chip variant="filled" color="primary" size="sm">Foundations</Chip>
+      </div>
       <h1 className="text-3xl font-bold tracking-tight mb-4">Icons</h1>
       <p className="text-muted-foreground mb-8">
         This design system uses Material Design outlined icons to maintain a consistent visual language throughout the application.
