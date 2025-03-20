@@ -134,7 +134,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
       <div className="mb-2">
         <div className={cn(
           "flex items-center justify-between py-2 px-3 rounded-md text-sm font-medium",
-          level === 0 ? "text-gray-700" : "text-gray-800",
+          level === 0 ? "text-primary" : "text-foreground",
           active && !item.href ? "text-primary-main" : "",
           level > 0 && "pl-8",
           item.href ? "hover:bg-gray-100 cursor-pointer" : ""
@@ -187,7 +187,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
         "flex items-center py-2 px-3 text-sm rounded-md",
         location.pathname === item.href 
           ? "text-primary-main bg-primary-hover font-medium" 
-          : "text-gray-700 hover:text-primary-main hover:bg-gray-100",
+          : "text-primary hover:text-primary-main hover:bg-gray-100",
         level > 0 && "pl-8",
       )}
     >
