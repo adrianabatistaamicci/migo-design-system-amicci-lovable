@@ -146,7 +146,7 @@ const UIKit = () => {
           <ComponentPreview title="Badge">
             <div className="flex gap-2">
               <Badge>Badge</Badge>
-              <Badge variant="outline">Badge</Badge>
+              <Badge color="secondary">Badge</Badge>
             </div>
           </ComponentPreview>
           
