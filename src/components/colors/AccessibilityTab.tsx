@@ -9,7 +9,11 @@ const AccessibilityTab = () => {
   const [showWCAG, setShowWCAG] = useState(false);
 
   return (
-    <ComponentCard title="Acessibilidade de Cores" description="Garantindo que nosso sistema de cores seja acessível a todos.">
+    <ComponentCard 
+      title="Acessibilidade de Cores" 
+      description="Garantindo que nosso sistema de cores seja acessível a todos."
+      height="auto"
+    >
       <div className="space-y-6">
         <div>
           <h3 className="text-lg font-medium mb-2">Contraste</h3>

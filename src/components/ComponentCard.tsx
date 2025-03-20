@@ -10,6 +10,7 @@ interface ComponentCardProps {
   children: React.ReactNode;
   code?: string;
   className?: string;
+  height?: string | number;
 }
 
 const ComponentCard: React.FC<ComponentCardProps> = ({
@@ -17,7 +18,8 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
   description,
   children,
   code,
-  className
+  className,
+  height = 320
 }) => {
   const [showCode, setShowCode] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -35,7 +37,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
 
   return (
     <div className={cn(
-      "rounded-lg border border-gray-200 bg-white overflow-hidden transition-all duration-250 animate-fade-in shadow-sm",
+      "rounded-lg border border-gray-200 bg-white overflow-hidden transition-all duration-250 animate-fade-in shadow-sm h-full flex flex-col",
       className
     )}>
       <div className="p-5 border-b border-gray-200">
@@ -45,7 +47,10 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
         )}
       </div>
       
-      <div className="p-6 flex items-center justify-center">
+      <div 
+        className="p-6 flex items-center justify-center flex-grow overflow-y-auto"
+        style={{ minHeight: typeof height === 'number' ? `${height}px` : height }}
+      >
         <div className="w-full">
           {children}
         </div>
@@ -53,7 +58,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
       
       {code && (
         <>
-          <div className="border-t border-gray-200 px-4 py-2 flex justify-between items-center bg-gray-50">
+          <div className="border-t border-gray-200 px-4 py-2 flex justify-between items-center bg-gray-50 mt-auto">
             <Button
               variant="text-default"
               size="sm"
