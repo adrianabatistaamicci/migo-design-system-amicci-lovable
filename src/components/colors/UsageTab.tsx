@@ -17,7 +17,7 @@ const UsageTab = () => {
         </ul>
         
         <h3 className="text-lg font-medium mt-6 text-gray-800">Cores Semânticas</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-4 gap-4">
           <div className="rounded-lg border border-gray-200 p-4">
             <div className="flex items-center mb-3">
               <div className="w-6 h-6 rounded-full bg-primary-main mr-2"></div>
@@ -110,7 +110,7 @@ const UsageTab = () => {
         </div>
         
         <h3 className="text-lg font-medium mt-6 text-gray-800">Aplicação em Componentes</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-4 gap-4">
           <div className="rounded-lg border border-gray-200 p-4">
             <h4 className="font-medium mb-2 text-gray-800">Botões</h4>
             <div className="space-x-2">
@@ -135,3 +135,4 @@ const UsageTab = () => {
 };
 
 export default UsageTab;
+

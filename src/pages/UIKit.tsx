@@ -56,7 +56,7 @@ const UIKit = () => {
       {/* Application Shells Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Application Shells</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-4 gap-8">
           <ComponentPreview 
             title="Stacked Layouts" 
             imageSrc="/lovable-uploads/f6aa1b2b-7324-42fb-88a6-eb2edcd3e418.png"
@@ -94,7 +94,7 @@ const UIKit = () => {
       {/* Headings Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Headings</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-4 gap-8">
           <ComponentPreview 
             title="Page Headings" 
             imageSrc="/lovable-uploads/f2bce3ad-119e-4af8-90a1-747d0be6ddcb.png"
@@ -137,7 +137,7 @@ const UIKit = () => {
       {/* Data Display Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Data Display</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-4 gap-8">
           <ComponentPreview 
             title="Description Lists" 
             imageSrc="/lovable-uploads/2b6d8e31-ad0e-4a2f-9740-f81d0d1614f7.png"
@@ -190,7 +190,7 @@ const UIKit = () => {
       {/* Lists Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Lists</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-4 gap-8">
           <ComponentPreview 
             title="Stacked Lists" 
             imageSrc="/lovable-uploads/cce9335f-ea04-4b4a-a4f8-b6137f0eb721.png"
@@ -262,7 +262,7 @@ const UIKit = () => {
       {/* Forms Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Forms</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-4 gap-8">
           <ComponentPreview 
             title="Form Layouts" 
             imageSrc="/lovable-uploads/e94f750f-1288-4b6b-9c20-a24f55cb6ab3.png"
@@ -437,7 +437,7 @@ const UIKit = () => {
       {/* Feedback Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Feedback</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-4 gap-8">
           <ComponentPreview 
             title="Alerts" 
             imageSrc="/lovable-uploads/e09d6f1e-de32-4e50-8e03-512be01774ef.png"
@@ -467,7 +467,7 @@ const UIKit = () => {
       {/* Navigation Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Navigation</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-4 gap-8">
           <ComponentPreview 
             title="Navbars" 
             imageSrc="/lovable-uploads/db3253c7-f917-437b-953b-669f1612759a.png"
@@ -597,7 +597,7 @@ const UIKit = () => {
       {/* Overlays Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Overlays</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-4 gap-8">
           <ComponentPreview 
             title="Modal Dialogs" 
             imageSrc="/lovable-uploads/f8021fa2-a704-4416-a404-772812df2ccc.png"
@@ -647,7 +647,7 @@ const UIKit = () => {
       {/* Elements Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Elements</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-4 gap-8">
           <ComponentPreview 
             title="Avatars" 
             imageSrc="/lovable-uploads/aa6e96ca-2adf-4e2c-a5fa-2e7c5c4bb8f2.png"
@@ -722,7 +722,7 @@ const UIKit = () => {
       {/* Layout Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Layout</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-4 gap-8">
           <ComponentPreview 
             title="Containers" 
             imageSrc="/lovable-uploads/a039a7f8-a787-4132-99e8-c748a899e91f.png"
@@ -789,7 +789,7 @@ const UIKit = () => {
       {/* Page Examples Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Page Examples</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-4 gap-8">
           <ComponentPreview 
             title="Home Screens" 
             imageSrc="/lovable-uploads/a51cb4d7-1566-4920-b3e8-bfcbea22d41b.png"
