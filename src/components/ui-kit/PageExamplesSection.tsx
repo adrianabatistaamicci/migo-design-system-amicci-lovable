@@ -9,19 +9,19 @@ const PageExamplesSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <ComponentPreview 
           title="Home Screens" 
-          imageSrc="/lovable-uploads/8193019c-5cbc-4e3d-a119-72e97a79a59e.png" 
+          imageSrc="/lovable-uploads/9927c2b0-bfb3-40df-890c-8985169e26cf.png" 
           variantCount={2} 
         />
         
         <ComponentPreview 
           title="Detail Screens" 
-          imageSrc="/lovable-uploads/0dacb6bd-565c-42ca-ab1f-bf4a6d377240.png" 
+          imageSrc="/lovable-uploads/3a9c0820-04a9-4a12-bdbd-ff67122302fc.png" 
           variantCount={5} 
         />
         
         <ComponentPreview 
           title="Settings Screens" 
-          imageSrc="/lovable-uploads/67b83589-4c0e-4697-944f-de6e741e2a65.png" 
+          imageSrc="/lovable-uploads/b23c6058-72be-4e1f-9c9b-42edb5a09961.png" 
           variantCount={3} 
         />
       </div>
