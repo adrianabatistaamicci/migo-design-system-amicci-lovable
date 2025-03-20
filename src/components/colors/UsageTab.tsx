@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import ColorSwatch from './ColorSwatch';
@@ -130,12 +129,10 @@ const UsageTab = () => {
           
           <div className="rounded-lg border border-gray-200 p-4">
             <h4 className="font-medium mb-2 text-gray-800">Estados</h4>
-            <div className="flex flex-wrap gap-2">
-              <Badge className="bg-green-500">Ativo</Badge>
-              <Badge className="bg-red-500">Inativo</Badge>
-              <Badge className="bg-yellow-500 text-yellow-900">Pendente</Badge>
-              <Badge className="bg-blue-500">Informativo</Badge>
-              <Badge className="bg-amicci-500">Principal</Badge>
+            <div className="flex space-x-2">
+              <div className="px-3 py-1 rounded-full bg-green-100 text-success-dark text-sm">Ativo</div>
+              <div className="px-3 py-1 rounded-full bg-red-100 text-error-dark text-sm">Inativo</div>
+              <div className="px-3 py-1 rounded-full bg-yellow-100 text-warning-dark text-sm">Pendente</div>
             </div>
           </div>
         </div>
