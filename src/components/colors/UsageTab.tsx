@@ -2,7 +2,8 @@
 import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import ColorSwatch from './ColorSwatch';
-import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const UsageTab = () => {
   return (
@@ -112,20 +113,29 @@ const UsageTab = () => {
         <h3 className="text-lg font-medium mt-6 text-gray-800">Aplicação em Componentes</h3>
         <div className="grid grid-cols-4 gap-4">
           <div className="rounded-lg border border-gray-200 p-4">
-            <h4 className="font-medium mb-2 text-gray-800">Botões</h4>
-            <div className="space-x-2">
-              <Button variant="default">Primary</Button>
-              <Button variant="secondary">Secondary</Button>
-              <Button variant="outline-default">Outlined</Button>
+            <h4 className="font-medium mb-2 text-gray-800">Avatars</h4>
+            <div className="flex space-x-2">
+              <Avatar className="bg-amicci-500">
+                <AvatarFallback className="text-white">AM</AvatarFallback>
+              </Avatar>
+              <Avatar className="bg-amicciDark-500">
+                <AvatarFallback className="text-white">JD</AvatarFallback>
+              </Avatar>
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" alt="User" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
             </div>
           </div>
           
           <div className="rounded-lg border border-gray-200 p-4">
             <h4 className="font-medium mb-2 text-gray-800">Estados</h4>
-            <div className="flex space-x-2">
-              <div className="px-3 py-1 rounded-full bg-green-100 text-success-dark text-sm">Ativo</div>
-              <div className="px-3 py-1 rounded-full bg-red-100 text-error-dark text-sm">Inativo</div>
-              <div className="px-3 py-1 rounded-full bg-yellow-100 text-warning-dark text-sm">Pendente</div>
+            <div className="flex flex-wrap gap-2">
+              <Badge className="bg-green-500">Ativo</Badge>
+              <Badge className="bg-red-500">Inativo</Badge>
+              <Badge className="bg-yellow-500 text-yellow-900">Pendente</Badge>
+              <Badge className="bg-blue-500">Informativo</Badge>
+              <Badge className="bg-amicci-500">Principal</Badge>
             </div>
           </div>
         </div>
