@@ -5,9 +5,15 @@ interface ComponentPreviewProps {
   title: string;
   children?: React.ReactNode; // Optional when imageSrc is provided
   imageSrc?: string;
+  variantCount?: number; // New prop for number of variants
 }
 
-const ComponentPreview = ({ title, children, imageSrc }: ComponentPreviewProps) => (
+const ComponentPreview = ({ 
+  title, 
+  children, 
+  imageSrc, 
+  variantCount = 1 // Default to 1 variant if not specified
+}: ComponentPreviewProps) => (
   <div className="flex flex-col">
     <div className="border border-border rounded-lg bg-white p-4 h-40 flex items-center justify-center overflow-hidden">
       {imageSrc ? (
@@ -18,7 +24,11 @@ const ComponentPreview = ({ title, children, imageSrc }: ComponentPreviewProps) 
     </div>
     <div className="mt-2 text-center">
       <h3 className="text-sm font-medium text-foreground">{title}</h3>
-      <p className="text-xs text-muted-foreground">Variant: Default</p>
+      <p className="text-xs text-muted-foreground">
+        {variantCount === 1 
+          ? "1 Variant" 
+          : `${variantCount} Variants`}
+      </p>
     </div>
   </div>
 );
