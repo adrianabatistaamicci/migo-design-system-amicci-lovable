@@ -24,6 +24,12 @@ const OverlaysSection = () => {
           imageSrc="/lovable-uploads/cdc177ff-a734-4717-aa15-df3407ecf64c.png" 
           variantCount={5} 
         />
+        
+        <ComponentPreview 
+          title="Tooltips" 
+          imageSrc="/lovable-uploads/717a8b3b-6fa3-4c0e-8ba1-5c9afd0d98ef.png" 
+          variantCount={2} 
+        />
       </div>
     </section>
   );
