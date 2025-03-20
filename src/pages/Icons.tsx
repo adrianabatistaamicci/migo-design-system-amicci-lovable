@@ -45,7 +45,7 @@ const Icons = () => {
             
             <Alert className="mt-8 bg-primary/10 border-amicci-500 rounded">
               <AlertDescription className="flex flex-row justify-between items-center">
-                <span>A biblioteca completa de ícones do Material Design pode ser acessada em:</span>
+                <span className="text-lg font-medium">A biblioteca completa pode ser acessada no site oficial.</span>
                 <Button variant="default" onClick={() => window.open("https://fonts.google.com/icons", "_blank", "noopener,noreferrer")}>
                   Explorar Ícones do Material
                 </Button>
