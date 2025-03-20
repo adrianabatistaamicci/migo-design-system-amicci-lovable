@@ -74,33 +74,20 @@ const ColorSwatch = ({
 
   return (
     <div 
-      className={`relative w-full h-16 rounded-md ${getBackgroundStyle()} ${className} flex items-center justify-between px-3 transition-all hover:shadow-md cursor-pointer group`}
+      className={`relative w-full h-16 rounded-md ${getBackgroundStyle()} ${className} flex items-center justify-center px-3 transition-all hover:shadow-md cursor-pointer group`}
       onClick={onClick || handleCopy}
       role="button"
       tabIndex={0}
       style={hexValue && !color.startsWith('bg-') ? { backgroundColor: hexValue } : undefined}
     >
-      <div className="flex items-center">
-        {textOverlay && (
-          <span className={`text-sm font-semibold ${textColor}`}>
-            {textOverlay}
-          </span>
-        )}
-        {!textOverlay && (
-          <span className={`text-sm font-semibold ${textColor}`}>
-            Aa
-          </span>
-        )}
-        {weight && (
-          <span className={`ml-2 text-xs ${textColor} opacity-75`}>
-            {weight}
-          </span>
-        )}
-      </div>
-
-      {hexValue && (
-        <span className={`text-xs font-mono ${textColor} opacity-90`}>
-          {hexValue}
+      {textOverlay && (
+        <span className={`text-sm font-semibold ${textColor}`}>
+          {textOverlay}
+        </span>
+      )}
+      {!textOverlay && (
+        <span className={`text-sm font-semibold ${textColor}`}>
+          Aa
         </span>
       )}
 
