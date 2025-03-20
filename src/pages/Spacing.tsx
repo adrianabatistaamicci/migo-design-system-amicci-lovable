@@ -6,7 +6,7 @@ import ComponentCard from '@/components/ComponentCard';
 
 const SpacingPage = () => {
   return (
-    <div className="container py-10 animate-fade-in">
+    <div className="w-full py-10 animate-fade-in">
       <div className="space-y-4">
         <h1 className="text-3xl font-bold tracking-tight">Spacing</h1>
         <p className="text-mui-text-secondary max-w-3xl">

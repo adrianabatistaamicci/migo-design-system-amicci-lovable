@@ -30,14 +30,14 @@ const MainLayout: React.FC = () => {
         
         <div 
           className={cn(
-            "flex-1 pt-8 pb-16 transition-all duration-300 ease-elastic",
+            "flex-1 transition-all duration-300 ease-elastic",
             "md:ml-64" // Offset for sidebar on desktop
           )}
         >
           <main 
             className={cn(
               "transition-opacity duration-300 mx-auto px-4 w-full",
-              "max-w-[1280px]", // Standardized max-width
+              "max-w-[1280px] py-8", // Standardized max-width and vertical padding
               isTransitioning ? "opacity-0" : "opacity-100",
               !showContent && "hidden"
             )}

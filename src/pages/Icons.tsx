@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
@@ -17,7 +16,6 @@ import {
   MATERIAL_ICONS
 } from '@/utils/iconUtils';
 
-// Material Design Icons component with copy functionality
 const IconsGrid = ({ filteredIcons }: { filteredIcons: string[] }) => {
   const [copiedIcon, setCopiedIcon] = useState<string | null>(null);
 
@@ -30,7 +28,6 @@ const IconsGrid = ({ filteredIcons }: { filteredIcons: string[] }) => {
       description: `"${iconName}" has been copied to your clipboard.`,
     });
     
-    // Reset the copied state after 2 seconds
     setTimeout(() => {
       setCopiedIcon(null);
     }, 2000);
@@ -70,21 +67,16 @@ const Icons = () => {
   const [category, setCategory] = useState<string>("all");
   const [filteredIcons, setFilteredIcons] = useState<string[]>(MATERIAL_ICONS);
   
-  // Apply filters whenever search query or category changes
   useEffect(() => {
     let filtered = [...MATERIAL_ICONS];
     
-    // Apply search filter
     if (searchQuery.trim()) {
       filtered = filtered.filter(icon => 
         icon.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
     
-    // Apply category filter
     if (category !== "all") {
-      // This is a simplified category filtering
-      // In a real implementation, you would have a proper mapping
       filtered = filtered.filter(icon => {
         const categoryLower = category.toLowerCase();
         if (categoryLower === "navigation") {
@@ -110,7 +102,7 @@ const Icons = () => {
   }, [searchQuery, category]);
 
   return (
-    <div className="container py-10">
+    <div className="w-full py-10 animate-fade-in">
       <h1 className="text-3xl font-bold tracking-tight mb-4">Icons</h1>
       <p className="text-muted-foreground mb-8">
         This design system uses Material Design outlined icons to maintain a consistent visual language throughout the application.
