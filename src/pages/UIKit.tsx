@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -18,6 +19,10 @@ import { AlertCircle, Check, ChevronRight, CircleAlert, Info, Minus, Plus } from
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Calendar } from '@/components/ui/calendar';
 import { Textarea } from '@/components/ui/textarea';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Progress } from '@/components/ui/progress';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination';
 
 const ComponentPreview = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <div className="flex flex-col">
@@ -44,76 +49,64 @@ const UIKit = () => {
         </p>
       </div>
       
-      {/* Inputs Section */}
+      {/* Application Shells Section */}
       <section>
-        <h2 className="text-xl font-semibold mb-6">Inputs</h2>
+        <h2 className="text-xl font-semibold mb-6">Application Shells</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          <ComponentPreview title="Button">
-            <Button className="w-full">Button</Button>
-          </ComponentPreview>
-          
-          <ComponentPreview title="Input">
-            <Input placeholder="Input" />
-          </ComponentPreview>
-          
-          <ComponentPreview title="Text Area">
-            <Textarea placeholder="Text Area" />
-          </ComponentPreview>
-          
-          <ComponentPreview title="Input Suffix">
-            <div className="w-full relative">
-              <Input placeholder="Input Suffix" />
-              <Button variant="default" className="absolute right-0 top-0 h-full">Go</Button>
+          <ComponentPreview title="Stacked Layouts">
+            <div className="w-full space-y-4">
+              <div className="bg-primary h-8 rounded-md"></div>
+              <div className="bg-muted h-20 rounded-md"></div>
+              <div className="bg-muted-foreground h-6 rounded-md"></div>
             </div>
           </ComponentPreview>
           
-          <ComponentPreview title="Checkbox">
-            <div className="flex items-center space-x-2">
-              <Checkbox id="terms" />
-              <label htmlFor="terms" className="text-sm">Checkbox</label>
+          <ComponentPreview title="Sidebar Layouts">
+            <div className="w-full h-full flex gap-2">
+              <div className="bg-primary w-1/4 h-full rounded-md"></div>
+              <div className="bg-muted flex-1 h-full rounded-md"></div>
             </div>
           </ComponentPreview>
           
-          <ComponentPreview title="Radio Button">
-            <div className="flex items-center space-x-2">
-              <div className="h-4 w-4 rounded-full border border-primary-main flex items-center justify-center">
-                <div className="h-2 w-2 rounded-full bg-primary-main"></div>
-              </div>
-              <label className="text-sm">Radio</label>
+          <ComponentPreview title="Multi-Column Layouts">
+            <div className="w-full h-full grid grid-cols-3 gap-2">
+              <div className="bg-muted h-full rounded-md"></div>
+              <div className="bg-primary h-full rounded-md"></div>
+              <div className="bg-muted h-full rounded-md"></div>
             </div>
           </ComponentPreview>
         </div>
       </section>
       
-      {/* Forms Section */}
+      {/* Headings Section */}
       <section>
-        <h2 className="text-xl font-semibold mb-6">Form Controls</h2>
+        <h2 className="text-xl font-semibold mb-6">Headings</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          <ComponentPreview title="Multiple Inputs">
-            <div className="space-y-4 w-full">
-              <Input placeholder="Label" />
-              <Input placeholder="Label" />
+          <ComponentPreview title="Page Headings">
+            <div className="w-full space-y-2">
+              <h1 className="text-2xl font-bold">Page Title</h1>
+              <p className="text-sm text-muted-foreground">Page description goes here</p>
             </div>
           </ComponentPreview>
           
-          <ComponentPreview title="Form">
-            <div className="space-y-4 w-full">
-              <div className="space-y-2">
-                <label className="text-sm">Label</label>
-                <Input placeholder="Placeholder" />
-              </div>
-              <div className="flex justify-end">
-                <Button>Submit</Button>
-              </div>
-            </div>
+          <ComponentPreview title="Card Headings">
+            <Card className="w-full">
+              <CardHeader>
+                <CardTitle>Card Title</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm">Card content here</p>
+              </CardContent>
+            </Card>
           </ComponentPreview>
           
-          <ComponentPreview title="Search">
-            <div className="w-full relative">
-              <Input placeholder="Search..." />
-              <Button className="absolute right-0 top-0 h-full">
-                Go
-              </Button>
+          <ComponentPreview title="Section Headings">
+            <div className="w-full space-y-4">
+              <div className="space-y-1">
+                <h3 className="text-lg font-medium">Section Title</h3>
+                <p className="text-sm text-muted-foreground">Section description</p>
+              </div>
+              <Separator />
             </div>
           </ComponentPreview>
         </div>
@@ -122,137 +115,60 @@ const UIKit = () => {
       {/* Data Display Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Data Display</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          <ComponentPreview title="Card">
-            <Card className="w-full">
-              <CardHeader>
-                <CardTitle>Card</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm">Content</p>
-              </CardContent>
-            </Card>
-          </ComponentPreview>
-          
-          <ComponentPreview title="List">
-            <div className="w-full space-y-2">
-              <div className="p-2 border-b">Item 1</div>
-              <div className="p-2 border-b">Item 2</div>
-              <div className="p-2">Item 3</div>
-            </div>
-          </ComponentPreview>
-          
-          <ComponentPreview title="Badge">
-            <div className="flex gap-2">
-              <Badge>Badge</Badge>
-              <Badge color="secondary">Badge</Badge>
-            </div>
-          </ComponentPreview>
-          
-          <ComponentPreview title="Chip">
-            <div className="flex gap-2">
-              <Chip variant="filled">Chip</Chip>
-            </div>
-          </ComponentPreview>
-        </div>
-      </section>
-      
-      {/* Navigation Section */}
-      <section>
-        <h2 className="text-xl font-semibold mb-6">Navigation</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          <ComponentPreview title="Link">
-            <a href="#" className="text-primary-main hover:underline">Link</a>
-          </ComponentPreview>
-          
-          <ComponentPreview title="Tabs">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <ComponentPreview title="Description Lists">
             <div className="w-full">
-              <Tabs defaultValue="tab1" className="w-full">
-                <TabsList>
-                  <TabsTrigger value="tab1">Tab 1</TabsTrigger>
-                  <TabsTrigger value="tab2">Tab 2</TabsTrigger>
-                </TabsList>
-              </Tabs>
+              <dl className="space-y-2 text-sm">
+                <div className="flex justify-between">
+                  <dt className="font-medium">Name</dt>
+                  <dd className="text-muted-foreground">John Doe</dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt className="font-medium">Email</dt>
+                  <dd className="text-muted-foreground">john@example.com</dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt className="font-medium">Role</dt>
+                  <dd className="text-muted-foreground">Admin</dd>
+                </div>
+              </dl>
             </div>
           </ComponentPreview>
           
-          <ComponentPreview title="Pagination">
-            <div className="flex items-center space-x-1">
-              <Button variant="outline" size="sm">&laquo;</Button>
-              <Button variant="outline" size="sm">1</Button>
-              <Button variant="default" size="sm">2</Button>
-              <Button variant="outline" size="sm">3</Button>
-              <Button variant="outline" size="sm">&raquo;</Button>
+          <ComponentPreview title="Stats">
+            <div className="w-full">
+              <div className="space-y-1">
+                <p className="text-3xl font-bold">2,453</p>
+                <p className="text-sm text-muted-foreground">Total Users</p>
+                <div className="flex items-center text-xs text-green-500">
+                  <ChevronRight className="h-3 w-3 rotate-90" />
+                  <span>12% from last month</span>
+                </div>
+              </div>
             </div>
           </ComponentPreview>
           
-          <ComponentPreview title="Menu">
-            <div className="flex flex-col space-y-1 w-full">
-              <div className="p-2 bg-primary text-white rounded">Home</div>
-              <div className="p-2 border rounded">About</div>
-              <div className="p-2 border rounded">Contact</div>
+          <ComponentPreview title="Calendars">
+            <div className="w-full">
+              <Calendar className="rounded-md border" />
             </div>
           </ComponentPreview>
         </div>
       </section>
       
-      {/* Feedback Section */}
+      {/* Lists Section */}
       <section>
-        <h2 className="text-xl font-semibold mb-6">Feedback</h2>
+        <h2 className="text-xl font-semibold mb-6">Lists</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          <ComponentPreview title="Alert">
-            <Alert>
-              <AlertCircle className="h-4 w-4" />
-              <AlertDescription>This is an alert</AlertDescription>
-            </Alert>
-          </ComponentPreview>
-          
-          <ComponentPreview title="Dialog">
-            <div className="p-4 border rounded-lg shadow-md">
-              <div className="text-sm font-medium mb-2">Dialog Title</div>
-              <p className="text-xs mb-4">Dialog content goes here</p>
-              <div className="flex justify-end space-x-2">
-                <Button variant="outline" size="sm">Cancel</Button>
-                <Button size="sm">OK</Button>
-              </div>
+          <ComponentPreview title="Stacked Lists">
+            <div className="w-full space-y-2">
+              <div className="p-2 bg-muted rounded-md">List item 1</div>
+              <div className="p-2 bg-muted rounded-md">List item 2</div>
+              <div className="p-2 bg-muted rounded-md">List item 3</div>
             </div>
           </ComponentPreview>
           
-          <ComponentPreview title="Tooltip">
-            <div className="relative">
-              <Button>Hover Me</Button>
-              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-foreground text-white px-2 py-1 rounded text-xs">
-                Tooltip
-              </div>
-            </div>
-          </ComponentPreview>
-          
-          <ComponentPreview title="Toast">
-            <div className="bg-white shadow-md rounded-lg p-4 flex items-start gap-3 border border-border">
-              <Info className="h-5 w-5 text-primary" />
-              <div>
-                <p className="text-sm font-medium">Toast Title</p>
-                <p className="text-xs text-muted-foreground">Toast message here</p>
-              </div>
-            </div>
-          </ComponentPreview>
-        </div>
-      </section>
-      
-      {/* Surface Section */}
-      <section>
-        <h2 className="text-xl font-semibold mb-6">Surface</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          <ComponentPreview title="Accordion">
-            <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="item-1">
-                <AccordionTrigger>Item 1</AccordionTrigger>
-                <AccordionContent>Content</AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </ComponentPreview>
-          
-          <ComponentPreview title="Table">
+          <ComponentPreview title="Tables">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -269,160 +185,508 @@ const UIKit = () => {
             </Table>
           </ComponentPreview>
           
-          <ComponentPreview title="Divider">
-            <div className="w-full flex flex-col space-y-4">
-              <div>Content above</div>
+          <ComponentPreview title="Grid Lists">
+            <div className="grid grid-cols-2 gap-2 w-full">
+              <div className="p-2 bg-muted rounded-md text-center">1</div>
+              <div className="p-2 bg-muted rounded-md text-center">2</div>
+              <div className="p-2 bg-muted rounded-md text-center">3</div>
+              <div className="p-2 bg-muted rounded-md text-center">4</div>
+            </div>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Feeds">
+            <div className="w-full space-y-3">
+              <div className="flex items-start gap-2">
+                <div className="h-8 w-8 rounded-full bg-primary flex-shrink-0"></div>
+                <div className="space-y-1">
+                  <p className="text-xs font-medium">User posted a comment</p>
+                  <p className="text-xs text-muted-foreground">5m ago</p>
+                </div>
+              </div>
               <Separator />
-              <div>Content below</div>
-            </div>
-          </ComponentPreview>
-          
-          <ComponentPreview title="Avatar">
-            <div className="flex gap-2">
-              <Avatar>
-                <AvatarFallback>A</AvatarFallback>
-              </Avatar>
-              <Avatar>
-                <AvatarFallback>B</AvatarFallback>
-              </Avatar>
+              <div className="flex items-start gap-2">
+                <div className="h-8 w-8 rounded-full bg-primary flex-shrink-0"></div>
+                <div className="space-y-1">
+                  <p className="text-xs font-medium">User liked your post</p>
+                  <p className="text-xs text-muted-foreground">15m ago</p>
+                </div>
+              </div>
             </div>
           </ComponentPreview>
         </div>
       </section>
       
-      {/* Utils & Misc Section */}
+      {/* Forms Section */}
       <section>
-        <h2 className="text-xl font-semibold mb-6">Utils & Misc</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          <ComponentPreview title="Toggle">
-            <Switch />
+        <h2 className="text-xl font-semibold mb-6">Forms</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <ComponentPreview title="Form Layouts">
+            <div className="w-full space-y-4">
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Email</label>
+                <Input type="email" placeholder="Enter your email" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Password</label>
+                <Input type="password" placeholder="Enter your password" />
+              </div>
+              <Button className="w-full">Submit</Button>
+            </div>
           </ComponentPreview>
           
-          <ComponentPreview title="Date Picker">
+          <ComponentPreview title="Input Groups">
+            <div className="w-full space-y-4">
+              <div className="flex">
+                <Input placeholder="Search..." className="rounded-r-none" />
+                <Button className="rounded-l-none">Search</Button>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Input placeholder="0" className="w-20 text-center" />
+                <span>to</span>
+                <Input placeholder="100" className="w-20 text-center" />
+              </div>
+            </div>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Select Menus">
+            <div className="w-full space-y-2">
+              <label className="text-sm font-medium">Select an option</label>
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select an option" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="option1">Option 1</SelectItem>
+                  <SelectItem value="option2">Option 2</SelectItem>
+                  <SelectItem value="option3">Option 3</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Sign-in and Registration">
+            <div className="w-full space-y-3">
+              <div className="text-center space-y-1">
+                <h3 className="text-lg font-medium">Sign in</h3>
+                <p className="text-xs text-muted-foreground">Enter your credentials</p>
+              </div>
+              <Input placeholder="Email" />
+              <Input type="password" placeholder="Password" />
+              <Button className="w-full">Sign in</Button>
+              <p className="text-xs text-center">No account? <a href="#" className="text-primary">Sign up</a></p>
+            </div>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Textareas">
+            <div className="w-full space-y-2">
+              <label className="text-sm font-medium">Message</label>
+              <Textarea placeholder="Type your message here..." />
+            </div>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Radio Groups">
             <div className="w-full">
-              <Calendar mode="single" className="w-full max-w-sm mx-auto" />
+              <RadioGroup defaultValue="option1">
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="option1" id="option1" />
+                  <label htmlFor="option1" className="text-sm">Option 1</label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="option2" id="option2" />
+                  <label htmlFor="option2" className="text-sm">Option 2</label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="option3" id="option3" />
+                  <label htmlFor="option3" className="text-sm">Option 3</label>
+                </div>
+              </RadioGroup>
             </div>
           </ComponentPreview>
           
-          <ComponentPreview title="Skeleton">
-            <div className="space-y-2 w-full">
-              <Skeleton className="h-4 w-full" />
-              <Skeleton className="h-4 w-3/4" />
-              <Skeleton className="h-4 w-1/2" />
+          <ComponentPreview title="Checkboxes">
+            <div className="w-full space-y-2">
+              <div className="flex items-center space-x-2">
+                <Checkbox id="terms1" />
+                <label htmlFor="terms1" className="text-sm">Accept terms</label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Checkbox id="newsletter1" />
+                <label htmlFor="newsletter1" className="text-sm">Subscribe to newsletter</label>
+              </div>
             </div>
           </ComponentPreview>
           
-          <ComponentPreview title="Select">
-            <Select>
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Select" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="option1">Option 1</SelectItem>
-                <SelectItem value="option2">Option 2</SelectItem>
-              </SelectContent>
-            </Select>
+          <ComponentPreview title="Toggles">
+            <div className="w-full space-y-2">
+              <div className="flex items-center justify-between">
+                <label className="text-sm">Notifications</label>
+                <Switch />
+              </div>
+              <div className="flex items-center justify-between">
+                <label className="text-sm">Dark Mode</label>
+                <Switch />
+              </div>
+            </div>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Action Panels">
+            <div className="w-full p-3 border rounded-md space-y-3">
+              <h4 className="text-sm font-medium">Save changes?</h4>
+              <p className="text-xs text-muted-foreground">Your changes will be lost if you don't save them.</p>
+              <div className="flex justify-end space-x-2">
+                <Button variant="outline" size="sm">Cancel</Button>
+                <Button size="sm">Save</Button>
+              </div>
+            </div>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Comboboxes">
+            <div className="w-full">
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button variant="outline" className="w-full justify-between">
+                    Select an option <ChevronRight className="h-4 w-4 -rotate-90" />
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent>
+                  <div className="space-y-1">
+                    <Button variant="ghost" className="w-full justify-start">Option 1</Button>
+                    <Button variant="ghost" className="w-full justify-start">Option 2</Button>
+                    <Button variant="ghost" className="w-full justify-start">Option 3</Button>
+                  </div>
+                </PopoverContent>
+              </Popover>
+            </div>
           </ComponentPreview>
         </div>
       </section>
       
-      {/* Loading States Section */}
+      {/* Feedback Section */}
       <section>
-        <h2 className="text-xl font-semibold mb-6">Loading States</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          <ComponentPreview title="Shimmer">
-            <div className="space-y-2 w-full">
-              <Skeleton className="h-4 w-full animate-pulse" />
-              <Skeleton className="h-4 w-3/4 animate-pulse" />
-              <Skeleton className="h-4 w-1/2 animate-pulse" />
-            </div>
+        <h2 className="text-xl font-semibold mb-6">Feedback</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
+          <ComponentPreview title="Alerts">
+            <Alert>
+              <AlertCircle className="h-4 w-4" />
+              <AlertDescription>This is an alert message.</AlertDescription>
+            </Alert>
           </ComponentPreview>
           
-          <ComponentPreview title="Spinner">
-            <div className="h-8 w-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
-          </ComponentPreview>
-          
-          <ComponentPreview title="Progress">
-            <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-              <div className="h-full bg-primary w-1/2"></div>
-            </div>
-          </ComponentPreview>
-          
-          <ComponentPreview title="Icons">
-            <div className="flex flex-wrap gap-2">
-              <CircleAlert className="h-6 w-6" />
-              <Info className="h-6 w-6" />
-              <Check className="h-6 w-6" />
-              <ChevronRight className="h-6 w-6" />
+          <ComponentPreview title="Empty States">
+            <div className="w-full text-center space-y-2">
+              <div className="mx-auto h-12 w-12 rounded-full bg-muted flex items-center justify-center">
+                <Info className="h-6 w-6 text-muted-foreground" />
+              </div>
+              <h3 className="text-sm font-medium">No results found</h3>
+              <p className="text-xs text-muted-foreground">Try adjusting your search or filter to find what you're looking for.</p>
+              <Button variant="outline" size="sm">Clear filters</Button>
             </div>
           </ComponentPreview>
         </div>
       </section>
       
-      {/* Layout Components */}
+      {/* Navigation Section */}
+      <section>
+        <h2 className="text-xl font-semibold mb-6">Navigation</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <ComponentPreview title="Navbars">
+            <div className="w-full px-4 py-2 border rounded-md flex items-center justify-between">
+              <div className="font-bold">Logo</div>
+              <div className="flex space-x-4">
+                <a href="#" className="text-sm">Home</a>
+                <a href="#" className="text-sm">About</a>
+                <a href="#" className="text-sm">Contact</a>
+              </div>
+            </div>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Pagination">
+            <Pagination>
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious href="#" />
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationLink href="#">1</PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationLink href="#" isActive>2</PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationLink href="#">3</PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationNext href="#" />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Tabs">
+            <Tabs defaultValue="tab1" className="w-full">
+              <TabsList className="w-full">
+                <TabsTrigger value="tab1" className="flex-1">Tab 1</TabsTrigger>
+                <TabsTrigger value="tab2" className="flex-1">Tab 2</TabsTrigger>
+                <TabsTrigger value="tab3" className="flex-1">Tab 3</TabsTrigger>
+              </TabsList>
+              <TabsContent value="tab1">Tab 1 content</TabsContent>
+              <TabsContent value="tab2">Tab 2 content</TabsContent>
+              <TabsContent value="tab3">Tab 3 content</TabsContent>
+            </Tabs>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Vertical Navigation">
+            <div className="w-full space-y-1">
+              <div className="p-2 bg-primary/10 rounded-md text-primary">Home</div>
+              <div className="p-2 hover:bg-muted rounded-md cursor-pointer">Products</div>
+              <div className="p-2 hover:bg-muted rounded-md cursor-pointer">Services</div>
+              <div className="p-2 hover:bg-muted rounded-md cursor-pointer">Contact</div>
+            </div>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Sidebar Navigation">
+            <div className="w-full border rounded-md p-3 space-y-3">
+              <div className="font-bold text-sm border-b pb-2">Dashboard</div>
+              <div className="space-y-1">
+                <div className="p-2 text-xs bg-primary/10 rounded text-primary">Overview</div>
+                <div className="p-2 text-xs hover:bg-muted rounded">Analytics</div>
+                <div className="p-2 text-xs hover:bg-muted rounded">Reports</div>
+              </div>
+            </div>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Breadcrumbs">
+            <div className="flex items-center space-x-1 text-sm">
+              <a href="#" className="text-muted-foreground hover:text-foreground">Home</a>
+              <span className="text-muted-foreground">/</span>
+              <a href="#" className="text-muted-foreground hover:text-foreground">Products</a>
+              <span className="text-muted-foreground">/</span>
+              <span className="font-medium">Categories</span>
+            </div>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Progress Bars">
+            <div className="w-full space-y-2">
+              <div className="flex justify-between text-xs">
+                <span>Progress</span>
+                <span>40%</span>
+              </div>
+              <Progress value={40} className="h-2" />
+            </div>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Command Palettes">
+            <div className="w-full border rounded-md p-3 shadow-sm">
+              <div className="flex items-center space-x-2 border-b pb-2">
+                <Search className="h-4 w-4 text-muted-foreground" />
+                <input className="flex-1 bg-transparent border-none outline-none text-sm placeholder:text-muted-foreground" placeholder="Search..." />
+                <kbd className="bg-muted px-1.5 text-xs rounded">⌘K</kbd>
+              </div>
+              <div className="pt-2 space-y-1">
+                <div className="px-2 py-1 text-xs hover:bg-muted rounded-md cursor-pointer">Search result 1</div>
+                <div className="px-2 py-1 text-xs hover:bg-muted rounded-md cursor-pointer">Search result 2</div>
+              </div>
+            </div>
+          </ComponentPreview>
+        </div>
+      </section>
+      
+      {/* Overlays Section */}
+      <section>
+        <h2 className="text-xl font-semibold mb-6">Overlays</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <ComponentPreview title="Modal Dialogs">
+            <div className="w-full p-4 border rounded-md shadow-sm space-y-3">
+              <div className="text-lg font-medium">Dialog Title</div>
+              <p className="text-sm text-muted-foreground">This is a dialog content example.</p>
+              <div className="flex justify-end space-x-2">
+                <Button variant="outline">Cancel</Button>
+                <Button>Confirm</Button>
+              </div>
+            </div>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Drawers">
+            <div className="w-full h-full flex items-center justify-center">
+              <div className="relative w-full h-full border rounded-md">
+                <div className="absolute right-0 top-0 bottom-0 w-2/3 bg-background border-l p-3">
+                  <div className="text-sm font-medium mb-2">Drawer Title</div>
+                  <p className="text-xs text-muted-foreground">Drawer content goes here.</p>
+                </div>
+              </div>
+            </div>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Notifications">
+            <div className="w-full p-3 border rounded-md bg-background shadow-md space-y-2">
+              <div className="flex justify-between items-start">
+                <div className="flex items-center space-x-2">
+                  <Info className="h-4 w-4 text-primary" />
+                  <span className="text-sm font-medium">Notification Title</span>
+                </div>
+                <button className="text-muted-foreground hover:text-foreground">×</button>
+              </div>
+              <p className="text-xs text-muted-foreground">This is a notification message example.</p>
+            </div>
+          </ComponentPreview>
+        </div>
+      </section>
+      
+      {/* Elements Section */}
+      <section>
+        <h2 className="text-xl font-semibold mb-6">Elements</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          <ComponentPreview title="Avatars">
+            <div className="flex space-x-2">
+              <Avatar>
+                <AvatarFallback>JD</AvatarFallback>
+              </Avatar>
+              <Avatar>
+                <AvatarFallback>AB</AvatarFallback>
+              </Avatar>
+              <Avatar>
+                <AvatarFallback>CK</AvatarFallback>
+              </Avatar>
+            </div>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Badges">
+            <div className="flex space-x-2">
+              <Badge>Default</Badge>
+              <Badge variant="secondary">Secondary</Badge>
+            </div>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Dropdowns">
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button variant="outline">
+                  Dropdown <ChevronRight className="h-4 w-4 -rotate-90 ml-2" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-40">
+                <div className="space-y-1">
+                  <Button variant="ghost" className="w-full justify-start text-sm">Option 1</Button>
+                  <Button variant="ghost" className="w-full justify-start text-sm">Option 2</Button>
+                  <Button variant="ghost" className="w-full justify-start text-sm">Option 3</Button>
+                </div>
+              </PopoverContent>
+            </Popover>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Buttons">
+            <div className="flex flex-col space-y-2 w-full">
+              <Button variant="default">Default</Button>
+              <Button variant="outline">Outline</Button>
+              <Button variant="ghost">Ghost</Button>
+            </div>
+          </ComponentPreview>
+          
+          <ComponentPreview title="Button Groups">
+            <div className="flex border rounded-md overflow-hidden">
+              <Button className="rounded-none border-r border-primary-foreground/20">Option 1</Button>
+              <Button className="rounded-none border-r border-primary-foreground/20">Option 2</Button>
+              <Button className="rounded-none">Option 3</Button>
+            </div>
+          </ComponentPreview>
+        </div>
+      </section>
+      
+      {/* Layout Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Layout</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          <ComponentPreview title="Grid">
-            <div className="grid grid-cols-2 gap-2 w-full h-full">
-              <div className="bg-muted border border-border p-2"></div>
-              <div className="bg-muted border border-border p-2"></div>
-              <div className="bg-muted border border-border p-2"></div>
-              <div className="bg-muted border border-border p-2"></div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <ComponentPreview title="Containers">
+            <div className="w-full h-full p-4 border border-dashed rounded-md flex items-center justify-center">
+              <span className="text-sm">Container</span>
             </div>
           </ComponentPreview>
           
-          <ComponentPreview title="Stack">
-            <div className="flex flex-col space-y-2 w-full">
-              <div className="bg-muted border border-border p-2"></div>
-              <div className="bg-muted border border-border p-2"></div>
-              <div className="bg-muted border border-border p-2"></div>
+          <ComponentPreview title="Cards">
+            <Card className="w-full">
+              <CardHeader>
+                <CardTitle>Card Title</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm">Card content here</p>
+              </CardContent>
+            </Card>
+          </ComponentPreview>
+          
+          <ComponentPreview title="List containers">
+            <div className="w-full border rounded-md overflow-hidden">
+              <div className="p-3 border-b font-medium text-sm">List Title</div>
+              <div className="divide-y">
+                <div className="p-3 text-sm">List Item 1</div>
+                <div className="p-3 text-sm">List Item 2</div>
+                <div className="p-3 text-sm">List Item 3</div>
+              </div>
             </div>
           </ComponentPreview>
           
-          <ComponentPreview title="Flex Container">
-            <div className="flex justify-between w-full">
-              <div className="bg-muted border border-border p-2 w-1/4"></div>
-              <div className="bg-muted border border-border p-2 w-1/4"></div>
-              <div className="bg-muted border border-border p-2 w-1/4"></div>
+          <ComponentPreview title="Media Objects">
+            <div className="flex space-x-3">
+              <div className="h-12 w-12 bg-muted rounded-md flex-shrink-0"></div>
+              <div>
+                <h4 className="text-sm font-medium">Media Object Title</h4>
+                <p className="text-xs text-muted-foreground">Media object description goes here.</p>
+              </div>
             </div>
           </ComponentPreview>
           
-          <ComponentPreview title="Container">
-            <div className="border border-border border-dashed w-3/4 mx-auto h-16 flex items-center justify-center">
-              <div className="text-sm">Container</div>
+          <ComponentPreview title="Dividers">
+            <div className="w-full space-y-3">
+              <div className="text-sm">Content above</div>
+              <Separator />
+              <div className="text-sm">Content below</div>
             </div>
           </ComponentPreview>
         </div>
       </section>
       
-      {/* Additional Components */}
+      {/* Page Examples Section */}
       <section>
-        <h2 className="text-xl font-semibold mb-6">Additional Components</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          <ComponentPreview title="Number Stepper">
-            <div className="flex items-center border rounded-md">
-              <Button variant="ghost" size="sm"><Minus className="h-4 w-4" /></Button>
-              <div className="w-12 text-center">10</div>
-              <Button variant="ghost" size="sm"><Plus className="h-4 w-4" /></Button>
+        <h2 className="text-xl font-semibold mb-6">Page Examples</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <ComponentPreview title="Home Screens">
+            <div className="w-full space-y-3 text-left">
+              <div className="h-4 bg-primary/20 rounded w-1/2"></div>
+              <div className="h-6 bg-primary/30 rounded w-3/4"></div>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="h-10 bg-muted rounded"></div>
+                <div className="h-10 bg-muted rounded"></div>
+              </div>
+              <div className="h-20 bg-muted rounded"></div>
             </div>
           </ComponentPreview>
           
-          <ComponentPreview title="Slider">
-            <Slider defaultValue={[50]} max={100} step={1} className="w-full" />
-          </ComponentPreview>
-          
-          <ComponentPreview title="File Upload">
-            <div className="border-2 border-dashed border-border p-4 rounded text-center">
-              <p className="text-sm">Click or drop files</p>
+          <ComponentPreview title="Detail Screens">
+            <div className="w-full space-y-3 text-left">
+              <div className="h-6 bg-primary/30 rounded w-3/4"></div>
+              <div className="h-4 bg-muted rounded w-1/2"></div>
+              <div className="h-20 bg-muted/50 rounded"></div>
+              <div className="flex justify-between">
+                <div className="h-8 w-16 bg-primary rounded"></div>
+                <div className="h-8 w-16 bg-muted rounded"></div>
+              </div>
             </div>
           </ComponentPreview>
           
-          <ComponentPreview title="Rating">
-            <div className="flex">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <div key={star} className="text-primary text-xl">★</div>
-              ))}
+          <ComponentPreview title="Settings Screens">
+            <div className="w-full space-y-3 text-left">
+              <div className="h-6 bg-primary/30 rounded w-1/2"></div>
+              <div className="p-2 border rounded flex justify-between items-center">
+                <div className="h-4 bg-muted rounded w-1/3"></div>
+                <Switch />
+              </div>
+              <div className="p-2 border rounded flex justify-between items-center">
+                <div className="h-4 bg-muted rounded w-1/3"></div>
+                <Switch />
+              </div>
+              <div className="p-2 border rounded flex justify-between items-center">
+                <div className="h-4 bg-muted rounded w-1/3"></div>
+                <Switch />
+              </div>
             </div>
           </ComponentPreview>
         </div>
