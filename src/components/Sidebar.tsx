@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, ChevronRight, Package, Layers, PenTool, Palette, Coffee, MousePointer, Edit3, ToggleRight, MessageSquare, BarChart2, Globe } from 'lucide-react';
+import { ChevronDown, ChevronRight, Package, Layers, PenTool, Palette, Coffee, MousePointer } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface SidebarItem {

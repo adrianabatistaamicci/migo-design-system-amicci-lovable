@@ -31,14 +31,14 @@ const App = () => {
           <Routes>
             <Route element={<MainLayout />}>
               <Route path="/" element={<Index />} />
+              
+              {/* Components pages */}
               <Route path="/components" element={<Components />} />
               <Route path="/components/:componentId" element={<ComponentDetail />} />
-              
-              {/* Component specific pages */}
               <Route path="/components/input" element={<InputPage />} />
               <Route path="/components/checkbox" element={<CheckboxPage />} />
               
-              {/* Foundation routes */}
+              {/* Foundation pages */}
               <Route path="/colors" element={<Colors />} />
               <Route path="/foundations/colors" element={<Colors />} />
               <Route path="/typography" element={<Typography />} />
@@ -48,7 +48,7 @@ const App = () => {
               <Route path="/icons" element={<Icons />} />
               <Route path="/foundations/icons" element={<Icons />} />
               
-              {/* UI Kit route */}
+              {/* UI Kit page */}
               <Route path="/ui-kit" element={<UIKit />} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
