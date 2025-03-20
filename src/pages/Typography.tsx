@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
@@ -6,6 +7,7 @@ import { Separator } from '@/components/ui/separator';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from '@/components/ui/badge';
 import { Copy, Check } from 'lucide-react';
+import { Chip } from '@/components/ui/chip';
 
 const Typography = () => {
   const [copied, setCopied] = useState<string | null>(null);
@@ -187,6 +189,9 @@ const Typography = () => {
   return (
     <div className="space-y-8">
       <div>
+        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
+          <Chip variant="filled" color="primary" size="sm">Foundations</Chip>
+        </div>
         <h1 className="text-3xl font-bold tracking-tight mb-2">Sistema de Tipografia</h1>
         <p className="text-mui-text-secondary text-lg">
           Estilos de texto e tokens de tipografia utilizados na aplicação.
