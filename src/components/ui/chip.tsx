@@ -10,7 +10,7 @@ const chipVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-mui-background-subtle text-mui-text-primary border border-mui-border",
+        default: "bg-background-subtle text-text-primary border border-border-default",
         filled: "bg-primary-main text-primary-contrast",
         outlined: "bg-transparent border border-primary-main text-primary-main",
       },

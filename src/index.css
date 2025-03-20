@@ -214,6 +214,22 @@
     --success-focusVisible: #D1FADF;
     --success-outlinedBorder: #ECFDF3;
 
+    /* Text colors */
+    --text-primary: #1A2027;
+    --text-secondary: #3E5060;
+    --text-disabled: #6F7E8C;
+
+    /* Background colors */
+    --background-paper: #FFFFFF;
+    --background-default: #FFFFFF;
+    --background-subtle: #F5F7FA;
+    --background-hover: #F5F7FA;
+    --background-sidebar: #F3F6F9;
+    
+    /* Borders and dividers */
+    --border-default: #E0E0E0;
+    --divider-default: #E5E8EC;
+
     /* Legacy sistema de cores */
     --muted: 210 20% 96%;
     --muted-foreground: 215 16% 47%;
@@ -233,7 +249,7 @@
   }
 
   body {
-    @apply bg-background text-mui-text-primary antialiased;
+    @apply bg-background text-text-primary antialiased;
     font-feature-settings: "ss01", "ss02", "cv01", "cv03";
   }
   
@@ -243,7 +259,7 @@
 }
 
 @layer components {
-  .mui-container {
+  .container {
     @apply mx-auto px-6 w-full max-w-screen-xl;
   }
   

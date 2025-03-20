@@ -38,10 +38,10 @@ export default {
 					400: '#5A8CF8',
 					500: '#2970FF',
 					600: '#1F5AE8',
-					700: '#0057B2', // Original value maintained
+					700: '#0057B2',
 					800: '#0C41A0',
-					900: '#093186', // New intermediate color
-					950: '#072B7A', // Renamed from 900
+					900: '#093186',
+					950: '#072B7A',
 				},
 				amicci: {
 					50: '#F1FDFC',
@@ -53,8 +53,8 @@ export default {
 					600: '#0EA3A1',
 					700: '#0C8482',
 					800: '#096665',
-					900: '#074A47', // New intermediate color
-					950: '#062630', // Renamed from 900
+					900: '#074A47',
+					950: '#062630',
 				},
 				amicciDark: {
 					50: '#E6F5F5',
@@ -64,10 +64,10 @@ export default {
 					400: '#3A9CA1',
 					500: '#14818A',
 					600: '#0D646D',
-					700: '#06454A', // Original value maintained
+					700: '#06454A',
 					800: '#043A3E',
-					900: '#033034', // New intermediate color
-					950: '#02282A', // Original value maintained, now renamed to 950
+					900: '#033034',
+					950: '#02282A',
 				},
 				magenta: {
 					50: '#FDF5FA',
@@ -75,12 +75,12 @@ export default {
 					200: '#F2CAEB',
 					300: '#E7A4DD',
 					400: '#C963BA',
-					500: '#9B247F', // Original value maintained
+					500: '#9B247F',
 					600: '#841E6C',
 					700: '#6D1959',
 					800: '#571447',
-					900: '#49123C', // New intermediate color
-					950: '#3E0F32', // Renamed from 900
+					900: '#49123C',
+					950: '#3E0F32',
 				},
 				green: {
 					50: '#ECFDF3',
@@ -92,8 +92,8 @@ export default {
 					600: '#039855',
 					700: '#027A48',
 					800: '#05603A',
-					900: '#055735', // New intermediate color
-					950: '#054F31', // Renamed from 900
+					900: '#055735',
+					950: '#054F31',
 				},
 				gray: {
 					50: '#F9FBFB',
@@ -105,8 +105,8 @@ export default {
 					600: '#656969',
 					700: '#4A4F4F',
 					800: '#313536',
-					900: '#292C2D', // New intermediate color
-					950: '#212323', // Renamed from 900
+					900: '#292C2D',
+					950: '#212323',
 				},
 				orange: {
 					50: '#FFFAEB',
@@ -118,8 +118,8 @@ export default {
 					600: '#DC6803',
 					700: '#B54708',
 					800: '#93370D',
-					900: '#86320D', // New intermediate color
-					950: '#7A2E0E', // Renamed from 900
+					900: '#86320D',
+					950: '#7A2E0E',
 				},
 				red: {
 					50: '#FEF3F2',
@@ -131,8 +131,8 @@ export default {
 					600: '#D92D20',
 					700: '#B42318',
 					800: '#912018',
-					900: '#862017', // New intermediate color
-					950: '#7A271A', // Renamed from 900
+					900: '#862017',
+					950: '#7A271A',
 				},
 				yellow: {
 					50: '#FFFDE7',
@@ -144,9 +144,10 @@ export default {
 					600: '#FDD835',
 					700: '#FBC02D',
 					800: '#F9A825',
-					900: '#F78F1E', // New intermediate color
-					950: '#F57F17', // Renamed from 900
+					900: '#F78F1E',
+					950: '#F57F17',
 				},
+				
 				// Common colors
 				common: {
 					white: {
@@ -277,9 +278,9 @@ export default {
 				}
 			},
 			boxShadow: {
-				'mui-sm': '0px 2px 4px -1px rgba(0,0,0,0.08)',
-				'mui-md': '0px 3px 5px -1px rgba(0,0,0,0.1), 0px 5px 8px 0px rgba(0,0,0,0.04)',
-				'mui-lg': '0px 8px 10px -5px rgba(0,0,0,0.1), 0px 16px 24px 2px rgba(0,0,0,0.05)',
+				'sm': '0px 2px 4px -1px rgba(0,0,0,0.08)',
+				'md': '0px 3px 5px -1px rgba(0,0,0,0.1), 0px 5px 8px 0px rgba(0,0,0,0.04)',
+				'lg': '0px 8px 10px -5px rgba(0,0,0,0.1), 0px 16px 24px 2px rgba(0,0,0,0.05)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

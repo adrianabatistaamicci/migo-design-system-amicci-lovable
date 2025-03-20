@@ -8,9 +8,9 @@ const paletteData = [
     name: 'Text',
     description: 'Gray',
     variants: [
-      { name: 'primary', colorClass: 'text-mui-text-primary', baseColor: 'gray-900', textColor: 'text-white', hexValue: '#212323' },
-      { name: 'secondary', colorClass: 'text-mui-text-secondary', baseColor: 'gray-500', textColor: 'text-white', hexValue: '#808586' },
-      { name: 'disabled', colorClass: 'text-mui-text-disabled', baseColor: 'gray-400', textColor: 'text-white', hexValue: '#AFB9BA' },
+      { name: 'primary', colorClass: 'text-text-primary', baseColor: 'gray-900', textColor: 'text-white', hexValue: '#212323' },
+      { name: 'secondary', colorClass: 'text-text-secondary', baseColor: 'gray-500', textColor: 'text-white', hexValue: '#808586' },
+      { name: 'disabled', colorClass: 'text-text-disabled', baseColor: 'gray-400', textColor: 'text-white', hexValue: '#AFB9BA' },
       { name: 'hover', colorClass: 'bg-gray-900/[0.04]', baseColor: 'gray-900', textColor: 'text-black', opacity: '4%', hexValue: '#2123230A' },
       { name: 'selected', colorClass: 'bg-gray-900/[0.08]', baseColor: 'gray-900', textColor: 'text-black', opacity: '8%', hexValue: '#21232314' },
       { name: 'focus', colorClass: 'bg-gray-900/[0.12]', baseColor: 'gray-900', textColor: 'text-black', opacity: '12%', hexValue: '#2123231F' },
@@ -138,7 +138,7 @@ const paletteData = [
 const PalettesTab = () => {
   return (
     <ComponentCard title="Paletas Compostas">
-      <p className="text-mui-text-secondary mb-6">
+      <p className="text-text-secondary mb-6">
         As paletas compostas são construídas utilizando as cores básicas como base.
         Cada paleta semântica inclui variações para diferentes estados e usos.
       </p>

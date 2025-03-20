@@ -18,7 +18,7 @@ const badgeVariants = cva(
         lg: "h-6 min-w-[24px] px-2 text-sm",
       },
       color: {
-        default: "bg-mui-background-paper text-mui-text-primary",
+        default: "bg-background-paper text-text-primary",
         primary: "bg-primary-main text-primary-contrast",
         secondary: "bg-secondary-main text-secondary-contrast",
         error: "bg-error-main text-error-contrast",
