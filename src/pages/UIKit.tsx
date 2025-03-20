@@ -23,22 +23,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Progress } from '@/components/ui/progress';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination';
-
-const ComponentPreview = ({ title, children, imageSrc }: { title: string; children: React.ReactNode; imageSrc?: string }) => (
-  <div className="flex flex-col">
-    <div className="border border-border rounded-lg bg-white p-4 h-40 flex items-center justify-center overflow-hidden">
-      {imageSrc ? (
-        <img src={imageSrc} alt={title} className="max-w-full max-h-full object-contain" />
-      ) : (
-        children
-      )}
-    </div>
-    <div className="mt-2 text-center">
-      <h3 className="text-sm font-medium text-foreground">{title}</h3>
-      <p className="text-xs text-muted-foreground">Variant: Default</p>
-    </div>
-  </div>
-);
+import ComponentPreview from '@/components/ComponentPreview';
 
 const UIKit = () => {
   return (
