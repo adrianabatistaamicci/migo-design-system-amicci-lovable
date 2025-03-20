@@ -13,43 +13,28 @@ const Icons = () => {
 
   return (
     <div className="w-full animate-fade-in">
-      <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
-        <Chip variant="filled" color="primary" size="sm">Foundations</Chip>
-      </div>
-      <h1 className="text-3xl font-bold tracking-tight mb-4">Icons</h1>
-      <p className="mb-8 text-gray-700">Usamos ícones Outlined da Material Design como biblioteca oficial</p>
-      
-      <div className="border-b">
-        <div className="flex space-x-8">
-          <TabButton 
-            active={activeTab === "visaogeral"} 
-            onClick={() => setActiveTab("visaogeral")}
-          >
-            Visão geral
-          </TabButton>
-          <TabButton 
-            active={activeTab === "estilos"} 
-            onClick={() => setActiveTab("estilos")}
-          >
-            Estilos
-          </TabButton>
-          <TabButton 
-            active={activeTab === "uso"} 
-            onClick={() => setActiveTab("uso")}
-          >
-            Uso
-          </TabButton>
-          <TabButton 
-            active={activeTab === "acessibilidade"} 
-            onClick={() => setActiveTab("acessibilidade")}
-          >
-            Acessibilidade
-          </TabButton>
+      <div className="space-y-4 mb-6">
+        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
+          <Chip variant="filled" color="primary" size="sm">Foundations</Chip>
         </div>
+        <h1 className="text-3xl font-bold tracking-tight">Icons</h1>
+        <p className="text-mui-text-secondary max-w-3xl">
+          Usamos ícones Outlined da Material Design como biblioteca oficial
+        </p>
       </div>
       
-      {activeTab === "visaogeral" && (
-        <div className="space-y-6 mt-6">
+      <Separator className="my-6" />
+      
+      <Tabs defaultValue="visaogeral" className="w-full" value={activeTab} onValueChange={setActiveTab}>
+        <TabsList>
+          <TabsTrigger value="visaogeral">Visão geral</TabsTrigger>
+          <TabsTrigger value="uso">Uso</TabsTrigger>
+          <TabsTrigger value="acessibilidade">Acessibilidade</TabsTrigger>
+        </TabsList>
+      </Tabs>
+      
+      <div className="pt-6">
+        {activeTab === "visaogeral" && (
           <div className="rounded-lg border p-6">
             <h2 className="text-xl font-semibold mb-4">Material Design Icons</h2>
             <p className="mb-4">Os ícones do Material Design são o conjunto oficial de ícones do Google que são projetados de acordo com as diretrizes do Material Design.</p>
@@ -133,11 +118,9 @@ const Icons = () => {
               </ul>
             </div>
           </div>
-        </div>
-      )}
-      
-      {activeTab === "uso" && (
-        <div className="space-y-6 mt-6">
+        )}
+        
+        {activeTab === "uso" && (
           <div className="rounded-lg border p-6">
             <h2 className="text-xl font-semibold mb-4">Como Usar Ícones</h2>
             
@@ -187,38 +170,9 @@ const Icons = () => {
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {activeTab === "estilos" && (
-        <div className="space-y-6 mt-6">
-          <div className="rounded-lg border p-6">
-            <h2 className="text-xl font-semibold mb-4">Estilos de Ícones</h2>
-            <p>O Material Design oferece diferentes estilos de ícones para uso em sua interface:</p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-              <div className="border rounded-md p-6">
-                <div className="flex items-center mb-4">
-                  <img src={getMaterialIconUrl("home")} alt="Outlined Icon" className="w-8 h-8 mr-4" />
-                  <h3 className="text-lg font-medium">Outlined (Recomendado)</h3>
-                </div>
-                <p className="text-sm text-gray-600">Os ícones outlined são nossa escolha padrão. Eles funcionam bem em diferentes cenários e tamanhos, oferecendo boa legibilidade.</p>
-              </div>
-              
-              <div className="border rounded-md p-6">
-                <div className="flex items-center mb-4">
-                  <span className="material-icons" style={{fontFamily: 'Material Icons'}}>home</span>
-                  <h3 className="text-lg font-medium ml-4">Filled</h3>
-                </div>
-                <p className="text-sm text-gray-600">Os ícones filled são mais densos visualmente e podem ser usados para aumentar a ênfase ou em áreas com mais espaço.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {activeTab === "acessibilidade" && (
-        <div className="space-y-6 mt-6">
+        {activeTab === "acessibilidade" && (
           <div className="rounded-lg border p-6">
             <h2 className="text-xl font-semibold mb-4">Acessibilidade de Ícones</h2>
             
@@ -261,27 +215,9 @@ const Icons = () => {
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
-  );
-};
-
-const TabButton = ({ active, onClick, children }) => {
-  return (
-    <button
-      onClick={onClick}
-      className={`pb-2 font-medium text-sm transition-colors relative ${
-        active 
-          ? "text-foreground" 
-          : "text-muted-foreground hover:text-foreground"
-      }`}
-    >
-      {children}
-      {active && (
-        <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-foreground" />
-      )}
-    </button>
   );
 };
 
