@@ -84,15 +84,7 @@ const Index = () => {
         </div>
       </section>
       
-      <section className="bg-gray-50 py-12 rounded-lg">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-2xl tracking-tight mb-4 text-text-primary font-medium md:text-3xl">Precisa de ajuda?</h2>
-          <p className="text-lg mb-8 text-text-secondary">Confira quem são os responsáveis pelo Migo e como entrar em contato.</p>
-          <Button asChild size="lg">
-            
-          </Button>
-        </div>
-      </section>
+      
     </div>;
 };
 export default Index;
