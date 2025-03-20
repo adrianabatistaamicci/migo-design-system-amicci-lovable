@@ -85,17 +85,17 @@ const Index = () => {
         </div>
       </section>
       
-      <section className="bg-gradient-to-r from-primary-main to-primary-dark py-16 rounded-xl">
+      <section className="bg-gray-50 py-12 rounded-lg">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4 text-white">
-            Pronto para criar experiências incríveis?
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4 text-gray-800">
+            Pronto para começar?
           </h2>
-          <p className="text-lg text-white/90 mb-8">
-            Explore nosso sistema de design completo e comece a desenvolver interfaces consistentes e acessíveis hoje mesmo.
+          <p className="text-lg text-gray-600 mb-8">
+            Explore nosso sistema de design e comece a criar interfaces consistentes e acessíveis.
           </p>
-          <Button variant="outline-default" asChild size="lg" className="bg-white hover:bg-white/90 border-0 text-primary-dark">
+          <Button asChild size="lg">
             <Link to="/foundations/colors">
-              Começar agora
+              Ver documentação
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
