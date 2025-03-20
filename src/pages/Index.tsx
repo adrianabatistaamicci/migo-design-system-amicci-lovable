@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, Book, FileText, Layers, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -90,10 +89,7 @@ const Index = () => {
           <h2 className="text-2xl tracking-tight mb-4 text-text-primary font-medium md:text-3xl">Precisa de ajuda?</h2>
           <p className="text-lg mb-8 text-text-secondary">Confira quem são os responsáveis pelo Migo e como entrar em contato.</p>
           <Button asChild size="lg">
-            <Link to="/foundations/colors">
-              Ver documentação
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            
           </Button>
         </div>
       </section>
