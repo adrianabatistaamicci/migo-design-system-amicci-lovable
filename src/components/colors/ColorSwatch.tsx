@@ -42,7 +42,7 @@ const ColorSwatch = ({
 
   return (
     <div 
-      className={`relative w-full h-16 rounded-md ${color} ${className} flex items-center justify-between px-3 transition-all hover:shadow-md cursor-pointer`}
+      className={`relative w-full h-16 rounded-md ${color} ${className} flex items-center justify-between px-3 transition-all hover:shadow-md cursor-pointer group`}
       onClick={onClick || handleCopy}
       role="button"
       tabIndex={0}
