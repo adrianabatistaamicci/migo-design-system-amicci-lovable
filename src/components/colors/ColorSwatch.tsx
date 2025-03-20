@@ -56,12 +56,29 @@ const ColorSwatch = ({
 
   const textColor = getTextColor();
 
+  // Determinar o estilo de fundo correto
+  const getBackgroundStyle = () => {
+    // Se a cor começa com 'bg-', estamos usando uma classe Tailwind
+    if (color.startsWith('bg-')) {
+      return color;
+    }
+    
+    // Se a cor é um valor hexadecimal, usamos style inline
+    if (hexValue && !color.startsWith('bg-')) {
+      return `bg-[${hexValue}]`;
+    }
+    
+    // Fallback para a classe original
+    return color;
+  };
+
   return (
     <div 
-      className={`relative w-full h-16 rounded-md ${color} ${className} flex items-center justify-between px-3 transition-all hover:shadow-md cursor-pointer group`}
+      className={`relative w-full h-16 rounded-md ${getBackgroundStyle()} ${className} flex items-center justify-between px-3 transition-all hover:shadow-md cursor-pointer group`}
       onClick={onClick || handleCopy}
       role="button"
       tabIndex={0}
+      style={hexValue && !color.startsWith('bg-') ? { backgroundColor: hexValue } : undefined}
     >
       <div className="flex items-center">
         {textOverlay && (
