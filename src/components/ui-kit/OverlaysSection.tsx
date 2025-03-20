@@ -9,19 +9,19 @@ const OverlaysSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <ComponentPreview 
           title="Modal Dialogs" 
-          imageSrc="/lovable-uploads/9edc0220-a8fc-4935-a6d0-d27cd6c6b49f.png" 
+          imageSrc="/lovable-uploads/6d23ac4b-c3d7-4517-a738-32504102cca5.png" 
           variantCount={4} 
         />
         
         <ComponentPreview 
           title="Drawers" 
-          imageSrc="/lovable-uploads/bbc1b531-583f-4092-9766-e9c04680183e.png" 
+          imageSrc="/lovable-uploads/bf08eb02-ad67-4da9-a980-a96687517561.png" 
           variantCount={3} 
         />
         
         <ComponentPreview 
           title="Notifications" 
-          imageSrc="/lovable-uploads/cdc177ff-a734-4717-aa15-df3407ecf64c.png" 
+          imageSrc="/lovable-uploads/3178f5bb-fdcc-4a02-b62c-f957515cfd5e.png" 
           variantCount={5} 
         />
       </div>
