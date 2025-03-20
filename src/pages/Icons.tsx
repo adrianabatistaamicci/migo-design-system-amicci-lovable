@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
@@ -102,7 +103,7 @@ const Icons = () => {
   }, [searchQuery, category]);
 
   return (
-    <div className="w-full py-10 animate-fade-in">
+    <div className="w-full animate-fade-in">
       <h1 className="text-3xl font-bold tracking-tight mb-4">Icons</h1>
       <p className="text-muted-foreground mb-8">
         This design system uses Material Design outlined icons to maintain a consistent visual language throughout the application.
