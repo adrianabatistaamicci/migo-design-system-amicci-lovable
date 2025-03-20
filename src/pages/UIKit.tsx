@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -15,7 +14,7 @@ import { Separator } from '@/components/ui/separator';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { AlertCircle, Check, ChevronRight, CircleAlert, Info, Minus, Plus } from 'lucide-react';
+import { AlertCircle, Check, ChevronRight, CircleAlert, Info, Minus, Plus, Search } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Calendar } from '@/components/ui/calendar';
 import { Textarea } from '@/components/ui/textarea';
@@ -553,7 +552,7 @@ const UIKit = () => {
           <ComponentPreview title="Badges">
             <div className="flex space-x-2">
               <Badge>Default</Badge>
-              <Badge variant="secondary">Secondary</Badge>
+              <Badge variant="standard" color="secondary">Secondary</Badge>
             </div>
           </ComponentPreview>
           
