@@ -1,28 +1,17 @@
-
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Chip } from '@/components/ui/chip';
 import { Separator } from "@/components/ui/separator";
-import { 
-  getMaterialIconUrl, 
-  ICON_SIZES, 
-  getIconSizeClass, 
-  shouldInvertIcon,
-  formatIconName
-} from '@/utils/iconUtils';
+import { getMaterialIconUrl, ICON_SIZES, getIconSizeClass, shouldInvertIcon, formatIconName } from '@/utils/iconUtils';
 import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
-
 const Icons = () => {
-  return (
-    <div className="w-full animate-fade-in">
+  return <div className="w-full animate-fade-in">
       <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
         <Chip variant="filled" color="primary" size="sm">Foundations</Chip>
       </div>
       <h1 className="text-3xl font-bold tracking-tight mb-4">Icons</h1>
-      <p className="text-muted-foreground mb-8">
-        This design system uses Material Design outlined icons to maintain a consistent visual language throughout the application.
-      </p>
+      <p className="text-muted-foreground mb-8">Este sistema de design usa Material Design Outlined Icons</p>
       
       <Tabs defaultValue="overview" className="w-full">
         <TabsList className="grid w-full grid-cols-2">
@@ -33,27 +22,27 @@ const Icons = () => {
         <TabsContent value="overview" className="space-y-6">
           <div className="rounded-lg border p-6 mt-6">
             <h2 className="text-xl font-semibold mb-4">Material Design Icons</h2>
-            <p className="mb-4">Material Design icons are the official icon set from Google that are designed under the material design guidelines.</p>
+            <p className="mb-4">Os ícones do Material Design são o conjunto oficial de ícones do Google que são projetados de acordo com as diretrizes do Material Design.</p>
             
             <div className="flex flex-col md:flex-row gap-6 mt-6">
-              <div className="flex-1 p-4 border rounded-lg flex flex-col items-center justify-center">
+              <div className="flex-1 p-4 border flex flex-col items-center justify-center rounded">
                 <img src={getMaterialIconUrl("account_circle")} alt="Account Icon" className="w-10 h-10 mb-2" />
                 <h3 className="font-medium">Simple</h3>
                 <p className="text-sm text-center text-muted-foreground">Clean, minimalist design that works well at small sizes</p>
               </div>
-              <div className="flex-1 p-4 border rounded-lg flex flex-col items-center justify-center">
+              <div className="flex-1 p-4 border flex flex-col items-center justify-center rounded">
                 <img src={getMaterialIconUrl("settings")} alt="Settings Icon" className="w-10 h-10 mb-2" />
                 <h3 className="font-medium">Consistent</h3>
                 <p className="text-sm text-center text-muted-foreground">Uniform style across all icons in the system</p>
               </div>
-              <div className="flex-1 p-4 border rounded-lg flex flex-col items-center justify-center">
+              <div className="flex-1 p-4 border flex flex-col items-center justify-center rounded">
                 <img src={getMaterialIconUrl("visibility")} alt="Visibility Icon" className="w-10 h-10 mb-2" />
                 <h3 className="font-medium">Meaningful</h3>
                 <p className="text-sm text-center text-muted-foreground">Recognizable metaphors that quickly communicate meaning</p>
               </div>
             </div>
             
-            <Alert className="mt-8 bg-primary/10 border-primary">
+            <Alert className="mt-8 bg-primary/10 border-amicci-500 rounded">
               <AlertTitle className="text-primary font-medium">Icon Library</AlertTitle>
               <AlertDescription>
                 The complete library of Material Design icons can be accessed at: <a href="https://fonts.google.com/icons" target="_blank" rel="noopener noreferrer" className="text-primary font-medium hover:underline">https://fonts.google.com/icons</a>
@@ -168,8 +157,6 @@ const Icons = () => {
           </div>
         </TabsContent>
       </Tabs>
-    </div>
-  );
+    </div>;
 };
-
 export default Icons;
