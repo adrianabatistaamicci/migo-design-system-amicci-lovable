@@ -27,12 +27,6 @@ const Icons = () => {
               Visão geral
             </TabsTrigger>
             <TabsTrigger 
-              value="styles" 
-              className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3"
-            >
-              Estilos
-            </TabsTrigger>
-            <TabsTrigger 
               value="usage" 
               className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3"
             >
@@ -46,7 +40,7 @@ const Icons = () => {
             </TabsTrigger>
           </TabsList>
           
-          <TabsContent value="overview" className="p-6 border rounded-lg mt-6">
+          <TabsContent value="overview" className="pt-6">
             <h2 className="text-2xl font-semibold mb-4">Material Design Icons</h2>
             <p className="mb-4">Os ícones do Material Design são o conjunto oficial de ícones do Google que são projetados de acordo com as diretrizes do Material Design.</p>
             
@@ -130,67 +124,7 @@ const Icons = () => {
             </div>
           </TabsContent>
           
-          <TabsContent value="styles" className="p-6 border rounded-lg mt-6">
-            <h2 className="text-2xl font-semibold mb-4">Estilos de Ícones</h2>
-            <p className="mb-4">Os ícones do Material Design estão disponíveis em diferentes estilos para atender às necessidades do seu projeto.</p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-              <div className="border p-4 rounded-lg">
-                <h3 className="font-medium mb-3">Outlined</h3>
-                <div className="flex justify-center mb-3">
-                  <img src={getMaterialIconUrl("favorite_border")} alt="Outlined Heart" className="w-12 h-12" />
-                </div>
-                <p className="text-sm text-center">Estilo padrão com contornos limpos, adequado para a maioria das interfaces.</p>
-              </div>
-              
-              <div className="border p-4 rounded-lg">
-                <h3 className="font-medium mb-3">Filled</h3>
-                <div className="flex justify-center mb-3">
-                  <img src="https://fonts.gstatic.com/s/i/materialicons/favorite/v12/24px.svg" alt="Filled Heart" className="w-12 h-12" />
-                </div>
-                <p className="text-sm text-center">Ícones preenchidos que proporcionam maior ênfase visual.</p>
-              </div>
-              
-              <div className="border p-4 rounded-lg">
-                <h3 className="font-medium mb-3">Round</h3>
-                <div className="flex justify-center mb-3">
-                  <img src="https://fonts.gstatic.com/s/i/materialiconsround/favorite/v12/24px.svg" alt="Round Heart" className="w-12 h-12" />
-                </div>
-                <p className="text-sm text-center">Cantos arredondados para um visual mais suave e amigável.</p>
-              </div>
-            </div>
-            
-            <div className="mt-8">
-              <h3 className="text-lg font-medium mb-3">Pesos Visuais</h3>
-              <p className="mb-4">Dependendo da importância e do contexto, os ícones podem ter diferentes pesos visuais:</p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                <div className="border p-4 rounded-lg">
-                  <h4 className="font-medium mb-2">Primário</h4>
-                  <div className="flex items-center space-x-4">
-                    <img src={getMaterialIconUrl("home")} alt="Home Icon" className="w-8 h-8" />
-                    <div>
-                      <p className="text-sm">Usado para ações e elementos principais</p>
-                      <p className="text-xs text-muted-foreground mt-1">Alta visibilidade, cor primária</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="border p-4 rounded-lg">
-                  <h4 className="font-medium mb-2">Secundário</h4>
-                  <div className="flex items-center space-x-4">
-                    <img src={getMaterialIconUrl("info")} alt="Info Icon" className="w-8 h-8 opacity-60" />
-                    <div>
-                      <p className="text-sm">Usado para suporte e elementos auxiliares</p>
-                      <p className="text-xs text-muted-foreground mt-1">Visibilidade média, cor secundária ou opacidade reduzida</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </TabsContent>
-          
-          <TabsContent value="usage" className="p-6 border rounded-lg mt-6">
+          <TabsContent value="usage" className="pt-6">
             <h2 className="text-2xl font-semibold mb-4">Como Usar Ícones</h2>
             
             <div className="mb-6">
@@ -240,7 +174,7 @@ const Icons = () => {
             </div>
           </TabsContent>
           
-          <TabsContent value="accessibility" className="p-6 border rounded-lg mt-6">
+          <TabsContent value="accessibility" className="pt-6">
             <h2 className="text-2xl font-semibold mb-4">Acessibilidade</h2>
             <p className="mb-4">Garantir que os ícones sejam acessíveis para todos os usuários é fundamental para uma boa experiência de usuário.</p>
 
