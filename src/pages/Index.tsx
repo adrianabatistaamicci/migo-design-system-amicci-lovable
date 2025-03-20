@@ -29,7 +29,7 @@ const Index = () => {
               <div className="w-12 h-12 bg-primary-light/30 rounded-lg text-primary-main flex items-center justify-center mb-4">
                 <Layers size={24} />
               </div>
-              <h3 className="text-lg font-semibold mb-2 text-gray-800">Fundações</h3>
+              <h3 className="text-lg font-semibold mb-2 text-gray-800">UI Kit</h3>
               <p className="text-gray-600 mb-4">
                 Cores, tipografia, espaçamento e outros elementos fundamentais do sistema.
               </p>
@@ -43,7 +43,7 @@ const Index = () => {
               <div className="w-12 h-12 bg-primary-light/30 rounded-lg text-primary-main flex items-center justify-center mb-4">
                 <Package size={24} />
               </div>
-              <h3 className="text-lg font-semibold mb-2 text-gray-800">Componentes</h3>
+              <h3 className="text-lg font-semibold mb-2 text-gray-800">Instalação</h3>
               <p className="text-gray-600 mb-4">
                 Biblioteca de componentes reutilizáveis prontos para uso em seus projetos.
               </p>
