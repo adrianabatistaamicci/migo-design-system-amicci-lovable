@@ -28,20 +28,6 @@ const Index = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
               <div className="w-12 h-12 bg-primary-light/30 rounded-lg text-primary-main flex items-center justify-center mb-4">
-                <Layers size={24} />
-              </div>
-              <h3 className="text-lg font-semibold mb-2 text-gray-800">UI Kit</h3>
-              <p className="text-gray-600 mb-4">
-                Cores, tipografia, espaçamento e outros elementos fundamentais do sistema.
-              </p>
-              <Link to="/foundations/colors" className="text-primary-main hover:text-primary-dark inline-flex items-center">
-                Explorar fundações
-                <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-primary-light/30 rounded-lg text-primary-main flex items-center justify-center mb-4">
                 <Package size={24} />
               </div>
               <h3 className="text-lg font-semibold mb-2 text-gray-800">Instalação</h3>
@@ -64,6 +50,20 @@ const Index = () => {
               </p>
               <Link to="/guidelines/accessibility" className="text-primary-main hover:text-primary-dark inline-flex items-center">
                 Ler diretrizes
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-primary-light/30 rounded-lg text-primary-main flex items-center justify-center mb-4">
+                <Layers size={24} />
+              </div>
+              <h3 className="text-lg font-semibold mb-2 text-gray-800">UI Kit</h3>
+              <p className="text-gray-600 mb-4">
+                Cores, tipografia, espaçamento e outros elementos fundamentais do sistema.
+              </p>
+              <Link to="/foundations/colors" className="text-primary-main hover:text-primary-dark inline-flex items-center">
+                Explorar fundações
                 <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </div>
