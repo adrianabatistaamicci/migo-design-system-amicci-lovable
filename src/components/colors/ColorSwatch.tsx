@@ -83,7 +83,7 @@ const ColorSwatch = ({
       tabIndex={0}
       style={hexValue && !color.startsWith('bg-') ? { backgroundColor: hexValue } : undefined}
     >
-      <span className={`text-lg font-semibold ${textColor}`}>
+      <span className={`text-sm font-medium ${textColor} px-2 py-1 bg-opacity-20 rounded`}>
         {textOverlay || 'Aa'}
       </span>
 

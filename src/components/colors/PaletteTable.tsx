@@ -1,9 +1,8 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import ColorSwatch from './ColorSwatch';
-import { ClipboardCopy, Eye, EyeOff } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ClipboardCopy } from 'lucide-react';
 import { colorUtils } from '@/utils/colorUtils';
 
 // Define interfaces for our data
@@ -29,8 +28,6 @@ interface PaletteTableProps {
 }
 
 const PaletteTable = ({ palettes }: PaletteTableProps) => {
-  const [showWCAG, setShowWCAG] = useState(false);
-
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
     // You could add a toast notification here
@@ -74,17 +71,6 @@ const PaletteTable = ({ palettes }: PaletteTableProps) => {
 
   return (
     <div className="space-y-8">
-      <div className="flex justify-end mb-4">
-        <Button 
-          variant="outline" 
-          onClick={() => setShowWCAG(!showWCAG)}
-          className="text-sm flex gap-2 items-center"
-        >
-          {showWCAG ? <EyeOff size={16} /> : <Eye size={16} />}
-          {showWCAG ? 'Ocultar análise WCAG' : 'Mostrar análise WCAG'}
-        </Button>
-      </div>
-
       {palettes.map((palette) => (
         <div key={palette.name} className="space-y-4">
           <div className="flex items-center gap-3">
@@ -101,9 +87,8 @@ const PaletteTable = ({ palettes }: PaletteTableProps) => {
                 <TableHead>Amostra</TableHead>
                 <TableHead>Token CSS</TableHead>
                 <TableHead>Base Color</TableHead>
-                <TableHead>Hexadecimal</TableHead>
                 <TableHead>Opacidade</TableHead>
-                {showWCAG && <TableHead>Análise WCAG</TableHead>}
+                <TableHead>Análise WCAG</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -118,6 +103,7 @@ const PaletteTable = ({ palettes }: PaletteTableProps) => {
                         color={variant.colorClass}
                         hexValue={variant.hexValue}
                         copyValue={variant.hexValue}
+                        textOverlay={variant.hexValue || '#F0F0F0'}
                       />
                     </TableCell>
                     <TableCell className="font-mono">
@@ -125,12 +111,8 @@ const PaletteTable = ({ palettes }: PaletteTableProps) => {
                       {renderCopyButton(`--${palette.name.toLowerCase()}-${variant.name}`)}
                     </TableCell>
                     <TableCell>{variant.baseColor}</TableCell>
-                    <TableCell className="font-mono">
-                      {variant.hexValue || "#F0F0F0"}
-                      {renderCopyButton(variant.hexValue || "#F0F0F0")}
-                    </TableCell>
                     <TableCell>{variant.opacity || '100%'}</TableCell>
-                    {showWCAG && wcagInfo && (
+                    {wcagInfo && (
                       <TableCell>
                         <div className="space-y-1 text-xs">
                           <div>
