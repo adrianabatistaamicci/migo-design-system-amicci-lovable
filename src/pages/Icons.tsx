@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Chip } from '@/components/ui/chip';
@@ -7,14 +6,13 @@ import { getMaterialIconUrl, ICON_SIZES, getIconSizeClass, shouldInvertIcon, for
 import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-
 const Icons = () => {
   return <div className="w-full animate-fade-in">
       <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
         <Chip variant="filled" color="primary" size="sm">Foundations</Chip>
       </div>
       <h1 className="text-3xl font-bold tracking-tight mb-4">Icons</h1>
-      <p className="text-muted-foreground mb-8">Este sistema de design usa Material Design Outlined Icons</p>
+      <p className="mb-8 text-gray-700">Usamos ícones Outlined da Material Design como biblioteca oficial</p>
       
       <Tabs defaultValue="overview" className="w-full">
         <TabsList className="grid w-full grid-cols-2">
