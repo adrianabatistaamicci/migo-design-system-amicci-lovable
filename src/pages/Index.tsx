@@ -21,7 +21,7 @@ const Index = () => {
 
       <section>
         <div className="max-w-7xl mx-auto px-4">
-          <h5 className="text-xl md:text-2xl font-semibold tracking-tight mb-8 text-zinc-950">
+          <h5 className="text-xl tracking-tight mb-8 text-zinc-950 font-medium md:text-3xl">
             Recursos principais
           </h5>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -29,7 +29,7 @@ const Index = () => {
               <div className="w-12 h-12 bg-primary-light/30 rounded-lg text-primary-main flex items-center justify-center mb-4">
                 <Package size={24} />
               </div>
-              <h6 className="text-base font-semibold mb-2 text-zinc-950">Instalação</h6>
+              <h6 className="text-base mb-2 text-zinc-950 font-medium">Instalação</h6>
               <p className="text-sm mb-4 text-zinc-700">
                 Biblioteca de componentes reutilizáveis prontos para uso em seus projetos.
               </p>
@@ -43,7 +43,7 @@ const Index = () => {
               <div className="w-12 h-12 bg-primary-light/30 rounded-lg text-primary-main flex items-center justify-center mb-4">
                 <Book size={24} />
               </div>
-              <h6 className="text-base font-semibold mb-2 text-zinc-950">Diretrizes</h6>
+              <h6 className="text-base mb-2 text-zinc-950 font-medium">Diretrizes</h6>
               <p className="text-sm mb-4 text-zinc-700">
                 Boas práticas para acessibilidade, responsividade e experiência do usuário.
               </p>
@@ -57,7 +57,7 @@ const Index = () => {
               <div className="w-12 h-12 bg-primary-light/30 rounded-lg text-primary-main flex items-center justify-center mb-4">
                 <Layers size={24} />
               </div>
-              <h6 className="text-base font-semibold mb-2 text-zinc-950">UI Kit</h6>
+              <h6 className="text-base mb-2 text-zinc-950 font-medium">UI Kit</h6>
               <p className="text-sm mb-4 text-zinc-700">
                 Cores, tipografia, espaçamento e outros elementos fundamentais do sistema.
               </p>
@@ -71,7 +71,7 @@ const Index = () => {
               <div className="w-12 h-12 bg-primary-light/30 rounded-lg text-primary-main flex items-center justify-center mb-4">
                 <FileText size={24} />
               </div>
-              <h6 className="text-base font-semibold mb-2 text-zinc-950">Recursos</h6>
+              <h6 className="text-base mb-2 text-zinc-950 font-medium">Recursos</h6>
               <p className="text-sm mb-4 text-zinc-700">
                 Bibliotecas de design, kits de UI e outros recursos complementares.
               </p>
@@ -86,8 +86,8 @@ const Index = () => {
       
       <section className="bg-gray-50 py-12 rounded-lg">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4 text-gray-800">Precisa de ajuda?</h2>
-          <p className="text-lg text-gray-600 mb-8">Confira quem são os responsáveis pelo Migo e como entrar em contato.</p>
+          <h2 className="text-2xl tracking-tight mb-4 text-zinc-950 font-medium md:text-3xl">Precisa de ajuda?</h2>
+          <p className="text-lg mb-8 text-zinc-700">Confira quem são os responsáveis pelo Migo e como entrar em contato.</p>
           <Button asChild size="lg">
             <Link to="/foundations/colors">
               Ver documentação
