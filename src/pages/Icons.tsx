@@ -10,27 +10,43 @@ import { Button } from "@/components/ui/button";
 
 const Icons = () => {
   return (
-    <div className="w-full animate-fade-in space-y-8">
-      <div>
-        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
-          <Chip variant="filled" color="primary" size="sm">Foundations</Chip>
-        </div>
-        <h1 className="text-3xl font-bold tracking-tight mb-2">Ícones</h1>
-        <p className="text-mui-text-secondary text-lg">
-          Usamos ícones Outlined da Material Design como biblioteca oficial
-        </p>
+    <div className="w-full animate-fade-in">
+      <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
+        <Chip variant="filled" color="primary" size="sm">Foundations</Chip>
       </div>
-
-      <Tabs defaultValue="overview" className="w-full">
-        <TabsList className="mb-4">
-          <TabsTrigger value="overview">Visão geral</TabsTrigger>
-          <TabsTrigger value="styles">Estilos</TabsTrigger>
-          <TabsTrigger value="usage">Uso</TabsTrigger>
-          <TabsTrigger value="accessibility">Acessibilidade</TabsTrigger>
-        </TabsList>
-
-        <TabsContent value="overview">
-          <div className="space-y-6">
+      <h1 className="text-3xl font-bold tracking-tight mb-4">Ícones</h1>
+      <p className="mb-8 text-gray-700">Usamos ícones Outlined da Material Design como biblioteca oficial</p>
+      
+      <div className="border-b">
+        <Tabs defaultValue="overview" className="w-full">
+          <TabsList className="w-full justify-start h-auto p-0 bg-transparent">
+            <TabsTrigger 
+              value="overview" 
+              className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3"
+            >
+              Visão geral
+            </TabsTrigger>
+            <TabsTrigger 
+              value="styles" 
+              className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3"
+            >
+              Estilos
+            </TabsTrigger>
+            <TabsTrigger 
+              value="usage" 
+              className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3"
+            >
+              Uso
+            </TabsTrigger>
+            <TabsTrigger 
+              value="accessibility" 
+              className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3"
+            >
+              Acessibilidade
+            </TabsTrigger>
+          </TabsList>
+          
+          <TabsContent value="overview" className="p-6 border rounded-lg mt-6">
             <h2 className="text-2xl font-semibold mb-4">Material Design Icons</h2>
             <p className="mb-4">Os ícones do Material Design são o conjunto oficial de ícones do Google que são projetados de acordo com as diretrizes do Material Design.</p>
             
@@ -112,11 +128,9 @@ const Icons = () => {
                 <li><a href="https://github.com/google/material-design-icons" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Material Design Icons GitHub</a> - Repositório oficial</li>
               </ul>
             </div>
-          </div>
-        </TabsContent>
-        
-        <TabsContent value="styles">
-          <div className="space-y-6">
+          </TabsContent>
+          
+          <TabsContent value="styles" className="p-6 border rounded-lg mt-6">
             <h2 className="text-2xl font-semibold mb-4">Estilos de Ícones</h2>
             <p className="mb-4">Os ícones do Material Design estão disponíveis em diferentes estilos para atender às necessidades do seu projeto.</p>
 
@@ -174,11 +188,9 @@ const Icons = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </TabsContent>
-        
-        <TabsContent value="usage">
-          <div className="space-y-6">
+          </TabsContent>
+          
+          <TabsContent value="usage" className="p-6 border rounded-lg mt-6">
             <h2 className="text-2xl font-semibold mb-4">Como Usar Ícones</h2>
             
             <div className="mb-6">
@@ -226,11 +238,9 @@ const Icons = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </TabsContent>
-        
-        <TabsContent value="accessibility">
-          <div className="space-y-6">
+          </TabsContent>
+          
+          <TabsContent value="accessibility" className="p-6 border rounded-lg mt-6">
             <h2 className="text-2xl font-semibold mb-4">Acessibilidade</h2>
             <p className="mb-4">Garantir que os ícones sejam acessíveis para todos os usuários é fundamental para uma boa experiência de usuário.</p>
 
@@ -297,9 +307,9 @@ const Icons = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </TabsContent>
-      </Tabs>
+          </TabsContent>
+        </Tabs>
+      </div>
     </div>
   );
 };
