@@ -51,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar, isSidebarOpen }) => {
               alt="Amicci" 
               className="h-auto w-[120px]" 
             />
-            <span className="text-sm font-medium text-gray-600 hidden sm:inline">design system</span>
+            <span className="text-base font-medium leading-7 tracking-tight hidden sm:inline">design system</span>
           </Link>
         </div>
 
