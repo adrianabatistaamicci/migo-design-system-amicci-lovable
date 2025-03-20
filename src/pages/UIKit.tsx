@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -23,6 +24,7 @@ import { Progress } from '@/components/ui/progress';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination';
 import ComponentPreview from '@/components/ComponentPreview';
+
 const UIKit = () => {
   return <div className="space-y-12">
       <div>
@@ -36,7 +38,7 @@ const UIKit = () => {
       {/* Application Shells Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Application Shells</h2>
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <ComponentPreview title="Stacked Layouts" imageSrc="/lovable-uploads/6494a6b7-7e2d-4923-ade4-f6b94ac36d33.png" variantCount={3} />
           
           <ComponentPreview title="Sidebar Layouts" imageSrc="/lovable-uploads/8a001d04-9595-42ef-92a8-0808f6d448c6.png" variantCount={4} />
@@ -50,7 +52,7 @@ const UIKit = () => {
       {/* Headings Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Headings</h2>
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <ComponentPreview title="Page Headings" imageSrc="/lovable-uploads/f8215c23-af61-4b4d-ac31-4d7b292725ff.png" variantCount={3} />
           
           <ComponentPreview title="Card Headings" imageSrc="/lovable-uploads/931a31e6-9d0a-41b1-93e5-1681294463ae.png" variantCount={2} />
@@ -64,7 +66,7 @@ const UIKit = () => {
       {/* Data Display Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Data Display</h2>
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <ComponentPreview title="Description Lists" imageSrc="/lovable-uploads/5f649a1b-74e4-4407-895d-137aedc5e2d3.png" variantCount={3} />
           
           <ComponentPreview title="Stats" imageSrc="/lovable-uploads/6d64638a-45da-44dc-9873-6e7497f67e42.png" variantCount={5} />
@@ -78,7 +80,7 @@ const UIKit = () => {
       {/* Lists Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Lists</h2>
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <ComponentPreview title="Stacked Lists" imageSrc="/lovable-uploads/4646c199-564b-4a91-9317-f66836fb4d0b.png" variantCount={6} />
           
           <ComponentPreview title="Tables" imageSrc="/lovable-uploads/b3d7ab36-7698-45e9-a238-d7dac3d86a5d.png" variantCount={4} />
@@ -92,7 +94,7 @@ const UIKit = () => {
       {/* Forms Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Forms</h2>
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <ComponentPreview title="Form Layouts" imageSrc="/lovable-uploads/e48b1dc7-68ad-4930-ac24-fc7a5ddb6c23.png" variantCount={5} />
           
           <ComponentPreview title="Input Groups" imageSrc="/lovable-uploads/0fe02f94-549d-45c2-8a71-3b44d7138f0e.png" variantCount={3} />
@@ -118,7 +120,7 @@ const UIKit = () => {
       {/* Feedback Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Feedback</h2>
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <ComponentPreview title="Alerts" imageSrc="/lovable-uploads/b38417c4-f16e-4b51-a9d3-63f5dc0bc8ac.png" variantCount={4} />
           
           <ComponentPreview title="Empty States" imageSrc="/lovable-uploads/2fd33868-3566-4b02-addf-09a30801e7bf.png" variantCount={3} />
@@ -132,7 +134,7 @@ const UIKit = () => {
       {/* Navigation Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Navigation</h2>
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <ComponentPreview title="Navbars" imageSrc="/lovable-uploads/be043cb1-dbc7-49a9-881b-2f66248a3fec.png" variantCount={6} />
           
           <ComponentPreview title="Pagination" imageSrc="/lovable-uploads/bf35c256-9bec-48f1-86dc-92ab2bd2e05d.png" variantCount={3} />
@@ -154,7 +156,7 @@ const UIKit = () => {
       {/* Overlays Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Overlays</h2>
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <ComponentPreview title="Modal Dialogs" imageSrc="/lovable-uploads/64faea4c-8d5a-48d3-8d5f-3bb33d8df74c.png" variantCount={4} />
           
           <ComponentPreview title="Drawers" imageSrc="/lovable-uploads/8b6d6310-d38a-459d-95d2-8972f0713bfe.png" variantCount={3} />
@@ -168,7 +170,7 @@ const UIKit = () => {
       {/* Elements Section */}
       <section>
         <h2 className="text-xl font-semibold mb-6">Elements</h2>
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <ComponentPreview title="Avatars" imageSrc="/lovable-uploads/60b0bfb8-adbb-433d-b54a-5760d8c2c96d.png" variantCount={3} />
           
           <ComponentPreview title="Badges" imageSrc="/lovable-uploads/1cdd0630-26fe-4aca-a507-266597e435cf.png" variantCount={6} />

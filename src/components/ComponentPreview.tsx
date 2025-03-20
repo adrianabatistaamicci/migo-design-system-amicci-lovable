@@ -5,7 +5,7 @@ interface ComponentPreviewProps {
   title: string;
   children?: React.ReactNode; // Optional when imageSrc is provided
   imageSrc?: string;
-  variantCount?: number; // New prop for number of variants
+  variantCount?: number; // Number of variants
 }
 
 const ComponentPreview = ({ 
