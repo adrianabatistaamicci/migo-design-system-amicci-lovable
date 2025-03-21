@@ -976,34 +976,6 @@ const Colors = () => {
                 </div>
               </div>
             </ComponentCard>
-            
-            <ComponentCard title="Acessibilidade" description="Design de cores com foco na experiência visual para todos os usuários.">
-              <p className="text-gray-600 mb-4">
-                Nosso sistema de cores foi projetado com acessibilidade em mente:
-              </p>
-              
-              <ul className="space-y-2 list-disc pl-5">
-                <li>Os pares de cores atendem aos requisitos de contraste WCAG 2.1 AA</li>
-                <li>Cada paleta inclui versões de contraste dedicadas</li>
-                <li>As cores seguem uma hierarquia visual clara</li>
-                <li>Estados de interação (hover, focus, selected) são visualmente distintos</li>
-              </ul>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                <div className="bg-primary-main p-6 rounded-lg text-center">
-                  <p className="text-primary-contrast font-medium">Texto em Contraste</p>
-                  <div className="mt-2 text-xs text-primary-contrast/80">WCAG AA: Aprovado</div>
-                </div>
-                <div className="bg-secondary-main p-6 rounded-lg text-center">
-                  <p className="text-secondary-contrast font-medium">Texto em Contraste</p>
-                  <div className="mt-2 text-xs text-secondary-contrast/80">WCAG AA: Aprovado</div>
-                </div>
-                <div className="bg-error-main p-6 rounded-lg text-center">
-                  <p className="text-error-contrast font-medium">Texto em Contraste</p>
-                  <div className="mt-2 text-xs text-error-contrast/80">WCAG AA: Aprovado</div>
-                </div>
-              </div>
-            </ComponentCard>
           </div>
         </TabsContent>
         
@@ -1268,6 +1240,35 @@ const Colors = () => {
                         Simular Acromatopsia
                       </Button>
                     </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Princípios Gerais</h3>
+                <p className="text-gray-600 mb-4">
+                  Nosso sistema de cores foi projetado com acessibilidade em mente:
+                </p>
+                
+                <ul className="space-y-2 list-disc pl-5">
+                  <li>Os pares de cores atendem aos requisitos de contraste WCAG 2.1 AA</li>
+                  <li>Cada paleta inclui versões de contraste dedicadas</li>
+                  <li>As cores seguem uma hierarquia visual clara</li>
+                  <li>Estados de interação (hover, focus, selected) são visualmente distintos</li>
+                </ul>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                  <div className="bg-primary-main p-6 rounded-lg text-center">
+                    <p className="text-primary-contrast font-medium">Texto em Contraste</p>
+                    <div className="mt-2 text-xs text-primary-contrast/80">WCAG AA: Aprovado</div>
+                  </div>
+                  <div className="bg-secondary-main p-6 rounded-lg text-center">
+                    <p className="text-secondary-contrast font-medium">Texto em Contraste</p>
+                    <div className="mt-2 text-xs text-secondary-contrast/80">WCAG AA: Aprovado</div>
+                  </div>
+                  <div className="bg-error-main p-6 rounded-lg text-center">
+                    <p className="text-error-contrast font-medium">Texto em Contraste</p>
+                    <div className="mt-2 text-xs text-error-contrast/80">WCAG AA: Aprovado</div>
                   </div>
                 </div>
               </div>
