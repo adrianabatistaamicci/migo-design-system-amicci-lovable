@@ -39,6 +39,7 @@ const App = () => {
               <Route path="/components/input" element={<InputPage />} />
               <Route path="/components/checkbox" element={<CheckboxPage />} />
               <Route path="/components/radio" element={<RadioPage />} />
+              <Route path="/components/radio-group" element={<RadioPage />} />
               
               {/* Foundation pages */}
               <Route path="/colors" element={<Colors />} />
