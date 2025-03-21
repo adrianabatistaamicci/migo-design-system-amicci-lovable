@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 
@@ -13,6 +12,7 @@ type TailwindTabsProps = {
   onChange?: (value: string) => void;
   variant?: 'underline' | 'pills' | 'pillsGray' | 'pillsBrand' | 'fullWidth' | 'bar' | 'underlineBadges';
   children?: React.ReactNode;
+  className?: string;
 };
 
 export const TailwindTabs = ({
@@ -21,6 +21,7 @@ export const TailwindTabs = ({
   onChange,
   variant = 'pillsGray',
   children,
+  className = '',
 }: TailwindTabsProps) => {
   const [selected, setSelected] = useState(defaultValue || (tabs.length > 0 ? tabs[0]?.value : ''));
 
@@ -207,7 +208,7 @@ export const TailwindTabs = ({
   };
 
   return (
-    <div className="w-full">
+    <div className={`w-full ${className}`}>
       {renderTabs()}
       <div className="tab-content">
         {children}

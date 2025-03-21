@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Chip } from '@/components/ui/chip';
@@ -382,8 +383,8 @@ const Colors = () => {
         description="Nosso sistema de cores é meticulosamente projetado para dar suporte à comunicação, orientar os usuários através da interface e fornecer feedback. A paleta consiste em cores primárias, secundárias e neutras, cada uma com variações específicas de luminosidade."
       />
       
-      <TailwindTabs defaultValue="palette" variant="pillsGray">
-        <TabsList className="mb-8">
+      <Tabs defaultValue="palette" className="mt-8">
+        <TabsList className="mb-8 bg-gray-100 p-1 rounded-lg">
           <TabsTrigger value="palette">Paleta de Cores</TabsTrigger>
           <TabsTrigger value="semantics">Cores Semânticas</TabsTrigger>
           <TabsTrigger value="tokens">Tokens de Cores</TabsTrigger>
@@ -397,7 +398,7 @@ const Colors = () => {
                 <div key={baseColor.name} className="space-y-4">
                   <h3 className="text-xl font-semibold flex items-center gap-2">
                     {baseColor.name}
-                    <Badge variant="standard" className="font-normal">
+                    <Badge variant="dot" className="font-normal">
                       {baseColor.weights.length} variações
                     </Badge>
                   </h3>
@@ -642,10 +643,9 @@ const Colors = () => {
             <PaletteTable palettes={paletteData} />
           </section>
         </TabsContent>
-      </TailwindTabs>
+      </Tabs>
     </div>
   );
 };
 
 export default Colors;
-
