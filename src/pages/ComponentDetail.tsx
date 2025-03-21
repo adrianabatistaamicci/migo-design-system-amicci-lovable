@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import ComponentCard from '@/components/ComponentCard';
@@ -8,6 +9,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import ComponentsHeader from '@/components/library-components/ComponentsHeader';
+import { Heart, ArrowRight, Save, Check } from 'lucide-react';
 
 const componentData = {
   buttons: {
@@ -116,14 +118,14 @@ const componentData = {
         description: 'Buttons with start and end icons.',
         component: (
           <div className="flex flex-wrap gap-4">
-            <Button startIcon={<span className="i-lucide-heart" />}>Like</Button>
-            <Button endIcon={<span className="i-lucide-arrow-right" />}>Next</Button>
-            <Button startIcon={<span className="i-lucide-save" />} endIcon={<span className="i-lucide-check" />}>Save</Button>
+            <Button startIcon={<Heart size={18} />}>Like</Button>
+            <Button endIcon={<ArrowRight size={18} />}>Next</Button>
+            <Button startIcon={<Save size={18} />} endIcon={<Check size={18} />}>Save</Button>
           </div>
         ),
-        code: `<Button startIcon={<Icon name="heart" />}>Like</Button>
-<Button endIcon={<Icon name="arrow-right" />}>Next</Button>
-<Button startIcon={<Icon name="save" />} endIcon={<Icon name="check" />}>Save</Button>`
+        code: `<Button startIcon={<Heart size={18} />}>Like</Button>
+<Button endIcon={<ArrowRight size={18} />}>Next</Button>
+<Button startIcon={<Save size={18} />} endIcon={<Check size={18} />}>Save</Button>`
       },
     ]
   },
