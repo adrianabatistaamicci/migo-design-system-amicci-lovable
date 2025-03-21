@@ -10,6 +10,8 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { colorUtils, colorBlindnessFilters } from '@/utils/colorUtils';
 import ComponentCard from '@/components/ComponentCard';
 import FoundationsHeader from '@/components/library-components/FoundationsHeader';
+import { Toggle } from '@/components/ui/toggle';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
 const ColorSwatch = ({
   color,
@@ -1205,13 +1207,15 @@ const Colors = () => {
                       <ColorSwatch color="bg-success-main" className="h-14" simulationType={simulationType === 'deuteranopia' ? 'deuteranopia' : ''} />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Button 
-                        variant="secondary" 
-                        startIcon={simulationType === 'deuteranopia' ? <EyeOff className="h-3 w-3" /> : <Eye className="h-3 w-3" />}
-                        onClick={() => handleSimulation('deuteranopia')}
+                      <Toggle 
+                        pressed={simulationType === 'deuteranopia'}
+                        onPressedChange={() => handleSimulation('deuteranopia')}
+                        aria-label="Simular Deuteranopia"
+                        className="gap-2"
                       >
-                        {simulationType === 'deuteranopia' ? 'Desativar Simulação' : 'Simular Deuteranopia'}
-                      </Button>
+                        <Eye className="h-4 w-4" />
+                        <span className="text-xs">Simular Deuteranopia</span>
+                      </Toggle>
                     </div>
                   </div>
                   
@@ -1225,13 +1229,15 @@ const Colors = () => {
                       <ColorSwatch color="bg-success-main" className="h-14" simulationType={simulationType === 'protanopia' ? 'protanopia' : ''} />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Button 
-                        variant="secondary" 
-                        startIcon={simulationType === 'protanopia' ? <EyeOff className="h-3 w-3" /> : <Eye className="h-3 w-3" />}
-                        onClick={() => handleSimulation('protanopia')}
+                      <Toggle 
+                        pressed={simulationType === 'protanopia'}
+                        onPressedChange={() => handleSimulation('protanopia')}
+                        aria-label="Simular Protanopia"
+                        className="gap-2"
                       >
-                        {simulationType === 'protanopia' ? 'Desativar Simulação' : 'Simular Protanopia'}
-                      </Button>
+                        <Eye className="h-4 w-4" />
+                        <span className="text-xs">Simular Protanopia</span>
+                      </Toggle>
                     </div>
                   </div>
                   
@@ -1245,13 +1251,15 @@ const Colors = () => {
                       <ColorSwatch color="bg-success-main" className="h-14" simulationType={simulationType === 'tritanopia' ? 'tritanopia' : ''} />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Button 
-                        variant="secondary" 
-                        startIcon={simulationType === 'tritanopia' ? <EyeOff className="h-3 w-3" /> : <Eye className="h-3 w-3" />}
-                        onClick={() => handleSimulation('tritanopia')}
+                      <Toggle 
+                        pressed={simulationType === 'tritanopia'}
+                        onPressedChange={() => handleSimulation('tritanopia')}
+                        aria-label="Simular Tritanopia"
+                        className="gap-2"
                       >
-                        {simulationType === 'tritanopia' ? 'Desativar Simulação' : 'Simular Tritanopia'}
-                      </Button>
+                        <Eye className="h-4 w-4" />
+                        <span className="text-xs">Simular Tritanopia</span>
+                      </Toggle>
                     </div>
                   </div>
                   
@@ -1265,13 +1273,15 @@ const Colors = () => {
                       <ColorSwatch color="bg-success-main" className="h-14" simulationType={simulationType === 'achromatopsia' ? 'achromatopsia' : ''} />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Button 
-                        variant="secondary" 
-                        startIcon={simulationType === 'achromatopsia' ? <EyeOff className="h-3 w-3" /> : <Eye className="h-3 w-3" />}
-                        onClick={() => handleSimulation('achromatopsia')}
+                      <Toggle 
+                        pressed={simulationType === 'achromatopsia'}
+                        onPressedChange={() => handleSimulation('achromatopsia')}
+                        aria-label="Simular Acromatopsia"
+                        className="gap-2"
                       >
-                        {simulationType === 'achromatopsia' ? 'Desativar Simulação' : 'Simular Acromatopsia'}
-                      </Button>
+                        <Eye className="h-4 w-4" />
+                        <span className="text-xs">Simular Acromatopsia</span>
+                      </Toggle>
                     </div>
                   </div>
                 </div>
@@ -1314,4 +1324,3 @@ const Colors = () => {
 };
 
 export default Colors;
-
