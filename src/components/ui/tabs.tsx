@@ -179,8 +179,8 @@ const TabsTrigger = React.forwardRef<
       "text-secondary-foreground", // Default inactive tab color
       {
         "data-[state=active]:text-foreground": true,
-        "data-[state=active]:after:absolute data-[state=active]:after:bottom-[-1px] data-[state=active]:after:left-0 data-[state=active]:after:right-0 data-[state=active]:after:h-[2px] data-[state=active]:after:bg-primary-main data-[state=active]:after:z-20": activeColor === "primary",
-        "data-[state=active]:after:absolute data-[state=active]:after:bottom-[-1px] data-[state=active]:after:left-0 data-[state=active]:after:right-0 data-[state=active]:after:h-[2px] data-[state=active]:after:bg-secondary-main data-[state=active]:after:z-20": activeColor === "secondary",
+        "data-[state=active]:after:absolute data-[state=active]:after:bottom-0 data-[state=active]:after:left-0 data-[state=active]:after:right-0 data-[state=active]:after:h-[2px] data-[state=active]:after:bg-primary-main data-[state=active]:after:z-20": activeColor === "primary",
+        "data-[state=active]:after:absolute data-[state=active]:after:bottom-0 data-[state=active]:after:left-0 data-[state=active]:after:right-0 data-[state=active]:after:h-[2px] data-[state=active]:after:bg-secondary-main data-[state=active]:after:z-20": activeColor === "secondary",
         "flex-row-reverse": iconPosition === "right",
         "flex-col": iconPosition === "up",
       },
