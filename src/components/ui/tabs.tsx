@@ -80,6 +80,9 @@ const TabsList = React.forwardRef<
     }
   }
   
+  // Check if we should remove border
+  const noBorder = className?.includes("border-0")
+  
   return (
     <div className={cn(
       "relative",
@@ -114,7 +117,8 @@ const TabsList = React.forwardRef<
         )}
       >
         <div className={cn(
-          orientation === "horizontal" && !className?.includes("border-0") ? "relative border-b border-gray-200 w-full" : ""
+          // Only add border if orientation is horizontal AND noBorder is false
+          orientation === "horizontal" && !noBorder ? "relative border-b border-gray-200 w-full" : ""
         )}>
           <TabsPrimitive.List
             ref={ref}
