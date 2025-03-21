@@ -1,5 +1,7 @@
+
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Separator } from "@/components/ui/separator";
 import { tokenToPixels, pixelsToToken, getSpacingClass } from '@/utils/spacingUtils';
 import { cn } from '@/lib/utils';
 import { Chip } from '@/components/ui/chip';
