@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Search as SearchIcon, Github, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import AmicciLogo from '@/pages/assets/amicci-logo-tag-design-system.svg';
+import AmicciLogo from '@/pages/assets/Amicci-Branco+TurquesaEscuro.svg';
 
 interface HeaderProps {
   toggleSidebar: () => void;

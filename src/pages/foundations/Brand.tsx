@@ -5,7 +5,7 @@ import ComponentCard from '@/components/ComponentCard';
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import FoundationsHeader from '@/components/library-components/FoundationsHeader';
-import AmicciLogo from '@/pages/assets/amicci-logo-tag-design-system.svg';
+import AmicciLogo from '@/pages/assets/Amicci-Branco+TurquesaEscuro.svg';
 import AmicciLogoTurquesaEscuro from '@/pages/assets/Amicci-Logo_TurquesaEscuro+Branco.svg';
 import AmicciLogoTurquesaBranco from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg';
 import AmicciLogoTurquesaEscuroTurquesa from '@/pages/assets/Amicci-Logo_Turquesa+TurquesaEscuro.svg';
