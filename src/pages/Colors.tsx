@@ -1606,11 +1606,11 @@ const AccessibilityTab = () => {
 };
 const Colors = () => {
   const [showCase, setShowCase] = useState<'standard' | 'usage' | 'technical'>('standard');
-  return <div className="w-full animate-fade-in">
+  return <div className="max-w-7xl mx-auto px-4 py-8">
       <FoundationsHeader title="Colors" description="Paleta de cores e tokens de design utilizados na aplicação (50-950)" />
 
       <Tabs defaultValue="overview" className="w-full">
-        <TabsList className="mb-4">
+        <TabsList className=""mb-8 bg-gray-100 p-1 rounded-lg"">
           <TabsTrigger value="overview">Visão geral</TabsTrigger>
           <TabsTrigger value="palettes">Palettes</TabsTrigger>
           <TabsTrigger value="baseColors">Base colors</TabsTrigger>
