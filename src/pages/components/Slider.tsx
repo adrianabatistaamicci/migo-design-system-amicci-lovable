@@ -211,7 +211,7 @@ const SliderPage = () => {
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-mono text-mui-text-primary">marks</TableCell>
-                  <TableCell className="font-mono text-mui-text-secondary">{ value: number; label?: string }[]</TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">{"{ value: number; label?: string }[]"}</TableCell>
                   <TableCell className="font-mono text-mui-text-secondary">undefined</TableCell>
                   <TableCell className="text-mui-text-secondary">Marks to display on the slider track</TableCell>
                 </TableRow>
