@@ -6,13 +6,15 @@ interface ComponentPreviewProps {
   children?: React.ReactNode; // Optional when imageSrc is provided
   imageSrc?: string;
   variantCount?: number; // Number of variants
+  preview?: React.ReactNode; // Added preview prop for live component previews
 }
 
 const ComponentPreview = ({
   title,
   children,
   imageSrc,
-  variantCount = 1 // Default to 1 variant if not specified
+  variantCount = 1, // Default to 1 variant if not specified
+  preview // New prop for showing live component previews
 }: ComponentPreviewProps) => {
   const [imageError, setImageError] = useState(false);
   
@@ -24,7 +26,9 @@ const ComponentPreview = ({
   return (
     <div className="flex flex-col group">
       <div className="border border-border p-4 h-40 flex items-center justify-center overflow-hidden px-0 py-0 rounded bg-[#f8f8f8] transition-all duration-200 group-hover:shadow-md">
-        {imageSrc && !imageError ? (
+        {preview ? (
+          preview
+        ) : imageSrc && !imageError ? (
           <img 
             src={imageSrc} 
             alt={title} 
