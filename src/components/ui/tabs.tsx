@@ -1,4 +1,3 @@
-
 import * as React from "react"
 import * as TabsPrimitive from "@radix-ui/react-tabs"
 import { cn } from "@/lib/utils"
@@ -173,8 +172,8 @@ const TabsTrigger = React.forwardRef<
     className={cn(
       "inline-flex items-center justify-center whitespace-nowrap px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
       "text-muted-foreground", // Default inactive tab color
-      "data-[state=active]:bg-background data-[state=active]:text-foreground",
       {
+        "data-[state=active]:text-foreground": true,
         "data-[state=active]:border-b-2 data-[state=active]:border-primary-main": activeColor === "primary",
         "data-[state=active]:border-b-2 data-[state=active]:border-secondary-main": activeColor === "secondary",
         "flex-row-reverse": iconPosition === "right",
