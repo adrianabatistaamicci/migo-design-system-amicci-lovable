@@ -1,9 +1,7 @@
 
 import React, { useState } from 'react';
-import { Toggle as UIToggle } from '@/components/ui/toggle';
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
-import { Button } from '@/components/ui/button';
 import ComponentCard from '@/components/ComponentCard';
+import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
 
 // Custom toggle switch component
@@ -150,66 +148,21 @@ const TogglePage = () => {
             </div>
           </div>
         </ComponentCard>
-
-        {/* Toggle buttons */}
-        <ComponentCard 
-          title="Toggle buttons" 
-          description="A group of toggleable buttons."
-          code={`<UIToggle aria-label="Toggle bold">Bold</UIToggle>
-
-<div className="flex gap-2">
-  <UIToggle aria-label="Toggle bold">Bold</UIToggle>
-  <UIToggle aria-label="Toggle italic">Italic</UIToggle>
-  <UIToggle aria-label="Toggle underline">Underline</UIToggle>
-</div>`}
-        >
-          <div className="flex flex-col gap-6 items-center justify-center p-6 border rounded-lg">
-            <UIToggle aria-label="Toggle bold">Bold</UIToggle>
-            
-            <div className="flex gap-2">
-              <UIToggle aria-label="Toggle bold">Bold</UIToggle>
-              <UIToggle aria-label="Toggle italic">Italic</UIToggle>
-              <UIToggle aria-label="Toggle underline">Underline</UIToggle>
-            </div>
-          </div>
-        </ComponentCard>
-
-        {/* Toggle group */}
-        <ComponentCard 
-          title="Toggle group" 
-          description="A group of toggles where only one can be active."
-          code={`<ToggleGroup type="single" defaultValue="center">
-  <ToggleGroupItem value="left">Left</ToggleGroupItem>
-  <ToggleGroupItem value="center">Center</ToggleGroupItem>
-  <ToggleGroupItem value="right">Right</ToggleGroupItem>
-</ToggleGroup>`}
-        >
-          <div className="flex items-center justify-center p-8">
-            <ToggleGroup type="single" defaultValue="center">
-              <ToggleGroupItem value="left">Left</ToggleGroupItem>
-              <ToggleGroupItem value="center">Center</ToggleGroupItem>
-              <ToggleGroupItem value="right">Right</ToggleGroupItem>
-            </ToggleGroup>
-          </div>
-        </ComponentCard>
       </div>
 
       <h2 className="text-2xl font-bold mt-12 mb-4">Implementation</h2>
       <div className="mb-4">
         <p className="text-gray-500 mb-2">
-          Our toggle components include standard toggle buttons built with Radix UI and custom toggle switches.
+          Our toggle component provides a sliding switch that changes color when toggled.
         </p>
         <p className="text-gray-500 mb-6">
-          The custom toggle switch component provides a sliding switch that changes color when toggled.
+          It supports multiple sizes and can be integrated with various UI patterns.
         </p>
       </div>
 
       <div className="space-y-4">
-        <Button variant="outline" onClick={() => window.open("https://ui.shadcn.com/docs/components/toggle", "_blank")} className="mr-4">
-          Shadcn/ui Toggle Documentation
-        </Button>
-        <Button variant="outline" onClick={() => window.open("https://www.radix-ui.com/primitives/docs/components/toggle", "_blank")}>
-          Radix UI Toggle Documentation
+        <Button variant="outline" onClick={() => window.open("https://tailwindcss.com/plus/ui-blocks/application-ui/forms/toggles", "_blank")}>
+          Tailwind CSS Toggle Documentation
         </Button>
       </div>
     </div>
