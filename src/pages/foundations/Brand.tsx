@@ -9,7 +9,7 @@ import AmicciLogo from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
 import AmicciLogoBrancoTurquesaEscuro from '@/pages/assets/Amicci-Branco+TurquesaEscuro.svg';
 import AmicciLogoTurquesaBranco from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg';
 import AmicciLogoBranco from '@/pages/assets/Amicci-Logo_Branco.svg';
-import AmicciSimbolo from '@/pages/assets/Amicci-Símbolo_Turquesa_Escuro.svg';
+// import AmicciSimbolo from '@/pages/assets/Amicci-Símbolo_Turquesa_Escuro.svg';
 import AmicciTagDesignSystem from 'src/pages/assets/amicci-logo-tag-design-system.svg';
 
 const Brand = () => {
