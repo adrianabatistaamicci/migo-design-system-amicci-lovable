@@ -11,7 +11,6 @@ import { colorUtils } from '@/utils/colorUtils';
 import ComponentCard from '@/components/ComponentCard';
 import FoundationsHeader from '@/components/library-components/FoundationsHeader';
 
-// ColorSwatch component
 const ColorSwatch = ({
   color,
   className = "",
@@ -31,52 +30,43 @@ const ColorSwatch = ({
 }) => {
   const [copied, setCopied] = useState(false);
 
-  // Determine text color based on background color luminance
   const getTextColor = () => {
-    // If we have a hex value, use luminance calculation for determining contrast
     if (hexValue) {
       try {
         const luminance = colorUtils.getLuminance(hexValue);
         return luminance > 0.5 ? 'text-gray-800' : 'text-white';
       } catch (e) {
-        // Fallback to heuristic based on color name
         return getLightDarkFromName();
       }
     }
-
-    // If we don't have a hex value, use heuristic based on color name
     return getLightDarkFromName();
   };
 
-  // Helper function to determine if a color is light based on its name
   const getLightDarkFromName = () => {
     const lightColors = ['white', 'light', '50', '100', '200', '300'];
     const isLightColorName = lightColors.some(lightColor => color.toLowerCase().includes(lightColor));
     return isLightColorName ? 'text-gray-800' : 'text-white';
   };
+
   const handleCopy = () => {
     const valueToCopy = copyValue || hexValue || color;
     navigator.clipboard.writeText(valueToCopy);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
   const textColor = getTextColor();
 
-  // Determine the correct background style
   const getBackgroundStyle = () => {
-    // If color starts with 'bg-', we're using a Tailwind class
     if (color.startsWith('bg-')) {
       return color;
     }
-
-    // If color is a hex value and doesn't start with 'bg-', use inline style
     if (hexValue && !color.startsWith('bg-')) {
       return `bg-[${hexValue}]`;
     }
-
-    // Fallback to the original class
     return color;
   };
+
   return <div className={`relative w-full rounded-md ${getBackgroundStyle()} ${className} flex items-center justify-center px-3 transition-all hover:shadow-md cursor-pointer group`} onClick={onClick || handleCopy} role="button" tabIndex={0} style={hexValue && !color.startsWith('bg-') ? {
     backgroundColor: hexValue
   } : undefined}>
@@ -89,17 +79,17 @@ const ColorSwatch = ({
     </div>;
 };
 
-// BaseColorsTable component
 const BaseColorsTable = ({
   baseColors
 }) => {
   const copyToClipboard = text => {
     navigator.clipboard.writeText(text);
-    // You could add a toast notification here
   };
+
   const renderCopyButton = text => <button onClick={() => copyToClipboard(text)} className="ml-2 text-gray-400 hover:text-gray-600 transition-colors">
       <Copy size={14} />
     </button>;
+
   return <div className="space-y-8">
       {baseColors.map(baseColor => <div key={baseColor.name} className="space-y-2">
           <h3 className="text-xl font-semibold">{baseColor.name}</h3>
@@ -150,26 +140,21 @@ const BaseColorsTable = ({
     </div>;
 };
 
-// PaletteTable component
 const PaletteTable = ({
   palettes
 }) => {
   const copyToClipboard = text => {
     navigator.clipboard.writeText(text);
-    // You could add a toast notification here
   };
+
   const renderCopyButton = text => <button onClick={() => copyToClipboard(text)} className="ml-2 text-gray-400 hover:text-gray-600 transition-colors">
       <Copy size={14} />
     </button>;
 
-  // Avalia o contraste WCAG
   const getWCAGStatus = hexColor => {
     try {
-      // Avaliamos o contraste com fundo branco
       const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
       const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
-
-      // Escolha o melhor contraste
       const bestContrast = Math.max(contrastWithWhite, contrastWithBlack);
       const contrastColor = contrastWithWhite > contrastWithBlack ? 'branco' : 'preto';
       return {
@@ -187,6 +172,7 @@ const PaletteTable = ({
       };
     }
   };
+
   return <div className="space-y-8">
       {palettes.map(palette => <div key={palette.name} className="space-y-4">
           <div className="flex items-center gap-3">
@@ -242,7 +228,6 @@ const PaletteTable = ({
     </div>;
 };
 
-// Data for components
 const baseColorsData = [{
   name: 'Amicci',
   weights: [{
@@ -667,6 +652,7 @@ const baseColorsData = [{
     hexValue: '#7A2E0E'
   }]
 }];
+
 const paletteData = [{
   name: 'Text',
   description: 'Gray',
@@ -831,5 +817,69 @@ const paletteData = [{
   }]
 }];
 
-// Colors Page component
-const Colors = ()
+const Colors = () => {
+  return (
+    <div className="container mx-auto py-12">
+      <FoundationsHeader
+        title="Cores"
+        description="Nossas cores são escolhidas para transmitir nossa identidade visual e garantir acessibilidade."
+      />
+      
+      <Tabs defaultValue="base-colors" className="mt-6">
+        <TabsList className="mb-4">
+          <TabsTrigger value="base-colors">Cores Base</TabsTrigger>
+          <TabsTrigger value="palettes">Paletas</TabsTrigger>
+          <TabsTrigger value="usage">Uso</TabsTrigger>
+        </TabsList>
+        
+        <TabsContent value="base-colors">
+          <BaseColorsTable baseColors={baseColorsData} />
+        </TabsContent>
+        
+        <TabsContent value="palettes">
+          <PaletteTable palettes={paletteData} />
+        </TabsContent>
+        
+        <TabsContent value="usage">
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Uso das cores</h3>
+              <p className="text-gray-600 mb-4">
+                Nossas cores são aplicadas de acordo com as seguintes diretrizes para manter consistência visual em toda a plataforma.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                <ComponentCard title="Botões">
+                  <div className="flex flex-col space-y-4">
+                    <Button>Botão Primário</Button>
+                    <Button variant="secondary">Botão Secundário</Button>
+                    <Button variant="outline-default">Botão Outline</Button>
+                    <Button variant="text-default">Botão Texto</Button>
+                  </div>
+                </ComponentCard>
+                
+                <ComponentCard title="Badges">
+                  <div className="flex flex-wrap gap-3">
+                    <Badge>Default</Badge>
+                    <Badge variant="secondary">Secondary</Badge>
+                    <Badge variant="outline">Outline</Badge>
+                    <Badge variant="destructive">Destructive</Badge>
+                  </div>
+                </ComponentCard>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Acessibilidade</h3>
+              <p className="text-gray-600 mb-4">
+                Todas as cores foram testadas para garantir contraste adequado seguindo as diretrizes WCAG 2.1.
+              </p>
+            </div>
+          </div>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+};
+
+export default Colors;
