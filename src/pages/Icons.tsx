@@ -33,7 +33,7 @@ const Icons = () => {
           
           <TabsContent value="overview" className="p-6 border rounded-lg mt-6">
             <h2 className="mb-4 text-lg font-medium text-gray-800">Material Design Icons</h2>
-            <p className="mb-4">Os ícones do Material Design são o conjunto oficial de ícones do Google que são projetados de acordo com as diretrizes do Material Design.</p>
+            <p className="mb-4 text-sm text-gray-600">Os ícones do Material Design são o conjunto oficial de ícones do Google que são projetados de acordo com as diretrizes do Material Design.</p>
             
             <div className="flex flex-col md:flex-row gap-6 mt-6">
               <div className="flex-1 p-4 border flex flex-col items-center justify-center rounded">
