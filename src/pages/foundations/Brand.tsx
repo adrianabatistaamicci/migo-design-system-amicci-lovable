@@ -111,12 +111,12 @@ const Brand = () => {
               </div>
               
               <div className="space-y-4">
-                <h4 className="font-medium">Versão para fundo Amicci-500</h4>
+                <h4 className="font-medium">Versão para aplicações com fundo Amicci-500</h4>
                 <div className="border rounded-lg p-6 bg-[#016071] flex justify-center">
                   <div className="max-w-md">
                     <img 
                       src="/src/pages/assets/Amicci-Logo_Turquesa Escuro+Branco.svg" 
-                      alt="Amicci logo - versão para fundo Amicci-500" 
+                      alt="Amicci logo - versão para aplicações com fundo Amicci-500" 
                       className="max-w-full h-auto"
                     />
                   </div>
