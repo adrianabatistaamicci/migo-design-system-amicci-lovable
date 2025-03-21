@@ -41,6 +41,7 @@ interface TabsListProps extends React.ComponentPropsWithoutRef<typeof TabsPrimit
   scrollable?: boolean
   fullWidth?: boolean
   orientation?: "horizontal" | "vertical"
+  variant?: "underline" | "plain" | "boxed"
 }
 
 const TabsList = React.forwardRef<
@@ -52,6 +53,7 @@ const TabsList = React.forwardRef<
   scrollable = false,
   fullWidth = false,
   orientation = "horizontal",
+  variant = "plain",
   ...props 
 }, ref) => {
   const scrollRef = React.useRef<HTMLDivElement>(null)
@@ -120,6 +122,7 @@ const TabsList = React.forwardRef<
               ? "inline-flex h-10 items-center justify-start" 
               : "flex flex-col items-start justify-center space-y-1",
             smallScreen ? "p-0" : "p-1",
+            variant === "underline" && orientation === "horizontal" ? "border-b border-gray-200" : "",
             "w-fit", // This ensures tabs fit to content
             className
           )}
@@ -155,6 +158,7 @@ interface TabsTriggerProps extends React.ComponentPropsWithoutRef<typeof TabsPri
   icon?: React.ReactNode
   iconPosition?: "left" | "right" | "up"
   activeColor?: "primary" | "secondary" | "none"
+  variant?: "underline" | "plain" | "boxed"
 }
 
 const TabsTrigger = React.forwardRef<
@@ -165,6 +169,7 @@ const TabsTrigger = React.forwardRef<
   icon, 
   iconPosition = "left",
   activeColor = "primary",
+  variant = "plain",
   children,
   ...props 
 }, ref) => (
@@ -175,8 +180,8 @@ const TabsTrigger = React.forwardRef<
       "text-secondary-foreground", // Default inactive tab color
       {
         "data-[state=active]:text-foreground": true,
-        "data-[state=active]:after:absolute data-[state=active]:after:bottom-[-4px] data-[state=active]:after:left-0 data-[state=active]:after:right-0 data-[state=active]:after:h-[2px] data-[state=active]:after:bg-primary-main data-[state=active]:after:z-20": activeColor === "primary",
-        "data-[state=active]:after:absolute data-[state=active]:after:bottom-[-4px] data-[state=active]:after:left-0 data-[state=active]:after:right-0 data-[state=active]:after:h-[2px] data-[state=active]:after:bg-secondary-main data-[state=active]:after:z-20": activeColor === "secondary",
+        "data-[state=active]:after:absolute data-[state=active]:after:bottom-[-4px] data-[state=active]:after:left-0 data-[state=active]:after:right-0 data-[state=active]:after:h-[2px] data-[state=active]:after:bg-primary-main data-[state=active]:after:z-20": activeColor === "primary" && variant === "underline",
+        "data-[state=active]:after:absolute data-[state=active]:after:bottom-[-4px] data-[state=active]:after:left-0 data-[state=active]:after:right-0 data-[state=active]:after:h-[2px] data-[state=active]:after:bg-secondary-main data-[state=active]:after:z-20": activeColor === "secondary" && variant === "underline",
         "flex-row-reverse": iconPosition === "right",
         "flex-col": iconPosition === "up",
       },
