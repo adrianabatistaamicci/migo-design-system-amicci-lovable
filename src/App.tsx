@@ -17,6 +17,7 @@ import UIKit from "./pages/UIKit";
 // Import component pages
 import InputPage from "./pages/components/Input";
 import CheckboxPage from "./pages/components/Checkbox";
+import RadioPage from "./pages/components/Radio";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ const App = () => {
               <Route path="/components/:componentId" element={<ComponentDetail />} />
               <Route path="/components/input" element={<InputPage />} />
               <Route path="/components/checkbox" element={<CheckboxPage />} />
+              <Route path="/components/radio" element={<RadioPage />} />
               
               {/* Foundation pages */}
               <Route path="/colors" element={<Colors />} />
