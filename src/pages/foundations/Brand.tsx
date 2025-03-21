@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -37,6 +38,23 @@ const Brand = () => {
                 <div className="space-y-4">
                   <h4 className="font-medium">Logo para fundo escuro</h4>
                   <p className="text-gray-600">Versão do logo Amicci adaptada para aplicações onde o fundo é na cor amicci-500, mantendo a legibilidade e o impacto visual.</p>
+                  <div className="flex gap-2">
+                    <Button size="sm" variant="outline">Download SVG</Button>
+                    <Button size="sm" variant="outline">Download PNG</Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="space-y-6">
+              <h3 className="text-xl font-medium">Versão para fundo amicci-700</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="border rounded-lg p-8 flex items-center justify-center bg-[#0C8482]">
+                  <img src="/src/pages/assets/Amicci-Logo_Turquesa Escuro+Branco.svg" alt="Amicci logo para fundo Amicci-700" className="max-w-full h-auto" />
+                </div>
+                <div className="space-y-4">
+                  <h4 className="font-medium">Logo para fundo amicci-700</h4>
+                  <p className="text-gray-600">Versão do logo Amicci adaptada para aplicações onde o fundo é na cor amicci-700, proporcionando contraste ideal entre os elementos visuais.</p>
                   <div className="flex gap-2">
                     <Button size="sm" variant="outline">Download SVG</Button>
                     <Button size="sm" variant="outline">Download PNG</Button>
