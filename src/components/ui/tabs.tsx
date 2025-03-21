@@ -10,7 +10,7 @@ type Tab = {
 };
 
 type TailwindTabsProps = {
-  tabs: Tab[];
+  tabs?: Tab[];
   defaultValue?: string;
   onChange?: (value: string) => void;
   variant?: 'underline' | 'pills' | 'pillsGray' | 'pillsBrand' | 'fullWidth' | 'bar' | 'underlineBadges';
@@ -19,14 +19,14 @@ type TailwindTabsProps = {
 };
 
 export const TailwindTabs = ({
-  tabs,
+  tabs = [],
   defaultValue,
   onChange,
   variant = 'pillsGray',
   children,
   className,
 }: TailwindTabsProps) => {
-  const [selected, setSelected] = useState(defaultValue || tabs[0]?.value);
+  const [selected, setSelected] = useState(defaultValue || (tabs.length > 0 ? tabs[0]?.value : ''));
 
   const handleTabChange = (value: string) => {
     setSelected(value);
@@ -35,6 +35,10 @@ export const TailwindTabs = ({
 
   // Render different tab styles based on variant
   const renderTabs = () => {
+    if (!tabs || tabs.length === 0) {
+      return null;
+    }
+
     switch (variant) {
       case 'underline':
         return (
@@ -211,10 +215,10 @@ export const TailwindTabs = ({
   return <div className={`w-full ${className || ''}`}>{renderTabs()}{children}</div>;
 };
 
-// Exportando TailwindTabs também como Tabs para manter compatibilidade
-export const Tabs = TailwindTabs;
+// Export TailwindTabs as Tabs for compatibility
+export const Tabs = TabsPrimitive.Root;
 
-// Add Radix UI Tabs Components
+// Export Radix UI Tabs Components
 export const TabsRoot = TabsPrimitive.Root;
 
 export const TabsList = React.forwardRef<
@@ -266,5 +270,5 @@ TabsContent.displayName = TabsPrimitive.Content.displayName;
 export { TabsRoot as TabsRadix };
 
 // Also export as primary Tabs component for new code
-export { TabsRoot as TabsPrimitive };
+export { Tabs as TabsPrimitive };
 export { TabsPrimitive as TabsRadixPrimitive };
