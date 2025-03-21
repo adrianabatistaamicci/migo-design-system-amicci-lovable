@@ -11,12 +11,12 @@ const buttonVariants = cva(
     variants: {
       variant: {
         // Contained variants (equivalent to MUI contained buttons)
-        default: "bg-primary-main text-primary-contrast hover:bg-primary-dark shadow-sm hover:shadow-md active:shadow-inner",
-        secondary: "bg-white text-gray-800 border border-gray-300 hover:bg-gray-50 shadow-sm hover:shadow-md active:shadow-inner",
-        error: "bg-error-main text-error-contrast hover:bg-error-dark shadow-sm hover:shadow-md active:shadow-inner",
-        warning: "bg-warning-main text-warning-contrast hover:bg-warning-dark shadow-sm hover:shadow-md active:shadow-inner",
-        info: "bg-info-main text-info-contrast hover:bg-info-dark shadow-sm hover:shadow-md active:shadow-inner",
-        success: "bg-success-main text-success-contrast hover:bg-success-dark shadow-sm hover:shadow-md active:shadow-inner",
+        default: "bg-primary-main text-primary-contrast hover:bg-primary-dark",
+        secondary: "bg-white text-gray-800 border border-gray-300 hover:bg-gray-50",
+        error: "bg-error-main text-error-contrast hover:bg-error-dark",
+        warning: "bg-warning-main text-warning-contrast hover:bg-warning-dark",
+        info: "bg-info-main text-info-contrast hover:bg-info-dark",
+        success: "bg-success-main text-success-contrast hover:bg-success-dark",
         
         // Outlined variants (equivalent to MUI outlined buttons)
         "outline-default": "border border-primary-outlinedBorder bg-transparent text-primary-main hover:bg-primary-hover/10 active:bg-primary-hover/20",
@@ -35,7 +35,7 @@ const buttonVariants = cva(
         "text-success": "bg-transparent text-success-main hover:bg-success-hover/10 active:bg-success-hover/20",
         
         // Legacy variants (maintaining for compatibility)
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-sm",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
