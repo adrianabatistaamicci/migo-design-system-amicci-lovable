@@ -1074,7 +1074,7 @@ const Colors = () => {
           </ComponentCard>
         </TabsContent>
         
-        <TabsContent value="accessibility" className="p-6 border rounded-lg mt-6">
+        <TabsContent value="accessibility">
           <ComponentCard title="Acessibilidade de Cores" description="Garantindo que nosso sistema de cores seja acessível a todos.">
             <div className="space-y-8">
               <div>
