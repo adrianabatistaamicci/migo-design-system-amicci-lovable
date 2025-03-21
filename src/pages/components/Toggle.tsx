@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Toggle } from '@/components/ui/toggle';
-import { ToggleGroup } from '@/components/ui/toggle-group';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import ComponentCard from '@/components/ComponentCard';
 
 const TogglePage = () => {
@@ -79,16 +79,16 @@ const TogglePage = () => {
           title="Toggle Group" 
           description="A group of toggles where only one can be active."
           code={`<ToggleGroup type="single" defaultValue="center">
-  <ToggleGroup.Item value="left">Left</ToggleGroup.Item>
-  <ToggleGroup.Item value="center">Center</ToggleGroup.Item>
-  <ToggleGroup.Item value="right">Right</ToggleGroup.Item>
+  <ToggleGroupItem value="left">Left</ToggleGroupItem>
+  <ToggleGroupItem value="center">Center</ToggleGroupItem>
+  <ToggleGroupItem value="right">Right</ToggleGroupItem>
 </ToggleGroup>`}
         >
           <div className="flex items-center justify-center p-8">
             <ToggleGroup type="single" defaultValue="center">
-              <ToggleGroup.Item value="left">Left</ToggleGroup.Item>
-              <ToggleGroup.Item value="center">Center</ToggleGroup.Item>
-              <ToggleGroup.Item value="right">Right</ToggleGroup.Item>
+              <ToggleGroupItem value="left">Left</ToggleGroupItem>
+              <ToggleGroupItem value="center">Center</ToggleGroupItem>
+              <ToggleGroupItem value="right">Right</ToggleGroupItem>
             </ToggleGroup>
           </div>
         </ComponentCard>
