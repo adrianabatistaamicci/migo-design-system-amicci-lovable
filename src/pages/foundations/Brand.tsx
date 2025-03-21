@@ -5,11 +5,12 @@ import ComponentCard from '@/components/ComponentCard';
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import FoundationsHeader from '@/components/library-components/FoundationsHeader';
-import AmicciLogo from '@/pages/assets/Amicci-Branco+TurquesaEscuro.svg';
-import AmicciLogoTurquesaEscuro from '@/pages/assets/Amicci-Logo_TurquesaEscuro+Branco.svg';
+import AmicciLogo from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
+import AmicciLogoBrandoTurquesaEscuro from '@/pages/assets/Amicci-Branco+TurquesaEscuro.svg';
 import AmicciLogoTurquesaBranco from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg';
-import AmicciLogoTurquesaEscuroTurquesa from '@/pages/assets/Amicci-Logo_Turquesa+TurquesaEscuro.svg';
+import AmicciLogoBranco from '@/pages/assets/Amicci-Logo_Branco.svg';
 import AmicciSimbolo from '@/pages/assets/Amicci-Símbolo_Turquesa_Escuro.svg';
+import AmicciTagDesignSystem from 'src/pages/assets/amicci-logo-tag-design-system.svg';
 
 const Brand = () => {
   return <div className="w-full animate-fade-in">
@@ -39,7 +40,8 @@ const Brand = () => {
               <h3 className="text-xl font-medium">Versão para fundo escuro</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="border rounded-lg p-8 flex items-center justify-center bg-[#016071]">
-                  <img src={AmicciLogoTurquesaEscuro} alt="Amicci logo para fundo Amicci-500" className="max-w-full h-auto" />
+                  <img src={AmicciLogoTurquesaBranco} alt="Amicci logo para fundo Amicci-500" className="max-w-full h-auto" />
+                  <img src={AmicciLogoBranco} alt="Amicci logo para fundo Amicci-500" className="max-w-full h-auto" />
                 </div>
                 <div className="space-y-4">
                   <h4 className="font-medium">Logo para fundo escuro</h4>
@@ -52,22 +54,6 @@ const Brand = () => {
               </div>
             </div>
             
-            <div className="space-y-6">
-              <h3 className="text-xl font-medium">Versão para fundo médio</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="border rounded-lg p-8 flex items-center justify-center bg-amicci-500">
-                  <img src={AmicciLogoTurquesaBranco} alt="Amicci logo para fundo Amicci-700" className="max-w-full h-auto" />
-                </div>
-                <div className="space-y-4">
-                  <h4 className="font-medium">Logo para fundo médio</h4>
-                  <p className="text-gray-600">Versão do logo Amicci adaptada para aplicações onde o fundo é na cor amicci-700, proporcionando contraste ideal entre os elementos visuais.</p>
-                  <div className="flex gap-2">
-                    <Button size="sm" variant="outline">Download SVG</Button>
-                    <Button size="sm" variant="outline">Download PNG</Button>
-                  </div>
-                </div>
-              </div>
-            </div>
 
             <Separator />
             
