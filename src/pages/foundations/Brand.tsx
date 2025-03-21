@@ -14,7 +14,7 @@ const Brand = () => {
           <Chip variant="filled" color="primary" size="sm">Foundations</Chip>
         </div>
         <h1 className="text-3xl font-bold tracking-tight">Brand</h1>
-        <p className="text-mui-text-secondary max-w-3xl">Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação.</p>
+        <p className="text-mui-text-secondary max-w-none">Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação.</p>
       </div>
 
       <div className="mt-8">
