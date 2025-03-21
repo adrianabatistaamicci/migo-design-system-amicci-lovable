@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Chip } from '@/components/ui/chip';
@@ -835,10 +836,9 @@ const Colors = () => {
         
         <TabsContent value="overview">
           <div className="space-y-8">
-            <div>
-              <h2 className="text-2xl font-bold mb-4">Sistema de Cores</h2>
+            <ComponentCard title="Sistema de Cores" description="Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização.">
               <p className="text-gray-600 mb-6">
-                Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização.
+                O sistema é organizado para proporcionar consistência visual e flexibilidade em toda a aplicação.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
@@ -946,10 +946,9 @@ const Colors = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </ComponentCard>
             
-            <div>
-              <h3 className="text-xl font-semibold border-b pb-2 mb-4">Como Usar</h3>
+            <ComponentCard title="Como Usar" description="Utilize as cores através das classes do Tailwind e tokens CSS.">
               <p className="text-gray-600 mb-4">
                 Acesse as cores usando as classes utilitárias do Tailwind baseadas na nomenclatura semântica:
               </p>
@@ -976,10 +975,9 @@ const Colors = () => {
                   <p className="text-sm mt-2 text-gray-600">Texto principal</p>
                 </div>
               </div>
-            </div>
+            </ComponentCard>
             
-            <div>
-              <h3 className="text-xl font-semibold border-b pb-2 mb-4">Acessibilidade</h3>
+            <ComponentCard title="Acessibilidade" description="Design de cores com foco na experiência visual para todos os usuários.">
               <p className="text-gray-600 mb-4">
                 Nosso sistema de cores foi projetado com acessibilidade em mente:
               </p>
@@ -1005,57 +1003,103 @@ const Colors = () => {
                   <div className="mt-2 text-xs text-error-contrast/80">WCAG AA: Aprovado</div>
                 </div>
               </div>
-            </div>
+            </ComponentCard>
           </div>
         </TabsContent>
         
         <TabsContent value="base-colors">
-          <h2 className="text-2xl font-bold mb-6">Cores Base</h2>
-          <BaseColorsTable baseColors={baseColorsData} />
+          <ComponentCard title="Cores Base" description="Conjunto de cores básicas que formam a fundação do sistema.">
+            <p className="text-gray-600 mb-6">
+              Estas cores básicas servem como alicerce para todo o sistema de design, fornecendo consistência visual em toda a aplicação.
+            </p>
+            <BaseColorsTable baseColors={baseColorsData} />
+          </ComponentCard>
         </TabsContent>
         
         <TabsContent value="palettes">
-          <h2 className="text-2xl font-bold mb-6">Paletas</h2>
-          <PaletteTable palettes={paletteData} />
+          <ComponentCard title="Paletas" description="Paletas semânticas construídas a partir das cores base.">
+            <p className="text-gray-600 mb-6">
+              Nossas paletas semânticas atribuem significado e função às cores, facilitando o uso consistente em toda a interface.
+            </p>
+            <PaletteTable palettes={paletteData} />
+          </ComponentCard>
         </TabsContent>
         
         <TabsContent value="usage">
-          <h2 className="text-2xl font-bold mb-6">Uso</h2>
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Uso das cores</h3>
-              <p className="text-gray-600 mb-4">
-                Nossas cores são aplicadas de acordo com as seguintes diretrizes para manter consistência visual em toda a plataforma.
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                <ComponentCard title="Botões">
-                  <div className="flex flex-col space-y-4">
-                    <Button>Botão Primário</Button>
-                    <Button variant="secondary">Botão Secundário</Button>
-                    <Button variant="outline-default">Botão Outline</Button>
-                    <Button variant="text-default">Botão Texto</Button>
-                  </div>
-                </ComponentCard>
+          <ComponentCard title="Uso" description="Orientações para a aplicação correta das cores na interface.">
+            <p className="text-gray-600 mb-6">
+              Diretrizes de uso que asseguram consistência visual e funcional em toda a experiência do usuário.
+            </p>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Aplicação em Componentes</h3>
+                <p className="text-gray-600 mb-4">
+                  Nossas cores são aplicadas de acordo com as seguintes diretrizes para manter consistência visual em toda a plataforma.
+                </p>
                 
-                <ComponentCard title="Badges">
-                  <div className="flex flex-wrap gap-3">
-                    <Badge>Default</Badge>
-                    <Badge variant="secondary">Secondary</Badge>
-                    <Badge variant="outline">Outline</Badge>
-                    <Badge variant="destructive">Destructive</Badge>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                  <div className="border p-4 rounded-lg">
+                    <h4 className="font-medium mb-3">Botões</h4>
+                    <div className="flex flex-col space-y-4">
+                      <Button>Botão Primário</Button>
+                      <Button variant="secondary">Botão Secundário</Button>
+                      <Button variant="outline-default">Botão Outline</Button>
+                      <Button variant="text-default">Botão Texto</Button>
+                    </div>
                   </div>
-                </ComponentCard>
+                  
+                  <div className="border p-4 rounded-lg">
+                    <h4 className="font-medium mb-3">Badges</h4>
+                    <div className="flex flex-wrap gap-3">
+                      <Badge>Default</Badge>
+                      <Badge variant="secondary">Secondary</Badge>
+                      <Badge variant="outline">Outline</Badge>
+                      <Badge variant="destructive">Destructive</Badge>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Diretrizes de Contraste</h3>
+                <p className="text-gray-600 mb-4">
+                  Todas as cores foram testadas para garantir contraste adequado seguindo as diretrizes WCAG 2.1.
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="border p-4 rounded-lg">
+                    <h4 className="font-medium mb-2">Combinações Recomendadas</h4>
+                    <div className="space-y-2">
+                      <div className="p-3 bg-primary-main rounded">
+                        <p className="text-white">Texto em branco sobre fundo primário</p>
+                      </div>
+                      <div className="p-3 bg-white border border-primary-main rounded">
+                        <p className="text-primary-main">Texto primário sobre fundo branco</p>
+                      </div>
+                      <div className="p-3 bg-secondary-dark rounded">
+                        <p className="text-white">Texto em branco sobre fundo secundário escuro</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="border p-4 rounded-lg">
+                    <h4 className="font-medium mb-2">Combinações a Evitar</h4>
+                    <div className="space-y-2">
+                      <div className="p-3 bg-amicci-100 rounded">
+                        <p className="text-amicci-200">❌ Contraste insuficiente: cores próximas</p>
+                      </div>
+                      <div className="p-3 bg-yellow-300 rounded">
+                        <p className="text-white">❌ Combinação que pode dificultar a leitura</p>
+                      </div>
+                      <div className="p-3 bg-gray-200 rounded">
+                        <p className="text-gray-400">❌ Texto muito claro em fundo claro</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Acessibilidade</h3>
-              <p className="text-gray-600 mb-4">
-                Todas as cores foram testadas para garantir contraste adequado seguindo as diretrizes WCAG 2.1.
-              </p>
-            </div>
-          </div>
+          </ComponentCard>
         </TabsContent>
       </Tabs>
     </div>
@@ -1063,4 +1107,3 @@ const Colors = () => {
 };
 
 export default Colors;
-

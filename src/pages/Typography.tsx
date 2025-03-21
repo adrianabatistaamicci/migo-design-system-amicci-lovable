@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
@@ -428,7 +429,10 @@ const Typography = () => {
         </TabsContent>
         
         <TabsContent value="styles" className="space-y-6">
-          <ComponentCard title="Estilos de Tipografia">
+          <ComponentCard title="Estilos de Tipografia" description="Definições completas de cada estilo de texto usado no sistema.">
+            <p className="text-mui-text-secondary mb-6">
+              Nossa biblioteca tipográfica é cuidadosamente projetada para proporcionar legibilidade e hierarquia visual.
+            </p>
             <div className="space-y-10 py-4">
               {typographyStyles.map(style => <div key={style.name} className="border-b pb-8 last:border-b-0">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
@@ -502,7 +506,10 @@ const Typography = () => {
         </TabsContent>
         
         <TabsContent value="usage" className="space-y-6">
-          <ComponentCard title="Guia de Uso da Tipografia">
+          <ComponentCard title="Guia de Uso da Tipografia" description="Diretrizes e exemplos práticos para aplicação dos estilos tipográficos.">
+            <p className="text-mui-text-secondary mb-6">
+              A aplicação correta da tipografia é essencial para uma experiência de usuário eficaz e agradável.
+            </p>
             <div className="space-y-8">
               <div>
                 <h3 className="text-xl font-medium mb-3">Hierarquia de Headings</h3>
@@ -585,7 +592,10 @@ const Typography = () => {
         </TabsContent>
         
         <TabsContent value="accessibility" className="space-y-6">
-          <ComponentCard title="Acessibilidade de Texto">
+          <ComponentCard title="Acessibilidade de Texto" description="Práticas para garantir que nossos textos sejam acessíveis a todos os usuários.">
+            <p className="text-mui-text-secondary mb-6">
+              A acessibilidade textual é essencial para uma experiência inclusiva e eficaz para todos os usuários.
+            </p>
             <div className="space-y-6">
               <div>
                 <h3 className="text-xl font-medium mb-3">Diretrizes de Acessibilidade</h3>
