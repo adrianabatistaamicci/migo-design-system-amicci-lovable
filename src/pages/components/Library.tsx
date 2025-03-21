@@ -5,7 +5,7 @@ import ComponentCard from '@/components/ComponentCard';
 // Define the type for the module records returned by import.meta.glob
 type ModuleRecord = Record<string, { default: React.ComponentType<any> }>;
 
-const MiscPage: React.FC = () => {
+const LibraryPage: React.FC = () => {
   const [components, setComponents] = useState<Record<string, React.ComponentType<any>>>({});
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const MiscPage: React.FC = () => {
       <div className="max-w-3xl mb-12">
         <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mui-primary/10 text-mui-primary">
-            Misc Components
+            Library Components
           </span>
         </div>
         
@@ -70,4 +70,4 @@ const getDefaultProps = (componentName: string): Record<string, any> => {
   }
 };
 
-export default MiscPage;
+export default LibraryPage;
