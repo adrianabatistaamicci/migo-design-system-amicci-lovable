@@ -12,6 +12,7 @@ import { Slider } from '@/components/ui/slider';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Mail, Check } from 'lucide-react';
 import ComponentsHeader from '@/components/library-components/ComponentsHeader';
+import { TailwindTabs } from '@/components/ui/tailwind-tabs';
 
 const componentCategories = [
   {
@@ -245,34 +246,27 @@ const Components = () => {
           <ComponentCard 
             title="Tabs Component" 
             description="Organize content into multiple tabs."
-            code={`<Tabs defaultValue="account" variant="pills-brand" className="w-full">
-  <TabsList>
-    <TabsTrigger value="account">Account</TabsTrigger>
-    <TabsTrigger value="password">Password</TabsTrigger>
-    <TabsTrigger value="notifications">Notifications</TabsTrigger>
-  </TabsList>
-  <TabsContent value="account">Account settings content.</TabsContent>
-  <TabsContent value="password">Password settings content.</TabsContent>
-  <TabsContent value="notifications">Notification settings content.</TabsContent>
-</Tabs>`}
+            code={`<TailwindTabs
+  tabs={[
+    { name: 'Account', value: 'account' },
+    { name: 'Password', value: 'password' },
+    { name: 'Notifications', value: 'notifications' },
+  ]}
+  variant="pillsGray"
+/>`}
           >
             <div className="max-w-md mx-auto">
-              <Tabs defaultValue="account" variant="pills-brand" className="w-full">
-                <TabsList>
-                  <TabsTrigger value="account">Account</TabsTrigger>
-                  <TabsTrigger value="password">Password</TabsTrigger>
-                  <TabsTrigger value="notifications">Notifications</TabsTrigger>
-                </TabsList>
-                <TabsContent value="account" className="p-4 border rounded-md mt-3">
-                  <p>Account settings content.</p>
-                </TabsContent>
-                <TabsContent value="password" className="p-4 border rounded-md mt-3">
-                  <p>Password settings content.</p>
-                </TabsContent>
-                <TabsContent value="notifications" className="p-4 border rounded-md mt-3">
-                  <p>Notification settings content.</p>
-                </TabsContent>
-              </Tabs>
+              <TailwindTabs
+                tabs={[
+                  { name: 'Account', value: 'account' },
+                  { name: 'Password', value: 'password' },
+                  { name: 'Notifications', value: 'notifications' },
+                ]}
+                variant="pillsGray"
+              />
+              <div className="p-4 border rounded-md mt-3">
+                <p>Account settings content.</p>
+              </div>
             </div>
           </ComponentCard>
         </div>

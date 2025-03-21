@@ -18,7 +18,7 @@ export const TailwindTabs = ({
   tabs,
   defaultValue,
   onChange,
-  variant = 'underline',
+  variant = 'pillsGray',
 }: TailwindTabsProps) => {
   const [selected, setSelected] = useState(defaultValue || tabs[0]?.value);
 
