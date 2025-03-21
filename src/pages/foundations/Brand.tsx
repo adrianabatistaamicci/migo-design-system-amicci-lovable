@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -30,14 +29,14 @@ const Brand = () => {
             </div>
 
             <div className="space-y-6">
-              <h3 className="text-xl font-medium">Versão para fundo amicci-500</h3>
+              <h3 className="text-xl font-medium">Versão para fundo escuro</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="border rounded-lg p-8 flex items-center justify-center bg-[#016071]">
                   <img src="/src/pages/assets/Amicci-Logo_Turquesa Claro+Branco.svg" alt="Amicci logo para fundo Amicci-500" className="max-w-full h-auto" />
                 </div>
                 <div className="space-y-4">
                   <h4 className="font-medium">Logo para fundo escuro</h4>
-                  <p className="text-gray-600">Versão do logo Amicci adaptada para aplicações onde o fundo é na cor amicci-500, mantendo a legibilidade e o impacto visual.</p>
+                  <p className="text-gray-600">Versão do logo Amicci adaptada para aplicações onde o fundo é escuro, mantendo a legibilidade e o impacto visual.</p>
                   <div className="flex gap-2">
                     <Button size="sm" variant="outline">Download SVG</Button>
                     <Button size="sm" variant="outline">Download PNG</Button>
@@ -47,13 +46,13 @@ const Brand = () => {
             </div>
             
             <div className="space-y-6">
-              <h3 className="text-xl font-medium">Versão para fundo amicci-700</h3>
+              <h3 className="text-xl font-medium">Versão para fundo médio</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="border rounded-lg p-8 flex items-center justify-center bg-[#0C8482]">
+                <div className="border rounded-lg p-8 flex items-center justify-center bg-amicci-500">
                   <img src="/src/pages/assets/Amicci-Logo_Turquesa Escuro+Branco.svg" alt="Amicci logo para fundo Amicci-700" className="max-w-full h-auto" />
                 </div>
                 <div className="space-y-4">
-                  <h4 className="font-medium">Logo para fundo amicci-700</h4>
+                  <h4 className="font-medium">Logo para fundo médio</h4>
                   <p className="text-gray-600">Versão do logo Amicci adaptada para aplicações onde o fundo é na cor amicci-700, proporcionando contraste ideal entre os elementos visuais.</p>
                   <div className="flex gap-2">
                     <Button size="sm" variant="outline">Download SVG</Button>
