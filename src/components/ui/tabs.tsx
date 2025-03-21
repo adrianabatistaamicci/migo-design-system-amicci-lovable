@@ -1,37 +1,197 @@
+
 import * as React from "react"
 import * as TabsPrimitive from "@radix-ui/react-tabs"
-
 import { cn } from "@/lib/utils"
+import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from "lucide-react"
 
-const Tabs = TabsPrimitive.Root
+export interface TabsProps extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root> {
+  orientation?: "horizontal" | "vertical"
+  smallScreen?: boolean
+  scrollable?: boolean
+  fullWidth?: boolean
+  activeColor?: "primary" | "secondary" | "none"
+}
 
-const TabsList = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.List>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
->(({ className, ...props }, ref) => (
-  <TabsPrimitive.List
+const Tabs = React.forwardRef<
+  React.ElementRef<typeof TabsPrimitive.Root>,
+  TabsProps
+>(({ 
+  className, 
+  orientation = "horizontal", 
+  smallScreen = false,
+  scrollable = false,
+  fullWidth = false,
+  activeColor = "primary",
+  ...props 
+}, ref) => (
+  <TabsPrimitive.Root
     ref={ref}
+    orientation={orientation === "vertical" ? "vertical" : "horizontal"}
     className={cn(
-      "inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground",
+      "data-[orientation=horizontal]:w-full",
       className
     )}
     {...props}
   />
 ))
+Tabs.displayName = "Tabs"
+
+interface TabsListProps extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.List> {
+  smallScreen?: boolean
+  scrollable?: boolean
+  fullWidth?: boolean
+  orientation?: "horizontal" | "vertical"
+}
+
+const TabsList = React.forwardRef<
+  React.ElementRef<typeof TabsPrimitive.List>,
+  TabsListProps
+>(({ 
+  className, 
+  smallScreen = false,
+  scrollable = false,
+  fullWidth = false,
+  orientation = "horizontal",
+  ...props 
+}, ref) => {
+  const scrollRef = React.useRef<HTMLDivElement>(null)
+  
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -100, behavior: "smooth" })
+    }
+  }
+  
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 100, behavior: "smooth" })
+    }
+  }
+  
+  const scrollUp = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ top: -100, behavior: "smooth" })
+    }
+  }
+  
+  const scrollDown = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ top: 100, behavior: "smooth" })
+    }
+  }
+  
+  return (
+    <div className={cn(
+      "relative",
+      orientation === "vertical" ? "flex" : "block",
+      fullWidth && orientation !== "vertical" ? "w-full" : ""
+    )}>
+      {scrollable && orientation !== "vertical" && (
+        <button
+          type="button"
+          onClick={scrollLeft}
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-white/90 shadow-md hover:bg-white"
+        >
+          <ChevronLeft className="h-4 w-4" />
+        </button>
+      )}
+      
+      {scrollable && orientation === "vertical" && (
+        <button
+          type="button"
+          onClick={scrollUp}
+          className="absolute left-1/2 top-0 -translate-x-1/2 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-white/90 shadow-md hover:bg-white"
+        >
+          <ChevronUp className="h-4 w-4" />
+        </button>
+      )}
+      
+      <div 
+        ref={scrollRef}
+        className={cn(
+          scrollable ? "overflow-auto scrollbar-hide" : "",
+          orientation === "vertical" ? "max-h-[300px]" : "max-w-full"
+        )}
+      >
+        <TabsPrimitive.List
+          ref={ref}
+          className={cn(
+            orientation === "horizontal" 
+              ? "inline-flex h-10 items-center justify-start rounded-md text-muted-foreground" 
+              : "flex flex-col items-start justify-center space-y-1 rounded-md text-muted-foreground",
+            smallScreen ? "p-0" : "p-1 bg-muted",
+            fullWidth && orientation !== "vertical" ? "w-full" : "",
+            className
+          )}
+          {...props}
+        />
+      </div>
+      
+      {scrollable && orientation !== "vertical" && (
+        <button
+          type="button"
+          onClick={scrollRight}
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-white/90 shadow-md hover:bg-white"
+        >
+          <ChevronRight className="h-4 w-4" />
+        </button>
+      )}
+      
+      {scrollable && orientation === "vertical" && (
+        <button
+          type="button"
+          onClick={scrollDown}
+          className="absolute left-1/2 bottom-0 -translate-x-1/2 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-white/90 shadow-md hover:bg-white"
+        >
+          <ChevronDown className="h-4 w-4" />
+        </button>
+      )}
+    </div>
+  )
+})
 TabsList.displayName = TabsPrimitive.List.displayName
+
+interface TabsTriggerProps extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> {
+  icon?: React.ReactNode
+  iconPosition?: "left" | "right" | "up"
+  activeColor?: "primary" | "secondary" | "none"
+}
 
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
->(({ className, ...props }, ref) => (
+  TabsTriggerProps
+>(({ 
+  className, 
+  icon, 
+  iconPosition = "left",
+  activeColor = "primary",
+  children,
+  ...props 
+}, ref) => (
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm",
+      "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+      "data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm",
+      {
+        "data-[state=active]:border-b-2 data-[state=active]:border-primary-main": activeColor === "primary",
+        "data-[state=active]:border-b-2 data-[state=active]:border-secondary-main": activeColor === "secondary",
+        "flex-row-reverse": iconPosition === "right",
+        "flex-col": iconPosition === "up",
+      },
       className
     )}
     {...props}
-  />
+  >
+    {icon && <span className={cn("flex items-center justify-center", 
+      iconPosition === "left" ? "mr-2" : 
+      iconPosition === "right" ? "ml-2" : 
+      "mb-1"
+    )}>
+      {icon}
+    </span>}
+    <span>{children}</span>
+  </TabsPrimitive.Trigger>
 ))
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
 
