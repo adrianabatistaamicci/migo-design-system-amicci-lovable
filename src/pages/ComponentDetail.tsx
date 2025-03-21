@@ -9,7 +9,6 @@ import { Label } from '@/components/ui/label';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import ComponentsHeader from '@/components/library-components/ComponentsHeader';
 import { Heart, ArrowRight, Save, Check } from 'lucide-react';
-
 const componentData = {
   buttons: {
     title: 'Button',
@@ -192,7 +191,6 @@ const componentData = {
     }]
   }
 };
-
 const ComponentDetail = () => {
   const {
     componentId
@@ -221,9 +219,7 @@ const ComponentDetail = () => {
         </div>
         
         <div className="mb-12">
-          <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
-            Examples
-          </h2>
+          
           
           <div className="space-y-8">
             {component.examples.map((example, index) => <ComponentCard key={index} title={example.title} description={example.description} code={example.code}>
@@ -261,5 +257,4 @@ const ComponentDetail = () => {
       </div>
     </div>;
 };
-
 export default ComponentDetail;
