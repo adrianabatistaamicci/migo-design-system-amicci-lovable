@@ -1,82 +1,182 @@
 
-import React from 'react';
-import { Toggle } from '@/components/ui/toggle';
+import React, { useState } from 'react';
+import { Toggle as UIToggle } from '@/components/ui/toggle';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
+import { Button } from '@/components/ui/button';
 import ComponentCard from '@/components/ComponentCard';
+import { X } from 'lucide-react';
+
+// Custom toggle switch component
+const Toggle = ({ enabled, onChange, className = "", size = "default" }) => {
+  const sizeClasses = {
+    default: "w-11 h-6",
+    sm: "w-9 h-5",
+    lg: "w-14 h-7",
+  };
+
+  return (
+    <button
+      type="button"
+      className={`${
+        enabled ? 'bg-primary-main' : 'bg-gray-200'
+      } relative inline-flex flex-shrink-0 ${sizeClasses[size]} border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-main ${className}`}
+      role="switch"
+      aria-checked={enabled}
+      onClick={() => onChange(!enabled)}
+    >
+      <span className="sr-only">Toggle</span>
+      <span
+        aria-hidden="true"
+        className={`${
+          enabled ? `translate-x-${size === 'sm' ? '4' : size === 'lg' ? '7' : '5'}` : 'translate-x-0'
+        } pointer-events-none ${size === 'sm' ? 'h-4 w-4' : size === 'lg' ? 'h-6 w-6' : 'h-5 w-5'} rounded-full bg-white shadow ring-0 transition ease-in-out duration-200`}
+      />
+    </button>
+  );
+};
 
 const TogglePage = () => {
+  const [simpleEnabled, setSimpleEnabled] = useState(false);
+  const [shortEnabled, setShortEnabled] = useState(false);
+  const [iconEnabled, setIconEnabled] = useState(false);
+  const [descriptionEnabled, setDescriptionEnabled] = useState(false);
+  const [rightLabelEnabled, setRightLabelEnabled] = useState(false);
+
   return (
     <div className="max-w-4xl mx-auto py-12">
       <h1 className="text-3xl font-bold mb-6">Toggle</h1>
       <p className="text-gray-500 mb-8">
-        A toggle component allows users to switch between two states, typically representing on/off.
+        Toggle components allow users to switch between two states and are commonly used for "on/off" functionality.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="space-y-12">
+        {/* Simple toggle */}
         <ComponentCard 
-          title="Basic Toggle" 
-          description="A simple toggle component."
-          code={`<Toggle aria-label="Toggle">Toggle</Toggle>`}
+          title="Simple toggle" 
+          description="A basic toggle switch for on/off states."
+          code={`const [enabled, setEnabled] = useState(false)
+
+<Toggle enabled={enabled} onChange={setEnabled} />`}
         >
-          <div className="flex items-center justify-center p-8">
-            <Toggle aria-label="Toggle">Toggle</Toggle>
+          <div className="flex items-center justify-center p-6 border rounded-lg">
+            <div className="w-full max-w-md py-6">
+              <Toggle enabled={simpleEnabled} onChange={setSimpleEnabled} />
+            </div>
           </div>
         </ComponentCard>
 
+        {/* Short toggle */}
         <ComponentCard 
-          title="Outline Toggle" 
-          description="A toggle with an outline style."
-          code={`<Toggle variant="outline" aria-label="Toggle">Toggle</Toggle>`}
+          title="Short toggle" 
+          description="A smaller toggle switch for more compact UIs."
+          code={`const [enabled, setEnabled] = useState(false)
+
+<Toggle enabled={enabled} onChange={setEnabled} size="sm" />`}
         >
-          <div className="flex items-center justify-center p-8">
-            <Toggle variant="outline" aria-label="Toggle">Toggle</Toggle>
+          <div className="flex items-center justify-center p-6 border rounded-lg">
+            <div className="w-full max-w-md py-6">
+              <Toggle enabled={shortEnabled} onChange={setShortEnabled} size="sm" />
+            </div>
           </div>
         </ComponentCard>
 
+        {/* Toggle with icon */}
         <ComponentCard 
-          title="Size Variants" 
-          description="Toggle components in different sizes."
-          code={`<div className="flex flex-col gap-4">
-  <Toggle size="sm" aria-label="Small toggle">Small</Toggle>
-  <Toggle size="default" aria-label="Default toggle">Default</Toggle>
-  <Toggle size="lg" aria-label="Large toggle">Large</Toggle>
+          title="Toggle with icon" 
+          description="A toggle switch with an icon indicator."
+          code={`const [enabled, setEnabled] = useState(false)
+
+<div className="flex items-center gap-2">
+  {enabled && <X size={16} className="text-gray-500" />}
+  <Toggle enabled={enabled} onChange={setEnabled} />
 </div>`}
         >
-          <div className="flex flex-col gap-4 items-center justify-center p-8">
-            <Toggle size="sm" aria-label="Small toggle">Small</Toggle>
-            <Toggle size="default" aria-label="Default toggle">Default</Toggle>
-            <Toggle size="lg" aria-label="Large toggle">Large</Toggle>
+          <div className="flex items-center justify-center p-6 border rounded-lg">
+            <div className="w-full max-w-md py-6">
+              <div className="flex items-center gap-2">
+                {iconEnabled && <X size={16} className="text-gray-500" />}
+                <Toggle enabled={iconEnabled} onChange={setIconEnabled} />
+              </div>
+            </div>
           </div>
         </ComponentCard>
 
+        {/* With left label and description */}
         <ComponentCard 
-          title="Disabled Toggle" 
-          description="A toggle in a disabled state."
-          code={`<Toggle disabled aria-label="Disabled toggle">Disabled</Toggle>`}
+          title="With left label and description" 
+          description="A toggle with a label and detailed description on the left."
+          code={`const [enabled, setEnabled] = useState(false)
+
+<div className="flex items-center justify-between">
+  <div>
+    <h3 className="text-sm font-medium text-gray-900">Available to hire</h3>
+    <p className="text-sm text-gray-500">Nulla amet tempus sit accumsan. Aliquet turpis sed sit lacinia.</p>
+  </div>
+  <Toggle enabled={enabled} onChange={setEnabled} />
+</div>`}
         >
-          <div className="flex items-center justify-center p-8">
-            <Toggle disabled aria-label="Disabled toggle">Disabled</Toggle>
+          <div className="flex items-center justify-center p-6 border rounded-lg">
+            <div className="w-full max-w-md py-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-sm font-medium text-gray-900">Available to hire</h3>
+                  <p className="text-sm text-gray-500">Nulla amet tempus sit accumsan. Aliquet turpis sed sit lacinia.</p>
+                </div>
+                <Toggle enabled={descriptionEnabled} onChange={setDescriptionEnabled} />
+              </div>
+            </div>
           </div>
         </ComponentCard>
 
+        {/* With right label */}
         <ComponentCard 
-          title="Toggle with Icon" 
-          description="A toggle that includes an icon."
-          code={`<Toggle aria-label="Toggle with icon">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="mr-2 h-4 w-4"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-6"></path></svg>
-  Charts
-</Toggle>`}
+          title="With right label" 
+          description="A toggle with a label on the right side."
+          code={`const [enabled, setEnabled] = useState(false)
+
+<div className="flex items-center">
+  <Toggle enabled={enabled} onChange={setEnabled} />
+  <span className="ml-3 text-sm font-medium text-gray-900">Annual billing</span>
+  {enabled && <span className="ml-2 text-sm text-green-500">(Save 10%)</span>}
+</div>`}
         >
-          <div className="flex items-center justify-center p-8">
-            <Toggle aria-label="Toggle with icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2 h-4 w-4"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-6"></path></svg>
-              Charts
-            </Toggle>
+          <div className="flex items-center justify-center p-6 border rounded-lg">
+            <div className="w-full max-w-md py-6">
+              <div className="flex items-center">
+                <Toggle enabled={rightLabelEnabled} onChange={setRightLabelEnabled} />
+                <span className="ml-3 text-sm font-medium text-gray-900">Annual billing</span>
+                {rightLabelEnabled && <span className="ml-2 text-sm text-green-500">(Save 10%)</span>}
+              </div>
+            </div>
           </div>
         </ComponentCard>
 
+        {/* Toggle buttons */}
         <ComponentCard 
-          title="Toggle Group" 
+          title="Toggle buttons" 
+          description="A group of toggleable buttons."
+          code={`<UIToggle aria-label="Toggle bold">Bold</UIToggle>
+
+<div className="flex gap-2">
+  <UIToggle aria-label="Toggle bold">Bold</UIToggle>
+  <UIToggle aria-label="Toggle italic">Italic</UIToggle>
+  <UIToggle aria-label="Toggle underline">Underline</UIToggle>
+</div>`}
+        >
+          <div className="flex flex-col gap-6 items-center justify-center p-6 border rounded-lg">
+            <UIToggle aria-label="Toggle bold">Bold</UIToggle>
+            
+            <div className="flex gap-2">
+              <UIToggle aria-label="Toggle bold">Bold</UIToggle>
+              <UIToggle aria-label="Toggle italic">Italic</UIToggle>
+              <UIToggle aria-label="Toggle underline">Underline</UIToggle>
+            </div>
+          </div>
+        </ComponentCard>
+
+        {/* Toggle group */}
+        <ComponentCard 
+          title="Toggle group" 
           description="A group of toggles where only one can be active."
           code={`<ToggleGroup type="single" defaultValue="center">
   <ToggleGroupItem value="left">Left</ToggleGroupItem>
@@ -95,56 +195,22 @@ const TogglePage = () => {
       </div>
 
       <h2 className="text-2xl font-bold mt-12 mb-4">Implementation</h2>
-      <p className="text-gray-500 mb-4">
-        Our toggle component is built on top of Radix UI's Toggle primitive for accessibility.
-      </p>
-      
-      <div className="bg-gray-50 p-6 rounded-lg border border-gray-100 mb-12">
-        <pre className="text-sm text-gray-800 overflow-auto">
-          {`import * as React from "react"
-import * as TogglePrimitive from "@radix-ui/react-toggle"
-import { cva, type VariantProps } from "class-variance-authority"
+      <div className="mb-4">
+        <p className="text-gray-500 mb-2">
+          Our toggle components include standard toggle buttons built with Radix UI and custom toggle switches.
+        </p>
+        <p className="text-gray-500 mb-6">
+          The custom toggle switch component provides a sliding switch that changes color when toggled.
+        </p>
+      </div>
 
-import { cn } from "@/lib/utils"
-
-const toggleVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors hover:bg-muted hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground",
-  {
-    variants: {
-      variant: {
-        default: "bg-transparent",
-        outline:
-          "border border-input bg-transparent hover:bg-accent hover:text-accent-foreground",
-      },
-      size: {
-        default: "h-10 px-3",
-        sm: "h-9 px-2.5",
-        lg: "h-11 px-5",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
-  }
-)
-
-const Toggle = React.forwardRef<
-  React.ElementRef<typeof TogglePrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof TogglePrimitive.Root> &
-    VariantProps<typeof toggleVariants>
->(({ className, variant, size, ...props }, ref) => (
-  <TogglePrimitive.Root
-    ref={ref}
-    className={cn(toggleVariants({ variant, size, className }))}
-    {...props}
-  />
-))
-
-Toggle.displayName = TogglePrimitive.Root.displayName
-
-export { Toggle, toggleVariants }`}
-        </pre>
+      <div className="space-y-4">
+        <Button variant="outline" onClick={() => window.open("https://ui.shadcn.com/docs/components/toggle", "_blank")} className="mr-4">
+          Shadcn/ui Toggle Documentation
+        </Button>
+        <Button variant="outline" onClick={() => window.open("https://www.radix-ui.com/primitives/docs/components/toggle", "_blank")}>
+          Radix UI Toggle Documentation
+        </Button>
       </div>
     </div>
   );

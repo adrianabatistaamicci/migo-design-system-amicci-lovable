@@ -49,6 +49,7 @@ const sidebarItems: SidebarItem[] = [
       { title: 'Select', href: '/components/select' },
       { title: 'Slider', href: '/components/slider' },
       { title: 'Switch', href: '/components/switch' },
+      { title: 'Toggle', href: '/components/toggle' },
       { title: 'Avatar', href: '/components/avatar' },
       { title: 'Badge', href: '/components/badge' },
       { title: 'Chip', href: '/components/chip' },
