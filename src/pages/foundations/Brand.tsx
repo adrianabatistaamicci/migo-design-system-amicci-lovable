@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -10,6 +11,7 @@ import AmicciLogoTurquesaBranco from '@/pages/assets/Amicci-Logo_TurquesaClaro+B
 import AmicciLogoBranco from '@/pages/assets/Amicci-Logo_Branco.svg';
 import AmicciSimbolo from '@/pages/assets/Amicci-Simbolo_Turquesa_Escuro.svg';
 import AmicciTagDesignSystem from 'src/pages/assets/amicci-logo-tag-design-system.svg';
+
 const Brand = () => {
   return <div className="w-full animate-fade-in">
       <FoundationsHeader title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." />
@@ -21,7 +23,7 @@ const Brand = () => {
               <h3 className="text-xl font-medium">Versão Principal</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="border rounded-lg p-8 flex items-center justify-center bg-white">
-                  <img src={AmicciLogo} alt="Amicci logo com diferentes versões" className="max-w-full h-auto" />
+                  <img src={AmicciLogo} alt="Amicci logo com diferentes versões" className="max-w-[250px] h-auto" />
                 </div>
                 <div className="space-y-4">
                   <h4 className="font-medium">Logo completo</h4>
@@ -38,8 +40,8 @@ const Brand = () => {
               <h3 className="text-xl font-medium">Versão para fundo escuro</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="border rounded-lg p-8 flex flex-col items-center justify-center gap-8 bg-[#016071]">
-                  <img src={AmicciLogoTurquesaBranco} alt="Amicci logo para fundo Amicci-500" className="max-w-full h-auto" />
-                  <img src={AmicciLogoBranco} alt="Amicci logo para fundo Amicci-500" className="max-w-full h-auto" />
+                  <img src={AmicciLogoTurquesaBranco} alt="Amicci logo para fundo Amicci-500" className="max-w-[250px] h-auto" />
+                  <img src={AmicciLogoBranco} alt="Amicci logo para fundo Amicci-500" className="max-w-[250px] h-auto" />
                 </div>
                 <div className="space-y-4">
                   <h4 className="font-medium">Logo para fundo escuro</h4>
@@ -60,7 +62,7 @@ const Brand = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div className="border rounded-lg p-8 flex items-center justify-center bg-white">
-                  <img src={AmicciLogo} alt="Amicci wordmark" className="max-w-full h-auto max-h-40" />
+                  <img src={AmicciLogo} alt="Amicci wordmark" className="max-w-[250px] h-auto" />
                 </div>
                 <div className="space-y-4">
                   <h4 className="font-medium">Wordmark</h4>
@@ -70,7 +72,7 @@ const Brand = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="border rounded-lg p-8 flex items-center justify-center bg-white">
-                  <img src={AmicciSimbolo} alt="Símbolo Amicci" className="max-w-full h-auto max-h-40" />
+                  <img src={AmicciSimbolo} alt="Símbolo Amicci" className="max-w-[250px] h-auto" />
                 </div>
                 <div className="space-y-4">
                   <h4 className="font-medium">Símbolo</h4>
@@ -89,7 +91,7 @@ const Brand = () => {
                 <h4 className="font-medium">Versão Branco + Turquesa Escuro</h4>
                 <div className="border rounded-lg p-6 bg-[#00B2B0] flex justify-center">
                   <div className="max-w-md">
-                    <img src={AmicciLogoBrancoTurquesaEscuro} alt="Amicci logo - versão branco + turquesa escuro" className="max-w-full h-auto" />
+                    <img src={AmicciLogoBrancoTurquesaEscuro} alt="Amicci logo - versão branco + turquesa escuro" className="max-w-[250px] h-auto" />
                   </div>
                 </div>
               </div>
@@ -98,7 +100,7 @@ const Brand = () => {
                 <h4 className="font-medium">Versão Turquesa + Turquesa Escuro</h4>
                 <div className="border rounded-lg p-6 bg-white flex justify-center">
                   <div className="max-w-md">
-                    <img src={AmicciLogo} alt="Amicci logo - versão turquesa + turquesa escuro" className="max-w-full h-auto" />
+                    <img src={AmicciLogo} alt="Amicci logo - versão turquesa + turquesa escuro" className="max-w-[250px] h-auto" />
                   </div>
                 </div>
               </div>
@@ -107,7 +109,7 @@ const Brand = () => {
                 <h4 className="font-medium">Versão para aplicações com fundo Amicci-500</h4>
                 <div className="border rounded-lg p-6 bg-[#016071] flex justify-center">
                   <div className="max-w-md">
-                    <img src={AmicciLogoTurquesaBranco} alt="Amicci logo - versão para aplicações com fundo Amicci-500" className="max-w-full h-auto" />
+                    <img src={AmicciLogoTurquesaBranco} alt="Amicci logo - versão para aplicações com fundo Amicci-500" className="max-w-[250px] h-auto" />
                   </div>
                 </div>
               </div>
@@ -121,7 +123,7 @@ const Brand = () => {
               
               <div className="border rounded-lg p-8 flex items-center justify-center bg-gray-50">
                 <div className="relative inline-block border-2 border-dashed border-gray-300 p-12">
-                  <img src={AmicciLogo} alt="Amicci logo com área de proteção" className="max-w-full h-auto max-h-32" />
+                  <img src={AmicciLogo} alt="Amicci logo com área de proteção" className="max-w-[250px] h-auto" />
                 </div>
               </div>
             </div>
