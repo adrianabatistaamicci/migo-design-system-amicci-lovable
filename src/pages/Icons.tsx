@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Chip } from '@/components/ui/chip';
@@ -18,7 +19,7 @@ const Icons = () => {
       />
       
       <Tabs defaultValue="overview" className="w-full">
-        <TabsList className="w-full justify-start h-auto p-0 bg-transparent">
+        <TabsList className="w-full justify-start h-auto p-0 bg-transparent border-b border-gray-300">
           <TabsTrigger value="overview" className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3">
             Visão geral
           </TabsTrigger>
