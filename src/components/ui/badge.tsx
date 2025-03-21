@@ -11,6 +11,9 @@ const badgeVariants = cva(
       variant: {
         standard: "rounded-full",
         dot: "rounded-full min-h-[6px] min-w-[6px] h-1.5 w-1.5",
+        secondary: "rounded-full border border-secondary-main",
+        outline: "rounded-full border border-gray-200 bg-transparent",
+        destructive: "rounded-full bg-error-main",
       },
       size: {
         default: "h-5 min-w-[20px] px-1.5 text-xs",
@@ -38,15 +41,19 @@ const badgeVariants = cva(
 // Define the color type to avoid conflicts
 type BadgeColor = "default" | "primary" | "secondary" | "error" | "info" | "success" | "warning";
 
+// Update the variant type to include the new variants
+type BadgeVariant = "standard" | "dot" | "secondary" | "outline" | "destructive";
+
 export interface BadgeProps
   extends Omit<React.HTMLAttributes<HTMLSpanElement>, "color">,
-    Omit<VariantProps<typeof badgeVariants>, "color"> {
+    Omit<VariantProps<typeof badgeVariants>, "color" | "variant"> {
   badgeContent?: React.ReactNode;
   max?: number;
   showZero?: boolean;
   invisible?: boolean;
   overlap?: "rectangular" | "circular";
   color?: BadgeColor;
+  variant?: BadgeVariant;
   anchorOrigin?: {
     vertical: "top" | "bottom";
     horizontal: "left" | "right";
