@@ -243,590 +243,301 @@ const PaletteTable = ({
     </div>;
 };
 
-// Data for components
-const baseColorsData = [{
-  name: 'Amicci',
-  weights: [{
-    weight: '50',
-    colorClass: 'bg-amicci-50',
-    hexValue: '#F1FDFC'
-  }, {
-    weight: '100',
-    colorClass: 'bg-amicci-100',
-    hexValue: '#E3FAF9'
-  }, {
-    weight: '200',
-    colorClass: 'bg-amicci-200',
-    hexValue: '#C7F5F3'
-  }, {
-    weight: '300',
-    colorClass: 'bg-amicci-300',
-    hexValue: '#93EDEA'
-  }, {
-    weight: '400',
-    colorClass: 'bg-amicci-400',
-    hexValue: '#51DEDA'
-  }, {
-    weight: '500',
-    colorClass: 'bg-amicci-500',
-    hexValue: '#10C2C0'
-  }, {
-    weight: '600',
-    colorClass: 'bg-amicci-600',
-    hexValue: '#0EA3A1'
-  }, {
-    weight: '700',
-    colorClass: 'bg-amicci-700',
-    hexValue: '#0C8482'
-  }, {
-    weight: '800',
-    colorClass: 'bg-amicci-800',
-    hexValue: '#096665'
-  }, {
-    weight: '900',
-    colorClass: 'bg-amicci-900',
-    hexValue: '#074A47'
-  }, {
-    weight: '950',
-    colorClass: 'bg-amicci-950',
-    hexValue: '#062630'
-  }]
-}, {
-  name: 'AmicciDark',
-  weights: [{
-    weight: '50',
-    colorClass: 'bg-amicciDark-50',
-    hexValue: '#E6F5F5'
-  }, {
-    weight: '100',
-    colorClass: 'bg-amicciDark-100',
-    hexValue: '#C7E8E9'
-  }, {
-    weight: '200',
-    colorClass: 'bg-amicciDark-200',
-    hexValue: '#A1D6D8'
-  }, {
-    weight: '300',
-    colorClass: 'bg-amicciDark-300',
-    hexValue: '#72BEC2'
-  }, {
-    weight: '400',
-    colorClass: 'bg-amicciDark-400',
-    hexValue: '#3A9CA1'
-  }, {
-    weight: '500',
-    colorClass: 'bg-amicciDark-500',
-    hexValue: '#14818A'
-  }, {
-    weight: '600',
-    colorClass: 'bg-amicciDark-600',
-    hexValue: '#0D646D'
-  }, {
-    weight: '700',
-    colorClass: 'bg-amicciDark-700',
-    hexValue: '#06454A'
-  }, {
-    weight: '800',
-    colorClass: 'bg-amicciDark-800',
-    hexValue: '#043A3E'
-  }, {
-    weight: '900',
-    colorClass: 'bg-amicciDark-900',
-    hexValue: '#033034'
-  }, {
-    weight: '950',
-    colorClass: 'bg-amicciDark-950',
-    hexValue: '#02282A'
-  }]
-}, {
-  name: 'Blue',
-  weights: [{
-    weight: '50',
-    colorClass: 'bg-blue-50',
-    hexValue: '#EBF5FF'
-  }, {
-    weight: '100',
-    colorClass: 'bg-blue-100',
-    hexValue: '#D6E8FF'
-  }, {
-    weight: '200',
-    colorClass: 'bg-blue-200',
-    hexValue: '#ADC8FF'
-  }, {
-    weight: '300',
-    colorClass: 'bg-blue-300',
-    hexValue: '#84A9FF'
-  }, {
-    weight: '400',
-    colorClass: 'bg-blue-400',
-    hexValue: '#5A8CF8'
-  }, {
-    weight: '500',
-    colorClass: 'bg-blue-500',
-    hexValue: '#2970FF'
-  }, {
-    weight: '600',
-    colorClass: 'bg-blue-600',
-    hexValue: '#1F5AE8'
-  }, {
-    weight: '700',
-    colorClass: 'bg-blue-700',
-    hexValue: '#0057B2'
-  }, {
-    weight: '800',
-    colorClass: 'bg-blue-800',
-    hexValue: '#0C41A0'
-  }, {
-    weight: '900',
-    colorClass: 'bg-blue-900',
-    hexValue: '#093186'
-  }, {
-    weight: '950',
-    colorClass: 'bg-blue-950',
-    hexValue: '#072B7A'
-  }]
-}, {
-  name: 'Magenta',
-  weights: [{
-    weight: '50',
-    colorClass: 'bg-magenta-50',
-    hexValue: '#FDF5FA'
-  }, {
-    weight: '100',
-    colorClass: 'bg-magenta-100',
-    hexValue: '#F9E5F4'
-  }, {
-    weight: '200',
-    colorClass: 'bg-magenta-200',
-    hexValue: '#F2CAEB'
-  }, {
-    weight: '300',
-    colorClass: 'bg-magenta-300',
-    hexValue: '#E7A4DD'
-  }, {
-    weight: '400',
-    colorClass: 'bg-magenta-400',
-    hexValue: '#C963BA'
-  }, {
-    weight: '500',
-    colorClass: 'bg-magenta-500',
-    hexValue: '#9B247F'
-  }, {
-    weight: '600',
-    colorClass: 'bg-magenta-600',
-    hexValue: '#841E6C'
-  }, {
-    weight: '700',
-    colorClass: 'bg-magenta-700',
-    hexValue: '#6D1959'
-  }, {
-    weight: '800',
-    colorClass: 'bg-magenta-800',
-    hexValue: '#571447'
-  }, {
-    weight: '900',
-    colorClass: 'bg-magenta-900',
-    hexValue: '#49123C'
-  }, {
-    weight: '950',
-    colorClass: 'bg-magenta-950',
-    hexValue: '#3E0F32'
-  }]
-}, {
-  name: 'Green',
-  weights: [{
-    weight: '50',
-    colorClass: 'bg-green-50',
-    hexValue: '#ECFDF3'
-  }, {
-    weight: '100',
-    colorClass: 'bg-green-100',
-    hexValue: '#D1FADF'
-  }, {
-    weight: '200',
-    colorClass: 'bg-green-200',
-    hexValue: '#A6F4C5'
-  }, {
-    weight: '300',
-    colorClass: 'bg-green-300',
-    hexValue: '#6CE9A6'
-  }, {
-    weight: '400',
-    colorClass: 'bg-green-400',
-    hexValue: '#32D583'
-  }, {
-    weight: '500',
-    colorClass: 'bg-green-500',
-    hexValue: '#12B76A'
-  }, {
-    weight: '600',
-    colorClass: 'bg-green-600',
-    hexValue: '#039855'
-  }, {
-    weight: '700',
-    colorClass: 'bg-green-700',
-    hexValue: '#027A48'
-  }, {
-    weight: '800',
-    colorClass: 'bg-green-800',
-    hexValue: '#05603A'
-  }, {
-    weight: '900',
-    colorClass: 'bg-green-900',
-    hexValue: '#055735'
-  }, {
-    weight: '950',
-    colorClass: 'bg-green-950',
-    hexValue: '#054F31'
-  }]
-}, {
-  name: 'Gray',
-  weights: [{
-    weight: '50',
-    colorClass: 'bg-gray-50',
-    hexValue: '#F9FBFB'
-  }, {
-    weight: '100',
-    colorClass: 'bg-gray-100',
-    hexValue: '#F3F6F5'
-  }, {
-    weight: '200',
-    colorClass: 'bg-gray-200',
-    hexValue: '#EAEFF0'
-  }, {
-    weight: '300',
-    colorClass: 'bg-gray-300',
-    hexValue: '#CED6D6'
-  }, {
-    weight: '400',
-    colorClass: 'bg-gray-400',
-    hexValue: '#AFB9BA'
-  }, {
-    weight: '500',
-    colorClass: 'bg-gray-500',
-    hexValue: '#808586'
-  }, {
-    weight: '600',
-    colorClass: 'bg-gray-600',
-    hexValue: '#656969'
-  }, {
-    weight: '700',
-    colorClass: 'bg-gray-700',
-    hexValue: '#4A4F4F'
-  }, {
-    weight: '800',
-    colorClass: 'bg-gray-800',
-    hexValue: '#313536'
-  }, {
-    weight: '900',
-    colorClass: 'bg-gray-900',
-    hexValue: '#292C2D'
-  }, {
-    weight: '950',
-    colorClass: 'bg-gray-950',
-    hexValue: '#212323'
-  }]
-}, {
-  name: 'Red',
-  weights: [{
-    weight: '50',
-    colorClass: 'bg-red-50',
-    hexValue: '#FEF3F2'
-  }, {
-    weight: '100',
-    colorClass: 'bg-red-100',
-    hexValue: '#FEE4E2'
-  }, {
-    weight: '200',
-    colorClass: 'bg-red-200',
-    hexValue: '#FECDCA'
-  }, {
-    weight: '300',
-    colorClass: 'bg-red-300',
-    hexValue: '#FDA29B'
-  }, {
-    weight: '400',
-    colorClass: 'bg-red-400',
-    hexValue: '#F97066'
-  }, {
-    weight: '500',
-    colorClass: 'bg-red-500',
-    hexValue: '#F04438'
-  }, {
-    weight: '600',
-    colorClass: 'bg-red-600',
-    hexValue: '#D92D20'
-  }, {
-    weight: '700',
-    colorClass: 'bg-red-700',
-    hexValue: '#B42318'
-  }, {
-    weight: '800',
-    colorClass: 'bg-red-800',
-    hexValue: '#912018'
-  }, {
-    weight: '900',
-    colorClass: 'bg-red-900',
-    hexValue: '#862017'
-  }, {
-    weight: '950',
-    colorClass: 'bg-red-950',
-    hexValue: '#7A271A'
-  }]
-}, {
-  name: 'Yellow',
-  weights: [{
-    weight: '50',
-    colorClass: 'bg-yellow-50',
-    hexValue: '#FFFDE7'
-  }, {
-    weight: '100',
-    colorClass: 'bg-yellow-100',
-    hexValue: '#FFF9C4'
-  }, {
-    weight: '200',
-    colorClass: 'bg-yellow-200',
-    hexValue: '#FFF59D'
-  }, {
-    weight: '300',
-    colorClass: 'bg-yellow-300',
-    hexValue: '#FFF176'
-  }, {
-    weight: '400',
-    colorClass: 'bg-yellow-400',
-    hexValue: '#FFEE58'
-  }, {
-    weight: '500',
-    colorClass: 'bg-yellow-500',
-    hexValue: '#FFEB3B'
-  }, {
-    weight: '600',
-    colorClass: 'bg-yellow-600',
-    hexValue: '#FDD835'
-  }, {
-    weight: '700',
-    colorClass: 'bg-yellow-700',
-    hexValue: '#FBC02D'
-  }, {
-    weight: '800',
-    colorClass: 'bg-yellow-800',
-    hexValue: '#F9A825'
-  }, {
-    weight: '900',
-    colorClass: 'bg-yellow-900',
-    hexValue: '#F78F1E'
-  }, {
-    weight: '950',
-    colorClass: 'bg-yellow-950',
-    hexValue: '#F57F17'
-  }]
-}, {
-  name: 'Orange',
-  weights: [{
-    weight: '50',
-    colorClass: 'bg-orange-50',
-    hexValue: '#FFFAEB'
-  }, {
-    weight: '100',
-    colorClass: 'bg-orange-100',
-    hexValue: '#FEF0C7'
-  }, {
-    weight: '200',
-    colorClass: 'bg-orange-200',
-    hexValue: '#FEDF89'
-  }, {
-    weight: '300',
-    colorClass: 'bg-orange-300',
-    hexValue: '#FEC84B'
-  }, {
-    weight: '400',
-    colorClass: 'bg-orange-400',
-    hexValue: '#FDB022'
-  }, {
-    weight: '500',
-    colorClass: 'bg-orange-500',
-    hexValue: '#F79009'
-  }, {
-    weight: '600',
-    colorClass: 'bg-orange-600',
-    hexValue: '#DC6803'
-  }, {
-    weight: '700',
-    colorClass: 'bg-orange-700',
-    hexValue: '#B54708'
-  }, {
-    weight: '800',
-    colorClass: 'bg-orange-800',
-    hexValue: '#93370D'
-  }, {
-    weight: '900',
-    colorClass: 'bg-orange-900',
-    hexValue: '#86320D'
-  }, {
-    weight: '950',
-    colorClass: 'bg-orange-950',
-    hexValue: '#7A2E0E'
-  }]
-}];
+// ColorsSwatches component
+const ColorsSwatches = ({ baseColor }) => {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      {baseColor.weights.map(weight => (
+        <div key={`${baseColor.name}-${weight.weight}`} className="space-y-2">
+          <ColorSwatch 
+            color={weight.colorClass} 
+            hexValue={weight.hexValue}
+            weight={weight.weight} 
+            className="h-32" 
+          />
+          <div className="text-sm text-gray-500 font-mono px-1">{weight.hexValue}</div>
+        </div>
+      ))}
+    </div>
+  );
+};
 
-const paletteData = [{
-  name: 'Text',
-  description: 'Gray',
-  variants: [{
-    name: 'primary',
-    colorClass: 'text-text-primary',
-    baseColor: 'gray-900',
-    textColor: 'text-white',
-    hexValue: '#212323'
-  }, {
-    name: 'secondary',
-    colorClass: 'text-text-secondary',
-    baseColor: 'gray-500',
-    textColor: 'text-white',
-    hexValue: '#808586'
-  }, {
-    name: 'disabled',
-    colorClass: 'text-text-disabled',
-    baseColor: 'gray-400',
-    textColor: 'text-white',
-    hexValue: '#AFB9BA'
-  }, {
-    name: 'hover',
-    colorClass: 'bg-gray-900/[0.04]',
-    baseColor: 'gray-900',
-    textColor: 'text-black',
-    opacity: '4%',
-    hexValue: '#2123230A'
-  }, {
-    name: 'selected',
-    colorClass: 'bg-gray-900/[0.08]',
-    baseColor: 'gray-900',
-    textColor: 'text-black',
-    opacity: '8%',
-    hexValue: '#21232314'
-  }, {
-    name: 'focus',
-    colorClass: 'bg-gray-900/[0.12]',
-    baseColor: 'gray-900',
-    textColor: 'text-black',
-    opacity: '12%',
-    hexValue: '#2123231F'
-  }, {
-    name: 'focusVisible',
-    colorClass: 'bg-gray-900/[0.3]',
-    baseColor: 'gray-900',
-    textColor: 'text-black',
-    opacity: '30%',
-    hexValue: '#2123234D'
-  }, {
-    name: 'contrastText',
-    colorClass: 'bg-white',
-    baseColor: 'white',
-    textColor: 'text-black',
-    hexValue: '#FFFFFF'
-  }]
-}, {
-  name: 'Primary',
-  description: 'amicci',
-  variants: [{
-    name: 'main',
-    colorClass: 'bg-primary-main',
-    baseColor: 'amicci-500',
-    textColor: 'text-primary-contrast',
-    opacity: '100%',
-    hexValue: '#10C2C0'
-  }, {
-    name: 'dark',
-    colorClass: 'bg-primary-dark',
-    baseColor: 'amicci-700',
-    textColor: 'text-primary-contrast',
-    opacity: '100%',
-    hexValue: '#0C8482'
-  }, {
-    name: 'light',
-    colorClass: 'bg-primary-light',
-    baseColor: 'amicci-100',
-    textColor: 'text-black',
-    opacity: '100%',
-    hexValue: '#E3FAF9'
-  }, {
-    name: 'contrast',
-    colorClass: 'bg-primary-contrast',
-    baseColor: 'common-white-main',
-    textColor: 'text-primary-main',
-    opacity: '100%',
-    hexValue: '#FFFFFF'
-  }, {
-    name: 'hover',
-    colorClass: 'bg-primary-hover',
-    baseColor: 'amicci-500',
-    textColor: 'text-primary-contrast',
-    opacity: '4%',
-    hexValue: '#10C2C00A'
-  }, {
-    name: 'selected',
-    colorClass: 'bg-primary-selected',
-    baseColor: 'amicci-500',
-    textColor: 'text-primary-contrast',
-    opacity: '8%',
-    hexValue: '#10C2C014'
-  }, {
-    name: 'focus',
-    colorClass: 'bg-primary-focus',
-    baseColor: 'amicci-500',
-    textColor: 'text-black',
-    opacity: '12%',
-    hexValue: '#10C2C01F'
-  }, {
-    name: 'focusVisible',
-    colorClass: 'bg-primary-focusVisible',
-    baseColor: 'amicci-500',
-    textColor: 'text-black',
-    opacity: '30%',
-    hexValue: '#10C2C04D'
-  }, {
-    name: 'outlinedBorder',
-    colorClass: 'bg-primary-outlinedBorder',
-    baseColor: 'amicci-500',
-    textColor: 'text-black',
-    opacity: '50%',
-    hexValue: '#10C2C080'
-  }]
-}, {
-  name: 'Secondary',
-  description: 'AmicciDark',
-  variants: [{
-    name: 'main',
-    colorClass: 'bg-secondary-main',
-    baseColor: 'amicciDark-500',
-    textColor: 'text-secondary-contrast',
-    opacity: '100%',
-    hexValue: '#14818A'
-  }, {
-    name: 'dark',
-    colorClass: 'bg-secondary-dark',
-    baseColor: 'amicciDark-700',
-    textColor: 'text-secondary-contrast',
-    opacity: '100%',
-    hexValue: '#06454A'
-  }, {
-    name: 'light',
-    colorClass: 'bg-secondary-light',
-    baseColor: 'amicciDark-100',
-    textColor: 'text-black',
-    opacity: '100%',
-    hexValue: '#C7E8E9'
-  }, {
-    name: 'dark2',
-    colorClass: 'bg-amicciDark-800',
-    baseColor: 'amicciDark-800',
-    textColor: 'text-white',
-    opacity: '100%',
-    hexValue: '#043A3E'
-  }, {
-    name: 'contrast',
-    colorClass: 'bg-secondary-contrast',
-    baseColor: 'common-white-main',
-    textColor: 'text-secondary-main',
-    opacity: '100%',
-    hexValue: '#FFFFFF
+// Colors component
+const Colors = () => {
+  const [showHex, setShowHex] = useState(true);
+  
+  return (
+    <div className="max-w-7xl mx-auto px-4 py-8">
+      <FoundationsHeader 
+        title="Cores"
+        description="Nosso sistema de cores é meticulosamente projetado para dar suporte à comunicação, orientar os usuários através da interface e fornecer feedback. A paleta consiste em cores primárias, secundárias e neutras, cada uma com variações específicas de luminosidade."
+        illustration="colors"
+      />
+      
+      <TailwindTabs variant="pillsGray" defaultValue="palette">
+        <TabsList className="mb-8">
+          <TabsTrigger value="palette">Paleta de Cores</TabsTrigger>
+          <TabsTrigger value="semantics">Cores Semânticas</TabsTrigger>
+          <TabsTrigger value="tokens">Tokens de Cores</TabsTrigger>
+        </TabsList>
+        
+        <TabsContent value="palette" className="space-y-10">
+          <section>
+            <h2 className="text-2xl font-bold mb-6">Cores Base</h2>
+            <div className="grid gap-8">
+              {baseColorsData.map(baseColor => (
+                <div key={baseColor.name} className="space-y-4">
+                  <h3 className="text-xl font-semibold flex items-center gap-2">
+                    {baseColor.name}
+                    <Badge variant="outline" className="font-normal">
+                      {baseColor.weights.length} variações
+                    </Badge>
+                  </h3>
+                  <ColorsSwatches baseColor={baseColor} />
+                </div>
+              ))}
+            </div>
+          </section>
+        </TabsContent>
+        
+        <TabsContent value="semantics" className="space-y-10">
+          <section>
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold">Cores Semânticas</h2>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                onClick={() => setShowHex(!showHex)}
+                className="flex items-center gap-2"
+              >
+                {showHex ? <EyeOff size={16} /> : <Eye size={16} />}
+                {showHex ? 'Ocultar Hex' : 'Mostrar Hex'}
+              </Button>
+            </div>
+            
+            <div className="grid gap-8">
+              {/* Primary */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold">Primary (Amicci)</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-primary-main" 
+                      textOverlay={showHex ? '#10C2C0' : 'Primary'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Primary</div>
+                  </div>
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-primary-light" 
+                      textOverlay={showHex ? '#E3FAF9' : 'Primary Light'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Primary Light</div>
+                  </div>
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-primary-dark" 
+                      textOverlay={showHex ? '#0C8482' : 'Primary Dark'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Primary Dark</div>
+                  </div>
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-primary-contrast" 
+                      textOverlay={showHex ? '#FFFFFF' : 'Primary Contrast'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Primary Contrast</div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Secondary */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold">Secondary (AmicciDark)</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-secondary-main" 
+                      textOverlay={showHex ? '#14818A' : 'Secondary'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Secondary</div>
+                  </div>
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-secondary-light" 
+                      textOverlay={showHex ? '#C7E8E9' : 'Secondary Light'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Secondary Light</div>
+                  </div>
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-secondary-dark" 
+                      textOverlay={showHex ? '#06454A' : 'Secondary Dark'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Secondary Dark</div>
+                  </div>
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-secondary-contrast" 
+                      textOverlay={showHex ? '#FFFFFF' : 'Secondary Contrast'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Secondary Contrast</div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Success */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold">Success</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-success-main" 
+                      textOverlay={showHex ? '#12B76A' : 'Success'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Success</div>
+                  </div>
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-success-light" 
+                      textOverlay={showHex ? '#D1FADF' : 'Success Light'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Success Light</div>
+                  </div>
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-success-dark" 
+                      textOverlay={showHex ? '#027A48' : 'Success Dark'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Success Dark</div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Error */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold">Error</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-error-main" 
+                      textOverlay={showHex ? '#F04438' : 'Error'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Error</div>
+                  </div>
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-error-light" 
+                      textOverlay={showHex ? '#FEE4E2' : 'Error Light'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Error Light</div>
+                  </div>
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-error-dark" 
+                      textOverlay={showHex ? '#B42318' : 'Error Dark'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Error Dark</div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Warning */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold">Warning</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-warning-main" 
+                      textOverlay={showHex ? '#F79009' : 'Warning'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Warning</div>
+                  </div>
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-warning-light" 
+                      textOverlay={showHex ? '#FEF0C7' : 'Warning Light'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Warning Light</div>
+                  </div>
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-warning-dark" 
+                      textOverlay={showHex ? '#B54708' : 'Warning Dark'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Warning Dark</div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Info */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold">Info</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-info-main" 
+                      textOverlay={showHex ? '#2970FF' : 'Info'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Info</div>
+                  </div>
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-info-light" 
+                      textOverlay={showHex ? '#D6E8FF' : 'Info Light'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Info Light</div>
+                  </div>
+                  <div className="space-y-2">
+                    <ColorSwatch 
+                      color="bg-info-dark" 
+                      textOverlay={showHex ? '#0057B2' : 'Info Dark'} 
+                      className="h-32" 
+                    />
+                    <div className="text-sm text-gray-500 px-1">Info Dark</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </TabsContent>
+        
+        <TabsContent value="tokens" className="space-y-10">
+          <section>
+            <h2 className="text-2xl font-bold mb-6">Tokens de Cores Base</h2>
+            <BaseColorsTable baseColors={baseColorsData} />
+          </section>
+          
+          <Separator className="my-10" />
+          
+          <section>
+            <h2 className="text-2xl font-bold mb-6">Tokens de Cores Semânticas</h2>
+            <PaletteTable palettes={paletteData} />
+          </section>
+        </TabsContent>
+      </TailwindTabs>
+    </div>
+  );
+};
+
+export default Colors;
+
