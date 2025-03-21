@@ -1607,8 +1607,8 @@ const Colors = () => {
   return <div className="w-full animate-fade-in">
       <FoundationsHeader title="Colors" description="Paleta de cores e tokens de design utilizados na aplicação (50-950)" />
 
-      <Tabs defaultValue="overview" className="w-full">
-        <TabsList className="mb-4">
+      <Tabs defaultValue="overview" className="mt-8">
+        <TabsList>
           <TabsTrigger value="overview">Visão geral</TabsTrigger>
           <TabsTrigger value="palettes">Palettes</TabsTrigger>
           <TabsTrigger value="baseColors">Base colors</TabsTrigger>
