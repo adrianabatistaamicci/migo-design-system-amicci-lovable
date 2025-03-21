@@ -1,27 +1,18 @@
-
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { Mail, Bell, MessageSquare, User } from 'lucide-react';
+import ComponentsHeader from '@/components/library-components/ComponentsHeader';
 
 const BadgePage = () => {
   return (
     <div className="w-full animate-slide-in">
       <div className="mb-12">
-        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mui-primary/10 text-mui-primary">
-            Component
-          </span>
-        </div>
-        
-        <h1 className="text-4xl font-medium text-mui-text-primary mb-4">
-          Badge
-        </h1>
-        
-        <p className="text-xl text-mui-text-secondary mb-8">
-          Badges are small status descriptors for UI elements that display counts, statuses, or notifications.
-        </p>
+        <ComponentsHeader 
+          title="Badge"
+          description="Badges are small status descriptors for UI elements that display counts, statuses, or notifications."
+        />
         
         <div className="mb-12">
           <h2 className="text-2xl font-medium text-mui-text-primary mb-6">

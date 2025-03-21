@@ -4,6 +4,7 @@ import { Chip } from '@/components/ui/chip';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { Check, User, Mail, Heart, Star } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import ComponentsHeader from '@/components/library-components/ComponentsHeader';
 
 const ChipPage = () => {
   const [chips, setChips] = useState(['React', 'Angular', 'Vue', 'Svelte']);
@@ -15,19 +16,10 @@ const ChipPage = () => {
   return (
     <div className="w-full animate-slide-in">
       <div className="mb-12">
-        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mui-primary/10 text-mui-primary">
-            Component
-          </span>
-        </div>
-        
-        <h1 className="text-4xl font-medium text-mui-text-primary mb-4">
-          Chip
-        </h1>
-        
-        <p className="text-xl text-mui-text-secondary mb-8">
-          Chips are compact elements that represent an input, attribute, or action.
-        </p>
+        <ComponentsHeader 
+          title="Chip"
+          description="Chips are compact elements that represent an input, attribute, or action."
+        />
         
         <div className="mb-12">
           <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
