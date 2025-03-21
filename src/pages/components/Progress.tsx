@@ -1,9 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Progress } from '@/components/ui/progress';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
+import ComponentsHeader from '@/components/library-components/ComponentsHeader';
 
 const ProgressPage = () => {
   const [progress, setProgress] = useState(0);
@@ -28,19 +28,10 @@ const ProgressPage = () => {
   return (
     <div className="w-full animate-slide-in">
       <div className="mb-12">
-        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mui-primary/10 text-mui-primary">
-            Component
-          </span>
-        </div>
-        
-        <h1 className="text-4xl font-medium text-mui-text-primary mb-4">
-          Progress
-        </h1>
-        
-        <p className="text-xl text-mui-text-secondary mb-8">
-          Progress indicators show the completion status of an operation or task.
-        </p>
+        <ComponentsHeader 
+          title="Progress"
+          description="Progress indicators show the completion status of an operation or task."
+        />
         
         <div className="mb-12">
           <h2 className="text-2xl font-medium text-mui-text-primary mb-6">

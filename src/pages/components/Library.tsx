@@ -1,12 +1,16 @@
+
 import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
+import ComponentsHeader from '@/components/library-components/ComponentsHeader';
 
 // Define the type for the module records returned by import.meta.glob
 type ModuleRecord = Record<string, {
   default: React.ComponentType<any>;
 }>;
+
 const LibraryPage: React.FC = () => {
   const [components, setComponents] = useState<Record<string, React.ComponentType<any>>>({});
+  
   useEffect(() => {
     // This is a special Vite function that will import all files from a directory
     const libraryComponents = import.meta.glob<{
@@ -25,25 +29,27 @@ const LibraryPage: React.FC = () => {
     }
     setComponents(formattedComponents);
   }, []);
-  return <div className="animate-fade-in">
+  
+  return (
+    <div className="animate-fade-in">
       <div className="max-w-3xl mb-12">
-        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mui-primary/10 text-mui-primary">Components</span>
-        </div>
-        
-        <h1 className="text-4xl font-medium text-mui-text-primary mb-4">
-          Library Components
-        </h1>
+        <ComponentsHeader
+          title="Library Components"
+          description="A collection of reusable UI components designed for our design system."
+        />
         
         <div className="mt-8 grid grid-cols-1 gap-6">
-          {Object.entries(components).map(([name, Component]) => <ComponentCard key={name} title={name} description="">
+          {Object.entries(components).map(([name, Component]) => (
+            <ComponentCard key={name} title={name} description="">
               <div className="p-4">
                 <Component {...getDefaultProps(name)} />
               </div>
-            </ComponentCard>)}
+            </ComponentCard>
+          ))}
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
 
 // Helper function to provide default props for each component type
@@ -63,4 +69,5 @@ const getDefaultProps = (componentName: string): Record<string, any> => {
       return {};
   }
 };
+
 export default LibraryPage;

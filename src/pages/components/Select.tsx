@@ -1,9 +1,9 @@
-
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
+import ComponentsHeader from '@/components/library-components/ComponentsHeader';
 
 const SelectPage = () => {
   const [value, setValue] = useState("apple");
@@ -11,19 +11,10 @@ const SelectPage = () => {
   return (
     <div className="w-full animate-slide-in">
       <div className="mb-12">
-        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mui-primary/10 text-mui-primary">
-            Component
-          </span>
-        </div>
-        
-        <h1 className="text-4xl font-medium text-mui-text-primary mb-4">
-          Select
-        </h1>
-        
-        <p className="text-xl text-mui-text-secondary mb-8">
-          Select displays a collapsible list of options and allows a user to select one of them.
-        </p>
+        <ComponentsHeader 
+          title="Select"
+          description="Select displays a collapsible list of options and allows a user to select one of them."
+        />
         
         <div className="mb-12">
           <h2 className="text-2xl font-medium text-mui-text-primary mb-6">

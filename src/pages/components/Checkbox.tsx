@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
+import ComponentsHeader from '@/components/library-components/ComponentsHeader';
 
 const CheckboxPage = () => {
   const [checked, setChecked] = useState(true);
@@ -10,19 +11,10 @@ const CheckboxPage = () => {
   return (
     <div className="w-full animate-slide-in">
       <div className="mb-12">
-        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mui-primary/10 text-mui-primary">
-            Component
-          </span>
-        </div>
-        
-        <h1 className="text-4xl font-medium text-mui-text-primary mb-4">
-          Checkbox
-        </h1>
-        
-        <p className="text-xl text-mui-text-secondary mb-8">
-          Checkboxes allow users to select one or more items from a set and can be used to turn an option on or off.
-        </p>
+        <ComponentsHeader 
+          title="Checkbox"
+          description="Checkboxes allow users to select one or more items from a set and can be used to turn an option on or off."
+        />
         
         <div className="mb-12">
           <h2 className="text-2xl font-medium text-mui-text-primary mb-6">

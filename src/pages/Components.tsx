@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ComponentCard from '@/components/ComponentCard';
@@ -11,6 +10,7 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Chip } from '@/components/ui/chip';
 import { Slider } from '@/components/ui/slider';
 import { Mail, Check } from 'lucide-react';
+import ComponentsHeader from '@/components/library-components/ComponentsHeader';
 
 const componentCategories = [
   {
@@ -69,19 +69,10 @@ const Components = () => {
   return (
     <div className="animate-slide-in">
       <div className="max-w-3xl mb-12">
-        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mui-primary/10 text-mui-primary">
-            Components
-          </span>
-        </div>
-        
-        <h1 className="text-4xl font-medium text-mui-text-primary mb-4">
-          Material UI Component Library
-        </h1>
-        
-        <p className="text-xl text-mui-text-secondary mb-8">
-          Explore our collection of Material Design inspired UI components designed for consistency and usability.
-        </p>
+        <ComponentsHeader 
+          title="Material UI Component Library"
+          description="Explore our collection of Material Design inspired UI components designed for consistency and usability."
+        />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
           <ComponentCard 

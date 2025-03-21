@@ -1,26 +1,17 @@
-
 import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
+import ComponentsHeader from '@/components/library-components/ComponentsHeader';
 
 const AvatarPage = () => {
   return (
     <div className="w-full animate-slide-in">
       <div className="mb-12">
-        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mui-primary/10 text-mui-primary">
-            Component
-          </span>
-        </div>
-        
-        <h1 className="text-4xl font-medium text-mui-text-primary mb-4">
-          Avatar
-        </h1>
-        
-        <p className="text-xl text-mui-text-secondary mb-8">
-          The Avatar component is used to represent a user, and displays an image or initials.
-        </p>
+        <ComponentsHeader 
+          title="Avatar"
+          description="The Avatar component is used to represent a user, and displays an image or initials."
+        />
         
         <div className="mb-12">
           <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
