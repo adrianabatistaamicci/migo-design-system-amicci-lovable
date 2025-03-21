@@ -1,673 +1,379 @@
-import React, { useState } from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import ComponentCard from '@/components/ComponentCard';
-import CodeBlock from '@/components/CodeBlock';
-import { Separator } from '@/components/ui/separator';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Badge } from '@/components/ui/badge';
-import { Copy, Check } from 'lucide-react';
-import { Chip } from '@/components/ui/chip';
+
+import React from 'react';
+import { Tabs, TabsContent } from "@/components/ui/tabs";
+import { Separator } from "@/components/ui/separator";
 import FoundationsHeader from '@/components/library-components/FoundationsHeader';
+import { TailwindTabs } from '@/components/ui/tailwind-tabs';
+
+// Define tabs for the TailwindTabs component
+const typographyTabs = [
+  { name: 'Visão geral', value: 'overview' },
+  { name: 'Estilos', value: 'styles' },
+  { name: 'Uso', value: 'usage' },
+  { name: 'Acessibilidade', value: 'accessibility' },
+];
 
 const Typography = () => {
-  const [copied, setCopied] = useState<string | null>(null);
-  const copyToClipboard = (value: string) => {
-    navigator.clipboard.writeText(value);
-    setCopied(value);
-    setTimeout(() => setCopied(null), 2000);
-  };
-
-  const typographyStyles = [{
-    name: 'h1',
-    description: 'Heading 1',
-    className: 'text-8xl font-light leading-[112.03px] font-roboto text-text-primary',
-    sample: 'Heading 1',
-    styles: [{
-      name: 'Color',
-      value: 'text-text-primary'
-    }, {
-      name: 'Size',
-      value: 'text-8xl'
-    }, {
-      name: 'Weight',
-      value: 'font-light'
-    }, {
-      name: 'Font',
-      value: 'font-["Roboto"]'
-    }, {
-      name: 'Line Height',
-      value: 'leading-[112.03px]'
-    }]
-  }, {
-    name: 'h2',
-    description: 'Heading 2',
-    className: 'text-6xl font-light leading-[72px] font-roboto text-text-primary',
-    sample: 'Heading 2',
-    styles: [{
-      name: 'Color',
-      value: 'text-text-primary'
-    }, {
-      name: 'Size',
-      value: 'text-6xl'
-    }, {
-      name: 'Weight',
-      value: 'font-light'
-    }, {
-      name: 'Font',
-      value: 'font-["Roboto"]'
-    }, {
-      name: 'Line Height',
-      value: 'leading-[72px]'
-    }]
-  }, {
-    name: 'h3',
-    description: 'Heading 3',
-    className: 'text-5xl font-normal leading-[56.02px] font-roboto text-text-primary',
-    sample: 'Heading 3',
-    styles: [{
-      name: 'Color',
-      value: 'text-text-primary'
-    }, {
-      name: 'Size',
-      value: 'text-5xl'
-    }, {
-      name: 'Weight',
-      value: 'font-normal'
-    }, {
-      name: 'Font',
-      value: 'font-["Roboto"]'
-    }, {
-      name: 'Line Height',
-      value: 'leading-[56.02px]'
-    }]
-  }, {
-    name: 'h4',
-    description: 'Heading 4',
-    className: 'text-4xl font-normal leading-10 tracking-tight font-roboto text-text-primary',
-    sample: 'Heading 4',
-    styles: [{
-      name: 'Color',
-      value: 'text-text-primary'
-    }, {
-      name: 'Size',
-      value: 'text-4xl'
-    }, {
-      name: 'Weight',
-      value: 'font-normal'
-    }, {
-      name: 'Font',
-      value: 'font-["Roboto"]'
-    }, {
-      name: 'Line Height',
-      value: 'leading-10'
-    }, {
-      name: 'Tracking',
-      value: 'tracking-tight'
-    }]
-  }, {
-    name: 'h5',
-    description: 'Heading 5',
-    className: 'text-2xl font-normal leading-loose font-roboto text-text-primary',
-    sample: 'Heading 5',
-    styles: [{
-      name: 'Color',
-      value: 'text-text-primary'
-    }, {
-      name: 'Size',
-      value: 'text-2xl'
-    }, {
-      name: 'Weight',
-      value: 'font-normal'
-    }, {
-      name: 'Font',
-      value: 'font-["Roboto"]'
-    }, {
-      name: 'Line Height',
-      value: 'leading-loose'
-    }]
-  }, {
-    name: 'h6',
-    description: 'Heading 6',
-    className: 'text-xl font-medium leading-loose tracking-tight font-roboto text-text-primary',
-    sample: 'Heading 6',
-    styles: [{
-      name: 'Color',
-      value: 'text-text-primary'
-    }, {
-      name: 'Size',
-      value: 'text-xl'
-    }, {
-      name: 'Weight',
-      value: 'font-medium'
-    }, {
-      name: 'Font',
-      value: 'font-["Roboto"]'
-    }, {
-      name: 'Line Height',
-      value: 'leading-loose'
-    }, {
-      name: 'Tracking',
-      value: 'tracking-tight'
-    }]
-  }, {
-    name: 'subtitle1',
-    description: 'Subtitle 1',
-    className: 'text-base font-medium leading-7 tracking-tight font-roboto text-text-primary',
-    sample: 'Subtitle 1',
-    styles: [{
-      name: 'Color',
-      value: 'text-text-primary'
-    }, {
-      name: 'Size',
-      value: 'text-base'
-    }, {
-      name: 'Weight',
-      value: 'font-medium'
-    }, {
-      name: 'Font',
-      value: 'font-["Roboto"]'
-    }, {
-      name: 'Line Height',
-      value: 'leading-7'
-    }, {
-      name: 'Tracking',
-      value: 'tracking-tight'
-    }]
-  }, {
-    name: 'subtitle2',
-    description: 'Subtitle 2',
-    className: 'text-sm font-medium leading-snug tracking-tight font-roboto text-text-primary',
-    sample: 'Subtitle 2',
-    styles: [{
-      name: 'Color',
-      value: 'text-text-primary'
-    }, {
-      name: 'Size',
-      value: 'text-sm'
-    }, {
-      name: 'Weight',
-      value: 'font-medium'
-    }, {
-      name: 'Font',
-      value: 'font-["Roboto"]'
-    }, {
-      name: 'Line Height',
-      value: 'leading-snug'
-    }, {
-      name: 'Tracking',
-      value: 'tracking-tight'
-    }]
-  }, {
-    name: 'body1',
-    description: 'Body 1',
-    className: 'text-base font-normal leading-normal tracking-tight font-roboto text-text-primary',
-    sample: 'Body 1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    styles: [{
-      name: 'Color',
-      value: 'text-text-primary'
-    }, {
-      name: 'Size',
-      value: 'text-base'
-    }, {
-      name: 'Weight',
-      value: 'font-normal'
-    }, {
-      name: 'Font',
-      value: 'font-["Roboto"]'
-    }, {
-      name: 'Line Height',
-      value: 'leading-normal'
-    }, {
-      name: 'Tracking',
-      value: 'tracking-tight'
-    }]
-  }, {
-    name: 'body2',
-    description: 'Body 2',
-    className: 'text-sm font-normal leading-tight tracking-tight font-roboto text-text-primary',
-    sample: 'Body 2 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    styles: [{
-      name: 'Color',
-      value: 'text-text-primary'
-    }, {
-      name: 'Size',
-      value: 'text-sm'
-    }, {
-      name: 'Weight',
-      value: 'font-normal'
-    }, {
-      name: 'Font',
-      value: 'font-["Roboto"]'
-    }, {
-      name: 'Line Height',
-      value: 'leading-tight'
-    }, {
-      name: 'Tracking',
-      value: 'tracking-tight'
-    }]
-  }, {
-    name: 'caption',
-    description: 'Caption',
-    className: 'text-xs font-normal leading-tight tracking-wide font-roboto text-text-primary',
-    sample: 'Caption text',
-    styles: [{
-      name: 'Color',
-      value: 'text-text-primary'
-    }, {
-      name: 'Size',
-      value: 'text-xs'
-    }, {
-      name: 'Weight',
-      value: 'font-normal'
-    }, {
-      name: 'Font',
-      value: 'font-["Roboto"]'
-    }, {
-      name: 'Line Height',
-      value: 'leading-tight'
-    }, {
-      name: 'Tracking',
-      value: 'tracking-wide'
-    }]
-  }, {
-    name: 'overline',
-    description: 'Overline',
-    className: 'text-xs font-normal leading-loose tracking-wide uppercase font-roboto text-text-primary',
-    sample: 'OVERLINE TEXT',
-    styles: [{
-      name: 'Color',
-      value: 'text-text-primary'
-    }, {
-      name: 'Size',
-      value: 'text-xs'
-    }, {
-      name: 'Weight',
-      value: 'font-normal'
-    }, {
-      name: 'Font',
-      value: 'font-["Roboto"]'
-    }, {
-      name: 'Line Height',
-      value: 'leading-loose'
-    }, {
-      name: 'Tracking',
-      value: 'tracking-wide'
-    }, {
-      name: 'Case',
-      value: 'uppercase'
-    }]
-  }];
-
   return (
-    <div className="space-y-8">
+    <div className="w-full animate-fade-in">
       <FoundationsHeader 
-        title="Typography"
+        title="Typography" 
         description="Estilos de texto e tokens de tipografia utilizados na aplicação"
       />
-
-      <Tabs defaultValue="overview" className="mt-8">
-        <TabsList>
-          <TabsTrigger value="overview">Visão geral</TabsTrigger>
-          <TabsTrigger value="styles">Estilos</TabsTrigger>
-          <TabsTrigger value="usage">Uso</TabsTrigger>
-          <TabsTrigger value="accessibility">Acessibilidade</TabsTrigger>
-        </TabsList>
-
-        <TabsContent value="overview" className="space-y-6">
-          <ComponentCard title="Sistema de Tipografia" description="Nosso sistema de tipografia é baseado na fonte Roboto com variações cuidadosamente definidas.">
-            <p className="text-mui-text-secondary mb-6">
-              A tipografia é organizada em hierarquias claras para criar uma experiência de leitura consistente e agradável.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div className="border rounded-lg p-4">
-                <h3 className="text-lg font-medium mb-2">1. Headings (h1-h6)</h3>
-                <p className="text-mui-text-secondary mb-3">
-                  Títulos e cabeçalhos para organizar o conteúdo:
-                </p>
-                <div className="space-y-3">
-                  <div><span className="text-8xl font-light leading-none">H1</span></div>
-                  <div><span className="text-6xl font-light leading-none">H2</span></div>
-                  <div><span className="text-5xl font-normal leading-none">H3</span></div>
-                  <div><span className="text-4xl font-normal leading-none">H4</span></div>
-                  <div><span className="text-2xl font-normal leading-none">H5</span></div>
-                  <div><span className="text-xl font-medium leading-none">H6</span></div>
+      
+      <TailwindTabs 
+        tabs={typographyTabs}
+        variant="pillsGray"
+        defaultValue="overview"
+        className="w-full mb-6"
+      >
+        <TabsContent value="overview">
+          <div className="space-y-6">
+            <div className="rounded-lg border p-6">
+              <h2 className="text-2xl font-semibold mb-4">Sistema de Tipografia</h2>
+              <p className="text-gray-600 mb-4">
+                Nossa tipografia é projetada para oferecer legibilidade e hierarquia clara em toda a aplicação.
+                Utilizamos uma escala de tamanhos consistente e uma família de fontes cuidadosamente selecionada.
+              </p>
+              
+              <Separator className="my-6" />
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-lg font-medium mb-2">Família de fontes principal</h3>
+                  <div className="bg-gray-50 rounded-md p-4">
+                    <p className="text-xl mb-2 font-normal">Inter</p>
+                    <p className="text-sm text-gray-500">
+                      Uma família de fontes sans-serif projetada para alta legibilidade em telas.
+                    </p>
+                  </div>
+                </div>
+                
+                <div>
+                  <h3 className="text-lg font-medium mb-2">Pesos utilizados</h3>
+                  <div className="space-y-2">
+                    <div className="flex items-center">
+                      <div className="w-20">400</div>
+                      <div className="font-normal">Regular</div>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-20">500</div>
+                      <div className="font-medium">Medium</div>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-20">600</div>
+                      <div className="font-semibold">Semibold</div>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-20">700</div>
+                      <div className="font-bold">Bold</div>
+                    </div>
+                  </div>
                 </div>
               </div>
               
-              <div className="border rounded-lg p-4">
-                <h3 className="text-lg font-medium mb-2">2. Texto de corpo e auxiliares</h3>
-                <p className="text-mui-text-secondary mb-3">
-                  Estilos para parágrafos, legendas e decorações:
-                </p>
-                <div className="space-y-4">
-                  <div>
-                    <div className="text-base font-medium leading-none mb-1">Subtitle 1</div>
-                    <div className="text-sm font-medium leading-none mb-2">Subtitle 2</div>
-                  </div>
-                  <div>
-                    <div className="text-base font-normal leading-tight mb-1">Body 1</div>
-                    <div className="text-sm font-normal leading-tight mb-3">Body 2</div>
-                  </div>
-                  <div>
-                    <div className="text-xs font-normal leading-tight mb-1">Caption</div>
-                    <div className="text-xs font-normal uppercase leading-tight tracking-wide">OVERLINE</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="border rounded-lg p-4 mb-6">
-              <h3 className="text-lg font-medium mb-2">Propriedades de texto</h3>
-              <p className="text-mui-text-secondary mb-4">
-                Cada estilo de texto é definido por um conjunto de propriedades:
-              </p>
+              <Separator className="my-6" />
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="border rounded p-3">
-                  <div className="text-sm font-medium mb-1">Tamanho (Size)</div>
-                  <p className="text-mui-text-secondary text-sm">Varia de <code>text-xs</code> a <code>text-8xl</code></p>
+              <h3 className="text-lg font-medium mb-4">Escala de tipografia</h3>
+              <div className="space-y-6">
+                <div className="border-b pb-4">
+                  <p className="text-sm text-gray-500 mb-1">Display (48px/3rem)</p>
+                  <p className="text-5xl">Aa Bb Cc Dd Ee Ff</p>
                 </div>
-                
-                <div className="border rounded p-3">
-                  <div className="text-sm font-medium mb-1">Peso (Weight)</div>
-                  <p className="text-mui-text-secondary text-sm">Incluindo <code>font-light</code>, <code>font-normal</code> e <code>font-medium</code></p>
+                <div className="border-b pb-4">
+                  <p className="text-sm text-gray-500 mb-1">H1 (32px/2rem)</p>
+                  <p className="text-4xl">Aa Bb Cc Dd Ee Ff</p>
                 </div>
-                
-                <div className="border rounded p-3">
-                  <div className="text-sm font-medium mb-1">Altura da linha</div>
-                  <p className="text-mui-text-secondary text-sm">De <code>leading-tight</code> a <code>leading-loose</code> e valores personalizados</p>
+                <div className="border-b pb-4">
+                  <p className="text-sm text-gray-500 mb-1">H2 (24px/1.5rem)</p>
+                  <p className="text-3xl">Aa Bb Cc Dd Ee Ff</p>
                 </div>
-                
-                <div className="border rounded p-3">
-                  <div className="text-sm font-medium mb-1">Tracking</div>
-                  <p className="text-mui-text-secondary text-sm">Incluindo <code>tracking-tight</code> e <code>tracking-wide</code></p>
+                <div className="border-b pb-4">
+                  <p className="text-sm text-gray-500 mb-1">H3 (20px/1.25rem)</p>
+                  <p className="text-2xl">Aa Bb Cc Dd Ee Ff</p>
+                </div>
+                <div className="border-b pb-4">
+                  <p className="text-sm text-gray-500 mb-1">H4 (18px/1.125rem)</p>
+                  <p className="text-xl">Aa Bb Cc Dd Ee Ff</p>
+                </div>
+                <div className="border-b pb-4">
+                  <p className="text-sm text-gray-500 mb-1">H5 (16px/1rem)</p>
+                  <p className="text-lg">Aa Bb Cc Dd Ee Ff</p>
+                </div>
+                <div className="border-b pb-4">
+                  <p className="text-sm text-gray-500 mb-1">Body 1 (16px/1rem)</p>
+                  <p className="text-base">Aa Bb Cc Dd Ee Ff</p>
+                </div>
+                <div className="border-b pb-4">
+                  <p className="text-sm text-gray-500 mb-1">Body 2 (14px/0.875rem)</p>
+                  <p className="text-sm">Aa Bb Cc Dd Ee Ff</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500 mb-1">Caption (12px/0.75rem)</p>
+                  <p className="text-xs">Aa Bb Cc Dd Ee Ff</p>
                 </div>
               </div>
             </div>
-            
-            <div className="font-mono text-sm p-4 bg-mui-sidebar rounded-lg">
-              <p className="text-mui-text-secondary">Fonte primária: <strong>Roboto</strong> (300, 400, 500, 700)</p>
-            </div>
-          </ComponentCard>
-          
-          <Separator />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <ComponentCard title="Como Usar">
-              <p className="text-mui-text-secondary mb-3">
-                Utilize as classes de tipografia em seus componentes:
-              </p>
-              <CodeBlock title="Exemplo de uso" language="jsx" code={`<h1 className="text-8xl font-light leading-[112.03px] font-roboto">
-  Título Principal
-</h1>
-
-<p className="text-base font-normal leading-normal tracking-tight">
-  Este é um parágrafo com estilo body1, usado para textos
-  longos e informativos no corpo da página.
-</p>
-
-<span className="text-xs font-normal leading-loose tracking-wide uppercase">
-  TEXTO DE MARCAÇÃO SUPERIOR
-</span>`} />
-            </ComponentCard>
-            
-            <ComponentCard title="Consistência">
-              <p className="text-mui-text-secondary mb-3">
-                Benefícios de usar o sistema de tipografia:
-              </p>
-              <ul className="list-disc list-inside mt-2 space-y-2 text-mui-text-secondary">
-                <li>Hierarquia visual clara e coerente</li>
-                <li>Legibilidade otimizada para diferentes tamanhos de tela</li>
-                <li>Facilidade de manutenção com tokens padronizados</li>
-                <li>Acessibilidade melhorada com relações de tamanho apropriadas</li>
-                <li>Experiência de usuário consistente em toda a aplicação</li>
-              </ul>
-            </ComponentCard>
           </div>
         </TabsContent>
         
-        <TabsContent value="styles" className="space-y-6">
-          <ComponentCard title="Estilos de Tipografia">
-            <div className="space-y-10 py-4">
-              {typographyStyles.map(style => <div key={style.name} className="border-b pb-8 last:border-b-0">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <h3 className="text-xl font-medium">{style.name}</h3>
-                        <Badge variant="standard">{style.description}</Badge>
-                      </div>
-                      <p className="text-mui-text-secondary mt-1">
-                        {style.description === "Heading 1" && "Título principal para páginas e seções de destaque"}
-                        {style.description === "Heading 2" && "Segundo nível de títulos para seções importantes"}
-                        {style.description === "Heading 3" && "Terceiro nível para subseções e conteúdo estruturado"}
-                        {style.description === "Heading 4" && "Quarto nível para grupos de conteúdo"}
-                        {style.description === "Heading 5" && "Quinto nível para títulos menores"}
-                        {style.description === "Heading 6" && "Sexto nível para marcadores pequenos"}
-                        {style.description === "Subtitle 1" && "Subtítulo principal para complementar headings"}
-                        {style.description === "Subtitle 2" && "Subtítulo secundário para informações de suporte"}
-                        {style.description === "Body 1" && "Texto principal para parágrafos e conteúdo"}
-                        {style.description === "Body 2" && "Texto secundário para informações complementares"}
-                        {style.description === "Caption" && "Texto de legenda para imagens e elementos auxiliares"}
-                        {style.description === "Overline" && "Texto decorativo em maiúsculas usado acima de títulos"}
-                      </p>
+        <TabsContent value="styles">
+          <div className="space-y-6">
+            <div className="rounded-lg border p-6">
+              <h2 className="text-2xl font-semibold mb-4">Estilos de Texto</h2>
+              
+              <Separator className="my-6" />
+              
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-lg font-medium mb-4">Headings</h3>
+                  <div className="space-y-4">
+                    <div className="bg-gray-50 p-4 rounded-md">
+                      <h1 className="text-4xl font-bold">Heading 1</h1>
+                      <p className="text-sm text-gray-500 mt-2">32px (2rem) | Bold</p>
                     </div>
-                    <div className="flex items-center">
-                      <div className="relative flex items-center max-w-fit">
-                        <code className="bg-mui-sidebar px-3 py-2 rounded text-sm pr-8">{style.className}</code>
-                        <button onClick={() => copyToClipboard(style.className)} className="absolute right-2 text-mui-text-secondary hover:text-mui-text-primary">
-                          {copied === style.className ? <Check size={16} /> : <Copy size={16} />}
+                    <div className="bg-gray-50 p-4 rounded-md">
+                      <h2 className="text-3xl font-semibold">Heading 2</h2>
+                      <p className="text-sm text-gray-500 mt-2">24px (1.5rem) | Semibold</p>
+                    </div>
+                    <div className="bg-gray-50 p-4 rounded-md">
+                      <h3 className="text-2xl font-medium">Heading 3</h3>
+                      <p className="text-sm text-gray-500 mt-2">20px (1.25rem) | Medium</p>
+                    </div>
+                    <div className="bg-gray-50 p-4 rounded-md">
+                      <h4 className="text-xl font-medium">Heading 4</h4>
+                      <p className="text-sm text-gray-500 mt-2">18px (1.125rem) | Medium</p>
+                    </div>
+                    <div className="bg-gray-50 p-4 rounded-md">
+                      <h5 className="text-lg font-medium">Heading 5</h5>
+                      <p className="text-sm text-gray-500 mt-2">16px (1rem) | Medium</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <Separator />
+                
+                <div>
+                  <h3 className="text-lg font-medium mb-4">Body Text</h3>
+                  <div className="space-y-4">
+                    <div className="bg-gray-50 p-4 rounded-md">
+                      <p className="text-base">Body 1: This is a paragraph with standard body text. It's used for the main content of the page.</p>
+                      <p className="text-sm text-gray-500 mt-2">16px (1rem) | Regular</p>
+                    </div>
+                    <div className="bg-gray-50 p-4 rounded-md">
+                      <p className="text-sm">Body 2: This is a slightly smaller paragraph used for secondary content or UI elements.</p>
+                      <p className="text-sm text-gray-500 mt-2">14px (0.875rem) | Regular</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <Separator />
+                
+                <div>
+                  <h3 className="text-lg font-medium mb-4">Utilidades</h3>
+                  <div className="space-y-4">
+                    <div className="bg-gray-50 p-4 rounded-md">
+                      <p className="text-xs">Caption: Used for auxiliary information like timestamps, labels, or help text.</p>
+                      <p className="text-sm text-gray-500 mt-2">12px (0.75rem) | Regular</p>
+                    </div>
+                    <div className="bg-gray-50 p-4 rounded-md">
+                      <p className="text-sm uppercase tracking-wider font-medium">Small Caps: Used for section headers and emphasis.</p>
+                      <p className="text-sm text-gray-500 mt-2">14px (0.875rem) | Medium | Uppercase | Tracking Wide</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="usage">
+          <div className="space-y-6">
+            <div className="rounded-lg border p-6">
+              <h2 className="text-2xl font-semibold mb-4">Como Usar a Tipografia</h2>
+              <p className="text-gray-600 mb-6">
+                Aplicar o sistema tipográfico de forma consistente ajuda a criar uma hierarquia visual e melhorar a experiência do usuário.
+              </p>
+              
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-lg font-medium mb-3">Princípios Gerais</h3>
+                  <ul className="list-disc pl-5 space-y-2 text-gray-600">
+                    <li>Use a hierarquia tipográfica para guiar os usuários pelo conteúdo</li>
+                    <li>Mantenha o contraste adequado para garantir legibilidade</li>
+                    <li>Limite o número de tamanhos de fonte em uma única página</li>
+                    <li>Respeite o espaçamento vertical entre elementos de texto</li>
+                    <li>Use pesos de fonte apropriados para criar ênfase</li>
+                  </ul>
+                </div>
+                
+                <Separator />
+                
+                <div>
+                  <h3 className="text-lg font-medium mb-3">Hierarquia de Texto</h3>
+                  <div className="bg-gray-50 p-6 rounded-md">
+                    <h1 className="text-3xl font-bold mb-4">Título da Página</h1>
+                    <h2 className="text-2xl font-semibold mb-3">Seção Principal</h2>
+                    <p className="text-base mb-4">
+                      Este é um exemplo de texto do corpo principal que explica o conteúdo desta seção. 
+                      O texto do corpo deve ser fácil de ler e ter um bom contraste com o fundo.
+                    </p>
+                    <h3 className="text-xl font-medium mb-2">Subseção</h3>
+                    <p className="text-base mb-3">
+                      Mais detalhes sobre um tópico específico dentro da seção principal.
+                    </p>
+                    <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
+                      <li>Item da lista usando texto Body 2</li>
+                      <li>Outro item da lista com informações secundárias</li>
+                    </ul>
+                    <p className="text-xs text-gray-500">
+                      Informação auxiliar ou nota de rodapé usando texto Caption.
+                    </p>
+                  </div>
+                </div>
+                
+                <Separator />
+                
+                <div>
+                  <h3 className="text-lg font-medium mb-3">Exemplos de Interface</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="border rounded-md overflow-hidden">
+                      <div className="bg-gray-100 px-4 py-3 border-b">
+                        <h4 className="font-medium">Exemplo de Card</h4>
+                      </div>
+                      <div className="p-4">
+                        <h5 className="text-lg font-medium mb-2">Título do Card</h5>
+                        <p className="text-sm text-gray-600 mb-4">
+                          Este é um exemplo de como a tipografia deve ser aplicada em componentes de card.
+                        </p>
+                        <button className="text-sm text-primary-main font-medium">Ação do Card</button>
+                      </div>
+                    </div>
+                    
+                    <div className="border rounded-md overflow-hidden">
+                      <div className="bg-gray-100 px-4 py-3 border-b">
+                        <h4 className="font-medium">Formulário</h4>
+                      </div>
+                      <div className="p-4">
+                        <div className="mb-4">
+                          <label className="block text-sm font-medium mb-1">Nome do campo</label>
+                          <input type="text" className="w-full border rounded px-3 py-2" placeholder="Placeholder" />
+                          <p className="text-xs text-gray-500 mt-1">Texto de ajuda para o campo</p>
+                        </div>
+                        <button className="bg-primary-main text-white px-4 py-2 rounded text-sm font-medium">
+                          Enviar
                         </button>
                       </div>
                     </div>
                   </div>
-                  
-                  <div className="mb-6 p-4 border rounded-lg">
-                    <div className={style.className}>
-                      {style.sample}
-                    </div>
-                  </div>
-                  
-                  <div className="overflow-x-auto">
-                    <Table compact>
-                      <TableHeader>
-                        <TableRow>
-                          <TableHead>Propriedade</TableHead>
-                          <TableHead>Valor</TableHead>
-                          <TableHead>Descrição</TableHead>
-                        </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                        {style.styles.map(prop => <TableRow key={`${style.name}-${prop.name}`}>
-                            <TableCell className="font-medium">{prop.name}</TableCell>
-                            <TableCell>
-                              <code className="bg-mui-sidebar px-2 py-1 rounded text-xs">{prop.value}</code>
-                            </TableCell>
-                            <TableCell className="text-mui-text-secondary">
-                              {prop.name === 'Color' && 'Cor do texto (utilizando tokens semânticos)'}
-                              {prop.name === 'Size' && 'Tamanho do texto (escala Tailwind)'}
-                              {prop.name === 'Weight' && 'Peso/espessura da fonte'}
-                              {prop.name === 'Font' && 'Família tipográfica'}
-                              {prop.name === 'Line Height' && 'Altura da linha (entrelinha)'}
-                              {prop.name === 'Tracking' && 'Espaçamento entre caracteres'}
-                              {prop.name === 'Case' && 'Transformação de maiúsculas/minúsculas'}
-                            </TableCell>
-                          </TableRow>)}
-                      </TableBody>
-                    </Table>
-                  </div>
-                </div>)}
-            </div>
-          </ComponentCard>
-        </TabsContent>
-        
-        <TabsContent value="usage" className="space-y-6">
-          <ComponentCard title="Guia de Uso da Tipografia">
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-xl font-medium mb-3">Hierarquia de Headings</h3>
-                <p className="text-mui-text-secondary mb-3">
-                  Uma estrutura clara de títulos ajuda os usuários a escanear e compreender o conteúdo:
-                </p>
-                <div className="border rounded-lg p-4 mb-4">
-                  <div className="text-8xl font-light leading-[112.03px] mb-2">H1: Título Principal</div>
-                  <div className="pl-4 border-l-2 border-mui-border">
-                    <div className="text-6xl font-light leading-[72px] mb-2">H2: Seção Principal</div>
-                    <div className="pl-4 border-l-2 border-mui-border">
-                      <div className="text-5xl font-normal leading-[56.02px] mb-2">H3: Subseção</div>
-                      <div className="pl-4 border-l-2 border-mui-border">
-                        <div className="text-4xl font-normal leading-10 mb-2">H4: Grupo de Conteúdo</div>
-                        <div className="pl-4 border-l-2 border-mui-border">
-                          <div className="text-2xl font-normal leading-loose mb-2">H5: Título de Bloco</div>
-                          <div className="pl-4 border-l-2 border-mui-border">
-                            <div className="text-xl font-medium leading-loose">H6: Título Menor</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="text-mui-text-secondary mb-2">
-                  <strong>Dica:</strong> Mantenha a hierarquia correta, não pule níveis de cabeçalho.
                 </div>
               </div>
+            </div>
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="accessibility">
+          <div className="space-y-6">
+            <div className="rounded-lg border p-6">
+              <h2 className="text-2xl font-semibold mb-4">Acessibilidade Tipográfica</h2>
+              <p className="text-gray-600 mb-6">
+                Uma tipografia acessível é essencial para garantir que nossos produtos sejam utilizáveis por todos.
+              </p>
               
-              <div>
-                <h3 className="text-xl font-medium mb-3">Combinações Recomendadas</h3>
-                <p className="text-mui-text-secondary mb-3">
-                  Exemplos de combinações eficazes de estilos de texto:
-                </p>
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-lg font-medium mb-3">Princípios de Acessibilidade</h3>
+                  <ul className="list-disc pl-5 space-y-2 text-gray-600">
+                    <li>Mantenha tamanhos de fonte legíveis (mínimo 16px para texto principal)</li>
+                    <li>Garanta contraste adequado entre texto e fundo (mínimo 4.5:1 para texto padrão)</li>
+                    <li>Use espaçamento adequado entre linhas (line-height de pelo menos 1.5)</li>
+                    <li>Evite usar apenas cor para transmitir informações</li>
+                    <li>Permita que o texto seja redimensionado até 200% sem perda de funcionalidade</li>
+                  </ul>
+                </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="border rounded-lg p-5">
-                    <div className="text-xs font-normal uppercase tracking-wide text-primary-main mb-1">CATEGORIA</div>
-                    <div className="text-4xl font-normal leading-10 mb-2">Título da Seção</div>
-                    <div className="text-base font-medium leading-7 text-mui-text-secondary mb-2">Um subtítulo que explica a seção em mais detalhes.</div>
-                    <div className="text-base font-normal leading-normal mb-4">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.
-                    </div>
-                    <div className="text-xs font-normal leading-tight text-mui-text-secondary">Última atualização: 10 de junho, 2023</div>
-                  </div>
-                  
-                  <div className="border rounded-lg p-5">
-                    <div className="text-5xl font-normal leading-[56.02px] mb-2">Cards de Produto</div>
-                    <div className="text-base font-normal leading-normal mb-4">
-                      Um exemplo ideal para cards, listagens e interfaces compactas.
-                    </div>
-                    <div className="border rounded p-4 mb-2">
-                      <div className="text-xl font-medium leading-loose mb-1">Nome do Produto</div>
-                      <div className="text-sm font-normal leading-tight mb-2">
-                        Descrição curta do produto mostrando suas principais características e benefícios.
+                <Separator />
+                
+                <div>
+                  <h3 className="text-lg font-medium mb-3">Exemplos de Contraste</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="rounded-md overflow-hidden">
+                      <div className="bg-white p-4 border">
+                        <p className="text-gray-900 font-medium mb-1">Contraste Alto (Bom)</p>
+                        <p className="text-gray-900">
+                          Este texto tem uma proporção de contraste de 21:1, muito acima do recomendado.
+                        </p>
                       </div>
-                      <div className="text-base font-medium leading-7 text-primary-main">R$ 299,90</div>
-                      <div className="text-xs font-normal leading-tight text-mui-text-secondary mt-2">4.5★ (123 avaliações)</div>
                     </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-medium mb-3">Responsividade</h3>
-                <p className="text-mui-text-secondary mb-3">
-                  Ajuste os estilos de texto para diferentes tamanhos de tela:
-                </p>
-                <CodeBlock title="Exemplo de tipografia responsiva" language="jsx" code={`<h1 className="text-4xl md:text-6xl lg:text-8xl font-light leading-tight md:leading-[112.03px]">
-  Título Responsivo
-</h1>
-
-<p className="text-sm md:text-base font-normal leading-normal">
-  Este texto se adapta ao tamanho da tela, ficando menor
-  em dispositivos móveis e maior em telas mais amplas.
-</p>`} />
-              </div>
-            </div>
-          </ComponentCard>
-        </TabsContent>
-        
-        <TabsContent value="accessibility" className="space-y-6">
-          <ComponentCard title="Acessibilidade de Texto">
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-xl font-medium mb-3">Diretrizes de Acessibilidade</h3>
-                <p className="text-mui-text-secondary mb-4">
-                  Nosso sistema tipográfico foi projetado considerando as melhores práticas de acessibilidade:
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="border rounded-lg p-4">
-                    <h4 className="text-lg font-medium mb-2">Tamanho e Legibilidade</h4>
-                    <ul className="list-disc list-inside space-y-2 text-mui-text-secondary">
-                      <li>Texto de corpo com tamanho mínimo de 16px (text-base)</li>
-                      <li>Evite texto muito pequeno para informações importantes</li>
-                      <li>Alturas de linha adequadas para melhorar a leitura</li>
-                      <li>Espaçamento entre letras otimizado para cada tamanho</li>
-                    </ul>
-                  </div>
-                  
-                  <div className="border rounded-lg p-4">
-                    <h4 className="text-lg font-medium mb-2">Contraste e Cor</h4>
-                    <ul className="list-disc list-inside space-y-2 text-mui-text-secondary">
-                      <li>Use tokens de cor com contraste adequado (WCAG AA)</li>
-                      <li>Text-primary para conteúdo principal (contraste 7:1)</li>
-                      <li>Text-secondary para conteúdo de suporte (contraste 4.5:1)</li>
-                      <li>Evite depender apenas da cor para transmitir informação</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-medium mb-3">Hierarquia Semântica</h3>
-                <p className="text-mui-text-secondary mb-4">
-                  Use elementos HTML semânticos com os estilos apropriados:
-                </p>
-                <div className="border rounded-lg p-4 mb-4">
-                  <CodeBlock title="HTML Semântico" language="jsx" code={`// Bom - Usa elementos semânticos
-<h1 className="text-8xl font-light">Título Principal</h1>
-<h2 className="text-6xl font-light">Subtítulo</h2>
-<p className="text-base font-normal">Parágrafo de texto.</p>
-
-// Evitar - Apenas estilização sem semântica
-<div className="text-8xl font-light">Título Principal</div>
-<div className="text-6xl font-light">Subtítulo</div>
-<div className="text-base font-normal">Parágrafo de texto.</div>`} />
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-medium mb-3">Exemplos de Casos Especiais</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="border rounded-lg p-4">
-                    <h4 className="text-lg font-medium mb-2">Links e Texto Interativo</h4>
-                    <div className="p-3 bg-gray-50 rounded mb-3">
-                      <div><a href="#" className="text-primary-main hover:underline">Link padrão com sublinhado no hover</a></div>
-                      <div className="mt-2"><a href="#" className="text-primary-main underline">Link sempre sublinhado</a></div>
-                      <div className="mt-2"><a href="#" className="text-primary-main font-medium hover:underline">Link com peso médio</a></div>
-                    </div>
-                    <p className="text-mui-text-secondary text-sm">
-                      Links devem ser claramente distinguíveis do texto normal, usando cor, sublinhado ou outros indicadores visuais.
-                    </p>
-                  </div>
-                  
-                  <div className="border rounded-lg p-4">
-                    <h4 className="text-lg font-medium mb-2">Texto de Formulário</h4>
-                    <div className="p-3 bg-gray-50 rounded mb-3">
-                      <div className="mb-2">
-                        <label className="text-sm font-medium block mb-1">Rótulo do Campo</label>
-                        <input type="text" className="border rounded px-3 py-2 w-full" placeholder="Placeholder" />
+                    
+                    <div className="rounded-md overflow-hidden">
+                      <div className="bg-gray-100 p-4 border">
+                        <p className="text-gray-900 font-medium mb-1">Contraste Bom</p>
+                        <p className="text-gray-700">
+                          Este texto tem uma proporção de contraste de aproximadamente 8:1, bem acima do mínimo.
+                        </p>
                       </div>
-                      <div className="text-xs text-error-main mt-1">Mensagem de erro</div>
-                      <div className="text-xs text-mui-text-secondary mt-2">Texto de ajuda e descrição</div>
                     </div>
-                    <p className="text-mui-text-secondary text-sm">
-                      Rótulos e mensagens de formulário devem ser claros, concisos e com contraste adequado.
-                    </p>
+                    
+                    <div className="rounded-md overflow-hidden">
+                      <div className="bg-gray-200 p-4 border">
+                        <p className="text-gray-600 font-medium mb-1">Contraste Mínimo</p>
+                        <p className="text-gray-500">
+                          Este texto tem uma proporção de contraste próxima de 4.5:1, o mínimo recomendado.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="rounded-md overflow-hidden">
+                      <div className="bg-gray-100 p-4 border">
+                        <p className="text-gray-400 font-medium mb-1">Contraste Insuficiente (Evitar)</p>
+                        <p className="text-gray-300">
+                          Este texto tem contraste insuficiente e deve ser evitado.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <Separator />
+                
+                <div>
+                  <h3 className="text-lg font-medium mb-3">Hierarquia Semântica</h3>
+                  <p className="text-gray-600 mb-4">
+                    Use tags HTML semânticas apropriadas (h1-h6, p, etc.) para criar uma estrutura adequada para tecnologias assistivas.
+                  </p>
+                  <div className="bg-gray-50 p-4 rounded-md space-y-4">
+                    <div>
+                      <code className="text-sm bg-gray-100 px-2 py-1 rounded">&lt;h1&gt;</code>
+                      <p className="text-sm text-gray-600 mt-1">
+                        Usado apenas uma vez por página, como título principal
+                      </p>
+                    </div>
+                    <div>
+                      <code className="text-sm bg-gray-100 px-2 py-1 rounded">&lt;h2&gt;</code>
+                      <p className="text-sm text-gray-600 mt-1">
+                        Usado para seções principais da página
+                      </p>
+                    </div>
+                    <div>
+                      <code className="text-sm bg-gray-100 px-2 py-1 rounded">&lt;h3&gt; - &lt;h6&gt;</code>
+                      <p className="text-sm text-gray-600 mt-1">
+                        Usado para subseções, em ordem hierárquica
+                      </p>
+                    </div>
+                    <div>
+                      <code className="text-sm bg-gray-100 px-2 py-1 rounded">&lt;p&gt;</code>
+                      <p className="text-sm text-gray-600 mt-1">
+                        Usado para parágrafos de texto
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </ComponentCard>
+          </div>
         </TabsContent>
-      </Tabs>
+      </TailwindTabs>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { TabsContent } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { tokenToPixels, pixelsToToken, getSpacingClass } from '@/utils/spacingUtils';
 import { cn } from '@/lib/utils';
@@ -8,8 +8,17 @@ import { Chip } from '@/components/ui/chip';
 import ComponentCard from '@/components/ComponentCard';
 import FoundationsHeader from '@/components/library-components/FoundationsHeader';
 import CodeBlock from '@/components/CodeBlock';
+import { TailwindTabs } from '@/components/ui/tailwind-tabs';
 
 const SpacingPage = () => {
+  // Define tabs for the TailwindTabs component
+  const spacingTabs = [
+    { name: 'Escala', value: 'scale' },
+    { name: 'Uso', value: 'usage' },
+    { name: 'Utilitários', value: 'utilities' },
+    { name: 'Exemplos', value: 'examples' },
+  ];
+
   return (
     <div className="w-full animate-fade-in">
       <FoundationsHeader 
@@ -17,14 +26,12 @@ const SpacingPage = () => {
         description="Nosso sistema de espaçamento fornece tamanhos consistentes que ajudam a criar ritmo visual e hierarquia."
       />
 
-      <Tabs defaultValue="scale" className="mt-8">
-        <TabsList>
-          <TabsTrigger value="scale">Escala</TabsTrigger>
-          <TabsTrigger value="usage">Uso</TabsTrigger>
-          <TabsTrigger value="utilities">Utilitários</TabsTrigger>
-          <TabsTrigger value="examples">Exemplos</TabsTrigger>
-        </TabsList>
-        
+      <TailwindTabs 
+        tabs={spacingTabs}
+        variant="pillsGray"
+        defaultValue="scale"
+        className="w-full mb-6"
+      >
         <TabsContent value="scale" className="space-y-6">
           <ComponentCard title="Sistema de Espaçamento" description="Nosso sistema de espaçamento é baseado em múltiplos de 4px para garantir consistência em toda a interface.">
             <p className="text-mui-text-secondary mb-6">
@@ -290,7 +297,7 @@ function FlexContainer({ children, spacing = 4 }) {
             </div>
           </div>
         </TabsContent>
-      </Tabs>
+      </TailwindTabs>
     </div>
   );
 };
