@@ -1,9 +1,8 @@
-
 import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Button } from '@/components/ui/button';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
-import { Mail, Plus } from 'lucide-react';
+import { Mail, ArrowRight, Plus, X } from 'lucide-react';
 import ComponentsHeader from '@/components/library-components/ComponentsHeader';
 
 const ButtonPage = () => {
@@ -12,7 +11,7 @@ const ButtonPage = () => {
       <div className="mb-12">
         <ComponentsHeader 
           title="Button"
-          description="Interactive elements that enable users to trigger actions."
+          description="Buttons allow users to take actions, and make choices, with a single tap."
         />
         
         <div className="mb-12">
@@ -20,12 +19,12 @@ const ButtonPage = () => {
             Import
           </h2>
           
-          <pre className="bg-mui-sidebar p-4 rounded-lg overflow-x-auto mb-8">
-            <code className="text-mui-text-primary font-mono text-sm">
-              {`import { Button } from "@/components/ui/button";`}
-            </code>
+          <pre className="bg-mui-sidebar p-4 rounded-md overflow-x-auto text-sm">
+            <code>import {'{ Button }'} from "@/components/ui/button";</code>
           </pre>
-          
+        </div>
+        
+        <div className="mb-12">
           <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
             Examples
           </h2>
