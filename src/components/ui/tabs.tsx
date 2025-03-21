@@ -1,3 +1,4 @@
+
 import * as React from "react"
 import * as TabsPrimitive from "@radix-ui/react-tabs"
 import { cn } from "@/lib/utils"
@@ -112,18 +113,22 @@ const TabsList = React.forwardRef<
           orientation === "vertical" ? "max-h-[300px]" : "max-w-full"
         )}
       >
-        <TabsPrimitive.List
-          ref={ref}
-          className={cn(
-            orientation === "horizontal" 
-              ? "inline-flex h-10 items-center justify-start text-muted-foreground" 
-              : "flex flex-col items-start justify-center space-y-1 text-muted-foreground",
-            smallScreen ? "p-0" : "p-1 bg-muted",
-            fullWidth && orientation !== "vertical" ? "w-full" : "",
-            className
-          )}
-          {...props}
-        />
+        <div className={cn(
+          orientation === "horizontal" ? "relative border-b border-gray-300 w-full" : ""
+        )}>
+          <TabsPrimitive.List
+            ref={ref}
+            className={cn(
+              orientation === "horizontal" 
+                ? "inline-flex h-10 items-center justify-start" 
+                : "flex flex-col items-start justify-center space-y-1",
+              smallScreen ? "p-0" : "p-1",
+              "w-fit",
+              className
+            )}
+            {...props}
+          />
+        </div>
       </div>
       
       {scrollable && orientation !== "vertical" && (
@@ -171,7 +176,7 @@ const TabsTrigger = React.forwardRef<
     ref={ref}
     className={cn(
       "inline-flex items-center justify-center whitespace-nowrap px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-      "text-muted-foreground", // Default inactive tab color
+      "text-secondary-foreground", // Default inactive tab color (changed to secondary)
       {
         "data-[state=active]:text-foreground": true,
         "data-[state=active]:border-b-2 data-[state=active]:border-primary-main": activeColor === "primary",
