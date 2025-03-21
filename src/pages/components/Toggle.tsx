@@ -31,7 +31,7 @@ const TogglePage = () => {
   const [rightLabelEnabled, setRightLabelEnabled] = useState(false);
   
   return (
-    <div className="max-w-4xl mx-auto py-12">
+    <div className="container py-10">
       <ComponentsHeader 
         title="Toggle" 
         description="Toggle components allow users to switch between two states and are commonly used for 'on/off' functionality."
@@ -41,7 +41,7 @@ const TogglePage = () => {
         <CodeBlock code={`import { Toggle } from "@/components/ui/toggle";`} language="jsx" />
       </div>
 
-      <div className="space-y-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Simple toggle */}
         <ComponentCard 
           title="Simple toggle" 
