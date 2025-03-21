@@ -8,10 +8,10 @@ import MainLayout from "./layouts/MainLayout";
 import Index from "./pages/Index";
 import Components from "./pages/Components";
 import ComponentDetail from "./pages/ComponentDetail";
-import Colors from "./pages/foundations/Colors";
-import Typography from "./pages/foundations/Typography";
-import Spacing from "./pages/foundations/Spacing";
-import Icons from "./pages/foundations/Icons";
+import Colors from "./pages/Colors";
+import Typography from "./pages/Typography";
+import Spacing from "./pages/Spacing";
+import Icons from "./pages/Icons";
 import NotFound from "./pages/NotFound";
 import UIKit from "./pages/UIKit";
 // Import component pages
