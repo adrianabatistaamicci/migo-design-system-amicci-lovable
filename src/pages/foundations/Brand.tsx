@@ -9,7 +9,7 @@ import AmicciLogo from '@/pages/assets/Amicci-Branco+TurquesaEscuro.svg';
 import AmicciLogoTurquesaEscuro from '@/pages/assets/Amicci-Logo_TurquesaEscuro+Branco.svg';
 import AmicciLogoTurquesaBranco from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg';
 import AmicciLogoTurquesaEscuroTurquesa from '@/pages/assets/Amicci-Logo_Turquesa+TurquesaEscuro.svg';
-import AmicciSimbolo from '@/pages/assets/Amicci_Símbolo_Turquesa_Escuro.svg';
+import AmicciSimbolo from '@/pages/assets/Amicci-Símbolo_Turquesa_Escuro.svg';
 
 const Brand = () => {
   return <div className="w-full animate-fade-in">
