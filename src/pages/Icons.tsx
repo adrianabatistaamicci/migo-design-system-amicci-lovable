@@ -20,51 +20,12 @@ const Icons = () => {
         description="Usamos ícones Outlined da Material Design como biblioteca oficial"
       />
       
-      {/* Abas adicionais abaixo do header */}
-      <Tabs defaultValue="standard" className="w-full mb-6">
-        <TabsList className="w-full justify-start bg-transparent" variant="plain">
-          <TabsTrigger value="standard" onClick={() => setShowCase('standard')} variant="plain">
-            Padrões
-          </TabsTrigger>
-          <TabsTrigger value="usage" onClick={() => setShowCase('usage')} variant="plain">
-            Casos de Uso
-          </TabsTrigger>
-          <TabsTrigger value="technical" onClick={() => setShowCase('technical')} variant="plain">
-            Documentação Técnica
-          </TabsTrigger>
-        </TabsList>
-      </Tabs>
-      
-      <Tabs defaultValue="overview" className="w-full">
-        <TabsList className="w-full justify-start h-auto p-0 bg-transparent" variant="plain">
-          <TabsTrigger 
-            value="overview" 
-            className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3"
-            variant="plain"
-          >
-            Visão geral
-          </TabsTrigger>
-          <TabsTrigger 
-            value="styles" 
-            className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3"
-            variant="plain"
-          >
-            Estilos
-          </TabsTrigger>
-          <TabsTrigger 
-            value="usage" 
-            className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3"
-            variant="plain"
-          >
-            Uso
-          </TabsTrigger>
-          <TabsTrigger 
-            value="accessibility" 
-            className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3"
-            variant="plain"
-          >
-            Acessibilidade
-          </TabsTrigger>
+      <Tabs defaultValue="overview" className="mt-8">
+        <TabsList>
+          <TabsTrigger value="overview">Escala</TabsTrigger>
+          <TabsTrigger value="styles">Estilos</TabsTrigger>
+          <TabsTrigger value="usage">Uso</TabsTrigger> 
+          <TabsTrigger value="accessibility">Acessibilidade</TabsTrigger>
         </TabsList>
         
         <TabsContent value="overview" className="space-y-6">
