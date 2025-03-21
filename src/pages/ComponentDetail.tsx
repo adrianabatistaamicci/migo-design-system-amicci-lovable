@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import ComponentCard from '@/components/ComponentCard';
@@ -31,7 +30,6 @@ const componentData = {
         component: (
           <div className="flex flex-wrap gap-4">
             <Button>Primary</Button>
-            <Button variant="secondary">Secondary</Button>
             <Button variant="error">Error</Button>
             <Button variant="warning">Warning</Button>
             <Button variant="info">Info</Button>
@@ -39,7 +37,6 @@ const componentData = {
           </div>
         ),
         code: `<Button>Primary</Button>
-<Button variant="secondary">Secondary</Button>
 <Button variant="error">Error</Button>
 <Button variant="warning">Warning</Button>
 <Button variant="info">Info</Button>
@@ -50,7 +47,6 @@ const componentData = {
         description: 'Buttons with outline for less pronounced actions.',
         component: (
           <div className="flex flex-wrap gap-4">
-            <Button variant="outline-default">Primary</Button>
             <Button variant="outline-secondary">Secondary</Button>
             <Button variant="outline-error">Error</Button>
             <Button variant="outline-warning">Warning</Button>
@@ -58,8 +54,7 @@ const componentData = {
             <Button variant="outline-success">Success</Button>
           </div>
         ),
-        code: `<Button variant="outline-default">Primary</Button>
-<Button variant="outline-secondary">Secondary</Button>
+        code: `<Button variant="outline-secondary">Secondary</Button>
 <Button variant="outline-error">Error</Button>
 <Button variant="outline-warning">Warning</Button>
 <Button variant="outline-info">Info</Button>
