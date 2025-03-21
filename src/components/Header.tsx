@@ -1,12 +1,15 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Search as SearchIcon, Github, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+
 interface HeaderProps {
   toggleSidebar: () => void;
   isSidebarOpen: boolean;
 }
+
 const Header: React.FC<HeaderProps> = ({
   toggleSidebar,
   isSidebarOpen
@@ -14,6 +17,7 @@ const Header: React.FC<HeaderProps> = ({
   const [scrolled, setScrolled] = useState(false);
   const [searchActive, setSearchActive] = useState(false);
   const location = useLocation();
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -21,6 +25,7 @@ const Header: React.FC<HeaderProps> = ({
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   return <header className={`sticky top-0 z-40 w-full transition-all duration-200 ease-elastic ${scrolled ? 'bg-white shadow-[0px_12px_16px_-4px_rgba(14,24,41,0.08),0px_4px_6px_-2px_rgba(14,24,41,0.03)]' : 'bg-white shadow-[0px_12px_16px_-4px_rgba(14,24,41,0.08),0px_4px_6px_-2px_rgba(14,24,41,0.03)]'}`}>
       <div className="w-full h-16 flex items-center justify-between px-6">
         <div className="flex items-center gap-3">
@@ -29,8 +34,7 @@ const Header: React.FC<HeaderProps> = ({
           </Button>
           
           <Link to="/" className="flex items-center gap-2 font-medium text-primary-dark">
-            <img src="https://amicci.com.br/wp-content/uploads/2024/09/Amicci-Logo_Turquesa-EscuroTurquesa.svg" alt="Amicci" className="h-auto w-[120px]" />
-            <span className="leading-7 tracking-tight text-text-primary hidden sm:inline font-medium text-lg">design system</span>
+            <img src="/lovable-uploads/c46720e2-cd4f-4c26-9958-666404bb9561.png" alt="Amicci Design System" className="h-auto w-[200px]" />
           </Link>
         </div>
 
@@ -66,4 +70,5 @@ const Header: React.FC<HeaderProps> = ({
       </div>
     </header>;
 };
+
 export default Header;
