@@ -22,6 +22,10 @@ import SelectPage from "./pages/components/Select";
 import SliderPage from "./pages/components/Slider";
 import SwitchPage from "./pages/components/Switch";
 import AvatarPage from "./pages/components/Avatar";
+import BadgePage from "./pages/components/Badge";
+import ChipPage from "./pages/components/Chip";
+import TabsPage from "./pages/components/Tabs";
+import ProgressPage from "./pages/components/Progress";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -48,6 +52,10 @@ const App = () => {
               <Route path="/components/slider" element={<SliderPage />} />
               <Route path="/components/switch" element={<SwitchPage />} />
               <Route path="/components/avatar" element={<AvatarPage />} />
+              <Route path="/components/badge" element={<BadgePage />} />
+              <Route path="/components/chip" element={<ChipPage />} />
+              <Route path="/components/tabs" element={<TabsPage />} />
+              <Route path="/components/progress" element={<ProgressPage />} />
               
               {/* Foundation pages */}
               <Route path="/colors" element={<Colors />} />
