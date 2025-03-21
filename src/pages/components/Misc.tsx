@@ -2,23 +2,16 @@
 import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 
-// Dynamically import all components from the library-components directory
-const importAll = (r: __WebpackModuleApi.RequireContext) => {
-  return r.keys().reduce((acc: Record<string, React.ComponentType<any>>, key: string) => {
-    const componentName = key.replace('./', '').replace('.tsx', '');
-    acc[componentName] = r(key).default;
-    return acc;
-  }, {});
-};
-
-// This is a special webpack function that will import all files from a directory
-// @ts-ignore
-const libraryComponents = import.meta.glob('/src/components/library-components/*.tsx', { eager: true });
+// Define the type for the module records returned by import.meta.glob
+type ModuleRecord = Record<string, { default: React.ComponentType<any> }>;
 
 const MiscPage: React.FC = () => {
   const [components, setComponents] = useState<Record<string, React.ComponentType<any>>>({});
 
   useEffect(() => {
+    // This is a special Vite function that will import all files from a directory
+    const libraryComponents = import.meta.glob<{ default: React.ComponentType<any> }>('/src/components/library-components/*.tsx', { eager: true }) as ModuleRecord;
+    
     // Convert the import.meta.glob result to our expected format
     const formattedComponents: Record<string, React.ComponentType<any>> = {};
     
