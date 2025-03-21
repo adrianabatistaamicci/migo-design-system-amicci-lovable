@@ -9,9 +9,8 @@ import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { colorUtils } from '@/utils/colorUtils';
 import ComponentCard from '@/components/ComponentCard';
-import { FoundationsHeader } from '@/components/library-components/FoundationsHeader';
+import FoundationsHeader from '@/components/library-components/FoundationsHeader';
 
-// ColorSwatch component
 const ColorSwatch = ({
   color,
   className = "",
@@ -31,52 +30,43 @@ const ColorSwatch = ({
 }) => {
   const [copied, setCopied] = useState(false);
 
-  // Determine text color based on background color luminance
   const getTextColor = () => {
-    // If we have a hex value, use luminance calculation for determining contrast
     if (hexValue) {
       try {
         const luminance = colorUtils.getLuminance(hexValue);
         return luminance > 0.5 ? 'text-gray-800' : 'text-white';
       } catch (e) {
-        // Fallback to heuristic based on color name
         return getLightDarkFromName();
       }
     }
-
-    // If we don't have a hex value, use heuristic based on color name
     return getLightDarkFromName();
   };
 
-  // Helper function to determine if a color is light based on its name
   const getLightDarkFromName = () => {
     const lightColors = ['white', 'light', '50', '100', '200', '300'];
     const isLightColorName = lightColors.some(lightColor => color.toLowerCase().includes(lightColor));
     return isLightColorName ? 'text-gray-800' : 'text-white';
   };
+
   const handleCopy = () => {
     const valueToCopy = copyValue || hexValue || color;
     navigator.clipboard.writeText(valueToCopy);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
   const textColor = getTextColor();
 
-  // Determine the correct background style
   const getBackgroundStyle = () => {
-    // If color starts with 'bg-', we're using a Tailwind class
     if (color.startsWith('bg-')) {
       return color;
     }
-
-    // If color is a hex value and doesn't start with 'bg-', use inline style
     if (hexValue && !color.startsWith('bg-')) {
       return `bg-[${hexValue}]`;
     }
-
-    // Fallback to the original class
     return color;
   };
+
   return <div className={`relative w-full rounded-md ${getBackgroundStyle()} ${className} flex items-center justify-center px-3 transition-all hover:shadow-md cursor-pointer group`} onClick={onClick || handleCopy} role="button" tabIndex={0} style={hexValue && !color.startsWith('bg-') ? {
     backgroundColor: hexValue
   } : undefined}>
@@ -89,13 +79,11 @@ const ColorSwatch = ({
     </div>;
 };
 
-// BaseColorsTable component
 const BaseColorsTable = ({
   baseColors
 }) => {
   const copyToClipboard = text => {
     navigator.clipboard.writeText(text);
-    // You could add a toast notification here
   };
   const renderCopyButton = text => <button onClick={() => copyToClipboard(text)} className="ml-2 text-gray-400 hover:text-gray-600 transition-colors">
       <Copy size={14} />
@@ -150,26 +138,20 @@ const BaseColorsTable = ({
     </div>;
 };
 
-// PaletteTable component
 const PaletteTable = ({
   palettes
 }) => {
   const copyToClipboard = text => {
     navigator.clipboard.writeText(text);
-    // You could add a toast notification here
   };
   const renderCopyButton = text => <button onClick={() => copyToClipboard(text)} className="ml-2 text-gray-400 hover:text-gray-600 transition-colors">
       <Copy size={14} />
     </button>;
 
-  // Avalia o contraste WCAG
   const getWCAGStatus = hexColor => {
     try {
-      // Avaliamos o contraste com fundo branco
       const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
       const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
-
-      // Escolha o melhor contraste
       const bestContrast = Math.max(contrastWithWhite, contrastWithBlack);
       const contrastColor = contrastWithWhite > contrastWithBlack ? 'branco' : 'preto';
       return {
@@ -242,7 +224,6 @@ const PaletteTable = ({
     </div>;
 };
 
-// Data for components
 const baseColorsData = [{
   name: 'Amicci',
   weights: [{
@@ -1199,6 +1180,291 @@ const paletteData = [{
     hexValue: '#FFFFFF'
   }]
 }];
+
+const OverviewTab = () => {
+  return (
+    <div className="space-y-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="space-y-4">
+          <h3 className="text-xl font-semibold">Cores da Marca</h3>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <ColorSwatch color="bg-amicci-500" className="h-24 rounded-lg" />
+              <p className="text-sm font-medium text-center">Turquesa (primary)</p>
+            </div>
+            <div className="space-y-2">
+              <ColorSwatch color="bg-amicciDark-500" className="h-24 rounded-lg" />
+              <p className="text-sm font-medium text-center">Azul Escuro (secondary)</p>
+            </div>
+          </div>
+        </div>
+        <div className="space-y-4">
+          <h3 className="text-xl font-semibold">Paleta Estendida</h3>
+          <div className="grid grid-cols-3 gap-2">
+            <ColorSwatch color="bg-magenta-500" className="h-12 rounded-lg" />
+            <ColorSwatch color="bg-blue-500" className="h-12 rounded-lg" />
+            <ColorSwatch color="bg-green-500" className="h-12 rounded-lg" />
+            <ColorSwatch color="bg-yellow-500" className="h-12 rounded-lg" />
+            <ColorSwatch color="bg-orange-500" className="h-12 rounded-lg" />
+            <ColorSwatch color="bg-red-500" className="h-12 rounded-lg" />
+          </div>
+        </div>
+        <div className="space-y-4">
+          <h3 className="text-xl font-semibold">Escala de Cinzas</h3>
+          <div className="grid grid-cols-5 gap-2">
+            <ColorSwatch color="bg-gray-900" className="h-12 rounded-lg" />
+            <ColorSwatch color="bg-gray-700" className="h-12 rounded-lg" />
+            <ColorSwatch color="bg-gray-500" className="h-12 rounded-lg" />
+            <ColorSwatch color="bg-gray-300" className="h-12 rounded-lg" />
+            <ColorSwatch color="bg-gray-100" className="h-12 rounded-lg" />
+          </div>
+        </div>
+      </div>
+
+      <Separator />
+
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Tokens de Cor</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="space-y-2">
+            <p className="font-medium">Primary</p>
+            <div className="space-y-1">
+              <ColorSwatch color="bg-primary-main" className="h-10 rounded" textOverlay="main" />
+              <ColorSwatch color="bg-primary-dark" className="h-8 rounded" textOverlay="dark" />
+              <ColorSwatch color="bg-primary-light" className="h-8 rounded" textOverlay="light" />
+            </div>
+          </div>
+          <div className="space-y-2">
+            <p className="font-medium">Secondary</p>
+            <div className="space-y-1">
+              <ColorSwatch color="bg-secondary-main" className="h-10 rounded" textOverlay="main" />
+              <ColorSwatch color="bg-secondary-dark" className="h-8 rounded" textOverlay="dark" />
+              <ColorSwatch color="bg-secondary-light" className="h-8 rounded" textOverlay="light" />
+            </div>
+          </div>
+          <div className="space-y-2">
+            <p className="font-medium">Error</p>
+            <div className="space-y-1">
+              <ColorSwatch color="bg-error-main" className="h-10 rounded" textOverlay="main" />
+              <ColorSwatch color="bg-error-dark" className="h-8 rounded" textOverlay="dark" />
+              <ColorSwatch color="bg-error-light" className="h-8 rounded" textOverlay="light" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const PalettesTab = () => {
+  return <PaletteTable palettes={paletteData} />;
+};
+
+const BaseColorsTab = () => {
+  return <BaseColorsTable baseColors={baseColorsData} />;
+};
+
+const UsageTab = () => {
+  return (
+    <div className="space-y-8">
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Aplicação das Cores</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <ComponentCard title="Botões">
+            <div className="flex flex-wrap gap-3">
+              <Button>Default</Button>
+              <Button variant="secondary">Secondary</Button>
+              <Button variant="tertiary">Tertiary</Button>
+              <Button variant="destructive">Destructive</Button>
+              <Button variant="outline">Outline</Button>
+              <Button variant="ghost">Ghost</Button>
+            </div>
+          </ComponentCard>
+          
+          <ComponentCard title="Badges">
+            <div className="flex flex-wrap gap-3">
+              <Badge>Default</Badge>
+              <Badge variant="secondary">Secondary</Badge>
+              <Badge variant="destructive">Destructive</Badge>
+              <Badge variant="outline">Outline</Badge>
+            </div>
+          </ComponentCard>
+          
+          <ComponentCard title="Avatar com Cores">
+            <div className="flex gap-3">
+              <Avatar className="bg-primary-main">
+                <AvatarFallback>AP</AvatarFallback>
+              </Avatar>
+              <Avatar className="bg-secondary-main">
+                <AvatarFallback>MK</AvatarFallback>
+              </Avatar>
+              <Avatar className="bg-tertiary-main">
+                <AvatarFallback>JD</AvatarFallback>
+              </Avatar>
+              <Avatar className="bg-error-main">
+                <AvatarFallback>XX</AvatarFallback>
+              </Avatar>
+            </div>
+          </ComponentCard>
+          
+          <ComponentCard title="Textos Coloridos">
+            <div className="space-y-2">
+              <p className="text-primary-main">Texto em Primary</p>
+              <p className="text-secondary-main">Texto em Secondary</p>
+              <p className="text-tertiary-main">Texto em Tertiary</p>
+              <p className="text-error-main">Texto em Error</p>
+              <p className="text-warning-main">Texto em Warning</p>
+              <p className="text-success-main">Texto em Success</p>
+            </div>
+          </ComponentCard>
+        </div>
+      </div>
+      
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Recomendações de Uso</h3>
+        <div className="space-y-2">
+          <p className="text-sm">
+            • Use <span className="text-primary-main font-medium">primary</span> para elementos principais de destaque.
+          </p>
+          <p className="text-sm">
+            • Use <span className="text-secondary-main font-medium">secondary</span> para elementos de suporte e complemento.
+          </p>
+          <p className="text-sm">
+            • Use <span className="text-tertiary-main font-medium">tertiary</span> para elementos decorativos ou de acento.
+          </p>
+          <p className="text-sm">
+            • Use <span className="text-error-main font-medium">error</span> exclusivamente para mensagens de erro e alertas críticos.
+          </p>
+          <p className="text-sm">
+            • Use <span className="text-warning-main font-medium">warning</span> para atenção e alertas não críticos.
+          </p>
+          <p className="text-sm">
+            • Use <span className="text-success-main font-medium">success</span> para confirmações e ações bem-sucedidas.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const AccessibilityTab = () => {
+  return (
+    <div className="space-y-8">
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Diretrizes de Acessibilidade</h3>
+        <p>
+          Todas as combinações de cores utilizadas na interface devem seguir as diretrizes WCAG 2.1 
+          para garantir legibilidade e acessibilidade para todos os usuários, incluindo aqueles com 
+          deficiências visuais ou daltonismo.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="border rounded-lg p-4 space-y-3">
+            <h4 className="font-medium">Contraste Mínimo</h4>
+            <p className="text-sm">
+              O contraste entre texto e fundo deve ser de pelo menos 4.5:1 para texto normal e 3:1 para texto grande.
+            </p>
+            
+            <div className="space-y-2">
+              <div className="flex items-center justify-between p-2 bg-primary-main text-white rounded">
+                <span>Texto em fundo primary</span>
+                <Badge variant="outline" className="bg-white/10">Contraste 4.6:1 ✓</Badge>
+              </div>
+              
+              <div className="flex items-center justify-between p-2 bg-secondary-main text-white rounded">
+                <span>Texto em fundo secondary</span>
+                <Badge variant="outline" className="bg-white/10">Contraste 5.2:1 ✓</Badge>
+              </div>
+              
+              <div className="flex items-center justify-between p-2 bg-error-main text-white rounded">
+                <span>Texto em fundo error</span>
+                <Badge variant="outline" className="bg-white/10">Contraste 4.8:1 ✓</Badge>
+              </div>
+            </div>
+          </div>
+          
+          <div className="border rounded-lg p-4 space-y-3">
+            <h4 className="font-medium">Daltonismo</h4>
+            <p className="text-sm">
+              Nossa paleta foi testada para diferentes tipos de daltonismo para garantir que as informações sejam distinguíveis.
+            </p>
+            
+            <div className="flex items-center gap-3">
+              <Button variant="outline" className="text-xs gap-2">
+                <Eye className="h-3 w-3" />
+                Simulação de Protanopia
+              </Button>
+              <Button variant="outline" className="text-xs gap-2">
+                <Eye className="h-3 w-3" />
+                Simulação de Deuteranopia
+              </Button>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <ColorSwatch color="bg-success-main" className="h-8 rounded" />
+                <p className="text-xs text-center mt-1">Success</p>
+              </div>
+              <div>
+                <ColorSwatch color="bg-error-main" className="h-8 rounded" />
+                <p className="text-xs text-center mt-1">Error</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Teste de Contraste</h3>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Combinação</TableHead>
+              <TableHead>Ratio</TableHead>
+              <TableHead>WCAG AA</TableHead>
+              <TableHead>WCAG AAA</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow>
+              <TableCell>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded bg-primary-main"></div>
+                  <span>Primary + White</span>
+                </div>
+              </TableCell>
+              <TableCell>4.6:1</TableCell>
+              <TableCell className="text-success-main">Passa</TableCell>
+              <TableCell className="text-error-main">Não passa</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded bg-secondary-main"></div>
+                  <span>Secondary + White</span>
+                </div>
+              </TableCell>
+              <TableCell>5.2:1</TableCell>
+              <TableCell className="text-success-main">Passa</TableCell>
+              <TableCell className="text-error-main">Não passa</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded bg-gray-900"></div>
+                  <span>Text Primary + White</span>
+                </div>
+              </TableCell>
+              <TableCell>16:1</TableCell>
+              <TableCell className="text-success-main">Passa</TableCell>
+              <TableCell className="text-success-main">Passa</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </div>
+    </div>
+  );
+};
 
 const Colors = () => {
   const [showCase, setShowCase] = useState<'standard' | 'usage' | 'technical'>('standard');
