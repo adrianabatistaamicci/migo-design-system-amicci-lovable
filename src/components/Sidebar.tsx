@@ -81,6 +81,7 @@ const sidebarItems: SidebarItem[] = [
       { title: 'Transitions', href: '/components/transitions' },
       { title: 'Data Grid', href: '/components/data-grid' },
       { title: 'Date & Time Pickers', href: '/components/date-picker' },
+      { title: 'Misc', href: '/components/misc' },
     ]
   },
   {

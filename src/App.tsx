@@ -28,6 +28,7 @@ import BadgePage from "./pages/components/Badge";
 import ChipPage from "./pages/components/Chip";
 import TabsPage from "./pages/components/Tabs";
 import ProgressPage from "./pages/components/Progress";
+import MiscPage from "./pages/components/Misc";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -58,6 +59,7 @@ const App = () => {
               <Route path="/components/chip" element={<ChipPage />} />
               <Route path="/components/tabs" element={<TabsPage />} />
               <Route path="/components/progress" element={<ProgressPage />} />
+              <Route path="/components/misc" element={<MiscPage />} />
               
               {/* Foundation pages */}
               <Route path="/colors" element={<Colors />} />
