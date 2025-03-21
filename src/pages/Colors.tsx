@@ -1,9 +1,8 @@
-
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Chip } from '@/components/ui/chip';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Copy, Check, Eye, EyeOff } from 'lucide-react';
+import { Copy, Check, Eye, EyeOff, AlertCircle, Info } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -832,6 +831,7 @@ const Colors = () => {
           <TabsTrigger value="base-colors">Cores Base</TabsTrigger>
           <TabsTrigger value="palettes">Paletas</TabsTrigger>
           <TabsTrigger value="usage">Uso</TabsTrigger>
+          <TabsTrigger value="accessibility">Acessibilidade</TabsTrigger>
         </TabsList>
         
         <TabsContent value="overview">
@@ -1094,6 +1094,179 @@ const Colors = () => {
                       <div className="p-3 bg-gray-200 rounded">
                         <p className="text-gray-400">❌ Texto muito claro em fundo claro</p>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ComponentCard>
+        </TabsContent>
+        
+        <TabsContent value="accessibility">
+          <ComponentCard title="Acessibilidade de Cores" description="Garantindo que nosso sistema de cores seja acessível a todos.">
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Contraste</h3>
+                <p className="text-gray-600 mb-4">
+                  Todas as combinações de cores de texto e fundo atendem aos requisitos de contraste WCAG 2.1 AA:
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                  <div className="border p-4 rounded-lg space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Info className="h-5 w-5 text-info-main" />
+                      <h4 className="font-medium">Texto normal</h4>
+                    </div>
+                    <p className="text-sm text-gray-600">Contraste mínimo de 4.5:1</p>
+                    <div className="p-3 bg-primary-main rounded">
+                      <p className="text-white text-sm">Exemplo de texto com contraste adequado</p>
+                    </div>
+                  </div>
+                  
+                  <div className="border p-4 rounded-lg space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Info className="h-5 w-5 text-info-main" />
+                      <h4 className="font-medium">Texto grande (18pt ou 14pt bold)</h4>
+                    </div>
+                    <p className="text-sm text-gray-600">Contraste mínimo de 3:1</p>
+                    <div className="p-3 bg-amicci-300 rounded">
+                      <p className="text-gray-800 text-xl font-bold">Texto grande</p>
+                    </div>
+                  </div>
+                  
+                  <div className="border p-4 rounded-lg space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Info className="h-5 w-5 text-info-main" />
+                      <h4 className="font-medium">Componentes de interface e gráficos</h4>
+                    </div>
+                    <p className="text-sm text-gray-600">Contraste mínimo de 3:1</p>
+                    <div className="p-3 rounded flex justify-center">
+                      <Button>Botão de exemplo</Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Não Dependa Apenas da Cor</h3>
+                <p className="text-gray-600 mb-4">
+                  Para garantir que as informações sejam acessíveis a pessoas com deficiência visual ou daltonismo, 
+                  não usamos apenas cor para transmitir informações importantes:
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                  <div className="border p-4 rounded-lg space-y-2">
+                    <div className="flex items-center gap-2 text-primary-main">
+                      <Check className="h-5 w-5" />
+                      <h4 className="font-medium">Combinação com elementos visuais</h4>
+                    </div>
+                    <p className="text-sm text-gray-600">Combinamos cores com ícones, textos e padrões</p>
+                    <div className="p-3 bg-gray-100 rounded flex items-center gap-2">
+                      <AlertCircle className="h-5 w-5 text-error-main" />
+                      <span className="text-error-main">Erro no formulário</span>
+                    </div>
+                  </div>
+                  
+                  <div className="border p-4 rounded-lg space-y-2">
+                    <div className="flex items-center gap-2 text-primary-main">
+                      <Check className="h-5 w-5" />
+                      <h4 className="font-medium">Alternativas textuais</h4>
+                    </div>
+                    <p className="text-sm text-gray-600">Oferecemos alternativas textuais para informações baseadas em cores</p>
+                    <div className="p-3 bg-gray-100 rounded">
+                      <div className="flex items-center gap-2">
+                        <div className="w-3 h-3 rounded-full bg-success-main"></div>
+                        <span>Status: Ativo</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="border p-4 rounded-lg space-y-2">
+                    <div className="flex items-center gap-2 text-primary-main">
+                      <Check className="h-5 w-5" />
+                      <h4 className="font-medium">Contraste suficiente</h4>
+                    </div>
+                    <p className="text-sm text-gray-600">Mantemos contraste suficiente mesmo em visualizações monocromáticas</p>
+                    <div className="p-3 bg-gray-100 rounded flex gap-2">
+                      <Badge>Normal</Badge>
+                      <Badge variant="outline">Outline</Badge>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Teste de Daltonismo</h3>
+                <p className="text-gray-600 mb-4">
+                  Nosso sistema de cores foi testado para os seguintes tipos de daltonismo:
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                  <div className="border p-4 rounded-lg">
+                    <h4 className="font-medium mb-2">Deuteranopia</h4>
+                    <p className="text-sm text-gray-600 mb-3">Deficiência de percepção do verde</p>
+                    <div className="grid grid-cols-4 gap-2">
+                      <ColorSwatch color="bg-primary-main" className="h-14" />
+                      <ColorSwatch color="bg-secondary-main" className="h-14" />
+                      <ColorSwatch color="bg-error-main" className="h-14" />
+                      <ColorSwatch color="bg-success-main" className="h-14" />
+                    </div>
+                    <div className="flex justify-end mt-2">
+                      <Button variant="outline-default" size="sm" className="text-xs">
+                        <Eye className="h-3 w-3 mr-1" />
+                        Simular Deuteranopia
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  <div className="border p-4 rounded-lg">
+                    <h4 className="font-medium mb-2">Protanopia</h4>
+                    <p className="text-sm text-gray-600 mb-3">Deficiência de percepção do vermelho</p>
+                    <div className="grid grid-cols-4 gap-2">
+                      <ColorSwatch color="bg-primary-main" className="h-14" />
+                      <ColorSwatch color="bg-secondary-main" className="h-14" />
+                      <ColorSwatch color="bg-error-main" className="h-14" />
+                      <ColorSwatch color="bg-success-main" className="h-14" />
+                    </div>
+                    <div className="flex justify-end mt-2">
+                      <Button variant="outline-default" size="sm" className="text-xs">
+                        <Eye className="h-3 w-3 mr-1" />
+                        Simular Protanopia
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  <div className="border p-4 rounded-lg">
+                    <h4 className="font-medium mb-2">Tritanopia</h4>
+                    <p className="text-sm text-gray-600 mb-3">Deficiência de percepção do azul</p>
+                    <div className="grid grid-cols-4 gap-2">
+                      <ColorSwatch color="bg-primary-main" className="h-14" />
+                      <ColorSwatch color="bg-secondary-main" className="h-14" />
+                      <ColorSwatch color="bg-error-main" className="h-14" />
+                      <ColorSwatch color="bg-success-main" className="h-14" />
+                    </div>
+                    <div className="flex justify-end mt-2">
+                      <Button variant="outline-default" size="sm" className="text-xs">
+                        <Eye className="h-3 w-3 mr-1" />
+                        Simular Tritanopia
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  <div className="border p-4 rounded-lg">
+                    <h4 className="font-medium mb-2">Acromatopsia</h4>
+                    <p className="text-sm text-gray-600 mb-3">Ausência completa de percepção de cores</p>
+                    <div className="grid grid-cols-4 gap-2">
+                      <ColorSwatch color="bg-primary-main" className="h-14" />
+                      <ColorSwatch color="bg-secondary-main" className="h-14" />
+                      <ColorSwatch color="bg-error-main" className="h-14" />
+                      <ColorSwatch color="bg-success-main" className="h-14" />
+                    </div>
+                    <div className="flex justify-end mt-2">
+                      <Button variant="outline-default" size="sm" className="text-xs">
+                        <Eye className="h-3 w-3 mr-1" />
+                        Simular Acromatopsia
+                      </Button>
                     </div>
                   </div>
                 </div>
