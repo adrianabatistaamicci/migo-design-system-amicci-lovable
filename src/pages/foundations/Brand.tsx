@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -16,7 +17,7 @@ const Brand = () => {
               <h3 className="text-xl font-medium">Versão Principal</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="border rounded-lg p-8 flex items-center justify-center bg-white">
-                  <img src="/src/pages/assets/Amicci-Logo_Turquesa+Turquesa Escuro.svg" alt="Amicci logo com diferentes versões" className="max-w-full h-auto" />
+                  <img src="/src/pages/assets/Amicci-Logo_Turquesa+TurquesaEscuro.svg" alt="Amicci logo com diferentes versões" className="max-w-full h-auto" />
                 </div>
                 <div className="space-y-4">
                   <h4 className="font-medium">Logo completo</h4>
@@ -33,7 +34,7 @@ const Brand = () => {
               <h3 className="text-xl font-medium">Versão para fundo escuro</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="border rounded-lg p-8 flex items-center justify-center bg-[#016071]">
-                  <img src="/src/pages/assets/Amicci-Logo_Turquesa Claro+Branco.svg" alt="Amicci logo para fundo Amicci-500" className="max-w-full h-auto" />
+                  <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg" alt="Amicci logo para fundo Amicci-500" className="max-w-full h-auto" />
                 </div>
                 <div className="space-y-4">
                   <h4 className="font-medium">Logo para fundo escuro</h4>
@@ -50,7 +51,7 @@ const Brand = () => {
               <h3 className="text-xl font-medium">Versão para fundo médio</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="border rounded-lg p-8 flex items-center justify-center bg-amicci-500">
-                  <img src="/src/pages/assets/Amicci-Logo_Turquesa Escuro+Branco.svg" alt="Amicci logo para fundo Amicci-700" className="max-w-full h-auto" />
+                  <img src="/src/pages/assets/Amicci-Logo_TurquesaEscuro+Branco.svg" alt="Amicci logo para fundo Amicci-700" className="max-w-full h-auto" />
                 </div>
                 <div className="space-y-4">
                   <h4 className="font-medium">Logo para fundo médio</h4>
@@ -99,7 +100,7 @@ const Brand = () => {
                 <h4 className="font-medium">Versão Branco + Turquesa Escuro</h4>
                 <div className="border rounded-lg p-6 bg-[#00B2B0] flex justify-center">
                   <div className="max-w-md">
-                    <img src="/src/pages/assets/Amicci-Logo_Turquesa Escuro+Branco.svg" alt="Amicci logo - versão branco + turquesa escuro" className="max-w-full h-auto" />
+                    <img src="/src/pages/assets/Amicci-Logo_TurquesaEscuro+Branco.svg" alt="Amicci logo - versão branco + turquesa escuro" className="max-w-full h-auto" />
                   </div>
                 </div>
               </div>
@@ -108,7 +109,7 @@ const Brand = () => {
                 <h4 className="font-medium">Versão Turquesa + Turquesa Escuro</h4>
                 <div className="border rounded-lg p-6 bg-white flex justify-center">
                   <div className="max-w-md">
-                    <img src="/src/pages/assets/Amicci-Logo_Turquesa+Turquesa Escuro.svg" alt="Amicci logo - versão turquesa + turquesa escuro" className="max-w-full h-auto" />
+                    <img src="/src/pages/assets/Amicci-Logo_Turquesa+TurquesaEscuro.svg" alt="Amicci logo - versão turquesa + turquesa escuro" className="max-w-full h-auto" />
                   </div>
                 </div>
               </div>
@@ -117,7 +118,7 @@ const Brand = () => {
                 <h4 className="font-medium">Versão para aplicações com fundo Amicci-500</h4>
                 <div className="border rounded-lg p-6 bg-[#016071] flex justify-center">
                   <div className="max-w-md">
-                    <img src="/src/pages/assets/Amicci-Logo_Turquesa Claro+Branco.svg" alt="Amicci logo - versão para aplicações com fundo Amicci-500" className="max-w-full h-auto" />
+                    <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg" alt="Amicci logo - versão para aplicações com fundo Amicci-500" className="max-w-full h-auto" />
                   </div>
                 </div>
               </div>
