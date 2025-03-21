@@ -39,7 +39,7 @@ const Brand = () => {
             <div className="space-y-6">
               <h3 className="text-xl font-medium">Versão para fundo escuro</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="border rounded-lg p-8 flex items-center justify-center bg-[#016071]">
+                <div className="border rounded-lg p-8 flex items-center justify-center gap-4 bg-[#016071]">
                   <img src={AmicciLogoTurquesaBranco} alt="Amicci logo para fundo Amicci-500" className="max-w-full h-auto" />
                   <img src={AmicciLogoBranco} alt="Amicci logo para fundo Amicci-500" className="max-w-full h-auto" />
                 </div>
@@ -91,7 +91,7 @@ const Brand = () => {
                 <h4 className="font-medium">Versão Branco + Turquesa Escuro</h4>
                 <div className="border rounded-lg p-6 bg-[#00B2B0] flex justify-center">
                   <div className="max-w-md">
-                    <img src={AmicciLogoTurquesaEscuro} alt="Amicci logo - versão branco + turquesa escuro" className="max-w-full h-auto" />
+                    <img src={AmicciLogoBrancoTurquesaEscuro} alt="Amicci logo - versão branco + turquesa escuro" className="max-w-full h-auto" />
                   </div>
                 </div>
               </div>
@@ -100,7 +100,7 @@ const Brand = () => {
                 <h4 className="font-medium">Versão Turquesa + Turquesa Escuro</h4>
                 <div className="border rounded-lg p-6 bg-white flex justify-center">
                   <div className="max-w-md">
-                    <img src={AmicciLogoTurquesaEscuroTurquesa} alt="Amicci logo - versão turquesa + turquesa escuro" className="max-w-full h-auto" />
+                    <img src={AmicciLogo} alt="Amicci logo - versão turquesa + turquesa escuro" className="max-w-full h-auto" />
                   </div>
                 </div>
               </div>
