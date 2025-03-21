@@ -11,7 +11,6 @@ import { colorUtils } from '@/utils/colorUtils';
 import ComponentCard from '@/components/ComponentCard';
 import FoundationsHeader from '@/components/library-components/FoundationsHeader';
 
-// ColorSwatch component
 const ColorSwatch = ({
   color,
   className = "",
@@ -31,52 +30,46 @@ const ColorSwatch = ({
 }) => {
   const [copied, setCopied] = useState(false);
 
-  // Determine text color based on background color luminance
   const getTextColor = () => {
-    // If we have a hex value, use luminance calculation for determining contrast
     if (hexValue) {
       try {
         const luminance = colorUtils.getLuminance(hexValue);
         return luminance > 0.5 ? 'text-gray-800' : 'text-white';
       } catch (e) {
-        // Fallback to heuristic based on color name
         return getLightDarkFromName();
       }
     }
 
-    // If we don't have a hex value, use heuristic based on color name
     return getLightDarkFromName();
   };
 
-  // Helper function to determine if a color is light based on its name
   const getLightDarkFromName = () => {
     const lightColors = ['white', 'light', '50', '100', '200', '300'];
     const isLightColorName = lightColors.some(lightColor => color.toLowerCase().includes(lightColor));
     return isLightColorName ? 'text-gray-800' : 'text-white';
   };
+
   const handleCopy = () => {
     const valueToCopy = copyValue || hexValue || color;
     navigator.clipboard.writeText(valueToCopy);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
   const textColor = getTextColor();
 
-  // Determine the correct background style
   const getBackgroundStyle = () => {
-    // If color starts with 'bg-', we're using a Tailwind class
     if (color.startsWith('bg-')) {
       return color;
     }
 
-    // If color is a hex value and doesn't start with 'bg-', use inline style
     if (hexValue && !color.startsWith('bg-')) {
       return `bg-[${hexValue}]`;
     }
 
-    // Fallback to the original class
     return color;
   };
+
   return <div className={`relative w-full rounded-md ${getBackgroundStyle()} ${className} flex items-center justify-center px-3 transition-all hover:shadow-md cursor-pointer group min-h-[48px]`} onClick={onClick || handleCopy} role="button" tabIndex={0} style={hexValue && !color.startsWith('bg-') ? {
     backgroundColor: hexValue
   } : undefined}>
@@ -89,17 +82,17 @@ const ColorSwatch = ({
     </div>;
 };
 
-// BaseColorsTable component
 const BaseColorsTable = ({
   baseColors
 }) => {
   const copyToClipboard = text => {
     navigator.clipboard.writeText(text);
-    // You could add a toast notification here
   };
+
   const renderCopyButton = text => <button onClick={() => copyToClipboard(text)} className="ml-2 text-gray-400 hover:text-gray-600 transition-colors">
       <Copy size={14} />
     </button>;
+
   return <div className="space-y-8">
       {baseColors.map(baseColor => <div key={baseColor.name} className="space-y-2">
           <h3 className="text-xl font-semibold">{baseColor.name}</h3>
@@ -150,26 +143,22 @@ const BaseColorsTable = ({
     </div>;
 };
 
-// PaletteTable component
 const PaletteTable = ({
   palettes
 }) => {
   const copyToClipboard = text => {
     navigator.clipboard.writeText(text);
-    // You could add a toast notification here
   };
+
   const renderCopyButton = text => <button onClick={() => copyToClipboard(text)} className="ml-2 text-gray-400 hover:text-gray-600 transition-colors">
       <Copy size={14} />
     </button>;
 
-  // Avalia o contraste WCAG
   const getWCAGStatus = hexColor => {
     try {
-      // Avaliamos o contraste com fundo branco
       const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
       const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
 
-      // Escolha o melhor contraste
       const bestContrast = Math.max(contrastWithWhite, contrastWithBlack);
       const contrastColor = contrastWithWhite > contrastWithBlack ? 'branco' : 'preto';
       return {
@@ -187,6 +176,7 @@ const PaletteTable = ({
       };
     }
   };
+
   return <div className="space-y-8">
       {palettes.map(palette => <div key={palette.name} className="space-y-4">
           <div className="flex items-center gap-3">
@@ -242,7 +232,6 @@ const PaletteTable = ({
     </div>;
 };
 
-// Data for components
 const baseColorsData = [{
   name: 'Amicci',
   weights: [{
@@ -667,6 +656,7 @@ const baseColorsData = [{
     hexValue: '#7A2E0E'
   }]
 }];
+
 const paletteData = [{
   name: 'Text',
   description: 'Gray',
@@ -822,4 +812,251 @@ const paletteData = [{
     opacity: '100%',
     hexValue: '#043A3E'
   }, {
-    name:
+    name: 'contrast',
+    colorClass: 'bg-secondary-contrast',
+    baseColor: 'common-white-main',
+    textColor: 'text-secondary-main',
+    opacity: '100%',
+    hexValue: '#FFFFFF'
+  }, {
+    name: 'hover',
+    colorClass: 'bg-secondary-hover',
+    baseColor: 'amicciDark-500',
+    textColor: 'text-secondary-contrast',
+    opacity: '4%',
+    hexValue: '#14818A0A'
+  }, {
+    name: 'selected',
+    colorClass: 'bg-secondary-selected',
+    baseColor: 'amicciDark-500',
+    textColor: 'text-secondary-contrast',
+    opacity: '8%',
+    hexValue: '#14818A14'
+  }, {
+    name: 'focus',
+    colorClass: 'bg-secondary-focus',
+    baseColor: 'amicciDark-500',
+    textColor: 'text-black',
+    opacity: '12%',
+    hexValue: '#14818A1F'
+  }, {
+    name: 'focusVisible',
+    colorClass: 'bg-secondary-focusVisible',
+    baseColor: 'amicciDark-500',
+    textColor: 'text-black',
+    opacity: '30%',
+    hexValue: '#14818A4D'
+  }, {
+    name: 'outlinedBorder',
+    colorClass: 'bg-secondary-outlinedBorder',
+    baseColor: 'amicciDark-500',
+    textColor: 'text-black',
+    opacity: '50%',
+    hexValue: '#14818A80'
+  }]
+}, {
+  name: 'Success',
+  description: 'Green',
+  variants: [{
+    name: 'main',
+    colorClass: 'bg-success-main',
+    baseColor: 'green-600',
+    textColor: 'text-white',
+    opacity: '100%',
+    hexValue: '#039855'
+  }, {
+    name: 'dark',
+    colorClass: 'bg-success-dark',
+    baseColor: 'green-700',
+    textColor: 'text-white',
+    opacity: '100%',
+    hexValue: '#027A48'
+  }, {
+    name: 'light',
+    colorClass: 'bg-success-light',
+    baseColor: 'green-100',
+    textColor: 'text-black',
+    opacity: '100%',
+    hexValue: '#D1FADF'
+  }, {
+    name: 'contrast',
+    colorClass: 'bg-success-contrast',
+    baseColor: 'common-white-main',
+    textColor: 'text-success-main',
+    opacity: '100%',
+    hexValue: '#FFFFFF'
+  }]
+}, {
+  name: 'Error',
+  description: 'Red',
+  variants: [{
+    name: 'main',
+    colorClass: 'bg-error-main',
+    baseColor: 'red-600',
+    textColor: 'text-white',
+    opacity: '100%',
+    hexValue: '#D92D20'
+  }, {
+    name: 'dark',
+    colorClass: 'bg-error-dark',
+    baseColor: 'red-700',
+    textColor: 'text-white',
+    opacity: '100%',
+    hexValue: '#B42318'
+  }, {
+    name: 'light',
+    colorClass: 'bg-error-light',
+    baseColor: 'red-100',
+    textColor: 'text-black',
+    opacity: '100%',
+    hexValue: '#FEE4E2'
+  }, {
+    name: 'contrast',
+    colorClass: 'bg-error-contrast',
+    baseColor: 'common-white-main',
+    textColor: 'text-error-main',
+    opacity: '100%',
+    hexValue: '#FFFFFF'
+  }]
+}, {
+  name: 'Warning',
+  description: 'Orange',
+  variants: [{
+    name: 'main',
+    colorClass: 'bg-warning-main',
+    baseColor: 'orange-500',
+    textColor: 'text-black',
+    opacity: '100%',
+    hexValue: '#F79009'
+  }, {
+    name: 'dark',
+    colorClass: 'bg-warning-dark',
+    baseColor: 'orange-600',
+    textColor: 'text-white',
+    opacity: '100%',
+    hexValue: '#DC6803'
+  }, {
+    name: 'light',
+    colorClass: 'bg-warning-light',
+    baseColor: 'orange-100',
+    textColor: 'text-black',
+    opacity: '100%',
+    hexValue: '#FEF0C7'
+  }, {
+    name: 'contrast',
+    colorClass: 'bg-warning-contrast',
+    baseColor: 'common-white-main',
+    textColor: 'text-warning-main',
+    opacity: '100%',
+    hexValue: '#FFFFFF'
+  }]
+}, {
+  name: 'Info',
+  description: 'Blue',
+  variants: [{
+    name: 'main',
+    colorClass: 'bg-info-main',
+    baseColor: 'blue-500',
+    textColor: 'text-white',
+    opacity: '100%',
+    hexValue: '#2970FF'
+  }, {
+    name: 'dark',
+    colorClass: 'bg-info-dark',
+    baseColor: 'blue-600',
+    textColor: 'text-white',
+    opacity: '100%',
+    hexValue: '#1F5AE8'
+  }, {
+    name: 'light',
+    colorClass: 'bg-info-light',
+    baseColor: 'blue-100',
+    textColor: 'text-black',
+    opacity: '100%',
+    hexValue: '#D6E8FF'
+  }, {
+    name: 'contrast',
+    colorClass: 'bg-info-contrast',
+    baseColor: 'common-white-main',
+    textColor: 'text-info-main',
+    opacity: '100%',
+    hexValue: '#FFFFFF'
+  }]
+}];
+
+const Colors = () => {
+  const [activeTab, setActiveTab] = useState("base-colors");
+  const [showHex, setShowHex] = useState(true);
+  
+  return (
+    <div className="container max-w-7xl mx-auto pb-16 animate-fade-in">
+      <FoundationsHeader 
+        title="Cores" 
+        description="O sistema de cores da Amicci foi projetado para proporcionar uma experiência visual coerente em todas as interfaces do produto. Ele fornece uma paleta harmônica que transmite a identidade da marca, enquanto garante acessibilidade e usabilidade."
+      />
+      
+      <Tabs defaultValue="base-colors" className="mt-6" onValueChange={setActiveTab}>
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="base-colors">Cores Base</TabsTrigger>
+          <TabsTrigger value="palettes">Paletas Funcionais</TabsTrigger>
+        </TabsList>
+        
+        <TabsContent value="base-colors" className="mt-6">
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-2xl font-semibold">Cores Base</h2>
+              
+              <div className="flex items-center gap-2">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={() => setShowHex(!showHex)}
+                  className="gap-2"
+                >
+                  {showHex ? <EyeOff size={16} /> : <Eye size={16} />}
+                  {showHex ? 'Ocultar valores' : 'Mostrar valores'}
+                </Button>
+              </div>
+            </div>
+            
+            <Separator />
+            
+            <BaseColorsTable baseColors={baseColorsData} />
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="palettes" className="mt-6">
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-2xl font-semibold">Paletas Funcionais</h2>
+              
+              <div className="flex items-center gap-2">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={() => setShowHex(!showHex)}
+                  className="gap-2"
+                >
+                  {showHex ? <EyeOff size={16} /> : <Eye size={16} />}
+                  {showHex ? 'Ocultar análise WCAG' : 'Mostrar análise WCAG'}
+                </Button>
+              </div>
+            </div>
+            
+            <Separator />
+            
+            <div className="mb-8">
+              <p className="text-gray-700">
+                Nossas paletas funcionais são derivadas das cores base e são utilizadas para propósitos específicos na interface, como feedback, estados e ações. Cada paleta inclui variações de cor para diferentes contextos de uso.
+              </p>
+            </div>
+            
+            <PaletteTable palettes={paletteData} />
+          </div>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+};
+
+export default Colors;
