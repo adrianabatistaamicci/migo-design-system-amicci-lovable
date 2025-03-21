@@ -1,13 +1,10 @@
-
 import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { Star, User, Mail, Settings, FileText, Home } from 'lucide-react';
-
 const TabsPage = () => {
-  return (
-    <div className="w-full animate-slide-in">
+  return <div className="w-full animate-slide-in">
       <div className="mb-12">
         <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mui-primary/10 text-mui-primary">
@@ -34,10 +31,7 @@ const TabsPage = () => {
         </div>
         
         <div className="space-y-12">
-          <ComponentCard 
-            title="Basic Tabs" 
-            description="A simple tabs component with multiple panels."
-            code={`<Tabs defaultValue="account" className="w-full max-w-md">
+          <ComponentCard title="Basic Tabs" description="A simple tabs component with multiple panels." code={`<Tabs defaultValue="account" className="w-full max-w-md">
   <TabsList className="w-full grid grid-cols-2">
     <TabsTrigger value="account">Account</TabsTrigger>
     <TabsTrigger value="password">Password</TabsTrigger>
@@ -54,9 +48,8 @@ const TabsPage = () => {
       Change your password and secure your account.
     </p>
   </TabsContent>
-</Tabs>`}
-          >
-            <div className="w-full max-w-md mx-auto py-6">
+</Tabs>`}>
+            <div className="w-full ">
               <Tabs defaultValue="account" className="w-full">
                 <TabsList className="w-full grid grid-cols-2">
                   <TabsTrigger value="account">Account</TabsTrigger>
@@ -78,10 +71,7 @@ const TabsPage = () => {
             </div>
           </ComponentCard>
           
-          <ComponentCard 
-            title="Multiple Tabs" 
-            description="Tabs with more than two options."
-            code={`<Tabs defaultValue="tab1" className="w-full max-w-md">
+          <ComponentCard title="Multiple Tabs" description="Tabs with more than two options." code={`<Tabs defaultValue="tab1" className="w-full max-w-md">
   <TabsList className="w-full grid grid-cols-3">
     <TabsTrigger value="tab1">Tab 1</TabsTrigger>
     <TabsTrigger value="tab2">Tab 2</TabsTrigger>
@@ -96,8 +86,7 @@ const TabsPage = () => {
   <TabsContent value="tab3" className="p-4 border rounded-b-md mt-1">
     <p className="text-sm">Content for tab 3</p>
   </TabsContent>
-</Tabs>`}
-          >
+</Tabs>`}>
             <div className="w-full max-w-md mx-auto py-6">
               <Tabs defaultValue="tab1" className="w-full">
                 <TabsList className="w-full grid grid-cols-3">
@@ -118,10 +107,7 @@ const TabsPage = () => {
             </div>
           </ComponentCard>
 
-          <ComponentCard 
-            title="Tabs with Icons" 
-            description="Tabs that include both icons and text."
-            code={`<Tabs defaultValue="overview" className="w-full max-w-md">
+          <ComponentCard title="Tabs with Icons" description="Tabs that include both icons and text." code={`<Tabs defaultValue="overview" className="w-full max-w-md">
   <TabsList className="w-full grid grid-cols-3">
     <TabsTrigger 
       value="overview" 
@@ -151,27 +137,17 @@ const TabsPage = () => {
   <TabsContent value="settings" className="p-4 border rounded-b-md mt-1">
     <p className="text-sm">Settings content</p>
   </TabsContent>
-</Tabs>`}
-          >
+</Tabs>`}>
             <div className="w-full max-w-md mx-auto py-6">
               <Tabs defaultValue="overview" className="w-full">
                 <TabsList className="w-full grid grid-cols-3">
-                  <TabsTrigger 
-                    value="overview" 
-                    icon={<Home className="h-4 w-4" />}
-                  >
+                  <TabsTrigger value="overview" icon={<Home className="h-4 w-4" />}>
                     Overview
                   </TabsTrigger>
-                  <TabsTrigger 
-                    value="analytics" 
-                    icon={<FileText className="h-4 w-4" />}
-                  >
+                  <TabsTrigger value="analytics" icon={<FileText className="h-4 w-4" />}>
                     Analytics
                   </TabsTrigger>
-                  <TabsTrigger 
-                    value="settings" 
-                    icon={<Settings className="h-4 w-4" />}
-                  >
+                  <TabsTrigger value="settings" icon={<Settings className="h-4 w-4" />}>
                     Settings
                   </TabsTrigger>
                 </TabsList>
@@ -188,10 +164,7 @@ const TabsPage = () => {
             </div>
           </ComponentCard>
 
-          <ComponentCard 
-            title="Tabs with Right Icons" 
-            description="Tabs with icons positioned to the right."
-            code={`<Tabs defaultValue="user" className="w-full max-w-md">
+          <ComponentCard title="Tabs with Right Icons" description="Tabs with icons positioned to the right." code={`<Tabs defaultValue="user" className="w-full max-w-md">
   <TabsList className="w-full grid grid-cols-3">
     <TabsTrigger 
       value="user" 
@@ -224,30 +197,17 @@ const TabsPage = () => {
   <TabsContent value="settings" className="p-4 border rounded-b-md mt-1">
     <p className="text-sm">General settings content</p>
   </TabsContent>
-</Tabs>`}
-          >
+</Tabs>`}>
             <div className="w-full max-w-md mx-auto py-6">
               <Tabs defaultValue="user" className="w-full">
                 <TabsList className="w-full grid grid-cols-3">
-                  <TabsTrigger 
-                    value="user" 
-                    icon={<User className="h-4 w-4" />}
-                    iconPosition="right"
-                  >
+                  <TabsTrigger value="user" icon={<User className="h-4 w-4" />} iconPosition="right">
                     User
                   </TabsTrigger>
-                  <TabsTrigger 
-                    value="mail" 
-                    icon={<Mail className="h-4 w-4" />}
-                    iconPosition="right"
-                  >
+                  <TabsTrigger value="mail" icon={<Mail className="h-4 w-4" />} iconPosition="right">
                     Mail
                   </TabsTrigger>
-                  <TabsTrigger 
-                    value="settings" 
-                    icon={<Settings className="h-4 w-4" />}
-                    iconPosition="right"
-                  >
+                  <TabsTrigger value="settings" icon={<Settings className="h-4 w-4" />} iconPosition="right">
                     Settings
                   </TabsTrigger>
                 </TabsList>
@@ -264,10 +224,7 @@ const TabsPage = () => {
             </div>
           </ComponentCard>
           
-          <ComponentCard 
-            title="Vertical Tabs" 
-            description="Tabs displayed in a vertical orientation."
-            code={`<div className="flex max-w-md">
+          <ComponentCard title="Vertical Tabs" description="Tabs displayed in a vertical orientation." code={`<div className="flex max-w-md">
   <Tabs defaultValue="tab1" orientation="vertical" className="w-full">
     <TabsList orientation="vertical" className="w-40">
       <TabsTrigger value="tab1" className="justify-start w-full">Tab 1</TabsTrigger>
@@ -286,8 +243,7 @@ const TabsPage = () => {
       </TabsContent>
     </div>
   </Tabs>
-</div>`}
-          >
+</div>`}>
             <div className="flex max-w-md mx-auto py-6">
               <Tabs defaultValue="tab1" orientation="vertical" className="w-full">
                 <div className="flex">
@@ -312,10 +268,7 @@ const TabsPage = () => {
             </div>
           </ComponentCard>
           
-          <ComponentCard 
-            title="Scrollable Tabs" 
-            description="Tabs with horizontal scrolling for when there are many tab options."
-            code={`<Tabs defaultValue="tab1" className="w-full max-w-md">
+          <ComponentCard title="Scrollable Tabs" description="Tabs with horizontal scrolling for when there are many tab options." code={`<Tabs defaultValue="tab1" className="w-full max-w-md">
   <TabsList scrollable className="w-full" style={{ maxWidth: "400px" }}>
     <TabsTrigger value="tab1">Tab 1</TabsTrigger>
     <TabsTrigger value="tab2">Tab 2</TabsTrigger>
@@ -346,11 +299,12 @@ const TabsPage = () => {
   <TabsContent value="tab7" className="p-4 border rounded-b-md mt-1">
     <p className="text-sm">Content for tab 7</p>
   </TabsContent>
-</Tabs>`}
-          >
+</Tabs>`}>
             <div className="w-full max-w-md mx-auto py-6">
               <Tabs defaultValue="tab1" className="w-full">
-                <TabsList scrollable className="w-full" style={{ maxWidth: "400px" }}>
+                <TabsList scrollable className="w-full" style={{
+                maxWidth: "400px"
+              }}>
                   <TabsTrigger value="tab1">Tab 1</TabsTrigger>
                   <TabsTrigger value="tab2">Tab 2</TabsTrigger>
                   <TabsTrigger value="tab3">Tab 3</TabsTrigger>
@@ -384,10 +338,7 @@ const TabsPage = () => {
             </div>
           </ComponentCard>
 
-          <ComponentCard 
-            title="Scrollable Vertical Tabs" 
-            description="Vertical tabs with scrolling for when there are many tab options."
-            code={`<div className="flex max-w-md">
+          <ComponentCard title="Scrollable Vertical Tabs" description="Vertical tabs with scrolling for when there are many tab options." code={`<div className="flex max-w-md">
   <Tabs defaultValue="tab1" orientation="vertical" className="w-full">
     <TabsList orientation="vertical" scrollable className="w-40" style={{ maxHeight: "200px" }}>
       <TabsTrigger value="tab1" className="justify-start w-full">Tab 1</TabsTrigger>
@@ -418,12 +369,13 @@ const TabsPage = () => {
       </TabsContent>
     </div>
   </Tabs>
-</div>`}
-          >
+</div>`}>
             <div className="flex max-w-md mx-auto py-6">
               <Tabs defaultValue="tab1" orientation="vertical" className="w-full">
                 <div className="flex">
-                  <TabsList orientation="vertical" scrollable className="w-40" style={{ maxHeight: "200px" }}>
+                  <TabsList orientation="vertical" scrollable className="w-40" style={{
+                  maxHeight: "200px"
+                }}>
                     <TabsTrigger value="tab1" className="justify-start w-full">Tab 1</TabsTrigger>
                     <TabsTrigger value="tab2" className="justify-start w-full">Tab 2</TabsTrigger>
                     <TabsTrigger value="tab3" className="justify-start w-full">Tab 3</TabsTrigger>
@@ -456,10 +408,7 @@ const TabsPage = () => {
             </div>
           </ComponentCard>
 
-          <ComponentCard 
-            title="Full Width Tabs" 
-            description="Tabs that expand to fill the entire width of their container."
-            code={`<Tabs defaultValue="tab1" className="w-full max-w-md">
+          <ComponentCard title="Full Width Tabs" description="Tabs that expand to fill the entire width of their container." code={`<Tabs defaultValue="tab1" className="w-full max-w-md">
   <TabsList fullWidth className="w-full">
     <TabsTrigger value="tab1" className="flex-1">Tab 1</TabsTrigger>
     <TabsTrigger value="tab2" className="flex-1">Tab 2</TabsTrigger>
@@ -474,8 +423,7 @@ const TabsPage = () => {
   <TabsContent value="tab3" className="p-4 border rounded-b-md mt-1">
     <p className="text-sm">Content for tab 3</p>
   </TabsContent>
-</Tabs>`}
-          >
+</Tabs>`}>
             <div className="w-full max-w-md mx-auto py-6">
               <Tabs defaultValue="tab1" className="w-full">
                 <TabsList fullWidth className="w-full">
@@ -496,10 +444,7 @@ const TabsPage = () => {
             </div>
           </ComponentCard>
           
-          <ComponentCard 
-            title="Disabled Tabs" 
-            description="Tabs with disabled states."
-            code={`<Tabs defaultValue="tab1" className="w-full max-w-md">
+          <ComponentCard title="Disabled Tabs" description="Tabs with disabled states." code={`<Tabs defaultValue="tab1" className="w-full max-w-md">
   <TabsList className="w-full grid grid-cols-3">
     <TabsTrigger value="tab1">Tab 1</TabsTrigger>
     <TabsTrigger value="tab2">Tab 2</TabsTrigger>
@@ -514,8 +459,7 @@ const TabsPage = () => {
   <TabsContent value="tab3" className="p-4 border rounded-b-md mt-1">
     <p className="text-sm">Content for tab 3</p>
   </TabsContent>
-</Tabs>`}
-          >
+</Tabs>`}>
             <div className="w-full max-w-md mx-auto py-6">
               <Tabs defaultValue="tab1" className="w-full">
                 <TabsList className="w-full grid grid-cols-3">
@@ -536,10 +480,7 @@ const TabsPage = () => {
             </div>
           </ComponentCard>
 
-          <ComponentCard 
-            title="Tabs with Custom Active Color" 
-            description="Tabs with customized active indicator color."
-            code={`<div className="space-y-8">
+          <ComponentCard title="Tabs with Custom Active Color" description="Tabs with customized active indicator color." code={`<div className="space-y-8">
   <Tabs defaultValue="tab1" className="w-full max-w-md">
     <h3 className="text-sm font-medium mb-2">Primary Color (Default)</h3>
     <TabsList className="w-full grid grid-cols-3">
@@ -566,8 +507,7 @@ const TabsPage = () => {
       <TabsTrigger value="tab3" activeColor="none">Tab 3</TabsTrigger>
     </TabsList>
   </Tabs>
-</div>`}
-          >
+</div>`}>
             <div className="w-full max-w-md mx-auto py-6">
               <div className="space-y-8">
                 <Tabs defaultValue="tab1" className="w-full">
@@ -600,10 +540,7 @@ const TabsPage = () => {
             </div>
           </ComponentCard>
 
-          <ComponentCard 
-            title="Tabs with Icon Above Text" 
-            description="Tabs with icons positioned above the text."
-            code={`<Tabs defaultValue="star" className="w-full max-w-md">
+          <ComponentCard title="Tabs with Icon Above Text" description="Tabs with icons positioned above the text." code={`<Tabs defaultValue="star" className="w-full max-w-md">
   <TabsList className="w-full grid grid-cols-3">
     <TabsTrigger 
       value="star" 
@@ -636,30 +573,17 @@ const TabsPage = () => {
   <TabsContent value="settings" className="p-4 border rounded-b-md mt-1">
     <p className="text-sm">Settings content</p>
   </TabsContent>
-</Tabs>`}
-          >
+</Tabs>`}>
             <div className="w-full max-w-md mx-auto py-6">
               <Tabs defaultValue="star" className="w-full">
                 <TabsList className="w-full grid grid-cols-3">
-                  <TabsTrigger 
-                    value="star" 
-                    icon={<Star className="h-4 w-4" />}
-                    iconPosition="up"
-                  >
+                  <TabsTrigger value="star" icon={<Star className="h-4 w-4" />} iconPosition="up">
                     Favorites
                   </TabsTrigger>
-                  <TabsTrigger 
-                    value="user" 
-                    icon={<User className="h-4 w-4" />}
-                    iconPosition="up"
-                  >
+                  <TabsTrigger value="user" icon={<User className="h-4 w-4" />} iconPosition="up">
                     Profile
                   </TabsTrigger>
-                  <TabsTrigger 
-                    value="settings" 
-                    icon={<Settings className="h-4 w-4" />}
-                    iconPosition="up"
-                  >
+                  <TabsTrigger value="settings" icon={<Settings className="h-4 w-4" />} iconPosition="up">
                     Settings
                   </TabsTrigger>
                 </TabsList>
@@ -902,8 +826,6 @@ const TabsPage = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default TabsPage;
