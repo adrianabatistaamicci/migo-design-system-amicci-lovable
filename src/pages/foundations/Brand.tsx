@@ -39,7 +39,7 @@ const Brand = () => {
             <div className="space-y-6">
               <h3 className="text-xl font-medium">Versão para fundo escuro</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="border rounded-lg p-8 flex items-center justify-center gap-4 bg-[#016071]">
+                <div className="border rounded-lg p-8 flex flex-col items-center justify-center gap-8 bg-[#016071]">
                   <img src={AmicciLogoTurquesaBranco} alt="Amicci logo para fundo Amicci-500" className="max-w-full h-auto" />
                   <img src={AmicciLogoBranco} alt="Amicci logo para fundo Amicci-500" className="max-w-full h-auto" />
                 </div>
