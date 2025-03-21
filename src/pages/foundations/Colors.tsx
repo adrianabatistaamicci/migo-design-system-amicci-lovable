@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Button } from '@/components/ui/button';
@@ -29,22 +30,25 @@ const BaseColorsTable = ({ colors }: { colors: { name: string; hex: string }[] }
   </div>
 );
 
-const PaletteTable = ({ palette }: { palette: { name: string; shades: { shade: string; hex: string }[] } }) => (
+interface PaletteProps {
+  palette: {
+    name: string;
+    shades: { shade: string; hex: string }[];
+  };
+}
+
+const PaletteTable = ({ palette }: PaletteProps) => (
   <div className="space-y-6">
-    {Object.entries(palette).map(([colorName, shades]) => (
-      <div key={colorName} className="space-y-2">
-        <h3 className="text-xl font-semibold text-gray-900">{colorName}</h3>
-        <div className="grid grid-cols-5 gap-4">
-          {shades.map((shade) => (
-            <div key={shade.shade} className="flex flex-col items-center">
-              <div className={`w-20 h-20 rounded-md shadow-md`} style={{ backgroundColor: shade.hex }}></div>
-              <p className="mt-2 text-sm text-gray-500">{shade.shade}</p>
-              <p className="text-sm text-gray-700">{shade.hex}</p>
-            </div>
-          ))}
+    <h3 className="text-xl font-semibold text-gray-900">{palette.name}</h3>
+    <div className="grid grid-cols-5 gap-4">
+      {palette.shades.map((shade) => (
+        <div key={shade.shade} className="flex flex-col items-center">
+          <div className={`w-20 h-20 rounded-md shadow-md`} style={{ backgroundColor: shade.hex }}></div>
+          <p className="mt-2 text-sm text-gray-500">{shade.shade}</p>
+          <p className="text-sm text-gray-700">{shade.hex}</p>
         </div>
-      </div>
-    ))}
+      ))}
+    </div>
   </div>
 );
 
@@ -67,80 +71,98 @@ const baseColors = [
   { name: "Magenta", hex: "#FF00FF" },
 ];
 
-const semanticPalette = {
-  primary: [
-    { shade: "50", hex: "#E3F2FD" },
-    { shade: "100", hex: "#BBDEFB" },
-    { shade: "200", hex: "#90CAF9" },
-    { shade: "300", hex: "#64B5F6" },
-    { shade: "400", hex: "#42A5F5" },
-    { shade: "500", hex: "#2196F3" },
-    { shade: "600", hex: "#1E88E5" },
-    { shade: "700", hex: "#1976D2" },
-    { shade: "800", hex: "#1565C0" },
-    { shade: "900", hex: "#0D47A1" },
-  ],
-  secondary: [
-    { shade: "50", hex: "#FCE4EC" },
-    { shade: "100", hex: "#F8BBD0" },
-    { shade: "200", hex: "#F48FB1" },
-    { shade: "300", hex: "#F06292" },
-    { shade: "400", hex: "#EC407A" },
-    { shade: "500", hex: "#E91E63" },
-    { shade: "600", hex: "#D81B60" },
-    { shade: "700", hex: "#C2185B" },
-    { shade: "800", hex: "#AD1457" },
-    { shade: "900", hex: "#880E4F" },
-  ],
-  success: [
-    { shade: "50", hex: "#E8F5E9" },
-    { shade: "100", hex: "#C8E6C9" },
-    { shade: "200", hex: "#A5D6A7" },
-    { shade: "300", hex: "#81C784" },
-    { shade: "400", hex: "#66BB6A" },
-    { shade: "500", hex: "#4CAF50" },
-    { shade: "600", hex: "#43A047" },
-    { shade: "700", hex: "#388E3C" },
-    { shade: "800", hex: "#2E7D32" },
-    { shade: "900", hex: "#1B5E20" },
-  ],
-  error: [
-    { shade: "50", hex: "#FFEBEE" },
-    { shade: "100", hex: "#FFCDD2" },
-    { shade: "200", hex: "#EF9A9A" },
-    { shade: "300", hex: "#E57373" },
-    { shade: "400", hex: "#EF5350" },
-    { shade: "500", hex: "#F44336" },
-    { shade: "600", hex: "#E53935" },
-    { shade: "700", hex: "#D32F2F" },
-    { shade: "800", hex: "#C62828" },
-    { shade: "900", hex: "#B71C1C" },
-  ],
-  warning: [
-    { shade: "50", hex: "#FFFDE7" },
-    { shade: "100", hex: "#FFF9C4" },
-    { shade: "200", hex: "#FFF59D" },
-    { shade: "300", hex: "#FFF176" },
-    { shade: "400", hex: "#FFEE58" },
-    { shade: "500", hex: "#FFEB3B" },
-    { shade: "600", hex: "#FDD835" },
-    { shade: "700", hex: "#FBC02D" },
-    { shade: "800", hex: "#F9A825" },
-    { shade: "900", hex: "#F57F17" },
-  ],
-  info: [
-    { shade: "50", hex: "#E1F5FE" },
-    { shade: "100", hex: "#B3E5FC" },
-    { shade: "200", hex: "#81D4FA" },
-    { shade: "300", hex: "#4FC3F7" },
-    { shade: "400", hex: "#29B6F6" },
-    { shade: "500", hex: "#03A9F4" },
-    { shade: "600", hex: "#039BE5" },
-    { shade: "700", hex: "#0288D1" },
-    { shade: "800", hex: "#0277BD" },
-    { shade: "900", hex: "#01579B" },
-  ],
-};
+const semanticPalettes = [
+  {
+    name: "primary",
+    shades: [
+      { shade: "50", hex: "#E3F2FD" },
+      { shade: "100", hex: "#BBDEFB" },
+      { shade: "200", hex: "#90CAF9" },
+      { shade: "300", hex: "#64B5F6" },
+      { shade: "400", hex: "#42A5F5" },
+      { shade: "500", hex: "#2196F3" },
+      { shade: "600", hex: "#1E88E5" },
+      { shade: "700", hex: "#1976D2" },
+      { shade: "800", hex: "#1565C0" },
+      { shade: "900", hex: "#0D47A1" },
+    ]
+  },
+  {
+    name: "secondary",
+    shades: [
+      { shade: "50", hex: "#FCE4EC" },
+      { shade: "100", hex: "#F8BBD0" },
+      { shade: "200", hex: "#F48FB1" },
+      { shade: "300", hex: "#F06292" },
+      { shade: "400", hex: "#EC407A" },
+      { shade: "500", hex: "#E91E63" },
+      { shade: "600", hex: "#D81B60" },
+      { shade: "700", hex: "#C2185B" },
+      { shade: "800", hex: "#AD1457" },
+      { shade: "900", hex: "#880E4F" },
+    ]
+  },
+  {
+    name: "success",
+    shades: [
+      { shade: "50", hex: "#E8F5E9" },
+      { shade: "100", hex: "#C8E6C9" },
+      { shade: "200", hex: "#A5D6A7" },
+      { shade: "300", hex: "#81C784" },
+      { shade: "400", hex: "#66BB6A" },
+      { shade: "500", hex: "#4CAF50" },
+      { shade: "600", hex: "#43A047" },
+      { shade: "700", hex: "#388E3C" },
+      { shade: "800", hex: "#2E7D32" },
+      { shade: "900", hex: "#1B5E20" },
+    ]
+  },
+  {
+    name: "error",
+    shades: [
+      { shade: "50", hex: "#FFEBEE" },
+      { shade: "100", hex: "#FFCDD2" },
+      { shade: "200", hex: "#EF9A9A" },
+      { shade: "300", hex: "#E57373" },
+      { shade: "400", hex: "#EF5350" },
+      { shade: "500", hex: "#F44336" },
+      { shade: "600", hex: "#E53935" },
+      { shade: "700", hex: "#D32F2F" },
+      { shade: "800", hex: "#C62828" },
+      { shade: "900", hex: "#B71C1C" },
+    ]
+  },
+  {
+    name: "warning",
+    shades: [
+      { shade: "50", hex: "#FFFDE7" },
+      { shade: "100", hex: "#FFF9C4" },
+      { shade: "200", hex: "#FFF59D" },
+      { shade: "300", hex: "#FFF176" },
+      { shade: "400", hex: "#FFEE58" },
+      { shade: "500", hex: "#FFEB3B" },
+      { shade: "600", hex: "#FDD835" },
+      { shade: "700", hex: "#FBC02D" },
+      { shade: "800", hex: "#F9A825" },
+      { shade: "900", hex: "#F57F17" },
+    ]
+  },
+  {
+    name: "info",
+    shades: [
+      { shade: "50", hex: "#E1F5FE" },
+      { shade: "100", hex: "#B3E5FC" },
+      { shade: "200", hex: "#81D4FA" },
+      { shade: "300", hex: "#4FC3F7" },
+      { shade: "400", hex: "#29B6F6" },
+      { shade: "500", hex: "#03A9F4" },
+      { shade: "600", hex: "#039BE5" },
+      { shade: "700", hex: "#0288D1" },
+      { shade: "800", hex: "#0277BD" },
+      { shade: "900", hex: "#01579B" },
+    ]
+  }
+];
 
 const ColorApplications = () => {
   return (
@@ -157,12 +179,12 @@ const ColorApplications = () => {
 <Button variant="secondary">Secondary Button</Button>
 
 // Error Button
-<Button variant="error">Error Button</Button>`}
+<Button variant="destructive">Error Button</Button>`}
       >
         <div className="flex flex-wrap gap-4 p-6">
           <Button variant="default">Primary Button</Button>
           <Button variant="secondary">Secondary Button</Button>
-          <Button variant="error">Error Button</Button>
+          <Button variant="destructive">Error Button</Button>
         </div>
       </ComponentCard>
       
@@ -190,23 +212,23 @@ const ColorApplications = () => {
 </Badge>`}
       >
         <div className="flex flex-wrap gap-4 p-6">
-          <Badge variant="standard" color="primary" badgeContent={4}>
+          <Badge variant="standard">
             <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
           </Badge>
           
-          <Badge variant="standard" color="secondary" badgeContent={8}>
+          <Badge variant="secondary">
             <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
           </Badge>
           
-          <Badge variant="standard" color="error" badgeContent={12}>
+          <Badge variant="destructive">
             <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
           </Badge>
           
-          <Badge variant="standard" color="success" badgeContent={42}>
+          <Badge variant="outline">
             <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
           </Badge>
           
-          <Badge variant="dot" color="error">
+          <Badge>
             <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
           </Badge>
         </div>
@@ -223,10 +245,10 @@ const ColorApplications = () => {
       >
         <div className="flex flex-wrap gap-4 p-6">
           <Chip>Default Chip</Chip>
-          <Chip variant="filled" color="primary">Primary Chip</Chip>
-          <Chip variant="outlined" color="secondary">Secondary Chip</Chip>
-          <Chip variant="filled" color="error">Error Chip</Chip>
-          <Chip variant="outlined" color="success">Success Chip</Chip>
+          <Chip variant="filled">Primary Chip</Chip>
+          <Chip variant="outlined">Secondary Chip</Chip>
+          <Chip variant="default">Error Chip</Chip>
+          <Chip variant="outlined">Success Chip</Chip>
         </div>
       </ComponentCard>
       
@@ -303,7 +325,9 @@ const Colors = () => {
             A palette of colors with semantic meanings, such as primary,
             secondary, success, error, warning, and info.
           </p>
-          <PaletteTable palette={semanticPalette} />
+          {semanticPalettes.map((palette) => (
+            <PaletteTable key={palette.name} palette={palette} />
+          ))}
         </div>
 
         <ColorApplications />
