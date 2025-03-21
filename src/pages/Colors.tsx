@@ -18,7 +18,8 @@ const ColorSwatch = ({
   textOverlay,
   weight,
   hexValue,
-  copyValue
+  copyValue,
+  simulationType = ""
 }: {
   color: string;
   className?: string;
@@ -27,6 +28,7 @@ const ColorSwatch = ({
   weight?: string;
   hexValue?: string;
   copyValue?: string;
+  simulationType?: string;
 }) => {
   const [copied, setCopied] = useState(false);
 
@@ -67,16 +69,39 @@ const ColorSwatch = ({
     return color;
   };
 
-  return <div className={`relative w-full rounded-md ${getBackgroundStyle()} ${className} flex items-center justify-center px-3 transition-all hover:shadow-md cursor-pointer group`} onClick={onClick || handleCopy} role="button" tabIndex={0} style={hexValue && !color.startsWith('bg-') ? {
-    backgroundColor: hexValue
-  } : undefined}>
+  const getSimulationFilter = () => {
+    switch (simulationType) {
+      case 'deuteranopia':
+        return 'filter saturate-50 hue-rotate-330';
+      case 'protanopia':
+        return 'filter saturate-50 hue-rotate-10';
+      case 'tritanopia':
+        return 'filter hue-rotate-270 saturate-50';
+      case 'achromatopsia':
+        return 'filter grayscale';
+      default:
+        return '';
+    }
+  };
+
+  return (
+    <div 
+      className={`relative w-full rounded-md ${getBackgroundStyle()} ${className} flex items-center justify-center px-3 transition-all hover:shadow-md cursor-pointer group ${getSimulationFilter()}`} 
+      onClick={onClick || handleCopy} 
+      role="button" 
+      tabIndex={0} 
+      style={hexValue && !color.startsWith('bg-') ? {
+        backgroundColor: hexValue
+      } : undefined}
+    >
       {textOverlay}
       {weight && <span className={`text-xs ${textColor} opacity-75 absolute left-2 top-1`}>{weight}</span>}
       
       <div className={`absolute right-2 top-2 transition-opacity ${copied ? 'opacity-100' : 'opacity-0 group-hover:opacity-70'}`}>
         {copied ? <Check className={`w-4 h-4 ${textColor}`} /> : <Copy className={`w-4 h-4 ${textColor}`} />}
       </div>
-    </div>;
+    </div>
+  );
 };
 
 const BaseColorsTable = ({
@@ -818,6 +843,16 @@ const paletteData = [{
 }];
 
 const Colors = () => {
+  const [simulationType, setSimulationType] = useState('');
+
+  const handleSimulation = (type: string) => {
+    if (simulationType === type) {
+      setSimulationType('');
+    } else {
+      setSimulationType(type);
+    }
+  };
+
   return (
     <div className="container mx-auto py-12">
       <FoundationsHeader
@@ -1178,14 +1213,18 @@ const Colors = () => {
                     <h4 className="font-medium mb-2">Deuteranopia</h4>
                     <p className="text-sm text-gray-600 mb-3">Deficiência de percepção do verde</p>
                     <div className="grid grid-cols-4 gap-2">
-                      <ColorSwatch color="bg-primary-main" className="h-14" />
-                      <ColorSwatch color="bg-secondary-main" className="h-14" />
-                      <ColorSwatch color="bg-error-main" className="h-14" />
-                      <ColorSwatch color="bg-success-main" className="h-14" />
+                      <ColorSwatch color="bg-primary-main" className="h-14" simulationType={simulationType === 'deuteranopia' ? 'deuteranopia' : ''} />
+                      <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={simulationType === 'deuteranopia' ? 'deuteranopia' : ''} />
+                      <ColorSwatch color="bg-error-main" className="h-14" simulationType={simulationType === 'deuteranopia' ? 'deuteranopia' : ''} />
+                      <ColorSwatch color="bg-success-main" className="h-14" simulationType={simulationType === 'deuteranopia' ? 'deuteranopia' : ''} />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Button variant="secondary" startIcon={<Eye className="h-3 w-3" />}>
-                        Simular Deuteranopia
+                      <Button 
+                        variant="secondary" 
+                        startIcon={simulationType === 'deuteranopia' ? <EyeOff className="h-3 w-3" /> : <Eye className="h-3 w-3" />}
+                        onClick={() => handleSimulation('deuteranopia')}
+                      >
+                        {simulationType === 'deuteranopia' ? 'Desativar Simulação' : 'Simular Deuteranopia'}
                       </Button>
                     </div>
                   </div>
@@ -1194,14 +1233,18 @@ const Colors = () => {
                     <h4 className="font-medium mb-2">Protanopia</h4>
                     <p className="text-sm text-gray-600 mb-3">Deficiência de percepção do vermelho</p>
                     <div className="grid grid-cols-4 gap-2">
-                      <ColorSwatch color="bg-primary-main" className="h-14" />
-                      <ColorSwatch color="bg-secondary-main" className="h-14" />
-                      <ColorSwatch color="bg-error-main" className="h-14" />
-                      <ColorSwatch color="bg-success-main" className="h-14" />
+                      <ColorSwatch color="bg-primary-main" className="h-14" simulationType={simulationType === 'protanopia' ? 'protanopia' : ''} />
+                      <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={simulationType === 'protanopia' ? 'protanopia' : ''} />
+                      <ColorSwatch color="bg-error-main" className="h-14" simulationType={simulationType === 'protanopia' ? 'protanopia' : ''} />
+                      <ColorSwatch color="bg-success-main" className="h-14" simulationType={simulationType === 'protanopia' ? 'protanopia' : ''} />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Button variant="secondary" startIcon={<Eye className="h-3 w-3" />}>
-                        Simular Protanopia
+                      <Button 
+                        variant="secondary" 
+                        startIcon={simulationType === 'protanopia' ? <EyeOff className="h-3 w-3" /> : <Eye className="h-3 w-3" />}
+                        onClick={() => handleSimulation('protanopia')}
+                      >
+                        {simulationType === 'protanopia' ? 'Desativar Simulação' : 'Simular Protanopia'}
                       </Button>
                     </div>
                   </div>
@@ -1210,14 +1253,18 @@ const Colors = () => {
                     <h4 className="font-medium mb-2">Tritanopia</h4>
                     <p className="text-sm text-gray-600 mb-3">Deficiência de percepção do azul</p>
                     <div className="grid grid-cols-4 gap-2">
-                      <ColorSwatch color="bg-primary-main" className="h-14" />
-                      <ColorSwatch color="bg-secondary-main" className="h-14" />
-                      <ColorSwatch color="bg-error-main" className="h-14" />
-                      <ColorSwatch color="bg-success-main" className="h-14" />
+                      <ColorSwatch color="bg-primary-main" className="h-14" simulationType={simulationType === 'tritanopia' ? 'tritanopia' : ''} />
+                      <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={simulationType === 'tritanopia' ? 'tritanopia' : ''} />
+                      <ColorSwatch color="bg-error-main" className="h-14" simulationType={simulationType === 'tritanopia' ? 'tritanopia' : ''} />
+                      <ColorSwatch color="bg-success-main" className="h-14" simulationType={simulationType === 'tritanopia' ? 'tritanopia' : ''} />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Button variant="secondary" startIcon={<Eye className="h-3 w-3" />}>
-                        Simular Tritanopia
+                      <Button 
+                        variant="secondary" 
+                        startIcon={simulationType === 'tritanopia' ? <EyeOff className="h-3 w-3" /> : <Eye className="h-3 w-3" />}
+                        onClick={() => handleSimulation('tritanopia')}
+                      >
+                        {simulationType === 'tritanopia' ? 'Desativar Simulação' : 'Simular Tritanopia'}
                       </Button>
                     </div>
                   </div>
@@ -1226,14 +1273,18 @@ const Colors = () => {
                     <h4 className="font-medium mb-2">Acromatopsia</h4>
                     <p className="text-sm text-gray-600 mb-3">Ausência completa de percepção de cores</p>
                     <div className="grid grid-cols-4 gap-2">
-                      <ColorSwatch color="bg-primary-main" className="h-14" />
-                      <ColorSwatch color="bg-secondary-main" className="h-14" />
-                      <ColorSwatch color="bg-error-main" className="h-14" />
-                      <ColorSwatch color="bg-success-main" className="h-14" />
+                      <ColorSwatch color="bg-primary-main" className="h-14" simulationType={simulationType === 'achromatopsia' ? 'achromatopsia' : ''} />
+                      <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={simulationType === 'achromatopsia' ? 'achromatopsia' : ''} />
+                      <ColorSwatch color="bg-error-main" className="h-14" simulationType={simulationType === 'achromatopsia' ? 'achromatopsia' : ''} />
+                      <ColorSwatch color="bg-success-main" className="h-14" simulationType={simulationType === 'achromatopsia' ? 'achromatopsia' : ''} />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Button variant="secondary" startIcon={<Eye className="h-3 w-3" />}>
-                        Simular Acromatopsia
+                      <Button 
+                        variant="secondary" 
+                        startIcon={simulationType === 'achromatopsia' ? <EyeOff className="h-3 w-3" /> : <Eye className="h-3 w-3" />}
+                        onClick={() => handleSimulation('achromatopsia')}
+                      >
+                        {simulationType === 'achromatopsia' ? 'Desativar Simulação' : 'Simular Acromatopsia'}
                       </Button>
                     </div>
                   </div>

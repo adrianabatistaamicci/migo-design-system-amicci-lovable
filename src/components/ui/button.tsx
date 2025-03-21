@@ -18,7 +18,7 @@ const buttonVariants = cva(
         info: "bg-info-main text-info-contrast hover:bg-info-dark",
         success: "bg-success-main text-success-contrast hover:bg-success-dark",
         
-        // Outlined variants (equivalent to MUI outlined buttons)
+        // Outlined variants (equivalent to MUI contained buttons)
         "outline-default": "border border-primary-outlinedBorder bg-transparent text-primary-main hover:bg-primary-hover/10 active:bg-primary-hover/20",
         "outline-secondary": "border border-mui-text-primary/[0.23] bg-transparent text-mui-text-primary hover:bg-gray-100/10 active:bg-gray-100/20",
         "outline-error": "border border-error-outlinedBorder bg-transparent text-error-main hover:bg-error-hover/10 active:bg-error-hover/20",
