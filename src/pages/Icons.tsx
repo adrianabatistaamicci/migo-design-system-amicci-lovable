@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Chip } from '@/components/ui/chip';
@@ -7,10 +6,8 @@ import { getMaterialIconUrl, ICON_SIZES, getIconSizeClass, shouldInvertIcon, for
 import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-
 const Icons = () => {
-  return (
-    <div className="w-full animate-fade-in">
+  return <div className="w-full animate-fade-in">
       <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
         <Chip variant="filled" color="primary" size="sm">Foundations</Chip>
       </div>
@@ -20,28 +17,16 @@ const Icons = () => {
       <div className="border-b">
         <Tabs defaultValue="overview" className="w-full">
           <TabsList className="w-full justify-start h-auto p-0 bg-transparent">
-            <TabsTrigger 
-              value="overview" 
-              className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3"
-            >
+            <TabsTrigger value="overview" className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3">
               Visão geral
             </TabsTrigger>
-            <TabsTrigger 
-              value="styles" 
-              className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3"
-            >
+            <TabsTrigger value="styles" className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3">
               Estilos
             </TabsTrigger>
-            <TabsTrigger 
-              value="usage" 
-              className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3"
-            >
+            <TabsTrigger value="usage" className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3">
               Uso
             </TabsTrigger>
-            <TabsTrigger 
-              value="accessibility" 
-              className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3"
-            >
+            <TabsTrigger value="accessibility" className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3">
               Acessibilidade
             </TabsTrigger>
           </TabsList>
@@ -70,7 +55,7 @@ const Icons = () => {
             
             <Alert className="mt-8 bg-primary/10 border-amicci-500 rounded">
               <AlertDescription className="flex flex-row justify-between items-center">
-                <span className="text-lg font-medium">A biblioteca completa pode ser acessada no site oficial.</span>
+                <span className="font-medium text-base">A biblioteca completa pode ser acessada no site oficial.</span>
                 <Button variant="default" onClick={() => window.open("https://fonts.google.com/icons", "_blank", "noopener,noreferrer")}>Acessar Material Design Icons</Button>
               </AlertDescription>
             </Alert>
@@ -310,8 +295,6 @@ const Icons = () => {
           </TabsContent>
         </Tabs>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Icons;
