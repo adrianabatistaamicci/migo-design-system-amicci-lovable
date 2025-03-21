@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Chip } from '@/components/ui/chip';
@@ -481,4 +482,354 @@ const paletteData = [
       { name: 'light', colorClass: 'bg-tertiary-light', baseColor: 'magenta-100', textColor: 'text-black', hexValue: '#F9E5F4' },
       { name: 'hover', colorClass: 'bg-tertiary-hover', baseColor: 'magenta-500', textColor: 'text-tertiary-contrast', opacity: '4%', hexValue: '#9B247F0A' },
       { name: 'selected', colorClass: 'bg-tertiary-selected', baseColor: 'magenta-500', textColor: 'text-tertiary-contrast', opacity: '8%', hexValue: '#9B247F14' },
-      { name: 'focus', colorClass: 'bg-tertiary
+      { name: 'focus', colorClass: 'bg-tertiary-focus', baseColor: 'magenta-500', textColor: 'text-black', opacity: '12%', hexValue: '#9B247F1F' },
+      { name: 'focusVisible', colorClass: 'bg-tertiary-focusVisible', baseColor: 'magenta-500', textColor: 'text-black', opacity: '30%', hexValue: '#9B247F4D' },
+      { name: 'outlinedBorder', colorClass: 'bg-tertiary-outlinedBorder', baseColor: 'magenta-500', textColor: 'text-black', opacity: '50%', hexValue: '#9B247F80' }
+    ]
+  },
+  {
+    name: 'Success',
+    description: 'Green',
+    variants: [
+      { name: 'main', colorClass: 'bg-success-main', baseColor: 'green-500', textColor: 'text-success-contrast', opacity: '100%', hexValue: '#12B76A' },
+      { name: 'dark', colorClass: 'bg-success-dark', baseColor: 'green-700', textColor: 'text-success-contrast', opacity: '100%', hexValue: '#027A48' },
+      { name: 'light', colorClass: 'bg-success-light', baseColor: 'green-100', textColor: 'text-black', opacity: '100%', hexValue: '#D1FADF' },
+      { name: 'contrast', colorClass: 'bg-success-contrast', baseColor: 'common-white-main', textColor: 'text-success-main', opacity: '100%', hexValue: '#FFFFFF' },
+      { name: 'hover', colorClass: 'bg-success-hover', baseColor: 'green-500', textColor: 'text-success-contrast', opacity: '4%', hexValue: '#12B76A0A' },
+      { name: 'selected', colorClass: 'bg-success-selected', baseColor: 'green-500', textColor: 'text-success-contrast', opacity: '8%', hexValue: '#12B76A14' },
+      { name: 'focus', colorClass: 'bg-success-focus', baseColor: 'green-500', textColor: 'text-black', opacity: '12%', hexValue: '#12B76A1F' }
+    ]
+  },
+  {
+    name: 'Error',
+    description: 'Red',
+    variants: [
+      { name: 'main', colorClass: 'bg-error-main', baseColor: 'red-500', textColor: 'text-error-contrast', opacity: '100%', hexValue: '#F04438' },
+      { name: 'dark', colorClass: 'bg-error-dark', baseColor: 'red-700', textColor: 'text-error-contrast', opacity: '100%', hexValue: '#B42318' },
+      { name: 'light', colorClass: 'bg-error-light', baseColor: 'red-100', textColor: 'text-black', opacity: '100%', hexValue: '#FEE4E2' },
+      { name: 'contrast', colorClass: 'bg-error-contrast', baseColor: 'common-white-main', textColor: 'text-error-main', opacity: '100%', hexValue: '#FFFFFF' },
+      { name: 'hover', colorClass: 'bg-error-hover', baseColor: 'red-500', textColor: 'text-error-contrast', opacity: '4%', hexValue: '#F044380A' },
+      { name: 'selected', colorClass: 'bg-error-selected', baseColor: 'red-500', textColor: 'text-error-contrast', opacity: '8%', hexValue: '#F0443814' },
+      { name: 'focus', colorClass: 'bg-error-focus', baseColor: 'red-500', textColor: 'text-black', opacity: '12%', hexValue: '#F044381F' }
+    ]
+  },
+  {
+    name: 'Warning',
+    description: 'Orange',
+    variants: [
+      { name: 'main', colorClass: 'bg-warning-main', baseColor: 'orange-500', textColor: 'text-warning-contrast', opacity: '100%', hexValue: '#F79009' },
+      { name: 'dark', colorClass: 'bg-warning-dark', baseColor: 'orange-700', textColor: 'text-warning-contrast', opacity: '100%', hexValue: '#B54708' },
+      { name: 'light', colorClass: 'bg-warning-light', baseColor: 'orange-100', textColor: 'text-black', opacity: '100%', hexValue: '#FEF0C7' },
+      { name: 'contrast', colorClass: 'bg-warning-contrast', baseColor: 'common-white-main', textColor: 'text-warning-main', opacity: '100%', hexValue: '#FFFFFF' },
+      { name: 'hover', colorClass: 'bg-warning-hover', baseColor: 'orange-500', textColor: 'text-warning-contrast', opacity: '4%', hexValue: '#F790090A' },
+      { name: 'selected', colorClass: 'bg-warning-selected', baseColor: 'orange-500', textColor: 'text-warning-contrast', opacity: '8%', hexValue: '#F7900914' },
+      { name: 'focus', colorClass: 'bg-warning-focus', baseColor: 'orange-500', textColor: 'text-black', opacity: '12%', hexValue: '#F790091F' }
+    ]
+  },
+  {
+    name: 'Info',
+    description: 'Blue',
+    variants: [
+      { name: 'main', colorClass: 'bg-info-main', baseColor: 'blue-500', textColor: 'text-info-contrast', opacity: '100%', hexValue: '#2970FF' },
+      { name: 'dark', colorClass: 'bg-info-dark', baseColor: 'blue-700', textColor: 'text-info-contrast', opacity: '100%', hexValue: '#0057B2' },
+      { name: 'light', colorClass: 'bg-info-light', baseColor: 'blue-100', textColor: 'text-black', opacity: '100%', hexValue: '#D6E8FF' },
+      { name: 'contrast', colorClass: 'bg-info-contrast', baseColor: 'common-white-main', textColor: 'text-info-main', opacity: '100%', hexValue: '#FFFFFF' },
+      { name: 'hover', colorClass: 'bg-info-hover', baseColor: 'blue-500', textColor: 'text-info-contrast', opacity: '4%', hexValue: '#2970FF0A' },
+      { name: 'selected', colorClass: 'bg-info-selected', baseColor: 'blue-500', textColor: 'text-info-contrast', opacity: '8%', hexValue: '#2970FF14' },
+      { name: 'focus', colorClass: 'bg-info-focus', baseColor: 'blue-500', textColor: 'text-black', opacity: '12%', hexValue: '#2970FF1F' }
+    ]
+  }
+];
+
+// Example component to show color usage
+const ColorExample = () => {
+  const [viewMode, setViewMode] = useState("light");
+  
+  return (
+    <div className="space-y-6">
+      <div className="flex items-center space-x-2">
+        <Button 
+          variant={viewMode === "light" ? "default" : "outline"} 
+          onClick={() => setViewMode("light")}
+          size="sm"
+          className="gap-2"
+        >
+          <Eye size={16} /> Light Mode
+        </Button>
+        <Button 
+          variant={viewMode === "dark" ? "default" : "outline"} 
+          onClick={() => setViewMode("dark")}
+          size="sm"
+          className="gap-2"
+        >
+          <EyeOff size={16} /> Dark Mode
+        </Button>
+      </div>
+      
+      <div className={`rounded-lg p-6 ${viewMode === "dark" ? "bg-gray-900" : "bg-white"} border`}>
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <h4 className={`font-medium ${viewMode === "dark" ? "text-white" : "text-text-primary"}`}>Button Examples</h4>
+            <div className="flex flex-wrap gap-2">
+              <Button>Primary</Button>
+              <Button variant="secondary">Secondary</Button>
+              <Button variant="destructive">Error</Button>
+              <Button variant="outline">Outline</Button>
+              <Button variant="ghost">Ghost</Button>
+            </div>
+          </div>
+          
+          <div className="space-y-2">
+            <h4 className={`font-medium ${viewMode === "dark" ? "text-white" : "text-text-primary"}`}>Badge Examples</h4>
+            <div className="flex flex-wrap gap-2">
+              <Badge>Primary</Badge>
+              <Badge variant="secondary">Secondary</Badge>
+              <Badge variant="destructive">Error</Badge>
+              <Badge variant="outline">Outline</Badge>
+            </div>
+          </div>
+          
+          <div className="space-y-2">
+            <h4 className={`font-medium ${viewMode === "dark" ? "text-white" : "text-text-primary"}`}>Avatar Examples</h4>
+            <div className="flex flex-wrap gap-2">
+              <Avatar>
+                <AvatarImage src="https://picsum.photos/id/64/128/128" alt="Avatar" />
+                <AvatarFallback>JD</AvatarFallback>
+              </Avatar>
+              <Avatar>
+                <AvatarImage src="https://picsum.photos/id/65/128/128" alt="Avatar" />
+                <AvatarFallback>AN</AvatarFallback>
+              </Avatar>
+              <Avatar>
+                <AvatarImage src="https://picsum.photos/id/66/128/128" alt="Avatar" />
+                <AvatarFallback>TS</AvatarFallback>
+              </Avatar>
+            </div>
+          </div>
+          
+          <div className="space-y-2">
+            <h4 className={`font-medium ${viewMode === "dark" ? "text-white" : "text-text-primary"}`}>Chip Examples</h4>
+            <div className="flex flex-wrap gap-2">
+              <Chip>Basic</Chip>
+              <Chip color="primary">Primary</Chip>
+              <Chip color="secondary">Secondary</Chip>
+              <Chip color="error">Error</Chip>
+              <Chip color="warning">Warning</Chip>
+              <Chip color="success">Success</Chip>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Main Colors component
+const Colors = () => {
+  return (
+    <div className="max-w-full pb-16">
+      <h1 className="text-3xl font-bold">Sistema de Cores</h1>
+      <p className="text-gray-500 mb-6">As cores são uma parte fundamental da identidade visual do sistema.</p>
+      
+      <Tabs defaultValue="overview" className="w-full">
+        <TabsList className="mb-4">
+          <TabsTrigger value="overview">Visão geral</TabsTrigger>
+          <TabsTrigger value="palettes">Palettes</TabsTrigger>
+          <TabsTrigger value="base">Base colors</TabsTrigger>
+          <TabsTrigger value="usage">Uso</TabsTrigger>
+          <TabsTrigger value="accessibility">Acessibilidade</TabsTrigger>
+        </TabsList>
+        
+        <TabsContent value="overview" className="space-y-6">
+          <div>
+            <h2 className="text-2xl font-semibold mb-4">Paleta de cores</h2>
+            <p className="text-gray-600 mb-4">
+              Nossa paleta é composta por cores primárias e secundárias, com variações de intensidade que permitem 
+              flexibilidade no design mantendo a consistência visual.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+              <div className="space-y-2">
+                <div className="h-24 bg-primary-main rounded-md flex items-end p-3">
+                  <span className="text-white font-medium">Primária</span>
+                </div>
+                <p className="text-sm text-gray-500">Usada para elementos de destaque e ação principal.</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-24 bg-secondary-main rounded-md flex items-end p-3">
+                  <span className="text-white font-medium">Secundária</span>
+                </div>
+                <p className="text-sm text-gray-500">Complementa a cor primária em elementos importantes.</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-24 bg-tertiary-main rounded-md flex items-end p-3">
+                  <span className="text-white font-medium">Terciária</span>
+                </div>
+                <p className="text-sm text-gray-500">Utilizada para destaques e acentos visuais.</p>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
+              <div className="space-y-2">
+                <div className="h-16 bg-success-main rounded-md flex items-end p-3">
+                  <span className="text-white font-medium">Sucesso</span>
+                </div>
+                <p className="text-sm text-gray-500">Para ações bem-sucedidas.</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 bg-error-main rounded-md flex items-end p-3">
+                  <span className="text-white font-medium">Erro</span>
+                </div>
+                <p className="text-sm text-gray-500">Indica erros e ações destrutivas.</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 bg-warning-main rounded-md flex items-end p-3">
+                  <span className="text-white font-medium">Alerta</span>
+                </div>
+                <p className="text-sm text-gray-500">Para avisos e alertas.</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 bg-info-main rounded-md flex items-end p-3">
+                  <span className="text-white font-medium">Informação</span>
+                </div>
+                <p className="text-sm text-gray-500">Para mensagens informativas.</p>
+              </div>
+            </div>
+          </div>
+          
+          <Separator />
+          
+          <div>
+            <h2 className="text-2xl font-semibold mb-4">Cores e Hierarquia</h2>
+            <p className="text-gray-600 mb-4">
+              A aplicação das cores deve seguir a hierarquia visual do sistema, reforçando a navegação e orientando 
+              a atenção do usuário.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+              <div className="border rounded-lg p-4 space-y-4">
+                <h3 className="font-medium">Ações Principais</h3>
+                <Button className="w-full">Botão de Ação Principal</Button>
+                <p className="text-sm text-gray-500">A cor primária é usada para ações principais, como botões de confirmação.</p>
+              </div>
+              
+              <div className="border rounded-lg p-4 space-y-4">
+                <h3 className="font-medium">Ações Secundárias</h3>
+                <Button variant="secondary" className="w-full">Botão de Ação Secundária</Button>
+                <p className="text-sm text-gray-500">A cor secundária é usada para ações complementares ou alternativas.</p>
+              </div>
+            </div>
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="palettes">
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-2xl font-semibold mb-4">Paletas Semânticas</h2>
+              <p className="text-gray-600 mb-4">
+                Nossas paletas semânticas são derivadas das cores base e carregam significados específicos 
+                que ajudam na comunicação visual do sistema.
+              </p>
+            </div>
+            
+            <PaletteTable palettes={paletteData} />
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="base">
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-2xl font-semibold mb-4">Cores Base</h2>
+              <p className="text-gray-600 mb-4">
+                Nossas cores base servem como fundação para todas as paletas semânticas, oferecendo variações 
+                de intensidade para cada grupo de cor.
+              </p>
+            </div>
+            
+            <BaseColorsTable baseColors={baseColorsData} />
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="usage">
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-2xl font-semibold mb-4">Uso e Aplicação</h2>
+              <p className="text-gray-600 mb-4">
+                Orientações sobre como aplicar as cores de forma consistente em diferentes componentes e interfaces.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 gap-6">
+              <ComponentCard title="Exemplos de Uso">
+                <ColorExample />
+              </ComponentCard>
+              
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Diretrizes de Aplicação</h3>
+                <ul className="list-disc pl-5 space-y-2 text-gray-600">
+                  <li>Use a cor primária para elementos de ação principal e pontos de foco importantes.</li>
+                  <li>A cor secundária deve ser usada para elementos complementares e ações alternativas.</li>
+                  <li>As cores de feedback (sucesso, erro, alerta) devem ser usadas de forma consistente para transmitir o mesmo significado em toda a interface.</li>
+                  <li>Mantenha contraste adequado entre texto e fundo para garantir legibilidade.</li>
+                  <li>Use variações de intensidade para criar hierarquia visual dentro de um mesmo grupo de elementos.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="accessibility">
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-2xl font-semibold mb-4">Acessibilidade de Cores</h2>
+              <p className="text-gray-600 mb-4">
+                Nossas cores são testadas para garantir adequado contraste e legibilidade seguindo 
+                as diretrizes WCAG 2.1.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 gap-6">
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Diretrizes de Contraste</h3>
+                <ul className="list-disc pl-5 space-y-2 text-gray-600">
+                  <li><span className="font-medium">WCAG AA:</span> Requer uma razão de contraste mínima de 4.5:1 para texto normal e 3:1 para texto grande.</li>
+                  <li><span className="font-medium">WCAG AAA:</span> Requer uma razão de contraste mínima de 7:1 para texto normal e 4.5:1 para texto grande.</li>
+                  <li>Certifique-se de que elementos interativos têm contraste suficiente com seu fundo.</li>
+                  <li>Não use apenas cor para transmitir informações importantes - adicione ícones ou texto.</li>
+                </ul>
+              </div>
+              
+              <div className="border rounded-lg p-6 space-y-4">
+                <h3 className="font-medium">Análise Visual de Contraste</h3>
+                <p className="text-gray-600">
+                  Use a tabela de paletas para verificar o contraste WCAG de cada cor em relação a fundos claros e escuros.
+                </p>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                  <div className="bg-white p-4 rounded border space-y-2">
+                    <p className="text-text-primary font-medium">Texto primário em fundo claro</p>
+                    <p className="text-text-secondary">Texto secundário em fundo claro</p>
+                    <Button>Botão primário</Button>
+                  </div>
+                  
+                  <div className="bg-gray-900 p-4 rounded border space-y-2">
+                    <p className="text-white font-medium">Texto primário em fundo escuro</p>
+                    <p className="text-gray-300">Texto secundário em fundo escuro</p>
+                    <Button>Botão primário</Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+};
+
+export default Colors;
