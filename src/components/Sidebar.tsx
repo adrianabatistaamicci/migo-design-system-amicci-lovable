@@ -33,6 +33,7 @@ const sidebarItems: SidebarItem[] = [
       { title: 'Typography', href: '/foundations/typography' },
       { title: 'Spacing', href: '/foundations/spacing' },
       { title: 'Icons', href: '/foundations/icons' },
+      { title: 'Brand', href: '/foundations/brand' },
     ]
   },
   {
