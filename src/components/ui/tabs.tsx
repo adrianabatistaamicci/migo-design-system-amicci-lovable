@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
@@ -105,10 +106,10 @@ export const TailwindTabs = ({
               <button
                 key={tab.value}
                 onClick={() => handleTabChange(tab.value)}
-                className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+                className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors duration-200 ${
                   selected === tab.value
-                    ? 'bg-white text-amicci-600 shadow'
-                    : 'text-gray-500 hover:text-gray-900'
+                    ? 'bg-white text-amicci-600 shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                 }`}
               >
                 {tab.name}
