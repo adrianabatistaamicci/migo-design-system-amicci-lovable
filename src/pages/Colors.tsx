@@ -20,6 +20,14 @@ const ColorSwatch = ({
   weight,
   hexValue,
   copyValue
+}: {
+  color: string;
+  className?: string;
+  onClick?: () => void;
+  textOverlay?: string;
+  weight?: string;
+  hexValue?: string;
+  copyValue?: string;
 }) => {
   const [copied, setCopied] = useState(false);
 
@@ -733,9 +741,30 @@ const UsageTab = () => {
               Use para elementos de destaque, botões principais, links e elementos de navegação primários.
             </p>
             <div className="mt-3 grid grid-cols-1 gap-1">
-              <ColorSwatch color="bg-amicci-500" hexValue="#10C2C0" weight="500 (Main)" className="h-8" />
-              <ColorSwatch color="bg-amicci-700" hexValue="#0C8482" weight="700 (Dark)" className="h-8" />
-              <ColorSwatch color="bg-amicci-300" hexValue="#93EDEA" weight="300 (Light)" className="h-8" />
+              <ColorSwatch 
+                color="bg-amicci-500" 
+                hexValue="#10C2C0" 
+                weight="500 (Main)" 
+                className="h-8"
+                textOverlay="500 (Main)"
+                copyValue="#10C2C0"
+              />
+              <ColorSwatch 
+                color="bg-amicci-700" 
+                hexValue="#0C8482" 
+                weight="700 (Dark)" 
+                className="h-8"
+                textOverlay="700 (Dark)"
+                copyValue="#0C8482"
+              />
+              <ColorSwatch 
+                color="bg-amicci-300" 
+                hexValue="#93EDEA" 
+                weight="300 (Light)" 
+                className="h-8"
+                textOverlay="300 (Light)"
+                copyValue="#93EDEA"
+              />
             </div>
           </div>
           
@@ -748,9 +777,30 @@ const UsageTab = () => {
               Use para elementos secundários, botões alternativos e detalhes visuais complementares.
             </p>
             <div className="mt-3 grid grid-cols-1 gap-1">
-              <ColorSwatch color="bg-amicciDark-500" hexValue="#14818A" weight="500 (Main)" className="h-8" />
-              <ColorSwatch color="bg-amicciDark-700" hexValue="#06454A" weight="700 (Dark)" className="h-8" />
-              <ColorSwatch color="bg-amicciDark-300" hexValue="#72BEC2" weight="300 (Light)" className="h-8" />
+              <ColorSwatch 
+                color="bg-amicciDark-500" 
+                hexValue="#14818A" 
+                weight="500 (Main)" 
+                className="h-8"
+                textOverlay="500 (Main)"
+                copyValue="#14818A"
+              />
+              <ColorSwatch 
+                color="bg-amicciDark-700" 
+                hexValue="#06454A" 
+                weight="700 (Dark)" 
+                className="h-8"
+                textOverlay="700 (Dark)"
+                copyValue="#06454A"
+              />
+              <ColorSwatch 
+                color="bg-amicciDark-300" 
+                hexValue="#72BEC2" 
+                weight="300 (Light)" 
+                className="h-8"
+                textOverlay="300 (Light)"
+                copyValue="#72BEC2"
+              />
             </div>
           </div>
           
@@ -763,9 +813,30 @@ const UsageTab = () => {
               Use para mensagens de erro, estados de erro e ações destrutivas como exclusão.
             </p>
             <div className="mt-3 grid grid-cols-1 gap-1">
-              <ColorSwatch color="bg-red-500" hexValue="#F04438" weight="500 (Main)" className="h-8" />
-              <ColorSwatch color="bg-red-700" hexValue="#B42318" weight="700 (Dark)" className="h-8" />
-              <ColorSwatch color="bg-red-300" hexValue="#FDA29B" weight="300 (Light)" className="h-8" />
+              <ColorSwatch 
+                color="bg-red-500" 
+                hexValue="#F04438" 
+                weight="500 (Main)" 
+                className="h-8"
+                textOverlay="500 (Main)"
+                copyValue="#F04438"
+              />
+              <ColorSwatch 
+                color="bg-red-700" 
+                hexValue="#B42318" 
+                weight="700 (Dark)" 
+                className="h-8"
+                textOverlay="700 (Dark)"
+                copyValue="#B42318"
+              />
+              <ColorSwatch 
+                color="bg-red-300" 
+                hexValue="#FDA29B" 
+                weight="300 (Light)" 
+                className="h-8"
+                textOverlay="300 (Light)"
+                copyValue="#FDA29B"
+              />
             </div>
           </div>
           
@@ -778,9 +849,30 @@ const UsageTab = () => {
               Use para confirmações, mensagens de sucesso e indicadores positivos.
             </p>
             <div className="mt-3 grid grid-cols-1 gap-1">
-              <ColorSwatch color="bg-green-500" hexValue="#12B76A" weight="500 (Main)" className="h-8" />
-              <ColorSwatch color="bg-green-700" hexValue="#027A48" weight="700 (Dark)" className="h-8" />
-              <ColorSwatch color="bg-green-300" hexValue="#6CE9A6" weight="300 (Light)" className="h-8" />
+              <ColorSwatch 
+                color="bg-green-500" 
+                hexValue="#12B76A" 
+                weight="500 (Main)" 
+                className="h-8"
+                textOverlay="500 (Main)"
+                copyValue="#12B76A"
+              />
+              <ColorSwatch 
+                color="bg-green-700" 
+                hexValue="#027A48" 
+                weight="700 (Dark)" 
+                className="h-8"
+                textOverlay="700 (Dark)"
+                copyValue="#027A48"
+              />
+              <ColorSwatch 
+                color="bg-green-300" 
+                hexValue="#6CE9A6" 
+                weight="300 (Light)" 
+                className="h-8"
+                textOverlay="300 (Light)"
+                copyValue="#6CE9A6"
+              />
             </div>
           </div>
           
@@ -793,9 +885,30 @@ const UsageTab = () => {
               Use para alertas, notificações importantes e ações que requerem atenção.
             </p>
             <div className="mt-3 grid grid-cols-1 gap-1">
-              <ColorSwatch color="bg-yellow-500" hexValue="#FFEB3B" weight="500 (Main)" className="h-8" />
-              <ColorSwatch color="bg-yellow-700" hexValue="#FBC02D" weight="700 (Dark)" className="h-8" />
-              <ColorSwatch color="bg-yellow-300" hexValue="#FFF176" weight="300 (Light)" className="h-8" />
+              <ColorSwatch 
+                color="bg-yellow-500" 
+                hexValue="#FFEB3B" 
+                weight="500 (Main)" 
+                className="h-8"
+                textOverlay="500 (Main)"
+                copyValue="#FFEB3B"
+              />
+              <ColorSwatch 
+                color="bg-yellow-700" 
+                hexValue="#FBC02D" 
+                weight="700 (Dark)" 
+                className="h-8"
+                textOverlay="700 (Dark)"
+                copyValue="#FBC02D"
+              />
+              <ColorSwatch 
+                color="bg-yellow-300" 
+                hexValue="#FFF176" 
+                weight="300 (Light)" 
+                className="h-8"
+                textOverlay="300 (Light)"
+                copyValue="#FFF176"
+              />
             </div>
           </div>
           
@@ -808,9 +921,30 @@ const UsageTab = () => {
               Use para mensagens informativas, dicas e elementos de ajuda contextual.
             </p>
             <div className="mt-3 grid grid-cols-1 gap-1">
-              <ColorSwatch color="bg-blue-500" hexValue="#2970FF" weight="500 (Main)" className="h-8" />
-              <ColorSwatch color="bg-blue-700" hexValue="#0057B2" weight="700 (Dark)" className="h-8" />
-              <ColorSwatch color="bg-blue-300" hexValue="#84A9FF" weight="300 (Light)" className="h-8" />
+              <ColorSwatch 
+                color="bg-blue-500" 
+                hexValue="#2970FF" 
+                weight="500 (Main)" 
+                className="h-8"
+                textOverlay="500 (Main)"
+                copyValue="#2970FF"
+              />
+              <ColorSwatch 
+                color="bg-blue-700" 
+                hexValue="#0057B2" 
+                weight="700 (Dark)" 
+                className="h-8"
+                textOverlay="700 (Dark)"
+                copyValue="#0057B2"
+              />
+              <ColorSwatch 
+                color="bg-blue-300" 
+                hexValue="#84A9FF" 
+                weight="300 (Light)" 
+                className="h-8"
+                textOverlay="300 (Light)"
+                copyValue="#84A9FF"
+              />
             </div>
           </div>
         </div>
