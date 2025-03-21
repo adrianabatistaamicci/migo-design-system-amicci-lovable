@@ -51,8 +51,8 @@ const TabsPage = () => {
 </Tabs>`}>
             <div className="w-full ">
               <Tabs defaultValue="account" className="w-full">
-                <TabsList className="w-full grid grid-cols-2">
-                  <TabsTrigger value="account">Account</TabsTrigger>
+                <TabsList className="w-full">
+                  <TabsTrigger value="account" className="mx-auto">Account</TabsTrigger>
                   <TabsTrigger value="password">Password</TabsTrigger>
                 </TabsList>
                 <TabsContent value="account" className="p-4 border rounded-b-md mt-1">
