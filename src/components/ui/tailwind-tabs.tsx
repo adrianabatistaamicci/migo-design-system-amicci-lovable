@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 
@@ -7,23 +8,19 @@ type Tab = {
 };
 
 type TailwindTabsProps = {
-  tabs?: Tab[];
+  tabs: Tab[];
   defaultValue?: string;
   onChange?: (value: string) => void;
   variant?: 'underline' | 'pills' | 'pillsGray' | 'pillsBrand' | 'fullWidth' | 'bar' | 'underlineBadges';
-  children?: React.ReactNode;
-  className?: string;
 };
 
 export const TailwindTabs = ({
-  tabs = [],
+  tabs,
   defaultValue,
   onChange,
   variant = 'pillsGray',
-  children,
-  className = '',
 }: TailwindTabsProps) => {
-  const [selected, setSelected] = useState(defaultValue || (tabs.length > 0 ? tabs[0]?.value : ''));
+  const [selected, setSelected] = useState(defaultValue || tabs[0]?.value);
 
   const handleTabChange = (value: string) => {
     setSelected(value);
@@ -32,8 +29,6 @@ export const TailwindTabs = ({
 
   // Render different tab styles based on variant
   const renderTabs = () => {
-    if (!tabs || tabs.length === 0) return null;
-    
     switch (variant) {
       case 'underline':
         return (
@@ -207,12 +202,5 @@ export const TailwindTabs = ({
     }
   };
 
-  return (
-    <div className={`w-full ${className}`}>
-      {renderTabs()}
-      <div className="tab-content">
-        {children}
-      </div>
-    </div>
-  );
+  return <div className="w-full">{renderTabs()}</div>;
 };

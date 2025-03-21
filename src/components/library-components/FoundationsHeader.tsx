@@ -5,13 +5,11 @@ import { Chip } from '@/components/ui/chip';
 interface FoundationsHeaderProps {
   title: string;
   description: string;
-  illustration?: string;
 }
 
 const FoundationsHeader = ({
   title,
-  description,
-  illustration
+  description
 }: FoundationsHeaderProps) => {
   return <div className="w-full animate-fade-in">
       <div className="space-y-2">
