@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import ComponentCard from '@/components/ComponentCard';
@@ -26,7 +27,7 @@ const componentData = {
     examples: [
       {
         title: 'Botão primário',
-        description: 'Material UI styled contained buttons with raised appearance.',
+        description: 'Botões com aparência elevada no estilo Material UI.',
         component: (
           <div className="flex flex-wrap gap-4">
             <Button>Primary</Button>
@@ -40,7 +41,7 @@ const componentData = {
       },
       {
         title: 'Botão secundário',
-        description: 'Buttons with outline for less pronounced actions.',
+        description: 'Botões com contorno para ações menos pronunciadas.',
         component: (
           <div className="flex flex-wrap gap-4">
             <Button variant="outline-default">Default</Button>
@@ -54,7 +55,7 @@ const componentData = {
       },
       {
         title: 'Botão terciário',
-        description: 'Buttons without background or outline for subtle actions.',
+        description: 'Botões sem fundo ou contorno para ações sutis.',
         component: (
           <div className="flex flex-wrap gap-4">
             <Button variant="text-default">Default</Button>
