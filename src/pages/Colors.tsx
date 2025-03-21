@@ -821,8 +821,8 @@ const Colors = () => {
   return (
     <div className="container mx-auto py-12">
       <FoundationsHeader
-        title="Cores"
-        description="Nossas cores são escolhidas para transmitir nossa identidade visual e garantir acessibilidade."
+        title="Sistema de Cores"
+        description="Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização."
       />
       
       <Tabs defaultValue="overview" className="mt-6">
@@ -1011,28 +1011,19 @@ const Colors = () => {
         
         <TabsContent value="base-colors">
           <h2 className="text-2xl font-bold mb-6">Cores Base</h2>
-          <p className="text-gray-600 mb-6">
-            Nossas cores base formam a fundação do sistema de design, oferecendo uma paleta completa de variações para cada cor.
-          </p>
           <BaseColorsTable baseColors={baseColorsData} />
         </TabsContent>
         
         <TabsContent value="palettes">
           <h2 className="text-2xl font-bold mb-6">Paletas</h2>
-          <p className="text-gray-600 mb-6">
-            As paletas semânticas são compostas a partir das cores base e possuem variações específicas para diferentes estados e usos.
-          </p>
           <PaletteTable palettes={paletteData} />
         </TabsContent>
         
         <TabsContent value="usage">
-          <h2 className="text-2xl font-bold mb-6">Uso das Cores</h2>
-          <p className="text-gray-600 mb-6">
-            Orientações sobre como aplicar as cores do sistema de design em componentes e interfaces.
-          </p>
+          <h2 className="text-2xl font-bold mb-6">Uso</h2>
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold mb-4">Aplicação em Componentes</h3>
+              <h3 className="text-xl font-semibold mb-2">Uso das cores</h3>
               <p className="text-gray-600 mb-4">
                 Nossas cores são aplicadas de acordo com as seguintes diretrizes para manter consistência visual em toda a plataforma.
               </p>
@@ -1059,7 +1050,7 @@ const Colors = () => {
             </div>
             
             <div>
-              <h3 className="text-xl font-semibold mb-4">Acessibilidade</h3>
+              <h3 className="text-xl font-semibold mb-2">Acessibilidade</h3>
               <p className="text-gray-600 mb-4">
                 Todas as cores foram testadas para garantir contraste adequado seguindo as diretrizes WCAG 2.1.
               </p>
@@ -1072,3 +1063,4 @@ const Colors = () => {
 };
 
 export default Colors;
+
