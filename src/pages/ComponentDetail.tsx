@@ -9,13 +9,14 @@ import { Label } from '@/components/ui/label';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import ComponentsHeader from '@/components/library-components/ComponentsHeader';
 import { Heart, ArrowRight, Save, Check } from 'lucide-react';
+
 const componentData = {
   buttons: {
     title: 'Button',
     description: 'Interactive elements that enable users to trigger actions.',
     api: [{
       prop: 'variant',
-      type: '"default" | "secondary" | "error" | "outline-default" | "outline-secondary" | "outline-error" | "text-default" | "text-secondary" | "text-error"',
+      type: '"default" | "error" | "outline-secondary" | "outline-error" | "text-secondary" | "text-error"',
       default: '"default"',
       description: 'Visual style of the button'
     }, {
@@ -54,33 +55,27 @@ const componentData = {
       description: 'Botões com aparência elevada no estilo Material UI.',
       component: <div className="flex flex-wrap gap-4">
             <Button>Primary</Button>
-            <Button variant="secondary">Secondary</Button>
             <Button variant="error">Error</Button>
           </div>,
       code: `<Button>Primary</Button>
-<Button variant="secondary">Secondary</Button>
 <Button variant="error">Error</Button>`
     }, {
       title: 'Botão secundário',
       description: 'Botões com contorno para ações menos pronunciadas.',
       component: <div className="flex flex-wrap gap-4">
-            <Button variant="outline-default">Default</Button>
             <Button variant="outline-secondary">Secondary</Button>
             <Button variant="outline-error">Error</Button>
           </div>,
-      code: `<Button variant="outline-default">Default</Button>
-<Button variant="outline-secondary">Secondary</Button>
+      code: `<Button variant="outline-secondary">Secondary</Button>
 <Button variant="outline-error">Error</Button>`
     }, {
       title: 'Botão terciário',
       description: 'Botões sem fundo ou contorno para ações sutis.',
       component: <div className="flex flex-wrap gap-4">
-            <Button variant="text-default">Default</Button>
             <Button variant="text-secondary">Secondary</Button>
             <Button variant="text-error">Error</Button>
           </div>,
-      code: `<Button variant="text-default">Default</Button>
-<Button variant="text-secondary">Secondary</Button>
+      code: `<Button variant="text-secondary">Secondary</Button>
 <Button variant="text-error">Error</Button>`
     }, {
       title: 'Button Sizes',
@@ -197,6 +192,7 @@ const componentData = {
     }]
   }
 };
+
 const ComponentDetail = () => {
   const {
     componentId
@@ -265,4 +261,5 @@ const ComponentDetail = () => {
       </div>
     </div>;
 };
+
 export default ComponentDetail;
