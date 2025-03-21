@@ -34,10 +34,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
         {description && <p className="text-gray-600 text-sm">{description}</p>}
       </div>
       
-      <div style={{
-      minHeight: typeof height === 'number' ? `${height}px` : height,
-      maxHeight: 200
-    }} className="p-5 flex items-center justify-center flex-grow">
+      <div className="p-5 flex items-center justify-center flex-grow">
         <div className="w-full">
           {children}
         </div>
