@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Chip } from '@/components/ui/chip';
@@ -668,7 +667,6 @@ const baseColorsData = [{
     hexValue: '#7A2E0E'
   }]
 }];
-
 const paletteData = [{
   name: 'Text',
   description: 'Gray',
@@ -1610,7 +1608,7 @@ const Colors = () => {
       <FoundationsHeader title="Colors" description="Paleta de cores e tokens de design utilizados na aplicação (50-950)" />
 
       <Tabs defaultValue="overview" className="mt-8">
-        <TabsList className="mb-8 bg-gray-100 p-1 rounded-lg">
+        <TabsList className="mb-4 bg-gray-100 p-1 rounded-lg">
           <TabsTrigger value="overview">Visão geral</TabsTrigger>
           <TabsTrigger value="palettes">Palettes</TabsTrigger>
           <TabsTrigger value="baseColors">Base colors</TabsTrigger>
