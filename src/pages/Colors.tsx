@@ -821,8 +821,8 @@ const Colors = () => {
   return (
     <div className="container mx-auto py-12">
       <FoundationsHeader
-        title="Sistema de Cores"
-        description="Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização."
+        title="Cores"
+        description="Nossas cores são escolhidas para transmitir nossa identidade visual e garantir acessibilidade."
       />
       
       <Tabs defaultValue="overview" className="mt-6">
@@ -1010,17 +1010,14 @@ const Colors = () => {
         </TabsContent>
         
         <TabsContent value="base-colors">
-          <h2 className="text-2xl font-bold mb-6">Cores Base</h2>
           <BaseColorsTable baseColors={baseColorsData} />
         </TabsContent>
         
         <TabsContent value="palettes">
-          <h2 className="text-2xl font-bold mb-6">Paletas</h2>
           <PaletteTable palettes={paletteData} />
         </TabsContent>
         
         <TabsContent value="usage">
-          <h2 className="text-2xl font-bold mb-6">Uso</h2>
           <div className="space-y-6">
             <div>
               <h3 className="text-xl font-semibold mb-2">Uso das cores</h3>
@@ -1063,4 +1060,3 @@ const Colors = () => {
 };
 
 export default Colors;
-
