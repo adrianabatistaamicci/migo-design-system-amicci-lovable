@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -54,7 +53,6 @@ const Brand = () => {
               </div>
             </div>
             
-
             <Separator />
             
             <div className="space-y-6">
@@ -72,7 +70,7 @@ const Brand = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="border rounded-lg p-8 flex items-center justify-center bg-white">
-                  <img src={AmicciSimbolo} alt="Símbolo Amicci" className="max-w-[250px] h-auto" />
+                  <img src={AmicciSimbolo} alt="Símbolo Amicci" className="max-w-[250px] h-[117px]" />
                 </div>
                 <div className="space-y-4">
                   <h4 className="font-medium">Símbolo</h4>
