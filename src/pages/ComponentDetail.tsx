@@ -265,9 +265,9 @@ const ComponentDetail = () => {
               <TableHeader>
                 <TableRow className="bg-mui-sidebar">
                   <TableHead className="w-[15%]">Prop</TableHead>
-                  <TableHead className="w-[35%]">Type</TableHead>
+                  <TableHead className="w-[45%]">Type</TableHead>
                   <TableHead className="w-[15%]">Default</TableHead>
-                  <TableHead className="w-[35%]">Description</TableHead>
+                  <TableHead className="w-[25%]">Description</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
