@@ -22,7 +22,7 @@ const Icons = () => {
       
       {/* Abas adicionais abaixo do header */}
       <Tabs defaultValue="standard" className="w-full mb-6">
-        <TabsList className="w-full border-0 justify-start">
+        <TabsList className="w-full bg-transparent border-0 justify-start">
           <TabsTrigger value="standard" onClick={() => setShowCase('standard')}>
             Padrões
           </TabsTrigger>

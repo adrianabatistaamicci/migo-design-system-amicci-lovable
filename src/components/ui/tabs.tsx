@@ -80,9 +80,6 @@ const TabsList = React.forwardRef<
     }
   }
   
-  // Check if border should be displayed - if border-0 is in the className, we won't add a border
-  const hasBorderZero = className?.includes("border-0")
-  
   return (
     <div className={cn(
       "relative",
@@ -116,23 +113,18 @@ const TabsList = React.forwardRef<
           orientation === "vertical" ? "max-h-[300px]" : "max-w-full"
         )}
       >
-        <div className={cn(
-          // Only add border if it's horizontal AND doesn't have border-0 class
-          orientation === "horizontal" && !hasBorderZero ? "relative border-b border-gray-200 w-full" : ""
-        )}>
-          <TabsPrimitive.List
-            ref={ref}
-            className={cn(
-              orientation === "horizontal" 
-                ? "inline-flex h-10 items-center justify-start" 
-                : "flex flex-col items-start justify-center space-y-1",
-              smallScreen ? "p-0" : "p-1",
-              "w-fit", // This ensures tabs fit to content
-              className
-            )}
-            {...props}
-          />
-        </div>
+        <TabsPrimitive.List
+          ref={ref}
+          className={cn(
+            orientation === "horizontal" 
+              ? "inline-flex h-10 items-center justify-start" 
+              : "flex flex-col items-start justify-center space-y-1",
+            smallScreen ? "p-0" : "p-1",
+            "w-fit", // This ensures tabs fit to content
+            className
+          )}
+          {...props}
+        />
       </div>
       
       {scrollable && orientation !== "vertical" && (
