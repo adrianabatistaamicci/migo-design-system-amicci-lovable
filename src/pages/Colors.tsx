@@ -12,6 +12,115 @@ import ComponentCard from '@/components/ComponentCard';
 import FoundationsHeader from '@/components/library-components/FoundationsHeader';
 import { TailwindTabs } from '@/components/ui/tailwind-tabs';
 
+// Define the base colors data 
+const baseColorsData = [
+  {
+    name: "Amicci",
+    weights: [
+      { weight: "50", colorClass: "bg-amicci-50", hexValue: "#E3FAF9" },
+      { weight: "100", colorClass: "bg-amicci-100", hexValue: "#C7F4F2" },
+      { weight: "200", colorClass: "bg-amicci-200", hexValue: "#A1EAE8" },
+      { weight: "300", colorClass: "bg-amicci-300", hexValue: "#7BE0DE" },
+      { weight: "400", colorClass: "bg-amicci-400", hexValue: "#55D6D4" },
+      { weight: "500", colorClass: "bg-amicci-500", hexValue: "#10C2C0" },
+      { weight: "600", colorClass: "bg-amicci-600", hexValue: "#0E9E9D" },
+      { weight: "700", colorClass: "bg-amicci-700", hexValue: "#0C8482" },
+      { weight: "800", colorClass: "bg-amicci-800", hexValue: "#0A6A69" },
+      { weight: "900", colorClass: "bg-amicci-900", hexValue: "#085050" }
+    ]
+  },
+  {
+    name: "AmicciDark",
+    weights: [
+      { weight: "50", colorClass: "bg-amicciDark-50", hexValue: "#E6F3F4" },
+      { weight: "100", colorClass: "bg-amicciDark-100", hexValue: "#C7E8E9" },
+      { weight: "200", colorClass: "bg-amicciDark-200", hexValue: "#A0D7D9" },
+      { weight: "300", colorClass: "bg-amicciDark-300", hexValue: "#78C6C9" },
+      { weight: "400", colorClass: "bg-amicciDark-400", hexValue: "#4FB5B9" },
+      { weight: "500", colorClass: "bg-amicciDark-500", hexValue: "#14818A" },
+      { weight: "600", colorClass: "bg-amicciDark-600", hexValue: "#0D6870" },
+      { weight: "700", colorClass: "bg-amicciDark-700", hexValue: "#06454A" },
+      { weight: "800", colorClass: "bg-amicciDark-800", hexValue: "#042D30" },
+      { weight: "900", colorClass: "bg-amicciDark-900", hexValue: "#021618" }
+    ]
+  },
+  {
+    name: "Gray",
+    weights: [
+      { weight: "50", colorClass: "bg-gray-50", hexValue: "#F9FAFB" },
+      { weight: "100", colorClass: "bg-gray-100", hexValue: "#F3F4F6" },
+      { weight: "200", colorClass: "bg-gray-200", hexValue: "#E5E7EB" },
+      { weight: "300", colorClass: "bg-gray-300", hexValue: "#D1D5DB" },
+      { weight: "400", colorClass: "bg-gray-400", hexValue: "#9CA3AF" },
+      { weight: "500", colorClass: "bg-gray-500", hexValue: "#6B7280" },
+      { weight: "600", colorClass: "bg-gray-600", hexValue: "#4B5563" },
+      { weight: "700", colorClass: "bg-gray-700", hexValue: "#374151" },
+      { weight: "800", colorClass: "bg-gray-800", hexValue: "#1F2937" },
+      { weight: "900", colorClass: "bg-gray-900", hexValue: "#111827" }
+    ]
+  }
+];
+
+// Define the palette data
+const paletteData = [
+  {
+    name: "Primary",
+    description: "amicci",
+    variants: [
+      { name: "main", colorClass: "bg-primary-main", hexValue: "#10C2C0", baseColor: "Amicci-500", opacity: "100%" },
+      { name: "light", colorClass: "bg-primary-light", hexValue: "#E3FAF9", baseColor: "Amicci-50", opacity: "100%" },
+      { name: "dark", colorClass: "bg-primary-dark", hexValue: "#0C8482", baseColor: "Amicci-700", opacity: "100%" },
+      { name: "contrast", colorClass: "bg-primary-contrast", hexValue: "#FFFFFF", baseColor: "White", opacity: "100%" }
+    ]
+  },
+  {
+    name: "Secondary",
+    description: "amicciDark",
+    variants: [
+      { name: "main", colorClass: "bg-secondary-main", hexValue: "#14818A", baseColor: "AmicciDark-500", opacity: "100%" },
+      { name: "light", colorClass: "bg-secondary-light", hexValue: "#C7E8E9", baseColor: "AmicciDark-100", opacity: "100%" },
+      { name: "dark", colorClass: "bg-secondary-dark", hexValue: "#06454A", baseColor: "AmicciDark-700", opacity: "100%" },
+      { name: "contrast", colorClass: "bg-secondary-contrast", hexValue: "#FFFFFF", baseColor: "White", opacity: "100%" }
+    ]
+  },
+  {
+    name: "Success",
+    description: "success-color",
+    variants: [
+      { name: "main", colorClass: "bg-success-main", hexValue: "#12B76A", baseColor: "Success-500", opacity: "100%" },
+      { name: "light", colorClass: "bg-success-light", hexValue: "#D1FADF", baseColor: "Success-50", opacity: "100%" },
+      { name: "dark", colorClass: "bg-success-dark", hexValue: "#027A48", baseColor: "Success-800", opacity: "100%" }
+    ]
+  },
+  {
+    name: "Error",
+    description: "error-color",
+    variants: [
+      { name: "main", colorClass: "bg-error-main", hexValue: "#F04438", baseColor: "Error-500", opacity: "100%" },
+      { name: "light", colorClass: "bg-error-light", hexValue: "#FEE4E2", baseColor: "Error-50", opacity: "100%" },
+      { name: "dark", colorClass: "bg-error-dark", hexValue: "#B42318", baseColor: "Error-800", opacity: "100%" }
+    ]
+  },
+  {
+    name: "Warning",
+    description: "warning-color",
+    variants: [
+      { name: "main", colorClass: "bg-warning-main", hexValue: "#F79009", baseColor: "Warning-500", opacity: "100%" },
+      { name: "light", colorClass: "bg-warning-light", hexValue: "#FEF0C7", baseColor: "Warning-50", opacity: "100%" },
+      { name: "dark", colorClass: "bg-warning-dark", hexValue: "#B54708", baseColor: "Warning-800", opacity: "100%" }
+    ]
+  },
+  {
+    name: "Info",
+    description: "info-color",
+    variants: [
+      { name: "main", colorClass: "bg-info-main", hexValue: "#2970FF", baseColor: "Info-500", opacity: "100%" },
+      { name: "light", colorClass: "bg-info-light", hexValue: "#D6E8FF", baseColor: "Info-50", opacity: "100%" },
+      { name: "dark", colorClass: "bg-info-dark", hexValue: "#0057B2", baseColor: "Info-800", opacity: "100%" }
+    ]
+  }
+];
+
 // ColorSwatch component
 const ColorSwatch = ({
   color,
@@ -271,10 +380,9 @@ const Colors = () => {
       <FoundationsHeader 
         title="Cores"
         description="Nosso sistema de cores é meticulosamente projetado para dar suporte à comunicação, orientar os usuários através da interface e fornecer feedback. A paleta consiste em cores primárias, secundárias e neutras, cada uma com variações específicas de luminosidade."
-        illustration="colors"
       />
       
-      <TailwindTabs variant="pillsGray" defaultValue="palette">
+      <TailwindTabs defaultValue="palette" variant="pillsGray">
         <TabsList className="mb-8">
           <TabsTrigger value="palette">Paleta de Cores</TabsTrigger>
           <TabsTrigger value="semantics">Cores Semânticas</TabsTrigger>
@@ -289,7 +397,7 @@ const Colors = () => {
                 <div key={baseColor.name} className="space-y-4">
                   <h3 className="text-xl font-semibold flex items-center gap-2">
                     {baseColor.name}
-                    <Badge variant="outline" className="font-normal">
+                    <Badge variant="standard" className="font-normal">
                       {baseColor.weights.length} variações
                     </Badge>
                   </h3>
