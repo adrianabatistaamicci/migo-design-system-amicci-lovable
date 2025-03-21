@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import ComponentCard from '@/components/ComponentCard';
@@ -16,7 +15,7 @@ const componentData = {
     title: 'Button',
     description: 'Interactive elements that enable users to trigger actions.',
     api: [
-      { prop: 'variant', type: '"default" | "secondary" | "error" | "warning" | "info" | "success" | "outline-*" | "text-*"', default: '"default"', description: 'Visual style of the button' },
+      { prop: 'variant', type: '"default" | "secondary" | "error" | "outline-*" | "text-*"', default: '"default"', description: 'Visual style of the button' },
       { prop: 'size', type: '"default" | "sm" | "lg" | "icon"', default: '"default"', description: 'Size of the button' },
       { prop: 'state', type: '"default" | "hover" | "focus" | "disabled" | "loading"', default: '"default"', description: 'State of the button' },
       { prop: 'disabled', type: 'boolean', default: 'false', description: 'When true, prevents user interaction' },
@@ -32,16 +31,10 @@ const componentData = {
           <div className="flex flex-wrap gap-4">
             <Button>Primary</Button>
             <Button variant="error">Error</Button>
-            <Button variant="warning">Warning</Button>
-            <Button variant="info">Info</Button>
-            <Button variant="success">Success</Button>
           </div>
         ),
         code: `<Button>Primary</Button>
-<Button variant="error">Error</Button>
-<Button variant="warning">Warning</Button>
-<Button variant="info">Info</Button>
-<Button variant="success">Success</Button>`
+<Button variant="error">Error</Button>`
       },
       {
         title: 'Outlined Button Variants',
@@ -50,16 +43,10 @@ const componentData = {
           <div className="flex flex-wrap gap-4">
             <Button variant="outline-secondary">Secondary</Button>
             <Button variant="outline-error">Error</Button>
-            <Button variant="outline-warning">Warning</Button>
-            <Button variant="outline-info">Info</Button>
-            <Button variant="outline-success">Success</Button>
           </div>
         ),
         code: `<Button variant="outline-secondary">Secondary</Button>
-<Button variant="outline-error">Error</Button>
-<Button variant="outline-warning">Warning</Button>
-<Button variant="outline-info">Info</Button>
-<Button variant="outline-success">Success</Button>`
+<Button variant="outline-error">Error</Button>`
       },
       {
         title: 'Text Button Variants',
@@ -68,16 +55,10 @@ const componentData = {
           <div className="flex flex-wrap gap-4">
             <Button variant="text-secondary">Secondary</Button>
             <Button variant="text-error">Error</Button>
-            <Button variant="text-warning">Warning</Button>
-            <Button variant="text-info">Info</Button>
-            <Button variant="text-success">Success</Button>
           </div>
         ),
         code: `<Button variant="text-secondary">Secondary</Button>
-<Button variant="text-error">Error</Button>
-<Button variant="text-warning">Warning</Button>
-<Button variant="text-info">Info</Button>
-<Button variant="text-success">Success</Button>`
+<Button variant="text-error">Error</Button>`
       },
       {
         title: 'Button Sizes',
