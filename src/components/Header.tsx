@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Search as SearchIcon, Github, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import AmicciLogo from '@/pages/assets/Amicci-Branco+TurquesaEscuro.svg';
+import AmicciLogoTagDesignSystem from '@/pages/assets/amicci-logo-tag-design-system.svg';
 
 interface HeaderProps {
   toggleSidebar: () => void;
@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({
           </Button>
           
           <Link to="/" className="flex items-center gap-2 font-medium text-primary-dark">
-            <img src={AmicciLogo} alt="Amicci Design System" className="h-auto w-[230px]" />
+            <img src={AmicciLogoTagDesignSystem} alt="Amicci Design System" className="h-auto w-[230px]" />
           </Link>
         </div>
 
