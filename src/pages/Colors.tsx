@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Chip } from '@/components/ui/chip';
@@ -9,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { colorUtils } from '@/utils/colorUtils';
 import ComponentCard from '@/components/ComponentCard';
+import FoundationsHeader from '@/components/library-components/FoundationsHeader';
 
 // ColorSwatch component
 const ColorSwatch = ({
@@ -1641,6 +1643,8 @@ const Colors = () => {
           <AccessibilityTab />
         </TabsContent>
       </Tabs>
-    </div>;
+    </div>
+  );
 };
+
 export default Colors;
