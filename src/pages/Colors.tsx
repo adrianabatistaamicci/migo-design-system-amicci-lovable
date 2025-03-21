@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Chip } from '@/components/ui/chip';
@@ -667,6 +668,7 @@ const baseColorsData = [{
     hexValue: '#7A2E0E'
   }]
 }];
+
 const paletteData = [{
   name: 'Text',
   description: 'Gray',
@@ -1324,12 +1326,12 @@ const OverviewTab = () => {
     </div>;
 };
 const PalettesTab = () => {
-  return <ComponentCard title="Paletas Compostas" description="As paletas compostas são construídas utilizando as cores básicas como base. Cada paleta semântica inclui variações para diferentes estados e usos." height="auto">
+  return <ComponentCard title="Paletas Compostas" description="As paletas compostas são construídas utilizando as cores básicas como base. Cada paleta semântica inclui variações para diferentes estados e usos.">
       <PaletteTable palettes={paletteData} />
     </ComponentCard>;
 };
 const BaseColorsTab = () => {
-  return <ComponentCard title="Cores Base" description="As cores base são um conjunto completo de cores de 50 a 950 que servem como fundação para todo o sistema." height="auto">
+  return <ComponentCard title="Cores Base" description="As cores base são um conjunto completo de cores de 50 a 950 que servem como fundação para todo o sistema.">
       <BaseColorsTable baseColors={baseColorsData} />
     </ComponentCard>;
 };
@@ -1469,7 +1471,7 @@ const UsageTab = () => {
 };
 const AccessibilityTab = () => {
   const [showWCAG, setShowWCAG] = useState(false);
-  return <ComponentCard title="Acessibilidade de Cores" description="Garantindo que nosso sistema de cores seja acessível a todos." height="auto">
+  return <ComponentCard title="Acessibilidade de Cores" description="Garantindo que nosso sistema de cores seja acessível a todos.">
       <div className="space-y-6">
         <div>
           <h3 className="text-lg font-medium mb-2">Contraste</h3>
