@@ -12,6 +12,8 @@ type TailwindTabsProps = {
   defaultValue?: string;
   onChange?: (value: string) => void;
   variant?: 'underline' | 'pills' | 'pillsGray' | 'pillsBrand' | 'fullWidth' | 'bar' | 'underlineBadges';
+  children?: React.ReactNode;
+  className?: string;
 };
 
 export const TailwindTabs = ({
@@ -19,6 +21,8 @@ export const TailwindTabs = ({
   defaultValue,
   onChange,
   variant = 'pillsGray',
+  children,
+  className,
 }: TailwindTabsProps) => {
   const [selected, setSelected] = useState(defaultValue || tabs[0]?.value);
 
@@ -202,5 +206,8 @@ export const TailwindTabs = ({
     }
   };
 
-  return <div className="w-full">{renderTabs()}</div>;
+  return <div className={`w-full ${className || ''}`}>{renderTabs()}{children}</div>;
 };
+
+// Exportando TailwindTabs também como Tabs para manter compatibilidade
+export const Tabs = TailwindTabs;
