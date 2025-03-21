@@ -264,17 +264,17 @@ const ComponentDetail = () => {
             <Table>
               <TableHeader>
                 <TableRow className="bg-mui-sidebar">
-                  <TableHead className="w-1/4">Prop</TableHead>
-                  <TableHead className="w-1/4">Type</TableHead>
-                  <TableHead className="w-1/4">Default</TableHead>
-                  <TableHead className="w-1/4">Description</TableHead>
+                  <TableHead className="w-[15%]">Prop</TableHead>
+                  <TableHead className="w-[35%]">Type</TableHead>
+                  <TableHead className="w-[15%]">Default</TableHead>
+                  <TableHead className="w-[35%]">Description</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {component.api.map((prop, index) => (
                   <TableRow key={index}>
                     <TableCell className="font-mono text-mui-text-primary">{prop.prop}</TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">{prop.type}</TableCell>
+                    <TableCell className="font-mono text-mui-text-secondary break-words">{prop.type}</TableCell>
                     <TableCell className="font-mono text-mui-text-secondary">{prop.default}</TableCell>
                     <TableCell className="text-mui-text-secondary">{prop.description}</TableCell>
                   </TableRow>
