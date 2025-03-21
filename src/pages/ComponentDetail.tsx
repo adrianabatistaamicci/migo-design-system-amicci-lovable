@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import ComponentCard from '@/components/ComponentCard';
@@ -94,14 +93,10 @@ const componentData = {
       description: 'Different button states.',
       component: <div className="flex flex-wrap gap-4">
             <Button>Default</Button>
-            <Button state="hover">Hovered</Button>
-            <Button state="focus">Focused</Button>
             <Button disabled>Disabled</Button>
             <Button isLoading>Loading</Button>
           </div>,
       code: `<Button>Default</Button>
-<Button state="hover">Hovered</Button>
-<Button state="focus">Focused</Button>
 <Button disabled>Disabled</Button>
 <Button isLoading>Loading</Button>`
     }, {
