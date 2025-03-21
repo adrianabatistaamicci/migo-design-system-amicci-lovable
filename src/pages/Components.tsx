@@ -10,9 +10,9 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Chip } from '@/components/ui/chip';
 import { Slider } from '@/components/ui/slider';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { TailwindTabs } from '@/components/ui/tabs';
 import { Mail, Check } from 'lucide-react';
 import ComponentsHeader from '@/components/library-components/ComponentsHeader';
-import { TailwindTabs } from '@/components/ui/tailwind-tabs';
 
 const componentCategories = [
   {

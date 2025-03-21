@@ -1,9 +1,8 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, ChevronRight, Package, Layers, PenTool, Palette, Coffee, MousePointer } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { TailwindTabs } from '@/components/ui/tailwind-tabs';
+import { TailwindTabs } from '@/components/ui/tabs';
 
 interface SidebarItem {
   title: string;
