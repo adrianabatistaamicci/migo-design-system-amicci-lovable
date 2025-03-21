@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({
           </Button>
           
           <Link to="/" className="flex items-center gap-2 font-medium text-primary-dark">
-            <img src={AmicciLogo} alt="Amicci Design System" className="h-auto w-[200px]" />
+            <img src={AmicciLogo} alt="Amicci Design System" className="h-auto w-[230px]" />
           </Link>
         </div>
 
