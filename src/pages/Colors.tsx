@@ -1184,7 +1184,7 @@ const Colors = () => {
                       <ColorSwatch color="bg-success-main" className="h-14" />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Button variant="outline-default" size="sm" startIcon={<Eye className="h-3 w-3" />}>
+                      <Button variant="secondary" size="sm" startIcon={<Eye className="h-3 w-3" />}>
                         Simular Deuteranopia
                       </Button>
                     </div>
@@ -1200,7 +1200,7 @@ const Colors = () => {
                       <ColorSwatch color="bg-success-main" className="h-14" />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Button variant="outline-default" size="sm" startIcon={<Eye className="h-3 w-3" />}>
+                      <Button variant="secondary" size="sm" startIcon={<Eye className="h-3 w-3" />}>
                         Simular Protanopia
                       </Button>
                     </div>
@@ -1216,7 +1216,7 @@ const Colors = () => {
                       <ColorSwatch color="bg-success-main" className="h-14" />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Button variant="outline-default" size="sm" startIcon={<Eye className="h-3 w-3" />}>
+                      <Button variant="secondary" size="sm" startIcon={<Eye className="h-3 w-3" />}>
                         Simular Tritanopia
                       </Button>
                     </div>
@@ -1232,7 +1232,7 @@ const Colors = () => {
                       <ColorSwatch color="bg-success-main" className="h-14" />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Button variant="outline-default" size="sm" startIcon={<Eye className="h-3 w-3" />}>
+                      <Button variant="secondary" size="sm" startIcon={<Eye className="h-3 w-3" />}>
                         Simular Acromatopsia
                       </Button>
                     </div>
