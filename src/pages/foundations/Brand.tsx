@@ -60,7 +60,7 @@ const Brand = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div className="border rounded-lg p-8 flex items-center justify-center bg-white">
-                  <img src={AmicciTagDesignSystem} alt="Amicci logo com tag design system" className="max-w-[250px] h-auto" />
+                  <img src={AmicciTagDesignSystem} alt="Amicci logo com tag design system" className="max-w-[300px] h-auto" />
                 </div>
                 <div className="space-y-4">
                   <h4 className="font-medium">Logo com tag</h4>
