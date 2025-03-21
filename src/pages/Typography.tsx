@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
@@ -8,194 +7,300 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from '@/components/ui/badge';
 import { Copy, Check } from 'lucide-react';
 import { Chip } from '@/components/ui/chip';
-
 const Typography = () => {
   const [copied, setCopied] = useState<string | null>(null);
-
   const copyToClipboard = (value: string) => {
     navigator.clipboard.writeText(value);
     setCopied(value);
     setTimeout(() => setCopied(null), 2000);
   };
-
-  const typographyStyles = [
-    {
-      name: 'h1',
-      description: 'Heading 1',
-      className: 'text-8xl font-light leading-[112.03px] font-roboto text-text-primary',
-      sample: 'Heading 1',
-      styles: [
-        { name: 'Color', value: 'text-text-primary' },
-        { name: 'Size', value: 'text-8xl' },
-        { name: 'Weight', value: 'font-light' },
-        { name: 'Font', value: 'font-["Roboto"]' },
-        { name: 'Line Height', value: 'leading-[112.03px]' },
-      ]
-    },
-    {
-      name: 'h2',
-      description: 'Heading 2',
-      className: 'text-6xl font-light leading-[72px] font-roboto text-text-primary',
-      sample: 'Heading 2',
-      styles: [
-        { name: 'Color', value: 'text-text-primary' },
-        { name: 'Size', value: 'text-6xl' },
-        { name: 'Weight', value: 'font-light' },
-        { name: 'Font', value: 'font-["Roboto"]' },
-        { name: 'Line Height', value: 'leading-[72px]' },
-      ]
-    },
-    {
-      name: 'h3',
-      description: 'Heading 3',
-      className: 'text-5xl font-normal leading-[56.02px] font-roboto text-text-primary',
-      sample: 'Heading 3',
-      styles: [
-        { name: 'Color', value: 'text-text-primary' },
-        { name: 'Size', value: 'text-5xl' },
-        { name: 'Weight', value: 'font-normal' },
-        { name: 'Font', value: 'font-["Roboto"]' },
-        { name: 'Line Height', value: 'leading-[56.02px]' },
-      ]
-    },
-    {
-      name: 'h4',
-      description: 'Heading 4',
-      className: 'text-4xl font-normal leading-10 tracking-tight font-roboto text-text-primary',
-      sample: 'Heading 4',
-      styles: [
-        { name: 'Color', value: 'text-text-primary' },
-        { name: 'Size', value: 'text-4xl' },
-        { name: 'Weight', value: 'font-normal' },
-        { name: 'Font', value: 'font-["Roboto"]' },
-        { name: 'Line Height', value: 'leading-10' },
-        { name: 'Tracking', value: 'tracking-tight' },
-      ]
-    },
-    {
-      name: 'h5',
-      description: 'Heading 5',
-      className: 'text-2xl font-normal leading-loose font-roboto text-text-primary',
-      sample: 'Heading 5',
-      styles: [
-        { name: 'Color', value: 'text-text-primary' },
-        { name: 'Size', value: 'text-2xl' },
-        { name: 'Weight', value: 'font-normal' },
-        { name: 'Font', value: 'font-["Roboto"]' },
-        { name: 'Line Height', value: 'leading-loose' },
-      ]
-    },
-    {
-      name: 'h6',
-      description: 'Heading 6',
-      className: 'text-xl font-medium leading-loose tracking-tight font-roboto text-text-primary',
-      sample: 'Heading 6',
-      styles: [
-        { name: 'Color', value: 'text-text-primary' },
-        { name: 'Size', value: 'text-xl' },
-        { name: 'Weight', value: 'font-medium' },
-        { name: 'Font', value: 'font-["Roboto"]' },
-        { name: 'Line Height', value: 'leading-loose' },
-        { name: 'Tracking', value: 'tracking-tight' },
-      ]
-    },
-    {
-      name: 'subtitle1',
-      description: 'Subtitle 1',
-      className: 'text-base font-medium leading-7 tracking-tight font-roboto text-text-primary',
-      sample: 'Subtitle 1',
-      styles: [
-        { name: 'Color', value: 'text-text-primary' },
-        { name: 'Size', value: 'text-base' },
-        { name: 'Weight', value: 'font-medium' },
-        { name: 'Font', value: 'font-["Roboto"]' },
-        { name: 'Line Height', value: 'leading-7' },
-        { name: 'Tracking', value: 'tracking-tight' },
-      ]
-    },
-    {
-      name: 'subtitle2',
-      description: 'Subtitle 2',
-      className: 'text-sm font-medium leading-snug tracking-tight font-roboto text-text-primary',
-      sample: 'Subtitle 2',
-      styles: [
-        { name: 'Color', value: 'text-text-primary' },
-        { name: 'Size', value: 'text-sm' },
-        { name: 'Weight', value: 'font-medium' },
-        { name: 'Font', value: 'font-["Roboto"]' },
-        { name: 'Line Height', value: 'leading-snug' },
-        { name: 'Tracking', value: 'tracking-tight' },
-      ]
-    },
-    {
-      name: 'body1',
-      description: 'Body 1',
-      className: 'text-base font-normal leading-normal tracking-tight font-roboto text-text-primary',
-      sample: 'Body 1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      styles: [
-        { name: 'Color', value: 'text-text-primary' },
-        { name: 'Size', value: 'text-base' },
-        { name: 'Weight', value: 'font-normal' },
-        { name: 'Font', value: 'font-["Roboto"]' },
-        { name: 'Line Height', value: 'leading-normal' },
-        { name: 'Tracking', value: 'tracking-tight' },
-      ]
-    },
-    {
-      name: 'body2',
-      description: 'Body 2',
-      className: 'text-sm font-normal leading-tight tracking-tight font-roboto text-text-primary',
-      sample: 'Body 2 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      styles: [
-        { name: 'Color', value: 'text-text-primary' },
-        { name: 'Size', value: 'text-sm' },
-        { name: 'Weight', value: 'font-normal' },
-        { name: 'Font', value: 'font-["Roboto"]' },
-        { name: 'Line Height', value: 'leading-tight' },
-        { name: 'Tracking', value: 'tracking-tight' },
-      ]
-    },
-    {
-      name: 'caption',
-      description: 'Caption',
-      className: 'text-xs font-normal leading-tight tracking-wide font-roboto text-text-primary',
-      sample: 'Caption text',
-      styles: [
-        { name: 'Color', value: 'text-text-primary' },
-        { name: 'Size', value: 'text-xs' },
-        { name: 'Weight', value: 'font-normal' },
-        { name: 'Font', value: 'font-["Roboto"]' },
-        { name: 'Line Height', value: 'leading-tight' },
-        { name: 'Tracking', value: 'tracking-wide' },
-      ]
-    },
-    {
-      name: 'overline',
-      description: 'Overline',
-      className: 'text-xs font-normal leading-loose tracking-wide uppercase font-roboto text-text-primary',
-      sample: 'OVERLINE TEXT',
-      styles: [
-        { name: 'Color', value: 'text-text-primary' },
-        { name: 'Size', value: 'text-xs' },
-        { name: 'Weight', value: 'font-normal' },
-        { name: 'Font', value: 'font-["Roboto"]' },
-        { name: 'Line Height', value: 'leading-loose' },
-        { name: 'Tracking', value: 'tracking-wide' },
-        { name: 'Case', value: 'uppercase' },
-      ]
-    },
-  ];
-
-  return (
-    <div className="space-y-8">
+  const typographyStyles = [{
+    name: 'h1',
+    description: 'Heading 1',
+    className: 'text-8xl font-light leading-[112.03px] font-roboto text-text-primary',
+    sample: 'Heading 1',
+    styles: [{
+      name: 'Color',
+      value: 'text-text-primary'
+    }, {
+      name: 'Size',
+      value: 'text-8xl'
+    }, {
+      name: 'Weight',
+      value: 'font-light'
+    }, {
+      name: 'Font',
+      value: 'font-["Roboto"]'
+    }, {
+      name: 'Line Height',
+      value: 'leading-[112.03px]'
+    }]
+  }, {
+    name: 'h2',
+    description: 'Heading 2',
+    className: 'text-6xl font-light leading-[72px] font-roboto text-text-primary',
+    sample: 'Heading 2',
+    styles: [{
+      name: 'Color',
+      value: 'text-text-primary'
+    }, {
+      name: 'Size',
+      value: 'text-6xl'
+    }, {
+      name: 'Weight',
+      value: 'font-light'
+    }, {
+      name: 'Font',
+      value: 'font-["Roboto"]'
+    }, {
+      name: 'Line Height',
+      value: 'leading-[72px]'
+    }]
+  }, {
+    name: 'h3',
+    description: 'Heading 3',
+    className: 'text-5xl font-normal leading-[56.02px] font-roboto text-text-primary',
+    sample: 'Heading 3',
+    styles: [{
+      name: 'Color',
+      value: 'text-text-primary'
+    }, {
+      name: 'Size',
+      value: 'text-5xl'
+    }, {
+      name: 'Weight',
+      value: 'font-normal'
+    }, {
+      name: 'Font',
+      value: 'font-["Roboto"]'
+    }, {
+      name: 'Line Height',
+      value: 'leading-[56.02px]'
+    }]
+  }, {
+    name: 'h4',
+    description: 'Heading 4',
+    className: 'text-4xl font-normal leading-10 tracking-tight font-roboto text-text-primary',
+    sample: 'Heading 4',
+    styles: [{
+      name: 'Color',
+      value: 'text-text-primary'
+    }, {
+      name: 'Size',
+      value: 'text-4xl'
+    }, {
+      name: 'Weight',
+      value: 'font-normal'
+    }, {
+      name: 'Font',
+      value: 'font-["Roboto"]'
+    }, {
+      name: 'Line Height',
+      value: 'leading-10'
+    }, {
+      name: 'Tracking',
+      value: 'tracking-tight'
+    }]
+  }, {
+    name: 'h5',
+    description: 'Heading 5',
+    className: 'text-2xl font-normal leading-loose font-roboto text-text-primary',
+    sample: 'Heading 5',
+    styles: [{
+      name: 'Color',
+      value: 'text-text-primary'
+    }, {
+      name: 'Size',
+      value: 'text-2xl'
+    }, {
+      name: 'Weight',
+      value: 'font-normal'
+    }, {
+      name: 'Font',
+      value: 'font-["Roboto"]'
+    }, {
+      name: 'Line Height',
+      value: 'leading-loose'
+    }]
+  }, {
+    name: 'h6',
+    description: 'Heading 6',
+    className: 'text-xl font-medium leading-loose tracking-tight font-roboto text-text-primary',
+    sample: 'Heading 6',
+    styles: [{
+      name: 'Color',
+      value: 'text-text-primary'
+    }, {
+      name: 'Size',
+      value: 'text-xl'
+    }, {
+      name: 'Weight',
+      value: 'font-medium'
+    }, {
+      name: 'Font',
+      value: 'font-["Roboto"]'
+    }, {
+      name: 'Line Height',
+      value: 'leading-loose'
+    }, {
+      name: 'Tracking',
+      value: 'tracking-tight'
+    }]
+  }, {
+    name: 'subtitle1',
+    description: 'Subtitle 1',
+    className: 'text-base font-medium leading-7 tracking-tight font-roboto text-text-primary',
+    sample: 'Subtitle 1',
+    styles: [{
+      name: 'Color',
+      value: 'text-text-primary'
+    }, {
+      name: 'Size',
+      value: 'text-base'
+    }, {
+      name: 'Weight',
+      value: 'font-medium'
+    }, {
+      name: 'Font',
+      value: 'font-["Roboto"]'
+    }, {
+      name: 'Line Height',
+      value: 'leading-7'
+    }, {
+      name: 'Tracking',
+      value: 'tracking-tight'
+    }]
+  }, {
+    name: 'subtitle2',
+    description: 'Subtitle 2',
+    className: 'text-sm font-medium leading-snug tracking-tight font-roboto text-text-primary',
+    sample: 'Subtitle 2',
+    styles: [{
+      name: 'Color',
+      value: 'text-text-primary'
+    }, {
+      name: 'Size',
+      value: 'text-sm'
+    }, {
+      name: 'Weight',
+      value: 'font-medium'
+    }, {
+      name: 'Font',
+      value: 'font-["Roboto"]'
+    }, {
+      name: 'Line Height',
+      value: 'leading-snug'
+    }, {
+      name: 'Tracking',
+      value: 'tracking-tight'
+    }]
+  }, {
+    name: 'body1',
+    description: 'Body 1',
+    className: 'text-base font-normal leading-normal tracking-tight font-roboto text-text-primary',
+    sample: 'Body 1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    styles: [{
+      name: 'Color',
+      value: 'text-text-primary'
+    }, {
+      name: 'Size',
+      value: 'text-base'
+    }, {
+      name: 'Weight',
+      value: 'font-normal'
+    }, {
+      name: 'Font',
+      value: 'font-["Roboto"]'
+    }, {
+      name: 'Line Height',
+      value: 'leading-normal'
+    }, {
+      name: 'Tracking',
+      value: 'tracking-tight'
+    }]
+  }, {
+    name: 'body2',
+    description: 'Body 2',
+    className: 'text-sm font-normal leading-tight tracking-tight font-roboto text-text-primary',
+    sample: 'Body 2 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    styles: [{
+      name: 'Color',
+      value: 'text-text-primary'
+    }, {
+      name: 'Size',
+      value: 'text-sm'
+    }, {
+      name: 'Weight',
+      value: 'font-normal'
+    }, {
+      name: 'Font',
+      value: 'font-["Roboto"]'
+    }, {
+      name: 'Line Height',
+      value: 'leading-tight'
+    }, {
+      name: 'Tracking',
+      value: 'tracking-tight'
+    }]
+  }, {
+    name: 'caption',
+    description: 'Caption',
+    className: 'text-xs font-normal leading-tight tracking-wide font-roboto text-text-primary',
+    sample: 'Caption text',
+    styles: [{
+      name: 'Color',
+      value: 'text-text-primary'
+    }, {
+      name: 'Size',
+      value: 'text-xs'
+    }, {
+      name: 'Weight',
+      value: 'font-normal'
+    }, {
+      name: 'Font',
+      value: 'font-["Roboto"]'
+    }, {
+      name: 'Line Height',
+      value: 'leading-tight'
+    }, {
+      name: 'Tracking',
+      value: 'tracking-wide'
+    }]
+  }, {
+    name: 'overline',
+    description: 'Overline',
+    className: 'text-xs font-normal leading-loose tracking-wide uppercase font-roboto text-text-primary',
+    sample: 'OVERLINE TEXT',
+    styles: [{
+      name: 'Color',
+      value: 'text-text-primary'
+    }, {
+      name: 'Size',
+      value: 'text-xs'
+    }, {
+      name: 'Weight',
+      value: 'font-normal'
+    }, {
+      name: 'Font',
+      value: 'font-["Roboto"]'
+    }, {
+      name: 'Line Height',
+      value: 'leading-loose'
+    }, {
+      name: 'Tracking',
+      value: 'tracking-wide'
+    }, {
+      name: 'Case',
+      value: 'uppercase'
+    }]
+  }];
+  return <div className="space-y-8">
       <div>
         <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
           <Chip variant="filled" color="primary" size="sm">Foundations</Chip>
         </div>
-        <h1 className="text-3xl font-bold tracking-tight mb-2">Sistema de Tipografia</h1>
-        <p className="text-mui-text-secondary text-lg">
-          Estilos de texto e tokens de tipografia utilizados na aplicação.
-        </p>
+        <h1 className="text-3xl font-bold tracking-tight mb-2">Typography</h1>
+        <p className="text-mui-text-secondary text-lg">Estilos de texto e tokens de tipografia utilizados na aplicação</p>
       </div>
 
       <Tabs defaultValue="overview" className="w-full">
@@ -291,10 +396,7 @@ const Typography = () => {
               <p className="text-mui-text-secondary mb-3">
                 Utilize as classes de tipografia em seus componentes:
               </p>
-              <CodeBlock 
-                title="Exemplo de uso" 
-                language="jsx" 
-                code={`<h1 className="text-8xl font-light leading-[112.03px] font-roboto">
+              <CodeBlock title="Exemplo de uso" language="jsx" code={`<h1 className="text-8xl font-light leading-[112.03px] font-roboto">
   Título Principal
 </h1>
 
@@ -305,8 +407,7 @@ const Typography = () => {
 
 <span className="text-xs font-normal leading-loose tracking-wide uppercase">
   TEXTO DE MARCAÇÃO SUPERIOR
-</span>`}
-              />
+</span>`} />
             </ComponentCard>
             
             <ComponentCard title="Consistência">
@@ -327,8 +428,7 @@ const Typography = () => {
         <TabsContent value="styles" className="space-y-6">
           <ComponentCard title="Estilos de Tipografia">
             <div className="space-y-10 py-4">
-              {typographyStyles.map((style) => (
-                <div key={style.name} className="border-b pb-8 last:border-b-0">
+              {typographyStyles.map(style => <div key={style.name} className="border-b pb-8 last:border-b-0">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
                     <div>
                       <div className="flex items-center gap-2">
@@ -353,10 +453,7 @@ const Typography = () => {
                     <div className="flex items-center">
                       <div className="relative flex items-center max-w-fit">
                         <code className="bg-mui-sidebar px-3 py-2 rounded text-sm pr-8">{style.className}</code>
-                        <button 
-                          onClick={() => copyToClipboard(style.className)}
-                          className="absolute right-2 text-mui-text-secondary hover:text-mui-text-primary"
-                        >
+                        <button onClick={() => copyToClipboard(style.className)} className="absolute right-2 text-mui-text-secondary hover:text-mui-text-primary">
                           {copied === style.className ? <Check size={16} /> : <Copy size={16} />}
                         </button>
                       </div>
@@ -379,8 +476,7 @@ const Typography = () => {
                         </TableRow>
                       </TableHeader>
                       <TableBody>
-                        {style.styles.map((prop) => (
-                          <TableRow key={`${style.name}-${prop.name}`}>
+                        {style.styles.map(prop => <TableRow key={`${style.name}-${prop.name}`}>
                             <TableCell className="font-medium">{prop.name}</TableCell>
                             <TableCell>
                               <code className="bg-mui-sidebar px-2 py-1 rounded text-xs">{prop.value}</code>
@@ -394,13 +490,11 @@ const Typography = () => {
                               {prop.name === 'Tracking' && 'Espaçamento entre caracteres'}
                               {prop.name === 'Case' && 'Transformação de maiúsculas/minúsculas'}
                             </TableCell>
-                          </TableRow>
-                        ))}
+                          </TableRow>)}
                       </TableBody>
                     </Table>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </ComponentCard>
         </TabsContent>
@@ -475,18 +569,14 @@ const Typography = () => {
                 <p className="text-mui-text-secondary mb-3">
                   Ajuste os estilos de texto para diferentes tamanhos de tela:
                 </p>
-                <CodeBlock 
-                  title="Exemplo de tipografia responsiva" 
-                  language="jsx" 
-                  code={`<h1 className="text-4xl md:text-6xl lg:text-8xl font-light leading-tight md:leading-[112.03px]">
+                <CodeBlock title="Exemplo de tipografia responsiva" language="jsx" code={`<h1 className="text-4xl md:text-6xl lg:text-8xl font-light leading-tight md:leading-[112.03px]">
   Título Responsivo
 </h1>
 
 <p className="text-sm md:text-base font-normal leading-normal">
   Este texto se adapta ao tamanho da tela, ficando menor
   em dispositivos móveis e maior em telas mais amplas.
-</p>`}
-                />
+</p>`} />
               </div>
             </div>
           </ComponentCard>
@@ -529,10 +619,7 @@ const Typography = () => {
                   Use elementos HTML semânticos com os estilos apropriados:
                 </p>
                 <div className="border rounded-lg p-4 mb-4">
-                  <CodeBlock 
-                    title="HTML Semântico" 
-                    language="jsx" 
-                    code={`// Bom - Usa elementos semânticos
+                  <CodeBlock title="HTML Semântico" language="jsx" code={`// Bom - Usa elementos semânticos
 <h1 className="text-8xl font-light">Título Principal</h1>
 <h2 className="text-6xl font-light">Subtítulo</h2>
 <p className="text-base font-normal">Parágrafo de texto.</p>
@@ -540,8 +627,7 @@ const Typography = () => {
 // Evitar - Apenas estilização sem semântica
 <div className="text-8xl font-light">Título Principal</div>
 <div className="text-6xl font-light">Subtítulo</div>
-<div className="text-base font-normal">Parágrafo de texto.</div>`}
-                  />
+<div className="text-base font-normal">Parágrafo de texto.</div>`} />
                 </div>
               </div>
               
@@ -580,8 +666,6 @@ const Typography = () => {
           </ComponentCard>
         </TabsContent>
       </Tabs>
-    </div>
-  );
+    </div>;
 };
-
 export default Typography;
