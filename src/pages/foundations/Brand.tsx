@@ -21,7 +21,7 @@ const Brand = () => {
               <h3 className="text-xl font-medium">Versão Principal</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="border rounded-lg p-8 flex items-center justify-center bg-white">
-                  <img src={AmicciLogo} alt="Amicci logo com diferentes versões" className="w-200px h-auto" />
+                  <img src={AmicciLogo} alt="Amicci logo com diferentes versões" className="max-w-full h-auto" />
                 </div>
                 <div className="space-y-4">
                   <h4 className="font-medium">Logo completo</h4>
