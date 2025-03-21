@@ -1,21 +1,18 @@
-
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { tokenToPixels, pixelsToToken, getSpacingClass } from '@/utils/spacingUtils';
 import { cn } from '@/lib/utils';
 import { Chip } from '@/components/ui/chip';
 import ComponentCard from '@/components/ComponentCard';
+import FoundationsHeader from '@/components/library-components/FoundationsHeader';
 
 const SpacingPage = () => {
   return (
     <div className="w-full animate-fade-in">
-      <div className="space-y-4">
-        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
-          <Chip variant="filled" color="primary" size="sm">Foundations</Chip>
-        </div>
-        <h1 className="text-3xl font-bold tracking-tight">Spacing</h1>
-        <p className="text-mui-text-secondary max-w-3xl" style={{ whiteSpace: 'nowrap', overflow: 'visible' }}>Nosso sistema de espaçamento fornece tamanhos consistentes que ajudam a criar ritmo visual e hierarquia.</p>
-      </div>
+      <FoundationsHeader 
+        title="Spacing"
+        description="Nosso sistema de espaçamento fornece tamanhos consistentes que ajudam a criar ritmo visual e hierarquia."
+      />
 
       <Tabs defaultValue="scale" className="mt-8">
         <TabsList>

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Chip } from '@/components/ui/chip';
@@ -7,14 +8,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import ComponentCard from '@/components/ComponentCard';
+import FoundationsHeader from '@/components/library-components/FoundationsHeader';
 
 const Icons = () => {
-  return <div className="w-full animate-fade-in">
-      <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
-        <Chip variant="filled" color="primary" size="sm">Foundations</Chip>
-      </div>
-      <h1 className="text-3xl font-bold tracking-tight mb-4">Ícones</h1>
-      <p className="mb-8 text-gray-700">Usamos ícones Outlined da Material Design como biblioteca oficial</p>
+  return (
+    <div className="w-full animate-fade-in">
+      <FoundationsHeader 
+        title="Ícones"
+        description="Usamos ícones Outlined da Material Design como biblioteca oficial"
+      />
       
       <div className="border-b">
         <Tabs defaultValue="overview" className="w-full">
@@ -300,6 +302,8 @@ const Icons = () => {
           </TabsContent>
         </Tabs>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default Icons;

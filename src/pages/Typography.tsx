@@ -7,6 +7,8 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from '@/components/ui/badge';
 import { Copy, Check } from 'lucide-react';
 import { Chip } from '@/components/ui/chip';
+import FoundationsHeader from '@/components/library-components/FoundationsHeader';
+
 const Typography = () => {
   const [copied, setCopied] = useState<string | null>(null);
   const copyToClipboard = (value: string) => {
@@ -14,6 +16,7 @@ const Typography = () => {
     setCopied(value);
     setTimeout(() => setCopied(null), 2000);
   };
+
   const typographyStyles = [{
     name: 'h1',
     description: 'Heading 1',
@@ -294,14 +297,13 @@ const Typography = () => {
       value: 'uppercase'
     }]
   }];
-  return <div className="space-y-8">
-      <div>
-        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
-          <Chip variant="filled" color="primary" size="sm">Foundations</Chip>
-        </div>
-        <h1 className="text-3xl font-bold tracking-tight mb-2">Typography</h1>
-        <p className="text-mui-text-secondary text-lg">Estilos de texto e tokens de tipografia utilizados na aplicação</p>
-      </div>
+
+  return (
+    <div className="space-y-8">
+      <FoundationsHeader 
+        title="Typography"
+        description="Estilos de texto e tokens de tipografia utilizados na aplicação"
+      />
 
       <Tabs defaultValue="overview" className="w-full">
         <TabsList className="mb-4">
@@ -666,6 +668,8 @@ const Typography = () => {
           </ComponentCard>
         </TabsContent>
       </Tabs>
-    </div>;
+    </div>
+  );
 };
+
 export default Typography;
