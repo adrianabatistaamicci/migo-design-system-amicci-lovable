@@ -62,10 +62,10 @@ const Brand = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div className="border rounded-lg p-8 flex items-center justify-center bg-white">
-                  <img src={AmicciLogo} alt="Amicci wordmark" className="max-w-full h-auto max-h-40" />
+                  <img src={AmicciTagDesignSystem} alt="Amicci wordmark" className="max-w-full h-auto max-h-40" />
                 </div>
                 <div className="space-y-4">
-                  <h4 className="font-medium">Wordmark</h4>
+                  <h4 className="font-medium">Logo com tag</h4>
                   <p className="text-gray-600">A versão textual da nossa marca pode ser usada em contextos onde o símbolo não é necessário ou quando o espaço é limitado horizontalmente.</p>
                 </div>
               </div>
