@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Chip } from '@/components/ui/chip';
@@ -81,7 +80,7 @@ const ColorSwatch = ({
   return <div className={`relative w-full rounded-md ${getBackgroundStyle()} ${className} flex items-center justify-center px-3 transition-all hover:shadow-md cursor-pointer group`} onClick={onClick || handleCopy} role="button" tabIndex={0} style={hexValue && !color.startsWith('bg-') ? {
     backgroundColor: hexValue
   } : undefined}>
-      {textOverlay && <span className={`${textColor} font-medium`}>{textOverlay}</span>}
+      {textOverlay}
       {weight && <span className={`text-xs ${textColor} opacity-75 absolute left-2 top-1`}>{weight}</span>}
       
       <div className={`absolute right-2 top-2 transition-opacity ${copied ? 'opacity-100' : 'opacity-0 group-hover:opacity-70'}`}>
@@ -1603,16 +1602,10 @@ const AccessibilityTab = () => {
       </div>
     </ComponentCard>;
 };
-
 const Colors = () => {
   const [showCase, setShowCase] = useState<'standard' | 'usage' | 'technical'>('standard');
-  
-  return (
-    <div className="w-full animate-fade-in">
-      <FoundationsHeader 
-        title="Colors"
-        description="Paleta de cores e tokens de design utilizados na aplicação (50-950)"
-      />
+  return <div className="w-full animate-fade-in">
+      <FoundationsHeader title="Colors" description="Paleta de cores e tokens de design utilizados na aplicação (50-950)" />
 
       <Tabs defaultValue="overview" className="w-full">
         <TabsList className="mb-4">
@@ -1643,8 +1636,6 @@ const Colors = () => {
           <AccessibilityTab />
         </TabsContent>
       </Tabs>
-    </div>
-  );
+    </div>;
 };
-
 export default Colors;
