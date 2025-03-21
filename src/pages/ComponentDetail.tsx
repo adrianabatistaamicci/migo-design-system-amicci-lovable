@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import ComponentCard from '@/components/ComponentCard';
@@ -8,8 +7,8 @@ import { Input } from '@/components/ui/input';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
+import ComponentsHeader from '@/components/library-components/ComponentsHeader';
 
-// Mock component data
 const componentData = {
   buttons: {
     title: 'Button',
@@ -201,10 +200,8 @@ const componentData = {
 const ComponentDetail = () => {
   const { componentId } = useParams<{ componentId: string }>();
   
-  // Get component data based on the URL parameter
   const component = componentId ? componentData[componentId as keyof typeof componentData] : null;
   
-  // If component not found, show an error message
   if (!component) {
     return (
       <div className="py-8 w-full">
@@ -221,19 +218,10 @@ const ComponentDetail = () => {
   return (
     <div className="animate-slide-in w-full">
       <div className="w-full">
-        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mui-primary/10 text-mui-primary">
-            Component
-          </span>
-        </div>
-        
-        <h1 className="text-4xl font-medium text-mui-text-primary mb-4">
-          {component.title}
-        </h1>
-        
-        <p className="text-xl text-mui-text-secondary mb-8">
-          {component.description}
-        </p>
+        <ComponentsHeader 
+          title={component.title} 
+          description={component.description} 
+        />
         
         <div className="mb-12">
           <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
