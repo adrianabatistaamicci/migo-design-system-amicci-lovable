@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 type Tab = {
   name: string;
   value: string;
+  badge?: string | number;
 };
 
 type TailwindTabsProps = {
@@ -55,6 +56,15 @@ export const TailwindTabs = ({
                   }`}
                 >
                   {tab.name}
+                  {tab.badge && (
+                    <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${
+                      selected === tab.value
+                        ? 'bg-amicci-100 text-amicci-600'
+                        : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200'
+                    }`}>
+                      {tab.badge}
+                    </span>
+                  )}
                 </button>
               ))}
             </nav>
@@ -75,6 +85,15 @@ export const TailwindTabs = ({
                 }`}
               >
                 {tab.name}
+                {tab.badge && (
+                  <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${
+                    selected === tab.value
+                      ? 'bg-amicci-100 text-amicci-600'
+                      : 'bg-gray-100 text-gray-600'
+                  }`}>
+                    {tab.badge}
+                  </span>
+                )}
               </button>
             ))}
           </nav>
@@ -94,6 +113,15 @@ export const TailwindTabs = ({
                 }`}
               >
                 {tab.name}
+                {tab.badge && (
+                  <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${
+                    selected === tab.value
+                      ? 'bg-amicci-100 text-amicci-600'
+                      : 'bg-gray-100 text-gray-600'
+                  }`}>
+                    {tab.badge}
+                  </span>
+                )}
               </button>
             ))}
           </nav>
@@ -113,6 +141,15 @@ export const TailwindTabs = ({
                 }`}
               >
                 {tab.name}
+                {tab.badge && (
+                  <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${
+                    selected === tab.value
+                      ? 'bg-amicci-400 text-white'
+                      : 'bg-amicci-100 text-amicci-600'
+                  }`}>
+                    {tab.badge}
+                  </span>
+                )}
               </button>
             ))}
           </nav>
@@ -133,6 +170,15 @@ export const TailwindTabs = ({
                   }`}
                 >
                   {tab.name}
+                  {tab.badge && (
+                    <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${
+                      selected === tab.value
+                        ? 'bg-amicci-100 text-amicci-600'
+                        : 'bg-gray-100 text-gray-600'
+                    }`}>
+                      {tab.badge}
+                    </span>
+                  )}
                 </button>
               ))}
             </nav>
@@ -150,7 +196,7 @@ export const TailwindTabs = ({
               >
                 {tabs.map((tab) => (
                   <option key={tab.value} value={tab.value}>
-                    {tab.name}
+                    {tab.name} {tab.badge ? `(${tab.badge})` : ''}
                   </option>
                 ))}
               </select>
@@ -169,6 +215,15 @@ export const TailwindTabs = ({
                       }`}
                     >
                       {tab.name}
+                      {tab.badge && (
+                        <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${
+                          selected === tab.value
+                            ? 'bg-amicci-100 text-amicci-600'
+                            : 'bg-gray-100 text-gray-600'
+                        }`}>
+                          {tab.badge}
+                        </span>
+                      )}
                     </button>
                   ))}
                 </nav>
@@ -199,7 +254,7 @@ export const TailwindTabs = ({
                         : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200'
                     }`}
                   >
-                    {tab.value === 'inbox' ? '5' : tab.value === 'spam' ? '42' : '3'}
+                    {tab.badge || (tab.value === 'inbox' ? '5' : tab.value === 'spam' ? '42' : '3')}
                   </span>
                 </button>
               ))}
