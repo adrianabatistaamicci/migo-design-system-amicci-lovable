@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import ComponentCard from '@/components/ComponentCard';
@@ -218,8 +219,8 @@ const ComponentDetail = () => {
           description={component.description} 
         />
         
-        <div className="mb-12">
-          <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
+        <div className="mb-8">
+          <h2 className="text-2xl font-medium text-mui-text-primary mb-4">
             Import
           </h2>
           
@@ -229,18 +230,19 @@ const ComponentDetail = () => {
           />
         </div>
         
-        <div className="mb-12">
-          <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
+        <div className="mb-8">
+          <h2 className="text-2xl font-medium text-mui-text-primary mb-4">
             Examples
           </h2>
           
-          <div className="space-y-8">
+          <div className="space-y-6">
             {component.examples.map((example, index) => (
               <ComponentCard
                 key={index}
                 title={example.title}
                 description={example.description}
                 code={example.code}
+                height="auto"
               >
                 {example.component}
               </ComponentCard>
@@ -248,8 +250,8 @@ const ComponentDetail = () => {
           </div>
         </div>
         
-        <div className="mb-12">
-          <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
+        <div className="mb-8">
+          <h2 className="text-2xl font-medium text-mui-text-primary mb-4">
             API Reference
           </h2>
           

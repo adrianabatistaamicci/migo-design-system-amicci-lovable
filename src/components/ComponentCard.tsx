@@ -19,7 +19,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
   children,
   code,
   className,
-  height = 320
+  height = 'auto' // Changed from 320 to 'auto'
 }) => {
   const [showCode, setShowCode] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -48,8 +48,11 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
       </div>
       
       <div 
-        className="p-6 flex items-center justify-center flex-grow overflow-y-auto"
-        style={{ minHeight: typeof height === 'number' ? `${height}px` : height }}
+        className="p-4 flex items-center justify-center flex-grow overflow-y-auto"
+        style={{ 
+          minHeight: typeof height === 'number' ? `${height}px` : height,
+          maxHeight: '200px' // Added max-height to limit excessive space
+        }}
       >
         <div className="w-full">
           {children}
