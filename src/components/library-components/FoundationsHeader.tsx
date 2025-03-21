@@ -1,16 +1,18 @@
 
 import React from 'react';
 import { Chip } from '@/components/ui/chip';
+
 interface FoundationsHeaderProps {
   title: string;
   description: string;
 }
+
 const FoundationsHeader = ({
   title,
   description
 }: FoundationsHeaderProps) => {
   return <div className="w-full animate-fade-in">
-      <div className="space-y-4">
+      <div className="space-y-2">
         <div className="flex items-center gap-2 text-sm text-gray-700 font-medium mb-2">
           <Chip variant="outlined" color="default" size="sm">Foundations</Chip>
         </div>
@@ -19,4 +21,5 @@ const FoundationsHeader = ({
       </div>
     </div>;
 };
+
 export default FoundationsHeader;
