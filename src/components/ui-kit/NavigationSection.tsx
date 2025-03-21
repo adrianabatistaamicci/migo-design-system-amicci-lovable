@@ -1,7 +1,6 @@
-
 import React from 'react';
 import ComponentPreview from '@/components/ComponentPreview';
-import { TailwindTabs } from '@/components/ui/tailwind-tabs';
+import { TailwindTabs } from '@/components/ui/tabs';
 
 const NavigationSection = () => {
   // Example tabs for preview

@@ -1,9 +1,8 @@
-
 import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import { TailwindTabs } from '@/components/ui/tailwind-tabs';
+import { TailwindTabs } from '@/components/ui/tabs';
 
 const TabsPage = () => {
   return <div className="w-full animate-slide-in">
@@ -28,7 +27,7 @@ const TabsPage = () => {
           </h2>
           
           <pre className="bg-mui-sidebar p-4 rounded-md overflow-x-auto text-sm">
-            <code>import {'{ TailwindTabs }'} from "@/components/ui/tailwind-tabs";</code>
+            <code>import {'{ TailwindTabs }'} from "@/components/ui/tabs";</code>
           </pre>
         </div>
         
