@@ -488,4 +488,146 @@ const paletteData = [
       { name: 'dark', colorClass: 'bg-tertiary-dark', baseColor: 'magenta-700', textColor: 'text-tertiary-contrast', hexValue: '#6D1959' },
       { name: 'light', colorClass: 'bg-tertiary-light', baseColor: 'magenta-100', textColor: 'text-black', hexValue: '#F9E5F4' },
       { name: 'hover', colorClass: 'bg-tertiary-hover', baseColor: 'magenta-500', textColor: 'text-tertiary-contrast', opacity: '4%', hexValue: '#9B247F0A' },
-      { name: 'selected', colorClass: 'bg-tertiary-selected', baseColor: 'mag
+      { name: 'selected', colorClass: 'bg-tertiary-selected', baseColor: 'magenta-500', textColor: 'text-tertiary-contrast', opacity: '8%', hexValue: '#9B247F14' },
+      { name: 'focus', colorClass: 'bg-tertiary-focus', baseColor: 'magenta-500', textColor: 'text-black', opacity: '12%', hexValue: '#9B247F1F' },
+      { name: 'focusVisible', colorClass: 'bg-tertiary-focusVisible', baseColor: 'magenta-500', textColor: 'text-black', opacity: '30%', hexValue: '#9B247F4D' }
+    ]
+  }
+];
+
+// Color usage examples
+const ColorUsageExamples = () => {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <ComponentCard 
+        title="Text Colors" 
+        description="Different text colors for various purposes"
+      >
+        <div className="space-y-4">
+          <p className="text-text-primary">This is primary text</p>
+          <p className="text-text-secondary">This is secondary text</p>
+          <p className="text-text-disabled">This is disabled text</p>
+          <p className="text-primary-main">This is primary theme color text</p>
+          <p className="text-secondary-main">This is secondary theme color text</p>
+          <p className="text-tertiary-main">This is tertiary theme color text</p>
+        </div>
+      </ComponentCard>
+
+      <ComponentCard 
+        title="Background Colors" 
+        description="Different background colors for various purposes"
+      >
+        <div className="space-y-2">
+          <div className="p-4 bg-primary-main text-primary-contrast rounded">Primary Background</div>
+          <div className="p-4 bg-primary-light text-primary-main rounded">Primary Light Background</div>
+          <div className="p-4 bg-secondary-main text-secondary-contrast rounded">Secondary Background</div>
+          <div className="p-4 bg-secondary-light text-secondary-main rounded">Secondary Light Background</div>
+          <div className="p-4 bg-tertiary-main text-tertiary-contrast rounded">Tertiary Background</div>
+        </div>
+      </ComponentCard>
+
+      <ComponentCard 
+        title="UI Components with Theme Colors" 
+        description="Common UI components using the theme colors"
+      >
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <h4 className="text-sm font-medium">Buttons</h4>
+            <div className="flex flex-wrap gap-2">
+              <Button>Default</Button>
+              <Button variant="primary">Primary</Button>
+              <Button variant="secondary">Secondary</Button>
+              <Button variant="outline">Outline</Button>
+              <Button variant="ghost">Ghost</Button>
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="text-sm font-medium">Badges</h4>
+            <div className="flex flex-wrap gap-2">
+              <Badge>Default</Badge>
+              <Badge variant="primary">Primary</Badge>
+              <Badge variant="secondary">Secondary</Badge>
+              <Badge variant="outline">Outline</Badge>
+              <Badge variant="success">Success</Badge>
+              <Badge variant="destructive">Destructive</Badge>
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="text-sm font-medium">Chips</h4>
+            <div className="flex flex-wrap gap-2">
+              <Chip>Primary</Chip>
+              <Chip variant="secondary">Secondary</Chip>
+              <Chip variant="default">Default</Chip>
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="text-sm font-medium">Avatars</h4>
+            <div className="flex flex-wrap gap-2">
+              <Avatar color="primary">
+                <AvatarFallback>AB</AvatarFallback>
+              </Avatar>
+              <Avatar color="secondary">
+                <AvatarFallback>CD</AvatarFallback>
+              </Avatar>
+              <Avatar color="success">
+                <AvatarFallback>EF</AvatarFallback>
+              </Avatar>
+              <Avatar color="error">
+                <AvatarFallback>GH</AvatarFallback>
+              </Avatar>
+            </div>
+          </div>
+        </div>
+      </ComponentCard>
+
+      <ComponentCard 
+        title="Status Colors" 
+        description="Colors that indicate different statuses"
+      >
+        <div className="space-y-2">
+          <div className="p-4 bg-success-main text-success-contrast rounded">Success Status</div>
+          <div className="p-4 bg-error-main text-error-contrast rounded">Error Status</div>
+          <div className="p-4 bg-warning-main text-warning-contrast rounded">Warning Status</div>
+          <div className="p-4 bg-info-main text-info-contrast rounded">Info Status</div>
+        </div>
+      </ComponentCard>
+    </div>
+  );
+};
+
+// Main Colors component
+const Colors = () => {
+  return (
+    <div className="container mx-auto py-10 space-y-12">
+      <div>
+        <h1 className="text-4xl font-bold mb-4">Cores</h1>
+        <p className="text-lg text-gray-700">O sistema de cores do Amicci Design System foi projetado para garantir consistência visual e acessibilidade em toda a aplicação.</p>
+      </div>
+      
+      <Tabs defaultValue="palette">
+        <TabsList>
+          <TabsTrigger value="palette">Paleta de Cores</TabsTrigger>
+          <TabsTrigger value="base">Cores Base</TabsTrigger>
+          <TabsTrigger value="usage">Exemplos de Uso</TabsTrigger>
+        </TabsList>
+        
+        <TabsContent value="palette" className="pt-6">
+          <PaletteTable palettes={paletteData} />
+        </TabsContent>
+        
+        <TabsContent value="base" className="pt-6">
+          <BaseColorsTable baseColors={baseColorsData} />
+        </TabsContent>
+        
+        <TabsContent value="usage" className="pt-6">
+          <ColorUsageExamples />
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+};
+
+export default Colors;
