@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import ComponentsHeader from '@/components/library-components/ComponentsHeader';
 import { Heart, ArrowRight, Save, Check } from 'lucide-react';
+
 const componentData = {
   buttons: {
     title: 'Button',
@@ -50,7 +51,7 @@ const componentData = {
       description: 'Icon displayed after the button text'
     }],
     examples: [{
-      title: 'Contained Button Variants',
+      title: 'Botão primário',
       description: 'Material UI styled contained buttons with raised appearance.',
       component: <div className="flex flex-wrap gap-4">
             <Button>Primary</Button>
@@ -59,7 +60,7 @@ const componentData = {
       code: `<Button>Primary</Button>
 <Button variant="error">Error</Button>`
     }, {
-      title: 'Outlined Button Variants',
+      title: 'Botão secundário',
       description: 'Buttons with outline for less pronounced actions.',
       component: <div className="flex flex-wrap gap-4">
             <Button variant="outline-secondary">Secondary</Button>
@@ -68,7 +69,7 @@ const componentData = {
       code: `<Button variant="outline-secondary">Secondary</Button>
 <Button variant="outline-error">Error</Button>`
     }, {
-      title: 'Text Button Variants',
+      title: 'Botão terciário',
       description: 'Buttons without background or outline for subtle actions.',
       component: <div className="flex flex-wrap gap-4">
             <Button variant="text-secondary">Secondary</Button>
@@ -191,6 +192,7 @@ const componentData = {
     }]
   }
 };
+
 const ComponentDetail = () => {
   const {
     componentId
@@ -198,6 +200,7 @@ const ComponentDetail = () => {
     componentId: string;
   }>();
   const component = componentId ? componentData[componentId as keyof typeof componentData] : null;
+
   if (!component) {
     return <div className="py-8 w-full">
         <h1 className="text-2xl font-medium text-mui-text-primary mb-4">
@@ -208,6 +211,7 @@ const ComponentDetail = () => {
         </p>
       </div>;
   }
+
   return <div className="animate-slide-in w-full">
       <div className="w-full">
         <ComponentsHeader title={component.title} description={component.description} />
@@ -257,4 +261,5 @@ const ComponentDetail = () => {
       </div>
     </div>;
 };
+
 export default ComponentDetail;
