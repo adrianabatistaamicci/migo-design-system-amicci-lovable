@@ -1,6 +1,8 @@
+
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
-import { Button } from '@/components/ui/button';
+import CodeBlock from '@/components/CodeBlock';
+import ComponentsHeader from '@/components/library-components/ComponentsHeader';
 import { X } from 'lucide-react';
 
 // Custom toggle switch component
@@ -20,21 +22,31 @@ const Toggle = ({
       <span aria-hidden="true" className={`${enabled ? `translate-x-${size === 'sm' ? '4' : size === 'lg' ? '7' : '5'}` : 'translate-x-0'} pointer-events-none ${size === 'sm' ? 'h-4 w-4' : size === 'lg' ? 'h-6 w-6' : 'h-5 w-5'} rounded-full bg-white shadow ring-0 transition ease-in-out duration-200`} />
     </button>;
 };
+
 const TogglePage = () => {
   const [simpleEnabled, setSimpleEnabled] = useState(false);
   const [shortEnabled, setShortEnabled] = useState(false);
   const [iconEnabled, setIconEnabled] = useState(false);
   const [descriptionEnabled, setDescriptionEnabled] = useState(false);
   const [rightLabelEnabled, setRightLabelEnabled] = useState(false);
-  return <div className="max-w-4xl mx-auto py-12">
-      <h1 className="text-3xl font-bold mb-6">Toggle</h1>
-      <p className="text-gray-500 mb-8">
-        Toggle components allow users to switch between two states and are commonly used for "on/off" functionality.
-      </p>
+  
+  return (
+    <div className="max-w-4xl mx-auto py-12">
+      <ComponentsHeader 
+        title="Toggle" 
+        description="Toggle components allow users to switch between two states and are commonly used for 'on/off' functionality."
+      />
+
+      <div className="mb-12">
+        <CodeBlock code={`import { Toggle } from "@/components/ui/toggle";`} language="jsx" />
+      </div>
 
       <div className="space-y-12">
         {/* Simple toggle */}
-        <ComponentCard title="Simple toggle" description="A basic toggle switch for on/off states." code={`const [enabled, setEnabled] = useState(false)
+        <ComponentCard 
+          title="Simple toggle" 
+          description="A basic toggle switch for on/off states." 
+          code={`const [enabled, setEnabled] = useState(false)
 
 <Toggle enabled={enabled} onChange={setEnabled} />`}>
           <div className="flex items-center justify-center p-6 border rounded-lg">
@@ -45,7 +57,10 @@ const TogglePage = () => {
         </ComponentCard>
 
         {/* Short toggle */}
-        <ComponentCard title="Short toggle" description="A smaller toggle switch for more compact UIs." code={`const [enabled, setEnabled] = useState(false)
+        <ComponentCard 
+          title="Short toggle" 
+          description="A smaller toggle switch for more compact UIs." 
+          code={`const [enabled, setEnabled] = useState(false)
 
 <Toggle enabled={enabled} onChange={setEnabled} size="sm" />`}>
           <div className="flex items-center justify-center p-6 border rounded-lg">
@@ -56,7 +71,10 @@ const TogglePage = () => {
         </ComponentCard>
 
         {/* Toggle with icon */}
-        <ComponentCard title="Toggle with icon" description="A toggle switch with an icon indicator." code={`const [enabled, setEnabled] = useState(false)
+        <ComponentCard 
+          title="Toggle with icon" 
+          description="A toggle switch with an icon indicator." 
+          code={`const [enabled, setEnabled] = useState(false)
 
 <div className="flex items-center gap-2">
   {enabled && <X size={16} className="text-gray-500" />}
@@ -73,7 +91,10 @@ const TogglePage = () => {
         </ComponentCard>
 
         {/* With left label and description */}
-        <ComponentCard title="With left label and description" description="A toggle with a label and detailed description on the left." code={`const [enabled, setEnabled] = useState(false)
+        <ComponentCard 
+          title="With left label and description" 
+          description="A toggle with a label and detailed description on the left." 
+          code={`const [enabled, setEnabled] = useState(false)
 
 <div className="flex items-center justify-between">
   <div>
@@ -96,7 +117,10 @@ const TogglePage = () => {
         </ComponentCard>
 
         {/* With right label */}
-        <ComponentCard title="With right label" description="A toggle with a label on the right side." code={`const [enabled, setEnabled] = useState(false)
+        <ComponentCard 
+          title="With right label" 
+          description="A toggle with a label on the right side." 
+          code={`const [enabled, setEnabled] = useState(false)
 
 <div className="flex items-center">
   <Toggle enabled={enabled} onChange={setEnabled} />
@@ -114,16 +138,8 @@ const TogglePage = () => {
           </div>
         </ComponentCard>
       </div>
-
-      
-      <div className="mb-4">
-        
-        
-      </div>
-
-      <div className="space-y-4">
-        
-      </div>
-    </div>;
+    </div>
+  );
 };
+
 export default TogglePage;
