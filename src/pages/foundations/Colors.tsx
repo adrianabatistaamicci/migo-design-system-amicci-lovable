@@ -1,631 +1,399 @@
-import React, { useState } from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Chip } from '@/components/ui/chip';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Copy, Check, Eye, EyeOff } from 'lucide-react';
-import { Separator } from '@/components/ui/separator';
+import React from 'react';
+import ComponentCard from '@/components/ComponentCard';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { colorUtils } from '@/utils/colorUtils';
-import ComponentCard from '@/components/ComponentCard';
+import { Chip } from '@/components/ui/chip';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableHead,
+  TableRow,
+  TableCell,
+} from "@/components/ui/table"
 
-// ColorSwatch component
-const ColorSwatch = ({
-  color,
-  className = "",
-  onClick,
-  textOverlay,
-  weight,
-  hexValue,
-  copyValue
-}: {
-  color: string;
-  className?: string;
-  onClick?: () => void;
-  textOverlay?: string;
-  weight?: string;
-  hexValue?: string;
-  copyValue?: string;
-}) => {
-  const [copied, setCopied] = useState(false);
+const ColorSwatch = ({ color, name }: { color: string; name: string }) => (
+  <div className="flex flex-col items-center">
+    <div className="w-24 h-24 rounded-md shadow-md" style={{ backgroundColor: color }}></div>
+    <p className="mt-2 text-sm text-gray-500">{name}</p>
+    <p className="text-sm text-gray-700">{color}</p>
+  </div>
+);
 
-  // Determine text color based on background color luminance
-  const getTextColor = () => {
-    // If we have a hex value, use luminance calculation for determining contrast
-    if (hexValue) {
-      try {
-        const luminance = colorUtils.getLuminance(hexValue);
-        return luminance > 0.5 ? 'text-gray-800' : 'text-white';
-      } catch (e) {
-        // Fallback to heuristic based on color name
-        return getLightDarkFromName();
-      }
-    }
+const BaseColorsTable = ({ colors }: { colors: { name: string; hex: string }[] }) => (
+  <div className="grid grid-cols-3 gap-6">
+    {colors.map((color) => (
+      <ColorSwatch key={color.name} color={color.hex} name={color.name} />
+    ))}
+  </div>
+);
 
-    // If we don't have a hex value, use heuristic based on color name
-    return getLightDarkFromName();
-  };
-
-  // Helper function to determine if a color is light based on its name
-  const getLightDarkFromName = () => {
-    const lightColors = ['white', 'light', '50', '100', '200', '300'];
-    const isLightColorName = lightColors.some(lightColor => color.toLowerCase().includes(lightColor));
-    return isLightColorName ? 'text-gray-800' : 'text-white';
-  };
-
-  const handleCopy = () => {
-    const valueToCopy = copyValue || hexValue || color;
-    navigator.clipboard.writeText(valueToCopy);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  const textColor = getTextColor();
-
-  // Determine the correct background style
-  const getBackgroundStyle = () => {
-    // If color starts with 'bg-', we're using a Tailwind class
-    if (color.startsWith('bg-')) {
-      return color;
-    }
-
-    // If color is a hex value and doesn't start with 'bg-', use inline style
-    if (hexValue && !color.startsWith('bg-')) {
-      return `bg-[${hexValue}]`;
-    }
-
-    // Fallback to the original class
-    return color;
-  };
-
-  return (
-    <div 
-      className={`relative w-full rounded-md ${getBackgroundStyle()} ${className} flex items-center justify-center px-3 transition-all hover:shadow-md cursor-pointer group`} 
-      onClick={onClick || handleCopy} 
-      role="button" 
-      tabIndex={0} 
-      style={hexValue && !color.startsWith('bg-') ? { backgroundColor: hexValue } : undefined}
-    >
-      {textOverlay && <span className={`${textColor} font-medium`}>{textOverlay}</span>}
-      {weight && <span className={`text-xs ${textColor} opacity-75 absolute left-2 top-1`}>{weight}</span>}
-      
-      <div className={`absolute right-2 top-2 transition-opacity ${copied ? 'opacity-100' : 'opacity-0 group-hover:opacity-70'}`}>
-        {copied ? <Check className={`w-4 h-4 ${textColor}`} /> : <Copy className={`w-4 h-4 ${textColor}`} />}
+const PaletteTable = ({ palette }: { palette: { name: string; shades: { shade: string; hex: string }[] } }) => (
+  <div className="space-y-6">
+    {Object.entries(palette).map(([colorName, shades]) => (
+      <div key={colorName} className="space-y-2">
+        <h3 className="text-xl font-semibold text-gray-900">{colorName}</h3>
+        <div className="grid grid-cols-5 gap-4">
+          {shades.map((shade) => (
+            <div key={shade.shade} className="flex flex-col items-center">
+              <div className={`w-20 h-20 rounded-md shadow-md`} style={{ backgroundColor: shade.hex }}></div>
+              <p className="mt-2 text-sm text-gray-500">{shade.shade}</p>
+              <p className="text-sm text-gray-700">{shade.hex}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    ))}
+  </div>
+);
+
+const baseColors = [
+  { name: "White", hex: "#FFFFFF" },
+  { name: "Black", hex: "#000000" },
+  { name: "Gray", hex: "#808080" },
+  { name: "Red", hex: "#FF0000" },
+  { name: "Green", hex: "#00FF00" },
+  { name: "Blue", hex: "#0000FF" },
+  { name: "Yellow", hex: "#FFFF00" },
+  { name: "Orange", hex: "#FFA500" },
+  { name: "Purple", hex: "#800080" },
+  { name: "Brown", hex: "#A52A2A" },
+  { name: "Pink", hex: "#FFC0CB" },
+  { name: "Teal", hex: "#008080" },
+  { name: "Lime", hex: "#00FF00" },
+  { name: "Indigo", hex: "#4B0082" },
+  { name: "Violet", hex: "#EE82EE" },
+  { name: "Magenta", hex: "#FF00FF" },
+];
+
+const semanticPalette = {
+  primary: [
+    { shade: "50", hex: "#E3F2FD" },
+    { shade: "100", hex: "#BBDEFB" },
+    { shade: "200", hex: "#90CAF9" },
+    { shade: "300", hex: "#64B5F6" },
+    { shade: "400", hex: "#42A5F5" },
+    { shade: "500", hex: "#2196F3" },
+    { shade: "600", hex: "#1E88E5" },
+    { shade: "700", hex: "#1976D2" },
+    { shade: "800", hex: "#1565C0" },
+    { shade: "900", hex: "#0D47A1" },
+  ],
+  secondary: [
+    { shade: "50", hex: "#FCE4EC" },
+    { shade: "100", hex: "#F8BBD0" },
+    { shade: "200", hex: "#F48FB1" },
+    { shade: "300", hex: "#F06292" },
+    { shade: "400", hex: "#EC407A" },
+    { shade: "500", hex: "#E91E63" },
+    { shade: "600", hex: "#D81B60" },
+    { shade: "700", hex: "#C2185B" },
+    { shade: "800", hex: "#AD1457" },
+    { shade: "900", hex: "#880E4F" },
+  ],
+  success: [
+    { shade: "50", hex: "#E8F5E9" },
+    { shade: "100", hex: "#C8E6C9" },
+    { shade: "200", hex: "#A5D6A7" },
+    { shade: "300", hex: "#81C784" },
+    { shade: "400", hex: "#66BB6A" },
+    { shade: "500", hex: "#4CAF50" },
+    { shade: "600", hex: "#43A047" },
+    { shade: "700", hex: "#388E3C" },
+    { shade: "800", hex: "#2E7D32" },
+    { shade: "900", hex: "#1B5E20" },
+  ],
+  error: [
+    { shade: "50", hex: "#FFEBEE" },
+    { shade: "100", hex: "#FFCDD2" },
+    { shade: "200", hex: "#EF9A9A" },
+    { shade: "300", hex: "#E57373" },
+    { shade: "400", hex: "#EF5350" },
+    { shade: "500", hex: "#F44336" },
+    { shade: "600", hex: "#E53935" },
+    { shade: "700", hex: "#D32F2F" },
+    { shade: "800", hex: "#C62828" },
+    { shade: "900", hex: "#B71C1C" },
+  ],
+  warning: [
+    { shade: "50", hex: "#FFFDE7" },
+    { shade: "100", hex: "#FFF9C4" },
+    { shade: "200", hex: "#FFF59D" },
+    { shade: "300", hex: "#FFF176" },
+    { shade: "400", hex: "#FFEE58" },
+    { shade: "500", hex: "#FFEB3B" },
+    { shade: "600", hex: "#FDD835" },
+    { shade: "700", hex: "#FBC02D" },
+    { shade: "800", hex: "#F9A825" },
+    { shade: "900", hex: "#F57F17" },
+  ],
+  info: [
+    { shade: "50", hex: "#E1F5FE" },
+    { shade: "100", hex: "#B3E5FC" },
+    { shade: "200", hex: "#81D4FA" },
+    { shade: "300", hex: "#4FC3F7" },
+    { shade: "400", hex: "#29B6F6" },
+    { shade: "500", hex: "#03A9F4" },
+    { shade: "600", hex: "#039BE5" },
+    { shade: "700", hex: "#0288D1" },
+    { shade: "800", hex: "#0277BD" },
+    { shade: "900", hex: "#01579B" },
+  ],
 };
 
-// BaseColorsTable component
-const BaseColorsTable = ({ baseColors }) => {
-  const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text);
-    // You could add a toast notification here
-  };
-
-  const renderCopyButton = (text) => (
-    <button 
-      onClick={() => copyToClipboard(text)} 
-      className="ml-2 text-gray-400 hover:text-gray-600 transition-colors"
-    >
-      <Copy size={14} />
-    </button>
-  );
-
+const ColorApplications = () => {
   return (
-    <div className="space-y-8">
-      {baseColors.map(baseColor => (
-        <div key={baseColor.name} className="space-y-2">
-          <h3 className="text-xl font-semibold">{baseColor.name}</h3>
-          <Table className="border rounded-lg overflow-hidden">
-            <TableHeader>
-              <TableRow>
-                <TableHead>Variação</TableHead>
-                <TableHead>Amostra</TableHead>
-                <TableHead>Token CSS</TableHead>
-                <TableHead>Hexadecimal</TableHead>
-                <TableHead>RGB</TableHead>
-                <TableHead>HSL</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {baseColor.weights.map(weight => {
-                const hexValue = weight.hexValue;
-                const rgbValue = colorUtils.hexToRgb(hexValue);
-                const hslValue = colorUtils.hexToHsl(hexValue);
-                return (
-                  <TableRow key={`${baseColor.name}-${weight.weight}`}>
-                    <TableCell className="font-mono bg-inherit">
-                      {baseColor.name.toLowerCase()}-{weight.weight}
-                    </TableCell>
-                    <TableCell>
-                      <ColorSwatch 
-                        color={weight.colorClass} 
-                        textOverlay={weight.weight} 
-                        className="h-12"
-                      />
-                    </TableCell>
-                    <TableCell className="font-mono">
-                      --{baseColor.name.toLowerCase()}-{weight.weight}
-                      {renderCopyButton(`--${baseColor.name.toLowerCase()}-${weight.weight}`)}
-                    </TableCell>
-                    <TableCell className="font-mono">
-                      {hexValue}
-                      {renderCopyButton(hexValue)}
-                    </TableCell>
-                    <TableCell className="font-mono">
-                      {rgbValue}
-                      {renderCopyButton(rgbValue)}
-                    </TableCell>
-                    <TableCell className="font-mono">
-                      {hslValue}
-                      {renderCopyButton(hslValue)}
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
-            </TableBody>
-          </Table>
+    <div className="space-y-10">
+      <h2 className="text-2xl font-semibold text-gray-900 mb-6">Component Color Applications</h2>
+      
+      <ComponentCard
+        title="Buttons"
+        description="Buttons use the palette colors with different variants"
+        code={`// Primary Button
+<Button variant="default">Primary Button</Button>
+
+// Secondary Button  
+<Button variant="secondary">Secondary Button</Button>
+
+// Error Button
+<Button variant="error">Error Button</Button>`}
+      >
+        <div className="flex flex-wrap gap-4 p-6">
+          <Button variant="default">Primary Button</Button>
+          <Button variant="secondary">Secondary Button</Button>
+          <Button variant="error">Error Button</Button>
         </div>
-      ))}
-    </div>
-  );
-};
-
-// PaletteTable component
-const PaletteTable = ({ palettes }) => {
-  const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text);
-    // You could add a toast notification here
-  };
-
-  const renderCopyButton = (text) => (
-    <button 
-      onClick={() => copyToClipboard(text)}
-      className="ml-2 text-gray-400 hover:text-gray-600 transition-colors"
-    >
-      <Copy size={14} />
-    </button>
-  );
-
-  // Avalia o contraste WCAG
-  const getWCAGStatus = (hexColor) => {
-    try {
-      // Avaliamos o contraste com fundo branco
-      const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
-      const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
+      </ComponentCard>
       
-      // Escolha o melhor contraste
-      const bestContrast = Math.max(contrastWithWhite, contrastWithBlack);
-      const contrastColor = contrastWithWhite > contrastWithBlack ? 'branco' : 'preto';
-      
-      return {
-        ratio: bestContrast.toFixed(1),
-        passesAA: bestContrast >= 4.5,
-        passesAAA: bestContrast >= 7,
-        bestContrastWith: contrastColor
-      };
-    } catch (e) {
-      return {
-        ratio: 'N/A',
-        passesAA: false,
-        passesAAA: false,
-        bestContrastWith: 'N/A'
-      };
-    }
-  };
+      <ComponentCard
+        title="Badges"
+        description="Badges in different colors"
+        code={`<Badge variant="standard" color="primary" badgeContent={4}>
+  <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
+</Badge>
 
-  return (
-    <div className="space-y-8">
-      {palettes.map((palette) => (
-        <div key={palette.name} className="space-y-4">
-          <div className="flex items-center gap-3">
-            <h3 className="text-xl font-bold">{palette.name}</h3>
-            <span className="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full">
-              base-color-{palette.description.toLowerCase()}
-            </span>
-          </div>
+<Badge variant="standard" color="secondary" badgeContent={8}>
+  <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
+</Badge>
+
+<Badge variant="standard" color="error" badgeContent={12}>
+  <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
+</Badge>
+
+<Badge variant="standard" color="success" badgeContent={42}>
+  <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
+</Badge>
+
+<Badge variant="dot" color="error">
+  <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
+</Badge>`}
+      >
+        <div className="flex flex-wrap gap-4 p-6">
+          <Badge variant="standard" color="primary" badgeContent={4}>
+            <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
+          </Badge>
           
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Variação</TableHead>
-                <TableHead>Amostra</TableHead>
-                <TableHead>Token CSS</TableHead>
-                <TableHead>Base Color</TableHead>
-                <TableHead>Opacidade</TableHead>
-                <TableHead>Análise WCAG</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {palette.variants.map((variant) => {
-                const wcagInfo = variant.hexValue ? getWCAGStatus(variant.hexValue) : null;
-                
-                return (
-                  <TableRow key={`${palette.name}-${variant.name}`}>
-                    <TableCell className="font-mono">{`${palette.name.toLowerCase()}-${variant.name}`}</TableCell>
-                    <TableCell>
-                      <ColorSwatch 
-                        color={variant.colorClass}
-                        hexValue={variant.hexValue}
-                        copyValue={variant.hexValue}
-                        textOverlay={variant.hexValue || '#F0F0F0'}
-                        className="h-12"
-                      />
-                    </TableCell>
-                    <TableCell className="font-mono">
-                      <code>{`--${palette.name.toLowerCase()}-${variant.name}`}</code>
-                      {renderCopyButton(`--${palette.name.toLowerCase()}-${variant.name}`)}
-                    </TableCell>
-                    <TableCell>{variant.baseColor}</TableCell>
-                    <TableCell>{variant.opacity || '100%'}</TableCell>
-                    {wcagInfo && (
-                      <TableCell>
-                        <div className="space-y-1 text-xs">
-                          <div>
-                            <span className="font-medium">Contraste:</span> {wcagInfo.ratio}:1 (com {wcagInfo.bestContrastWith})
-                          </div>
-                          <div className={`${wcagInfo.passesAA ? "text-success-main" : "text-error-main"} font-medium`}>
-                            WCAG AA: {wcagInfo.passesAA ? '✓' : '✗'}
-                          </div>
-                          <div className={`${wcagInfo.passesAAA ? "text-success-main" : "text-error-main"} font-medium`}>
-                            WCAG AAA: {wcagInfo.passesAAA ? '✓' : '✗'}
-                          </div>
-                        </div>
-                      </TableCell>
-                    )}
-                  </TableRow>
-                );
-              })}
-            </TableBody>
-          </Table>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-// Data for components
-const baseColorsData = [
-  {
-    name: 'Amicci',
-    weights: [
-      { weight: '50', colorClass: 'bg-amicci-50', hexValue: '#F1FDFC' },
-      { weight: '100', colorClass: 'bg-amicci-100', hexValue: '#E3FAF9' },
-      { weight: '200', colorClass: 'bg-amicci-200', hexValue: '#C7F5F3' },
-      { weight: '300', colorClass: 'bg-amicci-300', hexValue: '#93EDEA' },
-      { weight: '400', colorClass: 'bg-amicci-400', hexValue: '#51DEDA' },
-      { weight: '500', colorClass: 'bg-amicci-500', hexValue: '#10C2C0' },
-      { weight: '600', colorClass: 'bg-amicci-600', hexValue: '#0EA3A1' },
-      { weight: '700', colorClass: 'bg-amicci-700', hexValue: '#0C8482' },
-      { weight: '800', colorClass: 'bg-amicci-800', hexValue: '#096665' },
-      { weight: '900', colorClass: 'bg-amicci-900', hexValue: '#074A47' },
-      { weight: '950', colorClass: 'bg-amicci-950', hexValue: '#062630' }
-    ]
-  },
-  {
-    name: 'AmicciDark',
-    weights: [
-      { weight: '50', colorClass: 'bg-amicciDark-50', hexValue: '#E6F5F5' },
-      { weight: '100', colorClass: 'bg-amicciDark-100', hexValue: '#C7E8E9' },
-      { weight: '200', colorClass: 'bg-amicciDark-200', hexValue: '#A1D6D8' },
-      { weight: '300', colorClass: 'bg-amicciDark-300', hexValue: '#72BEC2' },
-      { weight: '400', colorClass: 'bg-amicciDark-400', hexValue: '#3A9CA1' },
-      { weight: '500', colorClass: 'bg-amicciDark-500', hexValue: '#14818A' },
-      { weight: '600', colorClass: 'bg-amicciDark-600', hexValue: '#0D646D' },
-      { weight: '700', colorClass: 'bg-amicciDark-700', hexValue: '#06454A' },
-      { weight: '800', colorClass: 'bg-amicciDark-800', hexValue: '#043A3E' },
-      { weight: '900', colorClass: 'bg-amicciDark-900', hexValue: '#033034' },
-      { weight: '950', colorClass: 'bg-amicciDark-950', hexValue: '#02282A' }
-    ]
-  },
-  {
-    name: 'Blue',
-    weights: [
-      { weight: '50', colorClass: 'bg-blue-50', hexValue: '#EBF5FF' },
-      { weight: '100', colorClass: 'bg-blue-100', hexValue: '#D6E8FF' },
-      { weight: '200', colorClass: 'bg-blue-200', hexValue: '#ADC8FF' },
-      { weight: '300', colorClass: 'bg-blue-300', hexValue: '#84A9FF' },
-      { weight: '400', colorClass: 'bg-blue-400', hexValue: '#5A8CF8' },
-      { weight: '500', colorClass: 'bg-blue-500', hexValue: '#2970FF' },
-      { weight: '600', colorClass: 'bg-blue-600', hexValue: '#1F5AE8' },
-      { weight: '700', colorClass: 'bg-blue-700', hexValue: '#0057B2' },
-      { weight: '800', colorClass: 'bg-blue-800', hexValue: '#0C41A0' },
-      { weight: '900', colorClass: 'bg-blue-900', hexValue: '#093186' },
-      { weight: '950', colorClass: 'bg-blue-950', hexValue: '#072B7A' }
-    ]
-  },
-  {
-    name: 'Magenta',
-    weights: [
-      { weight: '50', colorClass: 'bg-magenta-50', hexValue: '#FDF5FA' },
-      { weight: '100', colorClass: 'bg-magenta-100', hexValue: '#F9E5F4' },
-      { weight: '200', colorClass: 'bg-magenta-200', hexValue: '#F2CAEB' },
-      { weight: '300', colorClass: 'bg-magenta-300', hexValue: '#E7A4DD' },
-      { weight: '400', colorClass: 'bg-magenta-400', hexValue: '#C963BA' },
-      { weight: '500', colorClass: 'bg-magenta-500', hexValue: '#9B247F' },
-      { weight: '600', colorClass: 'bg-magenta-600', hexValue: '#841E6C' },
-      { weight: '700', colorClass: 'bg-magenta-700', hexValue: '#6D1959' },
-      { weight: '800', colorClass: 'bg-magenta-800', hexValue: '#571447' },
-      { weight: '900', colorClass: 'bg-magenta-900', hexValue: '#49123C' },
-      { weight: '950', colorClass: 'bg-magenta-950', hexValue: '#3E0F32' }
-    ]
-  },
-  {
-    name: 'Green',
-    weights: [
-      { weight: '50', colorClass: 'bg-green-50', hexValue: '#ECFDF3' },
-      { weight: '100', colorClass: 'bg-green-100', hexValue: '#D1FADF' },
-      { weight: '200', colorClass: 'bg-green-200', hexValue: '#A6F4C5' },
-      { weight: '300', colorClass: 'bg-green-300', hexValue: '#6CE9A6' },
-      { weight: '400', colorClass: 'bg-green-400', hexValue: '#32D583' },
-      { weight: '500', colorClass: 'bg-green-500', hexValue: '#12B76A' },
-      { weight: '600', colorClass: 'bg-green-600', hexValue: '#039855' },
-      { weight: '700', colorClass: 'bg-green-700', hexValue: '#027A48' },
-      { weight: '800', colorClass: 'bg-green-800', hexValue: '#05603A' },
-      { weight: '900', colorClass: 'bg-green-900', hexValue: '#055735' },
-      { weight: '950', colorClass: 'bg-green-950', hexValue: '#054F31' }
-    ]
-  },
-  {
-    name: 'Gray',
-    weights: [
-      { weight: '50', colorClass: 'bg-gray-50', hexValue: '#F9FBFB' },
-      { weight: '100', colorClass: 'bg-gray-100', hexValue: '#F3F6F5' },
-      { weight: '200', colorClass: 'bg-gray-200', hexValue: '#EAEFF0' },
-      { weight: '300', colorClass: 'bg-gray-300', hexValue: '#CED6D6' },
-      { weight: '400', colorClass: 'bg-gray-400', hexValue: '#AFB9BA' },
-      { weight: '500', colorClass: 'bg-gray-500', hexValue: '#808586' },
-      { weight: '600', colorClass: 'bg-gray-600', hexValue: '#656969' },
-      { weight: '700', colorClass: 'bg-gray-700', hexValue: '#4A4F4F' },
-      { weight: '800', colorClass: 'bg-gray-800', hexValue: '#313536' },
-      { weight: '900', colorClass: 'bg-gray-900', hexValue: '#292C2D' },
-      { weight: '950', colorClass: 'bg-gray-950', hexValue: '#212323' }
-    ]
-  },
-  {
-    name: 'Red',
-    weights: [
-      { weight: '50', colorClass: 'bg-red-50', hexValue: '#FEF3F2' },
-      { weight: '100', colorClass: 'bg-red-100', hexValue: '#FEE4E2' },
-      { weight: '200', colorClass: 'bg-red-200', hexValue: '#FECDCA' },
-      { weight: '300', colorClass: 'bg-red-300', hexValue: '#FDA29B' },
-      { weight: '400', colorClass: 'bg-red-400', hexValue: '#F97066' },
-      { weight: '500', colorClass: 'bg-red-500', hexValue: '#F04438' },
-      { weight: '600', colorClass: 'bg-red-600', hexValue: '#D92D20' },
-      { weight: '700', colorClass: 'bg-red-700', hexValue: '#B42318' },
-      { weight: '800', colorClass: 'bg-red-800', hexValue: '#912018' },
-      { weight: '900', colorClass: 'bg-red-900', hexValue: '#862017' },
-      { weight: '950', colorClass: 'bg-red-950', hexValue: '#7A271A' }
-    ]
-  },
-  {
-    name: 'Yellow',
-    weights: [
-      { weight: '50', colorClass: 'bg-yellow-50', hexValue: '#FFFDE7' },
-      { weight: '100', colorClass: 'bg-yellow-100', hexValue: '#FFF9C4' },
-      { weight: '200', colorClass: 'bg-yellow-200', hexValue: '#FFF59D' },
-      { weight: '300', colorClass: 'bg-yellow-300', hexValue: '#FFF176' },
-      { weight: '400', colorClass: 'bg-yellow-400', hexValue: '#FFEE58' },
-      { weight: '500', colorClass: 'bg-yellow-500', hexValue: '#FFEB3B' },
-      { weight: '600', colorClass: 'bg-yellow-600', hexValue: '#FDD835' },
-      { weight: '700', colorClass: 'bg-yellow-700', hexValue: '#FBC02D' },
-      { weight: '800', colorClass: 'bg-yellow-800', hexValue: '#F9A825' },
-      { weight: '900', colorClass: 'bg-yellow-900', hexValue: '#F78F1E' },
-      { weight: '950', colorClass: 'bg-yellow-950', hexValue: '#F57F17' }
-    ]
-  },
-  {
-    name: 'Orange',
-    weights: [
-      { weight: '50', colorClass: 'bg-orange-50', hexValue: '#FFFAEB' },
-      { weight: '100', colorClass: 'bg-orange-100', hexValue: '#FEF0C7' },
-      { weight: '200', colorClass: 'bg-orange-200', hexValue: '#FEDF89' },
-      { weight: '300', colorClass: 'bg-orange-300', hexValue: '#FEC84B' },
-      { weight: '400', colorClass: 'bg-orange-400', hexValue: '#FDB022' },
-      { weight: '500', colorClass: 'bg-orange-500', hexValue: '#F79009' },
-      { weight: '600', colorClass: 'bg-orange-600', hexValue: '#DC6803' },
-      { weight: '700', colorClass: 'bg-orange-700', hexValue: '#B54708' },
-      { weight: '800', colorClass: 'bg-orange-800', hexValue: '#93370D' },
-      { weight: '900', colorClass: 'bg-orange-900', hexValue: '#86320D' },
-      { weight: '950', colorClass: 'bg-orange-950', hexValue: '#7A2E0E' }
-    ]
-  }
-];
-
-const paletteData = [
-  {
-    name: 'Text',
-    description: 'Gray',
-    variants: [
-      { name: 'primary', colorClass: 'text-text-primary', baseColor: 'gray-900', textColor: 'text-white', hexValue: '#212323' },
-      { name: 'secondary', colorClass: 'text-text-secondary', baseColor: 'gray-500', textColor: 'text-white', hexValue: '#808586' },
-      { name: 'disabled', colorClass: 'text-text-disabled', baseColor: 'gray-400', textColor: 'text-white', hexValue: '#AFB9BA' },
-      { name: 'hover', colorClass: 'bg-gray-900/[0.04]', baseColor: 'gray-900', textColor: 'text-black', opacity: '4%', hexValue: '#2123230A' },
-      { name: 'selected', colorClass: 'bg-gray-900/[0.08]', baseColor: 'gray-900', textColor: 'text-black', opacity: '8%', hexValue: '#21232314' },
-      { name: 'focus', colorClass: 'bg-gray-900/[0.12]', baseColor: 'gray-900', textColor: 'text-black', opacity: '12%', hexValue: '#2123231F' },
-      { name: 'focusVisible', colorClass: 'bg-gray-900/[0.3]', baseColor: 'gray-900', textColor: 'text-black', opacity: '30%', hexValue: '#2123234D' },
-      { name: 'contrastText', colorClass: 'bg-white', baseColor: 'white', textColor: 'text-black', hexValue: '#FFFFFF' }
-    ]
-  },
-  {
-    name: 'Primary',
-    description: 'amicci',
-    variants: [
-      { name: 'main', colorClass: 'bg-primary-main', baseColor: 'amicci-500', textColor: 'text-primary-contrast', opacity: '100%', hexValue: '#10C2C0' },
-      { name: 'dark', colorClass: 'bg-primary-dark', baseColor: 'amicci-700', textColor: 'text-primary-contrast', opacity: '100%', hexValue: '#0C8482' },
-      { name: 'light', colorClass: 'bg-primary-light', baseColor: 'amicci-100', textColor: 'text-black', opacity: '100%', hexValue: '#E3FAF9' },
-      { name: 'contrast', colorClass: 'bg-primary-contrast', baseColor: 'common-white-main', textColor: 'text-primary-main', opacity: '100%', hexValue: '#FFFFFF' },
-      { name: 'hover', colorClass: 'bg-primary-hover', baseColor: 'amicci-500', textColor: 'text-primary-contrast', opacity: '4%', hexValue: '#10C2C00A' },
-      { name: 'selected', colorClass: 'bg-primary-selected', baseColor: 'amicci-500', textColor: 'text-primary-contrast', opacity: '8%', hexValue: '#10C2C014' },
-      { name: 'focus', colorClass: 'bg-primary-focus', baseColor: 'amicci-500', textColor: 'text-black', opacity: '12%', hexValue: '#10C2C01F' },
-      { name: 'focusVisible', colorClass: 'bg-primary-focusVisible', baseColor: 'amicci-500', textColor: 'text-black', opacity: '30%', hexValue: '#10C2C04D' },
-      { name: 'outlinedBorder', colorClass: 'bg-primary-outlinedBorder', baseColor: 'amicci-500', textColor: 'text-black', opacity: '50%', hexValue: '#10C2C080' }
-    ]
-  },
-  {
-    name: 'Secondary',
-    description: 'AmicciDark',
-    variants: [
-      { name: 'main', colorClass: 'bg-secondary-main', baseColor: 'amicciDark-500', textColor: 'text-secondary-contrast', opacity: '100%', hexValue: '#14818A' },
-      { name: 'dark', colorClass: 'bg-secondary-dark', baseColor: 'amicciDark-700', textColor: 'text-secondary-contrast', opacity: '100%', hexValue: '#06454A' },
-      { name: 'light', colorClass: 'bg-secondary-light', baseColor: 'amicciDark-100', textColor: 'text-black', opacity: '100%', hexValue: '#C7E8E9' },
-      { name: 'dark2', colorClass: 'bg-amicciDark-800', baseColor: 'amicciDark-800', textColor: 'text-white', opacity: '100%', hexValue: '#043A3E' },
-      { name: 'contrast', colorClass: 'bg-secondary-contrast', baseColor: 'common-white-main', textColor: 'text-secondary-main', opacity: '100%', hexValue: '#FFFFFF' },
-      { name: 'hover', colorClass: 'bg-secondary-hover', baseColor: 'amicciDark-500', textColor: 'text-secondary-contrast', opacity: '4%', hexValue: '#14818A0A' },
-      { name: 'selected', colorClass: 'bg-secondary-selected', baseColor: 'amicciDark-500', textColor: 'text-secondary-contrast', opacity: '8%', hexValue: '#14818A14' },
-      { name: 'focus', colorClass: 'bg-secondary-focus', baseColor: 'amicciDark-500', textColor: 'text-black', opacity: '12%', hexValue: '#14818A1F' },
-      { name: 'focusVisible', colorClass: 'bg-secondary-focusVisible', baseColor: 'amicciDark-500', textColor: 'text-black', opacity: '30%', hexValue: '#14818A4D' },
-      { name: 'outlinedBorder', colorClass: 'bg-secondary-outlinedBorder', baseColor: 'amicciDark-500', textColor: 'text-black', opacity: '50%', hexValue: '#14818A80' }
-    ]
-  },
-  {
-    name: 'Tertiary',
-    description: 'Magenta',
-    variants: [
-      { name: 'main', colorClass: 'bg-tertiary-main', baseColor: 'magenta-500', textColor: 'text-tertiary-contrast', hexValue: '#9B247F' },
-      { name: 'dark', colorClass: 'bg-tertiary-dark', baseColor: 'magenta-700', textColor: 'text-tertiary-contrast', hexValue: '#6D1959' },
-      { name: 'light', colorClass: 'bg-tertiary-light', baseColor: 'magenta-100', textColor: 'text-black', hexValue: '#F9E5F4' },
-      { name: 'hover', colorClass: 'bg-tertiary-hover', baseColor: 'magenta-500', textColor: 'text-tertiary-contrast', opacity: '4%', hexValue: '#9B247F0A' },
-      { name: 'selected', colorClass: 'bg-tertiary-selected', baseColor: 'magenta-500', textColor: 'text-tertiary-contrast', opacity: '8%', hexValue: '#9B247F14' },
-      { name: 'focus', colorClass: 'bg-tertiary-focus', baseColor: 'magenta-500', textColor: 'text-black', opacity: '12%', hexValue: '#9B247F1F' },
-      { name: 'focusVisible', colorClass: 'bg-tertiary-focusVisible', baseColor: 'magenta-500', textColor: 'text-black', opacity: '30%', hexValue: '#9B247F4D' }
-    ]
-  }
-];
-
-// Color usage examples
-const ColorUsageExamples = () => {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <ComponentCard 
-        title="Text Colors" 
-        description="Different text colors for various purposes"
-      >
-        <div className="space-y-4">
-          <p className="text-text-primary">This is primary text</p>
-          <p className="text-text-secondary">This is secondary text</p>
-          <p className="text-text-disabled">This is disabled text</p>
-          <p className="text-primary-main">This is primary theme color text</p>
-          <p className="text-secondary-main">This is secondary theme color text</p>
-          <p className="text-tertiary-main">This is tertiary theme color text</p>
+          <Badge variant="standard" color="secondary" badgeContent={8}>
+            <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
+          </Badge>
+          
+          <Badge variant="standard" color="error" badgeContent={12}>
+            <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
+          </Badge>
+          
+          <Badge variant="standard" color="success" badgeContent={42}>
+            <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
+          </Badge>
+          
+          <Badge variant="dot" color="error">
+            <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
+          </Badge>
         </div>
       </ComponentCard>
-
-      <ComponentCard 
-        title="Background Colors" 
-        description="Different background colors for various purposes"
+      
+      <ComponentCard
+        title="Chips"
+        description="Chips in different variants and colors"
+        code={`<Chip>Default Chip</Chip>
+<Chip variant="filled" color="primary">Primary Chip</Chip>
+<Chip variant="outlined" color="secondary">Secondary Chip</Chip>
+<Chip variant="filled" color="error">Error Chip</Chip>
+<Chip variant="outlined" color="success">Success Chip</Chip>`}
       >
-        <div className="space-y-2">
-          <div className="p-4 bg-primary-main text-primary-contrast rounded">Primary Background</div>
-          <div className="p-4 bg-primary-light text-primary-main rounded">Primary Light Background</div>
-          <div className="p-4 bg-secondary-main text-secondary-contrast rounded">Secondary Background</div>
-          <div className="p-4 bg-secondary-light text-secondary-main rounded">Secondary Light Background</div>
-          <div className="p-4 bg-tertiary-main text-tertiary-contrast rounded">Tertiary Background</div>
+        <div className="flex flex-wrap gap-4 p-6">
+          <Chip>Default Chip</Chip>
+          <Chip variant="filled" color="primary">Primary Chip</Chip>
+          <Chip variant="outlined" color="secondary">Secondary Chip</Chip>
+          <Chip variant="filled" color="error">Error Chip</Chip>
+          <Chip variant="outlined" color="success">Success Chip</Chip>
         </div>
       </ComponentCard>
+      
+      <ComponentCard
+        title="Avatars"
+        description="Avatars with different colors and variants"
+        code={`<Avatar>
+  <AvatarImage src="https://github.com/shadcn.png" />
+  <AvatarFallback>CN</AvatarFallback>
+</Avatar>
 
-      <ComponentCard 
-        title="UI Components with Theme Colors" 
-        description="Common UI components using the theme colors"
+<Avatar>
+  <AvatarFallback className="bg-primary-main text-white">AB</AvatarFallback>
+</Avatar>
+
+<Avatar>
+  <AvatarFallback className="bg-secondary-main text-white">CD</AvatarFallback>
+</Avatar>`}
       >
-        <div className="space-y-6">
-          <div className="space-y-2">
-            <h4 className="text-sm font-medium">Buttons</h4>
-            <div className="flex flex-wrap gap-2">
-              <Button>Default</Button>
-              <Button variant="primary">Primary</Button>
-              <Button variant="secondary">Secondary</Button>
-              <Button variant="outline">Outline</Button>
-              <Button variant="ghost">Ghost</Button>
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <h4 className="text-sm font-medium">Badges</h4>
-            <div className="flex flex-wrap gap-2">
-              <Badge>Default</Badge>
-              <Badge variant="primary">Primary</Badge>
-              <Badge variant="secondary">Secondary</Badge>
-              <Badge variant="outline">Outline</Badge>
-              <Badge variant="success">Success</Badge>
-              <Badge variant="destructive">Destructive</Badge>
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <h4 className="text-sm font-medium">Chips</h4>
-            <div className="flex flex-wrap gap-2">
-              <Chip>Primary</Chip>
-              <Chip variant="secondary">Secondary</Chip>
-              <Chip variant="default">Default</Chip>
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <h4 className="text-sm font-medium">Avatars</h4>
-            <div className="flex flex-wrap gap-2">
-              <Avatar color="primary">
-                <AvatarFallback>AB</AvatarFallback>
-              </Avatar>
-              <Avatar color="secondary">
-                <AvatarFallback>CD</AvatarFallback>
-              </Avatar>
-              <Avatar color="success">
-                <AvatarFallback>EF</AvatarFallback>
-              </Avatar>
-              <Avatar color="error">
-                <AvatarFallback>GH</AvatarFallback>
-              </Avatar>
-            </div>
-          </div>
-        </div>
-      </ComponentCard>
-
-      <ComponentCard 
-        title="Status Colors" 
-        description="Colors that indicate different statuses"
-      >
-        <div className="space-y-2">
-          <div className="p-4 bg-success-main text-success-contrast rounded">Success Status</div>
-          <div className="p-4 bg-error-main text-error-contrast rounded">Error Status</div>
-          <div className="p-4 bg-warning-main text-warning-contrast rounded">Warning Status</div>
-          <div className="p-4 bg-info-main text-info-contrast rounded">Info Status</div>
+        <div className="flex flex-wrap gap-4 p-6">
+          <Avatar>
+            <AvatarImage src="https://github.com/shadcn.png" />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+          
+          <Avatar>
+            <AvatarFallback className="bg-primary-main text-white">AB</AvatarFallback>
+          </Avatar>
+          
+          <Avatar>
+            <AvatarFallback className="bg-secondary-main text-white">CD</AvatarFallback>
+          </Avatar>
         </div>
       </ComponentCard>
     </div>
   );
 };
 
-// Main Colors component
 const Colors = () => {
   return (
-    <div className="container mx-auto py-10 space-y-12">
-      <div>
-        <h1 className="text-4xl font-bold mb-4">Cores</h1>
-        <p className="text-lg text-gray-700">O sistema de cores do Amicci Design System foi projetado para garantir consistência visual e acessibilidade em toda a aplicação.</p>
+    <div className="w-full animate-slide-in">
+      <div className="mb-12">
+        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mui-primary/10 text-mui-primary">
+            Foundation
+          </span>
+        </div>
+
+        <h1 className="text-4xl font-medium text-mui-text-primary mb-4">
+          Colors
+        </h1>
+
+        <p className="text-xl text-mui-text-secondary mb-8">
+          Define the color palette for your application. Establish a consistent
+          and harmonious color scheme that aligns with your brand identity and
+          enhances the user experience.
+        </p>
+
+        <div className="mb-12">
+          <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
+            Base Colors
+          </h2>
+          <p className="text-xl text-mui-text-secondary mb-4">
+            A set of basic colors to start with.
+          </p>
+          <BaseColorsTable colors={baseColors} />
+        </div>
+
+        <div className="mb-12">
+          <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
+            Semantic Palette
+          </h2>
+          <p className="text-xl text-mui-text-secondary mb-4">
+            A palette of colors with semantic meanings, such as primary,
+            secondary, success, error, warning, and info.
+          </p>
+          <PaletteTable palette={semanticPalette} />
+        </div>
+
+        <ColorApplications />
+
+        <div className="mt-12">
+          <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
+            API Reference
+          </h2>
+
+          <div className="border border-mui-border rounded-lg overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-mui-sidebar">
+                  <TableHead className="w-1/4">Variable</TableHead>
+                  <TableHead className="w-1/4">CSS Value</TableHead>
+                  <TableHead className="w-1/4">Description</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell className="font-mono text-mui-text-primary">
+                    --color-white
+                  </TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">
+                    #FFFFFF
+                  </TableCell>
+                  <TableCell className="text-mui-text-secondary">
+                    Base color white
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-mono text-mui-text-primary">
+                    --color-black
+                  </TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">
+                    #000000
+                  </TableCell>
+                  <TableCell className="text-mui-text-secondary">
+                    Base color black
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-mono text-mui-text-primary">
+                    --color-primary-50
+                  </TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">
+                    #E3F2FD
+                  </TableCell>
+                  <TableCell className="text-mui-text-secondary">
+                    Primary color shade 50
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-mono text-mui-text-primary">
+                    --color-primary-100
+                  </TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">
+                    #BBDEFB
+                  </TableCell>
+                  <TableCell className="text-mui-text-secondary">
+                    Primary color shade 100
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-mono text-mui-text-primary">
+                    --color-secondary-50
+                  </TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">
+                    #FCE4EC
+                  </TableCell>
+                  <TableCell className="text-mui-text-secondary">
+                    Secondary color shade 50
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-mono text-mui-text-primary">
+                    --color-secondary-100
+                  </TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">
+                    #F8BBD0
+                  </TableCell>
+                  <TableCell className="text-mui-text-secondary">
+                    Secondary color shade 100
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </div>
+        </div>
       </div>
-      
-      <Tabs defaultValue="palette">
-        <TabsList>
-          <TabsTrigger value="palette">Paleta de Cores</TabsTrigger>
-          <TabsTrigger value="base">Cores Base</TabsTrigger>
-          <TabsTrigger value="usage">Exemplos de Uso</TabsTrigger>
-        </TabsList>
-        
-        <TabsContent value="palette" className="pt-6">
-          <PaletteTable palettes={paletteData} />
-        </TabsContent>
-        
-        <TabsContent value="base" className="pt-6">
-          <BaseColorsTable baseColors={baseColorsData} />
-        </TabsContent>
-        
-        <TabsContent value="usage" className="pt-6">
-          <ColorUsageExamples />
-        </TabsContent>
-      </Tabs>
     </div>
   );
 };

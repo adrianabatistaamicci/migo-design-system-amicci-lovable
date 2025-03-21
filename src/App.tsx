@@ -8,7 +8,7 @@ import MainLayout from "./layouts/MainLayout";
 import Index from "./pages/Index";
 import Components from "./pages/Components";
 import ComponentDetail from "./pages/ComponentDetail";
-import Colors from "./pages/Colors";
+import Colors from "./pages/foundations/Colors";
 import Typography from "./pages/Typography";
 import Spacing from "./pages/Spacing";
 import Icons from "./pages/Icons";
