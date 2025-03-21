@@ -578,7 +578,7 @@ const baseColorsData = [{
   }, {
     weight: '400',
     colorClass: 'bg-yellow-400',
-    hexValue: '#FFEE58'
+    hexValue: '#FFEB3B'
   }, {
     weight: '500',
     colorClass: 'bg-yellow-500',
@@ -825,12 +825,189 @@ const Colors = () => {
         description="Nossas cores são escolhidas para transmitir nossa identidade visual e garantir acessibilidade."
       />
       
-      <Tabs defaultValue="base-colors" className="mt-6">
+      <Tabs defaultValue="overview" className="mt-6">
         <TabsList className="mb-4">
+          <TabsTrigger value="overview">Visão Geral</TabsTrigger>
           <TabsTrigger value="base-colors">Cores Base</TabsTrigger>
           <TabsTrigger value="palettes">Paletas</TabsTrigger>
           <TabsTrigger value="usage">Uso</TabsTrigger>
         </TabsList>
+        
+        <TabsContent value="overview">
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-2xl font-bold mb-4">Sistema de Cores</h2>
+              <p className="text-gray-600 mb-6">
+                Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold border-b pb-2">Tipos de Variações</h3>
+                  
+                  <div>
+                    <h4 className="font-medium text-lg">Variações de Estado</h4>
+                    <ul className="mt-2 space-y-2 list-disc pl-5">
+                      <li><span className="font-mono text-sm">main</span>: Cor principal para elementos de destaque</li>
+                      <li><span className="font-mono text-sm">dark</span>: Variação mais escura para contraste</li>
+                      <li><span className="font-mono text-sm">light</span>: Variação mais clara para fundos e elementos sutis</li>
+                      <li><span className="font-mono text-sm">hover</span>: Estado de hover para elementos interativos</li>
+                      <li><span className="font-mono text-sm">selected</span>: Estado selecionado para elementos interativos</li>
+                      <li><span className="font-mono text-sm">focusVisible</span>: Estado de foco visível para acessibilidade</li>
+                      <li><span className="font-mono text-sm">outlinedBorder</span>: Cor para bordas e contornos</li>
+                      <li><span className="font-mono text-sm">contrast</span>: Cor de texto sobre fundos primários</li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-medium text-lg">Variações de Texto</h4>
+                    <ul className="mt-2 space-y-2 list-disc pl-5">
+                      <li><span className="font-mono text-sm">primary</span>: Texto principal para conteúdo importante</li>
+                      <li><span className="font-mono text-sm">secondary</span>: Texto secundário para descrições e detalhes</li>
+                      <li><span className="font-mono text-sm">disabled</span>: Texto para elementos desabilitados</li>
+                      <li><span className="font-mono text-sm">hover</span>: Estado de hover para texto interativo</li>
+                      <li><span className="font-mono text-sm">selected</span>: Estado selecionado para texto interativo</li>
+                      <li><span className="font-mono text-sm">focus</span>: Estado de foco para texto interativo</li>
+                      <li><span className="font-mono text-sm">focusVisible</span>: Estado de foco visível para acessibilidade</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div>
+                  <h3 className="text-xl font-semibold border-b pb-2">Organização do Sistema</h3>
+                  <p className="text-gray-600 mt-2">O sistema é organizado em dois níveis principais:</p>
+                  
+                  <div className="mt-4">
+                    <h4 className="font-medium text-lg">1. Cores Básicas</h4>
+                    <p className="text-gray-600 mt-1 mb-2">Um conjunto completo de cores de 50 a 900 para:</p>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="bg-gray-100 p-3 rounded-md">
+                        <code className="text-xs">base-color-amicci</code>
+                      </div>
+                      <div className="bg-gray-100 p-3 rounded-md">
+                        <code className="text-xs">base-color-amicciDark</code>
+                      </div>
+                      <div className="bg-gray-100 p-3 rounded-md">
+                        <code className="text-xs">base-color-blue</code>
+                      </div>
+                      <div className="bg-gray-100 p-3 rounded-md">
+                        <code className="text-xs">base-color-magenta</code>
+                      </div>
+                      <div className="bg-gray-100 p-3 rounded-md">
+                        <code className="text-xs">base-color-green</code>
+                      </div>
+                      <div className="bg-gray-100 p-3 rounded-md">
+                        <code className="text-xs">base-color-gray</code>
+                      </div>
+                      <div className="bg-gray-100 p-3 rounded-md">
+                        <code className="text-xs">base-color-orange</code>
+                      </div>
+                      <div className="bg-gray-100 p-3 rounded-md">
+                        <code className="text-xs">base-color-red</code>
+                      </div>
+                      <div className="bg-gray-100 p-3 rounded-md">
+                        <code className="text-xs">base-color-yellow</code>
+                      </div>
+                      <div className="bg-gray-100 p-3 rounded-md">
+                        <code className="text-xs">base-color-common-white</code>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6">
+                    <h4 className="font-medium text-lg">2. Paletas Compostas</h4>
+                    <p className="text-gray-600 mt-1 mb-2">Paletas semânticas que utilizam as cores básicas como base:</p>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="bg-gray-100 p-3 rounded-md">
+                        <code className="text-xs">primary</code>
+                      </div>
+                      <div className="bg-gray-100 p-3 rounded-md">
+                        <code className="text-xs">secondary</code>
+                      </div>
+                      <div className="bg-gray-100 p-3 rounded-md">
+                        <code className="text-xs">text</code>
+                      </div>
+                      <div className="bg-gray-100 p-3 rounded-md">
+                        <code className="text-xs">error</code>
+                      </div>
+                      <div className="bg-gray-100 p-3 rounded-md">
+                        <code className="text-xs">warning</code>
+                      </div>
+                      <div className="bg-gray-100 p-3 rounded-md">
+                        <code className="text-xs">info</code>
+                      </div>
+                      <div className="bg-gray-100 p-3 rounded-md">
+                        <code className="text-xs">success</code>
+                      </div>
+                      <div className="bg-gray-100 p-3 rounded-md">
+                        <code className="text-xs">background</code>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-semibold border-b pb-2 mb-4">Como Usar</h3>
+              <p className="text-gray-600 mb-4">
+                Acesse as cores usando as classes utilitárias do Tailwind baseadas na nomenclatura semântica:
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-gray-50 p-4 rounded-md border">
+                  <code className="text-sm bg-amicci-50 p-1 rounded text-amicci-800">bg-primary-main</code>
+                  <p className="text-sm mt-2 text-gray-600">Cor primária principal</p>
+                </div>
+                <div className="bg-gray-50 p-4 rounded-md border">
+                  <code className="text-sm bg-amicci-50 p-1 rounded text-amicci-800">text-error-main</code>
+                  <p className="text-sm mt-2 text-gray-600">Texto na cor de erro</p>
+                </div>
+                <div className="bg-gray-50 p-4 rounded-md border">
+                  <code className="text-sm bg-amicci-50 p-1 rounded text-amicci-800">border-warning-outlinedBorder</code>
+                  <p className="text-sm mt-2 text-gray-600">Borda na cor de contorno de aviso</p>
+                </div>
+                <div className="bg-gray-50 p-4 rounded-md border">
+                  <code className="text-sm bg-amicci-50 p-1 rounded text-amicci-800">bg-amicci-500</code>
+                  <p className="text-sm mt-2 text-gray-600">Cor básica amicci (500)</p>
+                </div>
+                <div className="bg-gray-50 p-4 rounded-md border">
+                  <code className="text-sm bg-amicci-50 p-1 rounded text-amicci-800">text-gray-900</code>
+                  <p className="text-sm mt-2 text-gray-600">Texto principal</p>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-semibold border-b pb-2 mb-4">Acessibilidade</h3>
+              <p className="text-gray-600 mb-4">
+                Nosso sistema de cores foi projetado com acessibilidade em mente:
+              </p>
+              
+              <ul className="space-y-2 list-disc pl-5">
+                <li>Os pares de cores atendem aos requisitos de contraste WCAG 2.1 AA</li>
+                <li>Cada paleta inclui versões de contraste dedicadas</li>
+                <li>As cores seguem uma hierarquia visual clara</li>
+                <li>Estados de interação (hover, focus, selected) são visualmente distintos</li>
+              </ul>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                <div className="bg-primary-main p-6 rounded-lg text-center">
+                  <p className="text-primary-contrast font-medium">Texto em Contraste</p>
+                  <div className="mt-2 text-xs text-primary-contrast/80">WCAG AA: Aprovado</div>
+                </div>
+                <div className="bg-secondary-main p-6 rounded-lg text-center">
+                  <p className="text-secondary-contrast font-medium">Texto em Contraste</p>
+                  <div className="mt-2 text-xs text-secondary-contrast/80">WCAG AA: Aprovado</div>
+                </div>
+                <div className="bg-error-main p-6 rounded-lg text-center">
+                  <p className="text-error-contrast font-medium">Texto em Contraste</p>
+                  <div className="mt-2 text-xs text-error-contrast/80">WCAG AA: Aprovado</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </TabsContent>
         
         <TabsContent value="base-colors">
           <BaseColorsTable baseColors={baseColorsData} />
