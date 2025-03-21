@@ -258,7 +258,7 @@ const TabsPage = () => {
                   </TableRow>
                   <TableRow>
                     <TableCell className="font-mono text-mui-text-primary">onChange</TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">(value: string) => void</TableCell>
+                    <TableCell className="font-mono text-mui-text-secondary">(value: string) =&gt; void</TableCell>
                     <TableCell className="font-mono text-mui-text-secondary">undefined</TableCell>
                     <TableCell className="text-mui-text-secondary">Callback function when tab selection changes</TableCell>
                   </TableRow>
