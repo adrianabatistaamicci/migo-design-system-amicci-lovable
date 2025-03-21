@@ -65,7 +65,6 @@ const componentData = {
         description: 'Buttons without background or outline for subtle actions.',
         component: (
           <div className="flex flex-wrap gap-4">
-            <Button variant="text-default">Primary</Button>
             <Button variant="text-secondary">Secondary</Button>
             <Button variant="text-error">Error</Button>
             <Button variant="text-warning">Warning</Button>
@@ -73,8 +72,7 @@ const componentData = {
             <Button variant="text-success">Success</Button>
           </div>
         ),
-        code: `<Button variant="text-default">Primary</Button>
-<Button variant="text-secondary">Secondary</Button>
+        code: `<Button variant="text-secondary">Secondary</Button>
 <Button variant="text-error">Error</Button>
 <Button variant="text-warning">Warning</Button>
 <Button variant="text-info">Info</Button>
