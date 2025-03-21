@@ -31,24 +31,19 @@ const ColorSwatch = ({
 }) => {
   const [copied, setCopied] = useState(false);
 
-  // Determine text color based on background color luminance
   const getTextColor = () => {
-    // If we have a hex value, use luminance calculation for determining contrast
     if (hexValue) {
       try {
         const luminance = colorUtils.getLuminance(hexValue);
         return luminance > 0.5 ? 'text-gray-800' : 'text-white';
       } catch (e) {
-        // Fallback to heuristic based on color name
         return getLightDarkFromName();
       }
     }
 
-    // If we don't have a hex value, use heuristic based on color name
     return getLightDarkFromName();
   };
 
-  // Helper function to determine if a color is light based on its name
   const getLightDarkFromName = () => {
     const lightColors = ['white', 'light', '50', '100', '200', '300'];
     const isLightColorName = lightColors.some(lightColor => color.toLowerCase().includes(lightColor));
@@ -64,19 +59,15 @@ const ColorSwatch = ({
 
   const textColor = getTextColor();
 
-  // Determine the correct background style
   const getBackgroundStyle = () => {
-    // If color starts with 'bg-', we're using a Tailwind class
     if (color.startsWith('bg-')) {
       return color;
     }
 
-    // If color is a hex value and doesn't start with 'bg-', use inline style
     if (hexValue && !color.startsWith('bg-')) {
       return `bg-[${hexValue}]`;
     }
 
-    // Fallback to the original class
     return color;
   };
 
@@ -191,14 +182,11 @@ const PaletteTable = ({ palettes }) => {
     </button>
   );
 
-  // Avalia o contraste WCAG
   const getWCAGStatus = (hexColor) => {
     try {
-      // Avaliamos o contraste com fundo branco
       const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
       const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
 
-      // Escolha o melhor contraste
       const bestContrast = Math.max(contrastWithWhite, contrastWithBlack);
       const contrastColor = contrastWithWhite > contrastWithBlack ? 'branco' : 'preto';
 
@@ -655,4 +643,150 @@ const paletteData = [
         name: 'focusVisible',
         colorClass: 'bg-secondary-focusVisible',
         baseColor: 'amicciDark-500',
-        textColor: 'text-
+        textColor: 'text-black',
+        opacity: '30%',
+        hexValue: '#14818A4D'
+      }
+    ]
+  }
+];
+
+const Colors = () => {
+  return (
+    <div className="w-full animate-fade-in">
+      <FoundationsHeader 
+        title="Colors"
+        description="A paleta de cores transmite nossa identidade visual e guia a experiência do usuário em nossa plataforma."
+      />
+
+      <div className="mt-8">
+        <Tabs defaultValue="base">
+          <TabsList className="mb-4">
+            <TabsTrigger value="base">Base Colors</TabsTrigger>
+            <TabsTrigger value="semantic">Semantic Tokens</TabsTrigger>
+            <TabsTrigger value="usage">Usage Guidelines</TabsTrigger>
+          </TabsList>
+          <TabsContent value="base" className="space-y-6">
+            <BaseColorsTable baseColors={baseColorsData} />
+          </TabsContent>
+          <TabsContent value="semantic" className="space-y-6">
+            <PaletteTable palettes={paletteData} />
+          </TabsContent>
+          <TabsContent value="usage" className="space-y-6">
+            <div className="space-y-8">
+              <section>
+                <h2 className="text-2xl font-bold mb-4">Guidelines de Uso</h2>
+                <p className="text-base text-gray-800 mb-4">
+                  A paleta de cores da Amicci foi desenvolvida para transmitir confiança, profissionalismo e inovação. 
+                  Seguir estas diretrizes ajudará a garantir consistência visual em toda a plataforma.
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-semibold">Cores Primárias</h3>
+                    <p>Nossa cor principal (amicci-500) deve ser usada para:</p>
+                    <ul className="list-disc pl-5 space-y-2">
+                      <li>Call-to-actions principais</li>
+                      <li>Links e elementos interativos</li>
+                      <li>Destacar informações importantes</li>
+                      <li>Elementos da marca</li>
+                    </ul>
+
+                    <div className="flex space-x-3 mt-4">
+                      <div className="flex-1">
+                        <ColorSwatch color="bg-amicci-500" textOverlay="Amicci 500" className="h-16" />
+                        <p className="text-xs mt-1 text-center font-medium">Primary</p>
+                      </div>
+                      <div className="flex-1">
+                        <ColorSwatch color="bg-amicciDark-500" textOverlay="AmicciDark 500" className="h-16" />
+                        <p className="text-xs mt-1 text-center font-medium">Secondary</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-semibold">Cores de Suporte</h3>
+                    <p>Nossas cores de suporte devem ser usadas para:</p>
+                    <ul className="list-disc pl-5 space-y-2">
+                      <li>Estados (sucesso, erro, alerta, informação)</li>
+                      <li>Elementos secundários e de fundo</li>
+                      <li>Gráficos e visualizações de dados</li>
+                      <li>Hierarquia visual</li>
+                    </ul>
+
+                    <div className="grid grid-cols-5 gap-2 mt-4">
+                      <div>
+                        <ColorSwatch color="bg-green-500" className="h-10" />
+                        <p className="text-xs mt-1 text-center">Success</p>
+                      </div>
+                      <div>
+                        <ColorSwatch color="bg-red-500" className="h-10" />
+                        <p className="text-xs mt-1 text-center">Error</p>
+                      </div>
+                      <div>
+                        <ColorSwatch color="bg-yellow-500" className="h-10" />
+                        <p className="text-xs mt-1 text-center">Warning</p>
+                      </div>
+                      <div>
+                        <ColorSwatch color="bg-blue-500" className="h-10" />
+                        <p className="text-xs mt-1 text-center">Info</p>
+                      </div>
+                      <div>
+                        <ColorSwatch color="bg-gray-500" className="h-10" />
+                        <p className="text-xs mt-1 text-center">Neutral</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section>
+                <h3 className="text-xl font-bold mb-4">Acessibilidade de Cores</h3>
+                <div className="bg-gray-50 p-6 rounded-lg border">
+                  <p className="mb-4">
+                    Todas as combinações de cores devem seguir os padrões WCAG 2.1 AA com uma taxa de contraste 
+                    mínima de 4.5:1 para texto normal e 3:1 para texto grande ou elementos gráficos.
+                  </p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div className="space-y-4">
+                      <h4 className="font-medium">Exemplos de Combinações Acessíveis</h4>
+                      <div className="space-y-2">
+                        <div className="bg-amicci-800 text-white p-3 rounded">
+                          Texto em branco sobre fundo Amicci escuro (Passa AA e AAA)
+                        </div>
+                        <div className="bg-gray-100 text-gray-900 p-3 rounded">
+                          Texto escuro em fundo claro (Passa AA e AAA)
+                        </div>
+                        <div className="bg-primary-main text-white p-3 rounded">
+                          Texto em branco sobre cor Primary (Passa AA)
+                        </div>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <h4 className="font-medium">Evite Estas Combinações</h4>
+                      <div className="space-y-2">
+                        <div className="bg-amicci-300 text-white p-3 rounded border border-gray-200">
+                          Texto em branco sobre amicci claro (Falha em AA)
+                        </div>
+                        <div className="bg-gray-200 text-gray-400 p-3 rounded border border-gray-200">
+                          Texto em cinza claro sobre fundo cinza (Falha em AA)
+                        </div>
+                        <div className="bg-yellow-200 text-yellow-600 p-3 rounded border border-gray-200">
+                          Amarelo sobre amarelo claro (Falha em AA)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </TabsContent>
+        </Tabs>
+      </div>
+    </div>
+  );
+};
+
+export default Colors;
+
