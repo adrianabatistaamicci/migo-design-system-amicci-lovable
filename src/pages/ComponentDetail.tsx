@@ -51,7 +51,7 @@ const componentData = {
       description: 'Icon displayed after the button text'
     }],
     examples: [{
-      title: 'Botão primário',
+      title: 'Botão primário - Contained Button Variants',
       description: 'Botões com aparência elevada no estilo Material UI.',
       component: <div className="flex flex-wrap gap-4">
             <Button>Primary</Button>
@@ -60,7 +60,7 @@ const componentData = {
       code: `<Button>Primary</Button>
 <Button variant="error">Error</Button>`
     }, {
-      title: 'Botão secundário',
+      title: 'Botão secundário - Outlined Button Variants',
       description: 'Botões com contorno para ações menos pronunciadas.',
       component: <div className="flex flex-wrap gap-4">
             <Button variant="outline-secondary">Secondary</Button>
@@ -69,7 +69,7 @@ const componentData = {
       code: `<Button variant="outline-secondary">Secondary</Button>
 <Button variant="outline-error">Error</Button>`
     }, {
-      title: 'Botão terciário',
+      title: 'Botão terciário - Text Button Variants',
       description: 'Botões sem fundo ou contorno para ações sutis.',
       component: <div className="flex flex-wrap gap-4">
             <Button variant="text-secondary">Secondary</Button>
