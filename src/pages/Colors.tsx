@@ -137,6 +137,10 @@ const BaseColorsTable = ({ baseColors }) => {
                         color={weight.colorClass} 
                         textOverlay={weight.weight} 
                         className="h-12"
+                        onClick={handleCopy}
+                        weight={weight.weight}
+                        hexValue={hexValue}
+                        copyValue={hexValue}
                       />
                     </TableCell>
                     <TableCell className="font-mono">
@@ -164,6 +168,10 @@ const BaseColorsTable = ({ baseColors }) => {
       ))}
     </div>
   );
+  
+  function handleCopy(text) {
+    navigator.clipboard.writeText(text);
+  }
 };
 
 // PaletteTable component
@@ -234,6 +242,7 @@ const PaletteTable = ({ palettes }) => {
             <TableBody>
               {palette.variants.map((variant) => {
                 const wcagInfo = variant.hexValue ? getWCAGStatus(variant.hexValue) : null;
+                const handleCopy = () => copyToClipboard(variant.hexValue || '');
                 
                 return (
                   <TableRow key={`${palette.name}-${variant.name}`}>
@@ -245,6 +254,8 @@ const PaletteTable = ({ palettes }) => {
                         copyValue={variant.hexValue}
                         textOverlay={variant.hexValue || '#F0F0F0'}
                         className="h-12"
+                        onClick={handleCopy}
+                        weight=""
                       />
                     </TableCell>
                     <TableCell className="font-mono">
@@ -583,8 +594,8 @@ const ColorExample = () => {
             <h4 className={`font-medium ${viewMode === "dark" ? "text-white" : "text-text-primary"}`}>Badge Examples</h4>
             <div className="flex flex-wrap gap-2">
               <Badge>Primary</Badge>
-              <Badge variant="secondary">Secondary</Badge>
-              <Badge variant="destructive">Error</Badge>
+              <Badge variant="standard" color="secondary">Secondary</Badge>
+              <Badge variant="standard" color="error">Error</Badge>
               <Badge variant="outline">Outline</Badge>
             </div>
           </div>

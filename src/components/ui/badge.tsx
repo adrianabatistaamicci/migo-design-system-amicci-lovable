@@ -11,6 +11,9 @@ const badgeVariants = cva(
       variant: {
         standard: "rounded-full",
         dot: "rounded-full min-h-[6px] min-w-[6px] h-1.5 w-1.5",
+        secondary: "rounded-full bg-secondary-main text-secondary-contrast",
+        destructive: "rounded-full bg-error-main text-error-contrast",
+        outline: "rounded-full border border-input bg-transparent text-text-primary",
       },
       size: {
         default: "h-5 min-w-[20px] px-1.5 text-xs",
