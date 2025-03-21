@@ -28,7 +28,7 @@ const Brand = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="border rounded-lg p-8 flex items-center justify-center bg-white">
                   <img 
-                    src="/lovable-uploads/6db91188-5694-4c58-954a-83c79283210b.png" 
+                    src="/src/pages/assets/Amicci-Logo_Turquesa+Turquesa Escuro.svg" 
                     alt="Amicci logo com diferentes versões" 
                     className="max-w-full h-auto"
                   />
@@ -89,7 +89,7 @@ const Brand = () => {
                 <div className="border rounded-lg p-6 bg-[#00B2B0] flex justify-center">
                   <div className="max-w-md">
                     <img 
-                      src="/lovable-uploads/6db91188-5694-4c58-954a-83c79283210b.png" 
+                      src="/src/pages/assets/Amicci-Logo_Turquesa Escuro+Branco.svg" 
                       alt="Amicci logo - versão branco + turquesa escuro" 
                       className="max-w-full h-auto"
                     />
@@ -102,7 +102,7 @@ const Brand = () => {
                 <div className="border rounded-lg p-6 bg-white flex justify-center">
                   <div className="max-w-md">
                     <img 
-                      src="/lovable-uploads/6db91188-5694-4c58-954a-83c79283210b.png" 
+                      src="/src/pages/assets/Amicci-Logo_Turquesa+Turquesa Escuro.svg" 
                       alt="Amicci logo - versão turquesa + turquesa escuro" 
                       className="max-w-full h-auto"
                     />
