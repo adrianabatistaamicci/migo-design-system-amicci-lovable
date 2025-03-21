@@ -123,7 +123,7 @@ const TabsList = React.forwardRef<
                 ? "inline-flex h-10 items-center justify-start" 
                 : "flex flex-col items-start justify-center space-y-1",
               smallScreen ? "p-0" : "p-1",
-              "w-fit",
+              "w-fit", // This ensures tabs fit to content
               className
             )}
             {...props}
