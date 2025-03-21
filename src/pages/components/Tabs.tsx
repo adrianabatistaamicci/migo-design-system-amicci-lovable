@@ -1,10 +1,9 @@
-
 import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import { Star, User, Mail, Settings, FileText, Home, Info, Check, X, Plus, Help } from 'lucide-react';
+import { Star, User, Mail, Settings, FileText, Home, Info, Check, X, Plus, HelpCircle } from 'lucide-react';
 
 const TabsPage = () => {
   return <div className="w-full animate-slide-in">
@@ -347,19 +346,19 @@ const TabsPage = () => {
   <TabsList>
     <TabsTrigger 
       value="tab1" 
-      badge={<Badge variant="secondary" className="ml-2">12</Badge>}
+      badge={<Badge color="primary" className="ml-2">12</Badge>}
     >
       Inbox
     </TabsTrigger>
     <TabsTrigger 
       value="tab2" 
-      badge={<Badge variant="secondary" className="ml-2">4</Badge>}
+      badge={<Badge color="primary" className="ml-2">4</Badge>}
     >
       Spam
     </TabsTrigger>
     <TabsTrigger 
       value="tab3" 
-      badge={<Badge variant="secondary" className="ml-2">2</Badge>}
+      badge={<Badge color="primary" className="ml-2">2</Badge>}
     >
       Archived
     </TabsTrigger>
@@ -379,19 +378,19 @@ const TabsPage = () => {
                 <TabsList>
                   <TabsTrigger 
                     value="tab1" 
-                    badge={<Badge variant="secondary" className="ml-2">12</Badge>}
+                    badge={<Badge color="primary" className="ml-2">12</Badge>}
                   >
                     Inbox
                   </TabsTrigger>
                   <TabsTrigger 
                     value="tab2" 
-                    badge={<Badge variant="secondary" className="ml-2">4</Badge>}
+                    badge={<Badge color="primary" className="ml-2">4</Badge>}
                   >
                     Spam
                   </TabsTrigger>
                   <TabsTrigger 
                     value="tab3" 
-                    badge={<Badge variant="secondary" className="ml-2">2</Badge>}
+                    badge={<Badge color="primary" className="ml-2">2</Badge>}
                   >
                     Archived
                   </TabsTrigger>
@@ -577,3 +576,4 @@ const TabsPage = () => {
 };
 
 export default TabsPage;
+
