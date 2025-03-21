@@ -822,4 +822,4 @@ const paletteData = [{
     opacity: '100%',
     hexValue: '#043A3E'
   }, {
-    name: 'contrast',
+    name:
