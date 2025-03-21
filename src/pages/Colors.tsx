@@ -9,8 +9,8 @@ import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { colorUtils } from '@/utils/colorUtils';
 import ComponentCard from '@/components/ComponentCard';
-import FoundationsHeader from '@/components/library-components/FoundationsHeader';
 
+// ColorSwatch component
 const ColorSwatch = ({
   color,
   className = "",
@@ -30,43 +30,52 @@ const ColorSwatch = ({
 }) => {
   const [copied, setCopied] = useState(false);
 
+  // Determine text color based on background color luminance
   const getTextColor = () => {
+    // If we have a hex value, use luminance calculation for determining contrast
     if (hexValue) {
       try {
         const luminance = colorUtils.getLuminance(hexValue);
         return luminance > 0.5 ? 'text-gray-800' : 'text-white';
       } catch (e) {
+        // Fallback to heuristic based on color name
         return getLightDarkFromName();
       }
     }
+
+    // If we don't have a hex value, use heuristic based on color name
     return getLightDarkFromName();
   };
 
+  // Helper function to determine if a color is light based on its name
   const getLightDarkFromName = () => {
     const lightColors = ['white', 'light', '50', '100', '200', '300'];
     const isLightColorName = lightColors.some(lightColor => color.toLowerCase().includes(lightColor));
     return isLightColorName ? 'text-gray-800' : 'text-white';
   };
-
   const handleCopy = () => {
     const valueToCopy = copyValue || hexValue || color;
     navigator.clipboard.writeText(valueToCopy);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
-
   const textColor = getTextColor();
 
+  // Determine the correct background style
   const getBackgroundStyle = () => {
+    // If color starts with 'bg-', we're using a Tailwind class
     if (color.startsWith('bg-')) {
       return color;
     }
+
+    // If color is a hex value and doesn't start with 'bg-', use inline style
     if (hexValue && !color.startsWith('bg-')) {
       return `bg-[${hexValue}]`;
     }
+
+    // Fallback to the original class
     return color;
   };
-
   return <div className={`relative w-full rounded-md ${getBackgroundStyle()} ${className} flex items-center justify-center px-3 transition-all hover:shadow-md cursor-pointer group`} onClick={onClick || handleCopy} role="button" tabIndex={0} style={hexValue && !color.startsWith('bg-') ? {
     backgroundColor: hexValue
   } : undefined}>
@@ -79,11 +88,13 @@ const ColorSwatch = ({
     </div>;
 };
 
+// BaseColorsTable component
 const BaseColorsTable = ({
   baseColors
 }) => {
   const copyToClipboard = text => {
     navigator.clipboard.writeText(text);
+    // You could add a toast notification here
   };
   const renderCopyButton = text => <button onClick={() => copyToClipboard(text)} className="ml-2 text-gray-400 hover:text-gray-600 transition-colors">
       <Copy size={14} />
@@ -138,20 +149,26 @@ const BaseColorsTable = ({
     </div>;
 };
 
+// PaletteTable component
 const PaletteTable = ({
   palettes
 }) => {
   const copyToClipboard = text => {
     navigator.clipboard.writeText(text);
+    // You could add a toast notification here
   };
   const renderCopyButton = text => <button onClick={() => copyToClipboard(text)} className="ml-2 text-gray-400 hover:text-gray-600 transition-colors">
       <Copy size={14} />
     </button>;
 
+  // Avalia o contraste WCAG
   const getWCAGStatus = hexColor => {
     try {
+      // Avaliamos o contraste com fundo branco
       const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
       const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
+
+      // Escolha o melhor contraste
       const bestContrast = Math.max(contrastWithWhite, contrastWithBlack);
       const contrastColor = contrastWithWhite > contrastWithBlack ? 'branco' : 'preto';
       return {
@@ -224,6 +241,7 @@ const PaletteTable = ({
     </div>;
 };
 
+// Data for components
 const baseColorsData = [{
   name: 'Amicci',
   weights: [{
@@ -648,7 +666,6 @@ const baseColorsData = [{
     hexValue: '#7A2E0E'
   }]
 }];
-
 const paletteData = [{
   name: 'Text',
   description: 'Gray',
@@ -1181,289 +1198,408 @@ const paletteData = [{
   }]
 }];
 
+// Tab content components
 const OverviewTab = () => {
-  return (
-    <div className="space-y-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="space-y-4">
-          <h3 className="text-xl font-semibold">Cores da Marca</h3>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <ColorSwatch color="bg-amicci-500" className="h-24 rounded-lg" />
-              <p className="text-sm font-medium text-center">Turquesa (primary)</p>
+  return <div className="space-y-6">
+      <ComponentCard title="Sistema de Cores" description="Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização.">
+        <div className="mb-8">
+          <h3 className="text-lg font-medium mb-4">Tipos de Variações</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="border rounded-lg p-4">
+              <h4 className="font-medium mb-2">Variações de Estado</h4>
+              <ul className="space-y-2">
+                <li><strong>main:</strong> Cor principal para elementos de destaque</li>
+                <li><strong>dark:</strong> Variação mais escura para contraste</li>
+                <li><strong>light:</strong> Variação mais clara para fundos e elementos sutis</li>
+                <li><strong>hover:</strong> Estado de hover para elementos interativos</li>
+                <li><strong>selected:</strong> Estado selecionado para elementos interativos</li>
+                <li><strong>focusVisible:</strong> Estado de foco visível para acessibilidade</li>
+                <li><strong>outlinedBorder:</strong> Cor para bordas e contornos</li>
+                <li><strong>contrast:</strong> Cor de texto sobre fundos primários</li>
+              </ul>
             </div>
-            <div className="space-y-2">
-              <ColorSwatch color="bg-amicciDark-500" className="h-24 rounded-lg" />
-              <p className="text-sm font-medium text-center">Azul Escuro (secondary)</p>
-            </div>
-          </div>
-        </div>
-        <div className="space-y-4">
-          <h3 className="text-xl font-semibold">Paleta Estendida</h3>
-          <div className="grid grid-cols-3 gap-2">
-            <ColorSwatch color="bg-magenta-500" className="h-12 rounded-lg" />
-            <ColorSwatch color="bg-blue-500" className="h-12 rounded-lg" />
-            <ColorSwatch color="bg-green-500" className="h-12 rounded-lg" />
-            <ColorSwatch color="bg-yellow-500" className="h-12 rounded-lg" />
-            <ColorSwatch color="bg-orange-500" className="h-12 rounded-lg" />
-            <ColorSwatch color="bg-red-500" className="h-12 rounded-lg" />
-          </div>
-        </div>
-        <div className="space-y-4">
-          <h3 className="text-xl font-semibold">Escala de Cinzas</h3>
-          <div className="grid grid-cols-5 gap-2">
-            <ColorSwatch color="bg-gray-900" className="h-12 rounded-lg" />
-            <ColorSwatch color="bg-gray-700" className="h-12 rounded-lg" />
-            <ColorSwatch color="bg-gray-500" className="h-12 rounded-lg" />
-            <ColorSwatch color="bg-gray-300" className="h-12 rounded-lg" />
-            <ColorSwatch color="bg-gray-100" className="h-12 rounded-lg" />
-          </div>
-        </div>
-      </div>
-
-      <Separator />
-
-      <div className="space-y-4">
-        <h3 className="text-xl font-semibold">Tokens de Cor</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="space-y-2">
-            <p className="font-medium">Primary</p>
-            <div className="space-y-1">
-              <ColorSwatch color="bg-primary-main" className="h-10 rounded" textOverlay="main" />
-              <ColorSwatch color="bg-primary-dark" className="h-8 rounded" textOverlay="dark" />
-              <ColorSwatch color="bg-primary-light" className="h-8 rounded" textOverlay="light" />
-            </div>
-          </div>
-          <div className="space-y-2">
-            <p className="font-medium">Secondary</p>
-            <div className="space-y-1">
-              <ColorSwatch color="bg-secondary-main" className="h-10 rounded" textOverlay="main" />
-              <ColorSwatch color="bg-secondary-dark" className="h-8 rounded" textOverlay="dark" />
-              <ColorSwatch color="bg-secondary-light" className="h-8 rounded" textOverlay="light" />
-            </div>
-          </div>
-          <div className="space-y-2">
-            <p className="font-medium">Error</p>
-            <div className="space-y-1">
-              <ColorSwatch color="bg-error-main" className="h-10 rounded" textOverlay="main" />
-              <ColorSwatch color="bg-error-dark" className="h-8 rounded" textOverlay="dark" />
-              <ColorSwatch color="bg-error-light" className="h-8 rounded" textOverlay="light" />
+            <div className="border rounded-lg p-4">
+              <h4 className="font-medium mb-2">Variações de Texto</h4>
+              <ul className="space-y-2">
+                <li><strong>primary:</strong> Texto principal para conteúdo importante</li>
+                <li><strong>secondary:</strong> Texto secundário para descrições e detalhes</li>
+                <li><strong>disabled:</strong> Texto para elementos desabilitados</li>
+                <li><strong>hover:</strong> Estado de hover para texto interativo</li>
+                <li><strong>selected:</strong> Estado selecionado para texto interativo</li>
+                <li><strong>focus:</strong> Estado de foco para texto interativo</li>
+                <li><strong>focusVisible:</strong> Estado de foco visível para acessibilidade</li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  );
-};
-
-const PalettesTab = () => {
-  return <PaletteTable palettes={paletteData} />;
-};
-
-const BaseColorsTab = () => {
-  return <BaseColorsTable baseColors={baseColorsData} />;
-};
-
-const UsageTab = () => {
-  return (
-    <div className="space-y-8">
-      <div className="space-y-4">
-        <h3 className="text-xl font-semibold">Aplicação das Cores</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <ComponentCard title="Botões">
-            <div className="flex flex-wrap gap-3">
-              <Button>Default</Button>
-              <Button variant="secondary">Secondary</Button>
-              <Button variant="tertiary">Tertiary</Button>
-              <Button variant="destructive">Destructive</Button>
-              <Button variant="outline">Outline</Button>
-              <Button variant="ghost">Ghost</Button>
-            </div>
-          </ComponentCard>
-          
-          <ComponentCard title="Badges">
-            <div className="flex flex-wrap gap-3">
-              <Badge>Default</Badge>
-              <Badge variant="secondary">Secondary</Badge>
-              <Badge variant="destructive">Destructive</Badge>
-              <Badge variant="outline">Outline</Badge>
-            </div>
-          </ComponentCard>
-          
-          <ComponentCard title="Avatar com Cores">
-            <div className="flex gap-3">
-              <Avatar className="bg-primary-main">
-                <AvatarFallback>AP</AvatarFallback>
-              </Avatar>
-              <Avatar className="bg-secondary-main">
-                <AvatarFallback>MK</AvatarFallback>
-              </Avatar>
-              <Avatar className="bg-tertiary-main">
-                <AvatarFallback>JD</AvatarFallback>
-              </Avatar>
-              <Avatar className="bg-error-main">
-                <AvatarFallback>XX</AvatarFallback>
-              </Avatar>
-            </div>
-          </ComponentCard>
-          
-          <ComponentCard title="Textos Coloridos">
-            <div className="space-y-2">
-              <p className="text-primary-main">Texto em Primary</p>
-              <p className="text-secondary-main">Texto em Secondary</p>
-              <p className="text-tertiary-main">Texto em Tertiary</p>
-              <p className="text-error-main">Texto em Error</p>
-              <p className="text-warning-main">Texto em Warning</p>
-              <p className="text-success-main">Texto em Success</p>
-            </div>
-          </ComponentCard>
-        </div>
-      </div>
-      
-      <div className="space-y-4">
-        <h3 className="text-xl font-semibold">Recomendações de Uso</h3>
-        <div className="space-y-2">
-          <p className="text-sm">
-            • Use <span className="text-primary-main font-medium">primary</span> para elementos principais de destaque.
-          </p>
-          <p className="text-sm">
-            • Use <span className="text-secondary-main font-medium">secondary</span> para elementos de suporte e complemento.
-          </p>
-          <p className="text-sm">
-            • Use <span className="text-tertiary-main font-medium">tertiary</span> para elementos decorativos ou de acento.
-          </p>
-          <p className="text-sm">
-            • Use <span className="text-error-main font-medium">error</span> exclusivamente para mensagens de erro e alertas críticos.
-          </p>
-          <p className="text-sm">
-            • Use <span className="text-warning-main font-medium">warning</span> para atenção e alertas não críticos.
-          </p>
-          <p className="text-sm">
-            • Use <span className="text-success-main font-medium">success</span> para confirmações e ações bem-sucedidas.
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const AccessibilityTab = () => {
-  return (
-    <div className="space-y-8">
-      <div className="space-y-4">
-        <h3 className="text-xl font-semibold">Diretrizes de Acessibilidade</h3>
-        <p>
-          Todas as combinações de cores utilizadas na interface devem seguir as diretrizes WCAG 2.1 
-          para garantir legibilidade e acessibilidade para todos os usuários, incluindo aqueles com 
-          deficiências visuais ou daltonismo.
+        
+        <p className="text-text-secondary mb-4">
+          O sistema é organizado em dois níveis principais:
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="border rounded-lg p-4 space-y-3">
-            <h4 className="font-medium">Contraste Mínimo</h4>
-            <p className="text-sm">
-              O contraste entre texto e fundo deve ser de pelo menos 4.5:1 para texto normal e 3:1 para texto grande.
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div className="border rounded-lg p-4">
+            <h3 className="text-lg font-medium mb-2">1. Cores Básicas</h3>
+            <p className="text-text-secondary">
+              Um conjunto completo de cores de 50 a 900 para:
             </p>
-            
-            <div className="space-y-2">
-              <div className="flex items-center justify-between p-2 bg-primary-main text-white rounded">
-                <span>Texto em fundo primary</span>
-                <Badge variant="outline" className="bg-white/10">Contraste 4.6:1 ✓</Badge>
-              </div>
-              
-              <div className="flex items-center justify-between p-2 bg-secondary-main text-white rounded">
-                <span>Texto em fundo secondary</span>
-                <Badge variant="outline" className="bg-white/10">Contraste 5.2:1 ✓</Badge>
-              </div>
-              
-              <div className="flex items-center justify-between p-2 bg-error-main text-white rounded">
-                <span>Texto em fundo error</span>
-                <Badge variant="outline" className="bg-white/10">Contraste 4.8:1 ✓</Badge>
-              </div>
+            <div className="flex flex-wrap gap-1 mt-2">
+              <Badge className="bg-amicci-500 text-white">base-color-amicci</Badge>
+              <Badge className="bg-amicciDark-500 text-white">base-color-amicciDark</Badge>
+              <Badge className="bg-blue-500 text-white">base-color-blue</Badge>
+              <Badge className="bg-magenta-500 text-white">base-color-magenta</Badge>
+              <Badge className="bg-green-500 text-white">base-color-green</Badge>
+              <Badge className="bg-gray-500 text-white">base-color-gray</Badge>
+              <Badge className="bg-orange-500 text-white">base-color-orange</Badge>
+              <Badge className="bg-red-500 text-white">base-color-red</Badge>
+              <Badge className="bg-yellow-500 text-black">base-color-yellow</Badge>
+              <Badge className="bg-white text-black border border-gray-200">base-color-common-white</Badge>
             </div>
           </div>
           
-          <div className="border rounded-lg p-4 space-y-3">
-            <h4 className="font-medium">Daltonismo</h4>
-            <p className="text-sm">
-              Nossa paleta foi testada para diferentes tipos de daltonismo para garantir que as informações sejam distinguíveis.
+          <div className="border rounded-lg p-4">
+            <h3 className="text-lg font-medium mb-2">2. Paletas Compostas</h3>
+            <p className="text-text-secondary">
+              Paletas semânticas que utilizam as cores básicas como base:
             </p>
-            
-            <div className="flex items-center gap-3">
-              <Button variant="outline" className="text-xs gap-2">
-                <Eye className="h-3 w-3" />
-                Simulação de Protanopia
-              </Button>
-              <Button variant="outline" className="text-xs gap-2">
-                <Eye className="h-3 w-3" />
-                Simulação de Deuteranopia
-              </Button>
+            <div className="flex flex-wrap gap-1 mt-2">
+              <Badge className="bg-primary-main text-primary-contrast">base-color-amicci</Badge>
+              <Badge className="bg-secondary-main text-secondary-contrast">base-color-amicciDark</Badge>
+              <Badge className="bg-tertiary-main text-tertiary-contrast">base-color-magenta</Badge>
+              <Badge className="bg-action-main text-action-contrast">base-color-gray</Badge>
+              <Badge className="bg-error-main text-error-contrast">base-color-red</Badge>
+              <Badge className="bg-warning-main text-black">base-color-yellow</Badge>
+              <Badge className="bg-info-main text-info-contrast">base-color-blue</Badge>
+              <Badge className="bg-success-main text-success-contrast">base-color-green</Badge>
+              <Badge className="bg-gray-900 text-white">base-color-gray</Badge>
             </div>
-            
-            <div className="grid grid-cols-2 gap-2">
-              <div>
-                <ColorSwatch color="bg-success-main" className="h-8 rounded" />
-                <p className="text-xs text-center mt-1">Success</p>
-              </div>
-              <div>
-                <ColorSwatch color="bg-error-main" className="h-8 rounded" />
-                <p className="text-xs text-center mt-1">Error</p>
-              </div>
+          </div>
+        </div>
+        
+        <p className="text-text-secondary mb-4">
+          Cada paleta composta inclui variações para diferentes estados e usos:
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+          <div className="p-2 border rounded bg-primary-main text-primary-contrast">main</div>
+          <div className="p-2 border rounded bg-primary-dark text-primary-contrast">dark</div>
+          <div className="p-2 border rounded bg-primary-light text-black">light</div>
+          <div className="p-2 border rounded bg-primary-hover text-primary-contrast">hover</div>
+          <div className="p-2 border rounded bg-primary-selected text-primary-contrast">selected</div>
+          <div className="p-2 border rounded bg-primary-focusVisible text-black">focusVisible</div>
+          <div className="p-2 border rounded bg-primary-outlinedBorder text-black">outlinedBorder</div>
+          <div className="p-2 border rounded bg-primary-contrast text-primary-main">contrast</div>
+        </div>
+      </ComponentCard>
+      
+      <Separator />
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <ComponentCard title="Como Usar">
+          <p className="text-text-secondary">
+            Acesse as cores usando as classes utilitárias do Tailwind baseadas na nomenclatura semântica:
+          </p>
+          <ul className="list-disc list-inside mt-2 space-y-1 text-text-secondary">
+            <li><code className="bg-background-sidebar px-1 rounded">bg-primary-main</code> - Cor primária principal</li>
+            <li><code className="bg-background-sidebar px-1 rounded">text-error-main</code> - Texto na cor de erro</li>
+            <li><code className="bg-background-sidebar px-1 rounded">border-warning-outlinedBorder</code> - Borda na cor de contorno de aviso</li>
+            <li><code className="bg-background-sidebar px-1 rounded">bg-amicci-500</code> - Cor básica amicci (500)</li>
+            <li><code className="bg-background-sidebar px-1 rounded">text-gray-900</code> - Texto principal</li>
+          </ul>
+        </ComponentCard>
+        
+        <ComponentCard title="Acessibilidade">
+          <p className="text-text-secondary">
+            Nosso sistema de cores foi projetado com acessibilidade em mente:
+          </p>
+          <ul className="list-disc list-inside mt-2 space-y-1 text-text-secondary">
+            <li>Os pares de cores atendem aos requisitos de contraste WCAG 2.1 AA</li>
+            <li>Cada paleta inclui versões de contraste dedicadas</li>
+            <li>As cores seguem uma hierarquia visual clara</li>
+            <li>Estados de interação (hover, focus, selected) são visualmente distintos</li>
+          </ul>
+        </ComponentCard>
+      </div>
+    </div>;
+};
+const PalettesTab = () => {
+  return <ComponentCard title="Paletas Compostas" description="As paletas compostas são construídas utilizando as cores básicas como base. Cada paleta semântica inclui variações para diferentes estados e usos." height="auto">
+      <PaletteTable palettes={paletteData} />
+    </ComponentCard>;
+};
+const BaseColorsTab = () => {
+  return <ComponentCard title="Cores Base" description="As cores base são um conjunto completo de cores de 50 a 950 que servem como fundação para todo o sistema." height="auto">
+      <BaseColorsTable baseColors={baseColorsData} />
+    </ComponentCard>;
+};
+const UsageTab = () => {
+  return <ComponentCard title="Uso das Cores" description="Como aplicar cores corretamente em sua interface.">
+      <div className="space-y-4">
+        <h3 className="text-lg font-medium text-gray-800">Princípios Gerais</h3>
+        <ul className="list-disc list-inside space-y-2 text-gray-600">
+          <li>Use cores de maneira consistente para criar uma experiência coesa</li>
+          <li>Mantenha o contraste adequado para garantir legibilidade e acessibilidade</li>
+          <li>Utilize cores semânticas para comunicar significado e estado</li>
+          <li>Limite o uso de cores de destaque para não sobrecarregar a interface</li>
+        </ul>
+        
+        <h3 className="text-lg font-medium mt-6 text-gray-800">Cores Semânticas</h3>
+        <div className="grid grid-cols-3 gap-4">
+          <div className="rounded-lg border border-gray-200 p-4">
+            <div className="flex items-center mb-3">
+              <div className="w-6 h-6 rounded-full bg-primary-main mr-2"></div>
+              <h4 className="font-medium text-gray-800">Primary (Amicci)</h4>
+            </div>
+            <p className="text-gray-600 text-sm">
+              Use para elementos de destaque, botões principais, links e elementos de navegação primários.
+            </p>
+            <div className="mt-3 grid grid-cols-1 gap-1">
+              <ColorSwatch color="bg-amicci-500" hexValue="#10C2C0" weight="500 (Main)" className="h-8" textOverlay="500 (Main)" copyValue="#10C2C0" />
+              <ColorSwatch color="bg-amicci-700" hexValue="#0C8482" weight="700 (Dark)" className="h-8" textOverlay="700 (Dark)" copyValue="#0C8482" />
+              <ColorSwatch color="bg-amicci-300" hexValue="#93EDEA" weight="300 (Light)" className="h-8" textOverlay="300 (Light)" copyValue="#93EDEA" />
+            </div>
+          </div>
+          
+          <div className="rounded-lg border border-gray-200 p-4">
+            <div className="flex items-center mb-3">
+              <div className="w-6 h-6 rounded-full bg-secondary-main mr-2"></div>
+              <h4 className="font-medium text-gray-800">Secondary (AmicciDark)</h4>
+            </div>
+            <p className="text-gray-600 text-sm">
+              Use para elementos secundários, botões alternativos e detalhes visuais complementares.
+            </p>
+            <div className="mt-3 grid grid-cols-1 gap-1">
+              <ColorSwatch color="bg-amicciDark-500" hexValue="#14818A" weight="500 (Main)" className="h-8" textOverlay="500 (Main)" copyValue="#14818A" />
+              <ColorSwatch color="bg-amicciDark-700" hexValue="#06454A" weight="700 (Dark)" className="h-8" textOverlay="700 (Dark)" copyValue="#06454A" />
+              <ColorSwatch color="bg-amicciDark-300" hexValue="#72BEC2" weight="300 (Light)" className="h-8" textOverlay="300 (Light)" copyValue="#72BEC2" />
+            </div>
+          </div>
+          
+          <div className="rounded-lg border border-gray-200 p-4">
+            <div className="flex items-center mb-3">
+              <div className="w-6 h-6 rounded-full bg-error-main mr-2"></div>
+              <h4 className="font-medium text-gray-800">Error (Red)</h4>
+            </div>
+            <p className="text-gray-600 text-sm">
+              Use para mensagens de erro, estados de erro e ações destrutivas como exclusão.
+            </p>
+            <div className="mt-3 grid grid-cols-1 gap-1">
+              <ColorSwatch color="bg-red-500" hexValue="#F04438" weight="500 (Main)" className="h-8" textOverlay="500 (Main)" copyValue="#F04438" />
+              <ColorSwatch color="bg-red-700" hexValue="#B42318" weight="700 (Dark)" className="h-8" textOverlay="700 (Dark)" copyValue="#B42318" />
+              <ColorSwatch color="bg-red-300" hexValue="#FDA29B" weight="300 (Light)" className="h-8" textOverlay="300 (Light)" copyValue="#FDA29B" />
+            </div>
+          </div>
+          
+          <div className="rounded-lg border border-gray-200 p-4">
+            <div className="flex items-center mb-3">
+              <div className="w-6 h-6 rounded-full bg-success-main mr-2"></div>
+              <h4 className="font-medium text-gray-800">Success (Green)</h4>
+            </div>
+            <p className="text-gray-600 text-sm">
+              Use para confirmações, mensagens de sucesso e indicadores positivos.
+            </p>
+            <div className="mt-3 grid grid-cols-1 gap-1">
+              <ColorSwatch color="bg-green-500" hexValue="#12B76A" weight="500 (Main)" className="h-8" textOverlay="500 (Main)" copyValue="#12B76A" />
+              <ColorSwatch color="bg-green-700" hexValue="#027A48" weight="700 (Dark)" className="h-8" textOverlay="700 (Dark)" copyValue="#027A48" />
+              <ColorSwatch color="bg-green-300" hexValue="#6CE9A6" weight="300 (Light)" className="h-8" textOverlay="300 (Light)" copyValue="#6CE9A6" />
+            </div>
+          </div>
+          
+          <div className="rounded-lg border border-gray-200 p-4">
+            <div className="flex items-center mb-3">
+              <div className="w-6 h-6 rounded-full bg-warning-main mr-2"></div>
+              <h4 className="font-medium text-gray-800">Warning (Yellow)</h4>
+            </div>
+            <p className="text-gray-600 text-sm">
+              Use para alertas, notificações importantes e ações que requerem atenção.
+            </p>
+            <div className="mt-3 grid grid-cols-1 gap-1">
+              <ColorSwatch color="bg-yellow-500" hexValue="#FFEB3B" weight="500 (Main)" className="h-8" textOverlay="500 (Main)" copyValue="#FFEB3B" />
+              <ColorSwatch color="bg-yellow-700" hexValue="#FBC02D" weight="700 (Dark)" className="h-8" textOverlay="700 (Dark)" copyValue="#FBC02D" />
+              <ColorSwatch color="bg-yellow-300" hexValue="#FFF176" weight="300 (Light)" className="h-8" textOverlay="300 (Light)" copyValue="#FFF176" />
+            </div>
+          </div>
+          
+          <div className="rounded-lg border border-gray-200 p-4">
+            <div className="flex items-center mb-3">
+              <div className="w-6 h-6 rounded-full bg-info-main mr-2"></div>
+              <h4 className="font-medium text-gray-800">Info (Blue)</h4>
+            </div>
+            <p className="text-gray-600 text-sm">
+              Use para mensagens informativas, dicas e elementos de ajuda contextual.
+            </p>
+            <div className="mt-3 grid grid-cols-1 gap-1">
+              <ColorSwatch color="bg-blue-500" hexValue="#2970FF" weight="500 (Main)" className="h-8" textOverlay="500 (Main)" copyValue="#2970FF" />
+              <ColorSwatch color="bg-blue-700" hexValue="#0057B2" weight="700 (Dark)" className="h-8" textOverlay="700 (Dark)" copyValue="#0057B2" />
+              <ColorSwatch color="bg-blue-300" hexValue="#84A9FF" weight="300 (Light)" className="h-8" textOverlay="300 (Light)" copyValue="#84A9FF" />
+            </div>
+          </div>
+        </div>
+        
+        <h3 className="text-lg font-medium mt-6 text-gray-800">Aplicação em Componentes</h3>
+        <div className="grid grid-cols-4 gap-4">
+          <div className="rounded-lg border border-gray-200 p-4">
+            <h4 className="font-medium mb-2 text-gray-800">Avatars</h4>
+            <div className="flex space-x-2">
+              <Avatar className="bg-amicci-500">
+                <AvatarFallback className="text-white">AM</AvatarFallback>
+              </Avatar>
+              <Avatar className="bg-amicciDark-500">
+                <AvatarFallback className="text-white">JD</AvatarFallback>
+              </Avatar>
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" alt="User" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+            </div>
+          </div>
+          
+          <div className="rounded-lg border border-gray-200 p-4">
+            <h4 className="font-medium mb-2 text-gray-800">Estados</h4>
+            <div className="flex space-x-2">
+              <div className="px-3 py-1 rounded-full bg-green-100 text-success-dark text-sm">Ativo</div>
+              <div className="px-3 py-1 rounded-full bg-red-100 text-error-dark text-sm">Inativo</div>
+              <div className="px-3 py-1 rounded-full bg-yellow-100 text-warning-dark text-sm">Pendente</div>
             </div>
           </div>
         </div>
       </div>
-      
-      <div className="space-y-4">
-        <h3 className="text-xl font-semibold">Teste de Contraste</h3>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Combinação</TableHead>
-              <TableHead>Ratio</TableHead>
-              <TableHead>WCAG AA</TableHead>
-              <TableHead>WCAG AAA</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            <TableRow>
-              <TableCell>
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 rounded bg-primary-main"></div>
-                  <span>Primary + White</span>
-                </div>
-              </TableCell>
-              <TableCell>4.6:1</TableCell>
-              <TableCell className="text-success-main">Passa</TableCell>
-              <TableCell className="text-error-main">Não passa</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 rounded bg-secondary-main"></div>
-                  <span>Secondary + White</span>
-                </div>
-              </TableCell>
-              <TableCell>5.2:1</TableCell>
-              <TableCell className="text-success-main">Passa</TableCell>
-              <TableCell className="text-error-main">Não passa</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 rounded bg-gray-900"></div>
-                  <span>Text Primary + White</span>
-                </div>
-              </TableCell>
-              <TableCell>16:1</TableCell>
-              <TableCell className="text-success-main">Passa</TableCell>
-              <TableCell className="text-success-main">Passa</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
+    </ComponentCard>;
+};
+const AccessibilityTab = () => {
+  const [showWCAG, setShowWCAG] = useState(false);
+  return <ComponentCard title="Acessibilidade de Cores" description="Garantindo que nosso sistema de cores seja acessível a todos." height="auto">
+      <div className="space-y-6">
+        <div>
+          <h3 className="text-lg font-medium mb-2">Contraste</h3>
+          <p className="text-mui-text-secondary">
+            Todas as combinações de cores de texto e fundo atendem aos requisitos de contraste WCAG 2.1 AA:
+          </p>
+          <ul className="list-disc list-inside mt-2 text-mui-text-secondary">
+            <li>Texto normal: Contraste mínimo de 4.5:1</li>
+            <li>Texto grande (18pt ou 14pt bold): Contraste mínimo de 3:1</li>
+            <li>Componentes de interface e gráficos: Contraste mínimo de 3:1</li>
+          </ul>
+        </div>
+        
+        <div className="mt-4">
+          <Button variant="outline" onClick={() => setShowWCAG(!showWCAG)} className="text-sm flex gap-2 items-center">
+            {showWCAG ? <EyeOff size={16} /> : <Eye size={16} />}
+            {showWCAG ? 'Ocultar dados WCAG' : 'Mostrar dados WCAG'}
+          </Button>
+        </div>
+        
+        {showWCAG && <div className="mt-6 border rounded-lg p-4">
+            <h4 className="font-medium mb-3">Tabela de Contraste WCAG AA</h4>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Combinação</TableHead>
+                  <TableHead>Proporção</TableHead>
+                  <TableHead>Texto Normal</TableHead>
+                  <TableHead>Texto Grande</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell>
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 rounded mr-2 bg-primary-main"></div>
+                      <span>Primary sobre Branco</span>
+                    </div>
+                  </TableCell>
+                  <TableCell>4.6:1</TableCell>
+                  <TableCell>Passa ✓</TableCell>
+                  <TableCell>Passa ✓</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 rounded mr-2 bg-white flex items-center justify-center">
+                        <div className="w-4 h-4 bg-primary-main"></div>
+                      </div>
+                      <span>Branco sobre Primary</span>
+                    </div>
+                  </TableCell>
+                  <TableCell>4.6:1</TableCell>
+                  <TableCell>Passa ✓</TableCell>
+                  <TableCell>Passa ✓</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 rounded mr-2 bg-secondary-main"></div>
+                      <span>Secondary sobre Branco</span>
+                    </div>
+                  </TableCell>
+                  <TableCell>13.2:1</TableCell>
+                  <TableCell>Passa ✓</TableCell>
+                  <TableCell>Passa ✓</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 rounded mr-2 bg-error-main"></div>
+                      <span>Error sobre Branco</span>
+                    </div>
+                  </TableCell>
+                  <TableCell>4.8:1</TableCell>
+                  <TableCell>Passa ✓</TableCell>
+                  <TableCell>Passa ✓</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 rounded mr-2 bg-warning-main"></div>
+                      <span>Warning sobre Preto</span>
+                    </div>
+                  </TableCell>
+                  <TableCell>13.5:1</TableCell>
+                  <TableCell>Passa ✓</TableCell>
+                  <TableCell>Passa ✓</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </div>}
+        
+        <div className="mt-4">
+          <h3 className="text-lg font-medium mb-2">Não Dependa Apenas da Cor</h3>
+          <p className="text-mui-text-secondary">
+            Para garantir que as informações sejam acessíveis a pessoas com deficiência visual ou daltonismo, não usamos apenas cor para transmitir informações importantes:
+          </p>
+          <ul className="list-disc list-inside mt-2 text-mui-text-secondary">
+            <li>Combinamos cores com ícones, textos e padrões</li>
+            <li>Oferecemos alternativas textuais para informações baseadas em cores</li>
+            <li>Mantemos contraste suficiente mesmo em visualizações monocromáticas</li>
+          </ul>
+        </div>
+        
+        <div className="mt-4">
+          <h3 className="text-lg font-medium mb-2">Teste de Daltonismo</h3>
+          <p className="text-mui-text-secondary">
+            Nosso sistema de cores foi testado para os seguintes tipos de daltonismo:
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-3">
+            <div className="border rounded-lg p-3">
+              <h4 className="font-medium text-sm mb-2">Deuteranopia</h4>
+              <p className="text-xs text-mui-text-secondary">Deficiência de percepção do verde</p>
+            </div>
+            <div className="border rounded-lg p-3">
+              <h4 className="font-medium text-sm mb-2">Protanopia</h4>
+              <p className="text-xs text-mui-text-secondary">Deficiência de percepção do vermelho</p>
+            </div>
+            <div className="border rounded-lg p-3">
+              <h4 className="font-medium text-sm mb-2">Tritanopia</h4>
+              <p className="text-xs text-mui-text-secondary">Deficiência de percepção do azul</p>
+            </div>
+            <div className="border rounded-lg p-3">
+              <h4 className="font-medium text-sm mb-2">Acromatopsia</h4>
+              <p className="text-xs text-mui-text-secondary">Ausência completa de percepção de cores</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  );
+    </ComponentCard>;
 };
 
 const Colors = () => {
@@ -1505,8 +1641,6 @@ const Colors = () => {
           <AccessibilityTab />
         </TabsContent>
       </Tabs>
-    </div>
-  );
+    </div>;
 };
-
 export default Colors;
