@@ -7,7 +7,7 @@ import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { colorUtils } from '@/utils/colorUtils';
+import { colorUtils, colorBlindnessFilters } from '@/utils/colorUtils';
 import ComponentCard from '@/components/ComponentCard';
 import FoundationsHeader from '@/components/library-components/FoundationsHeader';
 
@@ -70,29 +70,22 @@ const ColorSwatch = ({
   };
 
   const getSimulationFilter = () => {
-    switch (simulationType) {
-      case 'deuteranopia':
-        return 'filter saturate-50 hue-rotate-330';
-      case 'protanopia':
-        return 'filter saturate-50 hue-rotate-10';
-      case 'tritanopia':
-        return 'filter hue-rotate-270 saturate-50';
-      case 'achromatopsia':
-        return 'filter grayscale';
-      default:
-        return '';
+    if (simulationType && colorBlindnessFilters[simulationType]) {
+      return colorBlindnessFilters[simulationType];
     }
+    return '';
   };
 
   return (
     <div 
-      className={`relative w-full rounded-md ${getBackgroundStyle()} ${className} flex items-center justify-center px-3 transition-all hover:shadow-md cursor-pointer group ${getSimulationFilter()}`} 
+      className={`relative w-full rounded-md ${getBackgroundStyle()} ${className} flex items-center justify-center px-3 transition-all hover:shadow-md cursor-pointer group`} 
       onClick={onClick || handleCopy} 
       role="button" 
       tabIndex={0} 
-      style={hexValue && !color.startsWith('bg-') ? {
-        backgroundColor: hexValue
-      } : undefined}
+      style={{
+        ...(hexValue && !color.startsWith('bg-') ? { backgroundColor: hexValue } : {}),
+        ...(simulationType ? { cssText: getSimulationFilter() } : {})
+      }}
     >
       {textOverlay}
       {weight && <span className={`text-xs ${textColor} opacity-75 absolute left-2 top-1`}>{weight}</span>}
