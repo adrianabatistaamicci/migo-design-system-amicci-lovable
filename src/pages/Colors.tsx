@@ -823,4 +823,13 @@ const paletteData = [{
     hexValue: '#043A3E'
   }, {
     name: 'contrast',
-    colorClass: 'bg-secondary-
+    colorClass: 'bg-secondary-contrast',
+    baseColor: 'common-white-main',
+    textColor: 'text-secondary-main',
+    opacity: '100%',
+    hexValue: '#FFFFFF'
+  }]
+}];
+
+// Colors Page component
+const Colors = ()
