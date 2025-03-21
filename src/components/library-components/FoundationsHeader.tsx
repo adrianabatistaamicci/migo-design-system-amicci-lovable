@@ -22,7 +22,7 @@ const FoundationsHeader = ({
             Foundations
           </Chip>
         </div>
-        <h1 className="text-3xl font-medium tracking-tight text-zinc-950">{title}</h1>
+        <h1 className="text-4xl font-medium tracking-tight text-zinc-950">{title}</h1>
         <p className="max-w-none text-zinc-700">{description}</p>
       </div>
     </div>;
