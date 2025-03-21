@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Button } from '@/components/ui/button';
@@ -215,19 +216,19 @@ const ColorApplications = () => {
             <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
           </Badge>
           
-          <Badge color="secondary">
+          <Badge variant="secondary">
             <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
           </Badge>
           
-          <Badge color="error">
+          <Badge variant="destructive">
             <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
           </Badge>
           
-          <Badge variant="standard" color="success">
+          <Badge variant="outline">
             <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
           </Badge>
           
-          <Badge variant="dot" color="error">
+          <Badge>
             <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
           </Badge>
         </div>
@@ -422,4 +423,3 @@ const Colors = () => {
 };
 
 export default Colors;
-
