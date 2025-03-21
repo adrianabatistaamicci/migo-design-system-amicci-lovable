@@ -305,8 +305,8 @@ const Typography = () => {
         description="Estilos de texto e tokens de tipografia utilizados na aplicação"
       />
 
-      <Tabs defaultValue="overview" className="w-full">
-        <TabsList className="mb-4">
+      <Tabs defaultValue="overview" className="mt-8">
+        <TabsList>
           <TabsTrigger value="overview">Visão geral</TabsTrigger>
           <TabsTrigger value="styles">Estilos</TabsTrigger>
           <TabsTrigger value="usage">Uso</TabsTrigger>
