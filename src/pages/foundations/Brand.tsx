@@ -10,7 +10,7 @@ import AmicciLogoBrancoTurquesaEscuro from '@/pages/assets/Amicci-Branco+Turques
 import AmicciLogoTurquesaBranco from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg';
 import AmicciLogoBranco from '@/pages/assets/Amicci-Logo_Branco.svg';
 import AmicciSimbolo from '@/pages/assets/Amicci-Simbolo_Turquesa_Escuro.svg';
-import AmicciTagDesignSystem from 'src/pages/assets/amicci-logo-tag-design-system.svg';
+import AmicciTagDesignSystem from '@/pages/assets/amicci-logo-tag-design-system.svg';
 
 const Brand = () => {
   return <div className="w-full animate-fade-in">
