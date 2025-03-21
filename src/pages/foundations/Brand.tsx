@@ -4,6 +4,7 @@ import ComponentCard from '@/components/ComponentCard';
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import FoundationsHeader from '@/components/library-components/FoundationsHeader';
+
 const Brand = () => {
   return <div className="w-full animate-fade-in">
       <FoundationsHeader title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." />
