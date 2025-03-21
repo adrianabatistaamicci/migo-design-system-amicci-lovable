@@ -175,12 +175,12 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "inline-flex items-center justify-center whitespace-nowrap px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-      "text-secondary-foreground", // Default inactive tab color (changed to secondary)
+      "inline-flex items-center justify-center whitespace-nowrap px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 relative",
+      "text-secondary-foreground", // Default inactive tab color
       {
         "data-[state=active]:text-foreground": true,
-        "data-[state=active]:border-b-2 data-[state=active]:border-primary-main": activeColor === "primary",
-        "data-[state=active]:border-b-2 data-[state=active]:border-secondary-main": activeColor === "secondary",
+        "data-[state=active]:after:absolute data-[state=active]:after:bottom-0 data-[state=active]:after:left-0 data-[state=active]:after:right-0 data-[state=active]:after:h-0.5 data-[state=active]:after:bg-primary-main data-[state=active]:after:z-10": activeColor === "primary",
+        "data-[state=active]:after:absolute data-[state=active]:after:bottom-0 data-[state=active]:after:left-0 data-[state=active]:after:right-0 data-[state=active]:after:h-0.5 data-[state=active]:after:bg-secondary-main data-[state=active]:after:z-10": activeColor === "secondary",
         "flex-row-reverse": iconPosition === "right",
         "flex-col": iconPosition === "up",
       },
