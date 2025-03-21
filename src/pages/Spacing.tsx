@@ -4,6 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { tokenToPixels, pixelsToToken, getSpacingClass } from '@/utils/spacingUtils';
 import { cn } from '@/lib/utils';
 import { Chip } from '@/components/ui/chip';
+import ComponentCard from '@/components/ComponentCard';
 
 const SpacingPage = () => {
   return (
@@ -25,35 +26,41 @@ const SpacingPage = () => {
           <TabsTrigger value="examples">Examples</TabsTrigger>
         </TabsList>
         
-        <TabsContent value="scale">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-            {Object.entries({
-              'space-0': 0,
-              'space-1': 4,
-              'space-2': 8,
-              'space-3': 12,
-              'space-4': 16,
-              'space-5': 20,
-              'space-6': 24,
-              'space-8': 32,
-              'space-10': 40,
-              'space-12': 48,
-              'space-16': 64,
-              'space-20': 80,
-              'space-24': 96,
-              'space-32': 128,
-              'space-40': 160,
-              'space-48': 192,
-              'space-56': 224,
-              'space-64': 256,
-            }).map(([token, pixelValue]) => (
-              <div key={token} className="rounded-lg border p-4">
-                <h3 className="text-lg font-semibold">{token}</h3>
-                <p className="text-sm text-muted-foreground">{pixelValue}px</p>
-                <div className="mt-4 h-12 bg-primary-light rounded-md" style={{ width: '100%', height: pixelValue }} />
-              </div>
-            ))}
-          </div>
+        <TabsContent value="scale" className="space-y-6">
+          <ComponentCard title="Sistema de Espaçamento" description="Nosso sistema de espaçamento é baseado em múltiplos de 4px para garantir consistência em toda a interface.">
+            <p className="text-mui-text-secondary mb-6">
+              Utilizamos uma escala de espaçamento consistente para criar ritmo visual e hierarquia em nossa interface. Todos os valores são múltiplos de 4px, o que facilita a criação de layouts harmoniosos e responsivos.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {Object.entries({
+                'space-0': 0,
+                'space-1': 4,
+                'space-2': 8,
+                'space-3': 12,
+                'space-4': 16,
+                'space-5': 20,
+                'space-6': 24,
+                'space-8': 32,
+                'space-10': 40,
+                'space-12': 48,
+                'space-16': 64,
+                'space-20': 80,
+                'space-24': 96,
+                'space-32': 128,
+                'space-40': 160,
+                'space-48': 192,
+                'space-56': 224,
+                'space-64': 256,
+              }).map(([token, pixelValue]) => (
+                <div key={token} className="rounded-lg border p-4">
+                  <h3 className="text-lg font-semibold">{token}</h3>
+                  <p className="text-sm text-muted-foreground">{pixelValue}px</p>
+                  <div className="mt-4 h-12 bg-primary-light rounded-md" style={{ width: '100%', height: pixelValue }} />
+                </div>
+              ))}
+            </div>
+          </ComponentCard>
         </TabsContent>
         
         <TabsContent value="usage">
