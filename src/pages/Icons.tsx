@@ -19,17 +19,29 @@ const Icons = () => {
       />
       
       <Tabs defaultValue="overview" className="w-full">
-        <TabsList className="w-full justify-start h-auto p-0 bg-transparent border-b border-gray-300">
-          <TabsTrigger value="overview" className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3">
+        <TabsList className="w-full justify-start h-auto p-0 bg-transparent border-0">
+          <TabsTrigger 
+            value="overview" 
+            className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3"
+          >
             Visão geral
           </TabsTrigger>
-          <TabsTrigger value="styles" className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3">
+          <TabsTrigger 
+            value="styles" 
+            className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3"
+          >
             Estilos
           </TabsTrigger>
-          <TabsTrigger value="usage" className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3">
+          <TabsTrigger 
+            value="usage" 
+            className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3"
+          >
             Uso
           </TabsTrigger>
-          <TabsTrigger value="accessibility" className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3">
+          <TabsTrigger 
+            value="accessibility" 
+            className="rounded-none data-[state=active]:shadow-none data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary px-4 py-3"
+          >
             Acessibilidade
           </TabsTrigger>
         </TabsList>

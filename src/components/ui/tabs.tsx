@@ -114,7 +114,7 @@ const TabsList = React.forwardRef<
         )}
       >
         <div className={cn(
-          orientation === "horizontal" ? "relative border-b border-gray-300 w-full" : ""
+          orientation === "horizontal" && !className?.includes("border-0") ? "relative border-b border-gray-200 w-full" : ""
         )}>
           <TabsPrimitive.List
             ref={ref}
