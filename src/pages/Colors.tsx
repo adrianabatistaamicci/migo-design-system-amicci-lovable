@@ -843,7 +843,7 @@ const Colors = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
                 <div className="space-y-4">
-                  <h3 className="text-xl font-semibold border-b pb-2">Tipos de Variações</h3>
+                  <h3 className="text-xl font-semibold">Tipos de Variações</h3>
                   
                   <div>
                     <h4 className="font-medium text-lg">Variações de Estado</h4>
@@ -1074,7 +1074,7 @@ const Colors = () => {
           </ComponentCard>
         </TabsContent>
         
-        <TabsContent value="accessibility">
+        <TabsContent value="accessibility" className="p-6 border rounded-lg mt-6">
           <ComponentCard title="Acessibilidade de Cores" description="Garantindo que nosso sistema de cores seja acessível a todos.">
             <div className="space-y-8">
               <div>
@@ -1184,8 +1184,7 @@ const Colors = () => {
                       <ColorSwatch color="bg-success-main" className="h-14" />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Button variant="outline-default" size="sm" className="text-xs">
-                        <Eye className="h-3 w-3 mr-1" />
+                      <Button variant="outline-default" size="sm" startIcon={<Eye className="h-3 w-3" />}>
                         Simular Deuteranopia
                       </Button>
                     </div>
@@ -1201,8 +1200,7 @@ const Colors = () => {
                       <ColorSwatch color="bg-success-main" className="h-14" />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Button variant="outline-default" size="sm" className="text-xs">
-                        <Eye className="h-3 w-3 mr-1" />
+                      <Button variant="outline-default" size="sm" startIcon={<Eye className="h-3 w-3" />}>
                         Simular Protanopia
                       </Button>
                     </div>
@@ -1218,8 +1216,7 @@ const Colors = () => {
                       <ColorSwatch color="bg-success-main" className="h-14" />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Button variant="outline-default" size="sm" className="text-xs">
-                        <Eye className="h-3 w-3 mr-1" />
+                      <Button variant="outline-default" size="sm" startIcon={<Eye className="h-3 w-3" />}>
                         Simular Tritanopia
                       </Button>
                     </div>
@@ -1235,8 +1232,7 @@ const Colors = () => {
                       <ColorSwatch color="bg-success-main" className="h-14" />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Button variant="outline-default" size="sm" className="text-xs">
-                        <Eye className="h-3 w-3 mr-1" />
+                      <Button variant="outline-default" size="sm" startIcon={<Eye className="h-3 w-3" />}>
                         Simular Acromatopsia
                       </Button>
                     </div>
