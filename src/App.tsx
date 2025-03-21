@@ -29,6 +29,7 @@ import ChipPage from "./pages/components/Chip";
 import TabsPage from "./pages/components/Tabs";
 import ProgressPage from "./pages/components/Progress";
 import LibraryPage from "./pages/components/Library";
+import TogglesPage from "./pages/components/Toggles";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -60,6 +61,7 @@ const App = () => {
               <Route path="/components/tabs" element={<TabsPage />} />
               <Route path="/components/progress" element={<ProgressPage />} />
               <Route path="/components/library" element={<LibraryPage />} />
+              <Route path="/components/toggles" element={<TogglesPage />} />
               
               {/* Foundation pages */}
               <Route path="/colors" element={<Colors />} />
