@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Chip } from '@/components/ui/chip';
@@ -171,11 +170,11 @@ const handleDelete = (chipToDelete) => {
             title="Chips with Icons" 
             description="Chips that include icons for additional visual information."
             code={`<div className="flex flex-wrap gap-2">
-  <Chip icon={<Check className="h-3.5 w-3.5" />}>Completed</Chip>
-  <Chip icon={<User className="h-3.5 w-3.5" />}>Profile</Chip>
-  <Chip icon={<Mail className="h-3.5 w-3.5" />}>Messages</Chip>
-  <Chip icon={<Heart className="h-3.5 w-3.5" />}>Favorites</Chip>
-  <Chip icon={<Star className="h-3.5 w-3.5" />}>Starred</Chip>
+  <Chip icon={<Check className="h-3.5 w-3.5" />}&gt;Completed</Chip>
+  <Chip icon={<User className="h-3.5 w-3.5" />}&gt;Profile</Chip>
+  <Chip icon={<Mail className="h-3.5 w-3.5" />}&gt;Messages</Chip>
+  <Chip icon={<Heart className="h-3.5 w-3.5" />}&gt;Favorites</Chip>
+  <Chip icon={<Star className="h-3.5 w-3.5" />}&gt;Starred</Chip>
 </div>`}
           >
             <div className="flex flex-wrap gap-2 p-6">
@@ -346,7 +345,7 @@ const handleDelete = (chipToDelete) => {
   <Chip disabled>Disabled</Chip>
   <Chip disabled variant="filled" color="primary">Disabled</Chip>
   <Chip disabled variant="outlined" color="secondary">Disabled</Chip>
-  <Chip disabled onDelete={() => {}}>Disabled</Chip>
+  <Chip disabled onDelete={() => {}}&gt;Disabled</Chip>
 </div>`}
           >
             <div className="flex flex-wrap gap-2 p-6">
@@ -394,7 +393,7 @@ const handleDelete = (chipToDelete) => {
                 </TableRow>
                 <TableRow>
                   <TableCell className="font-mono text-mui-text-primary">onDelete</TableCell>
-                  <TableCell className="font-mono text-mui-text-secondary">() => void</TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">() =&gt; void</TableCell>
                   <TableCell className="font-mono text-mui-text-secondary">undefined</TableCell>
                   <TableCell className="text-mui-text-secondary">Callback when the delete button is clicked.</TableCell>
                 </TableRow>
