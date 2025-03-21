@@ -212,19 +212,19 @@ export const colorUtils = {
   }
 };
 
-// Add these specific filters for different types of color blindness
+// Color blindness filter values using proper CSS format that will work with inline styles
 export const colorBlindnessFilters = {
   // Deuteranopia (loss of sensitivity to green light)
-  deuteranopia: "filter contrast(0.8) sepia(0.2) brightness(1.1) hue-rotate(305deg) saturate(0.7)",
+  deuteranopia: "contrast(0.8) sepia(0.2) brightness(1.1) hue-rotate(305deg) saturate(0.7)",
   
   // Protanopia (loss of sensitivity to red light)
-  protanopia: "filter contrast(0.9) sepia(0.1) brightness(0.9) hue-rotate(345deg) saturate(0.6)", 
+  protanopia: "contrast(0.9) sepia(0.1) brightness(0.9) hue-rotate(345deg) saturate(0.6)", 
   
   // Tritanopia (loss of sensitivity to blue light)
-  tritanopia: "filter contrast(1.1) sepia(0.1) hue-rotate(190deg) saturate(0.8)",
+  tritanopia: "contrast(1.1) sepia(0.1) hue-rotate(190deg) saturate(0.8)",
   
   // Achromatopsia (complete color blindness)
-  achromatopsia: "filter grayscale(1)",
+  achromatopsia: "grayscale(1)",
   
   // Normal vision (no filter)
   normal: ""

@@ -69,13 +69,6 @@ const ColorSwatch = ({
     return color;
   };
 
-  const getSimulationFilter = () => {
-    if (simulationType && colorBlindnessFilters[simulationType]) {
-      return colorBlindnessFilters[simulationType];
-    }
-    return '';
-  };
-
   return (
     <div 
       className={`relative w-full rounded-md ${getBackgroundStyle()} ${className} flex items-center justify-center px-3 transition-all hover:shadow-md cursor-pointer group`} 
@@ -84,7 +77,7 @@ const ColorSwatch = ({
       tabIndex={0} 
       style={{
         ...(hexValue && !color.startsWith('bg-') ? { backgroundColor: hexValue } : {}),
-        ...(simulationType ? { cssText: getSimulationFilter() } : {})
+        ...(simulationType && colorBlindnessFilters[simulationType] ? { filter: colorBlindnessFilters[simulationType] } : {})
       }}
     >
       {textOverlay}
@@ -1321,3 +1314,4 @@ const Colors = () => {
 };
 
 export default Colors;
+
