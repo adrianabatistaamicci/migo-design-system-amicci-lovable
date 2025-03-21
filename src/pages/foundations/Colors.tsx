@@ -212,7 +212,7 @@ const ColorApplications = () => {
 </Badge>`}
       >
         <div className="flex flex-wrap gap-4 p-6">
-          <Badge variant="standard">
+          <Badge>
             <span className="w-6 h-6 bg-gray-200 rounded-full"></span>
           </Badge>
           
@@ -245,7 +245,7 @@ const ColorApplications = () => {
       >
         <div className="flex flex-wrap gap-4 p-6">
           <Chip>Default Chip</Chip>
-          <Chip variant="filled">Primary Chip</Chip>
+          <Chip variant="default">Primary Chip</Chip>
           <Chip variant="outlined">Secondary Chip</Chip>
           <Chip variant="default">Error Chip</Chip>
           <Chip variant="outlined">Success Chip</Chip>
