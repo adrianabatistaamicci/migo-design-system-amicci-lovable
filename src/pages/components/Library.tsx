@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 
@@ -55,7 +54,11 @@ const getDefaultProps = (componentName: string): Record<string, any> => {
         title: "Example Title",
         description: "This is an example description to showcase the FoundationsHeader component."
       };
-    // Add more cases as new components are added to the library-components folder
+    case 'ComponentsHeader':
+      return {
+        title: "Component Example",
+        description: "This is an example description to showcase the ComponentsHeader component."
+      };
     default:
       return {};
   }

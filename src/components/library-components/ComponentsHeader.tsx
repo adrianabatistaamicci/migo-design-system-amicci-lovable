@@ -1,0 +1,25 @@
+
+import React from 'react';
+import { Chip } from '@/components/ui/chip';
+
+interface ComponentsHeaderProps {
+  title: string;
+  description: string;
+}
+
+const ComponentsHeader = ({
+  title,
+  description
+}: ComponentsHeaderProps) => {
+  return <div className="w-full animate-fade-in">
+      <div className="space-y-2">
+        <div className="flex items-center gap-2 text-sm text-gray-700 font-medium mb-2">
+          <Chip variant="outlined" color="default" size="sm">Components</Chip>
+        </div>
+        <h1 className="text-3xl font-medium tracking-tight text-zinc-950">{title}</h1>
+        <p className="max-w-none text-zinc-700">{description}</p>
+      </div>
+    </div>;
+};
+
+export default ComponentsHeader;
