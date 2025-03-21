@@ -16,7 +16,6 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
   children,
   code,
   className,
-  height = "auto"
 }) => {
   const [showCode, setShowCode] = useState(false);
   const [copied, setCopied] = useState(false);
