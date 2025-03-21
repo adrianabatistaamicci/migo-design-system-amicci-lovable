@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -34,18 +33,18 @@ const TabsPage = () => {
         </div>
         
         <div className="space-y-12">
-          <ComponentCard title="Tabs with Underline (Default)" description="The default tabs component with an underline indicator." code={`<Tabs defaultValue="account" variant="underline" className="w-full max-w-md">
+          <ComponentCard title="Tabs with Underline (Default)" description="The default tabs component with an underline indicator." code={`<Tabs defaultValue="account" variant="underline" className="w-full">
   <TabsList>
     <TabsTrigger value="account">Account</TabsTrigger>
     <TabsTrigger value="password">Password</TabsTrigger>
   </TabsList>
-  <TabsContent value="account" className="p-4 border rounded-b-md mt-1">
+  <TabsContent value="account" className="p-4 border rounded-b-md">
     <h3 className="text-lg font-medium mb-2">Account Settings</h3>
     <p className="text-sm text-gray-500">
       Manage your account settings and preferences.
     </p>
   </TabsContent>
-  <TabsContent value="password" className="p-4 border rounded-b-md mt-1">
+  <TabsContent value="password" className="p-4 border rounded-b-md">
     <h3 className="text-lg font-medium mb-2">Password Settings</h3>
     <p className="text-sm text-gray-500">
       Change your password and secure your account.
@@ -55,8 +54,8 @@ const TabsPage = () => {
             <div className="w-full">
               <Tabs defaultValue="account" variant="underline" className="w-full">
                 <TabsList className="border-b border-gray-200">
-                  <TabsTrigger value="account" className="text-sm font-medium text-gray-500 py-3 px-4">Account</TabsTrigger>
-                  <TabsTrigger value="password" className="text-sm font-medium text-gray-500 py-3 px-4">Password</TabsTrigger>
+                  <TabsTrigger value="account">Account</TabsTrigger>
+                  <TabsTrigger value="password">Password</TabsTrigger>
                 </TabsList>
                 <TabsContent value="account" className="p-4 border-x border-b border-gray-200 rounded-b-md">
                   <h3 className="text-lg font-medium mb-2">Account Settings</h3>
@@ -74,7 +73,7 @@ const TabsPage = () => {
             </div>
           </ComponentCard>
 
-          <ComponentCard title="Tabs with Underline and Icons" description="Tabs with underline indicator and icons for visual enhancement." code={`<Tabs defaultValue="overview" variant="underline" className="w-full max-w-md">
+          <ComponentCard title="Tabs with Underline and Icons" description="Tabs with underline indicator and icons for visual enhancement." code={`<Tabs defaultValue="overview" variant="underline" className="w-full">
   <TabsList>
     <TabsTrigger 
       value="overview" 
@@ -95,13 +94,13 @@ const TabsPage = () => {
       Settings
     </TabsTrigger>
   </TabsList>
-  <TabsContent value="overview" className="p-4 border rounded-b-md mt-1">
+  <TabsContent value="overview" className="p-4 border rounded-b-md">
     <p className="text-sm">Overview content</p>
   </TabsContent>
-  <TabsContent value="analytics" className="p-4 border rounded-b-md mt-1">
+  <TabsContent value="analytics" className="p-4 border rounded-b-md">
     <p className="text-sm">Analytics content</p>
   </TabsContent>
-  <TabsContent value="settings" className="p-4 border rounded-b-md mt-1">
+  <TabsContent value="settings" className="p-4 border rounded-b-md">
     <p className="text-sm">Settings content</p>
   </TabsContent>
 </Tabs>`}>
@@ -111,21 +110,18 @@ const TabsPage = () => {
                   <TabsTrigger 
                     value="overview" 
                     icon={<Home className="h-4 w-4" />} 
-                    className="text-sm font-medium text-gray-500 py-3 px-4 gap-2"
                   >
                     Overview
                   </TabsTrigger>
                   <TabsTrigger 
                     value="analytics" 
                     icon={<FileText className="h-4 w-4" />}
-                    className="text-sm font-medium text-gray-500 py-3 px-4 gap-2"
                   >
                     Analytics
                   </TabsTrigger>
                   <TabsTrigger 
                     value="settings" 
                     icon={<Settings className="h-4 w-4" />}
-                    className="text-sm font-medium text-gray-500 py-3 px-4 gap-2"
                   >
                     Settings
                   </TabsTrigger>
@@ -165,11 +161,11 @@ const TabsPage = () => {
 </Tabs>`}>
             <div className="w-full max-w-md mx-auto">
               <Tabs defaultValue="tab1" variant="pills" className="w-full">
-                <TabsList className="flex space-x-1 p-1 bg-gray-100 rounded-xl">
-                  <TabsTrigger value="tab1" className="text-sm font-medium py-1.5 px-3 rounded-lg">Dashboard</TabsTrigger>
-                  <TabsTrigger value="tab2" className="text-sm font-medium py-1.5 px-3 rounded-lg">Team</TabsTrigger>
-                  <TabsTrigger value="tab3" className="text-sm font-medium py-1.5 px-3 rounded-lg">Projects</TabsTrigger>
-                  <TabsTrigger value="tab4" className="text-sm font-medium py-1.5 px-3 rounded-lg">Calendar</TabsTrigger>
+                <TabsList className="flex space-x-1">
+                  <TabsTrigger value="tab1">Dashboard</TabsTrigger>
+                  <TabsTrigger value="tab2">Team</TabsTrigger>
+                  <TabsTrigger value="tab3">Projects</TabsTrigger>
+                  <TabsTrigger value="tab4">Calendar</TabsTrigger>
                 </TabsList>
                 <TabsContent value="tab1" className="p-4 border border-gray-200 rounded-md mt-3">
                   <p className="text-sm">Dashboard content</p>
@@ -209,11 +205,11 @@ const TabsPage = () => {
 </Tabs>`}>
             <div className="w-full max-w-md mx-auto">
               <Tabs defaultValue="tab1" variant="pills-gray" className="w-full">
-                <TabsList className="flex space-x-1 p-1 bg-gray-100 rounded-xl">
-                  <TabsTrigger value="tab1" className="text-sm font-medium py-1.5 px-3 rounded-lg">Dashboard</TabsTrigger>
-                  <TabsTrigger value="tab2" className="text-sm font-medium py-1.5 px-3 rounded-lg">Team</TabsTrigger>
-                  <TabsTrigger value="tab3" className="text-sm font-medium py-1.5 px-3 rounded-lg">Projects</TabsTrigger>
-                  <TabsTrigger value="tab4" className="text-sm font-medium py-1.5 px-3 rounded-lg">Calendar</TabsTrigger>
+                <TabsList className="flex space-x-1">
+                  <TabsTrigger value="tab1">Dashboard</TabsTrigger>
+                  <TabsTrigger value="tab2">Team</TabsTrigger>
+                  <TabsTrigger value="tab3">Projects</TabsTrigger>
+                  <TabsTrigger value="tab4">Calendar</TabsTrigger>
                 </TabsList>
                 <TabsContent value="tab1" className="p-4 border border-gray-200 rounded-md mt-3">
                   <p className="text-sm">Dashboard content</p>
@@ -253,11 +249,11 @@ const TabsPage = () => {
 </Tabs>`}>
             <div className="w-full max-w-md mx-auto">
               <Tabs defaultValue="tab1" variant="pills-brand" className="w-full">
-                <TabsList className="flex space-x-1 rounded-xl bg-blue-50 p-1">
-                  <TabsTrigger value="tab1" className="text-sm font-medium py-1.5 px-3 rounded-lg">Dashboard</TabsTrigger>
-                  <TabsTrigger value="tab2" className="text-sm font-medium py-1.5 px-3 rounded-lg">Team</TabsTrigger>
-                  <TabsTrigger value="tab3" className="text-sm font-medium py-1.5 px-3 rounded-lg">Projects</TabsTrigger>
-                  <TabsTrigger value="tab4" className="text-sm font-medium py-1.5 px-3 rounded-lg">Calendar</TabsTrigger>
+                <TabsList className="flex space-x-1">
+                  <TabsTrigger value="tab1">Dashboard</TabsTrigger>
+                  <TabsTrigger value="tab2">Team</TabsTrigger>
+                  <TabsTrigger value="tab3">Projects</TabsTrigger>
+                  <TabsTrigger value="tab4">Calendar</TabsTrigger>
                 </TabsList>
                 <TabsContent value="tab1" className="p-4 border border-gray-200 rounded-md mt-3">
                   <p className="text-sm">Dashboard content</p>
@@ -276,27 +272,27 @@ const TabsPage = () => {
           </ComponentCard>
 
           <ComponentCard title="Full-width Tabs with Underline" description="Tabs that expand to fill the entire width with an underline for the active tab." code={`<Tabs defaultValue="tab1" variant="fullWidth" className="w-full max-w-md">
-  <TabsList className="w-full">
+  <TabsList className="grid grid-cols-3 w-full">
     <TabsTrigger value="tab1">Dashboard</TabsTrigger>
     <TabsTrigger value="tab2">Team</TabsTrigger>
     <TabsTrigger value="tab3">Projects</TabsTrigger>
   </TabsList>
-  <TabsContent value="tab1" className="p-4 border rounded-b-md mt-1">
+  <TabsContent value="tab1" className="p-4 border rounded-b-md">
     <p className="text-sm">Dashboard content</p>
   </TabsContent>
-  <TabsContent value="tab2" className="p-4 border rounded-b-md mt-1">
+  <TabsContent value="tab2" className="p-4 border rounded-b-md">
     <p className="text-sm">Team content</p>
   </TabsContent>
-  <TabsContent value="tab3" className="p-4 border rounded-b-md mt-1">
+  <TabsContent value="tab3" className="p-4 border rounded-b-md">
     <p className="text-sm">Projects content</p>
   </TabsContent>
 </Tabs>`}>
             <div className="w-full max-w-md mx-auto">
               <Tabs defaultValue="tab1" variant="fullWidth" className="w-full">
-                <TabsList className="w-full grid grid-cols-3 border-b border-gray-200">
-                  <TabsTrigger value="tab1" className="text-sm font-medium text-gray-500 py-3">Dashboard</TabsTrigger>
-                  <TabsTrigger value="tab2" className="text-sm font-medium text-gray-500 py-3">Team</TabsTrigger>
-                  <TabsTrigger value="tab3" className="text-sm font-medium text-gray-500 py-3">Projects</TabsTrigger>
+                <TabsList className="grid grid-cols-3 w-full">
+                  <TabsTrigger value="tab1">Dashboard</TabsTrigger>
+                  <TabsTrigger value="tab2">Team</TabsTrigger>
+                  <TabsTrigger value="tab3">Projects</TabsTrigger>
                 </TabsList>
                 <TabsContent value="tab1" className="p-4 border-x border-b border-gray-200 rounded-b-md">
                   <p className="text-sm">Dashboard content</p>
@@ -333,11 +329,11 @@ const TabsPage = () => {
 </Tabs>`}>
             <div className="w-full max-w-md mx-auto">
               <Tabs defaultValue="tab1" variant="bar" className="w-full">
-                <TabsList className="flex border-b border-gray-200">
-                  <TabsTrigger value="tab1" className="text-sm font-medium text-gray-500 py-2.5 px-4 -mb-px">Overview</TabsTrigger>
-                  <TabsTrigger value="tab2" className="text-sm font-medium text-gray-500 py-2.5 px-4 -mb-px">Features</TabsTrigger>
-                  <TabsTrigger value="tab3" className="text-sm font-medium text-gray-500 py-2.5 px-4 -mb-px">Pricing</TabsTrigger>
-                  <TabsTrigger value="tab4" className="text-sm font-medium text-gray-500 py-2.5 px-4 -mb-px">FAQs</TabsTrigger>
+                <TabsList>
+                  <TabsTrigger value="tab1">Overview</TabsTrigger>
+                  <TabsTrigger value="tab2">Features</TabsTrigger>
+                  <TabsTrigger value="tab3">Pricing</TabsTrigger>
+                  <TabsTrigger value="tab4">FAQs</TabsTrigger>
                 </TabsList>
                 <TabsContent value="tab1" className="p-4 mt-4">
                   <p className="text-sm">Overview content</p>
@@ -359,30 +355,30 @@ const TabsPage = () => {
   <TabsList>
     <TabsTrigger 
       value="tab1" 
-      badge={<Badge color="primary" className="ml-2">12</Badge>}
+      badge={<Badge className="bg-blue-100 text-blue-800 rounded-full px-2 py-0.5 text-xs">12</Badge>}
     >
       Inbox
     </TabsTrigger>
     <TabsTrigger 
       value="tab2" 
-      badge={<Badge color="primary" className="ml-2">4</Badge>}
+      badge={<Badge className="bg-blue-100 text-blue-800 rounded-full px-2 py-0.5 text-xs">4</Badge>}
     >
       Spam
     </TabsTrigger>
     <TabsTrigger 
       value="tab3" 
-      badge={<Badge color="primary" className="ml-2">2</Badge>}
+      badge={<Badge className="bg-blue-100 text-blue-800 rounded-full px-2 py-0.5 text-xs">2</Badge>}
     >
       Archived
     </TabsTrigger>
   </TabsList>
-  <TabsContent value="tab1" className="p-4 border rounded-b-md mt-1">
+  <TabsContent value="tab1" className="p-4 border rounded-b-md">
     <p className="text-sm">Inbox content</p>
   </TabsContent>
-  <TabsContent value="tab2" className="p-4 border rounded-b-md mt-1">
+  <TabsContent value="tab2" className="p-4 border rounded-b-md">
     <p className="text-sm">Spam content</p>
   </TabsContent>
-  <TabsContent value="tab3" className="p-4 border rounded-b-md mt-1">
+  <TabsContent value="tab3" className="p-4 border rounded-b-md">
     <p className="text-sm">Archived content</p>
   </TabsContent>
 </Tabs>`}>
@@ -391,22 +387,19 @@ const TabsPage = () => {
                 <TabsList className="border-b border-gray-200">
                   <TabsTrigger 
                     value="tab1" 
-                    className="text-sm font-medium text-gray-500 py-3 px-4 flex items-center"
-                    badge={<Badge className="ml-2 bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full">12</Badge>}
+                    badge={<Badge className="bg-blue-100 text-blue-800 rounded-full px-2 py-0.5 text-xs">12</Badge>}
                   >
                     Inbox
                   </TabsTrigger>
                   <TabsTrigger 
                     value="tab2" 
-                    className="text-sm font-medium text-gray-500 py-3 px-4 flex items-center"
-                    badge={<Badge className="ml-2 bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full">4</Badge>}
+                    badge={<Badge className="bg-blue-100 text-blue-800 rounded-full px-2 py-0.5 text-xs">4</Badge>}
                   >
                     Spam
                   </TabsTrigger>
                   <TabsTrigger 
                     value="tab3" 
-                    className="text-sm font-medium text-gray-500 py-3 px-4 flex items-center"
-                    badge={<Badge className="ml-2 bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full">2</Badge>}
+                    badge={<Badge className="bg-blue-100 text-blue-800 rounded-full px-2 py-0.5 text-xs">2</Badge>}
                   >
                     Archived
                   </TabsTrigger>
