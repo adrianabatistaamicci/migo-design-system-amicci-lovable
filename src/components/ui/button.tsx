@@ -12,7 +12,7 @@ const buttonVariants = cva(
       variant: {
         // Contained variants (equivalent to MUI contained buttons)
         default: "bg-primary-main text-primary-contrast hover:bg-primary-dark shadow-sm hover:shadow-md active:shadow-inner",
-        secondary: "bg-secondary-main text-secondary-contrast hover:bg-secondary-dark shadow-sm hover:shadow-md active:shadow-inner",
+        secondary: "bg-white text-gray-800 border border-gray-300 hover:bg-gray-50 shadow-sm hover:shadow-md active:shadow-inner",
         error: "bg-error-main text-error-contrast hover:bg-error-dark shadow-sm hover:shadow-md active:shadow-inner",
         warning: "bg-warning-main text-warning-contrast hover:bg-warning-dark shadow-sm hover:shadow-md active:shadow-inner",
         info: "bg-info-main text-info-contrast hover:bg-info-dark shadow-sm hover:shadow-md active:shadow-inner",
