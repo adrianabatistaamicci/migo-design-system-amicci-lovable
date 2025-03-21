@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Chip } from '@/components/ui/chip';
 import { Separator } from "@/components/ui/separator";
@@ -11,12 +11,29 @@ import ComponentCard from '@/components/ComponentCard';
 import FoundationsHeader from '@/components/library-components/FoundationsHeader';
 
 const Icons = () => {
+  const [showCase, setShowCase] = useState<'standard' | 'usage' | 'technical'>('standard');
+  
   return (
     <div className="w-full animate-fade-in">
       <FoundationsHeader 
         title="Ícones"
         description="Usamos ícones Outlined da Material Design como biblioteca oficial"
       />
+      
+      {/* Abas adicionais abaixo do header */}
+      <Tabs defaultValue="standard" className="w-full mb-6">
+        <TabsList className="w-full border-0 justify-start">
+          <TabsTrigger value="standard" onClick={() => setShowCase('standard')}>
+            Padrões
+          </TabsTrigger>
+          <TabsTrigger value="usage" onClick={() => setShowCase('usage')}>
+            Casos de Uso
+          </TabsTrigger>
+          <TabsTrigger value="technical" onClick={() => setShowCase('technical')}>
+            Documentação Técnica
+          </TabsTrigger>
+        </TabsList>
+      </Tabs>
       
       <Tabs defaultValue="overview" className="w-full">
         <TabsList className="w-full justify-start h-auto p-0 bg-transparent border-0">
