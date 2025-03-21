@@ -11,10 +11,10 @@ import ComponentDetail from "./pages/ComponentDetail";
 import NotFound from "./pages/NotFound";
 import UIKit from "./pages/UIKit";
 // Import foundation pages
-import Colors from "./pages/foundations/Colors";
-import Typography from "./pages/foundations/Typography";
-import Spacing from "./pages/foundations/Spacing";
-import Icons from "./pages/foundations/Icons";
+import Colors from "./pages/Colors";
+import Typography from "./pages/Typography";
+import Spacing from "./pages/Spacing";
+import Icons from "./pages/Icons";
 import Brand from "./pages/foundations/Brand";
 // Import component pages
 import InputPage from "./pages/components/Input";
