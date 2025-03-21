@@ -848,8 +848,8 @@ const Colors = () => {
         description="Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização."
       />
       
-      <Tabs defaultValue="overview" className="mt-8">
-        <TabsList className="mb-4 bg-gray-100 p-1 rounded-lg">
+      <Tabs defaultValue="overview" className="mt-6">
+        <TabsList className="mb-4">
           <TabsTrigger value="overview">Visão Geral</TabsTrigger>
           <TabsTrigger value="base-colors">Cores Base</TabsTrigger>
           <TabsTrigger value="palettes">Paletas</TabsTrigger>

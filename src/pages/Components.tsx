@@ -10,7 +10,6 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Chip } from '@/components/ui/chip';
 import { Slider } from '@/components/ui/slider';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import { Toggle } from '@/components/ui/toggle';
 import { TailwindTabs } from '@/components/ui/tabs';
 import { Mail, Check } from 'lucide-react';
 import ComponentsHeader from '@/components/library-components/ComponentsHeader';
@@ -25,7 +24,6 @@ const componentCategories = [
       { name: 'Select', path: '/components/select' },
       { name: 'Slider', path: '/components/slider' },
       { name: 'Radio Group', path: '/components/radio-group' },
-      { name: 'Toggle', path: '/components/toggles' },
     ]
   },
   {
@@ -240,22 +238,6 @@ const Components = () => {
                 ]} 
                 max={100}
               />
-            </div>
-          </ComponentCard>
-        </div>
-        
-        <div className="mb-16">
-          <ComponentCard 
-            title="Toggle Component" 
-            description="Toggles for switching between enabled or disabled states."
-            code={`import { Toggle } from "@/components/ui/toggle"
-
-<Toggle>Click me</Toggle>
-<Toggle variant="outline">Outline</Toggle>`}
-          >
-            <div className="flex flex-wrap items-center justify-center gap-4 py-4">
-              <Toggle>Click me</Toggle>
-              <Toggle variant="outline">Outline</Toggle>
             </div>
           </ComponentCard>
         </div>
