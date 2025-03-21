@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { tokenToPixels, pixelsToToken, getSpacingClass } from '@/utils/spacingUtils';
@@ -15,7 +14,7 @@ const SpacingPage = () => {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">Spacing</h1>
         <p className="text-mui-text-secondary max-w-3xl">
-          Our spacing system provides consistent sizes that help create visual rhythm and hierarchy.
+          Nosso sistema de espaçamento fornece tamanhos consistentes que ajudam a criar ritmo visual e hierarquia.
         </p>
       </div>
 
