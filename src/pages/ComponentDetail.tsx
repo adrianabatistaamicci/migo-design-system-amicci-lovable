@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import ComponentCard from '@/components/ComponentCard';
@@ -206,7 +207,7 @@ const ComponentDetail = () => {
   // If component not found, show an error message
   if (!component) {
     return (
-      <div className="py-8">
+      <div className="py-8 w-full">
         <h1 className="text-2xl font-medium text-mui-text-primary mb-4">
           Component Not Found
         </h1>
@@ -218,8 +219,8 @@ const ComponentDetail = () => {
   }
   
   return (
-    <div className="animate-slide-in">
-      <div className="max-w-3xl mb-12">
+    <div className="animate-slide-in w-full">
+      <div className="w-full">
         <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mui-primary/10 text-mui-primary">
             Component
