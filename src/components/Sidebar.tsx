@@ -1,7 +1,9 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, ChevronRight, Package, Layers, PenTool, Palette, Coffee, MousePointer } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { TailwindTabs } from '@/components/ui/tailwind-tabs';
 
 interface SidebarItem {
   title: string;
@@ -199,6 +201,13 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
 };
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
+  // For top-level menu items that could use tabs
+  const componentsTabItems = [
+    { name: 'Basic', value: 'basic' },
+    { name: 'Complex', value: 'complex' },
+    { name: 'Layout', value: 'layout' }
+  ];
+
   return (
     <aside className={cn(
       "fixed top-16 left-0 bottom-0 w-64 bg-white border-r border-gray-200 overflow-y-auto transition-transform duration-300 ease-elastic z-30",

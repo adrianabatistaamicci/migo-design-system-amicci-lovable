@@ -1,8 +1,17 @@
 
 import React from 'react';
 import ComponentPreview from '@/components/ComponentPreview';
+import { TailwindTabs } from '@/components/ui/tailwind-tabs';
 
 const NavigationSection = () => {
+  // Example tabs for preview
+  const exampleTabs = [
+    { name: 'Overview', value: 'overview' },
+    { name: 'Features', value: 'features' },
+    { name: 'Pricing', value: 'pricing' },
+    { name: 'FAQ', value: 'faq' },
+  ];
+
   return (
     <section>
       <h2 className="text-xl font-semibold mb-6">Navigation</h2>
@@ -23,6 +32,15 @@ const NavigationSection = () => {
           title="Tabs" 
           imageSrc="/lovable-uploads/176919aa-cdc0-47fe-8ab4-b4d6f6fd057e.png" 
           variantCount={4} 
+          preview={
+            <div className="w-full">
+              <TailwindTabs 
+                tabs={exampleTabs}
+                variant="pillsGray"
+                defaultValue="overview"
+              />
+            </div>
+          }
         />
         
         <ComponentPreview 
