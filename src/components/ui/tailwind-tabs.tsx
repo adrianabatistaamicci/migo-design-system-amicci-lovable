@@ -1,201 +1,206 @@
 
-import React, { useState } from "react";
-import { cn } from "@/lib/utils";
+import React, { useState } from 'react';
+import { Badge } from '@/components/ui/badge';
 
-interface Tab {
+type Tab = {
   name: string;
   value: string;
-}
+};
 
-interface TabsProps {
+type TailwindTabsProps = {
   tabs: Tab[];
   defaultValue?: string;
   onChange?: (value: string) => void;
-  variant?: "underline" | "pills" | "pillsGray" | "pillsBrand" | "fullWidth" | "bar" | "underlineBadges";
-}
+  variant?: 'underline' | 'pills' | 'pillsGray' | 'pillsBrand' | 'fullWidth' | 'bar' | 'underlineBadges';
+};
 
-const TailwindTabs = ({ 
-  tabs, 
-  defaultValue, 
+export const TailwindTabs = ({
+  tabs,
+  defaultValue,
   onChange,
-  variant = "underline"
-}: TabsProps) => {
-  const [selectedTab, setSelectedTab] = useState(defaultValue || tabs[0]?.value);
+  variant = 'underline',
+}: TailwindTabsProps) => {
+  const [selected, setSelected] = useState(defaultValue || tabs[0]?.value);
 
   const handleTabChange = (value: string) => {
-    setSelectedTab(value);
-    if (onChange) {
-      onChange(value);
+    setSelected(value);
+    onChange?.(value);
+  };
+
+  // Render different tab styles based on variant
+  const renderTabs = () => {
+    switch (variant) {
+      case 'underline':
+        return (
+          <div className="border-b border-gray-200">
+            <nav className="-mb-px flex space-x-8">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.value}
+                  onClick={() => handleTabChange(tab.value)}
+                  className={`whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium ${
+                    selected === tab.value
+                      ? 'border-amicci-500 text-amicci-600'
+                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                  }`}
+                >
+                  {tab.name}
+                </button>
+              ))}
+            </nav>
+          </div>
+        );
+
+      case 'pills':
+        return (
+          <nav className="flex space-x-4">
+            {tabs.map((tab) => (
+              <button
+                key={tab.value}
+                onClick={() => handleTabChange(tab.value)}
+                className={`rounded-md px-3 py-2 text-sm font-medium ${
+                  selected === tab.value
+                    ? 'bg-gray-100 text-amicci-600'
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                {tab.name}
+              </button>
+            ))}
+          </nav>
+        );
+
+      case 'pillsGray':
+        return (
+          <nav className="flex space-x-2 rounded-lg bg-gray-100 p-1">
+            {tabs.map((tab) => (
+              <button
+                key={tab.value}
+                onClick={() => handleTabChange(tab.value)}
+                className={`rounded-md px-3 py-1.5 text-sm font-medium ${
+                  selected === tab.value
+                    ? 'bg-white text-amicci-600 shadow'
+                    : 'text-gray-500 hover:text-gray-900'
+                }`}
+              >
+                {tab.name}
+              </button>
+            ))}
+          </nav>
+        );
+
+      case 'pillsBrand':
+        return (
+          <nav className="flex space-x-2 rounded-lg bg-amicci-50 p-1">
+            {tabs.map((tab) => (
+              <button
+                key={tab.value}
+                onClick={() => handleTabChange(tab.value)}
+                className={`rounded-md px-3 py-1.5 text-sm font-medium ${
+                  selected === tab.value
+                    ? 'bg-amicci-500 text-white shadow'
+                    : 'text-amicci-600 hover:text-amicci-700'
+                }`}
+              >
+                {tab.name}
+              </button>
+            ))}
+          </nav>
+        );
+
+      case 'fullWidth':
+        return (
+          <div>
+            <nav className="flex border-b border-gray-200">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.value}
+                  onClick={() => handleTabChange(tab.value)}
+                  className={`flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-center text-sm font-medium ${
+                    selected === tab.value
+                      ? 'border-amicci-500 text-amicci-600'
+                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                  }`}
+                >
+                  {tab.name}
+                </button>
+              ))}
+            </nav>
+          </div>
+        );
+
+      case 'bar':
+        return (
+          <div>
+            <div className="sm:hidden">
+              <select
+                className="block w-full rounded-md border-gray-300 focus:border-amicci-500 focus:ring-amicci-500"
+                value={selected}
+                onChange={(e) => handleTabChange(e.target.value)}
+              >
+                {tabs.map((tab) => (
+                  <option key={tab.value} value={tab.value}>
+                    {tab.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="hidden sm:block">
+              <div className="border-b border-gray-200">
+                <nav className="-mb-px flex space-x-8">
+                  {tabs.map((tab) => (
+                    <button
+                      key={tab.value}
+                      onClick={() => handleTabChange(tab.value)}
+                      className={`whitespace-nowrap py-4 px-1 text-sm font-medium ${
+                        selected === tab.value
+                          ? 'border-b-2 border-amicci-500 text-amicci-600'
+                          : 'border-b-2 border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                      }`}
+                    >
+                      {tab.name}
+                    </button>
+                  ))}
+                </nav>
+              </div>
+            </div>
+          </div>
+        );
+        
+      case 'underlineBadges':
+        return (
+          <div className="border-b border-gray-200">
+            <nav className="-mb-px flex space-x-8">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.value}
+                  onClick={() => handleTabChange(tab.value)}
+                  className={`group inline-flex items-center border-b-2 py-4 px-1 text-sm font-medium ${
+                    selected === tab.value
+                      ? 'border-amicci-500 text-amicci-600'
+                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                  }`}
+                >
+                  {tab.name}
+                  <span
+                    className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${
+                      selected === tab.value
+                        ? 'bg-amicci-100 text-amicci-600'
+                        : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200'
+                    }`}
+                  >
+                    {tab.value === 'inbox' ? '5' : tab.value === 'spam' ? '42' : '3'}
+                  </span>
+                </button>
+              ))}
+            </nav>
+          </div>
+        );
+
+      default:
+        return null;
     }
   };
 
-  return (
-    <div>
-      {variant === "underline" && (
-        <div className="border-b border-gray-200">
-          <nav className="-mb-px flex space-x-8" aria-label="Tabs">
-            {tabs.map((tab) => (
-              <button
-                key={tab.name}
-                onClick={() => handleTabChange(tab.value)}
-                className={cn(
-                  selectedTab === tab.value
-                    ? "border-indigo-500 text-indigo-600"
-                    : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700",
-                  "whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium"
-                )}
-                aria-current={selectedTab === tab.value ? "page" : undefined}
-              >
-                {tab.name}
-              </button>
-            ))}
-          </nav>
-        </div>
-      )}
-
-      {variant === "pills" && (
-        <nav className="flex space-x-4" aria-label="Tabs">
-          {tabs.map((tab) => (
-            <button
-              key={tab.name}
-              onClick={() => handleTabChange(tab.value)}
-              className={cn(
-                selectedTab === tab.value
-                  ? "bg-gray-100 text-gray-700"
-                  : "text-gray-500 hover:text-gray-700",
-                "rounded-md px-3 py-2 text-sm font-medium"
-              )}
-              aria-current={selectedTab === tab.value ? "page" : undefined}
-            >
-              {tab.name}
-            </button>
-          ))}
-        </nav>
-      )}
-
-      {variant === "pillsGray" && (
-        <div className="bg-gray-100 p-1 rounded-lg">
-          <nav className="flex space-x-1" aria-label="Tabs">
-            {tabs.map((tab) => (
-              <button
-                key={tab.name}
-                onClick={() => handleTabChange(tab.value)}
-                className={cn(
-                  selectedTab === tab.value
-                    ? "bg-white text-gray-900 shadow"
-                    : "text-gray-500 hover:text-gray-700",
-                  "rounded-md px-3 py-2 text-sm font-medium"
-                )}
-                aria-current={selectedTab === tab.value ? "page" : undefined}
-              >
-                {tab.name}
-              </button>
-            ))}
-          </nav>
-        </div>
-      )}
-
-      {variant === "pillsBrand" && (
-        <div className="bg-indigo-50 p-1 rounded-lg">
-          <nav className="flex space-x-1" aria-label="Tabs">
-            {tabs.map((tab) => (
-              <button
-                key={tab.name}
-                onClick={() => handleTabChange(tab.value)}
-                className={cn(
-                  selectedTab === tab.value
-                    ? "bg-indigo-500 text-white"
-                    : "text-gray-500 hover:text-gray-700",
-                  "rounded-md px-3 py-2 text-sm font-medium"
-                )}
-                aria-current={selectedTab === tab.value ? "page" : undefined}
-              >
-                {tab.name}
-              </button>
-            ))}
-          </nav>
-        </div>
-      )}
-
-      {variant === "fullWidth" && (
-        <nav className="border-b border-gray-200">
-          <div className="-mb-px flex divide-x divide-gray-200">
-            {tabs.map((tab) => (
-              <button
-                key={tab.name}
-                onClick={() => handleTabChange(tab.value)}
-                className={cn(
-                  selectedTab === tab.value
-                    ? "border-indigo-500 text-indigo-600"
-                    : "border-transparent text-gray-500 hover:text-gray-700",
-                  "w-full py-4 px-1 text-center text-sm font-medium border-b-2"
-                )}
-                aria-current={selectedTab === tab.value ? "page" : undefined}
-              >
-                {tab.name}
-              </button>
-            ))}
-          </div>
-        </nav>
-      )}
-
-      {variant === "bar" && (
-        <div className="border-b border-gray-200">
-          <nav className="-mb-px flex space-x-8" aria-label="Tabs">
-            {tabs.map((tab) => (
-              <button
-                key={tab.name}
-                onClick={() => handleTabChange(tab.value)}
-                className={cn(
-                  selectedTab === tab.value
-                    ? "border-indigo-500 text-indigo-600"
-                    : "border-transparent text-gray-500 hover:text-gray-700",
-                  "whitespace-nowrap py-4 px-1 text-sm font-medium border-b-2"
-                )}
-                aria-current={selectedTab === tab.value ? "page" : undefined}
-              >
-                {tab.name}
-              </button>
-            ))}
-          </nav>
-        </div>
-      )}
-
-      {variant === "underlineBadges" && (
-        <div className="border-b border-gray-200">
-          <nav className="-mb-px flex space-x-8" aria-label="Tabs">
-            {tabs.map((tab) => (
-              <button
-                key={tab.name}
-                onClick={() => handleTabChange(tab.value)}
-                className={cn(
-                  selectedTab === tab.value
-                    ? "border-indigo-500 text-indigo-600"
-                    : "border-transparent text-gray-500 hover:text-gray-700",
-                  "group inline-flex items-center border-b-2 py-4 px-1 text-sm font-medium"
-                )}
-                aria-current={selectedTab === tab.value ? "page" : undefined}
-              >
-                {tab.name}
-                {/* This would normally come from tab data */}
-                <span
-                  className={cn(
-                    selectedTab === tab.value
-                      ? "bg-indigo-100 text-indigo-600"
-                      : "bg-gray-100 text-gray-900",
-                    "ml-3 hidden rounded-full py-0.5 px-2.5 text-xs font-medium md:inline-block"
-                  )}
-                >
-                  {/* Example badge count */}
-                  {Math.floor(Math.random() * 10)}
-                </span>
-              </button>
-            ))}
-          </nav>
-        </div>
-      )}
-    </div>
-  );
+  return <div className="w-full">{renderTabs()}</div>;
 };
-
-export { TailwindTabs };
