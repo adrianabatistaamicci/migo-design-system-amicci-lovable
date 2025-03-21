@@ -49,7 +49,7 @@ const Brand = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="border rounded-lg p-8 flex items-center justify-center bg-[#016071]">
                   <img 
-                    src="/src/pages/assets/Amicci-Logo_Turquesa Escuro+Branco.svg" 
+                    src="/src/pages/assets/Amicci-Logo_Turquesa Claro+Branco.svg" 
                     alt="Amicci logo para fundo Amicci-500" 
                     className="max-w-full h-auto"
                   />
@@ -136,7 +136,7 @@ const Brand = () => {
                 <div className="border rounded-lg p-6 bg-[#016071] flex justify-center">
                   <div className="max-w-md">
                     <img 
-                      src="/src/pages/assets/Amicci-Logo_Turquesa Escuro+Branco.svg" 
+                      src="/src/pages/assets/Amicci-Logo_Turquesa Claro+Branco.svg" 
                       alt="Amicci logo - versão para aplicações com fundo Amicci-500" 
                       className="max-w-full h-auto"
                     />
