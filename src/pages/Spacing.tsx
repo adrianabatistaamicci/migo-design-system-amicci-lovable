@@ -18,7 +18,7 @@ const SpacingPage = () => {
       />
 
       <Tabs defaultValue="scale" className="mt-8">
-        <TabsList>
+        <TabsList className="mb-4 bg-gray-100 p-1 rounded-lg">
           <TabsTrigger value="scale">Escala</TabsTrigger>
           <TabsTrigger value="usage">Uso</TabsTrigger>
           <TabsTrigger value="utilities">Utilitários</TabsTrigger>
