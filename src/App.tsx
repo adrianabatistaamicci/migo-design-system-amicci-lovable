@@ -18,6 +18,10 @@ import UIKit from "./pages/UIKit";
 import InputPage from "./pages/components/Input";
 import CheckboxPage from "./pages/components/Checkbox";
 import RadioPage from "./pages/components/Radio";
+import SelectPage from "./pages/components/Select";
+import SliderPage from "./pages/components/Slider";
+import SwitchPage from "./pages/components/Switch";
+import AvatarPage from "./pages/components/Avatar";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -40,6 +44,10 @@ const App = () => {
               <Route path="/components/checkbox" element={<CheckboxPage />} />
               <Route path="/components/radio" element={<RadioPage />} />
               <Route path="/components/radio-group" element={<RadioPage />} />
+              <Route path="/components/select" element={<SelectPage />} />
+              <Route path="/components/slider" element={<SliderPage />} />
+              <Route path="/components/switch" element={<SwitchPage />} />
+              <Route path="/components/avatar" element={<AvatarPage />} />
               
               {/* Foundation pages */}
               <Route path="/colors" element={<Colors />} />
