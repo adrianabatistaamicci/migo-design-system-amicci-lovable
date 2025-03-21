@@ -639,100 +639,205 @@ const ColorExample = () => {
 const Colors = () => {
   return (
     <div className="max-w-full pb-16">
-      <h1 className="text-3xl font-bold">Sistema de Cores</h1>
-      <p className="text-gray-500 mb-6">As cores são uma parte fundamental da identidade visual do sistema.</p>
+      <div className="mb-2">
+        <span className="bg-primary-main text-white text-xs font-medium px-3 py-1 rounded-full">Foundations</span>
+      </div>
+      <h1 className="text-3xl font-bold mb-2">Sistema de Cores</h1>
+      <p className="text-gray-500 mb-6">Paleta de cores e tokens de design utilizados na aplicação (50-950).</p>
       
       <Tabs defaultValue="overview" className="w-full">
-        <TabsList className="mb-4">
-          <TabsTrigger value="overview">Visão geral</TabsTrigger>
-          <TabsTrigger value="palettes">Palettes</TabsTrigger>
-          <TabsTrigger value="base">Base colors</TabsTrigger>
-          <TabsTrigger value="usage">Uso</TabsTrigger>
-          <TabsTrigger value="accessibility">Acessibilidade</TabsTrigger>
+        <TabsList className="mb-6 border-b border-gray-200 w-full">
+          <TabsTrigger value="overview" className="px-4 py-2">Visão geral</TabsTrigger>
+          <TabsTrigger value="palettes" className="px-4 py-2">Palettes</TabsTrigger>
+          <TabsTrigger value="base" className="px-4 py-2">Base colors</TabsTrigger>
+          <TabsTrigger value="usage" className="px-4 py-2">Uso</TabsTrigger>
+          <TabsTrigger value="accessibility" className="px-4 py-2">Acessibilidade</TabsTrigger>
         </TabsList>
         
-        <TabsContent value="overview" className="space-y-6">
-          <div>
-            <h2 className="text-2xl font-semibold mb-4">Paleta de cores</h2>
+        <TabsContent value="overview" className="space-y-8">
+          <div className="border rounded-lg p-6">
+            <h2 className="text-xl font-semibold mb-2">Sistema de Cores</h2>
             <p className="text-gray-600 mb-4">
-              Nossa paleta é composta por cores primárias e secundárias, com variações de intensidade que permitem 
-              flexibilidade no design mantendo a consistência visual.
+              Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização.
             </p>
+          </div>
+          
+          <div className="space-y-6">
+            <h2 className="text-xl font-semibold">Tipos de Variações</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-              <div className="space-y-2">
-                <div className="h-24 bg-primary-main rounded-md flex items-end p-3">
-                  <span className="text-white font-medium">Primária</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="border rounded-lg p-6 space-y-4">
+                <h3 className="text-lg font-medium">Variações de Estado</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-2">
+                    <span className="font-medium text-sm w-32">main:</span>
+                    <span className="text-sm">Cor principal para elementos de destaque</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="font-medium text-sm w-32">dark:</span>
+                    <span className="text-sm">Variação mais escura para contraste</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="font-medium text-sm w-32">light:</span>
+                    <span className="text-sm">Variação mais clara para fundos e elementos sutis</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="font-medium text-sm w-32">hover:</span>
+                    <span className="text-sm">Estado de hover para elementos interativos</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="font-medium text-sm w-32">selected:</span>
+                    <span className="text-sm">Estado selecionado para elementos interativos</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="font-medium text-sm w-32">focusVisible:</span>
+                    <span className="text-sm">Estado de foco visível para acessibilidade</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="font-medium text-sm w-32">outlinedBorder:</span>
+                    <span className="text-sm">Cor para bordas e contornos</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="font-medium text-sm w-32">contrast:</span>
+                    <span className="text-sm">Cor de texto sobre fundos primários</span>
+                  </div>
                 </div>
-                <p className="text-sm text-gray-500">Usada para elementos de destaque e ação principal.</p>
               </div>
               
-              <div className="space-y-2">
-                <div className="h-24 bg-secondary-main rounded-md flex items-end p-3">
-                  <span className="text-white font-medium">Secundária</span>
+              <div className="border rounded-lg p-6 space-y-4">
+                <h3 className="text-lg font-medium">Variações de Texto</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-2">
+                    <span className="font-medium text-sm w-32">primary:</span>
+                    <span className="text-sm">Texto principal para conteúdo importante</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="font-medium text-sm w-32">secondary:</span>
+                    <span className="text-sm">Texto secundário para descrições e detalhes</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="font-medium text-sm w-32">disabled:</span>
+                    <span className="text-sm">Texto para elementos desabilitados</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="font-medium text-sm w-32">hover:</span>
+                    <span className="text-sm">Estado de hover para texto interativo</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="font-medium text-sm w-32">selected:</span>
+                    <span className="text-sm">Estado selecionado para texto interativo</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="font-medium text-sm w-32">focus:</span>
+                    <span className="text-sm">Estado de foco para texto interativo</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="font-medium text-sm w-32">focusVisible:</span>
+                    <span className="text-sm">Estado de foco visível para acessibilidade</span>
+                  </div>
                 </div>
-                <p className="text-sm text-gray-500">Complementa a cor primária em elementos importantes.</p>
-              </div>
-              
-              <div className="space-y-2">
-                <div className="h-24 bg-tertiary-main rounded-md flex items-end p-3">
-                  <span className="text-white font-medium">Terciária</span>
-                </div>
-                <p className="text-sm text-gray-500">Utilizada para destaques e acentos visuais.</p>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
-              <div className="space-y-2">
-                <div className="h-16 bg-success-main rounded-md flex items-end p-3">
-                  <span className="text-white font-medium">Sucesso</span>
-                </div>
-                <p className="text-sm text-gray-500">Para ações bem-sucedidas.</p>
-              </div>
-              
-              <div className="space-y-2">
-                <div className="h-16 bg-error-main rounded-md flex items-end p-3">
-                  <span className="text-white font-medium">Erro</span>
-                </div>
-                <p className="text-sm text-gray-500">Indica erros e ações destrutivas.</p>
-              </div>
-              
-              <div className="space-y-2">
-                <div className="h-16 bg-warning-main rounded-md flex items-end p-3">
-                  <span className="text-white font-medium">Alerta</span>
-                </div>
-                <p className="text-sm text-gray-500">Para avisos e alertas.</p>
-              </div>
-              
-              <div className="space-y-2">
-                <div className="h-16 bg-info-main rounded-md flex items-end p-3">
-                  <span className="text-white font-medium">Informação</span>
-                </div>
-                <p className="text-sm text-gray-500">Para mensagens informativas.</p>
               </div>
             </div>
           </div>
           
-          <Separator />
-          
-          <div>
-            <h2 className="text-2xl font-semibold mb-4">Cores e Hierarquia</h2>
-            <p className="text-gray-600 mb-4">
-              A aplicação das cores deve seguir a hierarquia visual do sistema, reforçando a navegação e orientando 
-              a atenção do usuário.
-            </p>
+          <div className="space-y-6">
+            <h2 className="text-xl font-semibold">O sistema é organizado em dois níveis principais:</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-              <div className="border rounded-lg p-4 space-y-4">
-                <h3 className="font-medium">Ações Principais</h3>
-                <Button className="w-full">Botão de Ação Principal</Button>
-                <p className="text-sm text-gray-500">A cor primária é usada para ações principais, como botões de confirmação.</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="border rounded-lg p-6 space-y-4">
+                <h3 className="text-lg font-medium">1. Cores Básicas</h3>
+                <p className="text-sm text-gray-600 mb-3">Um conjunto completo de cores de 50 a 900 para:</p>
+                <div className="text-sm text-gray-600 space-y-1">
+                  <p>base-color-amicci base-color-amicciDark base-color-blue base-color-magenta</p>
+                  <p>base-color-green base-color-gray base-color-orange base-color-red</p>
+                  <p>base-color-yellow base-color-common-white</p>
+                </div>
               </div>
               
-              <div className="border rounded-lg p-4 space-y-4">
-                <h3 className="font-medium">Ações Secundárias</h3>
-                <Button variant="secondary" className="w-full">Botão de Ação Secundária</Button>
-                <p className="text-sm text-gray-500">A cor secundária é usada para ações complementares ou alternativas.</p>
+              <div className="border rounded-lg p-6 space-y-4">
+                <h3 className="text-lg font-medium">2. Paletas Compostas</h3>
+                <p className="text-sm text-gray-600 mb-3">Paletas semânticas que utilizam as cores básicas como base:</p>
+                <div className="text-sm text-gray-600 space-y-1">
+                  <p>base-color-amicci base-color-amicciDark base-color-magenta base-color-gray</p>
+                  <p>base-color-red base-color-yellow base-color-blue base-color-green</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="space-y-4">
+            <h2 className="text-xl font-semibold">Cada paleta composta inclui variações para diferentes estados e usos:</h2>
+            
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
+              <div className="h-12 bg-primary-main rounded flex items-center justify-center">
+                <span className="text-white text-sm">main</span>
+              </div>
+              <div className="h-12 bg-gray-800 rounded flex items-center justify-center">
+                <span className="text-white text-sm">dark</span>
+              </div>
+              <div className="h-12 bg-gray-100 rounded flex items-center justify-center">
+                <span className="text-gray-800 text-sm">light</span>
+              </div>
+              <div className="h-12 bg-blue-50 rounded border border-blue-200 flex items-center justify-center">
+                <span className="text-blue-800 text-sm">focusVisible</span>
+              </div>
+              <div className="h-12 bg-green-100 border border-green-300 rounded flex items-center justify-center">
+                <span className="text-green-800 text-sm">outlinedBorder</span>
+              </div>
+              <div className="h-12 bg-gray-50 rounded flex items-center justify-center">
+                <span className="text-gray-600 text-sm">contrast</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="space-y-6">
+            <h2 className="text-xl font-semibold">Como Usar</h2>
+            
+            <div className="border rounded-lg p-6 space-y-4">
+              <p className="text-gray-600 mb-3">
+                Acesse as cores usando as classes utilitárias do Tailwind baseadas na nomenclatura semântica:
+              </p>
+              
+              <div className="space-y-2 font-mono text-sm">
+                <div className="flex items-center gap-2">
+                  <span className="bg-primary-main text-white px-2 py-1 rounded">bg-primary-main</span>
+                  <span className="text-gray-500">- Cor primária principal</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-error-main px-2 py-1">text-error-main</span>
+                  <span className="text-gray-500">- Texto na cor de erro</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="border border-warning-outlinedBorder px-2 py-1 rounded">border-warning-outlinedBorder</span>
+                  <span className="text-gray-500">- Borda na cor de contorno de aviso</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="bg-amicci-500 text-white px-2 py-1 rounded">bg-amicci-500</span>
+                  <span className="text-gray-500">- Cor básica amicci (500)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-gray-900 px-2 py-1">text-gray-900</span>
+                  <span className="text-gray-500">- Texto principal</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="space-y-6">
+            <h2 className="text-xl font-semibold">Acessibilidade</h2>
+            
+            <div className="border rounded-lg p-6 space-y-4">
+              <div className="space-y-2">
+                <p className="text-gray-600">
+                  Nosso sistema de cores foi projetado com acessibilidade em mente:
+                </p>
+                
+                <ul className="list-disc pl-5 space-y-2 text-gray-600">
+                  <li>Os pares de cores atendem aos requisitos de contraste WCAG 2.1 AA</li>
+                  <li>Cada paleta inclui versões de contraste dedicadas</li>
+                  <li>As cores seguem uma hierarquia visual clara</li>
+                  <li>Estados de interação (hover, focus, selected) são visualmente distintos</li>
+                </ul>
               </div>
             </div>
           </div>
