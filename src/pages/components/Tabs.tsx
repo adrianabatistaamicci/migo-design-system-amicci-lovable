@@ -1,8 +1,10 @@
+
 import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { Star, User, Mail, Settings, FileText, Home } from 'lucide-react';
+
 const TabsPage = () => {
   return <div className="w-full animate-slide-in">
       <div className="mb-12">
@@ -32,7 +34,7 @@ const TabsPage = () => {
         
         <div className="space-y-12">
           <ComponentCard title="Basic Tabs" description="A simple tabs component with multiple panels." code={`<Tabs defaultValue="account" className="w-full max-w-md">
-  <TabsList className="w-full grid grid-cols-2">
+  <TabsList>
     <TabsTrigger value="account">Account</TabsTrigger>
     <TabsTrigger value="password">Password</TabsTrigger>
   </TabsList>
@@ -51,8 +53,8 @@ const TabsPage = () => {
 </Tabs>`}>
             <div className="w-full ">
               <Tabs defaultValue="account" className="w-full">
-                <TabsList className="w-full">
-                  <TabsTrigger value="account" className="mx-auto">Account</TabsTrigger>
+                <TabsList>
+                  <TabsTrigger value="account">Account</TabsTrigger>
                   <TabsTrigger value="password">Password</TabsTrigger>
                 </TabsList>
                 <TabsContent value="account" className="p-4 border rounded-b-md mt-1">
@@ -828,4 +830,5 @@ const TabsPage = () => {
       </div>
     </div>;
 };
+
 export default TabsPage;
