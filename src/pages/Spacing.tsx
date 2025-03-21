@@ -13,9 +13,7 @@ const SpacingPage = () => {
           <Chip variant="filled" color="primary" size="sm">Foundations</Chip>
         </div>
         <h1 className="text-3xl font-bold tracking-tight">Spacing</h1>
-        <p className="text-mui-text-secondary max-w-3xl">
-          Nosso sistema de espaçamento fornece tamanhos consistentes que ajudam a criar ritmo visual e hierarquia.
-        </p>
+        <p className="text-mui-text-secondary max-w-3xl">Nosso sistema de espaçamento fornece tamanhos consistentes que ajudam a criar ritmo visual e hierarquia.</p>
       </div>
 
       <Tabs defaultValue="scale" className="mt-8">
