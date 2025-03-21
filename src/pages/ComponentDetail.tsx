@@ -15,7 +15,7 @@ const componentData = {
     title: 'Button',
     description: 'Interactive elements that enable users to trigger actions.',
     api: [
-      { prop: 'variant', type: '"default" | "secondary" | "error" | "warning" | "info" | "success" | "outline-*" | "text-*"', default: '"default"', description: 'Visual style of the button' },
+      { prop: 'variant', type: '"default" | "secondary" | "error" | "outline-default" | "outline-secondary" | "outline-error" | "text-default" | "text-secondary" | "text-error"', default: '"default"', description: 'Visual style of the button' },
       { prop: 'size', type: '"default" | "sm" | "lg" | "icon"', default: '"default"', description: 'Size of the button' },
       { prop: 'state', type: '"default" | "hover" | "focus" | "disabled" | "loading"', default: '"default"', description: 'State of the button' },
       { prop: 'disabled', type: 'boolean', default: 'false', description: 'When true, prevents user interaction' },
@@ -25,58 +25,46 @@ const componentData = {
     ],
     examples: [
       {
-        title: 'Contained Button Variants',
+        title: 'Botão primário',
         description: 'Material UI styled contained buttons with raised appearance.',
         component: (
           <div className="flex flex-wrap gap-4">
             <Button>Primary</Button>
+            <Button variant="secondary">Secondary</Button>
             <Button variant="error">Error</Button>
-            <Button variant="warning">Warning</Button>
-            <Button variant="info">Info</Button>
-            <Button variant="success">Success</Button>
           </div>
         ),
         code: `<Button>Primary</Button>
-<Button variant="error">Error</Button>
-<Button variant="warning">Warning</Button>
-<Button variant="info">Info</Button>
-<Button variant="success">Success</Button>`
+<Button variant="secondary">Secondary</Button>
+<Button variant="error">Error</Button>`
       },
       {
-        title: 'Outlined Button Variants',
+        title: 'Botão secundário',
         description: 'Buttons with outline for less pronounced actions.',
         component: (
           <div className="flex flex-wrap gap-4">
+            <Button variant="outline-default">Default</Button>
             <Button variant="outline-secondary">Secondary</Button>
             <Button variant="outline-error">Error</Button>
-            <Button variant="outline-warning">Warning</Button>
-            <Button variant="outline-info">Info</Button>
-            <Button variant="outline-success">Success</Button>
           </div>
         ),
-        code: `<Button variant="outline-secondary">Secondary</Button>
-<Button variant="outline-error">Error</Button>
-<Button variant="outline-warning">Warning</Button>
-<Button variant="outline-info">Info</Button>
-<Button variant="outline-success">Success</Button>`
+        code: `<Button variant="outline-default">Default</Button>
+<Button variant="outline-secondary">Secondary</Button>
+<Button variant="outline-error">Error</Button>`
       },
       {
-        title: 'Text Button Variants',
+        title: 'Botão terciário',
         description: 'Buttons without background or outline for subtle actions.',
         component: (
           <div className="flex flex-wrap gap-4">
+            <Button variant="text-default">Default</Button>
             <Button variant="text-secondary">Secondary</Button>
             <Button variant="text-error">Error</Button>
-            <Button variant="text-warning">Warning</Button>
-            <Button variant="text-info">Info</Button>
-            <Button variant="text-success">Success</Button>
           </div>
         ),
-        code: `<Button variant="text-secondary">Secondary</Button>
-<Button variant="text-error">Error</Button>
-<Button variant="text-warning">Warning</Button>
-<Button variant="text-info">Info</Button>
-<Button variant="text-success">Success</Button>`
+        code: `<Button variant="text-default">Default</Button>
+<Button variant="text-secondary">Secondary</Button>
+<Button variant="text-error">Error</Button>`
       },
       {
         title: 'Button Sizes',

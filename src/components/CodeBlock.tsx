@@ -30,7 +30,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
 
   return (
     <div className={cn(
-      "rounded-lg border border-mui-border overflow-hidden bg-mui-sidebar mb-6",
+      "rounded-lg border border-mui-border overflow-hidden bg-mui-sidebar mb-4",
       className
     )}>
       {title && (

@@ -19,7 +19,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
   children,
   code,
   className,
-  height = 320
+  height = "auto"
 }) => {
   const [showCode, setShowCode] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -40,7 +40,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
       "rounded-lg border border-gray-200 bg-white overflow-hidden transition-all duration-250 animate-fade-in shadow-sm h-full flex flex-col",
       className
     )}>
-      <div className="p-5 border-b border-gray-200">
+      <div className="p-4 border-b border-gray-200">
         <h3 className="text-lg font-medium text-gray-800 mb-1">{title}</h3>
         {description && (
           <p className="text-gray-600 text-sm">{description}</p>
@@ -48,8 +48,11 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
       </div>
       
       <div 
-        className="p-6 flex items-center justify-center flex-grow overflow-y-auto"
-        style={{ minHeight: typeof height === 'number' ? `${height}px` : height }}
+        className="p-5 flex items-center justify-center flex-grow overflow-y-auto"
+        style={{ 
+          minHeight: typeof height === 'number' ? `${height}px` : height,
+          maxHeight: 200
+        }}
       >
         <div className="w-full">
           {children}
