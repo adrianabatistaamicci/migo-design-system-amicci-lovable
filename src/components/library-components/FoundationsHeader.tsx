@@ -16,7 +16,7 @@ const FoundationsHeader = ({
         <div className="flex items-center gap-2 text-sm text-gray-700 font-medium mb-2">
           <Chip variant="outlined" color="default" size="sm">Foundations</Chip>
         </div>
-        <h1 className="text-3xl font-bold tracking-tight text-zinc-950">{title}</h1>
+        <h1 className="text-3xl font-medium tracking-tight text-zinc-950">{title}</h1>
         <p className="max-w-none text-zinc-700">{description}</p>
       </div>
     </div>;
