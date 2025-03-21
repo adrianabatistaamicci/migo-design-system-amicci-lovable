@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -11,7 +10,6 @@ import AmicciLogoTurquesaBranco from '@/pages/assets/Amicci-Logo_TurquesaClaro+B
 import AmicciLogoBranco from '@/pages/assets/Amicci-Logo_Branco.svg';
 import AmicciSimbolo from '@/pages/assets/Amicci-Simbolo_Turquesa_Escuro.svg';
 import AmicciTagDesignSystem from 'src/pages/assets/amicci-logo-tag-design-system.svg';
-
 const Brand = () => {
   return <div className="w-full animate-fade-in">
       <FoundationsHeader title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." />
@@ -65,7 +63,7 @@ const Brand = () => {
                   <img src={AmicciLogo} alt="Amicci wordmark" className="max-w-[250px] h-auto" />
                 </div>
                 <div className="space-y-4">
-                  <h4 className="font-medium">Wordmark</h4>
+                  <h4 className="font-medium">Logo com tag</h4>
                   <p className="text-gray-600">A versão textual da nossa marca pode ser usada em contextos onde o símbolo não é necessário ou quando o espaço é limitado horizontalmente.</p>
                 </div>
               </div>
