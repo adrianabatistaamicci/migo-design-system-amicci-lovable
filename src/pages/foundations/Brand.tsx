@@ -30,8 +30,8 @@ const Brand = () => {
                   <h4 className="font-medium">Logo principal</h4>
                   <p className="text-gray-600">O logo da Amicci está disponível em diferentes variações, combinando as cores turquesa e turquesa escuro em diferentes fundos.</p>
                   <div className="flex gap-2">
-                    <Button size="sm" variant="outline">Download SVG</Button>
-                    <Button size="sm" variant="outline">Download PNG</Button>
+                    <Button variant="outline">Download SVG</Button>
+                    <Button variant="outline">Download PNG</Button>
                   </div>
                 </div>
               </div>
@@ -48,8 +48,8 @@ const Brand = () => {
                   <h4 className="font-medium">Logo para fundo escuro</h4>
                   <p className="text-gray-600">Versão do logo Amicci adaptada para aplicações onde o fundo é escuro, mantendo a legibilidade e o impacto visual.</p>
                   <div className="flex gap-2">
-                    <Button size="sm" variant="outline">Download SVG</Button>
-                    <Button size="sm" variant="outline">Download PNG</Button>
+                    <Button variant="outline">Download SVG</Button>
+                    <Button variant="outline">Download PNG</Button>
                   </div>
                 </div>
               </div>
@@ -84,8 +84,8 @@ const Brand = () => {
                   <h4 className="font-medium">Símbolo</h4>
                   <p className="text-gray-600">O símbolo da Amicci pode ser usado sozinho em contextos onde a marca já é conhecida ou em espaços muito restritos, como ícones de favicons.</p>
                   <div className="flex gap-2">
-                    <Button size="sm" variant="outline">Download SVG</Button>
-                    <Button size="sm" variant="outline">Download PNG</Button>
+                    <Button variant="outline">Download SVG</Button>
+                    <Button variant="outline">Download PNG</Button>
                   </div>
                 </div>
               </div>
