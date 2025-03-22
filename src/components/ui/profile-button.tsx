@@ -77,7 +77,7 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
       >
         <div className="flex items-center w-full px-4 py3">
           {showClientLogo && (
-            <div className="flex items-center mr-2 mx-2"> {/* Changed mr-6 to mr-2 for 8px spacing between logo and avatar */}
+            <div className="flex items-center mr-2 mx-2">
               {logoSrc ? (
                 <img src={logoSrc} alt={logoAlt} className="h-7 w-auto" />
               ) : (
@@ -95,14 +95,16 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
               )}
             </div>
           
-            <div className="flex flex-col items-start text-left ml-2"> {/* Added ml-2 for 8px left margin */}
+            <div className="flex flex-col items-start text-left ml-2">
               <span className="text-base font-medium text-gray-900 leading-tight">{displayUserName}</span>
               <span className="text-sm text-gray-500 leading-tight">{displayCompanyName}</span>
             </div>
           </div>
           
           <div className="text-gray-600 ml-auto pl-[15px]">
-            {menuIcon || <Menu className="h-6 w-6" />}
+            <div className="mr-2">
+              {menuIcon || <Menu className="h-6 w-6" />}
+            </div>
           </div>
         </div>
       </button>
