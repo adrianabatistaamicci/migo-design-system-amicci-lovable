@@ -22,8 +22,8 @@ const FoundationsHeader = ({
             Foundations
           </Chip>
         </div>
-        <h1 className="text-4xl font-medium tracking-tight text-zinc-950">{title}</h1>
-        <p className="max-w-none text-zinc-700">{description}</p>
+        <h1 className="text-4xl font-medium tracking-tight text-gray-950">{title}</h1>
+        <p className="max-w-none text-gray-700">{description}</p>
       </div>
     </div>;
 };
