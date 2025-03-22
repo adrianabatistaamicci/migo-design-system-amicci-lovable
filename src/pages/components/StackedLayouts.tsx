@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import { Link } from 'react-router-dom';
@@ -64,23 +65,46 @@ const LayoutComponent = ({ title, component }) => {
   
   return (
     <div className="space-y-2">
-      <div className="flex justify-between items-center px-4">
+      <div className="px-4">
         <h3 className="text-lg font-medium text-gray-900">{title}</h3>
-        <Button 
-          variant="ghost" 
-          size="sm" 
-          onClick={() => setShowCode(!showCode)}
-          className="flex items-center gap-1 text-sm"
-        >
-          <Code size={16} />
-          <span>{showCode ? 'Hide code' : 'Show code'}</span>
-        </Button>
       </div>
       
       <div className="border rounded-lg overflow-hidden">
         <div className="bg-gray-100 w-full h-[500px] overflow-hidden">
           {component}
         </div>
+        
+        <div className="border-t border-gray-200 px-4 py-2 flex justify-between items-center bg-gray-50">
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={() => setShowCode(!showCode)}
+            className="flex items-center gap-1 text-sm"
+          >
+            <Code size={16} />
+            <span>{showCode ? 'Hide code' : 'Show code'}</span>
+          </Button>
+          
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={copyToClipboard}
+            className="flex items-center gap-1 text-sm"
+          >
+            {copied ? (
+              <>
+                <CheckCheck size={16} />
+                <span>Copied</span>
+              </>
+            ) : (
+              <>
+                <Copy size={16} />
+                <span>Copy</span>
+              </>
+            )}
+          </Button>
+        </div>
+        
         {showCode && (
           <div className="border-t p-4 bg-gray-50 overflow-x-auto">
             <pre className="text-sm">
