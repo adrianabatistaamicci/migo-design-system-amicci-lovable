@@ -15,7 +15,7 @@ const StackedLayouts = () => {
   return (
     <div className="w-full animate-fade-in">
       <Header title="Stacked Layouts" description="Layouts empilhados (stacked) são uma estrutura comum para aplicações onde o cabeçalho permanece fixo no topo enquanto o conteúdo principal é rolável. Esses layouts proporcionam uma navegação clara e consistente para os usuários." type="components" />
-
+              
       <div className="mt-8">
         <TailwindTabs 
           tabs={[
@@ -23,7 +23,7 @@ const StackedLayouts = () => {
             { name: 'Uso no marketplace', value: 'marketplace' },
             { name: 'Uso no site institucional', value: 'institutional' }
           ]}
-          variant="underline"
+          variant="pillsGray"
           defaultValue="overview"
           onChange={setActiveTab}
           className="mb-8"
