@@ -1,25 +1,21 @@
 
 import React from 'react';
 import ComponentPreview from '@/components/ComponentPreview';
-import EmptyState from '@/components/library-components/EmptyState';
+import { Link } from 'react-router-dom';
 
 const ApplicationShellsSection = () => {
   return (
     <div>
       <h2 className="text-xl font-semibold mb-6">Application Shells</h2>
       
-      <EmptyState 
-        title="Conteúdo em Desenvolvimento" 
-        description="Os exemplos detalhados de Application Shells estão sendo implementados. Volte em breve para visualizar os componentes." 
-        icon="construction"
-      />
-      
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <ComponentPreview 
-          title="Stacked Layouts" 
-          imageSrc="/lovable-uploads/2164823d-9e27-4ff7-a19d-e5117a64f1f6.png" 
-          variantCount={3} 
-        />
+        <Link to="/components/stacked-layouts">
+          <ComponentPreview 
+            title="Stacked Layouts" 
+            imageSrc="/lovable-uploads/2164823d-9e27-4ff7-a19d-e5117a64f1f6.png" 
+            variantCount={3} 
+          />
+        </Link>
         
         <ComponentPreview 
           title="Sidebar Layouts" 
