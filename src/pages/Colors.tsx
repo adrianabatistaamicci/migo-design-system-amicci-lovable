@@ -842,7 +842,7 @@ const Colors = () => {
   };
 
   return (
-    <div className="container mx-auto py-12">
+    <div className="w-full animate-fade-in">
       <FoundationsHeader
         title="Sistema de Cores"
         description="Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização."
