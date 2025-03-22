@@ -8,32 +8,23 @@ import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { TailwindTabs } from '@/components/ui/tabs';
-
 const StackedLayouts = () => {
   const [activeTab, setActiveTab] = useState('overview');
-  
-  return (
-    <div className="w-full animate-fade-in">
-      <Header 
-        title="Stacked Layouts" 
-        description="Layouts empilhados (stacked) são uma estrutura comum para aplicações onde o cabeçalho permanece fixo no topo enquanto o conteúdo principal é rolável. Esses layouts proporcionam uma navegação clara e consistente para os usuários."
-        type="components"
-      />
+  return <div className="w-full animate-fade-in">
+      <Header title="Stacked Layouts" description="Layouts empilhados (stacked) são uma estrutura comum para aplicações onde o cabeçalho permanece fixo no topo enquanto o conteúdo principal é rolável. Esses layouts proporcionam uma navegação clara e consistente para os usuários." type="components" />
         
-      <TailwindTabs 
-        defaultValue="overview" 
-        className="mt-8"
-        tabs={[
-          { name: 'Visão geral', value: 'overview' },
-          { name: 'Uso no marketplace', value: 'marketplace' },
-          { name: 'Uso no site institucional', value: 'institutional' }
-        ]}
-        variant="pillsGray"
-        onChange={(value) => setActiveTab(value)}
-      />
+      <TailwindTabs defaultValue="overview" className="mt-8" tabs={[{
+      name: 'Visão geral',
+      value: 'overview'
+    }, {
+      name: 'Uso no marketplace',
+      value: 'marketplace'
+    }, {
+      name: 'Uso no site institucional',
+      value: 'institutional'
+    }]} variant="pillsGray" onChange={value => setActiveTab(value)} />
 
-      {activeTab === 'overview' && (
-        <div className="space-y-12 mt-10">
+      {activeTab === 'overview' && <div className="space-y-12 mt-10">
           <LayoutComponent title="Light nav with bottom border" component={<LightNavBottomBorder />} />
           
           <LayoutComponent title="Light nav on gray background" component={<LightNavGrayBackground />} />
@@ -43,24 +34,17 @@ const StackedLayouts = () => {
           <LayoutComponent title="Branded nav with white page header" component={<BrandedNavWithWhiteHeader />} />
           
           <LayoutComponent title="Brand nav with overlap" component={<BrandNavWithOverlap />} />
-        </div>
-      )}
+        </div>}
 
-      {activeTab === 'marketplace' && (
-        <div className="space-y-12 mt-10">
+      {activeTab === 'marketplace' && <div className="space-y-12 mt-10">
           <LayoutComponent title="Marketplace Navigation" component={<MarketplaceNav />} />
-        </div>
-      )}
+        </div>}
 
-      {activeTab === 'institutional' && (
-        <div className="space-y-12 mt-10">
+      {activeTab === 'institutional' && <div className="space-y-12 mt-10">
           <LayoutComponent title="Institutional Site Navigation" component={<InstitutionalNav />} />
-        </div>
-      )}
-    </div>
-  );
+        </div>}
+    </div>;
 };
-
 const LayoutComponent = ({
   title,
   component
@@ -73,8 +57,7 @@ const LayoutComponent = ({
       setCopied(false);
     }, 2000);
   };
-  return (
-    <div className="space-y-3">
+  return <div className="space-y-3">
       <div className="px-4">
         <h3 className="text-xl font-medium text-gray-900">{title}</h3>
       </div>
@@ -101,23 +84,18 @@ const LayoutComponent = ({
           </Button>
         </div>
         
-        {showCode && (
-          <div className="border-t p-4 bg-gray-50 overflow-x-auto">
+        {showCode && <div className="border-t p-4 bg-gray-50 overflow-x-auto">
             <pre className="text-sm">
               <code>{`// Component code would go here
 // This is a placeholder for the actual code
 // In a real implementation, each component's code would be shown here`}</code>
             </pre>
-          </div>
-        )}
+          </div>}
       </div>
-    </div>
-  );
+    </div>;
 };
-
 const MarketplaceNav = () => {
-  return (
-    <div className="min-h-[500px] w-full bg-white">
+  return <div className="min-h-[500px] w-full bg-white">
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-[88px] items-center justify-between">
@@ -177,13 +155,10 @@ const MarketplaceNav = () => {
           </div>
         </main>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 const InstitutionalNav = () => {
-  return (
-    <div className="min-h-[500px] w-full bg-white">
+  return <div className="min-h-[500px] w-full bg-white">
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-[88px] items-center justify-between">
@@ -237,10 +212,8 @@ const InstitutionalNav = () => {
           </div>
         </main>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 const BrandedNavWithWhiteHeader = () => {
   return <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900">
@@ -286,7 +259,6 @@ const BrandedNavWithWhiteHeader = () => {
       </main>
     </div>;
 };
-
 const BrandNavWithOverlap = () => {
   return <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900 pb-32">
@@ -327,7 +299,6 @@ const BrandNavWithOverlap = () => {
       </main>
     </div>;
 };
-
 const BrandedNavCompactHeader = () => {
   return <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900">
@@ -373,7 +344,6 @@ const BrandedNavCompactHeader = () => {
       </main>
     </div>;
 };
-
 const LightNavGrayBackground = () => {
   return <div className="min-h-[500px] w-full bg-gray-100">
       <nav className="bg-white shadow-sm">
@@ -421,7 +391,6 @@ const LightNavGrayBackground = () => {
       </div>
     </div>;
 };
-
 const LightNavBottomBorder = () => {
   return <div className="min-h-[500px] w-full bg-white">
       <nav className="bg-white border-b border-gray-200">
@@ -431,7 +400,7 @@ const LightNavBottomBorder = () => {
               <div className="flex-shrink-0">
                 <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
               </div>
-              <div className="hidden md:ml-12 md:flex md:space-x-8">
+              <div className="hidden md:ml-12 md:flex md:space-x-6">
                 <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-900">Dashboard</a>
                 <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Equipe</a>
                 <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Projetos</a>
@@ -469,5 +438,4 @@ const LightNavBottomBorder = () => {
       </div>
     </div>;
 };
-
 export default StackedLayouts;
