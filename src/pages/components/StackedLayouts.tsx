@@ -34,13 +34,13 @@ const StackedLayouts = () => {
         />
         
         <LayoutComponent 
-          title="Brand nav with overlap"
-          component={<BrandNavWithOverlap />}
+          title="Branded nav with white page header"
+          component={<BrandedNavWithWhiteHeader />}
         />
         
         <LayoutComponent 
-          title="Branded nav with white page header"
-          component={<BrandedNavWithWhiteHeader />}
+          title="Brand nav with overlap"
+          component={<BrandNavWithOverlap />}
         />
       </div>
     </div>
