@@ -82,7 +82,7 @@ const BrandedNavWithWhiteHeader = () => {
               <span className="sr-only">Amicci</span>
               <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
             </a>
-            <div className="ml-6 flex lg:gap-x-12">
+            <div className="ml-12 flex lg:gap-x-8">
               <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
               <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
               <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
@@ -127,7 +127,7 @@ const BrandNavWithOverlap = () => {
               <span className="sr-only">Amicci</span>
               <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
             </a>
-            <div className="ml-6 flex lg:gap-x-12">
+            <div className="ml-12 flex lg:gap-x-8">
               <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
               <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
               <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
