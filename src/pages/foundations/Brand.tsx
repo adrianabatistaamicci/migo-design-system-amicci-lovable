@@ -34,7 +34,7 @@ const Brand = () => {
       />
 
       <div className="mt-6 space-y-10">
-        <ComponentCard title="Logo Amicci" description="Nossa marca representa nossa identidade e valores fundamentais.">
+        <ComponentCard title="Logo Amicci" description="Nossa marca representa nossa identidade e valores fundamentais." className="mb-6">
           <div className="space-y-10">
             <div className="space-y-6">
               <h3 className="text-xl font-medium">Versão Principal</h3>
