@@ -84,9 +84,9 @@ const BrandedNavWithWhiteHeader = () => {
             </a>
             <div className="ml-12 flex lg:gap-x-8">
               <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
-              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
-              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
-              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Equipe</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Projetos</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Calendário</a>
             </div>
           </div>
           <div className="flex lg:hidden">
@@ -129,9 +129,9 @@ const BrandNavWithOverlap = () => {
             </a>
             <div className="ml-12 flex lg:gap-x-8">
               <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
-              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
-              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
-              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Equipe</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Projetos</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Calendário</a>
             </div>
           </div>
           <div className="flex lg:hidden">
@@ -170,8 +170,8 @@ const BrandedNavCompactHeader = () => {
             <div className="ml-12 flex lg:gap-x-8">
               <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
               <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Equipe</a>
-              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
-              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Projetos</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Calendário</a>
             </div>
           </div>
           <div className="flex lg:hidden">
