@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import { Link } from 'react-router-dom';
@@ -80,17 +81,17 @@ const BrandedNavWithWhiteHeader = () => {
   return <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900">
         <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 h-[88px] lg:px-8" aria-label="Global">
-          <div className="flex flex-1">
+          <div className="flex flex-1 items-center">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Amicci</span>
               <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
             </a>
-          </div>
-          <div className="hidden lg:flex lg:gap-x-12">
-            <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
+            <div className="ml-6 hidden lg:flex lg:gap-x-12">
+              <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
+            </div>
           </div>
           <div className="flex lg:hidden">
             <button type="button" className="inline-flex items-center justify-center rounded-md p-2.5 text-amicciDark-200">
@@ -98,7 +99,7 @@ const BrandedNavWithWhiteHeader = () => {
               <Menu className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="hidden lg:flex lg:items-center lg:ml-4">
+          <div className="hidden lg:flex lg:items-center">
             <button type="button" className="relative p-1 text-white hover:text-amicciDark-100 focus:outline-none">
               <span className="sr-only">Ver notificações</span>
               <Bell className="h-6 w-6 text-gray-950" aria-hidden="true" />
@@ -126,17 +127,17 @@ const BrandNavWithOverlap = () => {
   return <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900 pb-32">
         <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 h-[88px] lg:px-8" aria-label="Global">
-          <div className="flex flex-1">
+          <div className="flex flex-1 items-center">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Amicci</span>
               <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
             </a>
-          </div>
-          <div className="hidden lg:flex lg:gap-x-12">
-            <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
+            <div className="ml-6 hidden lg:flex lg:gap-x-12">
+              <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
+            </div>
           </div>
           <div className="flex lg:hidden">
             <button type="button" className="inline-flex items-center justify-center rounded-md p-2.5 text-amicciDark-200">
@@ -144,7 +145,7 @@ const BrandNavWithOverlap = () => {
               <Menu className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="hidden lg:flex lg:items-center lg:ml-4">
+          <div className="hidden lg:flex lg:items-center">
             <button type="button" className="relative p-1 text-white hover:text-amicciDark-100 focus:outline-none">
               <span className="sr-only">Ver notificações</span>
               <Bell className="h-6 w-6 text-gray-950" aria-hidden="true" />
@@ -167,17 +168,17 @@ const BrandedNavCompactHeader = () => {
   return <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900">
         <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 h-[88px] lg:px-8" aria-label="Global">
-          <div className="flex flex-1">
+          <div className="flex flex-1 items-center">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Amicci</span>
               <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
             </a>
-          </div>
-          <div className="hidden lg:flex lg:gap-x-12">
-            <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Equipe</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
+            <div className="ml-6 hidden lg:flex lg:gap-x-12">
+              <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Equipe</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
+            </div>
           </div>
           <div className="flex lg:hidden">
             <button type="button" className="inline-flex items-center justify-center rounded-md p-2.5 text-amicciDark-200">
@@ -185,7 +186,7 @@ const BrandedNavCompactHeader = () => {
               <Menu className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="hidden lg:flex lg:items-center lg:ml-4">
+          <div className="hidden lg:flex lg:items-center">
             <button type="button" className="relative p-1 text-white hover:text-amicciDark-100 focus:outline-none">
               <span className="sr-only">Ver notificações</span>
               <Bell className="h-6 w-6 text-gray-950" aria-hidden="true" />
@@ -312,4 +313,3 @@ const LightNavBottomBorder = () => {
 };
 
 export default StackedLayouts;
-
