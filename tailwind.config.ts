@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -102,59 +101,6 @@ export default {
 					800: '#05603A',
 					900: '#055735',
 					950: '#054F31',
-				},
-				// Gray palette using zinc colors exclusively 
-				gray: {
-					50: '#FAFAFA',
-					100: '#F4F4F5',
-					200: '#E4E4E7',
-					300: '#D4D4D8',
-					400: '#A1A1AA',
-					500: '#71717A',
-					600: '#52525B',
-					700: '#3F3F46',
-					800: '#27272A',
-					900: '#18181B',
-					950: '#09090B',
-				},
-				orange: {
-					50: '#FFFAEB',
-					100: '#FEF0C7',
-					200: '#FEDF89',
-					300: '#FEC84B',
-					400: '#FDB022',
-					500: '#F79009',
-					600: '#DC6803',
-					700: '#B54708',
-					800: '#93370D',
-					900: '#86320D',
-					950: '#7A2E0E',
-				},
-				red: {
-					50: '#FEF3F2',
-					100: '#FEE4E2',
-					200: '#FECDCA',
-					300: '#FDA29B',
-					400: '#F97066',
-					500: '#F04438',
-					600: '#D92D20',
-					700: '#B42318',
-					800: '#912018',
-					900: '#862017',
-					950: '#7A271A',
-				},
-				yellow: {
-					50: '#FFFDE7',
-					100: '#FFF9C4',
-					200: '#FFF59D',
-					300: '#FFF176',
-					400: '#FFEE58',
-					500: '#FFEB3B',
-					600: '#FDD835',
-					700: '#FBC02D',
-					800: '#F9A825',
-					900: '#F78F1E',
-					950: '#F57F17',
 				},
 				
 				// Common colors
@@ -361,6 +307,17 @@ export default {
 	},
 	plugins: [
 		require("tailwindcss-animate"),
+		// Custom plugin to explicitly specify which colors are available
+		function({ addBase, theme, config }) {
+			// Remove zinc, stone and neutral from the theme
+			addBase({
+				':root': {
+					'--remove-zinc': 'true',
+					'--remove-stone': 'true',
+					'--remove-neutral': 'true',
+				}
+			});
+		},
 		// Add a custom plugin to explicitly specify which colors are available
 		function({ addUtilities, theme }) {
 			// This plugin helps ensure only our defined colors are available
