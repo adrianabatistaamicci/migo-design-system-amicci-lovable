@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -14,7 +13,6 @@ import AmicciTagDesignSystem from '@/pages/assets/amicci-logo-tag-design-system.
 import AmicciTagBlog from '@/pages/assets/amicci-logo-tag-blog.svg';
 import AmicciTagEngenharia from '@/pages/assets/amicci-logo-tag-engenharia.svg';
 import AmicciTagUpdates from '@/pages/assets/amicci-logo-tag-updates.svg';
-
 const Brand = () => {
   return <div className="w-full animate-fade-in">
       <Header title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." type="foundations" />
@@ -63,8 +61,8 @@ const Brand = () => {
               <h3 className="text-xl font-medium">Variações</h3>
               
               <div className="grid grid-cols-1 gap-8 mb-8">
-                <h4 className="font-medium">Logo com tag</h4>
-                <p className="text-gray-600 mb-4">As versões com tag da nossa marca podem ser usadas para simbolizar áreas, iniciativas ou outros ambientes digitais.</p>
+                
+                
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border rounded-lg p-8 bg-white">
                   <div className="flex flex-col items-center justify-center gap-4">
