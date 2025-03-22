@@ -24,7 +24,8 @@ const LibraryPage: React.FC = () => {
     const formattedComponents: Record<string, React.ComponentType<any>> = {};
     for (const path in libraryComponents) {
       const componentName = path.split('/').pop()?.replace('.tsx', '') || '';
-      if (componentName && libraryComponents[path].default) {
+      // Skip EmptyState component as we'll add it manually to prevent duplication
+      if (componentName && componentName !== 'EmptyState' && libraryComponents[path].default) {
         formattedComponents[componentName] = libraryComponents[path].default;
       }
     }
@@ -51,10 +52,10 @@ const LibraryPage: React.FC = () => {
           {/* Add EmptyState component card */}
           <ComponentCard 
             title="EmptyState" 
-            description="Used to indicate pages or sections that are under development."
+            description="Usado para indicar páginas ou seções que estão em desenvolvimento."
             code={`<EmptyState 
-  title="Content in Progress" 
-  description="This documentation is currently being developed." 
+  title="Conteúdo em Desenvolvimento" 
+  description="Esta documentação está atualmente sendo desenvolvida." 
   icon="construction" 
 />`}
           >
@@ -83,8 +84,8 @@ const getDefaultProps = (componentName: string): Record<string, any> => {
       };
     case 'EmptyState':
       return {
-        title: "Content in Progress",
-        description: "This documentation is currently being developed. Check back soon for updates.",
+        title: "Conteúdo em Desenvolvimento",
+        description: "Esta documentação está atualmente sendo desenvolvida. Volte em breve para atualizações.",
         icon: "construction"
       };
     default:

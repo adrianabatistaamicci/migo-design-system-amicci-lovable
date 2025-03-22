@@ -11,8 +11,8 @@ export interface EmptyStateProps {
 }
 
 const EmptyState: React.FC<EmptyStateProps> = ({
-  title = "Content in Progress",
-  description = "This documentation is currently being developed. Check back soon for updates.",
+  title = "Conteúdo em Desenvolvimento",
+  description = "Esta documentação está atualmente sendo desenvolvida. Volte em breve para atualizações.",
   icon = 'construction',
   className
 }) => {
