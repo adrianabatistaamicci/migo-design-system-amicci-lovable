@@ -126,6 +126,7 @@ const sidebarItems: SidebarItem[] = [
           { title: 'Dropdowns', href: '/components/dropdown' },
           { title: 'Buttons', href: '/components/buttons' },
           { title: 'Button Groups', href: '/components/button-groups' },
+          { title: 'Profile Button', href: '/components/profile-button' },
           { title: 'Accordions', href: '/components/accordion' },
           { title: 'Tooltips', href: '/components/tooltips' },
         ]

@@ -36,6 +36,12 @@ const ElementsSection = () => {
           imageSrc="/lovable-uploads/da2da260-cb83-491e-8d76-d4f4519ce2ac.png" 
           variantCount={3} 
         />
+        
+        <ComponentPreview 
+          title="Profile Button" 
+          imageSrc="/lovable-uploads/93eec571-57df-4c3a-9958-cb6930361d88.png" 
+          variantCount={2} 
+        />
       </div>
     </section>
   );
