@@ -838,7 +838,7 @@ const Colors = () => {
       name: 'Acessibilidade',
       value: 'accessibility'
     }]} variant="pillsGray" onChange={value => setActiveTab(value)}>
-        {activeTab === 'overview' && <div className="space-y-8 mt-10">
+        {activeTab === 'overview' && <div className="space-y-7 mt-10">
             <ComponentCard title="Sistema de Cores" description="Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização.">
               <p className="text-gray-600 mb-6">
                 O sistema é organizado para proporcionar consistência visual e flexibilidade em toda a aplicação.
