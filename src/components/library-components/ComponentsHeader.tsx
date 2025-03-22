@@ -1,10 +1,12 @@
 
 import React from 'react';
 import { Chip } from '@/components/ui/chip';
+
 interface ComponentsHeaderProps {
   title: string;
   description: string;
 }
+
 const ComponentsHeader = ({
   title,
   description
@@ -21,4 +23,5 @@ const ComponentsHeader = ({
       </div>
     </div>;
 };
+
 export default ComponentsHeader;

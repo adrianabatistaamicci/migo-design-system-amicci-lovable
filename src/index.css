@@ -77,7 +77,7 @@
     --green-900: #055735; /* New intermediate color */
     --green-950: #054F31; /* Renamed from 900 */
 
-    /* Gray palette using exclusively zinc colors */
+    /* Gray palette using exclusively the zinc color scale */
     --gray-50: #FAFAFA;
     --gray-100: #F4F4F5;
     --gray-200: #E4E4E7;
