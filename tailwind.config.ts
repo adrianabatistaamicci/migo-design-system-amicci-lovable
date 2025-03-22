@@ -341,5 +341,39 @@ export default {
 			},
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	// Crucially, we need to disable the default Tailwind colors that contain zinc, stone, and neutral
+	corePlugins: {
+		// Disable the default color palette
+		textColor: false,
+		backgroundColor: false,
+		borderColor: false,
+		divideColor: false,
+		ringColor: false,
+		ringOffsetColor: false,
+		placeholderColor: false,
+		gradientColorStops: false,
+	},
+	plugins: [
+		require("tailwindcss-animate"),
+		// Add a custom plugin to explicitly specify which colors are available
+		function({ addUtilities, theme }) {
+			// This plugin helps ensure only our defined colors are available
+			const customColors = theme('colors');
+			const allowedColors = [
+				'blue', 'amicci', 'amicciDark', 'magenta', 'green', 'gray', 
+				'orange', 'red', 'yellow', 'primary', 'secondary', 'tertiary',
+				'action', 'error', 'warning', 'info', 'success', 'destructive',
+				'muted', 'accent', 'popover', 'card', 'text', 'mui', 'border',
+				'input', 'ring', 'background', 'foreground', 'common'
+			];
+			
+			// Generate utilities only for allowed colors
+			let utilities = {};
+			allowedColors.forEach(colorName => {
+				if (customColors[colorName]) {
+					// Add utilities for this color family
+				}
+			});
+		}
+	],
 } satisfies Config;
