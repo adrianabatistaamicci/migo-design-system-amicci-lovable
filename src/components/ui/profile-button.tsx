@@ -10,7 +10,7 @@ const profileButtonVariants = cva(
   {
     variants: {
       size: {
-        default: "h-[46px]",
+        default: "auto",
       },
     },
     defaultVariants: {
@@ -77,7 +77,7 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
       >
         <div className="flex items-center w-full px-4 py-2.5">
           {showClientLogo && (
-            <div className="flex items-center mr-12">
+            <div className="flex items-center mr-6">
               {logoSrc ? (
                 <img src={logoSrc} alt={logoAlt} className="h-7 w-auto" /> // 28px height
               ) : (
