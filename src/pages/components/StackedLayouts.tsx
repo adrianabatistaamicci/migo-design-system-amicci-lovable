@@ -384,7 +384,7 @@ const LightNavGrayBackground = () => {
 
 const LightNavBottomBorder = () => {
   return (
-    <div className="min-h-[500px] w-full">
+    <div className="min-h-[500px] w-full bg-white">
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 justify-between">
