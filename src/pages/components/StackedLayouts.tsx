@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { TailwindTabs } from '@/components/ui/tabs';
 import StackedLayout from '@/components/application-shells/StackedLayout';
-import { LightBorderExample, DarkOverlapExample, MarketplaceExample } from '@/components/application-shells/StackedLayoutExamples';
+import { LightBorderExample, DarkOverlapExample, MarketplaceExample, InstitutionalExample } from '@/components/application-shells/StackedLayoutExamples';
 
 const StackedLayouts = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -40,11 +40,11 @@ const StackedLayouts = () => {
         </div>}
 
       {activeTab === 'marketplace' && <div className="space-y-12 mt-10">
-          <LayoutComponent title="Marketplace Navigation" component={<MarketplaceNavWithReusable />} />
+          <LayoutComponent title="Marketplace Navigation" component={<MarketplaceExample />} />
         </div>}
 
       {activeTab === 'institutional' && <div className="space-y-12 mt-10">
-          <LayoutComponent title="Institutional Site Navigation" component={<InstitutionalNavWithReusable />} />
+          <LayoutComponent title="Institutional Site Navigation" component={<InstitutionalExample />} />
         </div>}
     </div>;
 };
@@ -182,51 +182,7 @@ const MarketplaceNavWithReusable = () => (
 );
 
 const InstitutionalNavWithReusable = () => (
-  <StackedLayout
-    variant="light-border"
-    navigationContent={
-      <>
-        <div className="flex items-center">
-          <div className="flex-shrink-0">
-            <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
-          </div>
-          <div className="hidden md:ml-6 md:flex md:space-x-8">
-            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">
-              Home
-              <ChevronDown className="ml-1 h-4 w-4 inline" />
-            </a>
-            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">
-              Plataforma
-              <ChevronDown className="ml-1 h-4 w-4 inline" />
-            </a>
-            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Sobre</a>
-            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">
-              Conteúdos
-              <ChevronDown className="ml-1 h-4 w-4 inline" />
-            </a>
-            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Suporte</a>
-          </div>
-        </div>
-        <div className="flex items-center space-x-4">
-          <div className="flex items-center">
-            <Button variant="outline" className="rounded-l-md rounded-r-none border-r-0">
-              Login
-            </Button>
-            <Button variant="outline" className="rounded-l-none rounded-r-md">
-              <ChevronDown className="h-4 w-4" />
-            </Button>
-          </div>
-          <Button className="bg-amicci-500 hover:bg-amicci-600">Falar com especialista</Button>
-          <Button variant="outline" className="p-2">
-            <Globe className="h-5 w-5" />
-          </Button>
-        </div>
-      </>
-    }
-    headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Home</h1>}
-  >
-    <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
-  </StackedLayout>
+  <InstitutionalExample />
 );
 
 const LayoutComponent = ({
