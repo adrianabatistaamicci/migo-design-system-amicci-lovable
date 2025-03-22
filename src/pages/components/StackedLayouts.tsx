@@ -53,6 +53,7 @@ const LightNavBottomBorderWithReusable = () => (
   <StackedLayout
     variant="light-border"
     mainClassName="bg-white"
+    headerClassName="bg-white"
     navigationContent={
       <>
         <div className="flex items-center">
