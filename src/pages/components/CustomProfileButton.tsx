@@ -1,243 +1,284 @@
-
-import React, { useState } from 'react';
+import React from 'react';
+import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
-import { Menu, List, User, Settings } from 'lucide-react';
+import { Menu, List, User } from 'lucide-react';
 import { CustomProfileButton } from '@/components/ui/custom-profile-button';
 import { cn } from '@/lib/utils';
 import defaultLogo from '@/pages/assets/client-logo.svg';
-import { Button } from '@/components/ui/button';
 
 const CustomProfileButtonPage = () => {
-  const [innerSpacing, setInnerSpacing] = useState({
-    container: "px-4 py-1",
-    logo: "",
-    avatar: "",
-    text: "",
-    menu: "px-4"
-  });
-  
-  const [gap, setGap] = useState("gap-8");
-  const [selectedVariant, setSelectedVariant] = useState("default");
-  const [selectedSize, setSelectedSize] = useState("default");
-  const [showLogo, setShowLogo] = useState(true);
-  const [menuIconType, setMenuIconType] = useState("menu");
-
-  const getMenuIcon = () => {
-    switch(menuIconType) {
-      case "list": return <List className="h-6 w-6" />;
-      case "settings": return <Settings className="h-6 w-6" />;
-      default: return <Menu className="h-6 w-6" />;
-    }
-  };
-  
   return (
     <div className="w-full animate-fade-in">
       <Header 
         title="Custom Profile Button"
-        description="Componente de botão de perfil independente com controle total de espaçamentos internos."
+        description="Componente de botão de perfil personalizado que exibe informações do usuário e oferece acesso a opções e configurações."
         type="components"
       />
       
       <div className="space-y-12 mt-10">
-        <div className="space-y-3">
-          <div className="px-4">
-            <h3 className="text-xl font-medium text-gray-900">Visualização</h3>
-          </div>
-          
-          <div className="border rounded-lg overflow-hidden shadow-sm">
-            <div className="bg-gray-100 w-full py-8 flex justify-center items-center">
+        <LayoutComponent 
+          title="Profile Button Padrão" 
+          component={
+            <div className="flex justify-center items-center p-4">
               <CustomProfileButton
-                userName="Maria Silva"
-                companyName="Amicci Tech"
-                variant={selectedVariant as any}
-                size={selectedSize as any}
-                showClientLogo={showLogo}
-                menuIcon={getMenuIcon()}
-                innerSpacing={innerSpacing}
-                gap={gap}
+                userName="Maria Rita"
+                companyName="Nome da Empresa"
               />
             </div>
-          </div>
-        </div>
+          } 
+        />
         
-        <div className="space-y-3">
-          <div className="px-4">
-            <h3 className="text-xl font-medium text-gray-900">Configuração de Espaçamentos</h3>
-          </div>
-          
-          <div className="border rounded-lg overflow-hidden shadow-sm">
-            <div className="bg-white w-full p-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-medium mb-2">Espaçamento do Container</h4>
-                  <input 
-                    type="text" 
-                    value={innerSpacing.container} 
-                    onChange={(e) => setInnerSpacing({...innerSpacing, container: e.target.value})}
-                    className="w-full p-2 border rounded"
-                    placeholder="px-4 py-1"
-                  />
-                  <p className="text-sm text-gray-500 mt-1">Ex: px-4 py-1, p-2, etc.</p>
-                </div>
-                
-                <div>
-                  <h4 className="font-medium mb-2">Espaçamento entre Elementos (Gap)</h4>
-                  <input 
-                    type="text" 
-                    value={gap} 
-                    onChange={(e) => setGap(e.target.value)}
-                    className="w-full p-2 border rounded"
-                    placeholder="gap-8"
-                  />
-                  <p className="text-sm text-gray-500 mt-1">Ex: gap-2, gap-4, gap-8, etc.</p>
-                </div>
-                
-                <div>
-                  <h4 className="font-medium mb-2">Espaçamento do Logo</h4>
-                  <input 
-                    type="text" 
-                    value={innerSpacing.logo} 
-                    onChange={(e) => setInnerSpacing({...innerSpacing, logo: e.target.value})}
-                    className="w-full p-2 border rounded"
-                    placeholder="p-1, etc."
-                  />
-                </div>
-                
-                <div>
-                  <h4 className="font-medium mb-2">Espaçamento do Avatar</h4>
-                  <input 
-                    type="text" 
-                    value={innerSpacing.avatar} 
-                    onChange={(e) => setInnerSpacing({...innerSpacing, avatar: e.target.value})}
-                    className="w-full p-2 border rounded"
-                    placeholder="p-1, etc."
-                  />
-                </div>
-                
-                <div>
-                  <h4 className="font-medium mb-2">Espaçamento do Texto</h4>
-                  <input 
-                    type="text" 
-                    value={innerSpacing.text} 
-                    onChange={(e) => setInnerSpacing({...innerSpacing, text: e.target.value})}
-                    className="w-full p-2 border rounded"
-                    placeholder="px-2, etc."
-                  />
-                </div>
-                
-                <div>
-                  <h4 className="font-medium mb-2">Espaçamento do Menu</h4>
-                  <input 
-                    type="text" 
-                    value={innerSpacing.menu} 
-                    onChange={(e) => setInnerSpacing({...innerSpacing, menu: e.target.value})}
-                    className="w-full p-2 border rounded"
-                    placeholder="px-4, etc."
-                  />
-                </div>
-              </div>
+        <LayoutComponent 
+          title="Profile Button com Hover" 
+          component={
+            <div className="flex flex-col gap-4 justify-center items-center p-4">
+              <div className="mb-2 text-sm text-gray-500">Passe o mouse sobre o botão para ver o efeito hover</div>
+              <CustomProfileButton
+                userName="José Silva"
+                companyName="Amicci Tech"
+              />
             </div>
-          </div>
-        </div>
+          } 
+        />
         
-        <div className="space-y-3">
-          <div className="px-4">
-            <h3 className="text-xl font-medium text-gray-900">Outras Configurações</h3>
-          </div>
-          
-          <div className="border rounded-lg overflow-hidden shadow-sm">
-            <div className="bg-white w-full p-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-medium mb-2">Variante</h4>
-                  <div className="flex space-x-2">
-                    {["default", "outline", "filled"].map(variant => (
-                      <Button 
-                        key={variant}
-                        onClick={() => setSelectedVariant(variant)}
-                        variant={selectedVariant === variant ? "default" : "outline"}
-                        size="sm"
-                      >
-                        {variant}
-                      </Button>
-                    ))}
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="font-medium mb-2">Tamanho</h4>
-                  <div className="flex space-x-2">
-                    {["sm", "default", "lg"].map(size => (
-                      <Button 
-                        key={size}
-                        onClick={() => setSelectedSize(size)}
-                        variant={selectedSize === size ? "default" : "outline"}
-                        size="sm"
-                      >
-                        {size}
-                      </Button>
-                    ))}
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="font-medium mb-2">Exibir Logo</h4>
-                  <Button 
-                    onClick={() => setShowLogo(!showLogo)}
-                    variant={showLogo ? "default" : "outline"}
+        <LayoutComponent 
+          title="Profile Button com Iniciais Personalizadas" 
+          component={
+            <div className="flex justify-center items-center p-4">
+              <CustomProfileButton
+                userName="Fernanda Rodrigues"
+                companyName="Creative Design"
+                avatarText="FR"
+              />
+            </div>
+          } 
+        />
+        
+        <LayoutComponent 
+          title="Profile Button com Tamanhos Diferentes" 
+          component={
+            <div className="flex flex-col gap-4 justify-center items-center p-4">
+              <CustomProfileButton
+                userName="Ricardo Santos"
+                companyName="Tech Solutions"
+                size="sm"
+              />
+              
+              <CustomProfileButton
+                userName="Luciana Pereira"
+                companyName="Design Agency"
+                size="default"
+              />
+              
+              <CustomProfileButton
+                userName="Eduardo Lima"
+                companyName="Marketing Group"
+                size="lg"
+              />
+            </div>
+          } 
+        />
+        
+        <LayoutComponent 
+          title="Profile Button com Logo Personalizado" 
+          component={
+            <div className="flex justify-center items-center p-4">
+              <CustomProfileButton
+                userName="Tatiana Rocha"
+                companyName="Studio Design"
+                logoText="SD"
+                logoSrc={null}
+              />
+            </div>
+          } 
+        />
+        
+        <LayoutComponent 
+          title="Profile Button com Espaçamento Personalizado" 
+          component={
+            <div className="flex flex-col gap-4 justify-center items-center p-4">
+              <CustomProfileButton
+                userName="Bruno Costa"
+                companyName="Tech Solutions"
+                innerSpacing={{
+                  container: "px-6 py-2",
+                  logo: "pr-2",
+                  avatar: "",
+                  text: "px-4",
+                  menu: "pl-2"
+                }}
+                gap="gap-4"
+              />
+              
+              <CustomProfileButton
+                userName="Camila Alves"
+                companyName="Design Pro"
+                innerSpacing={{
+                  container: "px-8 py-3",
+                  logo: "",
+                  avatar: "",
+                  text: "",
+                  menu: ""
+                }}
+                gap="gap-12"
+              />
+              
+              <CustomProfileButton
+                userName="Daniel Santos"
+                companyName="Marketing Digital"
+                innerSpacing={{
+                  container: "px-2 py-1",
+                  logo: "",
+                  avatar: "",
+                  text: "",
+                  menu: ""
+                }}
+                gap="gap-2"
+                showClientLogo={false}
+              />
+            </div>
+          } 
+        />
+        
+        <LayoutComponent 
+          title="Exemplos de Uso" 
+          component={
+            <div className="flex flex-col gap-6 justify-center items-center p-4">
+              <div className="p-4 bg-white shadow-md rounded-md w-full max-w-xl">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-medium">Navbar com Profile Button</h3>
+                  <CustomProfileButton
+                    userName="Amanda Silva"
                     size="sm"
-                  >
-                    {showLogo ? "Mostrar" : "Ocultar"}
-                  </Button>
+                    showClientLogo={false}
+                    innerSpacing={{
+                      container: "px-3 py-1",
+                      menu: "pl-2"
+                    }}
+                    gap="gap-4"
+                  />
                 </div>
-                
-                <div>
-                  <h4 className="font-medium mb-2">Ícone de Menu</h4>
-                  <div className="flex space-x-2">
-                    {["menu", "list", "settings"].map(icon => (
-                      <Button 
-                        key={icon}
-                        onClick={() => setMenuIconType(icon)}
-                        variant={menuIconType === icon ? "default" : "outline"}
-                        size="sm"
-                      >
-                        {icon}
-                      </Button>
-                    ))}
-                  </div>
+              </div>
+              
+              <div className="p-4 bg-white shadow-md rounded-md w-full max-w-xl">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-medium">Painel de Usuário</h3>
+                  <CustomProfileButton
+                    userName="Roberto Alves"
+                    companyName="Marketing Pro"
+                  />
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          } 
+        />
         
         <div className="space-y-3">
           <div className="px-4">
-            <h3 className="text-xl font-medium text-gray-900">Código Gerado</h3>
+            <h3 className="text-xl font-medium text-gray-900">API do Componente</h3>
           </div>
           
-          <div className="border rounded-lg overflow-hidden shadow-sm">
-            <div className="bg-gray-900 text-gray-100 w-full p-6 overflow-x-auto">
-              <pre className="text-sm">
-{`<CustomProfileButton
-  userName="Maria Silva"
-  companyName="Amicci Tech"
-  variant="${selectedVariant}"
-  size="${selectedSize}"
-  showClientLogo={${showLogo}}
-  menuIcon={<${menuIconType === 'menu' ? 'Menu' : menuIconType === 'list' ? 'List' : 'Settings'} className="h-6 w-6" />}
-  innerSpacing={{
-    container: "${innerSpacing.container}",
-    logo: "${innerSpacing.logo}",
-    avatar: "${innerSpacing.avatar}",
-    text: "${innerSpacing.text}",
-    menu: "${innerSpacing.menu}"
-  }}
-  gap="${gap}"
-/>`}
-              </pre>
+          <div className="border rounded-lg overflow-hidden shadow-sm bg-white p-6">
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead>
+                  <tr>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Propriedade</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tipo</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Padrão</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descrição</th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                  <tr>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">userName</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">string</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">Nome do usuário exibido no botão</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">companyName</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">string</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">Nome da empresa/organização do usuário</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">size</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">"default" | "sm" | "lg"</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">"default"</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">Tamanho do botão</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">logoText</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">string</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">"Clientlogo"</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">Texto alternativo para o logo da empresa</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">logoSrc</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">string</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">URL da imagem de logo da empresa</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">avatarText</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">string</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Iniciais do nome</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">Texto exibido no avatar (se não houver imagem)</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">avatarSrc</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">string</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">URL da imagem de avatar do usuário</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">showClientLogo</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">boolean</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">true</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">Controla a exibição do logo da empresa</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">menuIcon</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">React.ReactNode</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">&lt;Menu /&gt;</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">Ícone do menu (normalmente um ícone de hambúrguer)</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">innerSpacing</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Object</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{'{ container: "px-4 py-1", ... }'}</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">Controla o espaçamento interno de cada parte do botão</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">gap</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">string</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">"gap-4"</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">Controla o espaçamento entre os elementos (classe gap do Tailwind)</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const LayoutComponent = ({
+  title,
+  component
+}) => {
+  return (
+    <div className="space-y-3">
+      <div className="px-4">
+        <h3 className="text-xl font-medium text-gray-900">{title}</h3>
+      </div>
+      
+      <div className="border rounded-lg overflow-hidden shadow-sm">
+        <div className="bg-gray-100 w-full py-8 overflow-hidden">
+          {component}
         </div>
       </div>
     </div>

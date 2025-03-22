@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Chip } from '@/components/ui/chip';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
-import { X, Check, Info, AlertTriangle, Loader2 } from 'lucide-react';
+import { X, Check, Info, AlertTriangle, Loader2, User, Mail, Heart, Star } from 'lucide-react';
 import Header from '@/components/library-components/Header';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 const ChipPage = () => {
   const [chips, setChips] = useState(['React', 'Angular', 'Vue', 'Svelte']);
@@ -18,6 +19,7 @@ const ChipPage = () => {
         <Header 
           title="Chip"
           description="Chips are compact elements that represent an input, attribute, or action."
+          type="components"
         />
         
         <div className="mb-12">
