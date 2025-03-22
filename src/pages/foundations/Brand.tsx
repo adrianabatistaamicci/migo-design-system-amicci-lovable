@@ -66,19 +66,17 @@ const Brand = () => {
                 <h4 className="font-medium">Logo com tag</h4>
                 <p className="text-gray-600 mb-4">As versões com tag da nossa marca podem ser usadas para simbolizar áreas, iniciativas ou outros ambientes digitais.</p>
                 
-                <div className="border rounded-lg p-8 bg-white">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="flex flex-col items-center gap-6">
-                      <img src={AmicciTagDesignSystem} alt="Amicci logo com tag design system" className="max-w-[300px] h-auto" />
-                      <img src={AmicciTagBlog} alt="Amicci logo com tag blog" className="max-w-[300px] h-auto" />
-                    </div>
-                    <div className="flex flex-col items-center gap-6">
-                      <img src={AmicciTagEngenharia} alt="Amicci logo com tag engenharia" className="max-w-[300px] h-auto" />
-                      <img src={AmicciTagUpdates} alt="Amicci logo com tag updates" className="max-w-[300px] h-auto" />
-                    </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border rounded-lg p-8 bg-white">
+                  <div className="flex flex-col items-center justify-center gap-4">
+                    <img src={AmicciTagDesignSystem} alt="Amicci logo com tag design system" className="max-w-[300px] h-auto" />
+                    <img src={AmicciTagBlog} alt="Amicci logo com tag blog" className="max-w-[300px] h-auto" />
+                    <img src={AmicciTagEngenharia} alt="Amicci logo com tag engenharia" className="max-w-[300px] h-auto" />
+                    <img src={AmicciTagUpdates} alt="Amicci logo com tag updates" className="max-w-[300px] h-auto" />
                   </div>
-                  <div className="mt-6 text-center">
+                  <div className="space-y-4 flex flex-col justify-center">
+                    <h4 className="font-medium">Logo com tag</h4>
                     <p className="text-gray-600">Estas versões são utilizadas para identificar visualmente diferentes áreas e iniciativas da Amicci, mantendo a coesão e o reconhecimento da marca enquanto diferenciam cada contexto específico.</p>
+                    <p className="text-gray-600">Aplicadas em blogs, documentação técnica, design systems e comunicados, estas variações permitem uma identificação imediata da área responsável pelo conteúdo.</p>
                   </div>
                 </div>
               </div>
