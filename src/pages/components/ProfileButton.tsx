@@ -1,4 +1,3 @@
-
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
@@ -20,7 +19,8 @@ const ProfileButtonPage = () => {
         <LayoutComponent 
           title="Profile Button Padrão" 
           component={
-            <div className="flex justify-center items-center p-4">
+            <div className="flex flex-col gap-4 justify-center items-center p-4">
+              <div className="mb-2 text-sm text-gray-500">Passe o mouse sobre o botão para ver o efeito hover</div>
               <ProfileButton
                 userName="Maria Rita"
                 companyName="Nome da Empresa"
@@ -32,8 +32,7 @@ const ProfileButtonPage = () => {
         <LayoutComponent 
           title="Profile Button com Hover" 
           component={
-            <div className="flex flex-col gap-4 justify-center items-center p-4">
-              <div className="mb-2 text-sm text-gray-500">Passe o mouse sobre o botão para ver o efeito hover</div>
+            <div className="flex justify-center items-center p-4">
               <ProfileButton
                 userName="José Silva"
                 companyName="Amicci Tech"
@@ -56,51 +55,28 @@ const ProfileButtonPage = () => {
         />
         
         <LayoutComponent 
-          title="Variação: Ícone de Menu Personalizado" 
-          component={
-            <div className="flex justify-center items-center p-4">
-              <ProfileButton
-                userName="Tatiana Rocha"
-                companyName="Studio Design"
-                menuIcon={<User className="h-6 w-6" />}
-              />
-            </div>
-          } 
-        />
-        
-        <LayoutComponent 
-          title="Variação: Nome Longo com Truncamento" 
-          component={
-            <div className="flex justify-center items-center p-4">
-              <ProfileButton
-                userName="Alessandra Montenegro da Silva"
-                companyName="Empresa com Nome Muito Longo Ltda"
-              />
-            </div>
-          } 
-        />
-        
-        <LayoutComponent 
           title="Exemplos de Uso" 
           component={
             <div className="flex flex-col gap-6 justify-center items-center p-4">
               <div className="p-4 bg-white shadow-md rounded-md w-full max-w-xl">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-medium">Navbar com Profile Button</h3>
+                  <h3 className="text-lg font-medium">Seller com Avatar e Ícone</h3>
                   <ProfileButton
                     userName="Amanda Silva"
                     companyName="Empresa XYZ"
                     showClientLogo={false}
+                    avatarText="AS"
                   />
                 </div>
               </div>
               
               <div className="p-4 bg-white shadow-md rounded-md w-full max-w-xl">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-medium">Painel de Usuário</h3>
+                  <h3 className="text-lg font-medium">Buyer com Logo e Ícone</h3>
                   <ProfileButton
                     userName="Roberto Alves"
                     companyName="Marketing Pro"
+                    logoSrc={defaultLogo}
                   />
                 </div>
               </div>
