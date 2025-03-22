@@ -21,12 +21,14 @@ const Toggle = ({
       <span aria-hidden="true" className={`${enabled ? `translate-x-${size === 'sm' ? '4' : size === 'lg' ? '7' : '5'}` : 'translate-x-0'} pointer-events-none ${size === 'sm' ? 'h-4 w-4' : size === 'lg' ? 'h-6 w-6' : 'h-5 w-5'} rounded-full bg-white shadow ring-0 transition ease-in-out duration-200`} />
     </button>;
 };
+
 const TogglePage = () => {
   const [simpleEnabled, setSimpleEnabled] = useState(false);
   const [shortEnabled, setShortEnabled] = useState(false);
   const [iconEnabled, setIconEnabled] = useState(false);
   const [descriptionEnabled, setDescriptionEnabled] = useState(false);
   const [rightLabelEnabled, setRightLabelEnabled] = useState(false);
+  
   return <div className="w-full animate-fade-in">
       <ComponentsHeader title="Toggle" description="Toggle components allow users to switch between two states and are commonly used for 'on/off' functionality." />
 
@@ -34,27 +36,19 @@ const TogglePage = () => {
         <CodeBlock code={`import { Toggle } from "@/components/ui/toggle";`} language="jsx" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Simple toggle */}
         <ComponentCard title="Simple toggle" description="A basic toggle switch for on/off states." code={`const [enabled, setEnabled] = useState(false)
 
 <Toggle enabled={enabled} onChange={setEnabled} />`}>
-          <div className="flex items-center justify-center p-6 border rounded-lg">
-            <div className="w-full max-w-md py-6">
-              <Toggle enabled={simpleEnabled} onChange={setSimpleEnabled} />
-            </div>
-          </div>
+          <Toggle enabled={simpleEnabled} onChange={setSimpleEnabled} />
         </ComponentCard>
 
         {/* Short toggle */}
         <ComponentCard title="Short toggle" description="A smaller toggle switch for more compact UIs." code={`const [enabled, setEnabled] = useState(false)
 
 <Toggle enabled={enabled} onChange={setEnabled} size="sm" />`}>
-          <div className="flex items-center justify-center p-6 border rounded-lg">
-            <div className="w-full max-w-md py-6">
-              <Toggle enabled={shortEnabled} onChange={setShortEnabled} size="sm" />
-            </div>
-          </div>
+          <Toggle enabled={shortEnabled} onChange={setShortEnabled} size="sm" />
         </ComponentCard>
 
         {/* Toggle with icon */}
@@ -64,13 +58,9 @@ const TogglePage = () => {
   {enabled && <X size={16} className="text-gray-500" />}
   <Toggle enabled={enabled} onChange={setEnabled} />
 </div>`}>
-          <div className="flex items-center justify-center p-6 border rounded-lg">
-            <div className="w-full max-w-md py-6">
-              <div className="flex items-center gap-2">
-                {iconEnabled && <X size={16} className="text-gray-500" />}
-                <Toggle enabled={iconEnabled} onChange={setIconEnabled} />
-              </div>
-            </div>
+          <div className="flex items-center gap-2">
+            {iconEnabled && <X size={16} className="text-gray-500" />}
+            <Toggle enabled={iconEnabled} onChange={setIconEnabled} />
           </div>
         </ComponentCard>
 
@@ -84,16 +74,12 @@ const TogglePage = () => {
   </div>
   <Toggle enabled={enabled} onChange={setEnabled} />
 </div>`}>
-          <div className="flex items-center justify-center p-6 border rounded-lg">
-            <div className="w-full max-w-md py-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="text-sm font-medium text-gray-900">Available to hire</h3>
-                  <p className="text-sm text-gray-500">Nulla amet tempus sit accumsan. Aliquet turpis sed sit lacinia.</p>
-                </div>
-                <Toggle enabled={descriptionEnabled} onChange={setDescriptionEnabled} />
-              </div>
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-sm font-medium text-gray-900">Available to hire</h3>
+              <p className="text-sm text-gray-500">Nulla amet tempus sit accumsan. Aliquet turpis sed sit lacinia.</p>
             </div>
+            <Toggle enabled={descriptionEnabled} onChange={setDescriptionEnabled} />
           </div>
         </ComponentCard>
 
@@ -105,17 +91,14 @@ const TogglePage = () => {
   <span className="ml-3 text-sm font-medium text-gray-900">Annual billing</span>
   {enabled && <span className="ml-2 text-sm text-green-500">(Save 10%)</span>}
 </div>`}>
-          <div className="flex items-center justify-center p-6 border rounded-lg">
-            <div className="w-full max-w-md py-6">
-              <div className="flex items-center">
-                <Toggle enabled={rightLabelEnabled} onChange={setRightLabelEnabled} />
-                <span className="ml-3 text-sm font-medium text-gray-900">Annual billing</span>
-                {rightLabelEnabled && <span className="ml-2 text-sm text-green-500">(Save 10%)</span>}
-              </div>
-            </div>
+          <div className="flex items-center">
+            <Toggle enabled={rightLabelEnabled} onChange={setRightLabelEnabled} />
+            <span className="ml-3 text-sm font-medium text-gray-900">Annual billing</span>
+            {rightLabelEnabled && <span className="ml-2 text-sm text-green-500">(Save 10%)</span>}
           </div>
         </ComponentCard>
       </div>
     </div>;
 };
+
 export default TogglePage;
