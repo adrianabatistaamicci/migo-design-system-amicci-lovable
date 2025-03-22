@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap');
 
 @tailwind base;
@@ -77,17 +76,18 @@
     --green-900: #055735; /* New intermediate color */
     --green-950: #054F31; /* Renamed from 900 */
 
-    --gray-50: #F9FBFB;
-    --gray-100: #F3F6F5;
-    --gray-200: #EAEFF0;
-    --gray-300: #CED6D6;
-    --gray-400: #AFB9BA;
-    --gray-500: #808586;
-    --gray-600: #656969;
-    --gray-700: #4A4F4F;
-    --gray-800: #313536;
-    --gray-900: #292C2D; /* New intermediate color */
-    --gray-950: #212323; /* Renamed from 900 */
+    /* Gray palette now uses zinc colors */
+    --gray-50: #FAFAFA;
+    --gray-100: #F4F4F5;
+    --gray-200: #E4E4E7;
+    --gray-300: #D4D4D8;
+    --gray-400: #A1A1AA;
+    --gray-500: #71717A;
+    --gray-600: #52525B;
+    --gray-700: #3F3F46;
+    --gray-800: #27272A;
+    --gray-900: #18181B;
+    --gray-950: #09090B;
 
     --orange-50: #FFFAEB;
     --orange-100: #FEF0C7;
@@ -124,31 +124,6 @@
     --yellow-800: #F9A825;
     --yellow-900: #F78F1E; /* New intermediate color */
     --yellow-950: #F57F17; /* Renamed from 900 */
-
-    /* Novas cores neutras */
-    --zinc-50: #FAFAFA;
-    --zinc-100: #F4F4F5;
-    --zinc-200: #E4E4E7;
-    --zinc-300: #D4D4D8;
-    --zinc-400: #A1A1AA;
-    --zinc-500: #71717A;
-    --zinc-600: #52525B;
-    --zinc-700: #3F3F46;
-    --zinc-800: #27272A;
-    --zinc-900: #18181B;
-    --zinc-950: #09090B;
-
-    --neutral-50: #FAFAFA;
-    --neutral-100: #F5F5F5;
-    --neutral-200: #E5E5E5;
-    --neutral-300: #D4D4D4;
-    --neutral-400: #A3A3A3;
-    --neutral-500: #737373;
-    --neutral-600: #525252;
-    --neutral-700: #404040;
-    --neutral-800: #262626;
-    --neutral-900: #171717;
-    --neutral-950: #0A0A0A;
 
     /* Common colors */
     --common-white-main: #FFFFFF;
@@ -188,15 +163,15 @@
     --tertiary-focusVisible: #E7CDE0;
     --tertiary-outlinedBorder: #F8F4F7;
 
-    /* Action (Gray) */
-    --action-main: #808586;
-    --action-dark: #4A4F4F;
-    --action-light: #EAEFF0;
+    /* Action (Gray) - Updated to use the new gray values */
+    --action-main: #71717A;
+    --action-dark: #3F3F46;
+    --action-light: #E4E4E7;
     --action-contrast: #ffffff;
-    --action-hover: #656969;
-    --action-selected: #4A4F4F;
-    --action-focusVisible: #F3F6F5;
-    --action-outlinedBorder: #F9FBFB;
+    --action-hover: #52525B;
+    --action-selected: #3F3F46;
+    --action-focusVisible: #F4F4F5;
+    --action-outlinedBorder: #FAFAFA;
 
     /* Error (Red) */
     --error: 0 84% 60%;

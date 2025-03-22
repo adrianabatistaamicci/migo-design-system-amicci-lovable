@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -95,18 +96,19 @@ export default {
 					900: '#055735',
 					950: '#054F31',
 				},
+				// Updated gray palette now uses zinc colors
 				gray: {
-					50: '#F9FBFB',
-					100: '#F3F6F5',
-					200: '#EAEFF0',
-					300: '#CED6D6',
-					400: '#AFB9BA',
-					500: '#808586',
-					600: '#656969',
-					700: '#4A4F4F',
-					800: '#313536',
-					900: '#292C2D',
-					950: '#212323',
+					50: '#FAFAFA',
+					100: '#F4F4F5',
+					200: '#E4E4E7',
+					300: '#D4D4D8',
+					400: '#A1A1AA',
+					500: '#71717A',
+					600: '#52525B',
+					700: '#3F3F46',
+					800: '#27272A',
+					900: '#18181B',
+					950: '#09090B',
 				},
 				orange: {
 					50: '#FFFAEB',
@@ -146,34 +148,6 @@ export default {
 					800: '#F9A825',
 					900: '#F78F1E',
 					950: '#F57F17',
-				},
-				
-				// Novas cores neutras
-				zinc: {
-					50: '#FAFAFA',
-					100: '#F4F4F5',
-					200: '#E4E4E7',
-					300: '#D4D4D8',
-					400: '#A1A1AA',
-					500: '#71717A',
-					600: '#52525B',
-					700: '#3F3F46',
-					800: '#27272A',
-					900: '#18181B',
-					950: '#09090B',
-				},
-				neutral: {
-					50: '#FAFAFA',
-					100: '#F5F5F5',
-					200: '#E5E5E5',
-					300: '#D4D4D4',
-					400: '#A3A3A3',
-					500: '#737373',
-					600: '#525252',
-					700: '#404040',
-					800: '#262626',
-					900: '#171717',
-					950: '#0A0A0A',
 				},
 				
 				// Common colors
@@ -369,4 +343,3 @@ export default {
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
-
