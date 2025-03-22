@@ -75,9 +75,9 @@ const CustomProfileButton = React.forwardRef<HTMLButtonElement, CustomProfileBut
         type="button"
         {...props}
       >
-        <div className="flex items-center w-full px-3 py-2">
+        <div className="flex items-center w-full px-4 py-2.5">
           {showClientLogo && (
-            <div className="flex items-center mr-10">
+            <div className="flex items-center mr-12">
               {logoSrc ? (
                 <img src={logoSrc} alt={logoAlt} className="h-7 w-auto" /> // 28px height
               ) : (
@@ -86,7 +86,7 @@ const CustomProfileButton = React.forwardRef<HTMLButtonElement, CustomProfileBut
             </div>
           )}
           
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-5">
             <div className="h-8 w-8 rounded-full bg-[#001A1A] text-white flex items-center justify-center font-medium"> {/* 32px avatar */}
               {avatarSrc ? (
                 <img src={avatarSrc} alt={avatarAlt} className="h-full w-full rounded-full object-cover" />
@@ -101,7 +101,7 @@ const CustomProfileButton = React.forwardRef<HTMLButtonElement, CustomProfileBut
             </div>
           </div>
           
-          <div className="text-gray-600 ml-auto pl-4">
+          <div className="text-gray-600 ml-auto pl-5">
             {menuIcon || <Menu className="h-6 w-6" />} {/* 24px menu icon */}
           </div>
         </div>
