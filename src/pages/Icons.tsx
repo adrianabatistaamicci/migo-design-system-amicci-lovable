@@ -1,121 +1,128 @@
 
 import React, { useState } from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Chip } from '@/components/ui/chip';
 import { Separator } from "@/components/ui/separator";
+import { Chip } from '@/components/ui/chip';
 import { getMaterialIconUrl, ICON_SIZES, getIconSizeClass, shouldInvertIcon, formatIconName } from '@/utils/iconUtils';
 import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import ComponentCard from '@/components/ComponentCard';
-import FoundationsHeader from '@/components/library-components/FoundationsHeader';
+import Header from '@/components/library-components/Header';
+import { TailwindTabs } from "@/components/ui/tabs";
 
 const Icons = () => {
-  const [showCase, setShowCase] = useState<'standard' | 'usage' | 'technical'>('standard');
+  const [activeTab, setActiveTab] = useState('overview');
   
   return (
     <div className="w-full animate-fade-in">
-      <FoundationsHeader 
+      <Header 
         title="Ícones"
         description="Usamos ícones Outlined da Material Design como biblioteca oficial"
+        type="foundations"
       />
       
-      <Tabs defaultValue="overview" className="mt-8">
-        <TabsList className="mb-4 bg-gray-100 p-1 rounded-lg">
-          <TabsTrigger value="overview">Escala</TabsTrigger>
-          <TabsTrigger value="styles">Estilos</TabsTrigger>
-          <TabsTrigger value="usage">Uso</TabsTrigger> 
-          <TabsTrigger value="accessibility">Acessibilidade</TabsTrigger>
-        </TabsList>
-        
-        <TabsContent value="overview" className="space-y-6">
-          <ComponentCard title="Material Design Icons" description="Os ícones do Material Design são o conjunto oficial de ícones do Google que são projetados de acordo com as diretrizes do Material Design.">
-            <p className="text-mui-text-secondary mb-6">
-              Os ícones do Material Design são simples, modernos e amigáveis. Eles seguem os princípios de design do Material e funcionam bem em diferentes tamanhos e contextos.
-            </p>
-            
-            <div className="flex flex-col md:flex-row gap-6 mt-6">
-              <div className="flex-1 p-4 border flex flex-col items-center justify-center rounded">
-                <img src={getMaterialIconUrl("account_circle")} alt="Account Icon" className="w-10 h-10 mb-2" />
-                <h3 className="font-medium">Simples</h3>
-                <p className="text-sm text-center text-muted-foreground">Design limpo e minimalista que funciona bem em tamanhos pequenos</p>
-              </div>
-              <div className="flex-1 p-4 border flex flex-col items-center justify-center rounded">
-                <img src={getMaterialIconUrl("settings")} alt="Settings Icon" className="w-10 h-10 mb-2" />
-                <h3 className="font-medium">Consistente</h3>
-                <p className="text-sm text-center text-muted-foreground">Estilo uniforme em todos os ícones do sistema</p>
-              </div>
-              <div className="flex-1 p-4 border flex flex-col items-center justify-center rounded">
-                <img src={getMaterialIconUrl("visibility")} alt="Visibility Icon" className="w-10 h-10 mb-2" />
-                <h3 className="font-medium">Significativo</h3>
-                <p className="text-sm text-center text-muted-foreground">Metáforas reconhecíveis que comunicam rapidamente o significado</p>
-              </div>
+      <TailwindTabs 
+        defaultValue="overview" 
+        className="mt-8"
+        tabs={[
+          { name: 'Escala', value: 'overview' },
+          { name: 'Estilos', value: 'styles' },
+          { name: 'Uso', value: 'usage' },
+          { name: 'Acessibilidade', value: 'accessibility' }
+        ]}
+        variant="pillsGray"
+        onChange={(value) => setActiveTab(value)}
+      />
+      
+      {activeTab === 'overview' && (
+        <ComponentCard title="Material Design Icons" description="Os ícones do Material Design são o conjunto oficial de ícones do Google que são projetados de acordo com as diretrizes do Material Design.">
+          <p className="text-mui-text-secondary mb-6">
+            Os ícones do Material Design são simples, modernos e amigáveis. Eles seguem os princípios de design do Material e funcionam bem em diferentes tamanhos e contextos.
+          </p>
+          
+          <div className="flex flex-col md:flex-row gap-6 mt-6">
+            <div className="flex-1 p-4 border flex flex-col items-center justify-center rounded">
+              <img src={getMaterialIconUrl("account_circle")} alt="Account Icon" className="w-10 h-10 mb-2" />
+              <h3 className="font-medium">Simples</h3>
+              <p className="text-sm text-center text-muted-foreground">Design limpo e minimalista que funciona bem em tamanhos pequenos</p>
             </div>
-            
-            <Alert className="mt-8 border-amicci-400 rounded bg-amicci-100">
-              <AlertDescription className="flex flex-row justify-between items-center">
-                <span className="font-medium text-base">A biblioteca completa pode ser acessada no site oficial.</span>
-                <Button variant="default" onClick={() => window.open("https://fonts.google.com/icons", "_blank", "noopener,noreferrer")}>Acessar Material Design Icons</Button>
-              </AlertDescription>
-            </Alert>
-            
-            <Separator className="my-6" />
+            <div className="flex-1 p-4 border flex flex-col items-center justify-center rounded">
+              <img src={getMaterialIconUrl("settings")} alt="Settings Icon" className="w-10 h-10 mb-2" />
+              <h3 className="font-medium">Consistente</h3>
+              <p className="text-sm text-center text-muted-foreground">Estilo uniforme em todos os ícones do sistema</p>
+            </div>
+            <div className="flex-1 p-4 border flex flex-col items-center justify-center rounded">
+              <img src={getMaterialIconUrl("visibility")} alt="Visibility Icon" className="w-10 h-10 mb-2" />
+              <h3 className="font-medium">Significativo</h3>
+              <p className="text-sm text-center text-muted-foreground">Metáforas reconhecíveis que comunicam rapidamente o significado</p>
+            </div>
+          </div>
+          
+          <Alert className="mt-8 border-amicci-400 rounded bg-amicci-100">
+            <AlertDescription className="flex flex-row justify-between items-center">
+              <span className="font-medium text-base">A biblioteca completa pode ser acessada no site oficial.</span>
+              <Button variant="default" onClick={() => window.open("https://fonts.google.com/icons", "_blank", "noopener,noreferrer")}>Acessar Material Design Icons</Button>
+            </AlertDescription>
+          </Alert>
+          
+          <Separator className="my-6" />
 
-            <div className="mb-6">
-              <h3 className="text-lg font-medium mb-2">Guia de Integração</h3>
-              <p className="mb-4">Existem várias maneiras de integrar os ícones do Material Design em seu projeto:</p>
+          <div className="mb-6">
+            <h3 className="text-lg font-medium mb-2">Guia de Integração</h3>
+            <p className="mb-4">Existem várias maneiras de integrar os ícones do Material Design em seu projeto:</p>
+            
+            <div className="space-y-6">
+              <div className="rounded border p-4">
+                <h4 className="font-medium mb-2">1. Google Fonts (CDN)</h4>
+                <p className="text-sm mb-3">Adicione esta linha ao cabeçalho HTML:</p>
+                <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
+                  &lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"&gt;
+                </div>
+                <p className="text-sm mt-3">Então use os ícones com:</p>
+                <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
+                  &lt;span className="material-icons-outlined"&gt;home&lt;/span&gt;
+                </div>
+              </div>
               
-              <div className="space-y-6">
-                <div className="rounded border p-4">
-                  <h4 className="font-medium mb-2">1. Google Fonts (CDN)</h4>
-                  <p className="text-sm mb-3">Adicione esta linha ao cabeçalho HTML:</p>
-                  <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
-                    &lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"&gt;
-                  </div>
-                  <p className="text-sm mt-3">Então use os ícones com:</p>
-                  <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
-                    &lt;span className="material-icons-outlined"&gt;home&lt;/span&gt;
-                  </div>
+              <div className="rounded border p-4">
+                <h4 className="font-medium mb-2">2. Ícones SVG</h4>
+                <p className="text-sm mb-3">Use URLs SVG diretamente do Google Fonts:</p>
+                <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
+                  &lt;img src="https://fonts.gstatic.com/s/i/materialiconsoutlined/home/v12/24px.svg" alt="Home"&gt;
                 </div>
-                
-                <div className="rounded border p-4">
-                  <h4 className="font-medium mb-2">2. Ícones SVG</h4>
-                  <p className="text-sm mb-3">Use URLs SVG diretamente do Google Fonts:</p>
-                  <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
-                    &lt;img src="https://fonts.gstatic.com/s/i/materialiconsoutlined/home/v12/24px.svg" alt="Home"&gt;
-                  </div>
-                  <p className="text-sm mt-3">Você pode criar uma função utilitária para gerar essas URLs:</p>
-                  <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
-                    {`const getMaterialIconUrl = (name, size = 24) => \`https://fonts.gstatic.com/s/i/materialiconsoutlined/\${name}/v12/\${size}px.svg\`;`}
-                  </div>
+                <p className="text-sm mt-3">Você pode criar uma função utilitária para gerar essas URLs:</p>
+                <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
+                  {`const getMaterialIconUrl = (name, size = 24) => \`https://fonts.gstatic.com/s/i/materialiconsoutlined/\${name}/v12/\${size}px.svg\`;`}
                 </div>
-                
-                <div className="rounded border p-4">
-                  <h4 className="font-medium mb-2">3. Bibliotecas de Ícones</h4>
-                  <p className="text-sm mb-3">Use um pacote como material-icons:</p>
-                  <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
-                    npm install material-icons
-                  </div>
-                  <p className="text-sm mt-3">Depois importe em seu CSS/JS:</p>
-                  <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
-                    import 'material-icons/iconfont/material-icons.css';
-                  </div>
+              </div>
+              
+              <div className="rounded border p-4">
+                <h4 className="font-medium mb-2">3. Bibliotecas de Ícones</h4>
+                <p className="text-sm mb-3">Use um pacote como material-icons:</p>
+                <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
+                  npm install material-icons
+                </div>
+                <p className="text-sm mt-3">Depois importe em seu CSS/JS:</p>
+                <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
+                  import 'material-icons/iconfont/material-icons.css';
                 </div>
               </div>
             </div>
-            
-            <div className="mt-8">
-              <h3 className="text-lg font-medium mb-2">Recursos Oficiais</h3>
-              <ul className="list-disc list-inside space-y-2 text-sm">
-                <li><a href="https://fonts.google.com/icons" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google Fonts Icons Library</a> - Navegue e baixe ícones do Material</li>
-                <li><a href="https://m3.material.io/styles/icons/overview" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Material Design 3 Icons</a> - Diretrizes oficiais</li>
-                <li><a href="https://github.com/google/material-design-icons" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Material Design Icons GitHub</a> - Repositório oficial</li>
-              </ul>
-            </div>
-          </ComponentCard>
-        </TabsContent>
+          </div>
+          
+          <div className="mt-8">
+            <h3 className="text-lg font-medium mb-2">Recursos Oficiais</h3>
+            <ul className="list-disc list-inside space-y-2 text-sm">
+              <li><a href="https://fonts.google.com/icons" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google Fonts Icons Library</a> - Navegue e baixe ícones do Material</li>
+              <li><a href="https://m3.material.io/styles/icons/overview" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Material Design 3 Icons</a> - Diretrizes oficiais</li>
+              <li><a href="https://github.com/google/material-design-icons" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Material Design Icons GitHub</a> - Repositório oficial</li>
+            </ul>
+          </div>
+        </ComponentCard>
+      )}
         
-        <TabsContent value="styles" className="p-6 border rounded-lg mt-6">
+      {activeTab === 'styles' && (
+        <div className="p-6 border rounded-lg mt-6">
           <h2 className="text-2xl font-semibold mb-4">Estilos de Ícones</h2>
           <p className="mb-4">Os ícones do Material Design estão disponíveis em diferentes estilos para atender às necessidades do seu projeto.</p>
 
@@ -173,9 +180,11 @@ const Icons = () => {
               </div>
             </div>
           </div>
-        </TabsContent>
+        </div>
+      )}
         
-        <TabsContent value="usage" className="p-6 border rounded-lg mt-6">
+      {activeTab === 'usage' && (
+        <div className="p-6 border rounded-lg mt-6">
           <h2 className="text-2xl font-semibold mb-4">Como Usar Ícones</h2>
           
           <div className="mb-6">
@@ -223,9 +232,11 @@ const Icons = () => {
               </div>
             </div>
           </div>
-        </TabsContent>
+        </div>
+      )}
         
-        <TabsContent value="accessibility" className="p-6 border rounded-lg mt-6">
+      {activeTab === 'accessibility' && (
+        <div className="p-6 border rounded-lg mt-6">
           <h2 className="text-2xl font-semibold mb-4">Acessibilidade</h2>
           <p className="mb-4">Garantir que os ícones sejam acessíveis para todos os usuários é fundamental para uma boa experiência de usuário.</p>
 
@@ -292,8 +303,8 @@ const Icons = () => {
               </div>
             </div>
           </div>
-        </TabsContent>
-      </Tabs>
+        </div>
+      )}
     </div>
   );
 };
