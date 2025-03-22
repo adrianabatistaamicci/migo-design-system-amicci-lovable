@@ -12,7 +12,6 @@ import Header from '@/components/library-components/Header';
 import { Toggle } from '@/components/ui/toggle';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { TailwindTabs } from '@/components/ui/tabs';
-
 const ColorSwatch = ({
   color,
   className = "",
@@ -33,7 +32,6 @@ const ColorSwatch = ({
   simulationType?: string;
 }) => {
   const [copied, setCopied] = useState(false);
-
   const getTextColor = () => {
     if (hexValue) {
       try {
@@ -45,22 +43,18 @@ const ColorSwatch = ({
     }
     return getLightDarkFromName();
   };
-
   const getLightDarkFromName = () => {
     const lightColors = ['white', 'light', '50', '100', '200', '300'];
     const isLightColorName = lightColors.some(lightColor => color.toLowerCase().includes(lightColor));
     return isLightColorName ? 'text-gray-800' : 'text-white';
   };
-
   const handleCopy = () => {
     const valueToCopy = copyValue || hexValue || color;
     navigator.clipboard.writeText(valueToCopy);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
-
   const textColor = getTextColor();
-
   const getBackgroundStyle = () => {
     if (color.startsWith('bg-')) {
       return color;
@@ -70,39 +64,31 @@ const ColorSwatch = ({
     }
     return color;
   };
-
-  return (
-    <div 
-      className={`relative w-full rounded-md ${getBackgroundStyle()} ${className} flex items-center justify-center px-3 transition-all hover:shadow-md cursor-pointer group`} 
-      onClick={onClick || handleCopy} 
-      role="button" 
-      tabIndex={0} 
-      style={{
-        ...(hexValue && !color.startsWith('bg-') ? { backgroundColor: hexValue } : {}),
-        ...(simulationType && colorBlindnessFilters[simulationType] ? { filter: colorBlindnessFilters[simulationType] } : {})
-      }}
-    >
+  return <div className={`relative w-full rounded-md ${getBackgroundStyle()} ${className} flex items-center justify-center px-3 transition-all hover:shadow-md cursor-pointer group`} onClick={onClick || handleCopy} role="button" tabIndex={0} style={{
+    ...(hexValue && !color.startsWith('bg-') ? {
+      backgroundColor: hexValue
+    } : {}),
+    ...(simulationType && colorBlindnessFilters[simulationType] ? {
+      filter: colorBlindnessFilters[simulationType]
+    } : {})
+  }}>
       {textOverlay}
       {weight && <span className={`text-xs ${textColor} opacity-75 absolute left-2 top-1`}>{weight}</span>}
       
       <div className={`absolute right-2 top-2 transition-opacity ${copied ? 'opacity-100' : 'opacity-0 group-hover:opacity-70'}`}>
         {copied ? <Check className={`w-4 h-4 ${textColor}`} /> : <Copy className={`w-4 h-4 ${textColor}`} />}
       </div>
-    </div>
-  );
+    </div>;
 };
-
 const BaseColorsTable = ({
   baseColors
 }) => {
   const copyToClipboard = text => {
     navigator.clipboard.writeText(text);
   };
-
   const renderCopyButton = text => <button onClick={() => copyToClipboard(text)} className="ml-2 text-gray-400 hover:text-gray-600 transition-colors">
       <Copy size={14} />
     </button>;
-
   return <div className="space-y-8">
       {baseColors.map(baseColor => <div key={baseColor.name} className="space-y-2">
           <h3 className="text-xl font-semibold">{baseColor.name}</h3>
@@ -152,18 +138,15 @@ const BaseColorsTable = ({
         </div>)}
     </div>;
 };
-
 const PaletteTable = ({
   palettes
 }) => {
   const copyToClipboard = text => {
     navigator.clipboard.writeText(text);
   };
-
   const renderCopyButton = text => <button onClick={() => copyToClipboard(text)} className="ml-2 text-gray-400 hover:text-gray-600 transition-colors">
       <Copy size={14} />
     </button>;
-
   const getWCAGStatus = hexColor => {
     try {
       const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
@@ -185,7 +168,6 @@ const PaletteTable = ({
       };
     }
   };
-
   return <div className="space-y-8">
       {palettes.map(palette => <div key={palette.name} className="space-y-4">
           <div className="flex items-center gap-3">
@@ -240,7 +222,6 @@ const PaletteTable = ({
         </div>)}
     </div>;
 };
-
 const baseColorsData = [{
   name: 'Amicci',
   weights: [{
@@ -665,7 +646,6 @@ const baseColorsData = [{
     hexValue: '#7A2E0E'
   }]
 }];
-
 const paletteData = [{
   name: 'Text',
   description: 'Gray',
@@ -829,11 +809,9 @@ const paletteData = [{
     hexValue: '#FFFFFF'
   }]
 }];
-
 const Colors = () => {
   const [simulationType, setSimulationType] = useState('');
   const [activeTab, setActiveTab] = useState('overview');
-
   const handleSimulation = (type: string) => {
     if (simulationType === type) {
       setSimulationType('');
@@ -841,30 +819,26 @@ const Colors = () => {
       setSimulationType(type);
     }
   };
-
-  return (
-    <div className="w-full animate-fade-in">
-      <Header 
-        title="Sistema de Cores" 
-        description="Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização."
-        type="foundations"
-      />
+  return <div className="w-full animate-fade-in">
+      <Header title="Sistema de Cores" description="Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização." type="foundations" />
       
-      <TailwindTabs 
-        defaultValue="overview" 
-        className="mt-8"
-        tabs={[
-          { name: 'Visão geral', value: 'overview' },
-          { name: 'Cores Base', value: 'base-colors' },
-          { name: 'Paletas', value: 'palettes' },
-          { name: 'Uso', value: 'usage' },
-          { name: 'Acessibilidade', value: 'accessibility' }
-        ]}
-        variant="pillsGray"
-        onChange={(value) => setActiveTab(value)}
-      >
-        {activeTab === 'overview' && (
-          <div className="space-y-8">
+      <TailwindTabs defaultValue="overview" className="mt-8" tabs={[{
+      name: 'Visão geral',
+      value: 'overview'
+    }, {
+      name: 'Cores Base',
+      value: 'base-colors'
+    }, {
+      name: 'Paletas',
+      value: 'palettes'
+    }, {
+      name: 'Uso',
+      value: 'usage'
+    }, {
+      name: 'Acessibilidade',
+      value: 'accessibility'
+    }]} variant="pillsGray" onChange={value => setActiveTab(value)}>
+        {activeTab === 'overview' && <div className="space-y-8 mt-10">
             <ComponentCard title="Sistema de Cores" description="Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização.">
               <p className="text-gray-600 mb-6">
                 O sistema é organizado para proporcionar consistência visual e flexibilidade em toda a aplicação.
@@ -1005,29 +979,23 @@ const Colors = () => {
                 </div>
               </div>
             </ComponentCard>
-          </div>
-        )}
+          </div>}
         
-        {activeTab === 'base-colors' && (
-          <ComponentCard title="Cores Base" description="Conjunto de cores básicas que formam a fundação do sistema.">
+        {activeTab === 'base-colors' && <ComponentCard title="Cores Base" description="Conjunto de cores básicas que formam a fundação do sistema.">
             <p className="text-gray-600 mb-6">
               Estas cores básicas servem como alicerce para todo o sistema de design, fornecendo consistência visual em toda a aplicação.
             </p>
             <BaseColorsTable baseColors={baseColorsData} />
-          </ComponentCard>
-        )}
+          </ComponentCard>}
         
-        {activeTab === 'palettes' && (
-          <ComponentCard title="Paletas" description="Paletas semânticas construídas a partir das cores base.">
+        {activeTab === 'palettes' && <ComponentCard title="Paletas" description="Paletas semânticas construídas a partir das cores base.">
             <p className="text-gray-600 mb-6">
               Nossas paletas semânticas atribuem significado e função às cores, facilitando o uso consistente em toda a interface.
             </p>
             <PaletteTable palettes={paletteData} />
-          </ComponentCard>
-        )}
+          </ComponentCard>}
         
-        {activeTab === 'usage' && (
-          <ComponentCard title="Uso" description="Orientações para a aplicação correta das cores na interface.">
+        {activeTab === 'usage' && <ComponentCard title="Uso" description="Orientações para a aplicação correta das cores na interface.">
             <p className="text-gray-600 mb-6">
               Diretrizes de uso que asseguram consistência visual e funcional em toda a experiência do usuário.
             </p>
@@ -1100,11 +1068,9 @@ const Colors = () => {
                 </div>
               </div>
             </div>
-          </ComponentCard>
-        )}
+          </ComponentCard>}
         
-        {activeTab === 'accessibility' && (
-          <ComponentCard title="Acessibilidade de Cores" description="Garantindo que nosso sistema de cores seja acessível a todos.">
+        {activeTab === 'accessibility' && <ComponentCard title="Acessibilidade de Cores" description="Garantindo que nosso sistema de cores seja acessível a todos.">
             <div className="space-y-8">
               <div>
                 <h3 className="text-xl font-semibold mb-3">Contraste</h3>
@@ -1213,12 +1179,7 @@ const Colors = () => {
                       <ColorSwatch color="bg-success-main" className="h-14" simulationType={simulationType === 'deuteranopia' ? 'deuteranopia' : ''} />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Toggle 
-                        pressed={simulationType === 'deuteranopia'}
-                        onPressedChange={() => handleSimulation('deuteranopia')}
-                        aria-label="Simular Deuteranopia"
-                        className="gap-2"
-                      >
+                      <Toggle pressed={simulationType === 'deuteranopia'} onPressedChange={() => handleSimulation('deuteranopia')} aria-label="Simular Deuteranopia" className="gap-2">
                         <Eye className="h-4 w-4" />
                         <span className="text-xs">Simular Deuteranopia</span>
                       </Toggle>
@@ -1235,12 +1196,7 @@ const Colors = () => {
                       <ColorSwatch color="bg-success-main" className="h-14" simulationType={simulationType === 'protanopia' ? 'protanopia' : ''} />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Toggle 
-                        pressed={simulationType === 'protanopia'}
-                        onPressedChange={() => handleSimulation('protanopia')}
-                        aria-label="Simular Protanopia"
-                        className="gap-2"
-                      >
+                      <Toggle pressed={simulationType === 'protanopia'} onPressedChange={() => handleSimulation('protanopia')} aria-label="Simular Protanopia" className="gap-2">
                         <Eye className="h-4 w-4" />
                         <span className="text-xs">Simular Protanopia</span>
                       </Toggle>
@@ -1257,12 +1213,7 @@ const Colors = () => {
                       <ColorSwatch color="bg-success-main" className="h-14" simulationType={simulationType === 'tritanopia' ? 'tritanopia' : ''} />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Toggle 
-                        pressed={simulationType === 'tritanopia'}
-                        onPressedChange={() => handleSimulation('tritanopia')}
-                        aria-label="Simular Tritanopia"
-                        className="gap-2"
-                      >
+                      <Toggle pressed={simulationType === 'tritanopia'} onPressedChange={() => handleSimulation('tritanopia')} aria-label="Simular Tritanopia" className="gap-2">
                         <Eye className="h-4 w-4" />
                         <span className="text-xs">Simular Tritanopia</span>
                       </Toggle>
@@ -1279,12 +1230,7 @@ const Colors = () => {
                       <ColorSwatch color="bg-success-main" className="h-14" simulationType={simulationType === 'achromatopsia' ? 'achromatopsia' : ''} />
                     </div>
                     <div className="flex justify-end mt-2">
-                      <Toggle 
-                        pressed={simulationType === 'achromatopsia'}
-                        onPressedChange={() => handleSimulation('achromatopsia')}
-                        aria-label="Simular Acromatopsia"
-                        className="gap-2"
-                      >
+                      <Toggle pressed={simulationType === 'achromatopsia'} onPressedChange={() => handleSimulation('achromatopsia')} aria-label="Simular Acromatopsia" className="gap-2">
                         <Eye className="h-4 w-4" />
                         <span className="text-xs">Simular Acromatopsia</span>
                       </Toggle>
@@ -1322,11 +1268,8 @@ const Colors = () => {
                 </div>
               </div>
             </div>
-          </ComponentCard>
-        )}
+          </ComponentCard>}
       </TailwindTabs>
-    </div>
-  );
+    </div>;
 };
-
 export default Colors;
