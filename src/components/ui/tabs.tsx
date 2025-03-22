@@ -56,7 +56,7 @@ export const TailwindTabs = ({
               </button>)}
           </nav>;
       case 'pillsGray':
-        return <nav className="">
+        return <nav className="flex space-x-2 rounded-lg bg-gray-100 p-1">
             {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors duration-200 ${selected === tab.value ? 'bg-white text-amicci-600 shadow-sm' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}>
                 {tab.name}
                 {tab.badge && <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${selected === tab.value ? 'bg-amicci-100 text-amicci-600' : 'bg-gray-100 text-gray-600'}`}>
