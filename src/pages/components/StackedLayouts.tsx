@@ -244,16 +244,11 @@ const LightNavGrayBackground = () => {
       </nav>
 
       <div className="py-10">
-        <header>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-medium tracking-tight text-gray-900">Dashboard</h1>
-          </div>
-        </header>
         <main>
           <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div className="px-4 py-8 sm:px-0">
-              <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 bg-white flex items-center justify-center">
-                <h2 className="text-2xl font-medium text-gray-500">Dashboard</h2>
+              <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 bg-white relative">
+                <h1 className="absolute top-4 left-4 text-3xl font-medium tracking-tight text-gray-900">Dashboard</h1>
               </div>
             </div>
           </div>
@@ -297,16 +292,11 @@ const LightNavBottomBorder = () => {
       </nav>
 
       <div className="py-10">
-        <header>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-medium tracking-tight text-gray-900">Dashboard</h1>
-          </div>
-        </header>
         <main>
           <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div className="px-4 py-8 sm:px-0">
-              <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 flex items-center justify-center">
-                <h2 className="text-2xl font-medium text-gray-500">Dashboard</h2>
+              <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 relative">
+                <h1 className="absolute top-4 left-4 text-3xl font-medium tracking-tight text-gray-900">Dashboard</h1>
               </div>
             </div>
           </div>
