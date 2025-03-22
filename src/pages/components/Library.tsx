@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
-import ComponentsHeader from '@/components/library-components/ComponentsHeader';
+import Header from '@/components/library-components/Header';
 import EmptyState from '@/components/library-components/EmptyState';
 
 // Define the type for the module records returned by import.meta.glob
@@ -24,8 +24,13 @@ const LibraryPage: React.FC = () => {
     const formattedComponents: Record<string, React.ComponentType<any>> = {};
     for (const path in libraryComponents) {
       const componentName = path.split('/').pop()?.replace('.tsx', '') || '';
-      // Skip EmptyState component as we'll add it manually to prevent duplication
-      if (componentName && componentName !== 'EmptyState' && libraryComponents[path].default) {
+      // Skip EmptyState component and Header component as we'll add them manually to prevent duplication
+      if (componentName && 
+          componentName !== 'EmptyState' && 
+          componentName !== 'Header' &&
+          componentName !== 'ComponentsHeader' &&
+          componentName !== 'FoundationsHeader' &&
+          libraryComponents[path].default) {
         formattedComponents[componentName] = libraryComponents[path].default;
       }
     }
@@ -35,9 +40,10 @@ const LibraryPage: React.FC = () => {
   return (
     <div className="animate-fade-in">
       <div className="max-w-3xl mb-12">
-        <ComponentsHeader
+        <Header
           title="Library Components"
           description="A collection of reusable UI components designed for our design system."
+          type="components"
         />
         
         <div className="mt-8 grid grid-cols-1 gap-6">
@@ -63,6 +69,25 @@ const LibraryPage: React.FC = () => {
               <EmptyState />
             </div>
           </ComponentCard>
+          
+          {/* Add Header component card */}
+          <ComponentCard 
+            title="Header" 
+            description="Cabeçalho usado para seções principais do design system."
+            code={`<Header 
+  title="Título de exemplo" 
+  description="Descrição de exemplo para demonstrar o componente Header." 
+  type="components" 
+/>`}
+          >
+            <div className="p-4">
+              <Header 
+                title="Título de exemplo" 
+                description="Descrição de exemplo para demonstrar o componente Header."
+                type="components"
+              />
+            </div>
+          </ComponentCard>
         </div>
       </div>
     </div>
@@ -72,15 +97,11 @@ const LibraryPage: React.FC = () => {
 // Helper function to provide default props for each component type
 const getDefaultProps = (componentName: string): Record<string, any> => {
   switch (componentName) {
-    case 'FoundationsHeader':
+    case 'Header':
       return {
         title: "Example Title",
-        description: "This is an example description to showcase the FoundationsHeader component."
-      };
-    case 'ComponentsHeader':
-      return {
-        title: "Component Example",
-        description: "This is an example description to showcase the ComponentsHeader component."
+        description: "This is an example description to showcase the Header component.",
+        type: "components"
       };
     case 'EmptyState':
       return {

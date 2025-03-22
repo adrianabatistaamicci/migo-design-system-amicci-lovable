@@ -7,8 +7,9 @@ import { Input } from '@/components/ui/input';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
-import ComponentsHeader from '@/components/library-components/ComponentsHeader';
+import Header from '@/components/library-components/Header';
 import { Heart, ArrowRight, Save, Check } from 'lucide-react';
+
 const componentData = {
   buttons: {
     title: 'Button',
@@ -191,6 +192,7 @@ const componentData = {
     }]
   }
 };
+
 const ComponentDetail = () => {
   const {
     componentId
@@ -210,7 +212,7 @@ const ComponentDetail = () => {
   }
   return <div className="animate-slide-in w-full mb-6">
       <div className="w-full">
-        <ComponentsHeader title={component.title} description={component.description} />
+        <Header title={component.title} description={component.description} type="components" />
         
         <div className="mb-12">
           
@@ -257,4 +259,5 @@ const ComponentDetail = () => {
       </div>
     </div>;
 };
+
 export default ComponentDetail;

@@ -12,7 +12,7 @@ import { Slider } from '@/components/ui/slider';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { TailwindTabs } from '@/components/ui/tabs';
 import { Mail, Check } from 'lucide-react';
-import ComponentsHeader from '@/components/library-components/ComponentsHeader';
+import Header from '@/components/library-components/Header';
 
 const componentCategories = [
   {
@@ -71,9 +71,10 @@ const Components = () => {
   return (
     <div className="animate-slide-in">
       <div className="max-w-3xl mb-12">
-        <ComponentsHeader 
+        <Header 
           title="Material UI Component Library"
           description="Explore our collection of Material Design inspired UI components designed for consistency and usability."
+          type="components"
         />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
