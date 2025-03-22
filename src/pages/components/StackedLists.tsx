@@ -10,7 +10,6 @@ import {
   ShoppingCart,
   User,
   Settings,
-  Message,
   Mail
 } from 'lucide-react';
 
