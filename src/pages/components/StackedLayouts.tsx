@@ -1,29 +1,62 @@
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Bell, ChevronDown, Search, Menu, User, Code, Copy, CheckCheck } from 'lucide-react';
+import { ShoppingCart, Bell, ChevronDown, Search, Menu, User, Code, Copy, CheckCheck, Rocket, Globe } from 'lucide-react';
 import amicciLogo from '@/pages/assets/Amicci-Simbolo_Turquesa_Escuro.svg';
 import amicciLogoDark from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg';
 import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { TailwindTabs } from '@/components/ui/tabs';
 
 const StackedLayouts = () => {
-  return <div className="w-full animate-fade-in">
+  const [activeTab, setActiveTab] = useState('overview');
+  
+  return (
+    <div className="w-full animate-fade-in">
       <Header title="Stacked Layouts" description="Layouts empilhados (stacked) são uma estrutura comum para aplicações onde o cabeçalho permanece fixo no topo enquanto o conteúdo principal é rolável. Esses layouts proporcionam uma navegação clara e consistente para os usuários." type="components" />
 
-      <div className="space-y-12 mt-8">
-        <LayoutComponent title="Light nav with bottom border" component={<LightNavBottomBorder />} />
-        
-        <LayoutComponent title="Light nav on gray background" component={<LightNavGrayBackground />} />
-        
-        <LayoutComponent title="Branded nav with compact white page header" component={<BrandedNavCompactHeader />} />
-        
-        <LayoutComponent title="Branded nav with white page header" component={<BrandedNavWithWhiteHeader />} />
-        
-        <LayoutComponent title="Brand nav with overlap" component={<BrandNavWithOverlap />} />
+      <div className="mt-8">
+        <TailwindTabs 
+          tabs={[
+            { name: 'Visão geral', value: 'overview' },
+            { name: 'Uso no marketplace', value: 'marketplace' },
+            { name: 'Uso no site institucional', value: 'institutional' }
+          ]}
+          variant="underline"
+          defaultValue="overview"
+          onChange={setActiveTab}
+          className="mb-8"
+        />
+
+        {activeTab === 'overview' && (
+          <div className="space-y-12">
+            <LayoutComponent title="Light nav with bottom border" component={<LightNavBottomBorder />} />
+            
+            <LayoutComponent title="Light nav on gray background" component={<LightNavGrayBackground />} />
+            
+            <LayoutComponent title="Branded nav with compact white page header" component={<BrandedNavCompactHeader />} />
+            
+            <LayoutComponent title="Branded nav with white page header" component={<BrandedNavWithWhiteHeader />} />
+            
+            <LayoutComponent title="Brand nav with overlap" component={<BrandNavWithOverlap />} />
+          </div>
+        )}
+
+        {activeTab === 'marketplace' && (
+          <div className="space-y-12">
+            <LayoutComponent title="Marketplace Navigation" component={<MarketplaceNav />} />
+          </div>
+        )}
+
+        {activeTab === 'institutional' && (
+          <div className="space-y-12">
+            <LayoutComponent title="Institutional Site Navigation" component={<InstitutionalNav />} />
+          </div>
+        )}
       </div>
-    </div>;
+    </div>
+  );
 };
 
 const LayoutComponent = ({
@@ -74,6 +107,132 @@ const LayoutComponent = ({
           </div>}
       </div>
     </div>;
+};
+
+const MarketplaceNav = () => {
+  return (
+    <div className="min-h-[500px] w-full bg-white">
+      <nav className="bg-white border-b border-gray-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-[88px] items-center justify-between">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
+              </div>
+              <div className="hidden md:ml-12 md:flex md:space-x-8">
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-text-primary">Minha vitrine</a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">
+                  Oportunidades
+                  <ChevronDown className="ml-1 h-4 w-4 inline" />
+                </a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Meus projetos</a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">
+                  Produtos lançados
+                  <ChevronDown className="ml-1 h-4 w-4 inline" />
+                </a>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <Button variant="default" className="bg-amicci-500 hover:bg-amicci-600 flex items-center gap-2">
+                <Rocket className="h-4 w-4" />
+                Impulsionar negócios
+              </Button>
+              <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
+                <span className="sr-only">Ajuda</span>
+                <Search className="h-6 w-6" aria-hidden="true" />
+              </button>
+              <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
+                <span className="sr-only">Ver notificações</span>
+                <Bell className="h-6 w-6" aria-hidden="true" />
+              </button>
+              <div className="flex items-center gap-3">
+                <div className="flex flex-col items-end">
+                  <p className="text-sm font-medium">Maria Rita</p>
+                  <p className="text-xs text-gray-500">Nome da Empresa</p>
+                </div>
+                <div className="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center text-white">
+                  OP
+                </div>
+                <Menu className="h-6 w-6" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div className="py-10">
+        <main>
+          <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div className="px-0 py-2 sm:px-0">
+              <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 relative">
+                <h1 className="absolute top-4 left-4 text-3xl font-medium tracking-tight text-gray-900">Minha vitrine</h1>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  );
+};
+
+const InstitutionalNav = () => {
+  return (
+    <div className="min-h-[500px] w-full bg-white">
+      <nav className="bg-white border-b border-gray-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-[88px] items-center justify-between">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
+              </div>
+              <div className="hidden md:ml-12 md:flex md:space-x-8">
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">
+                  Home
+                  <ChevronDown className="ml-1 h-4 w-4 inline" />
+                </a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">
+                  Plataforma
+                  <ChevronDown className="ml-1 h-4 w-4 inline" />
+                </a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Sobre</a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">
+                  Conteúdos
+                  <ChevronDown className="ml-1 h-4 w-4 inline" />
+                </a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Suporte</a>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center">
+                <Button variant="outline" className="rounded-l-md rounded-r-none border-r-0">
+                  Login
+                </Button>
+                <Button variant="outline" className="rounded-l-none rounded-r-md">
+                  <ChevronDown className="h-4 w-4" />
+                </Button>
+              </div>
+              <Button className="bg-amicci-500 hover:bg-amicci-600">Falar com especialista</Button>
+              <Button variant="outline" className="p-2">
+                <Globe className="h-5 w-5" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div className="py-10">
+        <main>
+          <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div className="px-0 py-2 sm:px-0">
+              <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 relative">
+                <h1 className="absolute top-4 left-4 text-3xl font-medium tracking-tight text-gray-900">Home</h1>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  );
 };
 
 const BrandedNavWithWhiteHeader = () => {
