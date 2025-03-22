@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, ChevronRight, Package, Layers, PenTool, Palette, Coffee, MousePointer } from 'lucide-react';
+import { ChevronDown, ChevronRight, Package, Layers, Coffee, MousePointer } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { TailwindTabs } from '@/components/ui/tabs';
 
@@ -22,7 +21,6 @@ const sidebarItems: SidebarItem[] = [
     items: [
       { title: 'Oi, Migo', href: '/' },
       { title: 'Instalação', href: '/installation' },
-      { title: 'Guidelines', href: '/guidelines' },
       { title: 'UI Kit', href: '/ui-kit' },
       { title: 'Recursos', href: '/resources' },
     ]
@@ -154,22 +152,6 @@ const sidebarItems: SidebarItem[] = [
         ]
       },
       { title: 'Library', href: '/components/library' },
-    ]
-  },
-  {
-    title: 'Guidelines',
-    icon: PenTool,
-    items: [
-      { title: 'Accessibility', href: '/guidelines/accessibility' },
-      { title: 'Responsive Design', href: '/guidelines/responsive-design' },
-    ]
-  },
-  {
-    title: 'Customization',
-    icon: Palette,
-    items: [
-      { title: 'Theming', href: '/customization/theming' },
-      { title: 'Configuration', href: '/customization/configuration' },
     ]
   },
   {
