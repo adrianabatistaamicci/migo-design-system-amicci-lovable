@@ -28,10 +28,7 @@ const Header = ({
             {type === 'foundations' ? 'Foundations' : 'Components'}
           </Chip>
         </div>
-        <h1 className={cn(
-          "font-medium tracking-tight text-zinc-950",
-          type === 'foundations' ? "text-4xl" : "text-3xl"
-        )}>
+        <h1 className="text-4xl font-medium tracking-tight text-zinc-950">
           {title}
         </h1>
         <p className="max-w-none text-zinc-700">{description}</p>
