@@ -1,9 +1,10 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Bell, ChevronDown, Search, Menu, User } from 'lucide-react';
+import { ShoppingCart, Bell, ChevronDown, Search, Menu, User, Code, Copy, CheckCheck } from 'lucide-react';
 import amicciLogo from '@/pages/assets/Amicci-Simbolo_Turquesa_Escuro.svg';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 const StackedLayouts = () => {
   return (
@@ -16,28 +17,8 @@ const StackedLayouts = () => {
 
       <div className="space-y-12 mt-8">
         <LayoutComponent 
-          title="Two-row navigation with overlap"
-          component={<TwoRowNavWithOverlap />}
-        />
-        
-        <LayoutComponent 
-          title="Dark nav with compact white page header"
-          component={<DarkNavWithWhiteHeader />}
-        />
-        
-        <LayoutComponent 
-          title="Branded nav with white page header"
-          component={<BrandedNavWithWhiteHeader />}
-        />
-        
-        <LayoutComponent 
-          title="Brand nav with overlap"
-          component={<BrandNavWithOverlap />}
-        />
-        
-        <LayoutComponent 
-          title="Branded nav with compact white page header"
-          component={<BrandedNavCompactHeader />}
+          title="Light nav with bottom border"
+          component={<LightNavBottomBorder />}
         />
         
         <LayoutComponent 
@@ -46,8 +27,23 @@ const StackedLayouts = () => {
         />
         
         <LayoutComponent 
-          title="Light nav with bottom border"
-          component={<LightNavBottomBorder />}
+          title="Branded nav with compact white page header"
+          component={<BrandedNavCompactHeader />}
+        />
+        
+        <LayoutComponent 
+          title="Brand nav with overlap"
+          component={<BrandNavWithOverlap />}
+        />
+        
+        <LayoutComponent 
+          title="Branded nav with white page header"
+          component={<BrandedNavWithWhiteHeader />}
+        />
+        
+        <LayoutComponent 
+          title="Two-row navigation with overlap"
+          component={<TwoRowNavWithOverlap />}
         />
       </div>
     </div>
@@ -55,14 +51,58 @@ const StackedLayouts = () => {
 };
 
 const LayoutComponent = ({ title, component }) => {
+  const [showCode, setShowCode] = useState(false);
+  const [copied, setCopied] = useState(false);
+  
+  const copyToClipboard = () => {
+    // This would copy the actual code, but for now let's simulate it
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+  };
+  
   return (
     <div className="border rounded-lg overflow-hidden">
-      <div className="p-4 border-b bg-white">
+      <div className="p-4 border-b bg-white flex justify-between items-center">
         <h3 className="text-lg font-medium text-gray-900">{title}</h3>
+        <div className="flex gap-2">
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={() => setShowCode(!showCode)}
+            className="flex items-center gap-1 text-sm"
+          >
+            <Code size={16} />
+            <span>{showCode ? 'Hide code' : 'Show code'}</span>
+          </Button>
+          
+          {showCode && (
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={copyToClipboard}
+              className="flex items-center gap-1 text-sm"
+              disabled={copied}
+            >
+              {copied ? <CheckCheck size={16} /> : <Copy size={16} />}
+              <span>{copied ? 'Copied' : 'Copy'}</span>
+            </Button>
+          )}
+        </div>
       </div>
       <div className="bg-gray-100 w-full h-[500px] overflow-hidden">
         {component}
       </div>
+      {showCode && (
+        <div className="border-t p-4 bg-gray-50 overflow-x-auto">
+          <pre className="text-sm">
+            <code>{`// Component code would go here
+// This is a placeholder for the actual code
+// In a real implementation, each component's code would be shown here`}</code>
+          </pre>
+        </div>
+      )}
     </div>
   );
 };
@@ -147,53 +187,6 @@ const TwoRowNavWithOverlap = () => {
       <main className="-mt-32">
         <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
           <div className="rounded-lg bg-white px-5 py-6 shadow sm:px-6">
-            <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
-          </div>
-        </div>
-      </main>
-    </div>
-  );
-};
-
-const DarkNavWithWhiteHeader = () => {
-  return (
-    <div className="min-h-[500px] w-full">
-      <div className="bg-gray-800">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
-          <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Amicci</span>
-              <img className="h-8 w-auto" src={amicciLogo} alt="Logo" />
-            </a>
-          </div>
-          <div className="flex lg:hidden">
-            <button type="button" className="inline-flex items-center justify-center rounded-md p-2.5 text-gray-400">
-              <span className="sr-only">Abrir menu principal</span>
-              <Menu className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div>
-          <div className="hidden lg:flex lg:gap-x-12">
-            <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-300 hover:text-white">Equipe</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-300 hover:text-white">Projetos</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-300 hover:text-white">Calendário</a>
-          </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-300 hover:text-white">
-              Log in <span aria-hidden="true">&rarr;</span>
-            </a>
-          </div>
-        </nav>
-      </div>
-
-      <header className="bg-white shadow-sm">
-        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <h1 className="text-lg font-semibold leading-6 text-gray-900">Dashboard</h1>
-        </div>
-      </header>
-      <main>
-        <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-          <div className="px-4 py-6 sm:px-0">
             <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
           </div>
         </div>

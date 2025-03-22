@@ -13,7 +13,7 @@ const ApplicationShellsSection = () => {
           <ComponentPreview 
             title="Layouts" 
             imageSrc="/lovable-uploads/2164823d-9e27-4ff7-a19d-e5117a64f1f6.png" 
-            variantCount={7} 
+            variantCount={6} 
           />
         </Link>
         
