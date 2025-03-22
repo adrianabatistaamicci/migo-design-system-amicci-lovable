@@ -17,7 +17,7 @@ const ProfileButtonPage = () => {
       
       <div className="space-y-12 mt-10">
         <LayoutComponent 
-          title="Profile Button Padrão" 
+          title="Profile Button Padrão (com espaçamentos aplicados)" 
           component={
             <div className="flex justify-center items-center p-4">
               <ProfileButton

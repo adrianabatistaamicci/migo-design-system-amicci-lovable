@@ -4,9 +4,10 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { Menu } from "lucide-react";
 import defaultLogo from '@/pages/assets/client-logo.svg';
+import { getSpacingClass } from "@/utils/spacingUtils";
 
 const profileButtonVariants = cva(
-  "inline-flex items-center gap-2 h-[46px] px-2 py-1 rounded-full border bg-white shrink-0",
+  "inline-flex items-center h-[46px] rounded-full border bg-white shrink-0",
   {
     variants: {
       variant: {
@@ -69,23 +70,23 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
 
     return (
       <button
-        className={cn(profileButtonVariants({ variant, size, className }))}
+        className={cn(profileButtonVariants({ variant, size, className }), "px-2")}
         ref={ref}
         type="button"
         {...props}
       >
         {showClientLogo && (
-          <div className="flex items-center gap-2 mr-2">
+          <div className="flex items-center mr-8">
             {logoSrc ? (
-              <img src={logoSrc} alt={logoAlt} className="h-8 w-auto" />
+              <img src={logoSrc} alt={logoAlt} className="h-[46px] w-auto" />
             ) : (
               <div className="text-lg font-semibold">{logoText || "Clientlogo"}</div>
             )}
           </div>
         )}
 
-        <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-full bg-[#001A1A] text-white flex items-center justify-center font-medium">
+        <div className="flex items-center">
+          <div className="h-10 w-10 rounded-full bg-[#001A1A] text-white flex items-center justify-center font-medium mr-8">
             {avatarSrc ? (
               <img src={avatarSrc} alt={avatarAlt} className="h-full w-full rounded-full object-cover" />
             ) : (
@@ -93,14 +94,14 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
             )}
           </div>
           
-          <div className="flex flex-col items-start text-left">
+          <div className="flex flex-col items-start text-left mr-8">
             <span className="text-base font-medium text-gray-900 leading-tight">{userName}</span>
             {companyName && (
               <span className="text-sm text-gray-500 leading-tight">{companyName}</span>
             )}
           </div>
           
-          <div className="text-gray-600">
+          <div className="text-gray-600 px-4">
             {menuIcon || <Menu className="h-6 w-6" />}
           </div>
         </div>
