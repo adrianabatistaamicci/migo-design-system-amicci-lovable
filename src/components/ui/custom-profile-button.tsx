@@ -6,14 +6,9 @@ import { Menu } from "lucide-react";
 import defaultLogo from '@/pages/assets/client-logo.svg';
 
 const customProfileButtonVariants = cva(
-  "inline-flex items-center rounded-full border bg-white shrink-0",
+  "inline-flex items-center rounded-full border border-[rgba(33,35,35,0.23)] bg-white shrink-0 transition-all duration-200 ease-in-out hover:bg-gray-50 hover:border-gray-300",
   {
     variants: {
-      variant: {
-        default: "border-[rgba(33,35,35,0.23)]",
-        outline: "border-gray-300",
-        filled: "border-transparent bg-gray-100",
-      },
       size: {
         default: "h-[46px]",
         sm: "h-9",
@@ -21,7 +16,6 @@ const customProfileButtonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "default",
       size: "default",
     },
   }
@@ -53,7 +47,6 @@ export interface CustomProfileButtonProps
 const CustomProfileButton = React.forwardRef<HTMLButtonElement, CustomProfileButtonProps>(
   ({
     className,
-    variant,
     size,
     userName,
     companyName,
@@ -67,12 +60,12 @@ const CustomProfileButton = React.forwardRef<HTMLButtonElement, CustomProfileBut
     menuIcon,
     innerSpacing = {
       container: "px-4 py-1",
-      logo: "",
+      logo: "pr-4",
       avatar: "",
-      text: "",
-      menu: "px-4",
+      text: "px-2",
+      menu: "pl-4",
     },
-    gap = "gap-8",
+    gap = "gap-4",
     ...props
   }, ref) => {
     // Generate initials if avatarText isn't provided
@@ -85,7 +78,7 @@ const CustomProfileButton = React.forwardRef<HTMLButtonElement, CustomProfileBut
 
     return (
       <button
-        className={cn(customProfileButtonVariants({ variant, size, className }))}
+        className={cn(customProfileButtonVariants({ size, className }))}
         ref={ref}
         type="button"
         {...props}

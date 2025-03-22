@@ -1,3 +1,4 @@
+
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
@@ -29,27 +30,13 @@ const ProfileButtonPage = () => {
         />
         
         <LayoutComponent 
-          title="Variantes do Profile Button" 
+          title="Profile Button com Hover" 
           component={
             <div className="flex flex-col gap-4 justify-center items-center p-4">
+              <div className="mb-2 text-sm text-gray-500">Passe o mouse sobre o botão para ver o efeito hover</div>
               <ProfileButton
                 userName="José Silva"
                 companyName="Amicci Tech"
-                variant="default"
-              />
-              
-              <ProfileButton
-                userName="Ana Oliveira"
-                companyName="Global Solutions"
-                variant="outline"
-                menuIcon={<List className="h-6 w-6" />}
-              />
-              
-              <ProfileButton
-                userName="Carlos Mendes"
-                companyName="Inovação Digital"
-                variant="filled"
-                showClientLogo={false}
               />
             </div>
           } 
@@ -180,7 +167,6 @@ const ProfileButtonPage = () => {
                   <ProfileButton
                     userName="Roberto Alves"
                     companyName="Marketing Pro"
-                    variant="filled"
                   />
                 </div>
               </div>
@@ -216,12 +202,6 @@ const ProfileButtonPage = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">string</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-</td>
                     <td className="px-6 py-4 text-sm text-gray-500">Nome da empresa/organização do usuário</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">variant</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">"default" | "outline" | "filled"</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">"default"</td>
-                    <td className="px-6 py-4 text-sm text-gray-500">Variante visual do botão</td>
                   </tr>
                   <tr>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">size</td>
@@ -274,7 +254,7 @@ const ProfileButtonPage = () => {
                   <tr>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">gap</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">string</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">"gap-8"</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">"gap-4"</td>
                     <td className="px-6 py-4 text-sm text-gray-500">Controla o espaçamento entre os elementos (classe gap do Tailwind)</td>
                   </tr>
                 </tbody>
