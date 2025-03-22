@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -26,7 +25,11 @@ const Brand = () => {
   };
 
   return <div className="w-full animate-fade-in">
-      <Header title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." type="foundations" />
+      <Header 
+        title="Brand" 
+        description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." 
+        type="foundations" 
+      />
 
       <div className="mt-8">
         <ComponentCard title="Logo Amicci" description="Nossa marca representa nossa identidade e valores fundamentais.">
