@@ -269,7 +269,7 @@ const ProfileButtonPage = () => {
                   <tr>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">innerSpacing</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Object</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{ container: "px-4 py-1", ... }</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{'{ container: "px-4 py-1", ... }'}</td>
                     <td className="px-6 py-4 text-sm text-gray-500">Controla o espaçamento interno de cada parte do botão</td>
                   </tr>
                   <tr>
