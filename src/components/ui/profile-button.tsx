@@ -77,9 +77,9 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
       >
         <div className="flex items-center w-full px-4 py3">
           {showClientLogo && (
-            <div className="flex items-center mr-6">
+            <div className="flex items-center mr-6 mx-2"> {/* Added mx-2 for 8px horizontal margin */}
               {logoSrc ? (
-                <img src={logoSrc} alt={logoAlt} className="h-7 w-auto" /> // 28px height
+                <img src={logoSrc} alt={logoAlt} className="h-7 w-auto" />
               ) : (
                 <div className="text-lg font-semibold">{logoText || "Clientlogo"}</div>
               )}
