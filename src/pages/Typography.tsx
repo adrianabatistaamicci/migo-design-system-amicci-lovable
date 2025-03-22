@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { TailwindTabs } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
 import CodeBlock from '@/components/CodeBlock';
 import { Separator } from '@/components/ui/separator';
@@ -8,10 +7,12 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from '@/components/ui/badge';
 import { Copy, Check } from 'lucide-react';
 import { Chip } from '@/components/ui/chip';
-import FoundationsHeader from '@/components/library-components/FoundationsHeader';
+import Header from '@/components/library-components/Header';
 
 const Typography = () => {
   const [copied, setCopied] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState('overview');
+  
   const copyToClipboard = (value: string) => {
     navigator.clipboard.writeText(value);
     setCopied(value);
@@ -300,21 +301,28 @@ const Typography = () => {
   }];
 
   return (
-    <div className="space-y-8">
-      <FoundationsHeader 
-        title="Typography"
+    <div className="w-full animate-fade-in">
+      <Header 
+        title="Typography" 
         description="Estilos de texto e tokens de tipografia utilizados na aplicação"
+        type="foundations"
       />
 
-      <Tabs defaultValue="overview" className="mt-8">
-        <TabsList className="mb-4 bg-gray-100 p-1 rounded-lg">
-          <TabsTrigger value="overview">Visão geral</TabsTrigger>
-          <TabsTrigger value="styles">Estilos</TabsTrigger>
-          <TabsTrigger value="usage">Uso</TabsTrigger>
-          <TabsTrigger value="accessibility">Acessibilidade</TabsTrigger>
-        </TabsList>
+      <TailwindTabs 
+        defaultValue="overview" 
+        className="mt-8"
+        tabs={[
+          { name: 'Visão geral', value: 'overview' },
+          { name: 'Estilos', value: 'styles' },
+          { name: 'Uso', value: 'usage' },
+          { name: 'Acessibilidade', value: 'accessibility' }
+        ]}
+        variant="pillsGray"
+        onChange={(value) => setActiveTab(value)}
+      />
 
-        <TabsContent value="overview" className="space-y-6">
+      {activeTab === 'overview' && (
+        <div className="space-y-6 mt-6">
           <ComponentCard title="Sistema de Tipografia" description="Nosso sistema de tipografia é baseado na fonte Roboto com variações cuidadosamente definidas.">
             <p className="text-mui-text-secondary mb-6">
               A tipografia é organizada em hierarquias claras para criar uma experiência de leitura consistente e agradável.
@@ -426,9 +434,11 @@ const Typography = () => {
               </ul>
             </ComponentCard>
           </div>
-        </TabsContent>
+        </div>
+      )}
         
-        <TabsContent value="styles" className="space-y-6">
+      {activeTab === 'styles' && (
+        <div className="space-y-6 mt-6">
           <ComponentCard title="Estilos de Tipografia" description="Definições completas de cada estilo de texto usado no sistema.">
             <p className="text-mui-text-secondary mb-6">
               Nossa biblioteca tipográfica é cuidadosamente projetada para proporcionar legibilidade e hierarquia visual.
@@ -503,9 +513,11 @@ const Typography = () => {
                 </div>)}
             </div>
           </ComponentCard>
-        </TabsContent>
+        </div>
+      )}
         
-        <TabsContent value="usage" className="space-y-6">
+      {activeTab === 'usage' && (
+        <div className="space-y-6 mt-6">
           <ComponentCard title="Guia de Uso da Tipografia" description="Diretrizes e exemplos práticos para aplicação dos estilos tipográficos.">
             <p className="text-mui-text-secondary mb-6">
               A aplicação correta da tipografia é essencial para uma experiência de usuário eficaz e agradável.
@@ -584,14 +596,16 @@ const Typography = () => {
 
 <p className="text-sm md:text-base font-normal leading-normal">
   Este texto se adapta ao tamanho da tela, ficando menor
-  em dispositivos móveis e maior em telas mais amplas.
+  em dispositivos m��veis e maior em telas mais amplas.
 </p>`} />
               </div>
             </div>
           </ComponentCard>
-        </TabsContent>
+        </div>
+      )}
         
-        <TabsContent value="accessibility" className="space-y-6">
+      {activeTab === 'accessibility' && (
+        <div className="space-y-6 mt-6">
           <ComponentCard title="Acessibilidade de Texto" description="Práticas para garantir que nossos textos sejam acessíveis a todos os usuários.">
             <p className="text-mui-text-secondary mb-6">
               A acessibilidade textual é essencial para uma experiência inclusiva e eficaz para todos os usuários.
@@ -676,8 +690,8 @@ const Typography = () => {
               </div>
             </div>
           </ComponentCard>
-        </TabsContent>
-      </Tabs>
+        </div>
+      )}
     </div>
   );
 };

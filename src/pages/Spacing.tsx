@@ -1,6 +1,5 @@
-
-import React from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import React, { useState } from 'react';
+import { TailwindTabs } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { tokenToPixels, pixelsToToken, getSpacingClass } from '@/utils/spacingUtils';
 import { cn } from '@/lib/utils';
@@ -10,23 +9,31 @@ import Header from '@/components/library-components/Header';
 import CodeBlock from '@/components/CodeBlock';
 
 const SpacingPage = () => {
+  const [activeTab, setActiveTab] = useState('scale');
+  
   return (
     <div className="w-full animate-fade-in">
       <Header 
-        title="Stacked Layouts" 
+        title="Spacing" 
         description="Nosso sistema de espaçamento fornece tamanhos consistentes que ajudam a criar ritmo visual e hierarquia." 
-        type="components" 
+        type="foundations" 
       />
 
-      <Tabs defaultValue="scale" className="mt-8">
-        <TabsList className="mb-4 bg-gray-100 p-1 rounded-lg">
-          <TabsTrigger value="scale">Escala</TabsTrigger>
-          <TabsTrigger value="usage">Uso</TabsTrigger>
-          <TabsTrigger value="utilities">Utilitários</TabsTrigger>
-          <TabsTrigger value="examples">Exemplos</TabsTrigger>
-        </TabsList>
-        
-        <TabsContent value="scale" className="space-y-6">
+      <TailwindTabs 
+        defaultValue="scale" 
+        className="mt-8"
+        tabs={[
+          { name: 'Escala', value: 'scale' },
+          { name: 'Uso', value: 'usage' },
+          { name: 'Utilitários', value: 'utilities' },
+          { name: 'Exemplos', value: 'examples' }
+        ]}
+        variant="pillsGray"
+        onChange={(value) => setActiveTab(value)}
+      />
+      
+      {activeTab === 'scale' && (
+        <div className="space-y-6 mt-6">
           <ComponentCard title="Sistema de Espaçamento" description="Nosso sistema de espaçamento é baseado em múltiplos de 4px para garantir consistência em toda a interface.">
             <p className="text-mui-text-secondary mb-6">
               Utilizamos uma escala de espaçamento consistente para criar ritmo visual e hierarquia em nossa interface. Todos os valores são múltiplos de 4px, o que facilita a criação de layouts harmoniosos e responsivos.
@@ -61,39 +68,41 @@ const SpacingPage = () => {
               ))}
             </div>
           </ComponentCard>
-        </TabsContent>
-        
-        <TabsContent value="usage">
-          <div className="space-y-4 mt-6">
-            <p>
-              Use spacing tokens in your components to maintain consistency.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <h3 className="text-lg font-medium mb-2">Margin</h3>
-                <p className="text-sm text-muted-foreground">Add space around elements.</p>
-                <div className="mt-2 p-3 border rounded-md">
-                  <div className="bg-green-100 p-4">
-                    <div className="bg-blue-100 m-4 p-4">Content with margin</div>
-                  </div>
+        </div>
+      )}
+      
+      {activeTab === 'usage' && (
+        <div className="space-y-4 mt-6">
+          <p>
+            Use spacing tokens in your components to maintain consistency.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <h3 className="text-lg font-medium mb-2">Margin</h3>
+              <p className="text-sm text-muted-foreground">Add space around elements.</p>
+              <div className="mt-2 p-3 border rounded-md">
+                <div className="bg-green-100 p-4">
+                  <div className="bg-blue-100 m-4 p-4">Content with margin</div>
                 </div>
               </div>
-              
-              <div>
-                <h3 className="text-lg font-medium mb-2">Padding</h3>
-                <p className="text-sm text-muted-foreground">Add space within elements.</p>
-                <div className="mt-2 p-3 border rounded-md">
-                  <div className="bg-green-100 p-4">
-                    <div className="bg-blue-100 p-4">Content with padding</div>
-                  </div>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-medium mb-2">Padding</h3>
+              <p className="text-sm text-muted-foreground">Add space within elements.</p>
+              <div className="mt-2 p-3 border rounded-md">
+                <div className="bg-green-100 p-4">
+                  <div className="bg-blue-100 p-4">Content with padding</div>
                 </div>
               </div>
             </div>
           </div>
-        </TabsContent>
+        </div>
+      )}
 
-        <TabsContent value="utilities" className="space-y-6">
+      {activeTab === 'utilities' && (
+        <div className="space-y-6 mt-6">
           <ComponentCard title="Utilitários de Espaçamento" description="Nosso design system usa utilidades de margin e padding consistentes baseadas em nossa escala de espaçamento.">
             <div className="space-y-6">
               <h3 className="text-lg font-medium">Classes de Margin</h3>
@@ -258,40 +267,40 @@ function FlexContainer({ children, spacing = 4 }) {
               />
             </div>
           </ComponentCard>
-        </TabsContent>
-        
-        <TabsContent value="examples">
-          <div className="space-y-4 mt-6">
-            <p>
-              Here are some examples of how to use spacing tokens in your components:
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <h3 className="text-lg font-medium mb-2">Buttons</h3>
-                <div className="flex gap-2">
-                  <button className="bg-primary-main text-primary-contrast px-4 py-2 rounded-md">
-                    Button 1
-                  </button>
-                  <button className="bg-secondary-main text-secondary-contrast px-8 py-4 rounded-md">
-                    Button 2
-                  </button>
-                </div>
+        </div>
+      )}
+      
+      {activeTab === 'examples' && (
+        <div className="space-y-4 mt-6">
+          <p>
+            Here are some examples of how to use spacing tokens in your components:
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <h3 className="text-lg font-medium mb-2">Buttons</h3>
+              <div className="flex gap-2">
+                <button className="bg-primary-main text-primary-contrast px-4 py-2 rounded-md">
+                  Button 1
+                </button>
+                <button className="bg-secondary-main text-secondary-contrast px-8 py-4 rounded-md">
+                  Button 2
+                </button>
               </div>
-              
-              <div>
-                <h3 className="text-lg font-medium mb-2">Cards</h3>
-                <div className="border rounded-md p-4">
-                  <h4 className="text-md font-medium">Card Title</h4>
-                  <p className="text-sm text-muted-foreground mt-2">
-                    Card description goes here.
-                  </p>
-                </div>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-medium mb-2">Cards</h3>
+              <div className="border rounded-md p-4">
+                <h4 className="text-md font-medium">Card Title</h4>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Card description goes here.
+                </p>
               </div>
             </div>
           </div>
-        </TabsContent>
-      </Tabs>
+        </div>
+      )}
     </div>
   );
 };
