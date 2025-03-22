@@ -2,7 +2,7 @@
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
-import { Menu, User } from 'lucide-react';
+import { Menu, List, User } from 'lucide-react';
 import { CustomProfileButton } from '@/components/ui/custom-profile-button';
 import { cn } from '@/lib/utils';
 import defaultLogo from '@/pages/assets/client-logo.svg';
@@ -18,7 +18,7 @@ const CustomProfileButtonPage = () => {
       
       <div className="space-y-12 mt-10">
         <LayoutComponent 
-          title="Profile Button Padrão" 
+          title="Custom Profile Button Padrão" 
           component={
             <div className="flex justify-center items-center p-4">
               <CustomProfileButton
@@ -30,7 +30,7 @@ const CustomProfileButtonPage = () => {
         />
         
         <LayoutComponent 
-          title="Profile Button com Hover" 
+          title="Custom Profile Button com Hover" 
           component={
             <div className="flex flex-col gap-4 justify-center items-center p-4">
               <div className="mb-2 text-sm text-gray-500">Passe o mouse sobre o botão para ver o efeito hover</div>
@@ -43,40 +43,13 @@ const CustomProfileButtonPage = () => {
         />
         
         <LayoutComponent 
-          title="Profile Button com Iniciais Personalizadas" 
-          component={
-            <div className="flex justify-center items-center p-4">
-              <CustomProfileButton
-                userName="Fernanda Rodrigues"
-                companyName="Creative Design"
-                avatarText="FR"
-              />
-            </div>
-          } 
-        />
-        
-        <LayoutComponent 
           title="Variação: Sem Logo da Empresa" 
           component={
             <div className="flex justify-center items-center p-4">
               <CustomProfileButton
-                userName="Ricardo Santos"
-                companyName="Digital Agency" // Added the required companyName prop
+                userName="Fernanda"
+                companyName="Creative"
                 showClientLogo={false}
-              />
-            </div>
-          } 
-        />
-        
-        <LayoutComponent 
-          title="Variação: Logo Personalizado" 
-          component={
-            <div className="flex justify-center items-center p-4">
-              <CustomProfileButton
-                userName="Tatiana Rocha"
-                companyName="Studio Design"
-                logoText="SD"
-                logoSrc={null}
               />
             </div>
           } 
@@ -87,9 +60,21 @@ const CustomProfileButtonPage = () => {
           component={
             <div className="flex justify-center items-center p-4">
               <CustomProfileButton
-                userName="Bruno Costa"
-                companyName="Tech Solutions"
+                userName="Tatiana"
+                companyName="Studio"
                 menuIcon={<User className="h-6 w-6" />}
+              />
+            </div>
+          } 
+        />
+        
+        <LayoutComponent 
+          title="Variação: Nome Longo com Truncamento" 
+          component={
+            <div className="flex justify-center items-center p-4">
+              <CustomProfileButton
+                userName="Alessandra Montenegro da Silva"
+                companyName="Empresa com Nome Muito Longo Ltda"
               />
             </div>
           } 
@@ -101,10 +86,10 @@ const CustomProfileButtonPage = () => {
             <div className="flex flex-col gap-6 justify-center items-center p-4">
               <div className="p-4 bg-white shadow-md rounded-md w-full max-w-xl">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-medium">Navbar com Profile Button</h3>
+                  <h3 className="text-lg font-medium">Navbar com Custom Profile Button</h3>
                   <CustomProfileButton
                     userName="Amanda Silva"
-                    companyName="Empresa XYZ" // Added the required companyName prop
+                    companyName="Empresa XYZ"
                     showClientLogo={false}
                   />
                 </div>
@@ -187,6 +172,12 @@ const CustomProfileButtonPage = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">React.ReactNode</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">&lt;Menu /&gt;</td>
                     <td className="px-6 py-4 text-sm text-gray-500">Ícone do menu (normalmente um ícone de hambúrguer)</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">maxTextLength</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">number</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">10</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">Limite máximo de caracteres para nome e empresa (trunca e adiciona "...")</td>
                   </tr>
                 </tbody>
               </table>

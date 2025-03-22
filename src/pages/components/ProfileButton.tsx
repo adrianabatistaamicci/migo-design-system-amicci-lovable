@@ -69,6 +69,18 @@ const ProfileButtonPage = () => {
         />
         
         <LayoutComponent 
+          title="Variação: Nome Longo com Truncamento" 
+          component={
+            <div className="flex justify-center items-center p-4">
+              <ProfileButton
+                userName="Alessandra Montenegro da Silva"
+                companyName="Empresa com Nome Muito Longo Ltda"
+              />
+            </div>
+          } 
+        />
+        
+        <LayoutComponent 
           title="Exemplos de Uso" 
           component={
             <div className="flex flex-col gap-6 justify-center items-center p-4">
@@ -160,6 +172,12 @@ const ProfileButtonPage = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">React.ReactNode</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">&lt;Menu /&gt;</td>
                     <td className="px-6 py-4 text-sm text-gray-500">Ícone do menu (normalmente um ícone de hambúrguer)</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">maxTextLength</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">number</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">10</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">Limite máximo de caracteres para nome e empresa (trunca e adiciona "...")</td>
                   </tr>
                 </tbody>
               </table>

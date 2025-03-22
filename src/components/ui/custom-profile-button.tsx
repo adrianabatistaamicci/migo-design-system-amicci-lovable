@@ -23,7 +23,7 @@ export interface CustomProfileButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof customProfileButtonVariants> {
   userName: string;
-  companyName: string; // Changed from optional to required
+  companyName: string;
   logoText?: string;
   logoSrc?: string;
   logoAlt?: string;
@@ -32,6 +32,7 @@ export interface CustomProfileButtonProps
   avatarAlt?: string;
   showClientLogo?: boolean;
   menuIcon?: React.ReactNode;
+  maxTextLength?: number;
 }
 
 const CustomProfileButton = React.forwardRef<HTMLButtonElement, CustomProfileButtonProps>(
@@ -48,6 +49,7 @@ const CustomProfileButton = React.forwardRef<HTMLButtonElement, CustomProfileBut
     avatarAlt = "User avatar",
     showClientLogo = true,
     menuIcon,
+    maxTextLength = 10,
     ...props
   }, ref) => {
     // Generate initials if avatarText isn't provided
@@ -57,6 +59,14 @@ const CustomProfileButton = React.forwardRef<HTMLButtonElement, CustomProfileBut
       .join("")
       .slice(0, 2)
       .toUpperCase();
+    
+    // Truncate text if longer than maxTextLength
+    const truncateText = (text: string, maxLength: number) => {
+      return text.length > maxLength ? `${text.substring(0, maxLength)}...` : text;
+    };
+
+    const displayUserName = truncateText(userName, maxTextLength);
+    const displayCompanyName = truncateText(companyName, maxTextLength);
 
     return (
       <button
@@ -65,9 +75,9 @@ const CustomProfileButton = React.forwardRef<HTMLButtonElement, CustomProfileBut
         type="button"
         {...props}
       >
-        <div className="flex items-center w-full px-2 py-2">
+        <div className="flex items-center w-full px-3 py-2">
           {showClientLogo && (
-            <div className="flex items-center mr-8">
+            <div className="flex items-center mr-10">
               {logoSrc ? (
                 <img src={logoSrc} alt={logoAlt} className="h-7 w-auto" /> // 28px height
               ) : (
@@ -76,7 +86,7 @@ const CustomProfileButton = React.forwardRef<HTMLButtonElement, CustomProfileBut
             </div>
           )}
           
-          <div className="flex items-center">
+          <div className="flex items-center gap-4">
             <div className="h-8 w-8 rounded-full bg-[#001A1A] text-white flex items-center justify-center font-medium"> {/* 32px avatar */}
               {avatarSrc ? (
                 <img src={avatarSrc} alt={avatarAlt} className="h-full w-full rounded-full object-cover" />
@@ -84,14 +94,14 @@ const CustomProfileButton = React.forwardRef<HTMLButtonElement, CustomProfileBut
                 userInitials
               )}
             </div>
+          
+            <div className="flex flex-col items-start text-left">
+              <span className="text-base font-medium text-gray-900 leading-tight">{displayUserName}</span>
+              <span className="text-sm text-gray-500 leading-tight">{displayCompanyName}</span>
+            </div>
           </div>
           
-          <div className="flex flex-col items-start text-left ml-2">
-            <span className="text-base font-medium text-gray-900 leading-tight">{userName}</span>
-            <span className="text-sm text-gray-500 leading-tight">{companyName}</span>
-          </div>
-          
-          <div className="text-gray-600 ml-auto">
+          <div className="text-gray-600 ml-auto pl-4">
             {menuIcon || <Menu className="h-6 w-6" />} {/* 24px menu icon */}
           </div>
         </div>
