@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -344,10 +343,10 @@ export default {
 	},
 	// Crucially, we need to disable the default Tailwind colors that contain zinc, stone, and neutral
 	corePlugins: {
-		// Disable the default color palette
+		// Disable the default color palette, but enable border-color
 		textColor: false,
 		backgroundColor: false,
-		borderColor: false,
+		borderColor: true,
 		divideColor: false,
 		ringColor: false,
 		ringOffsetColor: false,
