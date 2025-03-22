@@ -19,13 +19,13 @@ const EmptyState: React.FC<EmptyStateProps> = ({
   const getIcon = () => {
     switch (icon) {
       case 'alert':
-        return <AlertCircle className="h-12 w-12 text-primary-main" />;
+        return <AlertCircle className="h-8 w-8 text-primary-main" />;
       case 'clock':
-        return <Clock className="h-12 w-12 text-primary-main" />;
+        return <Clock className="h-8 w-8 text-primary-main" />;
       case 'construction':
-        return <Construction className="h-12 w-12 text-primary-main" />;
+        return <Construction className="h-8 w-8 text-primary-main" />;
       default:
-        return <Construction className="h-12 w-12 text-primary-main" />;
+        return <Construction className="h-8 w-8 text-primary-main" />;
     }
   };
 
@@ -35,7 +35,9 @@ const EmptyState: React.FC<EmptyStateProps> = ({
       className
     )}>
       <div className="flex flex-col items-center gap-4">
-        {getIcon()}
+        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-green-50">
+          {getIcon()}
+        </div>
         <h3 className="text-xl font-medium text-gray-900">{title}</h3>
         <p className="text-gray-600 max-w-md">{description}</p>
       </div>
