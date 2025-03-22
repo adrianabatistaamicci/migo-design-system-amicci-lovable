@@ -42,7 +42,7 @@ const Brand = () => {
                   <p className="text-gray-600">O logo da Amicci está disponível em diferentes variações, combinando as cores turquesa e turquesa escuro em diferentes fundos.</p>
                   <div className="flex gap-2">
                     <Button variant="outline" onClick={() => handleDownload(AmicciLogo, 'amicci-logo-principal.svg')}>Download SVG</Button>
-                    <Button variant="outline" onClick={() => handleDownload('/Amicci-Logo_TurquesaClaro+Escuro.png', 'amicci-logo-principal.png')}>Download PNG</Button>
+                    <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.png', 'amicci-logo-principal.png')}>Download PNG</Button>
                   </div>
                 </div>
               </div>
@@ -60,11 +60,11 @@ const Brand = () => {
                   <p className="text-gray-600">Versão do logo Amicci adaptada para aplicações onde o fundo é escuro, mantendo a legibilidade e o impacto visual.</p>
                   <div className="flex gap-2">
                     <Button variant="outline" onClick={() => handleDownload(AmicciLogoTurquesaBranco, 'amicci-logo-fundo-escuro-turquesa-branco.svg')}>Download SVG</Button>
-                    <Button variant="outline" onClick={() => handleDownload('/Amicci-Logo_TurquesaClaro+Branco.png', 'amicci-logo-fundo-escuro-turquesa-branco.png')}>Download PNG</Button>
+                    <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amicci-Logo_TurquesaClaro+Branco.png', 'amicci-logo-fundo-escuro-turquesa-branco.png')}>Download PNG</Button>
                   </div>
                   <div className="flex gap-2">
                     <Button variant="outline" onClick={() => handleDownload(AmicciLogoBranco, 'amicci-logo-branco.svg')}>Download SVG</Button>
-                    <Button variant="outline" onClick={() => handleDownload('/Amicci-Logo_Branco.png', 'amicci-logo-branco.png')}>Download PNG</Button>
+                    <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amicci-Logo_Branco.png', 'amicci-logo-branco.png')}>Download PNG</Button>
                   </div>
                 </div>
               </div>
@@ -88,13 +88,13 @@ const Brand = () => {
                     <p className="text-gray-600">Aplicadas em blogs, documentação técnica, design systems e comunicados, estas variações permitem uma identificação imediata da área responsável pelo conteúdo.</p>
                     <div className="grid grid-cols-2 gap-2">
                       <Button variant="outline" onClick={() => handleDownload(AmicciTagDesignSystem, 'amicci-logo-tag-design-system.svg')}>Design System SVG</Button>
-                      <Button variant="outline" onClick={() => handleDownload('/amicci-logo-tag-design-system.png', 'amicci-logo-tag-design-system.png')}>Design System PNG</Button>
+                      <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/amicci-logo-tag-design-system.png', 'amicci-logo-tag-design-system.png')}>Design System PNG</Button>
                       <Button variant="outline" onClick={() => handleDownload(AmicciTagBlog, 'amicci-logo-tag-blog.svg')}>Blog SVG</Button>
-                      <Button variant="outline" onClick={() => handleDownload('/amicci-logo-tag-blog.png', 'amicci-logo-tag-blog.png')}>Blog PNG</Button>
+                      <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/amicci-logo-tag-blog.png', 'amicci-logo-tag-blog.png')}>Blog PNG</Button>
                       <Button variant="outline" onClick={() => handleDownload(AmicciTagEngenharia, 'amicci-logo-tag-engenharia.svg')}>Engenharia SVG</Button>
-                      <Button variant="outline" onClick={() => handleDownload('/amicci-logo-tag-engenharia.png', 'amicci-logo-tag-engenharia.png')}>Engenharia PNG</Button>
+                      <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/amicci-logo-tag-engenharia.png', 'amicci-logo-tag-engenharia.png')}>Engenharia PNG</Button>
                       <Button variant="outline" onClick={() => handleDownload(AmicciTagUpdates, 'amicci-logo-tag-updates.svg')}>Updates SVG</Button>
-                      <Button variant="outline" onClick={() => handleDownload('/amicci-logo-tag-updates.png', 'amicci-logo-tag-updates.png')}>Updates PNG</Button>
+                      <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/amicci-logo-tag-updates.png', 'amicci-logo-tag-updates.png')}>Updates PNG</Button>
                     </div>
                   </div>
               </div>
@@ -108,7 +108,7 @@ const Brand = () => {
                   <p className="text-gray-600">O símbolo da Amicci pode ser usado sozinho em contextos onde a marca já é conhecida ou em espaços muito restritos, como ícones de favicons.</p>
                   <div className="flex gap-2">
                     <Button variant="outline" onClick={() => handleDownload(AmicciSimbolo, 'amicci-simbolo.svg')}>Download SVG</Button>
-                    <Button variant="outline" onClick={() => handleDownload('/Amicci-Simbolo_Turquesa_Escuro.png', 'amicci-simbolo.png')}>Download PNG</Button>
+                    <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amicci-Simbolo_Turquesa_Escuro.png', 'amicci-simbolo.png')}>Download PNG</Button>
                   </div>
                 </div>
               </div>
@@ -119,4 +119,3 @@ const Brand = () => {
     </div>;
 };
 export default Brand;
-
