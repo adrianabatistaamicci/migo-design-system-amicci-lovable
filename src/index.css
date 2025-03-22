@@ -250,12 +250,16 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    background-color: hsl(var(--background));
+    color: var(--text-primary);
     font-feature-settings: "ss01", "ss02", "cv01", "cv03";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   ::selection {
-    @apply bg-primary-main text-white;
+    background-color: var(--primary-main);
+    color: white;
   }
 }
 
