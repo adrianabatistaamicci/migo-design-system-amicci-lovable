@@ -23,7 +23,7 @@ export interface ProfileButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof profileButtonVariants> {
   userName: string;
-  companyName?: string;
+  companyName: string; // Changed from optional to required
   logoText?: string;
   logoSrc?: string;
   logoAlt?: string;
@@ -88,9 +88,7 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
           
           <div className="flex flex-col items-start text-left ml-2">
             <span className="text-base font-medium text-gray-900 leading-tight">{userName}</span>
-            {companyName && (
-              <span className="text-sm text-gray-500 leading-tight">{companyName}</span>
-            )}
+            <span className="text-sm text-gray-500 leading-tight">{companyName}</span>
           </div>
           
           <div className="text-gray-600 ml-auto">

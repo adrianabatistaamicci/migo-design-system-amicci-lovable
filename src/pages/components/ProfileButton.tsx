@@ -56,17 +56,6 @@ const ProfileButtonPage = () => {
         />
         
         <LayoutComponent 
-          title="Variação: Apenas Nome do Usuário (Sem Empresa)" 
-          component={
-            <div className="flex justify-center items-center p-4">
-              <ProfileButton
-                userName="Ricardo Santos"
-              />
-            </div>
-          } 
-        />
-        
-        <LayoutComponent 
           title="Variação: Ícone de Menu Personalizado" 
           component={
             <div className="flex justify-center items-center p-4">
@@ -88,6 +77,7 @@ const ProfileButtonPage = () => {
                   <h3 className="text-lg font-medium">Navbar com Profile Button</h3>
                   <ProfileButton
                     userName="Amanda Silva"
+                    companyName="Empresa XYZ"
                     showClientLogo={false}
                   />
                 </div>
@@ -133,7 +123,7 @@ const ProfileButtonPage = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">companyName</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">string</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-</td>
-                    <td className="px-6 py-4 text-sm text-gray-500">Nome da empresa/organização do usuário</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">Nome da empresa/organização do usuário (obrigatório)</td>
                   </tr>
                   <tr>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">logoText</td>
