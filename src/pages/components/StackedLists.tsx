@@ -10,7 +10,8 @@ const StackedLists = () => {
       <Header 
         title="Stacked Lists"
         description="Utilize listas empilhadas para exibir sequências de informações, como notificações, atividades ou configurações. Esse padrão proporciona uma apresentação clara e consistente para conjuntos de dados relacionados."
-        type="components"
+        type="foundations"
+        className="mb-8"
       />
       
       <TailwindTabs 
