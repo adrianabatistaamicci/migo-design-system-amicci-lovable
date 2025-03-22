@@ -42,11 +42,6 @@ const StackedLayouts = () => {
           title="Branded nav with white page header"
           component={<BrandedNavWithWhiteHeader />}
         />
-        
-        <LayoutComponent 
-          title="Two-row navigation with overlap"
-          component={<TwoRowNavWithOverlap />}
-        />
       </div>
     </div>
   );
@@ -115,88 +110,6 @@ const LayoutComponent = ({ title, component }) => {
           </div>
         )}
       </div>
-    </div>
-  );
-};
-
-const TwoRowNavWithOverlap = () => {
-  return (
-    <div className="min-h-[500px] w-full">
-      <div className="bg-amicciDark-900 pb-32">
-        <nav className="border-b border-amicciDark-900 border-opacity-25 bg-amicciDark-900 lg:border-none">
-          <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
-            <div className="relative flex h-16 items-center justify-between lg:border-b lg:border-amicciDark-900 lg:border-opacity-25">
-              <div className="flex items-center px-2 lg:px-0">
-                <div className="flex-shrink-0">
-                  <img className="block h-8 w-auto" src={amicciLogoDark} alt="Amicci" />
-                </div>
-                <div className="hidden lg:ml-6 lg:flex lg:space-x-4">
-                  <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
-                  <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
-                  <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
-                  <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
-                </div>
-              </div>
-              <div className="flex flex-1 justify-center px-2 lg:ml-6 lg:justify-end">
-                <div className="w-full max-w-lg lg:max-w-xs">
-                  <label htmlFor="search" className="sr-only">Buscar</label>
-                  <div className="relative text-gray-400 focus-within:text-gray-600">
-                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                      <Search className="h-5 w-5" aria-hidden="true" />
-                    </div>
-                    <input id="search" className="block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-amicciDark-900 sm:text-sm sm:leading-6" placeholder="Buscar" type="search" />
-                  </div>
-                </div>
-              </div>
-              <div className="flex lg:hidden">
-                <button type="button" className="relative inline-flex items-center justify-center rounded-md bg-amicciDark-900 p-2 text-amicciDark-200 hover:bg-amicciDark-800 hover:bg-opacity-75 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-amicciDark-900">
-                  <span className="absolute -inset-0.5"></span>
-                  <span className="sr-only">Abrir menu principal</span>
-                  <Menu className="block h-6 w-6" aria-hidden="true" />
-                </button>
-              </div>
-              <div className="hidden lg:ml-4 lg:block">
-                <div className="flex items-center">
-                  <button type="button" className="relative flex-shrink-0 rounded-full bg-amicciDark-900 p-1 text-amicciDark-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-amicciDark-900">
-                    <span className="absolute -inset-1.5"></span>
-                    <span className="sr-only">Ver notificações</span>
-                    <Bell className="h-6 w-6" aria-hidden="true" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
-        <nav className="border-t border-amicciDark-800 border-opacity-25 bg-amicciDark-900">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between py-3">
-              <div className="flex items-center space-x-4">
-                <a href="#" className="text-sm font-semibold leading-6 text-white">Todos os arquivos</a>
-                <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Meus arquivos</a>
-                <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Compartilhados comigo</a>
-                <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Arquivados</a>
-              </div>
-              <div>
-                <button type="button" className="relative rounded-full bg-amicciDark-900 p-1 text-amicciDark-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-amicciDark-900">
-                  <span className="absolute -inset-1.5"></span>
-                  <span className="sr-only">Add file</span>
-                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
-
-      <main className="-mt-32">
-        <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
-          <div className="rounded-lg bg-white px-5 py-6 shadow sm:px-6">
-            <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
-          </div>
-        </div>
-      </main>
     </div>
   );
 };
