@@ -159,7 +159,6 @@ const sidebarItems: SidebarItem[] = [
     icon: Coffee,
     items: [
       { title: 'Figma Library', href: '/resources/figma-library' },
-      { title: 'Storybook', href: '/resources/storybook' },
       { title: 'FAQ', href: '/resources/faq' },
     ]
   },

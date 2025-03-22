@@ -1,6 +1,7 @@
 
 import React from 'react';
 import ComponentPreview from '@/components/ComponentPreview';
+import EmptyState from '@/components/library-components/EmptyState';
 
 const ApplicationShellsSection = () => {
   return (
@@ -23,6 +24,14 @@ const ApplicationShellsSection = () => {
           title="Multi-Column Layouts" 
           imageSrc="/lovable-uploads/570a05aa-c89b-4fc3-95fa-08883ec83a75.png" 
           variantCount={2} 
+        />
+      </div>
+      
+      <div className="mt-8">
+        <EmptyState 
+          title="Conteúdo em Desenvolvimento" 
+          description="Os exemplos detalhados de Stacked Layouts estão sendo implementados. Volte em breve para visualizar os componentes." 
+          icon="construction"
         />
       </div>
     </section>
