@@ -7,7 +7,6 @@ import amicciLogoDark from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg'
 import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-
 const StackedLayouts = () => {
   return <div className="w-full animate-fade-in">
       <Header title="Stacked Layouts" description="Layouts empilhados (stacked) são uma estrutura comum para aplicações onde o cabeçalho permanece fixo no topo enquanto o conteúdo principal é rolável. Esses layouts proporcionam uma navegação clara e consistente para os usuários." type="components" />
@@ -25,7 +24,6 @@ const StackedLayouts = () => {
       </div>
     </div>;
 };
-
 const LayoutComponent = ({
   title,
   component
@@ -75,7 +73,6 @@ const LayoutComponent = ({
       </div>
     </div>;
 };
-
 const BrandedNavWithWhiteHeader = () => {
   return <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900">
@@ -121,7 +118,6 @@ const BrandedNavWithWhiteHeader = () => {
       </main>
     </div>;
 };
-
 const BrandNavWithOverlap = () => {
   return <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900 pb-32">
@@ -162,7 +158,6 @@ const BrandNavWithOverlap = () => {
       </main>
     </div>;
 };
-
 const BrandedNavCompactHeader = () => {
   return <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900">
@@ -208,7 +203,6 @@ const BrandedNavCompactHeader = () => {
       </main>
     </div>;
 };
-
 const LightNavGrayBackground = () => {
   return <div className="min-h-[500px] w-full bg-gray-100">
       <nav className="bg-white shadow-sm">
@@ -246,7 +240,7 @@ const LightNavGrayBackground = () => {
       <div className="py-10">
         <main>
           <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div className="px-4 py-8 sm:px-0">
+            <div className="px-0 py-2 sm:px-0">
               <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 bg-white relative">
                 <h1 className="absolute top-4 left-4 text-3xl font-medium tracking-tight text-gray-900">Dashboard</h1>
               </div>
@@ -256,7 +250,6 @@ const LightNavGrayBackground = () => {
       </div>
     </div>;
 };
-
 const LightNavBottomBorder = () => {
   return <div className="min-h-[500px] w-full bg-white">
       <nav className="bg-white border-b border-gray-200">
@@ -294,7 +287,7 @@ const LightNavBottomBorder = () => {
       <div className="py-10">
         <main>
           <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div className="px-4 py-8 sm:px-0">
+            <div className="px-0 py-2 sm:px-0">
               <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 relative">
                 <h1 className="absolute top-4 left-4 text-3xl font-medium tracking-tight text-gray-900">Dashboard</h1>
               </div>
@@ -304,5 +297,4 @@ const LightNavBottomBorder = () => {
       </div>
     </div>;
 };
-
 export default StackedLayouts;
