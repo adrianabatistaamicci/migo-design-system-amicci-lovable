@@ -7,59 +7,36 @@ import amicciLogoDark from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg'
 import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-
 const StackedLayouts = () => {
-  return (
-    <div className="w-full animate-fade-in">
-      <Header 
-        title="Stacked Layouts"
-        description="Layouts empilhados (stacked) são uma estrutura comum para aplicações onde o cabeçalho permanece fixo no topo enquanto o conteúdo principal é rolável. Esses layouts proporcionam uma navegação clara e consistente para os usuários."
-        type="components"
-      />
+  return <div className="w-full animate-fade-in">
+      <Header title="Stacked Layouts" description="Layouts empilhados (stacked) são uma estrutura comum para aplicações onde o cabeçalho permanece fixo no topo enquanto o conteúdo principal é rolável. Esses layouts proporcionam uma navegação clara e consistente para os usuários." type="components" />
 
       <div className="space-y-12 mt-8">
-        <LayoutComponent 
-          title="Light nav with bottom border"
-          component={<LightNavBottomBorder />}
-        />
+        <LayoutComponent title="Light nav with bottom border" component={<LightNavBottomBorder />} />
         
-        <LayoutComponent 
-          title="Light nav on gray background"
-          component={<LightNavGrayBackground />}
-        />
+        <LayoutComponent title="Light nav on gray background" component={<LightNavGrayBackground />} />
         
-        <LayoutComponent 
-          title="Branded nav with compact white page header"
-          component={<BrandedNavCompactHeader />}
-        />
+        <LayoutComponent title="Branded nav with compact white page header" component={<BrandedNavCompactHeader />} />
         
-        <LayoutComponent 
-          title="Branded nav with white page header"
-          component={<BrandedNavWithWhiteHeader />}
-        />
+        <LayoutComponent title="Branded nav with white page header" component={<BrandedNavWithWhiteHeader />} />
         
-        <LayoutComponent 
-          title="Brand nav with overlap"
-          component={<BrandNavWithOverlap />}
-        />
+        <LayoutComponent title="Brand nav with overlap" component={<BrandNavWithOverlap />} />
       </div>
-    </div>
-  );
+    </div>;
 };
-
-const LayoutComponent = ({ title, component }) => {
+const LayoutComponent = ({
+  title,
+  component
+}) => {
   const [showCode, setShowCode] = useState(false);
   const [copied, setCopied] = useState(false);
-  
   const copyToClipboard = () => {
     setCopied(true);
     setTimeout(() => {
       setCopied(false);
     }, 2000);
   };
-  
-  return (
-    <div className="space-y-2">
+  return <div className="space-y-2">
       <div className="px-4">
         <h3 className="text-lg font-medium text-gray-900">{title}</h3>
       </div>
@@ -70,53 +47,34 @@ const LayoutComponent = ({ title, component }) => {
         </div>
         
         <div className="border-t border-gray-200 px-4 py-2 flex justify-between items-center bg-gray-50">
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            onClick={() => setShowCode(!showCode)}
-            className="flex items-center gap-1 text-sm"
-          >
+          <Button variant="ghost" size="sm" onClick={() => setShowCode(!showCode)} className="flex items-center gap-1 text-sm">
             <Code size={16} />
             <span>{showCode ? 'Hide code' : 'Show code'}</span>
           </Button>
           
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={copyToClipboard}
-            className="flex items-center gap-1 text-sm"
-          >
-            {copied ? (
-              <>
+          <Button variant="ghost" size="sm" onClick={copyToClipboard} className="flex items-center gap-1 text-sm">
+            {copied ? <>
                 <CheckCheck size={16} />
                 <span>Copied</span>
-              </>
-            ) : (
-              <>
+              </> : <>
                 <Copy size={16} />
                 <span>Copy</span>
-              </>
-            )}
+              </>}
           </Button>
         </div>
         
-        {showCode && (
-          <div className="border-t p-4 bg-gray-50 overflow-x-auto">
+        {showCode && <div className="border-t p-4 bg-gray-50 overflow-x-auto">
             <pre className="text-sm">
               <code>{`// Component code would go here
 // This is a placeholder for the actual code
 // In a real implementation, each component's code would be shown here`}</code>
             </pre>
-          </div>
-        )}
+          </div>}
       </div>
-    </div>
-  );
+    </div>;
 };
-
 const BrandedNavWithWhiteHeader = () => {
-  return (
-    <div className="min-h-[500px] w-full">
+  return <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900">
         <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 h-[88px] lg:px-8" aria-label="Global">
           <div className="flex items-center">
@@ -126,7 +84,7 @@ const BrandedNavWithWhiteHeader = () => {
                 <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
               </a>
             </div>
-            <div className="hidden lg:flex lg:gap-x-12 lg:ml-6">
+            <div className="ml-6 flex space-x-12">
               <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
               <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
               <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
@@ -163,13 +121,10 @@ const BrandedNavWithWhiteHeader = () => {
           </div>
         </div>
       </main>
-    </div>
-  );
+    </div>;
 };
-
 const BrandNavWithOverlap = () => {
-  return (
-    <div className="min-h-[500px] w-full">
+  return <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900 pb-32">
         <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 h-[88px] lg:px-8" aria-label="Global">
           <div className="flex items-center">
@@ -211,13 +166,10 @@ const BrandNavWithOverlap = () => {
           </div>
         </div>
       </main>
-    </div>
-  );
+    </div>;
 };
-
 const BrandedNavCompactHeader = () => {
-  return (
-    <div className="min-h-[500px] w-full">
+  return <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900">
         <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 h-[88px] lg:px-8" aria-label="Global">
           <div className="flex items-center">
@@ -227,9 +179,9 @@ const BrandedNavCompactHeader = () => {
                 <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
               </a>
             </div>
-            <div className="hidden lg:flex lg:gap-x-12 lg:ml-6">
+            <div className="ml-6 flex space-x-12">
               <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
-              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Equipe</a>
               <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
               <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
             </div>
@@ -264,20 +216,17 @@ const BrandedNavCompactHeader = () => {
           </div>
         </div>
       </main>
-    </div>
-  );
+    </div>;
 };
-
 const LightNavGrayBackground = () => {
-  return (
-    <div className="min-h-[500px] w-full bg-gray-100">
+  return <div className="min-h-[500px] w-full bg-gray-100">
       <nav className="bg-white shadow-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-[88px] items-center justify-between">
+          <div className="flex h-[88px] items-center">
             <div className="flex flex-shrink-0 items-center">
               <img className="block h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
             </div>
-            <div className="ml-6 flex space-x-8">
+            <div className="ml-6 flex space-x-12">
               <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Dashboard</a>
               <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Equipe</a>
               <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Projetos</a>
@@ -315,20 +264,17 @@ const LightNavGrayBackground = () => {
           </div>
         </main>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 const LightNavBottomBorder = () => {
-  return (
-    <div className="min-h-[500px] w-full bg-white">
+  return <div className="min-h-[500px] w-full bg-white">
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-[88px] items-center justify-between">
+          <div className="flex h-[88px] items-center">
             <div className="flex flex-shrink-0 items-center">
               <img className="block h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
             </div>
-            <div className="ml-6 flex space-x-8">
+            <div className="ml-6 flex space-x-12">
               <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Dashboard</a>
               <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Equipe</a>
               <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Projetos</a>
@@ -366,8 +312,6 @@ const LightNavBottomBorder = () => {
           </div>
         </main>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default StackedLayouts;
