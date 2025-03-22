@@ -49,9 +49,35 @@ const StackedLayouts = () => {
     </div>;
 };
 
-// Components using our reusable StackedLayout
 const LightNavBottomBorderWithReusable = () => (
-  <LightBorderExample />
+  <StackedLayout
+    variant="light-border"
+    mainClassName="bg-white"
+    navigationContent={
+      <>
+        <div className="flex items-center">
+          <div className="flex-shrink-0">
+            <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
+          </div>
+          <div className="hidden md:ml-12 md:flex md:space-x-6">
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-900">Dashboard</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Equipe</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Projetos</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Calendário</a>
+          </div>
+        </div>
+        <div className="flex items-center">
+          <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700 focus:outline-none">
+            <span className="sr-only">Ver notificações</span>
+            <Bell className="h-6 w-6" aria-hidden="true" />
+          </button>
+        </div>
+      </>
+    }
+    headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Dashboard</h1>}
+  >
+    <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
+  </StackedLayout>
 );
 
 const LightNavGrayBackgroundWithReusable = () => (
@@ -202,7 +228,6 @@ const InstitutionalNavWithReusable = () => (
   </StackedLayout>
 );
 
-// Keep the LayoutComponent unchanged
 const LayoutComponent = ({
   title,
   component
