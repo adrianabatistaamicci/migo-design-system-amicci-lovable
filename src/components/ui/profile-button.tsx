@@ -101,7 +101,7 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
             </div>
           </div>
           
-          <div className="text-gray-600 ml-auto pl-5">
+          <div className="text-gray-600 ml-auto pl-[15px]">
             {menuIcon || <Menu className="h-6 w-6" />}
           </div>
         </div>
