@@ -68,41 +68,42 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
       .slice(0, 2)
       .toUpperCase();
 
-    // Apply custom styles for consistent spacing
     return (
       <button
-        className={cn(profileButtonVariants({ variant, size, className }), "px-3")}
+        className={cn(profileButtonVariants({ variant, size, className }))}
         ref={ref}
         type="button"
         {...props}
       >
-        {showClientLogo && (
-          <div className="flex items-center mr-8">
-            {logoSrc ? (
-              <img src={logoSrc} alt={logoAlt} className="h-8 w-auto" />
-            ) : (
-              <div className="text-lg font-semibold">{logoText || "Clientlogo"}</div>
-            )}
-          </div>
-        )}
-
-        <div className="flex items-center">
-          <div className="h-10 w-10 rounded-full bg-[#001A1A] text-white flex items-center justify-center font-medium mr-8">
-            {avatarSrc ? (
-              <img src={avatarSrc} alt={avatarAlt} className="h-full w-full rounded-full object-cover" />
-            ) : (
-              userInitials
-            )}
+        <div className="flex items-center px-3 py-1 w-full">
+          {showClientLogo && (
+            <div className="flex items-center">
+              {logoSrc ? (
+                <img src={logoSrc} alt={logoAlt} className="h-8 w-auto" />
+              ) : (
+                <div className="text-lg font-semibold">{logoText || "Clientlogo"}</div>
+              )}
+            </div>
+          )}
+          
+          <div className={cn("flex items-center", showClientLogo ? "ml-8" : "")}>
+            <div className="h-10 w-10 rounded-full bg-[#001A1A] text-white flex items-center justify-center font-medium">
+              {avatarSrc ? (
+                <img src={avatarSrc} alt={avatarAlt} className="h-full w-full rounded-full object-cover" />
+              ) : (
+                userInitials
+              )}
+            </div>
           </div>
           
-          <div className="flex flex-col items-start text-left mr-8">
+          <div className="flex flex-col items-start text-left ml-8">
             <span className="text-base font-medium text-gray-900 leading-tight">{userName}</span>
             {companyName && (
               <span className="text-sm text-gray-500 leading-tight">{companyName}</span>
             )}
           </div>
           
-          <div className="text-gray-600 px-4">
+          <div className="text-gray-600 ml-8 pl-4 pr-4">
             {menuIcon || <Menu className="h-6 w-6" />}
           </div>
         </div>
