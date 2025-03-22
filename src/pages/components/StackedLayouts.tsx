@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import { Link } from 'react-router-dom';
@@ -118,7 +119,7 @@ const BrandedNavWithWhiteHeader = () => {
   return (
     <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 h-[88px] lg:px-8" aria-label="Global">
           <div className="flex items-center">
             <div className="flex flex-1">
               <a href="#" className="-m-1.5 p-1.5">
@@ -167,7 +168,7 @@ const BrandNavWithOverlap = () => {
   return (
     <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900 pb-32">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 h-[88px] lg:px-8" aria-label="Global">
           <div className="flex items-center">
             <div className="flex flex-1">
               <a href="#" className="-m-1.5 p-1.5">
@@ -211,7 +212,7 @@ const BrandedNavCompactHeader = () => {
   return (
     <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 h-[88px] lg:px-8" aria-label="Global">
           <div className="flex items-center">
             <div className="flex flex-1">
               <a href="#" className="-m-1.5 p-1.5">
@@ -261,7 +262,7 @@ const LightNavGrayBackground = () => {
     <div className="min-h-[500px] w-full bg-gray-100">
       <nav className="bg-white shadow-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center">
+          <div className="flex h-[88px] items-center">
             <div className="flex flex-shrink-0 items-center">
               <img className="block h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
             </div>
@@ -322,7 +323,7 @@ const LightNavBottomBorder = () => {
     <div className="min-h-[500px] w-full bg-white">
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center">
+          <div className="flex h-[88px] items-center">
             <div className="flex flex-shrink-0 items-center">
               <img className="block h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
             </div>
