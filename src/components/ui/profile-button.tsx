@@ -95,7 +95,7 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
               )}
             </div>
           
-            <div className="flex flex-col items-start text-left ml-2">
+            <div className="flex flex-col items-start text-left ml-3">
               <span className="text-base font-medium text-gray-900 leading-tight">{displayUserName}</span>
               <span className="text-sm text-gray-500 leading-tight">{displayCompanyName}</span>
             </div>
