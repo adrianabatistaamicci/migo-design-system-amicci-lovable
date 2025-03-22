@@ -250,7 +250,7 @@
   }
 
   body {
-    background-color: hsl(var(--background));
+    background-color: var(--background-default);
     color: var(--text-primary);
     font-feature-settings: "ss01", "ss02", "cv01", "cv03";
     -webkit-font-smoothing: antialiased;

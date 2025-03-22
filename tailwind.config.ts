@@ -28,7 +28,13 @@ export default {
 				'border-default': 'var(--border-default)',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
+				background: {
+					DEFAULT: 'var(--background-default)',
+					paper: 'var(--background-paper)',
+					subtle: 'var(--background-subtle)',
+					hover: 'var(--background-hover)',
+					sidebar: 'var(--background-sidebar)',
+				},
 				foreground: 'var(--text-primary)',
 				
 				// Cores básicas
@@ -342,16 +348,16 @@ export default {
 			},
 		}
 	},
-	// Enable the required colors but maintain control over the palette
+	// Enable all required color-related core plugins
 	corePlugins: {
 		textColor: true,
 		backgroundColor: true,
 		borderColor: true,
-		divideColor: false,
-		ringColor: false,
-		ringOffsetColor: false,
-		placeholderColor: false,
-		gradientColorStops: false,
+		divideColor: true,
+		ringColor: true,
+		ringOffsetColor: true,
+		placeholderColor: true,
+		gradientColorStops: true,
 	},
 	plugins: [
 		require("tailwindcss-animate"),
