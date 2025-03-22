@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -14,7 +13,6 @@ import AmicciTagDesignSystem from '@/pages/assets/amicci-logo-tag-design-system.
 import AmicciTagBlog from '@/pages/assets/amicci-logo-tag-blog.svg';
 import AmicciTagEngenharia from '@/pages/assets/amicci-logo-tag-engenharia.svg';
 import AmicciTagUpdates from '@/pages/assets/amicci-logo-tag-updates.svg';
-
 const Brand = () => {
   const handleDownload = (url: string, filename: string) => {
     const link = document.createElement('a');
@@ -24,7 +22,6 @@ const Brand = () => {
     link.click();
     document.body.removeChild(link);
   };
-
   return <div className="w-full animate-fade-in">
       <Header title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." type="foundations" />
 
@@ -86,16 +83,7 @@ const Brand = () => {
                     <h4 className="font-medium">Logo com tag</h4>
                     <p className="text-gray-600">Estas versões são utilizadas para identificar visualmente diferentes áreas e iniciativas da Amicci, mantendo a coesão e o reconhecimento da marca enquanto diferenciam cada contexto específico.</p>
                     <p className="text-gray-600">Aplicadas em blogs, documentação técnica, design systems e comunicados, estas variações permitem uma identificação imediata da área responsável pelo conteúdo.</p>
-                    <div className="grid grid-cols-2 gap-2">
-                      <Button variant="outline" onClick={() => handleDownload(AmicciTagDesignSystem, 'amicci-logo-tag-design-system.svg')}>Design System SVG</Button>
-                      <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/amicci-logo-tag-design-system.png', 'amicci-logo-tag-design-system.png')}>Design System PNG</Button>
-                      <Button variant="outline" onClick={() => handleDownload(AmicciTagBlog, 'amicci-logo-tag-blog.svg')}>Blog SVG</Button>
-                      <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/amicci-logo-tag-blog.png', 'amicci-logo-tag-blog.png')}>Blog PNG</Button>
-                      <Button variant="outline" onClick={() => handleDownload(AmicciTagEngenharia, 'amicci-logo-tag-engenharia.svg')}>Engenharia SVG</Button>
-                      <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/amicci-logo-tag-engenharia.png', 'amicci-logo-tag-engenharia.png')}>Engenharia PNG</Button>
-                      <Button variant="outline" onClick={() => handleDownload(AmicciTagUpdates, 'amicci-logo-tag-updates.svg')}>Updates SVG</Button>
-                      <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/amicci-logo-tag-updates.png', 'amicci-logo-tag-updates.png')}>Updates PNG</Button>
-                    </div>
+                    
                   </div>
               </div>
               
