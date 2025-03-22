@@ -8,7 +8,7 @@ const Drawers = () => {
     <div className="w-full animate-fade-in">
       <Header 
         title="Drawers"
-        description="Em breve"
+        description="Painéis deslizantes para exibir conteúdo adicional."
         type="components"
       />
       

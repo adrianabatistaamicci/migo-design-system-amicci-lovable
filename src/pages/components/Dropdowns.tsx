@@ -8,7 +8,7 @@ const Dropdowns = () => {
     <div className="w-full animate-fade-in">
       <Header 
         title="Dropdowns"
-        description="Em breve"
+        description="Menus suspensos para exibir opções adicionais."
         type="components"
       />
       

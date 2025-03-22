@@ -8,7 +8,7 @@ const Dividers = () => {
     <div className="w-full animate-fade-in">
       <Header 
         title="Dividers"
-        description="Em breve"
+        description="Linhas divisórias para separar conteúdo relacionado."
         type="components"
       />
       

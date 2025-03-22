@@ -8,7 +8,7 @@ const Accordions = () => {
     <div className="w-full animate-fade-in">
       <Header 
         title="Accordions"
-        description="Em breve"
+        description="Painéis expansíveis para organizar conteúdo em seções."
         type="components"
       />
       

@@ -8,7 +8,7 @@ const Skeletons = () => {
     <div className="w-full animate-fade-in">
       <Header 
         title="Skeletons"
-        description="Em breve"
+        description="Placeholders animados para indicar conteúdo em carregamento."
         type="components"
       />
       
