@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import { Link } from 'react-router-dom';
@@ -58,7 +57,6 @@ const LayoutComponent = ({ title, component }) => {
   const [copied, setCopied] = useState(false);
   
   const copyToClipboard = () => {
-    // This would copy the actual code, but for now let's simulate it
     setCopied(true);
     setTimeout(() => {
       setCopied(false);
@@ -132,13 +130,11 @@ const TwoRowNavWithOverlap = () => {
                 <div className="flex-shrink-0">
                   <img className="block h-8 w-auto" src={amicciLogoDark} alt="Amicci" />
                 </div>
-                <div className="hidden lg:ml-10 lg:block">
-                  <div className="flex space-x-4">
-                    <a href="#" className="bg-amicciDark-800 text-white rounded-md py-2 px-3 text-sm font-medium">Dashboard</a>
-                    <a href="#" className="text-white hover:bg-amicciDark-800 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium">Equipe</a>
-                    <a href="#" className="text-white hover:bg-amicciDark-800 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium">Projetos</a>
-                    <a href="#" className="text-white hover:bg-amicciDark-800 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium">Calendário</a>
-                  </div>
+                <div className="hidden lg:ml-6 lg:flex lg:space-x-4">
+                  <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
+                  <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
+                  <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
+                  <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
                 </div>
               </div>
               <div className="flex flex-1 justify-center px-2 lg:ml-6 lg:justify-end">
@@ -175,13 +171,10 @@ const TwoRowNavWithOverlap = () => {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between py-3">
               <div className="flex items-center space-x-4">
-                <a href="#" className="bg-amicciDark-800 text-white rounded-md py-2 px-3 text-sm font-medium flex items-center">
-                  <span>Todos os arquivos</span>
-                  <ChevronDown className="ml-2 h-4 w-4" aria-hidden="true" />
-                </a>
-                <a href="#" className="text-white hover:bg-amicciDark-800 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium">Meus arquivos</a>
-                <a href="#" className="text-white hover:bg-amicciDark-800 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium">Compartilhados comigo</a>
-                <a href="#" className="text-white hover:bg-amicciDark-800 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium">Arquivados</a>
+                <a href="#" className="text-sm font-semibold leading-6 text-white">Todos os arquivos</a>
+                <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Meus arquivos</a>
+                <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Compartilhados comigo</a>
+                <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Arquivados</a>
               </div>
               <div>
                 <button type="button" className="relative rounded-full bg-amicciDark-900 p-1 text-amicciDark-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-amicciDark-900">
@@ -213,23 +206,25 @@ const BrandedNavWithWhiteHeader = () => {
     <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900">
         <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
-          <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Amicci</span>
-              <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
-            </a>
+          <div className="flex items-center">
+            <div className="flex flex-1">
+              <a href="#" className="-m-1.5 p-1.5">
+                <span className="sr-only">Amicci</span>
+                <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
+              </a>
+            </div>
+            <div className="hidden lg:flex lg:gap-x-12 lg:ml-6">
+              <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
+            </div>
           </div>
           <div className="flex lg:hidden">
             <button type="button" className="inline-flex items-center justify-center rounded-md p-2.5 text-amicciDark-200">
               <span className="sr-only">Abrir menu principal</span>
               <Menu className="h-6 w-6" aria-hidden="true" />
             </button>
-          </div>
-          <div className="hidden lg:flex lg:gap-x-12">
-            <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">
@@ -260,23 +255,25 @@ const BrandNavWithOverlap = () => {
     <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900 pb-32">
         <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
-          <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Amicci</span>
-              <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
-            </a>
+          <div className="flex items-center">
+            <div className="flex flex-1">
+              <a href="#" className="-m-1.5 p-1.5">
+                <span className="sr-only">Amicci</span>
+                <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
+              </a>
+            </div>
+            <div className="hidden lg:flex lg:gap-x-12 lg:ml-6">
+              <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
+            </div>
           </div>
           <div className="flex lg:hidden">
             <button type="button" className="inline-flex items-center justify-center rounded-md p-2.5 text-amicciDark-200">
               <span className="sr-only">Abrir menu principal</span>
               <Menu className="h-6 w-6" aria-hidden="true" />
             </button>
-          </div>
-          <div className="hidden lg:flex lg:gap-x-12">
-            <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">
@@ -302,23 +299,25 @@ const BrandedNavCompactHeader = () => {
     <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900">
         <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
-          <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Amicci</span>
-              <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
-            </a>
+          <div className="flex items-center">
+            <div className="flex flex-1">
+              <a href="#" className="-m-1.5 p-1.5">
+                <span className="sr-only">Amicci</span>
+                <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
+              </a>
+            </div>
+            <div className="hidden lg:flex lg:gap-x-12 lg:ml-6">
+              <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
+            </div>
           </div>
           <div className="flex lg:hidden">
             <button type="button" className="inline-flex items-center justify-center rounded-md p-2.5 text-amicciDark-200">
               <span className="sr-only">Abrir menu principal</span>
               <Menu className="h-6 w-6" aria-hidden="true" />
             </button>
-          </div>
-          <div className="hidden lg:flex lg:gap-x-12">
-            <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">
@@ -349,19 +348,17 @@ const LightNavGrayBackground = () => {
     <div className="min-h-[500px] w-full bg-gray-100">
       <nav className="bg-white shadow-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 justify-between">
-            <div className="flex">
-              <div className="flex flex-shrink-0 items-center">
-                <img className="block h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
-              </div>
-              <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                <a href="#" className="inline-flex items-center border-b-2 border-amicci-500 px-1 pt-1 text-sm font-medium text-gray-900">Dashboard</a>
-                <a href="#" className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Equipe</a>
-                <a href="#" className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Projetos</a>
-                <a href="#" className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Calendário</a>
-              </div>
+          <div className="flex h-16 items-center">
+            <div className="flex flex-shrink-0 items-center">
+              <img className="block h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
             </div>
-            <div className="hidden sm:ml-6 sm:flex sm:items-center">
+            <div className="ml-6 flex space-x-8">
+              <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Dashboard</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Equipe</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Projetos</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Calendário</a>
+            </div>
+            <div className="ml-auto flex items-center">
               <button type="button" className="relative rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-amicci-500 focus:ring-offset-2">
                 <span className="absolute -inset-1.5"></span>
                 <span className="sr-only">Ver notificações</span>
@@ -378,7 +375,7 @@ const LightNavGrayBackground = () => {
                 </div>
               </div>
             </div>
-            <div className="-mr-2 flex items-center sm:hidden">
+            <div className="ml-2 -mr-2 flex items-center lg:hidden">
               <button type="button" className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-amicci-500">
                 <span className="absolute -inset-0.5"></span>
                 <span className="sr-only">Abrir menu principal</span>
@@ -412,19 +409,17 @@ const LightNavBottomBorder = () => {
     <div className="min-h-[500px] w-full bg-white">
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 justify-between">
-            <div className="flex">
-              <div className="flex flex-shrink-0 items-center">
-                <img className="block h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
-              </div>
-              <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                <a href="#" className="inline-flex items-center border-b-2 border-amicci-500 px-1 pt-1 text-sm font-medium text-gray-900">Dashboard</a>
-                <a href="#" className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Equipe</a>
-                <a href="#" className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Projetos</a>
-                <a href="#" className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Calendário</a>
-              </div>
+          <div className="flex h-16 items-center">
+            <div className="flex flex-shrink-0 items-center">
+              <img className="block h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
             </div>
-            <div className="hidden sm:ml-6 sm:flex sm:items-center">
+            <div className="ml-6 flex space-x-8">
+              <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Dashboard</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Equipe</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Projetos</a>
+              <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Calendário</a>
+            </div>
+            <div className="ml-auto flex items-center">
               <button type="button" className="relative rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-amicci-500 focus:ring-offset-2">
                 <span className="absolute -inset-1.5"></span>
                 <span className="sr-only">Ver notificações</span>
@@ -441,7 +436,7 @@ const LightNavBottomBorder = () => {
                 </div>
               </div>
             </div>
-            <div className="-mr-2 flex items-center sm:hidden">
+            <div className="ml-2 -mr-2 flex items-center lg:hidden">
               <button type="button" className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-amicci-500">
                 <span className="absolute -inset-0.5"></span>
                 <span className="sr-only">Abrir menu principal</span>
