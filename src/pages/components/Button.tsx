@@ -1,17 +1,19 @@
+
 import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Button } from '@/components/ui/button';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { Mail, ArrowRight, Plus, X } from 'lucide-react';
-import ComponentsHeader from '@/components/library-components/ComponentsHeader';
+import Header from '@/components/library-components/Header';
 
 const ButtonPage = () => {
   return (
     <div className="w-full animate-slide-in">
       <div className="mb-12">
-        <ComponentsHeader 
+        <Header 
           title="Button"
           description="Buttons allow users to take actions, and make choices, with a single tap."
+          type="components"
         />
         
         <div className="mb-12">

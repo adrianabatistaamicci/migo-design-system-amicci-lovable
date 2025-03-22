@@ -1,9 +1,10 @@
+
 import React, { useState, useEffect } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Progress } from '@/components/ui/progress';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
-import ComponentsHeader from '@/components/library-components/ComponentsHeader';
+import Header from '@/components/library-components/Header';
 
 const ProgressPage = () => {
   const [progress, setProgress] = useState(0);
@@ -28,9 +29,10 @@ const ProgressPage = () => {
   return (
     <div className="w-full animate-slide-in">
       <div className="mb-12">
-        <ComponentsHeader 
+        <Header 
           title="Progress"
           description="Progress indicators show the completion status of an operation or task."
+          type="components"
         />
         
         <div className="mb-12">
