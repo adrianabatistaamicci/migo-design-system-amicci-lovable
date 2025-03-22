@@ -25,6 +25,7 @@ export default {
 			},
 			colors: {
 				border: 'hsl(var(--border))',
+				'border-default': 'var(--border-default)',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
@@ -364,7 +365,7 @@ export default {
 				'orange', 'red', 'yellow', 'primary', 'secondary', 'tertiary',
 				'action', 'error', 'warning', 'info', 'success', 'destructive',
 				'muted', 'accent', 'popover', 'card', 'text', 'mui', 'border',
-				'input', 'ring', 'background', 'foreground', 'common'
+				'border-default', 'input', 'ring', 'background', 'foreground', 'common'
 			];
 			
 			// Generate utilities only for allowed colors
