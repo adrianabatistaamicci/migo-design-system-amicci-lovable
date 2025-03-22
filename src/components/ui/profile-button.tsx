@@ -68,9 +68,10 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
       .slice(0, 2)
       .toUpperCase();
 
+    // Apply custom styles for consistent spacing
     return (
       <button
-        className={cn(profileButtonVariants({ variant, size, className }), "px-2")}
+        className={cn(profileButtonVariants({ variant, size, className }), "px-3")}
         ref={ref}
         type="button"
         {...props}
@@ -78,7 +79,7 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
         {showClientLogo && (
           <div className="flex items-center mr-8">
             {logoSrc ? (
-              <img src={logoSrc} alt={logoAlt} className="h-[46px] w-auto" />
+              <img src={logoSrc} alt={logoAlt} className="h-8 w-auto" />
             ) : (
               <div className="text-lg font-semibold">{logoText || "Clientlogo"}</div>
             )}
