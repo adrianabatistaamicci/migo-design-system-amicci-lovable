@@ -3,6 +3,7 @@ import React from 'react';
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { Menu } from "lucide-react";
+import defaultLogo from '@/pages/assets/client-logo.svg';
 
 const profileButtonVariants = cva(
   "inline-flex items-center gap-2 h-[46px] px-2 py-1 rounded-full border bg-white shrink-0",
@@ -49,7 +50,7 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
     userName,
     companyName,
     logoText,
-    logoSrc,
+    logoSrc = defaultLogo,
     logoAlt = "Company logo",
     avatarText,
     avatarSrc,

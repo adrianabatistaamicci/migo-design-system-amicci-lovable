@@ -1,10 +1,10 @@
-
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
 import { Menu, List, User } from 'lucide-react';
 import { ProfileButton } from '@/components/ui/profile-button';
 import { cn } from '@/lib/utils';
+import defaultLogo from '@/pages/assets/client-logo.svg';
 
 const ProfileButtonPage = () => {
   return (
@@ -101,6 +101,7 @@ const ProfileButtonPage = () => {
                 userName="Tatiana Rocha"
                 companyName="Studio Design"
                 logoText="SD"
+                logoSrc={null}
               />
             </div>
           } 
