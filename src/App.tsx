@@ -32,6 +32,8 @@ import LibraryPage from "./pages/components/Library";
 import TogglePage from "./pages/components/Toggle";
 import ContainersPage from "./pages/components/Containers";
 import StackedLayoutsPage from "./pages/components/StackedLayouts";
+import SidebarLayoutsPage from "./pages/components/SidebarLayouts";
+import MultiColumnLayoutsPage from "./pages/components/MultiColumnLayouts";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -66,6 +68,8 @@ const App = () => {
               <Route path="/components/toggle" element={<TogglePage />} />
               <Route path="/components/containers" element={<ContainersPage />} />
               <Route path="/components/stacked-layouts" element={<StackedLayoutsPage />} />
+              <Route path="/components/sidebar-layouts" element={<SidebarLayoutsPage />} />
+              <Route path="/components/multi-column-layouts" element={<MultiColumnLayoutsPage />} />
               
               {/* Foundation pages */}
               <Route path="/colors" element={<Colors />} />
