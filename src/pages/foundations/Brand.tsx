@@ -4,7 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import FoundationsHeader from '@/components/library-components/FoundationsHeader';
+import Header from '@/components/library-components/Header';
 import AmicciLogo from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
 import AmicciLogoBrancoTurquesaEscuro from '@/pages/assets/Amicci-Branco+TurquesaEscuro.svg';
 import AmicciLogoTurquesaBranco from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg';
@@ -17,7 +17,7 @@ import AmicciTagUpdates from '@/pages/assets/amicci-logo-tag-updates.svg';
 
 const Brand = () => {
   return <div className="w-full animate-fade-in">
-      <FoundationsHeader title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." />
+      <Header title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." type="foundations" />
 
       <div className="mt-8">
         <ComponentCard title="Logo Amicci" description="Nossa marca representa nossa identidade e valores fundamentais.">
@@ -66,59 +66,19 @@ const Brand = () => {
                 <h4 className="font-medium">Logo com tag</h4>
                 <p className="text-gray-600 mb-4">As versões com tag da nossa marca podem ser usadas para simbolizar áreas, iniciativas ou outros ambientes digitais.</p>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="border rounded-lg p-8 flex items-center justify-center bg-white">
-                    <img src={AmicciTagDesignSystem} alt="Amicci logo com tag design system" className="max-w-[300px] h-auto" />
-                  </div>
-                  <div className="space-y-4">
-                    <h4 className="font-medium">Design System</h4>
-                    <p className="text-gray-600">Versão utilizada para o nosso design system, documentação e guias de estilo.</p>
-                    <div className="flex gap-2">
-                      <Button size="sm" variant="outline">Download SVG</Button>
-                      <Button size="sm" variant="outline">Download PNG</Button>
+                <div className="border rounded-lg p-8 bg-white">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="flex flex-col items-center gap-6">
+                      <img src={AmicciTagDesignSystem} alt="Amicci logo com tag design system" className="max-w-[300px] h-auto" />
+                      <img src={AmicciTagBlog} alt="Amicci logo com tag blog" className="max-w-[300px] h-auto" />
+                    </div>
+                    <div className="flex flex-col items-center gap-6">
+                      <img src={AmicciTagEngenharia} alt="Amicci logo com tag engenharia" className="max-w-[300px] h-auto" />
+                      <img src={AmicciTagUpdates} alt="Amicci logo com tag updates" className="max-w-[300px] h-auto" />
                     </div>
                   </div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-                  <div className="border rounded-lg p-8 flex items-center justify-center bg-white">
-                    <img src={AmicciTagBlog} alt="Amicci logo com tag blog" className="max-w-[300px] h-auto" />
-                  </div>
-                  <div className="space-y-4">
-                    <h4 className="font-medium">Blog</h4>
-                    <p className="text-gray-600">Versão específica para o nosso blog, contendo conteúdos e artigos.</p>
-                    <div className="flex gap-2">
-                      <Button size="sm" variant="outline">Download SVG</Button>
-                      <Button size="sm" variant="outline">Download PNG</Button>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-                  <div className="border rounded-lg p-8 flex items-center justify-center bg-white">
-                    <img src={AmicciTagEngenharia} alt="Amicci logo com tag engenharia" className="max-w-[300px] h-auto" />
-                  </div>
-                  <div className="space-y-4">
-                    <h4 className="font-medium">Engenharia</h4>
-                    <p className="text-gray-600">Versão utilizada para a nossa área de engenharia e documentação técnica.</p>
-                    <div className="flex gap-2">
-                      <Button size="sm" variant="outline">Download SVG</Button>
-                      <Button size="sm" variant="outline">Download PNG</Button>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-                  <div className="border rounded-lg p-8 flex items-center justify-center bg-white">
-                    <img src={AmicciTagUpdates} alt="Amicci logo com tag updates" className="max-w-[300px] h-auto" />
-                  </div>
-                  <div className="space-y-4">
-                    <h4 className="font-medium">Updates</h4>
-                    <p className="text-gray-600">Versão específica para comunicações de atualizações e novidades da plataforma.</p>
-                    <div className="flex gap-2">
-                      <Button size="sm" variant="outline">Download SVG</Button>
-                      <Button size="sm" variant="outline">Download PNG</Button>
-                    </div>
+                  <div className="mt-6 text-center">
+                    <p className="text-gray-600">Estas versões são utilizadas para identificar visualmente diferentes áreas e iniciativas da Amicci, mantendo a coesão e o reconhecimento da marca enquanto diferenciam cada contexto específico.</p>
                   </div>
                 </div>
               </div>
