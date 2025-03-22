@@ -14,44 +14,49 @@ const StackedLayouts = () => {
   
   return (
     <div className="w-full animate-fade-in">
-      <Header title="Stacked Layouts" description="Layouts empilhados (stacked) são uma estrutura comum para aplicações onde o cabeçalho permanece fixo no topo enquanto o conteúdo principal é rolável. Esses layouts proporcionam uma navegação clara e consistente para os usuários." type="components" />
+      <Header 
+        title="Stacked Layouts" 
+        description="Layouts empilhados (stacked) são uma estrutura comum para aplicações onde o cabeçalho permanece fixo no topo enquanto o conteúdo principal é rolável. Esses layouts proporcionam uma navegação clara e consistente para os usuários."
+        type="components"
+      />
         
-        <TailwindTabs defaultValue="scale" className="mt-8"
-          tabs={[
-            { name: 'Visão geral', value: 'overview' },
-            { name: 'Uso no marketplace', value: 'marketplace' },
-            { name: 'Uso no site institucional', value: 'institutional' }
-          ]}
-          variant="pillsGray"
-          defaultValue="overview"
-          onChange={(value) => setActiveTab(value)}
-        />
+      <TailwindTabs 
+        defaultValue="overview" 
+        className="mt-8"
+        tabs={[
+          { name: 'Visão geral', value: 'overview' },
+          { name: 'Uso no marketplace', value: 'marketplace' },
+          { name: 'Uso no site institucional', value: 'institutional' }
+        ]}
+        variant="pillsGray"
+        onChange={(value) => setActiveTab(value)}
+      />
 
-        {activeTab === 'overview' && (
-          <div className="space-y-12">
-            <LayoutComponent title="Light nav with bottom border" component={<LightNavBottomBorder />} />
-            
-            <LayoutComponent title="Light nav on gray background" component={<LightNavGrayBackground />} />
-            
-            <LayoutComponent title="Branded nav with compact white page header" component={<BrandedNavCompactHeader />} />
-            
-            <LayoutComponent title="Branded nav with white page header" component={<BrandedNavWithWhiteHeader />} />
-            
-            <LayoutComponent title="Brand nav with overlap" component={<BrandNavWithOverlap />} />
-          </div>
-        )}
+      {activeTab === 'overview' && (
+        <div className="space-y-12 mt-10">
+          <LayoutComponent title="Light nav with bottom border" component={<LightNavBottomBorder />} />
+          
+          <LayoutComponent title="Light nav on gray background" component={<LightNavGrayBackground />} />
+          
+          <LayoutComponent title="Branded nav with compact white page header" component={<BrandedNavCompactHeader />} />
+          
+          <LayoutComponent title="Branded nav with white page header" component={<BrandedNavWithWhiteHeader />} />
+          
+          <LayoutComponent title="Brand nav with overlap" component={<BrandNavWithOverlap />} />
+        </div>
+      )}
 
-        {activeTab === 'marketplace' && (
-          <div className="space-y-12">
-            <LayoutComponent title="Marketplace Navigation" component={<MarketplaceNav />} />
-          </div>
-        )}
+      {activeTab === 'marketplace' && (
+        <div className="space-y-12 mt-10">
+          <LayoutComponent title="Marketplace Navigation" component={<MarketplaceNav />} />
+        </div>
+      )}
 
-        {activeTab === 'institutional' && (
-          <div className="space-y-12">
-            <LayoutComponent title="Institutional Site Navigation" component={<InstitutionalNav />} />
-          </div>
-        )}
+      {activeTab === 'institutional' && (
+        <div className="space-y-12 mt-10">
+          <LayoutComponent title="Institutional Site Navigation" component={<InstitutionalNav />} />
+        </div>
+      )}
     </div>
   );
 };
@@ -68,17 +73,18 @@ const LayoutComponent = ({
       setCopied(false);
     }, 2000);
   };
-  return <div className="space-y-2">
+  return (
+    <div className="space-y-3">
       <div className="px-4">
-        <h3 className="text-lg font-medium text-gray-900">{title}</h3>
+        <h3 className="text-xl font-medium text-gray-900">{title}</h3>
       </div>
       
-      <div className="border rounded-lg overflow-hidden">
+      <div className="border rounded-lg overflow-hidden shadow-sm">
         <div className="bg-gray-100 w-full h-[500px] overflow-hidden">
           {component}
         </div>
         
-        <div className="border-t border-gray-200 px-4 py-2 flex justify-between items-center bg-gray-50">
+        <div className="border-t border-gray-200 px-4 py-3 flex justify-between items-center bg-gray-50">
           <Button variant="ghost" size="sm" onClick={() => setShowCode(!showCode)} className="flex items-center gap-1 text-sm">
             <Code size={16} />
             <span>{showCode ? 'Hide code' : 'Show code'}</span>
@@ -95,15 +101,18 @@ const LayoutComponent = ({
           </Button>
         </div>
         
-        {showCode && <div className="border-t p-4 bg-gray-50 overflow-x-auto">
+        {showCode && (
+          <div className="border-t p-4 bg-gray-50 overflow-x-auto">
             <pre className="text-sm">
               <code>{`// Component code would go here
 // This is a placeholder for the actual code
 // In a real implementation, each component's code would be shown here`}</code>
             </pre>
-          </div>}
+          </div>
+        )}
       </div>
-    </div>;
+    </div>
+  );
 };
 
 const MarketplaceNav = () => {

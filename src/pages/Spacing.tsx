@@ -12,7 +12,11 @@ import CodeBlock from '@/components/CodeBlock';
 const SpacingPage = () => {
   return (
     <div className="w-full animate-fade-in">
-      <Header title="Stacked Layouts" description="Nosso sistema de espaçamento fornece tamanhos consistentes que ajudam a criar ritmo visual e hierarquia." type="components" />
+      <Header 
+        title="Stacked Layouts" 
+        description="Nosso sistema de espaçamento fornece tamanhos consistentes que ajudam a criar ritmo visual e hierarquia." 
+        type="components" 
+      />
 
       <Tabs defaultValue="scale" className="mt-8">
         <TabsList className="mb-4 bg-gray-100 p-1 rounded-lg">
