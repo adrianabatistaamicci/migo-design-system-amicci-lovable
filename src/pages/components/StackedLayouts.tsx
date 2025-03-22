@@ -10,7 +10,7 @@ const StackedLayouts = () => {
     <div className="w-full animate-fade-in">
       <Header 
         title="Layouts"
-        description="Layouts empilhados para aplicações"
+        description="Layouts empilhados (stacked) são uma estrutura comum para aplicações onde o cabeçalho permanece fixo no topo enquanto o conteúdo principal é rolável. Esses layouts proporcionam uma navegação clara e consistente para os usuários."
         type="components"
       />
 
