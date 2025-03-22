@@ -95,7 +95,6 @@ const LayoutComponent = ({ title, component }) => {
   );
 };
 
-// Component implementations
 const TwoRowNavWithOverlap = () => {
   return (
     <div className="min-h-[500px] w-full">
@@ -216,7 +215,7 @@ const BrandedNavWithWhiteHeader = () => {
 
       <header className="bg-white shadow">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+          <h1 className="text-3xl font-medium tracking-tight text-gray-900">Dashboard</h1>
         </div>
       </header>
       <main>
@@ -305,7 +304,7 @@ const BrandedNavCompactHeader = () => {
 
       <header className="bg-white shadow-sm">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <h1 className="text-lg font-semibold leading-6 text-gray-900">Dashboard</h1>
+          <h1 className="text-lg font-medium leading-6 text-gray-900">Dashboard</h1>
         </div>
       </header>
       <main>
@@ -367,7 +366,7 @@ const LightNavGrayBackground = () => {
       <div className="py-10">
         <header>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+            <h1 className="text-3xl font-medium tracking-tight text-gray-900">Dashboard</h1>
           </div>
         </header>
         <main>
@@ -430,7 +429,7 @@ const LightNavBottomBorder = () => {
       <div className="py-10">
         <header>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+            <h1 className="text-3xl font-medium tracking-tight text-gray-900">Dashboard</h1>
           </div>
         </header>
         <main>
