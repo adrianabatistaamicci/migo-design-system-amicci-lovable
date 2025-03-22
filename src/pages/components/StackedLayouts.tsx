@@ -63,46 +63,34 @@ const LayoutComponent = ({ title, component }) => {
   };
   
   return (
-    <div className="border rounded-lg overflow-hidden">
-      <div className="p-4 border-b bg-white flex justify-between items-center">
+    <div className="space-y-2">
+      <div className="flex justify-between items-center px-4">
         <h3 className="text-lg font-medium text-gray-900">{title}</h3>
-        <div className="flex gap-2">
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            onClick={() => setShowCode(!showCode)}
-            className="flex items-center gap-1 text-sm"
-          >
-            <Code size={16} />
-            <span>{showCode ? 'Hide code' : 'Show code'}</span>
-          </Button>
-          
-          {showCode && (
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              onClick={copyToClipboard}
-              className="flex items-center gap-1 text-sm"
-              disabled={copied}
-            >
-              {copied ? <CheckCheck size={16} /> : <Copy size={16} />}
-              <span>{copied ? 'Copied' : 'Copy'}</span>
-            </Button>
-          )}
+        <Button 
+          variant="ghost" 
+          size="sm" 
+          onClick={() => setShowCode(!showCode)}
+          className="flex items-center gap-1 text-sm"
+        >
+          <Code size={16} />
+          <span>{showCode ? 'Hide code' : 'Show code'}</span>
+        </Button>
+      </div>
+      
+      <div className="border rounded-lg overflow-hidden">
+        <div className="bg-gray-100 w-full h-[500px] overflow-hidden">
+          {component}
         </div>
-      </div>
-      <div className="bg-gray-100 w-full h-[500px] overflow-hidden">
-        {component}
-      </div>
-      {showCode && (
-        <div className="border-t p-4 bg-gray-50 overflow-x-auto">
-          <pre className="text-sm">
-            <code>{`// Component code would go here
+        {showCode && (
+          <div className="border-t p-4 bg-gray-50 overflow-x-auto">
+            <pre className="text-sm">
+              <code>{`// Component code would go here
 // This is a placeholder for the actual code
 // In a real implementation, each component's code would be shown here`}</code>
-          </pre>
-        </div>
-      )}
+            </pre>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
