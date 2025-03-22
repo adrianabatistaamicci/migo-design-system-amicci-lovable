@@ -11,8 +11,6 @@ const profileButtonVariants = cva(
     variants: {
       size: {
         default: "h-[46px]",
-        sm: "h-9",
-        lg: "h-12",
       },
     },
     defaultVariants: {
@@ -34,14 +32,6 @@ export interface ProfileButtonProps
   avatarAlt?: string;
   showClientLogo?: boolean;
   menuIcon?: React.ReactNode;
-  innerSpacing?: {
-    container?: string;
-    logo?: string;
-    avatar?: string;
-    text?: string;
-    menu?: string;
-  };
-  gap?: string;
 }
 
 const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
@@ -58,14 +48,6 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
     avatarAlt = "User avatar",
     showClientLogo = true,
     menuIcon,
-    innerSpacing = {
-      container: "px-4 py-1",
-      logo: "pr-4",
-      avatar: "",
-      text: "px-2",
-      menu: "pl-4",
-    },
-    gap = "gap-4",
     ...props
   }, ref) => {
     // Generate initials if avatarText isn't provided
@@ -83,19 +65,19 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
         type="button"
         {...props}
       >
-        <div className={cn("flex items-center w-full", innerSpacing.container, gap)}>
+        <div className="flex items-center w-full px-2 py-2">
           {showClientLogo && (
-            <div className={cn("flex items-center", innerSpacing.logo)}>
+            <div className="flex items-center mr-8">
               {logoSrc ? (
-                <img src={logoSrc} alt={logoAlt} className="h-8 w-auto" />
+                <img src={logoSrc} alt={logoAlt} className="h-7 w-auto" /> // 28px height
               ) : (
                 <div className="text-lg font-semibold">{logoText || "Clientlogo"}</div>
               )}
             </div>
           )}
           
-          <div className={cn("flex items-center", innerSpacing.avatar)}>
-            <div className="h-10 w-10 rounded-full bg-[#001A1A] text-white flex items-center justify-center font-medium">
+          <div className="flex items-center">
+            <div className="h-8 w-8 rounded-full bg-[#001A1A] text-white flex items-center justify-center font-medium"> {/* 32px avatar */}
               {avatarSrc ? (
                 <img src={avatarSrc} alt={avatarAlt} className="h-full w-full rounded-full object-cover" />
               ) : (
@@ -104,15 +86,15 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
             </div>
           </div>
           
-          <div className={cn("flex flex-col items-start text-left", innerSpacing.text)}>
+          <div className="flex flex-col items-start text-left ml-2">
             <span className="text-base font-medium text-gray-900 leading-tight">{userName}</span>
             {companyName && (
               <span className="text-sm text-gray-500 leading-tight">{companyName}</span>
             )}
           </div>
           
-          <div className={cn("text-gray-600 ml-auto", innerSpacing.menu)}>
-            {menuIcon || <Menu className="h-6 w-6" />}
+          <div className="text-gray-600 ml-auto">
+            {menuIcon || <Menu className="h-6 w-6" />} {/* 24px menu icon */}
           </div>
         </div>
       </button>

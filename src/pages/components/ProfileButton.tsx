@@ -43,99 +43,37 @@ const ProfileButtonPage = () => {
         />
         
         <LayoutComponent 
-          title="Profile Button com Iniciais Personalizadas" 
+          title="Variação: Sem Logo da Empresa" 
           component={
             <div className="flex justify-center items-center p-4">
               <ProfileButton
                 userName="Fernanda Rodrigues"
                 companyName="Creative Design"
-                avatarText="FR"
+                showClientLogo={false}
               />
             </div>
           } 
         />
         
         <LayoutComponent 
-          title="Profile Button com Tamanhos Diferentes" 
+          title="Variação: Apenas Nome do Usuário (Sem Empresa)" 
           component={
-            <div className="flex flex-col gap-4 justify-center items-center p-4">
+            <div className="flex justify-center items-center p-4">
               <ProfileButton
                 userName="Ricardo Santos"
-                companyName="Tech Solutions"
-                size="sm"
-              />
-              
-              <ProfileButton
-                userName="Luciana Pereira"
-                companyName="Design Agency"
-                size="default"
-              />
-              
-              <ProfileButton
-                userName="Eduardo Lima"
-                companyName="Marketing Group"
-                size="lg"
               />
             </div>
           } 
         />
         
         <LayoutComponent 
-          title="Profile Button com Logo Personalizado" 
+          title="Variação: Ícone de Menu Personalizado" 
           component={
             <div className="flex justify-center items-center p-4">
               <ProfileButton
                 userName="Tatiana Rocha"
                 companyName="Studio Design"
-                logoText="SD"
-                logoSrc={null}
-              />
-            </div>
-          } 
-        />
-        
-        <LayoutComponent 
-          title="Profile Button com Espaçamento Personalizado" 
-          component={
-            <div className="flex flex-col gap-4 justify-center items-center p-4">
-              <ProfileButton
-                userName="Bruno Costa"
-                companyName="Tech Solutions"
-                innerSpacing={{
-                  container: "px-6 py-2",
-                  logo: "pr-2",
-                  avatar: "",
-                  text: "px-4",
-                  menu: "pl-2"
-                }}
-                gap="gap-4"
-              />
-              
-              <ProfileButton
-                userName="Camila Alves"
-                companyName="Design Pro"
-                innerSpacing={{
-                  container: "px-8 py-3",
-                  logo: "",
-                  avatar: "",
-                  text: "",
-                  menu: ""
-                }}
-                gap="gap-12"
-              />
-              
-              <ProfileButton
-                userName="Daniel Santos"
-                companyName="Marketing Digital"
-                innerSpacing={{
-                  container: "px-2 py-1",
-                  logo: "",
-                  avatar: "",
-                  text: "",
-                  menu: ""
-                }}
-                gap="gap-2"
-                showClientLogo={false}
+                menuIcon={<User className="h-6 w-6" />}
               />
             </div>
           } 
@@ -150,13 +88,7 @@ const ProfileButtonPage = () => {
                   <h3 className="text-lg font-medium">Navbar com Profile Button</h3>
                   <ProfileButton
                     userName="Amanda Silva"
-                    size="sm"
                     showClientLogo={false}
-                    innerSpacing={{
-                      container: "px-3 py-1",
-                      menu: "pl-2"
-                    }}
-                    gap="gap-4"
                   />
                 </div>
               </div>
@@ -204,12 +136,6 @@ const ProfileButtonPage = () => {
                     <td className="px-6 py-4 text-sm text-gray-500">Nome da empresa/organização do usuário</td>
                   </tr>
                   <tr>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">size</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">"default" | "sm" | "lg"</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">"default"</td>
-                    <td className="px-6 py-4 text-sm text-gray-500">Tamanho do botão</td>
-                  </tr>
-                  <tr>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">logoText</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">string</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">"Clientlogo"</td>
@@ -244,18 +170,6 @@ const ProfileButtonPage = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">React.ReactNode</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">&lt;Menu /&gt;</td>
                     <td className="px-6 py-4 text-sm text-gray-500">Ícone do menu (normalmente um ícone de hambúrguer)</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">innerSpacing</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Object</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{'{ container: "px-4 py-1", ... }'}</td>
-                    <td className="px-6 py-4 text-sm text-gray-500">Controla o espaçamento interno de cada parte do botão</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">gap</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">string</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">"gap-4"</td>
-                    <td className="px-6 py-4 text-sm text-gray-500">Controla o espaçamento entre os elementos (classe gap do Tailwind)</td>
                   </tr>
                 </tbody>
               </table>
