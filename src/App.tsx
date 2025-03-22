@@ -30,6 +30,8 @@ import TabsPage from "./pages/components/Tabs";
 import ProgressPage from "./pages/components/Progress";
 import LibraryPage from "./pages/components/Library";
 import TogglePage from "./pages/components/Toggle";
+import ContainersPage from "./pages/components/Containers";
+import StackedLayoutsPage from "./pages/components/StackedLayouts";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -62,6 +64,8 @@ const App = () => {
               <Route path="/components/progress" element={<ProgressPage />} />
               <Route path="/components/library" element={<LibraryPage />} />
               <Route path="/components/toggle" element={<TogglePage />} />
+              <Route path="/components/containers" element={<ContainersPage />} />
+              <Route path="/components/stacked-layouts" element={<StackedLayoutsPage />} />
               
               {/* Foundation pages */}
               <Route path="/colors" element={<Colors />} />
