@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import { Link } from 'react-router-dom';
@@ -140,7 +139,11 @@ const BrandedNavWithWhiteHeader = () => {
               <Menu className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <div className="hidden lg:flex lg:items-center lg:gap-x-6">
+            <button type="button" className="relative p-1 text-white hover:text-amicciDark-100 focus:outline-none">
+              <span className="sr-only">Ver notificações</span>
+              <Bell className="h-6 w-6 text-gray-950" aria-hidden="true" />
+            </button>
             <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">
               Log in <span aria-hidden="true">&rarr;</span>
             </a>
@@ -189,7 +192,11 @@ const BrandNavWithOverlap = () => {
               <Menu className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <div className="hidden lg:flex lg:items-center lg:gap-x-6">
+            <button type="button" className="relative p-1 text-white hover:text-amicciDark-100 focus:outline-none">
+              <span className="sr-only">Ver notificações</span>
+              <Bell className="h-6 w-6 text-gray-950" aria-hidden="true" />
+            </button>
             <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">
               Log in <span aria-hidden="true">&rarr;</span>
             </a>
@@ -233,7 +240,11 @@ const BrandedNavCompactHeader = () => {
               <Menu className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <div className="hidden lg:flex lg:items-center lg:gap-x-6">
+            <button type="button" className="relative p-1 text-white hover:text-amicciDark-100 focus:outline-none">
+              <span className="sr-only">Ver notificações</span>
+              <Bell className="h-6 w-6 text-gray-950" aria-hidden="true" />
+            </button>
             <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">
               Log in <span aria-hidden="true">&rarr;</span>
             </a>
@@ -262,7 +273,7 @@ const LightNavGrayBackground = () => {
     <div className="min-h-[500px] w-full bg-gray-100">
       <nav className="bg-white shadow-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-[88px] items-center">
+          <div className="flex h-[88px] items-center justify-between">
             <div className="flex flex-shrink-0 items-center">
               <img className="block h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
             </div>
@@ -272,22 +283,12 @@ const LightNavGrayBackground = () => {
               <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Projetos</a>
               <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Calendário</a>
             </div>
-            <div className="ml-auto flex items-center">
-              <button type="button" className="relative rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-amicci-500 focus:ring-offset-2">
+            <div className="flex items-center">
+              <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-amicci-500 focus:ring-offset-2">
                 <span className="absolute -inset-1.5"></span>
                 <span className="sr-only">Ver notificações</span>
                 <Bell className="h-6 w-6" aria-hidden="true" />
               </button>
-
-              <div className="relative ml-3">
-                <div>
-                  <button type="button" className="relative flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-amicci-500 focus:ring-offset-2">
-                    <span className="absolute -inset-1.5"></span>
-                    <span className="sr-only">Abrir menu do usuário</span>
-                    <User className="h-8 w-8 rounded-full" />
-                  </button>
-                </div>
-              </div>
             </div>
             <div className="ml-2 -mr-2 flex items-center lg:hidden">
               <button type="button" className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-amicci-500">
@@ -323,7 +324,7 @@ const LightNavBottomBorder = () => {
     <div className="min-h-[500px] w-full bg-white">
       <nav className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-[88px] items-center">
+          <div className="flex h-[88px] items-center justify-between">
             <div className="flex flex-shrink-0 items-center">
               <img className="block h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
             </div>
@@ -333,22 +334,12 @@ const LightNavBottomBorder = () => {
               <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Projetos</a>
               <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Calendário</a>
             </div>
-            <div className="ml-auto flex items-center">
-              <button type="button" className="relative rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-amicci-500 focus:ring-offset-2">
+            <div className="flex items-center">
+              <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-amicci-500 focus:ring-offset-2">
                 <span className="absolute -inset-1.5"></span>
                 <span className="sr-only">Ver notificações</span>
                 <Bell className="h-6 w-6" aria-hidden="true" />
               </button>
-
-              <div className="relative ml-3">
-                <div>
-                  <button type="button" className="relative flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-amicci-500 focus:ring-offset-2">
-                    <span className="absolute -inset-1.5"></span>
-                    <span className="sr-only">Abrir menu do usuário</span>
-                    <User className="h-8 w-8 rounded-full" />
-                  </button>
-                </div>
-              </div>
             </div>
             <div className="ml-2 -mr-2 flex items-center lg:hidden">
               <button type="button" className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-amicci-500">
