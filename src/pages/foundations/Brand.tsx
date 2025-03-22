@@ -60,8 +60,7 @@ const Brand = () => {
             <div className="space-y-6">
               <h3 className="text-xl font-medium">Variações</h3>
               
-              <div className="grid grid-cols-1 gap-8 mb-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
                   <div className="border rounded-lg p-8 flex flex-col items-start justify-center gap-4 bg-white px-[182px]">
                     <img src={AmicciTagDesignSystem} alt="Amicci logo com tag design system" className="max-w-[300px] h-auto" />
                     <img src={AmicciTagBlog} alt="Amicci logo com tag blog" className="max-w-[300px] h-auto" />
@@ -73,7 +72,6 @@ const Brand = () => {
                     <p className="text-gray-600">Estas versões são utilizadas para identificar visualmente diferentes áreas e iniciativas da Amicci, mantendo a coesão e o reconhecimento da marca enquanto diferenciam cada contexto específico.</p>
                     <p className="text-gray-600">Aplicadas em blogs, documentação técnica, design systems e comunicados, estas variações permitem uma identificação imediata da área responsável pelo conteúdo.</p>
                   </div>
-                </div>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
