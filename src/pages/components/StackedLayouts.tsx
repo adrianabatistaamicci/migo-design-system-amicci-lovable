@@ -24,6 +24,7 @@ const StackedLayouts = () => {
           ]}
           variant="pillsGray"
           defaultValue="overview"
+          onChange={(value) => setActiveTab(value)}
         />
 
         {activeTab === 'overview' && (
@@ -51,7 +52,6 @@ const StackedLayouts = () => {
             <LayoutComponent title="Institutional Site Navigation" component={<InstitutionalNav />} />
           </div>
         )}
-      </div>
     </div>
   );
 };
