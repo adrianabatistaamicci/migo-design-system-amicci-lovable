@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, ChevronRight, Package, Layers, PenTool, Palette, Coffee, MousePointer } from 'lucide-react';
@@ -42,47 +43,116 @@ const sidebarItems: SidebarItem[] = [
     href: '/components',
     icon: Package,
     items: [
-      { title: 'Button', href: '/components/buttons' },
-      { title: 'Checkbox', href: '/components/checkbox' },
-      { title: 'Input', href: '/components/input' },
-      { title: 'Radio', href: '/components/radio-group' },
-      { title: 'Select', href: '/components/select' },
-      { title: 'Slider', href: '/components/slider' },
-      { title: 'Switch', href: '/components/switch' },
-      { title: 'Toggle', href: '/components/toggle' },
-      { title: 'Avatar', href: '/components/avatar' },
-      { title: 'Badge', href: '/components/badge' },
-      { title: 'Chip', href: '/components/chip' },
-      { title: 'Divider', href: '/components/divider' },
-      { title: 'Icons', href: '/components/icons' },
-      { title: 'Table', href: '/components/table' },
-      { title: 'Typography', href: '/components/typography' },
-      { title: 'Alert', href: '/components/alert' },
-      { title: 'Dialog', href: '/components/dialog' },
-      { title: 'Progress', href: '/components/progress' },
-      { title: 'Skeleton', href: '/components/skeleton' },
-      { title: 'Snackbar', href: '/components/snackbar' },
-      { title: 'Breadcrumbs', href: '/components/breadcrumb' },
-      { title: 'Drawer', href: '/components/drawer' },
-      { title: 'Menu', href: '/components/menu' },
-      { title: 'Pagination', href: '/components/pagination' },
-      { title: 'Stepper', href: '/components/stepper' },
-      { title: 'Tabs', href: '/components/tabs' },
-      { title: 'Accordion', href: '/components/accordion' },
-      { title: 'App Bar', href: '/components/app-bar' },
-      { title: 'Card', href: '/components/cards' },
-      { title: 'Paper', href: '/components/paper' },
-      { title: 'Click Away Listener', href: '/components/click-away-listener' },
-      { title: 'CSS Baseline', href: '/components/css-baseline' },
-      { title: 'Modal', href: '/components/modal' },
-      { title: 'No SSR', href: '/components/no-ssr' },
-      { title: 'Popover', href: '/components/popover' },
-      { title: 'Popper', href: '/components/popper' },
-      { title: 'Portal', href: '/components/portal' },
-      { title: 'Textarea Autosize', href: '/components/textarea-autosize' },
-      { title: 'Transitions', href: '/components/transitions' },
-      { title: 'Data Grid', href: '/components/data-grid' },
-      { title: 'Date & Time Pickers', href: '/components/date-picker' },
+      {
+        title: 'Application Shells',
+        items: [
+          { title: 'Stacked Layouts', href: '/components/stacked-layouts' },
+          { title: 'Sidebar Layouts', href: '/components/sidebar-layouts' },
+          { title: 'Multi-column Layouts', href: '/components/multi-column-layouts' },
+        ]
+      },
+      {
+        title: 'Headings',
+        items: [
+          { title: 'Page Headings', href: '/components/page-headings' },
+          { title: 'Card Headings', href: '/components/card-headings' },
+          { title: 'Section Headings', href: '/components/section-headings' },
+        ]
+      },
+      {
+        title: 'Data Display',
+        items: [
+          { title: 'Description Lists', href: '/components/description-lists' },
+          { title: 'Stats', href: '/components/stats' },
+          { title: 'Calendars', href: '/components/calendars' },
+        ]
+      },
+      {
+        title: 'Lists',
+        items: [
+          { title: 'Stacked Lists', href: '/components/stacked-lists' },
+          { title: 'Tables', href: '/components/table' },
+          { title: 'Grid Lists', href: '/components/grid-lists' },
+          { title: 'Feeds', href: '/components/feeds' },
+        ]
+      },
+      {
+        title: 'Forms',
+        items: [
+          { title: 'Form Layouts', href: '/components/form-layouts' },
+          { title: 'Sign-in and Registration', href: '/components/sign-in-registration' },
+          { title: 'Input', href: '/components/input' },
+          { title: 'Select', href: '/components/select' },
+          { title: 'Textareas', href: '/components/textareas' },
+          { title: 'Radio Groups', href: '/components/radio-group' },
+          { title: 'Checkboxes', href: '/components/checkbox' },
+          { title: 'Toggles', href: '/components/toggle' },
+          { title: 'Sliders', href: '/components/slider' },
+          { title: 'Action Panels', href: '/components/action-panels' },
+        ]
+      },
+      {
+        title: 'Feedback',
+        items: [
+          { title: 'Alerts & Toasts', href: '/components/alert' },
+          { title: 'Empty States', href: '/components/empty-states' },
+        ]
+      },
+      {
+        title: 'Navigation',
+        items: [
+          { title: 'Navbar', href: '/components/navbar' },
+          { title: 'Pagination', href: '/components/pagination' },
+          { title: 'Tabs', href: '/components/tabs' },
+          { title: 'Vertical Navigation', href: '/components/vertical-navigation' },
+          { title: 'Sidebar Navigation', href: '/components/sidebar-navigation' },
+          { title: 'Breadcrumbs', href: '/components/breadcrumb' },
+          { title: 'Progress & Steppers', href: '/components/stepper' },
+          { title: 'Command Bars', href: '/components/command-bars' },
+        ]
+      },
+      {
+        title: 'Overlays',
+        items: [
+          { title: 'Modal Dialogs', href: '/components/dialog' },
+          { title: 'Drawers', href: '/components/drawer' },
+          { title: 'Notification Toasts', href: '/components/snackbar' },
+        ]
+      },
+      {
+        title: 'Elements',
+        items: [
+          { title: 'Avatars', href: '/components/avatar' },
+          { title: 'Chips', href: '/components/chip' },
+          { title: 'Badges', href: '/components/badge' },
+          { title: 'Dropdowns', href: '/components/dropdown' },
+          { title: 'Buttons', href: '/components/buttons' },
+          { title: 'Button Groups', href: '/components/button-groups' },
+          { title: 'Accordions', href: '/components/accordion' },
+          { title: 'Tooltips', href: '/components/tooltips' },
+        ]
+      },
+      {
+        title: 'Layout',
+        items: [
+          { title: 'Containers', href: '/components/containers' },
+          { title: 'Cards', href: '/components/cards' },
+          { title: 'List Containers', href: '/components/list-containers' },
+          { title: 'Media Objects', href: '/components/media-objects' },
+          { title: 'Dividers', href: '/components/divider' },
+          { title: 'Skeletons', href: '/components/skeleton' },
+        ]
+      },
+      {
+        title: 'Page Examples',
+        items: [
+          { title: 'Home Screens', href: '/components/home-screens' },
+          { title: 'Detail Screens', href: '/components/detail-screens' },
+          { title: 'Settings Screens', href: '/components/settings-screens' },
+          { title: 'Projects Screens', href: '/components/projects-screens' },
+          { title: 'Marketplace Screens', href: '/components/marketplace-screens' },
+        ]
+      },
       { title: 'Library', href: '/components/library' },
     ]
   },

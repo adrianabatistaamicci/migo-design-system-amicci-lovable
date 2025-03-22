@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import CodeBlock from '@/components/CodeBlock';
@@ -21,13 +22,16 @@ const Toggle = ({
       <span aria-hidden="true" className={`${enabled ? `translate-x-${size === 'sm' ? '4' : size === 'lg' ? '7' : '5'}` : 'translate-x-0'} pointer-events-none ${size === 'sm' ? 'h-4 w-4' : size === 'lg' ? 'h-6 w-6' : 'h-5 w-5'} rounded-full bg-white shadow ring-0 transition ease-in-out duration-200`} />
     </button>;
 };
+
 const TogglePage = () => {
   const [simpleEnabled, setSimpleEnabled] = useState(false);
   const [shortEnabled, setShortEnabled] = useState(false);
   const [iconEnabled, setIconEnabled] = useState(false);
   const [descriptionEnabled, setDescriptionEnabled] = useState(false);
   const [rightLabelEnabled, setRightLabelEnabled] = useState(false);
-  return <div className="w-full animate-fade-in">
+  
+  return (
+    <div className="w-full animate-fade-in">
       <ComponentsHeader title="Toggle" description="Toggle components allow users to switch between two states and are commonly used for 'on/off' functionality." />
 
       <div className="mb-12">
@@ -96,6 +100,8 @@ const TogglePage = () => {
           </div>
         </ComponentCard>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default TogglePage;
