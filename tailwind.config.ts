@@ -96,7 +96,7 @@ export default {
 					900: '#055735',
 					950: '#054F31',
 				},
-				// Updated gray palette now uses zinc colors
+				// Updated gray palette now uses zinc colors only
 				gray: {
 					50: '#FAFAFA',
 					100: '#F4F4F5',
