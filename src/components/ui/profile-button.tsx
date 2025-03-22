@@ -75,7 +75,7 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
         type="button"
         {...props}
       >
-        <div className="flex items-center px-3 py-1 w-full">
+        <div className="flex items-center px-4 py-1 w-full gap-8">
           {showClientLogo && (
             <div className="flex items-center">
               {logoSrc ? (
@@ -86,7 +86,7 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
             </div>
           )}
           
-          <div className={cn("flex items-center", showClientLogo ? "ml-8" : "")}>
+          <div className="flex items-center">
             <div className="h-10 w-10 rounded-full bg-[#001A1A] text-white flex items-center justify-center font-medium">
               {avatarSrc ? (
                 <img src={avatarSrc} alt={avatarAlt} className="h-full w-full rounded-full object-cover" />
@@ -96,14 +96,14 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
             </div>
           </div>
           
-          <div className="flex flex-col items-start text-left ml-8">
+          <div className="flex flex-col items-start text-left">
             <span className="text-base font-medium text-gray-900 leading-tight">{userName}</span>
             {companyName && (
               <span className="text-sm text-gray-500 leading-tight">{companyName}</span>
             )}
           </div>
           
-          <div className="text-gray-600 ml-8 pl-4 pr-4">
+          <div className="text-gray-600 ml-auto px-4">
             {menuIcon || <Menu className="h-6 w-6" />}
           </div>
         </div>
