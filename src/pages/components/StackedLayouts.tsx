@@ -86,7 +86,7 @@ const BrandedNavWithWhiteHeader = () => {
               <span className="sr-only">Amicci</span>
               <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
             </a>
-            <div className="ml-6 hidden lg:flex lg:gap-x-12">
+            <div className="ml-6 flex lg:gap-x-12">
               <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
               <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
               <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
@@ -102,7 +102,7 @@ const BrandedNavWithWhiteHeader = () => {
           <div className="hidden lg:flex lg:items-center">
             <button type="button" className="relative p-1 text-white hover:text-amicciDark-100 focus:outline-none">
               <span className="sr-only">Ver notificações</span>
-              <Bell className="h-6 w-6 text-gray-950" aria-hidden="true" />
+              <Bell className="h-6 w-6 text-white" aria-hidden="true" />
             </button>
           </div>
         </nav>
@@ -132,7 +132,7 @@ const BrandNavWithOverlap = () => {
               <span className="sr-only">Amicci</span>
               <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
             </a>
-            <div className="ml-6 hidden lg:flex lg:gap-x-12">
+            <div className="ml-6 flex lg:gap-x-12">
               <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
               <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
               <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
@@ -148,7 +148,7 @@ const BrandNavWithOverlap = () => {
           <div className="hidden lg:flex lg:items-center">
             <button type="button" className="relative p-1 text-white hover:text-amicciDark-100 focus:outline-none">
               <span className="sr-only">Ver notificações</span>
-              <Bell className="h-6 w-6 text-gray-950" aria-hidden="true" />
+              <Bell className="h-6 w-6 text-white" aria-hidden="true" />
             </button>
           </div>
         </nav>
@@ -173,7 +173,7 @@ const BrandedNavCompactHeader = () => {
               <span className="sr-only">Amicci</span>
               <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
             </a>
-            <div className="ml-6 hidden lg:flex lg:gap-x-12">
+            <div className="ml-6 flex lg:gap-x-12">
               <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
               <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Equipe</a>
               <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
@@ -189,7 +189,7 @@ const BrandedNavCompactHeader = () => {
           <div className="hidden lg:flex lg:items-center">
             <button type="button" className="relative p-1 text-white hover:text-amicciDark-100 focus:outline-none">
               <span className="sr-only">Ver notificações</span>
-              <Bell className="h-6 w-6 text-gray-950" aria-hidden="true" />
+              <Bell className="h-6 w-6 text-white" aria-hidden="true" />
             </button>
           </div>
         </nav>
