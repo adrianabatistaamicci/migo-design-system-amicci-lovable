@@ -60,7 +60,7 @@ const LightNavBottomBorderWithReusable = () => (
           <div className="flex-shrink-0">
             <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
           </div>
-          <div className="hidden md:ml-12 md:flex md:space-x-6">
+          <div className="hidden md:ml-6 md:flex md:space-x-6">
             <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-900">Dashboard</a>
             <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Equipe</a>
             <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Projetos</a>
@@ -90,7 +90,7 @@ const LightNavGrayBackgroundWithReusable = () => (
           <div className="flex-shrink-0">
             <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
           </div>
-          <div className="hidden md:ml-12 md:flex md:space-x-6">
+          <div className="hidden md:ml-6 md:flex md:space-x-6">
             <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-900">Dashboard</a>
             <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Equipe</a>
             <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Projetos</a>
@@ -190,7 +190,7 @@ const InstitutionalNavWithReusable = () => (
           <div className="flex-shrink-0">
             <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
           </div>
-          <div className="hidden md:ml-12 md:flex md:space-x-8">
+          <div className="hidden md:ml-6 md:flex md:space-x-8">
             <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">
               Home
               <ChevronDown className="ml-1 h-4 w-4 inline" />
