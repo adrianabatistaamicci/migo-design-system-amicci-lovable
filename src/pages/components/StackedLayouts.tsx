@@ -124,20 +124,20 @@ const LayoutComponent = ({ title, component }) => {
 const TwoRowNavWithOverlap = () => {
   return (
     <div className="min-h-[500px] w-full">
-      <div className="bg-amicci-900 pb-32">
-        <nav className="border-b border-amicci-900 border-opacity-25 bg-amicci-900 lg:border-none">
+      <div className="bg-amicciDark-900 pb-32">
+        <nav className="border-b border-amicciDark-900 border-opacity-25 bg-amicciDark-900 lg:border-none">
           <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
-            <div className="relative flex h-16 items-center justify-between lg:border-b lg:border-amicci-900 lg:border-opacity-25">
+            <div className="relative flex h-16 items-center justify-between lg:border-b lg:border-amicciDark-900 lg:border-opacity-25">
               <div className="flex items-center px-2 lg:px-0">
                 <div className="flex-shrink-0">
                   <img className="block h-8 w-auto" src={amicciLogoDark} alt="Amicci" />
                 </div>
                 <div className="hidden lg:ml-10 lg:block">
                   <div className="flex space-x-4">
-                    <a href="#" className="bg-amicci-800 text-white rounded-md py-2 px-3 text-sm font-medium">Dashboard</a>
-                    <a href="#" className="text-white hover:bg-amicci-800 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium">Equipe</a>
-                    <a href="#" className="text-white hover:bg-amicci-800 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium">Projetos</a>
-                    <a href="#" className="text-white hover:bg-amicci-800 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium">Calendário</a>
+                    <a href="#" className="bg-amicciDark-800 text-white rounded-md py-2 px-3 text-sm font-medium">Dashboard</a>
+                    <a href="#" className="text-white hover:bg-amicciDark-800 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium">Equipe</a>
+                    <a href="#" className="text-white hover:bg-amicciDark-800 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium">Projetos</a>
+                    <a href="#" className="text-white hover:bg-amicciDark-800 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium">Calendário</a>
                   </div>
                 </div>
               </div>
@@ -148,12 +148,12 @@ const TwoRowNavWithOverlap = () => {
                     <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                       <Search className="h-5 w-5" aria-hidden="true" />
                     </div>
-                    <input id="search" className="block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-amicci-900 sm:text-sm sm:leading-6" placeholder="Buscar" type="search" />
+                    <input id="search" className="block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-amicciDark-900 sm:text-sm sm:leading-6" placeholder="Buscar" type="search" />
                   </div>
                 </div>
               </div>
               <div className="flex lg:hidden">
-                <button type="button" className="relative inline-flex items-center justify-center rounded-md bg-amicci-900 p-2 text-amicci-200 hover:bg-amicci-800 hover:bg-opacity-75 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-amicci-900">
+                <button type="button" className="relative inline-flex items-center justify-center rounded-md bg-amicciDark-900 p-2 text-amicciDark-200 hover:bg-amicciDark-800 hover:bg-opacity-75 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-amicciDark-900">
                   <span className="absolute -inset-0.5"></span>
                   <span className="sr-only">Abrir menu principal</span>
                   <Menu className="block h-6 w-6" aria-hidden="true" />
@@ -161,7 +161,7 @@ const TwoRowNavWithOverlap = () => {
               </div>
               <div className="hidden lg:ml-4 lg:block">
                 <div className="flex items-center">
-                  <button type="button" className="relative flex-shrink-0 rounded-full bg-amicci-900 p-1 text-amicci-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-amicci-900">
+                  <button type="button" className="relative flex-shrink-0 rounded-full bg-amicciDark-900 p-1 text-amicciDark-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-amicciDark-900">
                     <span className="absolute -inset-1.5"></span>
                     <span className="sr-only">Ver notificações</span>
                     <Bell className="h-6 w-6" aria-hidden="true" />
@@ -171,20 +171,20 @@ const TwoRowNavWithOverlap = () => {
             </div>
           </div>
         </nav>
-        <nav className="border-t border-amicci-800 border-opacity-25 bg-amicci-900">
+        <nav className="border-t border-amicciDark-800 border-opacity-25 bg-amicciDark-900">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between py-3">
               <div className="flex items-center space-x-4">
-                <a href="#" className="bg-amicci-800 text-white rounded-md py-2 px-3 text-sm font-medium flex items-center">
+                <a href="#" className="bg-amicciDark-800 text-white rounded-md py-2 px-3 text-sm font-medium flex items-center">
                   <span>Todos os arquivos</span>
                   <ChevronDown className="ml-2 h-4 w-4" aria-hidden="true" />
                 </a>
-                <a href="#" className="text-white hover:bg-amicci-800 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium">Meus arquivos</a>
-                <a href="#" className="text-white hover:bg-amicci-800 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium">Compartilhados comigo</a>
-                <a href="#" className="text-white hover:bg-amicci-800 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium">Arquivados</a>
+                <a href="#" className="text-white hover:bg-amicciDark-800 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium">Meus arquivos</a>
+                <a href="#" className="text-white hover:bg-amicciDark-800 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium">Compartilhados comigo</a>
+                <a href="#" className="text-white hover:bg-amicciDark-800 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium">Arquivados</a>
               </div>
               <div>
-                <button type="button" className="relative rounded-full bg-amicci-900 p-1 text-amicci-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-amicci-900">
+                <button type="button" className="relative rounded-full bg-amicciDark-900 p-1 text-amicciDark-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-amicciDark-900">
                   <span className="absolute -inset-1.5"></span>
                   <span className="sr-only">Add file</span>
                   <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -211,7 +211,7 @@ const TwoRowNavWithOverlap = () => {
 const BrandedNavWithWhiteHeader = () => {
   return (
     <div className="min-h-[500px] w-full">
-      <div className="bg-amicci-900">
+      <div className="bg-amicciDark-900">
         <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
@@ -220,19 +220,19 @@ const BrandedNavWithWhiteHeader = () => {
             </a>
           </div>
           <div className="flex lg:hidden">
-            <button type="button" className="inline-flex items-center justify-center rounded-md p-2.5 text-amicci-200">
+            <button type="button" className="inline-flex items-center justify-center rounded-md p-2.5 text-amicciDark-200">
               <span className="sr-only">Abrir menu principal</span>
               <Menu className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicci-100 hover:text-white">Equipe</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicci-100 hover:text-white">Projetos</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicci-100 hover:text-white">Calendário</a>
+            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
+            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
+            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm font-semibold leading-6 text-amicci-100 hover:text-white">
+            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">
               Log in <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
@@ -258,7 +258,7 @@ const BrandedNavWithWhiteHeader = () => {
 const BrandNavWithOverlap = () => {
   return (
     <div className="min-h-[500px] w-full">
-      <div className="bg-amicci-900 pb-32">
+      <div className="bg-amicciDark-900 pb-32">
         <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
@@ -267,19 +267,19 @@ const BrandNavWithOverlap = () => {
             </a>
           </div>
           <div className="flex lg:hidden">
-            <button type="button" className="inline-flex items-center justify-center rounded-md p-2.5 text-amicci-200">
+            <button type="button" className="inline-flex items-center justify-center rounded-md p-2.5 text-amicciDark-200">
               <span className="sr-only">Abrir menu principal</span>
               <Menu className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicci-100 hover:text-white">Equipe</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicci-100 hover:text-white">Projetos</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicci-100 hover:text-white">Calendário</a>
+            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
+            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
+            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm font-semibold leading-6 text-amicci-100 hover:text-white">
+            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">
               Log in <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
@@ -300,7 +300,7 @@ const BrandNavWithOverlap = () => {
 const BrandedNavCompactHeader = () => {
   return (
     <div className="min-h-[500px] w-full">
-      <div className="bg-amicci-900">
+      <div className="bg-amicciDark-900">
         <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
@@ -309,19 +309,19 @@ const BrandedNavCompactHeader = () => {
             </a>
           </div>
           <div className="flex lg:hidden">
-            <button type="button" className="inline-flex items-center justify-center rounded-md p-2.5 text-amicci-200">
+            <button type="button" className="inline-flex items-center justify-center rounded-md p-2.5 text-amicciDark-200">
               <span className="sr-only">Abrir menu principal</span>
               <Menu className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicci-100 hover:text-white">Equipe</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicci-100 hover:text-white">Projetos</a>
-            <a href="#" className="text-sm font-semibold leading-6 text-amicci-100 hover:text-white">Calendário</a>
+            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Equipe</a>
+            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Projetos</a>
+            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">Calendário</a>
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm font-semibold leading-6 text-amicci-100 hover:text-white">
+            <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-100 hover:text-white">
               Log in <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
