@@ -4,10 +4,9 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { Menu } from "lucide-react";
 import defaultLogo from '@/pages/assets/client-logo.svg';
-import { getSpacingClass } from "@/utils/spacingUtils";
 
 const profileButtonVariants = cva(
-  "inline-flex items-center h-[46px] rounded-full border bg-white shrink-0",
+  "inline-flex items-center rounded-full border bg-white shrink-0",
   {
     variants: {
       variant: {
@@ -16,9 +15,9 @@ const profileButtonVariants = cva(
         filled: "border-transparent bg-gray-100",
       },
       size: {
-        default: "h-[46px] px-2 py-1",
-        sm: "h-9 px-1.5 py-0.5",
-        lg: "h-12 px-3 py-1.5",
+        default: "h-[46px]",
+        sm: "h-9",
+        lg: "h-12",
       },
     },
     defaultVariants: {
@@ -41,6 +40,14 @@ export interface ProfileButtonProps
   avatarAlt?: string;
   showClientLogo?: boolean;
   menuIcon?: React.ReactNode;
+  innerSpacing?: {
+    container?: string;
+    logo?: string;
+    avatar?: string;
+    text?: string;
+    menu?: string;
+  };
+  gap?: string;
 }
 
 const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
@@ -58,6 +65,14 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
     avatarAlt = "User avatar",
     showClientLogo = true,
     menuIcon,
+    innerSpacing = {
+      container: "px-4 py-1",
+      logo: "",
+      avatar: "",
+      text: "",
+      menu: "px-4",
+    },
+    gap = "gap-8",
     ...props
   }, ref) => {
     // Generate initials if avatarText isn't provided
@@ -75,9 +90,9 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
         type="button"
         {...props}
       >
-        <div className="flex items-center px-4 py-1 w-full gap-8">
+        <div className={cn("flex items-center w-full", innerSpacing.container, gap)}>
           {showClientLogo && (
-            <div className="flex items-center">
+            <div className={cn("flex items-center", innerSpacing.logo)}>
               {logoSrc ? (
                 <img src={logoSrc} alt={logoAlt} className="h-8 w-auto" />
               ) : (
@@ -86,7 +101,7 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
             </div>
           )}
           
-          <div className="flex items-center">
+          <div className={cn("flex items-center", innerSpacing.avatar)}>
             <div className="h-10 w-10 rounded-full bg-[#001A1A] text-white flex items-center justify-center font-medium">
               {avatarSrc ? (
                 <img src={avatarSrc} alt={avatarAlt} className="h-full w-full rounded-full object-cover" />
@@ -96,14 +111,14 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
             </div>
           </div>
           
-          <div className="flex flex-col items-start text-left">
+          <div className={cn("flex flex-col items-start text-left", innerSpacing.text)}>
             <span className="text-base font-medium text-gray-900 leading-tight">{userName}</span>
             {companyName && (
               <span className="text-sm text-gray-500 leading-tight">{companyName}</span>
             )}
           </div>
           
-          <div className="text-gray-600 ml-auto px-4">
+          <div className={cn("text-gray-600 ml-auto", innerSpacing.menu)}>
             {menuIcon || <Menu className="h-6 w-6" />}
           </div>
         </div>

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
@@ -17,7 +18,7 @@ const ProfileButtonPage = () => {
       
       <div className="space-y-12 mt-10">
         <LayoutComponent 
-          title="Profile Button Padrão (com espaçamentos aplicados)" 
+          title="Profile Button Padrão" 
           component={
             <div className="flex justify-center items-center p-4">
               <ProfileButton
@@ -108,6 +109,53 @@ const ProfileButtonPage = () => {
         />
         
         <LayoutComponent 
+          title="Profile Button com Espaçamento Personalizado" 
+          component={
+            <div className="flex flex-col gap-4 justify-center items-center p-4">
+              <ProfileButton
+                userName="Bruno Costa"
+                companyName="Tech Solutions"
+                innerSpacing={{
+                  container: "px-6 py-2",
+                  logo: "pr-2",
+                  avatar: "",
+                  text: "px-4",
+                  menu: "pl-2"
+                }}
+                gap="gap-4"
+              />
+              
+              <ProfileButton
+                userName="Camila Alves"
+                companyName="Design Pro"
+                innerSpacing={{
+                  container: "px-8 py-3",
+                  logo: "",
+                  avatar: "",
+                  text: "",
+                  menu: ""
+                }}
+                gap="gap-12"
+              />
+              
+              <ProfileButton
+                userName="Daniel Santos"
+                companyName="Marketing Digital"
+                innerSpacing={{
+                  container: "px-2 py-1",
+                  logo: "",
+                  avatar: "",
+                  text: "",
+                  menu: ""
+                }}
+                gap="gap-2"
+                showClientLogo={false}
+              />
+            </div>
+          } 
+        />
+        
+        <LayoutComponent 
           title="Exemplos de Uso" 
           component={
             <div className="flex flex-col gap-6 justify-center items-center p-4">
@@ -118,6 +166,11 @@ const ProfileButtonPage = () => {
                     userName="Amanda Silva"
                     size="sm"
                     showClientLogo={false}
+                    innerSpacing={{
+                      container: "px-3 py-1",
+                      menu: "pl-2"
+                    }}
+                    gap="gap-4"
                   />
                 </div>
               </div>
@@ -212,6 +265,18 @@ const ProfileButtonPage = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">React.ReactNode</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">&lt;Menu /&gt;</td>
                     <td className="px-6 py-4 text-sm text-gray-500">Ícone do menu (normalmente um ícone de hambúrguer)</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">innerSpacing</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Object</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{ container: "px-4 py-1", ... }</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">Controla o espaçamento interno de cada parte do botão</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">gap</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">string</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">"gap-8"</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">Controla o espaçamento entre os elementos (classe gap do Tailwind)</td>
                   </tr>
                 </tbody>
               </table>
