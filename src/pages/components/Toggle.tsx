@@ -31,7 +31,7 @@ const TogglePage = () => {
   const [rightLabelEnabled, setRightLabelEnabled] = useState(false);
   
   return (
-    <div className="container py-10">
+    <div className="w-full animate-fade-in">
       <ComponentsHeader 
         title="Toggle" 
         description="Toggle components allow users to switch between two states and are commonly used for 'on/off' functionality."
