@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import ComponentsHeader from '@/components/library-components/ComponentsHeader';
+import EmptyState from '@/components/library-components/EmptyState';
 
 // Define the type for the module records returned by import.meta.glob
 type ModuleRecord = Record<string, {
@@ -46,6 +47,21 @@ const LibraryPage: React.FC = () => {
               </div>
             </ComponentCard>
           ))}
+
+          {/* Add EmptyState component card */}
+          <ComponentCard 
+            title="EmptyState" 
+            description="Used to indicate pages or sections that are under development."
+            code={`<EmptyState 
+  title="Content in Progress" 
+  description="This documentation is currently being developed." 
+  icon="construction" 
+/>`}
+          >
+            <div className="p-4">
+              <EmptyState />
+            </div>
+          </ComponentCard>
         </div>
       </div>
     </div>
@@ -64,6 +80,12 @@ const getDefaultProps = (componentName: string): Record<string, any> => {
       return {
         title: "Component Example",
         description: "This is an example description to showcase the ComponentsHeader component."
+      };
+    case 'EmptyState':
+      return {
+        title: "Content in Progress",
+        description: "This documentation is currently being developed. Check back soon for updates.",
+        icon: "construction"
       };
     default:
       return {};
