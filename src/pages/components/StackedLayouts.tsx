@@ -8,8 +8,8 @@ import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { TailwindTabs } from '@/components/ui/tabs';
-import StackedLayout from '@/components/ApplicationShells/StackedLayout';
-import { LightBorderExample, DarkOverlapExample, MarketplaceExample } from '@/components/ApplicationShells/StackedLayoutExamples';
+import StackedLayout from '@/components/application-shells/StackedLayout';
+import { LightBorderExample, DarkOverlapExample, MarketplaceExample } from '@/components/application-shells/StackedLayoutExamples';
 
 const StackedLayouts = () => {
   const [activeTab, setActiveTab] = useState('overview');
