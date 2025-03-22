@@ -7,6 +7,7 @@ import amicciLogoDark from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg'
 import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+
 const StackedLayouts = () => {
   return <div className="w-full animate-fade-in">
       <Header title="Stacked Layouts" description="Layouts empilhados (stacked) são uma estrutura comum para aplicações onde o cabeçalho permanece fixo no topo enquanto o conteúdo principal é rolável. Esses layouts proporcionam uma navegação clara e consistente para os usuários." type="components" />
@@ -24,6 +25,7 @@ const StackedLayouts = () => {
       </div>
     </div>;
 };
+
 const LayoutComponent = ({
   title,
   component
@@ -73,6 +75,7 @@ const LayoutComponent = ({
       </div>
     </div>;
 };
+
 const BrandedNavWithWhiteHeader = () => {
   return <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900">
@@ -83,10 +86,10 @@ const BrandedNavWithWhiteHeader = () => {
               <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
             </a>
             <div className="ml-12 flex lg:gap-x-8">
-              <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
-              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Equipe</a>
-              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Projetos</a>
-              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Calendário</a>
+              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-white">Dashboard</a>
+              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Equipe</a>
+              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Projetos</a>
+              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Calendário</a>
             </div>
           </div>
           <div className="flex lg:hidden">
@@ -118,6 +121,7 @@ const BrandedNavWithWhiteHeader = () => {
       </main>
     </div>;
 };
+
 const BrandNavWithOverlap = () => {
   return <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900 pb-32">
@@ -128,10 +132,10 @@ const BrandNavWithOverlap = () => {
               <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
             </a>
             <div className="ml-12 flex lg:gap-x-8">
-              <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
-              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Equipe</a>
-              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Projetos</a>
-              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Calendário</a>
+              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-white">Dashboard</a>
+              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Equipe</a>
+              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Projetos</a>
+              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Calendário</a>
             </div>
           </div>
           <div className="flex lg:hidden">
@@ -158,6 +162,7 @@ const BrandNavWithOverlap = () => {
       </main>
     </div>;
 };
+
 const BrandedNavCompactHeader = () => {
   return <div className="min-h-[500px] w-full">
       <div className="bg-amicciDark-900">
@@ -168,10 +173,10 @@ const BrandedNavCompactHeader = () => {
               <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
             </a>
             <div className="ml-12 flex lg:gap-x-8">
-              <a href="#" className="text-sm font-semibold leading-6 text-white">Dashboard</a>
-              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Equipe</a>
-              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Projetos</a>
-              <a href="#" className="text-sm font-semibold leading-6 text-amicciDark-50 hover:text-white">Calendário</a>
+              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-white">Dashboard</a>
+              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Equipe</a>
+              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Projetos</a>
+              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Calendário</a>
             </div>
           </div>
           <div className="flex lg:hidden">
@@ -203,6 +208,7 @@ const BrandedNavCompactHeader = () => {
       </main>
     </div>;
 };
+
 const LightNavGrayBackground = () => {
   return <div className="min-h-[500px] w-full bg-gray-100">
       <nav className="bg-white shadow-sm">
@@ -213,10 +219,10 @@ const LightNavGrayBackground = () => {
                 <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
               </div>
               <div className="hidden md:ml-12 md:flex md:space-x-8">
-                <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Dashboard</a>
-                <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Equipe</a>
-                <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Projetos</a>
-                <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Calendário</a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-900">Dashboard</a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Equipe</a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Projetos</a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Calendário</a>
               </div>
             </div>
             <div className="flex items-center">
@@ -250,6 +256,7 @@ const LightNavGrayBackground = () => {
       </div>
     </div>;
 };
+
 const LightNavBottomBorder = () => {
   return <div className="min-h-[500px] w-full bg-white">
       <nav className="bg-white border-b border-gray-200">
@@ -260,10 +267,10 @@ const LightNavBottomBorder = () => {
                 <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
               </div>
               <div className="hidden md:ml-12 md:flex md:space-x-8">
-                <a href="#" className="text-sm font-semibold leading-6 text-gray-900">Dashboard</a>
-                <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Equipe</a>
-                <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Projetos</a>
-                <a href="#" className="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-700">Calendário</a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-900">Dashboard</a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Equipe</a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Projetos</a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Calendário</a>
               </div>
             </div>
             <div className="flex items-center">
@@ -297,4 +304,5 @@ const LightNavBottomBorder = () => {
       </div>
     </div>;
 };
+
 export default StackedLayouts;
