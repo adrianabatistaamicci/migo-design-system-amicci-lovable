@@ -75,6 +75,8 @@ export const MarketplaceExample = () => {
   return (
     <StackedLayout
       variant="light-border"
+      mainClassName="bg-white"
+      headerClassName="bg-white"
       navigationContent={
         <>
           <div className="flex items-center">
@@ -131,6 +133,8 @@ export const InstitutionalExample = () => {
   return (
     <StackedLayout
       variant="light-border"
+      mainClassName="bg-white"
+      headerClassName="bg-white"
       navigationContent={
         <>
           <div className="flex items-center">
