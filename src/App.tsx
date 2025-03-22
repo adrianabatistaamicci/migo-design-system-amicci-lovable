@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,13 +9,11 @@ import Components from "./pages/Components";
 import ComponentDetail from "./pages/ComponentDetail";
 import NotFound from "./pages/NotFound";
 import UIKit from "./pages/UIKit";
-// Import foundation pages
 import Colors from "./pages/Colors";
 import Typography from "./pages/Typography";
 import Spacing from "./pages/Spacing";
 import Icons from "./pages/Icons";
 import Brand from "./pages/foundations/Brand";
-// Import component pages
 import InputPage from "./pages/components/Input";
 import CheckboxPage from "./pages/components/Checkbox";
 import RadioPage from "./pages/components/Radio";
@@ -34,7 +31,6 @@ import ContainersPage from "./pages/components/Containers";
 import StackedLayoutsPage from "./pages/components/StackedLayouts";
 import SidebarLayoutsPage from "./pages/components/SidebarLayouts";
 import MultiColumnLayoutsPage from "./pages/components/MultiColumnLayouts";
-// Import new component pages
 import PageHeadingsPage from "./pages/components/PageHeadings";
 import CardHeadingsPage from "./pages/components/CardHeadings";
 import SectionHeadingsPage from "./pages/components/SectionHeadings";
@@ -77,8 +73,8 @@ import ProjectsScreensPage from "./pages/components/ProjectsScreens";
 import MarketplaceScreensPage from "./pages/components/MarketplaceScreens";
 import FigmaLibraryPage from "./pages/components/FigmaLibrary";
 import FAQPage from "./pages/components/FAQ";
+import ProfileButtonPage from "./pages/components/ProfileButton";
 
-// Create a client
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -91,8 +87,6 @@ const App = () => {
           <Routes>
             <Route element={<MainLayout />}>
               <Route path="/" element={<Index />} />
-              
-              {/* Components pages */}
               <Route path="/components" element={<Components />} />
               <Route path="/components/:componentId" element={<ComponentDetail />} />
               <Route path="/components/input" element={<InputPage />} />
@@ -113,8 +107,6 @@ const App = () => {
               <Route path="/components/stacked-layouts" element={<StackedLayoutsPage />} />
               <Route path="/components/sidebar-layouts" element={<SidebarLayoutsPage />} />
               <Route path="/components/multi-column-layouts" element={<MultiColumnLayoutsPage />} />
-              
-              {/* New component routes */}
               <Route path="/components/page-headings" element={<PageHeadingsPage />} />
               <Route path="/components/card-headings" element={<CardHeadingsPage />} />
               <Route path="/components/section-headings" element={<SectionHeadingsPage />} />
@@ -157,8 +149,7 @@ const App = () => {
               <Route path="/components/marketplace-screens" element={<MarketplaceScreensPage />} />
               <Route path="/components/figma-library" element={<FigmaLibraryPage />} />
               <Route path="/components/faq" element={<FAQPage />} />
-              
-              {/* Foundation pages */}
+              <Route path="/components/profile-button" element={<ProfileButtonPage />} />
               <Route path="/colors" element={<Colors />} />
               <Route path="/foundations/colors" element={<Colors />} />
               <Route path="/typography" element={<Typography />} />
@@ -168,11 +159,7 @@ const App = () => {
               <Route path="/icons" element={<Icons />} />
               <Route path="/foundations/icons" element={<Icons />} />
               <Route path="/foundations/brand" element={<Brand />} />
-              
-              {/* UI Kit page */}
               <Route path="/ui-kit" element={<UIKit />} />
-              
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
