@@ -3,7 +3,6 @@ import ComponentCard from '@/components/ComponentCard';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { TailwindTabs } from '@/components/ui/tabs';
-
 const TabsPage = () => {
   return <div className="w-full animate-slide-in">
       <div className="mb-12">
@@ -41,17 +40,21 @@ const TabsPage = () => {
   ]}
   variant="underline"
 />`}>
-            <div className="w-full">
-              <TailwindTabs
-                tabs={[
-                  { name: 'My Account', value: 'account' },
-                  { name: 'Company', value: 'company' },
-                  { name: 'Team Members', value: 'team' },
-                  { name: 'Billing', value: 'billing' }
-                ]}
-                variant="underline"
-              />
-              <div className="p-4 border-x border-b border-gray-200 rounded-b-md mt-3">
+            <div className="w-full max-w-md mx-auto">
+              <TailwindTabs tabs={[{
+              name: 'My Account',
+              value: 'account'
+            }, {
+              name: 'Company',
+              value: 'company'
+            }, {
+              name: 'Team Members',
+              value: 'team'
+            }, {
+              name: 'Billing',
+              value: 'billing'
+            }]} variant="underline" />
+              <div className="p-4 border border-gray-200 rounded-md mt-3">
                 <h3 className="text-lg font-medium mb-2">Account Settings</h3>
                 <p className="text-sm text-gray-500">
                   Manage your account settings and preferences.
@@ -70,15 +73,19 @@ const TabsPage = () => {
   variant="pills"
 />`}>
             <div className="w-full max-w-md mx-auto">
-              <TailwindTabs
-                tabs={[
-                  { name: 'Dashboard', value: 'dashboard' },
-                  { name: 'Team', value: 'team' },
-                  { name: 'Projects', value: 'projects' },
-                  { name: 'Calendar', value: 'calendar' },
-                ]}
-                variant="pills"
-              />
+              <TailwindTabs tabs={[{
+              name: 'Dashboard',
+              value: 'dashboard'
+            }, {
+              name: 'Team',
+              value: 'team'
+            }, {
+              name: 'Projects',
+              value: 'projects'
+            }, {
+              name: 'Calendar',
+              value: 'calendar'
+            }]} variant="pills" />
               <div className="p-4 border border-gray-200 rounded-md mt-3">
                 <p className="text-sm">Dashboard content</p>
               </div>
@@ -95,15 +102,19 @@ const TabsPage = () => {
   variant="pillsGray"
 />`}>
             <div className="w-full max-w-md mx-auto">
-              <TailwindTabs
-                tabs={[
-                  { name: 'Dashboard', value: 'dashboard' },
-                  { name: 'Team', value: 'team' },
-                  { name: 'Projects', value: 'projects' },
-                  { name: 'Calendar', value: 'calendar' },
-                ]}
-                variant="pillsGray"
-              />
+              <TailwindTabs tabs={[{
+              name: 'Dashboard',
+              value: 'dashboard'
+            }, {
+              name: 'Team',
+              value: 'team'
+            }, {
+              name: 'Projects',
+              value: 'projects'
+            }, {
+              name: 'Calendar',
+              value: 'calendar'
+            }]} variant="pillsGray" />
               <div className="p-4 border border-gray-200 rounded-md mt-3">
                 <p className="text-sm">Dashboard content</p>
               </div>
@@ -120,15 +131,19 @@ const TabsPage = () => {
   variant="pillsBrand"
 />`}>
             <div className="w-full max-w-md mx-auto">
-              <TailwindTabs
-                tabs={[
-                  { name: 'Dashboard', value: 'dashboard' },
-                  { name: 'Team', value: 'team' },
-                  { name: 'Projects', value: 'projects' },
-                  { name: 'Calendar', value: 'calendar' },
-                ]}
-                variant="pillsBrand"
-              />
+              <TailwindTabs tabs={[{
+              name: 'Dashboard',
+              value: 'dashboard'
+            }, {
+              name: 'Team',
+              value: 'team'
+            }, {
+              name: 'Projects',
+              value: 'projects'
+            }, {
+              name: 'Calendar',
+              value: 'calendar'
+            }]} variant="pillsBrand" />
               <div className="p-4 border border-gray-200 rounded-md mt-3">
                 <p className="text-sm">Dashboard content</p>
               </div>
@@ -144,14 +159,16 @@ const TabsPage = () => {
   variant="fullWidth"
 />`}>
             <div className="w-full max-w-md mx-auto">
-              <TailwindTabs
-                tabs={[
-                  { name: 'Dashboard', value: 'dashboard' },
-                  { name: 'Team', value: 'team' },
-                  { name: 'Projects', value: 'projects' },
-                ]}
-                variant="fullWidth"
-              />
+              <TailwindTabs tabs={[{
+              name: 'Dashboard',
+              value: 'dashboard'
+            }, {
+              name: 'Team',
+              value: 'team'
+            }, {
+              name: 'Projects',
+              value: 'projects'
+            }]} variant="fullWidth" />
               <div className="p-4 border-x border-b border-gray-200 rounded-b-md">
                 <p className="text-sm">Dashboard content</p>
               </div>
@@ -168,15 +185,19 @@ const TabsPage = () => {
   variant="bar"
 />`}>
             <div className="w-full max-w-md mx-auto">
-              <TailwindTabs
-                tabs={[
-                  { name: 'Overview', value: 'overview' },
-                  { name: 'Features', value: 'features' },
-                  { name: 'Pricing', value: 'pricing' },
-                  { name: 'FAQs', value: 'faqs' },
-                ]}
-                variant="bar"
-              />
+              <TailwindTabs tabs={[{
+              name: 'Overview',
+              value: 'overview'
+            }, {
+              name: 'Features',
+              value: 'features'
+            }, {
+              name: 'Pricing',
+              value: 'pricing'
+            }, {
+              name: 'FAQs',
+              value: 'faqs'
+            }]} variant="bar" />
               <div className="p-4 mt-4">
                 <p className="text-sm">Overview content</p>
               </div>
@@ -192,14 +213,16 @@ const TabsPage = () => {
   variant="underlineBadges"
 />`}>
             <div className="w-full max-w-md mx-auto">
-              <TailwindTabs
-                tabs={[
-                  { name: 'Inbox', value: 'inbox' },
-                  { name: 'Spam', value: 'spam' },
-                  { name: 'Archived', value: 'archived' },
-                ]}
-                variant="underlineBadges"
-              />
+              <TailwindTabs tabs={[{
+              name: 'Inbox',
+              value: 'inbox'
+            }, {
+              name: 'Spam',
+              value: 'spam'
+            }, {
+              name: 'Archived',
+              value: 'archived'
+            }]} variant="underlineBadges" />
               <div className="p-4 border-x border-b border-gray-200 rounded-b-md">
                 <p className="text-sm">Inbox content</p>
               </div>
@@ -275,5 +298,4 @@ const TabsPage = () => {
       </div>
     </div>;
 };
-
 export default TabsPage;
