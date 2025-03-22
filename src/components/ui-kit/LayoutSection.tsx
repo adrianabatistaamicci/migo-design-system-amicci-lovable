@@ -1,12 +1,20 @@
 
 import React from 'react';
 import ComponentPreview from '@/components/ComponentPreview';
+import EmptyState from '@/components/library-components/EmptyState';
 
 const LayoutSection = () => {
   return (
     <section>
       <h2 className="text-xl font-semibold mb-6">Layout</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <EmptyState 
+        title="Conteúdo em Desenvolvimento" 
+        description="Os exemplos detalhados de Containers estão sendo implementados. Volte em breve para visualizar os componentes." 
+        icon="construction"
+      />
+      
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <ComponentPreview 
           title="Containers" 
           imageSrc="/lovable-uploads/50680209-761b-450d-a5fa-810cbfd9f55e.png" 
