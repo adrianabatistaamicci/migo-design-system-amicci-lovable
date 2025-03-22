@@ -61,6 +61,7 @@ const CustomProfileButtonPage = () => {
             <div className="flex justify-center items-center p-4">
               <CustomProfileButton
                 userName="Ricardo Santos"
+                companyName="Digital Agency" // Added the required companyName prop
                 showClientLogo={false}
               />
             </div>
@@ -103,6 +104,7 @@ const CustomProfileButtonPage = () => {
                   <h3 className="text-lg font-medium">Navbar com Profile Button</h3>
                   <CustomProfileButton
                     userName="Amanda Silva"
+                    companyName="Empresa XYZ" // Added the required companyName prop
                     showClientLogo={false}
                   />
                 </div>
@@ -148,7 +150,7 @@ const CustomProfileButtonPage = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">companyName</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">string</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-</td>
-                    <td className="px-6 py-4 text-sm text-gray-500">Nome da empresa/organização do usuário</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">Nome da empresa/organização do usuário (obrigatório)</td>
                   </tr>
                   <tr>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">logoText</td>
