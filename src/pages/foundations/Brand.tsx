@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -14,7 +13,6 @@ import AmicciTagDesignSystem from '@/pages/assets/amicci-logo-tag-design-system.
 import AmicciTagBlog from '@/pages/assets/amicci-logo-tag-blog.svg';
 import AmicciTagEngenharia from '@/pages/assets/amicci-logo-tag-engenharia.svg';
 import AmicciTagUpdates from '@/pages/assets/amicci-logo-tag-updates.svg';
-
 const Brand = () => {
   return <div className="w-full animate-fade-in">
       <Header title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." type="foundations" />
@@ -64,7 +62,7 @@ const Brand = () => {
               
               <div className="grid grid-cols-1 gap-8 mb-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="border rounded-lg p-8 flex flex-col items-start justify-center gap-4 bg-white">
+                  <div className="border rounded-lg p-8 flex flex-col items-start justify-center gap-4 bg-white px-[182px]">
                     <img src={AmicciTagDesignSystem} alt="Amicci logo com tag design system" className="max-w-[300px] h-auto" />
                     <img src={AmicciTagBlog} alt="Amicci logo com tag blog" className="max-w-[300px] h-auto" />
                     <img src={AmicciTagEngenharia} alt="Amicci logo com tag engenharia" className="max-w-[300px] h-auto" />
@@ -97,5 +95,4 @@ const Brand = () => {
       </div>
     </div>;
 };
-
 export default Brand;
