@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Sidebar, Home, Settings, Users, FileText, Mail, ChevronDown, ChevronRight, ChevronLeft, Menu, X, Code, Copy, CheckCheck } from 'lucide-react';
 import Header from '@/components/library-components/Header';
@@ -135,7 +134,7 @@ const CollapsibleSidebar = () => {
           </div>
           
           <div className="border rounded-lg overflow-hidden shadow-sm">
-            <div className="bg-gray-100 w-full h-[500px] overflow-hidden">
+            <div className="bg-white w-full h-[500px] overflow-hidden">
               <div className="flex h-full">
                 <div className="w-64 h-full bg-white border-r border-gray-200">
                   <div className="p-4 border-b border-gray-200">
@@ -174,7 +173,7 @@ const CollapsibleSidebar = () => {
                     </ul>
                   </nav>
                 </div>
-                <div className="flex-1 p-6 bg-gray-50">
+                <div className="flex-1 p-6 bg-white">
                   <h1 className="text-xl font-semibold mb-4">Dashboard</h1>
                   <p className="text-gray-600">Main content would go here</p>
                 </div>
@@ -191,7 +190,7 @@ const CollapsibleSidebar = () => {
           </div>
           
           <div className="border rounded-lg overflow-hidden shadow-sm">
-            <div className="bg-gray-100 w-full h-[500px] overflow-hidden">
+            <div className="bg-white w-full h-[500px] overflow-hidden">
               <div className="relative">
                 <div className={`fixed top-0 left-0 h-screen bg-white border-r border-gray-200 shadow-sm transition-all duration-300 ${isCollapsibleSidebarOpen ? 'w-64' : 'w-20'} md:relative`}>
                   <div className="p-4 border-b border-gray-200 flex items-center justify-between">
@@ -237,7 +236,7 @@ const CollapsibleSidebar = () => {
                     </ul>
                   </nav>
                 </div>
-                <div className={`${isCollapsibleSidebarOpen ? 'ml-64' : 'ml-20'} p-6 transition-all duration-300`}>
+                <div className={`${isCollapsibleSidebarOpen ? 'ml-64' : 'ml-20'} p-6 bg-white transition-all duration-300`}>
                   <h1 className="text-xl font-semibold mb-4">Dashboard</h1>
                   <p className="text-gray-600">Main content would go here</p>
                 </div>
