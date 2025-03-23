@@ -128,11 +128,6 @@ const StackedLayout = ({
         <main className={cn("-mt-32", classes.mainClass, mainClassName)}>
           <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
             <div className="rounded-lg bg-white p-6 shadow">
-              {headerContent && (
-                <div className={cn("mb-6", headerClassName)}>
-                  {headerContent}
-                </div>
-              )}
               {children}
             </div>
           </div>

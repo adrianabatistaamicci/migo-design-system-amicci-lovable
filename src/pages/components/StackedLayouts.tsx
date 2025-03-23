@@ -75,7 +75,6 @@ const LightNavBottomBorderWithReusable = () => (
         </div>
       </>
     }
-    headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Dashboard</h1>}
   >
     <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>
@@ -105,7 +104,6 @@ const LightNavGrayBackgroundWithReusable = () => (
         </div>
       </>
     }
-    headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Dashboard</h1>}
   >
     <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>

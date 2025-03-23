@@ -1,10 +1,10 @@
-
 import React from 'react';
 import StackedLayout from './StackedLayout';
 import { Bell, Menu, Search, Globe, Rocket, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
 import amicciLogoDark from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg';
+import { ProfileButton } from '@/components/ui/profile-button';
 
 export const LightBorderExample = () => {
   return (
@@ -23,15 +23,19 @@ export const LightBorderExample = () => {
               <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Calendário</a>
             </div>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center gap-4">
             <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700 focus:outline-none">
               <span className="sr-only">Ver notificações</span>
               <Bell className="h-6 w-6" aria-hidden="true" />
             </button>
+            <ProfileButton 
+              userName="Maria Silva"
+              companyName="Empresa Ltda."
+              showMenuIcon={false}
+            />
           </div>
         </>
       }
-      headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Dashboard</h1>}
     >
       <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 relative"></div>
     </StackedLayout>
@@ -56,15 +60,19 @@ export const DarkOverlapExample = () => {
               <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Calendário</a>
             </div>
           </div>
-          <div className="hidden lg:flex lg:items-center">
+          <div className="hidden lg:flex lg:items-center gap-4">
             <button type="button" className="relative p-1 text-white hover:text-amicciDark-100 focus:outline-none">
               <span className="sr-only">Ver notificações</span>
               <Bell className="h-6 w-6 text-white" aria-hidden="true" />
             </button>
+            <ProfileButton 
+              userName="Maria Silva"
+              companyName="Empresa Ltda."
+              showMenuIcon={false}
+            />
           </div>
         </>
       }
-      headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Dashboard</h1>}
     >
       <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
     </StackedLayout>
