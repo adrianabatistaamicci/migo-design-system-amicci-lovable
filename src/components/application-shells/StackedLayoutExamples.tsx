@@ -1,6 +1,7 @@
+
 import React from 'react';
 import StackedLayout from './StackedLayout';
-import { Bell, Menu, Search, Globe, Rocket, ChevronDown, Sparkles } from 'lucide-react';
+import { Bell, Menu, Search, Globe, Rocket, ChevronDown, Sparkles, HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
 import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
@@ -112,14 +113,16 @@ export const MarketplaceExample = () => {
               <Rocket className="h-4 w-4" />
               Impulsionar negócios
             </Button>
-            <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
-              <span className="sr-only">Ajuda</span>
-              <Search className="h-6 w-6" aria-hidden="true" />
-            </button>
-            <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
-              <span className="sr-only">Ver notificações</span>
-              <Bell className="h-6 w-6" aria-hidden="true" />
-            </button>
+            <IconButton 
+              variant="outline-secondary" 
+              icon={<HelpCircle size={18} />}
+              aria-label="Ajuda"
+            />
+            <IconButton 
+              variant="outline-secondary" 
+              icon={<Bell size={18} />}
+              aria-label="Ver notificações"
+            />
             <ProfileButton 
               userName="Amanda Silva"
               companyName="Empresa XYZ"
@@ -178,14 +181,16 @@ export const MarketplaceBuyerExample = () => {
                 />
               </div>
             </Button>
-            <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
-              <span className="sr-only">Ajuda</span>
-              <Search className="h-6 w-6" aria-hidden="true" />
-            </button>
-            <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
-              <span className="sr-only">Ver notificações</span>
-              <Bell className="h-6 w-6" aria-hidden="true" />
-            </button>
+            <IconButton 
+              variant="outline-secondary" 
+              icon={<HelpCircle size={18} />}
+              aria-label="Ajuda"
+            />
+            <IconButton 
+              variant="outline-secondary" 
+              icon={<Bell size={18} />}
+              aria-label="Ver notificações"
+            />
             <ProfileButton 
               logoSrc={defaultLogo}
               companyName=""
