@@ -1,12 +1,12 @@
 
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
-import Header from '@/components/library-components/Header';
+import HeaderLibrary from '@/components/library-components/HeaderLibrary';
 
 const ActionPanels = () => {
   return (
     <div className="w-full animate-fade-in">
-      <Header 
+      <HeaderLibrary 
         title="Action Panels"
         description="Em breve"
         type="components"

@@ -1,12 +1,12 @@
 
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
-import Header from '@/components/library-components/Header';
+import HeaderLibrary from '@/components/library-components/HeaderLibrary';
 
 const Containers = () => {
   return (
     <div className="w-full animate-fade-in">
-      <Header 
+      <HeaderLibrary 
         title="Containers"
         description="Em breve"
         type="components"

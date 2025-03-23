@@ -1,12 +1,12 @@
 
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
-import Header from '@/components/library-components/Header';
+import HeaderLibrary from '@/components/library-components/HeaderLibrary';
 
 const Accordions = () => {
   return (
     <div className="w-full animate-fade-in">
-      <Header 
+      <HeaderLibrary 
         title="Accordions"
         description="Painéis expansíveis para organizar conteúdo em seções."
         type="components"

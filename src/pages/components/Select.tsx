@@ -4,7 +4,7 @@ import ComponentCard from '@/components/ComponentCard';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
-import Header from '@/components/library-components/Header';
+import HeaderLibrary from '@/components/library-components/HeaderLibrary';
 
 const SelectPage = () => {
   const [value, setValue] = useState("apple");
@@ -12,7 +12,7 @@ const SelectPage = () => {
   return (
     <div className="w-full animate-slide-in">
       <div className="mb-12">
-        <Header 
+        <HeaderLibrary 
           title="Select"
           description="Select displays a collapsible list of options and allows a user to select one of them."
           type="components"

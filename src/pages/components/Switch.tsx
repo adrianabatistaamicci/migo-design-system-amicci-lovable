@@ -1,9 +1,9 @@
-
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
+import HeaderLibrary from '@/components/library-components/HeaderLibrary';
 
 const SwitchPage = () => {
   const [checked, setChecked] = useState(false);
@@ -11,11 +11,11 @@ const SwitchPage = () => {
   return (
     <div className="w-full animate-slide-in">
       <div className="mb-12">
-        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mui-primary/10 text-mui-primary">
-            Component
-          </span>
-        </div>
+        <HeaderLibrary 
+          title="Switch"
+          description="Switch is a control that allows users to toggle between checked and unchecked states."
+          type="components"
+        />
         
         <h1 className="text-4xl font-medium text-mui-text-primary mb-4">
           Switch

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import CodeBlock from '@/components/CodeBlock';
-import Header from '@/components/library-components/Header';
+import HeaderLibrary from '@/components/library-components/HeaderLibrary';
 import { X } from 'lucide-react';
 
 // Custom toggle switch component
@@ -31,7 +31,7 @@ const TogglePage = () => {
   
   return (
     <div className="w-full animate-fade-in">
-      <Header title="Toggle" description="Toggle components allow users to switch between two states and are commonly used for 'on/off' functionality." type="components" />
+      <HeaderLibrary title="Toggle" description="Toggle components allow users to switch between two states and are commonly used for 'on/off' functionality." type="components" />
 
       <div className="mb-12">
         <CodeBlock code={`import { Toggle } from "@/components/ui/toggle";`} language="jsx" />

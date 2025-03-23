@@ -1,7 +1,6 @@
-
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
-import Header from '@/components/library-components/Header';
+import HeaderLibrary from '@/components/library-components/HeaderLibrary';
 import { Menu, Bell, ChevronDown, Search, User, ShoppingCart, Rocket, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -13,7 +12,7 @@ import { ProfileButton } from '@/components/ui/profile-button';
 const Navbar = () => {
   return (
     <div className="w-full animate-fade-in">
-      <Header 
+      <HeaderLibrary 
         title="Navbar"
         description="Componente de navegação principal que fornece acesso a diferentes seções do site ou aplicativo."
         type="components"
