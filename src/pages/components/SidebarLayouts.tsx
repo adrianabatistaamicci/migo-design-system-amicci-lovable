@@ -252,10 +252,8 @@ const CollapsibleSidebar = () => {
           <ul className="list-disc pl-6 space-y-3 text-gray-700">
             <li>Organize os itens de navegação em ordem lógica, com os itens mais importantes no topo.</li>
             <li>Use ícones junto com texto para melhorar o reconhecimento e a capacidade de escaneamento.</li>
-            <li>Destaque a página ou seção atual para fornecer contexto.</li>
             <li>Considere o comportamento responsivo - recolha ou oculte a barra lateral em telas menores.</li>
             <li>Agrupe itens de navegação relacionados para uma melhor arquitetura de informação.</li>
-            <li>Mantenha a barra lateral fixa durante a rolagem para acesso constante à navegação.</li>
           </ul>
         </section>
 
