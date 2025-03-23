@@ -303,10 +303,11 @@ const Brand = () => {
                         <AccordionTrigger className="px-6 py-4 hover:no-underline">
                           <div className="flex items-center gap-4 w-full">
                             <div className="flex items-center gap-2">
-                              <Avatar className="w-9 h-9 outline outline-2 outline-tertiary-main">
-                                <AvatarImage src={AmySvg} alt="Avatar da Amy" />
-                                <AvatarFallback>AM</AvatarFallback>
-                              </Avatar>
+                              <img 
+                                src={AmySvg} 
+                                alt="Avatar da Amy" 
+                                className="w-9 h-9 rounded-full"
+                              />
                               <div className="inline-flex flex-col justify-start items-start">
                                 <div className="text-text-primary text-sm font-medium font-['Roboto'] leading-snug tracking-tight">Insight da Amy</div>
                               </div>
