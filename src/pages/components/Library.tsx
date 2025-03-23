@@ -55,7 +55,9 @@ const LibraryPage: React.FC = () => {
                 className="w-full"
               >
                 <div className="p-4 w-full">
-                  <h3 className="text-lg font-medium text-gray-900 mb-3">{name}</h3>
+                  <div className="mb-4 pb-2 border-b border-gray-200">
+                    <h3 className="text-lg font-medium text-gray-900">{name}</h3>
+                  </div>
                   <Component {...getDefaultProps(name)} />
                 </div>
               </ComponentCard>
@@ -75,7 +77,9 @@ const LibraryPage: React.FC = () => {
               className="w-full"
             >
               <div className="p-4 w-full">
-                <h3 className="text-lg font-medium text-gray-900 mb-3">EmptyState</h3>
+                <div className="mb-4 pb-2 border-b border-gray-200">
+                  <h3 className="text-lg font-medium text-gray-900">EmptyState</h3>
+                </div>
                 <EmptyState />
               </div>
             </ComponentCard>
@@ -94,7 +98,9 @@ const LibraryPage: React.FC = () => {
               className="w-full"
             >
               <div className="p-4 w-full">
-                <h3 className="text-lg font-medium text-gray-900 mb-3">Header</h3>
+                <div className="mb-4 pb-2 border-b border-gray-200">
+                  <h3 className="text-lg font-medium text-gray-900">Header</h3>
+                </div>
                 <Header 
                   title="Título de exemplo" 
                   description="Descrição de exemplo para demonstrar o componente Header."
