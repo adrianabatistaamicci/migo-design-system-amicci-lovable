@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import { Link } from 'react-router-dom';
@@ -10,6 +11,7 @@ import { cn } from '@/lib/utils';
 import { TailwindTabs } from '@/components/ui/tabs';
 import StackedLayout from '@/components/application-shells/StackedLayout';
 import { LightBorderExample, DarkOverlapExample, MarketplaceExample, InstitutionalExample } from '@/components/application-shells/StackedLayoutExamples';
+import { ProfileButton } from '@/components/ui/profile-button';
 
 const StackedLayouts = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -67,11 +69,16 @@ const LightNavBottomBorderWithReusable = () => (
             <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Calendário</a>
           </div>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center gap-4">
           <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700 focus:outline-none">
             <span className="sr-only">Ver notificações</span>
             <Bell className="h-6 w-6" aria-hidden="true" />
           </button>
+          <ProfileButton 
+            userName="Maria Silva"
+            companyName="Empresa Ltda."
+            showMenuIcon={false}
+          />
         </div>
       </>
     }
@@ -96,11 +103,16 @@ const LightNavGrayBackgroundWithReusable = () => (
             <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Calendário</a>
           </div>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center gap-4">
           <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700 focus:outline-none">
             <span className="sr-only">Ver notificações</span>
             <Bell className="h-6 w-6" aria-hidden="true" />
           </button>
+          <ProfileButton 
+            userName="Maria Silva"
+            companyName="Empresa Ltda."
+            showMenuIcon={false}
+          />
         </div>
       </>
     }
@@ -126,11 +138,16 @@ const BrandedNavCompactHeaderWithReusable = () => (
             <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Calendário</a>
           </div>
         </div>
-        <div className="hidden lg:flex lg:items-center">
+        <div className="hidden lg:flex lg:items-center gap-4">
           <button type="button" className="relative p-1 text-white hover:text-amicciDark-100 focus:outline-none">
             <span className="sr-only">Ver notificações</span>
             <Bell className="h-6 w-6 text-white" aria-hidden="true" />
           </button>
+          <ProfileButton 
+            userName="Maria Silva"
+            companyName="Empresa Ltda."
+            showMenuIcon={false}
+          />
         </div>
       </>
     }
@@ -157,11 +174,16 @@ const BrandedNavWithWhiteHeaderWithReusable = () => (
             <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Calendário</a>
           </div>
         </div>
-        <div className="hidden lg:flex lg:items-center">
+        <div className="hidden lg:flex lg:items-center gap-4">
           <button type="button" className="relative p-1 text-white hover:text-amicciDark-100 focus:outline-none">
             <span className="sr-only">Ver notificações</span>
             <Bell className="h-6 w-6 text-white" aria-hidden="true" />
           </button>
+          <ProfileButton 
+            userName="Maria Silva"
+            companyName="Empresa Ltda."
+            showMenuIcon={false}
+          />
         </div>
       </>
     }

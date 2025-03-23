@@ -65,11 +65,6 @@ export const DarkOverlapExample = () => {
               <span className="sr-only">Ver notificações</span>
               <Bell className="h-6 w-6 text-white" aria-hidden="true" />
             </button>
-            <ProfileButton 
-              userName="Maria Silva"
-              companyName="Empresa Ltda."
-              showMenuIcon={false}
-            />
           </div>
         </>
       }
