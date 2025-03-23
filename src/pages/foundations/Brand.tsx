@@ -245,7 +245,7 @@ const Brand = () => {
                   <Card className="p-6 md:col-span-7 shadow-none border">
                     <h3 className="text-xl font-medium mb-4">Imagens da Amy</h3>
                     <div className="grid grid-cols-3 gap-4">
-                      <div className="flex flex-col items-center gap-2">
+                      <div className="flex flex-col items-center gap-4">
                         <img src={Amy001} alt="Amy, a IA da Amicci" className="w-full h-auto object-contain rounded-md" />
                         <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amy 001.png', 'amy-image-1.png')}>
                           Download PNG
