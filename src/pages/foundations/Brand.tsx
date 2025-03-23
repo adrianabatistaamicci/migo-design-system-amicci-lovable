@@ -222,7 +222,7 @@ const Brand = () => {
               className="mb-6"
             >
               <div className="space-y-8">
-                <Card className="p-6">
+                <Card className="p-6 shadow-none border">
                   <h3 className="text-xl font-medium mb-3">Paleta terciária</h3>
                   <p className="text-gray-600 mb-6">
                     A Amy é representada pela paleta de cores tertiary, que consiste em tons de magenta/roxo que transmitem inovação e inteligência.
@@ -242,7 +242,7 @@ const Brand = () => {
                   </div>
                 </Card>
 
-                <Card className="p-6">
+                <Card className="p-6 shadow-none border">
                   <h3 className="text-xl font-medium mb-3">Magenta color base</h3>
                   <div className="grid grid-cols-11 gap-3">
                     {tertiaryColors.map(color => (
@@ -259,7 +259,7 @@ const Brand = () => {
                 </Card>
 
                 <div className="grid grid-cols-1 md:grid-cols-10 gap-6">
-                  <Card className="p-6 md:col-span-7">
+                  <Card className="p-6 md:col-span-7 shadow-none border">
                     <h3 className="text-xl font-medium mb-4">Imagens da Amy</h3>
                     <div className="grid grid-cols-3 gap-4">
                       <div className="flex flex-col items-center gap-2">
@@ -283,7 +283,7 @@ const Brand = () => {
                     </div>
                   </Card>
 
-                  <Card className="p-6 md:col-span-3">
+                  <Card className="p-6 md:col-span-3 shadow-none border">
                     <h3 className="text-xl font-medium mb-4">Ícones</h3>
                     <div className="space-y-8">
                       <div className="flex flex-col items-center">
@@ -309,7 +309,7 @@ const Brand = () => {
                   </Card>
                 </div>
 
-                <Card className="p-6">
+                <Card className="p-6 shadow-none border">
                   <h3 className="text-xl font-medium mb-4">Box de insights</h3>
                   <div className="border border-tertiary-200 rounded-lg p-4">
                     <div className="flex items-start gap-3">
