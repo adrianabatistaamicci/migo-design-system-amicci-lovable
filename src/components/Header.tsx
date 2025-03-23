@@ -54,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({
           </Button>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6">
           <Button variant="ghost" size="icon" onClick={() => setSearchActive(true)} aria-label="Search">
             <SearchIcon size={20} className="text-primary-dark" />
           </Button>
@@ -70,10 +70,10 @@ const Header: React.FC<HeaderProps> = ({
           </Button>
 
           <ProfileButton 
-            userName="Designer" 
-            companyName="Amicci" 
-            showMenuIcon={false}
-            avatarText="DS"
+            userName="Maria Rita"
+            companyName="Amicci"
+            avatarText="MR"
+            className="hidden sm:flex"
           />
         </div>
       </div>
