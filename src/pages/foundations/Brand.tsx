@@ -25,9 +25,7 @@ import AmySvg from '@/pages/assets/amy.svg';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { IconButton } from "@/components/ui/icon-button";
 import { Chip } from "@/components/ui/chip";
-
 const Brand = () => {
-  
   const [activeTab, setActiveTab] = useState('logo');
   const handleDownload = (url: string, filename: string) => {
     const link = document.createElement('a');
@@ -123,7 +121,6 @@ const Brand = () => {
     hex: 'rgba(155, 36, 127, 0.50)',
     tailwindClass: 'bg-tertiary-outlinedBorder'
   }];
-
   const renderTabContent = () => {
     switch (activeTab) {
       case 'logo':
@@ -301,26 +298,17 @@ const Brand = () => {
                   
                   <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="insight-1" className="border-0">
-                      <div className="bg-magenta-50 rounded outline outline-1 outline-offset-[-1px] outline-magenta-200">
+                      <div className="bg-magenta-50 rounded outline outline-1 outline-offset-[-1px] outline-magenta-300">
                         <AccordionTrigger className="px-6 py-4 hover:no-underline">
                           <div className="flex items-center justify-between w-full">
                             <div className="flex items-center gap-2">
-                              <img 
-                                src={AmySvg} 
-                                alt="Avatar da Amy" 
-                                className="w-9 h-9 rounded-full"
-                              />
+                              <img src={AmySvg} alt="Avatar da Amy" className="w-9 h-9 rounded-full" />
                               <div className="inline-flex flex-col justify-start items-start">
                                 <div className="text-text-primary text-sm font-medium font-['Roboto'] leading-snug tracking-tight">Insight da Amy</div>
                               </div>
                               <Sparkles size={20} className="text-tertiary-main" />
                             </div>
-                            <Button 
-                              variant="outline-secondary" 
-                              size="sm"
-                              className="ml-auto mr-4"
-                              startIcon={<RefreshCw size={16} />}
-                            >
+                            <Button variant="outline-secondary" size="sm" className="ml-auto mr-4" startIcon={<RefreshCw size={16} />}>
                               Gerar novo insight
                             </Button>
                           </div>
@@ -348,20 +336,10 @@ const Brand = () => {
                             <div className="flex items-center gap-2">
                               <span>Este insight foi útil?</span>
                               <div className="flex gap-2">
-                                <Button
-                                  variant="text-secondary"
-                                  size="sm"
-                                  className="flex items-center gap-1"
-                                  startIcon={<ThumbsUp size={16} />}
-                                >
+                                <Button variant="text-secondary" size="sm" className="flex items-center gap-1" startIcon={<ThumbsUp size={16} />}>
                                   Sim
                                 </Button>
-                                <Button
-                                  variant="text-secondary"
-                                  size="sm"
-                                  className="flex items-center gap-1"
-                                  startIcon={<ThumbsDown size={16} />}
-                                >
+                                <Button variant="text-secondary" size="sm" className="flex items-center gap-1" startIcon={<ThumbsDown size={16} />}>
                                   Não
                                 </Button>
                               </div>
@@ -379,7 +357,6 @@ const Brand = () => {
         return null;
     }
   };
-
   return <div className="w-full animate-fade-in">
       <Header title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." type="foundations" />
 
@@ -401,5 +378,4 @@ const Brand = () => {
       </div>
     </div>;
 };
-
 export default Brand;
