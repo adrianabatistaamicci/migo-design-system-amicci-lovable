@@ -1,3 +1,4 @@
+
 import React from 'react';
 import StackedLayout from './StackedLayout';
 import { Bell, Menu, Search, Globe, Rocket, ChevronDown, Sparkles, HelpCircle } from 'lucide-react';
@@ -10,8 +11,13 @@ import defaultLogo from '@/pages/assets/client-logo.svg';
 import amySvg from '@/pages/assets/amy.svg';
 import Lottie from 'lottie-react';
 import animationData from '@/pages/assets/lottie-dot.json';
+
 export const LightBorderExample = () => {
-  return <StackedLayout variant="light-border" navigationContent={<>
+  return (
+    <StackedLayout
+      variant="light-border"
+      navigationContent={
+        <>
           <div className="flex items-center gap-6">
             <div className="flex-shrink-0">
               <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
@@ -24,15 +30,32 @@ export const LightBorderExample = () => {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <IconButton variant="outline-secondary" icon={<Bell size={18} />} aria-label="Ver notificações" />
-            <ProfileButton userName="Maria Silva" companyName="Empresa Ltda." showMenuIcon={true} menuIcon={<Menu className="h-6 w-6" />} />
+            <IconButton 
+              variant="outline-secondary" 
+              icon={<Bell size={18} />}
+              aria-label="Ver notificações"
+            />
+            <ProfileButton 
+              userName="Maria Silva"
+              companyName="Empresa Ltda."
+              showMenuIcon={true}
+              menuIcon={<Menu className="h-6 w-6" />}
+            />
           </div>
-        </>}>
+        </>
+      }
+    >
       <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 relative"></div>
-    </StackedLayout>;
+    </StackedLayout>
+  );
 };
+
 export const DarkOverlapExample = () => {
-  return <StackedLayout variant="dark-overlap" navigationContent={<>
+  return (
+    <StackedLayout
+      variant="dark-overlap"
+      navigationContent={
+        <>
           <div className="flex flex-1 items-center">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Amicci</span>
@@ -46,14 +69,28 @@ export const DarkOverlapExample = () => {
             </div>
           </div>
           <div className="hidden lg:flex lg:items-center gap-4">
-            <IconButton variant="outline-secondary" icon={<Bell size={18} className="text-white" />} aria-label="Ver notificações" />
+            <IconButton 
+              variant="outline-secondary" 
+              icon={<Bell size={18} className="text-white" />}
+              aria-label="Ver notificações"
+            />
           </div>
-        </>}>
+        </>
+      }
+    >
       <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
-    </StackedLayout>;
+    </StackedLayout>
+  );
 };
+
 export const MarketplaceExample = () => {
-  return <StackedLayout variant="light-border" mainClassName="bg-white" headerClassName="bg-white" navigationContent={<>
+  return (
+    <StackedLayout
+      variant="light-border"
+      mainClassName="bg-white"
+      headerClassName="bg-white"
+      navigationContent={
+        <>
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
@@ -76,16 +113,41 @@ export const MarketplaceExample = () => {
               <Rocket className="h-4 w-4" />
               Impulsionar negócios
             </Button>
-            <IconButton variant="outline-secondary" icon={<HelpCircle size={18} />} aria-label="Ajuda" />
-            <IconButton variant="outline-secondary" icon={<Bell size={18} />} aria-label="Ver notificações" />
-            <ProfileButton userName="Amanda Silva" companyName="Empresa XYZ" showClientLogo={false} avatarText="AS" showMenuIcon={true} menuIcon={<Menu className="h-6 w-6" />} />
+            <IconButton 
+              variant="outline-secondary" 
+              icon={<HelpCircle size={18} />}
+              aria-label="Ajuda"
+            />
+            <IconButton 
+              variant="outline-secondary" 
+              icon={<Bell size={18} />}
+              aria-label="Ver notificações"
+            />
+            <ProfileButton 
+              userName="Amanda Silva"
+              companyName="Empresa XYZ"
+              showClientLogo={false}
+              avatarText="AS"
+              showMenuIcon={true}
+              menuIcon={<Menu className="h-6 w-6" />}
+            />
           </div>
-        </>}>
+        </>
+      }
+    >
       <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 relative"></div>
-    </StackedLayout>;
+    </StackedLayout>
+  );
 };
+
 export const MarketplaceBuyerExample = () => {
-  return <StackedLayout variant="light-border" mainClassName="bg-white" headerClassName="bg-white" navigationContent={<>
+  return (
+    <StackedLayout
+      variant="light-border"
+      mainClassName="bg-white"
+      headerClassName="bg-white"
+      navigationContent={
+        <>
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
@@ -104,26 +166,57 @@ export const MarketplaceBuyerExample = () => {
             </div>
           </div>
           <div className="flex items-center space-x-4">
-            <Button variant="outline-secondary" className="flex items-center gap-2">
+            <Button 
+              variant="outline-secondary" 
+              className="flex items-center gap-2"
+            >
               <Sparkles className="h-5 w-5 text-tertiary-main" />
               <span className="text-text-primary">Amy</span>
-              <div className="">
-                <Lottie animationData={animationData} loop={true} autoplay={true} style={{
-            height: '100%',
-            width: '100%'
-          }} />
+              <div className="h-5 w-5">
+                <Lottie
+                  animationData={animationData}
+                  loop={true}
+                  autoplay={true}
+                  style={{ height: '100%', width: '100%' }}
+                />
               </div>
             </Button>
-            <IconButton variant="outline-secondary" icon={<HelpCircle size={18} />} aria-label="Ajuda" />
-            <IconButton variant="outline-secondary" icon={<Bell size={18} />} aria-label="Ver notificações" />
-            <ProfileButton logoSrc={defaultLogo} companyName="" userName="" showClientLogo={true} showAvatar={true} showMenuIcon={false} avatarText="AA" />
+            <IconButton 
+              variant="outline-secondary" 
+              icon={<HelpCircle size={18} />}
+              aria-label="Ajuda"
+            />
+            <IconButton 
+              variant="outline-secondary" 
+              icon={<Bell size={18} />}
+              aria-label="Ver notificações"
+            />
+            <ProfileButton 
+              logoSrc={defaultLogo}
+              companyName=""
+              userName=""
+              showClientLogo={true}
+              showAvatar={true}
+              showMenuIcon={false}
+              avatarText="AA"
+            />
           </div>
-        </>}>
+        </>
+      }
+    >
       <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 relative"></div>
-    </StackedLayout>;
+    </StackedLayout>
+  );
 };
+
 export const InstitutionalExample = () => {
-  return <StackedLayout variant="light-border" mainClassName="bg-white" headerClassName="bg-white" navigationContent={<>
+  return (
+    <StackedLayout
+      variant="light-border"
+      mainClassName="bg-white"
+      headerClassName="bg-white"
+      navigationContent={
+        <>
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
@@ -159,7 +252,10 @@ export const InstitutionalExample = () => {
               <Globe className="h-5 w-5" />
             </Button>
           </div>
-        </>}>
+        </>
+      }
+    >
       <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
-    </StackedLayout>;
+    </StackedLayout>
+  );
 };
