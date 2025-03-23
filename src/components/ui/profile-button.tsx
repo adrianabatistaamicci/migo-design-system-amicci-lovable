@@ -32,6 +32,7 @@ export interface ProfileButtonProps
   avatarAlt?: string;
   showClientLogo?: boolean;
   showAvatar?: boolean;
+  showMenuIcon?: boolean;
   menuIcon?: React.ReactNode;
   maxTextLength?: number;
 }
@@ -50,6 +51,7 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
     avatarAlt = "User avatar",
     showClientLogo = true,
     showAvatar = true,
+    showMenuIcon = true,
     menuIcon,
     maxTextLength = 10,
     ...props
@@ -107,11 +109,13 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
             </div>
           )}
           
-          <div className="text-gray-600 ml-auto pl-[15px]">
-            <div className="mr-2">
-              {menuIcon || <Menu className="h-6 w-6" />}
+          {showMenuIcon && (
+            <div className="text-gray-600 ml-auto pl-[15px]">
+              <div className="mr-2">
+                {menuIcon || <Menu className="h-6 w-6" />}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </button>
     );

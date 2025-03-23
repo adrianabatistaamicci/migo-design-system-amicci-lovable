@@ -73,13 +73,14 @@ const ProfileButtonPage = () => {
               
               <div className="p-4 bg-white shadow-md rounded-md w-full max-w-xl">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-medium">Buyer com Logo e Ícone</h3>
+                  <h3 className="text-lg font-medium">Buyer com Logo e Avatar</h3>
                   <ProfileButton
                     logoSrc={defaultLogo}
-                    companyName=""
-                    userName=""
+                    companyName="BuyerCorp"
+                    userName="João Buyer"
                     showClientLogo={true}
-                    showAvatar={false}
+                    showAvatar={true}
+                    showMenuIcon={false}
                   />
                 </div>
               </div>
@@ -151,6 +152,12 @@ const ProfileButtonPage = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">boolean</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">true</td>
                     <td className="px-6 py-4 text-sm text-gray-500">Controla a exibição do avatar e informações do usuário</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">showMenuIcon</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">boolean</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">true</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">Controla a exibição do ícone de menu</td>
                   </tr>
                   <tr>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">menuIcon</td>
