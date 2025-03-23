@@ -213,7 +213,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
   level = 0 
 }) => {
   const location = useLocation();
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false); // Changed from true to false
   
   const isActive = (href?: string, items?: SidebarItem[]): boolean => {
     if (href && location.pathname === href) return true;
