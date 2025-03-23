@@ -48,6 +48,39 @@ const LibraryPage: React.FC = () => {
         />
         
         <div className="mt-8 grid grid-cols-1 gap-6">
+          {/* Add ComponentCard component card */}
+          <div className="w-full">
+            <ComponentCard 
+              title="ComponentCard" 
+              description="Card para exibir exemplos de componentes com código"
+              code={`<ComponentCard 
+  title="Example Component" 
+  description="Description of the component"
+  code={\`const Example = () => <div>Example</div>\`}
+>
+  <div>Component content goes here</div>
+</ComponentCard>`}
+              className="w-full"
+            >
+              <div className="p-4 w-full">
+                <div className="mb-4">
+                  <h3 className="text-lg font-medium text-gray-900">ComponentCard</h3>
+                  <div className="-mx-4">
+                    <Separator className="mt-2" />
+                  </div>
+                </div>
+                <ComponentCard 
+                  title="Example Card" 
+                  description="This is an example of ComponentCard"
+                >
+                  <div className="p-4 flex items-center justify-center text-center">
+                    <p>Example content inside a ComponentCard</p>
+                  </div>
+                </ComponentCard>
+              </div>
+            </ComponentCard>
+          </div>
+
           {Object.entries(components).map(([name, Component]) => (
             <div key={name} className="w-full">
               <ComponentCard 
@@ -68,7 +101,7 @@ const LibraryPage: React.FC = () => {
             </div>
           ))}
 
-          {/* Add EmptyState component card */}
+          {/* EmptyState component card */}
           <div className="w-full">
             <ComponentCard 
               title="EmptyState" 
@@ -92,7 +125,7 @@ const LibraryPage: React.FC = () => {
             </ComponentCard>
           </div>
           
-          {/* Add Header component card */}
+          {/* Header component card */}
           <div className="w-full">
             <ComponentCard 
               title="Header" 
