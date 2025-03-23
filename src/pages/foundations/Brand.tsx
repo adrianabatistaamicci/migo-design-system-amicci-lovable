@@ -354,6 +354,10 @@ const Brand = () => {
                         </div>
                         <span className="text-xs mt-2">Ícone com círculo tertiary-light</span>
                       </div>
+                      <div className="flex flex-col items-center">
+                        <img src={AmySvg} alt="Avatar da Amy" className="w-14 h-14" />
+                        <span className="text-xs mt-2">Amy SVG</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -453,4 +457,3 @@ const Brand = () => {
     </div>;
 };
 export default Brand;
-
