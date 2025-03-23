@@ -63,8 +63,7 @@ const Header: React.FC<HeaderProps> = ({
           
           <Button 
             variant="outline-secondary" 
-            size="default"
-            className="flex items-center gap-2"
+            startIcon={<Github size={18} />}
             asChild
           >
             <a 
@@ -72,7 +71,6 @@ const Header: React.FC<HeaderProps> = ({
               target="_blank" 
               rel="noopener noreferrer"
             >
-              <Github size={20} />
               GitHub
             </a>
           </Button>
