@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, ChevronRight, Package, Layers, Coffee, MousePointer } from 'lucide-react';
@@ -125,6 +126,7 @@ const sidebarItems: SidebarItem[] = [
           { title: 'Badges', href: '/components/badge' },
           { title: 'Dropdowns', href: '/components/dropdown' },
           { title: 'Buttons', href: '/components/buttons' },
+          { title: 'Icon Button', href: '/components/icon-button' },
           { title: 'Button Groups', href: '/components/button-groups' },
           { title: 'Profile Button', href: '/components/profile-button' },
           { title: 'Accordions', href: '/components/accordion' },

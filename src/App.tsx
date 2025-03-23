@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -74,6 +75,7 @@ import MarketplaceScreensPage from "./pages/components/MarketplaceScreens";
 import FigmaLibraryPage from "./pages/components/FigmaLibrary";
 import FAQPage from "./pages/components/FAQ";
 import ProfileButtonPage from "./pages/components/ProfileButton";
+import IconButtonPage from "./pages/components/IconButton";
 
 const queryClient = new QueryClient();
 
@@ -150,6 +152,7 @@ const App = () => {
               <Route path="/components/figma-library" element={<FigmaLibraryPage />} />
               <Route path="/components/faq" element={<FAQPage />} />
               <Route path="/components/profile-button" element={<ProfileButtonPage />} />
+              <Route path="/components/icon-button" element={<IconButtonPage />} />
               <Route path="/colors" element={<Colors />} />
               <Route path="/foundations/colors" element={<Colors />} />
               <Route path="/typography" element={<Typography />} />

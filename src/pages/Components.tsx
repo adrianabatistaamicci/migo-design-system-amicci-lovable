@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ComponentCard from '@/components/ComponentCard';
 import { Button } from '@/components/ui/button';
+import { IconButton } from '@/components/ui/icon-button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -11,7 +12,7 @@ import { Chip } from '@/components/ui/chip';
 import { Slider } from '@/components/ui/slider';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { TailwindTabs } from '@/components/ui/tabs';
-import { Mail, Check } from 'lucide-react';
+import { Mail, Check, Heart, Plus, Edit } from 'lucide-react';
 import Header from '@/components/library-components/Header';
 
 const componentCategories = [
@@ -19,6 +20,7 @@ const componentCategories = [
     name: 'Inputs',
     components: [
       { name: 'Button', path: '/components/buttons' },
+      { name: 'Icon Button', path: '/components/icon-button' },
       { name: 'Input', path: '/components/input' },
       { name: 'Checkbox', path: '/components/checkbox' },
       { name: 'Select', path: '/components/select' },
@@ -195,7 +197,21 @@ const Components = () => {
           </ComponentCard>
         </div>
         
-        <div className="mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+          <ComponentCard 
+            title="Icon Button Component" 
+            description="Square buttons with icons for compact UI elements."
+            code={`<IconButton icon={<Heart size={18} />} />
+<IconButton icon={<Plus size={18} />} variant="success" />
+<IconButton icon={<Edit size={18} />} variant="outline-default" />`}
+          >
+            <div className="flex items-center gap-4 py-4">
+              <IconButton icon={<Heart size={18} />} />
+              <IconButton icon={<Plus size={18} />} variant="success" />
+              <IconButton icon={<Edit size={18} />} variant="outline-default" />
+            </div>
+          </ComponentCard>
+        
           <ComponentCard 
             title="Slider Component" 
             description="Control for selecting values from a range."
@@ -205,39 +221,15 @@ const Components = () => {
   color="secondary" 
   valueLabelDisplay="auto" 
   max={100} 
-/>
-<Slider 
-  defaultValue={[25, 75]} 
-  color="primary"
-  marks={[
-    { value: 0, label: '0°' },
-    { value: 25, label: '25°' },
-    { value: 50, label: '50°' },
-    { value: 75, label: '75°' },
-    { value: 100, label: '100°' }
-  ]} 
-  max={100}
 />`}
           >
-            <div className="flex flex-col gap-8 py-8 max-w-lg mx-auto">
+            <div className="flex flex-col gap-8 py-8">
               <Slider defaultValue={[30]} max={100} />
               <Slider 
                 defaultValue={[50]} 
                 color="secondary" 
                 valueLabelDisplay="auto" 
                 max={100} 
-              />
-              <Slider 
-                defaultValue={[25, 75]} 
-                color="primary"
-                marks={[
-                  { value: 0, label: '0°' },
-                  { value: 25, label: '25°' },
-                  { value: 50, label: '50°' },
-                  { value: 75, label: '75°' },
-                  { value: 100, label: '100°' }
-                ]} 
-                max={100}
               />
             </div>
           </ComponentCard>

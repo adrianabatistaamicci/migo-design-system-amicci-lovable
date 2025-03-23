@@ -32,6 +32,12 @@ const ElementsSection = () => {
         />
         
         <ComponentPreview 
+          title="Icon Buttons" 
+          imageSrc="/lovable-uploads/be058021-3c4e-45d5-884f-04074c8c2562.png" 
+          variantCount={3} 
+        />
+        
+        <ComponentPreview 
           title="Button Groups" 
           imageSrc="/lovable-uploads/da2da260-cb83-491e-8d76-d4f4519ce2ac.png" 
           variantCount={3} 
