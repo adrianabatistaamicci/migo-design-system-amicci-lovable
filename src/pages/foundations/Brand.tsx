@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -52,14 +51,12 @@ const Brand = () => {
       return;
     }
 
-    // Para elementos SVG, podemos copiar o código SVG diretamente
     if (element.tagName === 'svg') {
       const svgData = new XMLSerializer().serializeToString(element);
       copyToClipboard(svgData, "SVG copiado para a área de transferência! Cole diretamente no Figma.");
       return;
     }
 
-    // Para outros elementos, usamos html2canvas para capturar uma imagem
     import('html2canvas').then(({ default: html2canvas }) => {
       html2canvas(element, {
         backgroundColor: null,
@@ -69,7 +66,6 @@ const Brand = () => {
         try {
           const imgData = canvas.toDataURL('image/png');
           
-          // Criar um link de download
           const link = document.createElement('a');
           link.href = imgData;
           link.download = `${filename}.png`;
@@ -295,7 +291,6 @@ const Brand = () => {
         return <div className="space-y-10">
             <ComponentCard title="Amy" description="A inteligência artificial da Amicci que ajuda os clientes no fluxo de planejamento, projeto e performance comercial da plataforma.">
               <div className="space-y-8">
-                {/* Hero section for Amy */}
                 <div className="rounded-lg overflow-hidden bg-gradient-to-r from-tertiary-900 via-tertiary-700 to-tertiary-600 text-white p-6 md:p-8" id="amy-hero">
                   <div className="flex flex-col md:flex-row items-center gap-8">
                     <div className="max-w-[160px] md:max-w-[200px] relative">
@@ -345,7 +340,6 @@ const Brand = () => {
                   </div>
                 </div>
 
-                {/* Color Palette Section */}
                 <div className="mt-8 space-y-6" id="amy-color-palette">
                   <div className="flex justify-between items-center">
                     <h3 className="text-xl font-medium">Paleta de cores Tertiary (Amy)</h3>
@@ -363,7 +357,6 @@ const Brand = () => {
                   </div>
                 </div>
                 
-                {/* Images section */}
                 <div id="amy-images">
                   <div className="flex justify-between items-center mb-4">
                     <h4 className="text-xl font-medium">Imagens da Amy</h4>
@@ -415,7 +408,6 @@ const Brand = () => {
                   </div>
                 </div>
 
-                {/* Icons section */}
                 <div className="p-6 border rounded-lg space-y-4" id="amy-icons">
                   <div className="flex justify-between items-center">
                     <h5 className="font-medium">Ícones da Amy</h5>
@@ -467,7 +459,6 @@ const Brand = () => {
                   </div>
                 </div>
                 
-                {/* Container de Insights */}
                 <div className="space-y-4" id="amy-components">
                   <div className="flex justify-between items-center">
                     <h5 className="font-medium">Componentes de UI da Amy</h5>
@@ -571,7 +562,7 @@ const Brand = () => {
                           <Sparkles className="mr-2 h-4 w-4 text-tertiary-main" /> Perguntar para Amy
                         </Button>
                         
-                        <IconButton variant="tertiary" size="sm" tooltip="Gerar com IA">
+                        <IconButton variant="outline-default" size="sm" tooltip="Gerar com IA">
                           <Sparkles className="h-4 w-4" />
                         </IconButton>
                       </div>
@@ -582,7 +573,6 @@ const Brand = () => {
                   </div>
                 </div>
                 
-                {/* Figma Export Guide */}
                 <div className="mt-8 p-5 bg-gray-50 rounded-lg border border-gray-200">
                   <h4 className="font-medium mb-3 flex items-center gap-2">
                     <Download size={16} /> Guia de Exportação para Figma
@@ -637,4 +627,3 @@ const Brand = () => {
 };
 
 export default Brand;
-
