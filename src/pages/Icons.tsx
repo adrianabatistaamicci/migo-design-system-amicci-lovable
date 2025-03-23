@@ -1,8 +1,7 @@
+
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import { Chip } from '@/components/ui/chip';
-import { getMaterialIconUrl, ICON_SIZES, getIconSizeClass, shouldInvertIcon, formatIconName } from '@/utils/iconUtils';
-import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import ComponentCard from '@/components/ComponentCard';
@@ -26,8 +25,6 @@ const Icons = () => {
         className="mt-8"
         tabs={[
           { name: 'Escala', value: 'overview' },
-          { name: 'Estilos', value: 'styles' },
-          { name: 'Uso', value: 'usage' },
           { name: 'Acessibilidade', value: 'accessibility' }
         ]}
         variant="pillsGray"
@@ -117,120 +114,6 @@ const Icons = () => {
           </div>
         </ComponentCard>
       )}
-      
-      {activeTab === 'styles' && (
-        <div className="p-6 border rounded-lg mt-6">
-          <h2 className="text-2xl font-semibold mb-4">Estilos de Ícones</h2>
-          <p className="mb-4">Os ícones Lucide mantêm um estilo consistente em toda a biblioteca, com linhas limpas e claras.</p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-            <div className="border p-4 rounded-lg">
-              <h3 className="font-medium mb-3">Padrão</h3>
-              <div className="flex justify-center mb-3">
-                <Home className="w-12 h-12" />
-              </div>
-              <p className="text-sm text-center">Estilo padrão com contornos limpos, adequado para a maioria das interfaces.</p>
-            </div>
-            
-            <div className="border p-4 rounded-lg">
-              <h3 className="font-medium mb-3">Espesso</h3>
-              <div className="flex justify-center mb-3">
-                <Home className="w-12 h-12" strokeWidth={3} />
-              </div>
-              <p className="text-sm text-center">Aumente o strokeWidth para ícones com linhas mais espessas e maior ênfase visual.</p>
-            </div>
-            
-            <div className="border p-4 rounded-lg">
-              <h3 className="font-medium mb-3">Fino</h3>
-              <div className="flex justify-center mb-3">
-                <Home className="w-12 h-12" strokeWidth={1} />
-              </div>
-              <p className="text-sm text-center">Diminua o strokeWidth para ícones mais leves e sutis.</p>
-            </div>
-          </div>
-          
-          <div className="mt-8">
-            <h3 className="text-lg font-medium mb-3">Pesos Visuais</h3>
-            <p className="mb-4">Dependendo da importância e do contexto, os ícones podem ter diferentes pesos visuais:</p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-              <div className="border p-4 rounded-lg">
-                <h4 className="font-medium mb-2">Primário</h4>
-                <div className="flex items-center space-x-4">
-                  <Home className="w-8 h-8 text-primary" />
-                  <div>
-                    <p className="text-sm">Usado para ações e elementos principais</p>
-                    <p className="text-xs text-muted-foreground mt-1">Alta visibilidade, cor primária</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="border p-4 rounded-lg">
-                <h4 className="font-medium mb-2">Secundário</h4>
-                <div className="flex items-center space-x-4">
-                  <Home className="w-8 h-8 text-muted-foreground" />
-                  <div>
-                    <p className="text-sm">Usado para suporte e elementos auxiliares</p>
-                    <p className="text-xs text-muted-foreground mt-1">Visibilidade média, cor secundária ou opacidade reduzida</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-        
-      {activeTab === 'usage' && (
-        <div className="p-6 border rounded-lg mt-6">
-          <h2 className="text-2xl font-semibold mb-4">Como Usar Ícones</h2>
-          
-          <div className="mb-6">
-            <h3 className="text-lg font-medium mb-2">Tamanhos de Ícones</h3>
-            <p className="mb-4">Os ícones do Material Design são normalmente usados nestes tamanhos padrão:</p>
-            
-            <div className="grid grid-cols-4 gap-4 my-6">
-              <div className="flex flex-col items-center">
-                <img src={getMaterialIconUrl("home", 24)} alt="Home Icon" className="w-6 h-6" />
-                <span className="text-sm mt-2">24px</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <img src={getMaterialIconUrl("home", 24)} alt="Home Icon" className="w-8 h-8" />
-                <span className="text-sm mt-2">32px</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <img src={getMaterialIconUrl("home", 24)} alt="Home Icon" className="w-10 h-10" />
-                <span className="text-sm mt-2">40px</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <img src={getMaterialIconUrl("home", 24)} alt="Home Icon" className="w-12 h-12" />
-                <span className="text-sm mt-2">48px</span>
-              </div>
-            </div>
-          </div>
-          
-          <Separator className="my-6" />
-          
-          <div className="mb-6">
-            <h3 className="text-lg font-medium mb-2">Cores de Ícones</h3>
-            <p className="mb-4">Os ícones devem usar cores que proporcionem contraste suficiente com o fundo:</p>
-            
-            <div className="grid grid-cols-3 gap-4 my-6">
-              <div className="flex flex-col items-center p-4 bg-white border rounded-md">
-                <img src={getMaterialIconUrl("info")} alt="Info Icon" className="w-8 h-8" />
-                <span className="text-sm mt-2">Primário</span>
-              </div>
-              <div className="flex flex-col items-center p-4 bg-white border rounded-md">
-                <img src={getMaterialIconUrl("info")} alt="Info Icon" className="w-8 h-8 opacity-60" />
-                <span className="text-sm mt-2">Secundário</span>
-              </div>
-              <div className="flex flex-col items-center p-4 bg-primary text-white rounded-md">
-                <img src={getMaterialIconUrl("info")} alt="Info Icon" className="w-8 h-8 filter invert" />
-                <span className="text-sm mt-2">Invertido</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
         
       {activeTab === 'accessibility' && (
         <div className="p-6 border rounded-lg mt-6">
@@ -252,13 +135,13 @@ const Icons = () => {
               <div className="flex space-x-4 mt-2">
                 <div className="flex flex-col items-center">
                   <div className="bg-green-100 p-2 rounded mb-2 flex items-center justify-center">
-                    <img src={getMaterialIconUrl("check_circle")} alt="Check Icon" className="w-6 h-6 text-green-700" />
+                    <User className="w-6 h-6 text-green-700" />
                   </div>
                   <span className="text-xs text-green-700">Bom contraste</span>
                 </div>
                 <div className="flex flex-col items-center">
                   <div className="bg-gray-300 p-2 rounded mb-2 flex items-center justify-center">
-                    <img src={getMaterialIconUrl("check_circle")} alt="Check Icon" className="w-6 h-6 opacity-30" />
+                    <User className="w-6 h-6 opacity-30" />
                   </div>
                   <span className="text-xs text-red-700">Contraste insuficiente</span>
                 </div>
@@ -271,14 +154,14 @@ const Icons = () => {
               <div className="flex space-x-6 mt-3">
                 <div className="flex flex-col items-center">
                   <button className="flex items-center space-x-2 bg-primary text-white px-4 py-2 rounded">
-                    <img src={getMaterialIconUrl("save")} alt="" className="w-5 h-5 filter invert" />
-                    <span>Salvar</span>
+                    <Home className="w-5 h-5" />
+                    <span>Início</span>
                   </button>
                   <span className="text-xs text-green-700 mt-2">Preferível</span>
                 </div>
                 <div className="flex flex-col items-center">
                   <button className="bg-primary text-white p-2 rounded">
-                    <img src={getMaterialIconUrl("save")} alt="Salvar" className="w-5 h-5 filter invert" />
+                    <Home className="w-5 h-5" />
                   </button>
                   <span className="text-xs text-red-700 mt-2">Apenas se o significado for óbvio</span>
                 </div>
@@ -290,11 +173,11 @@ const Icons = () => {
               <p className="mb-3 text-sm">Ícones muito pequenos podem ser difíceis de identificar para usuários com deficiência visual:</p>
               <div className="flex space-x-6 items-center mt-3">
                 <div className="flex flex-col items-center">
-                  <img src={getMaterialIconUrl("settings")} alt="Settings" className="w-4 h-4" />
+                  <Settings className="w-4 h-4" />
                   <span className="text-xs text-red-700 mt-2">Muito pequeno</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <img src={getMaterialIconUrl("settings")} alt="Settings" className="w-6 h-6" />
+                  <Settings className="w-6 h-6" />
                   <span className="text-xs text-green-700 mt-2">Tamanho mínimo</span>
                 </div>
               </div>
@@ -307,4 +190,3 @@ const Icons = () => {
 };
 
 export default Icons;
-
