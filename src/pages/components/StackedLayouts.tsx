@@ -665,30 +665,28 @@ const LayoutComponent = ({ title, component, code }) => {
   
   return (
     <div className="space-y-3">
-      <div className="flex justify-between items-center px-4">
-        <h3 className="text-xl font-medium text-gray-900">{title}</h3>
-        <button
-          type="button"
-          onClick={() => setShowCode(!showCode)}
-          className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        >
-          {showCode ? (
-            <>
-              <CheckCheck className="mr-1.5 h-4 w-4 text-gray-400" />
-              Esconder código
-            </>
-          ) : (
-            <>
-              <Code className="mr-1.5 h-4 w-4 text-gray-400" />
-              Ver código
-            </>
-          )}
-        </button>
-      </div>
+      <h3 className="text-xl font-medium text-gray-900 px-4">{title}</h3>
       
       <div className="border rounded-lg overflow-hidden shadow-sm">
         <div className="bg-gray-100 w-full">
           {component}
+        </div>
+        
+        <div className="border-t border-gray-200">
+          <button 
+            onClick={() => setShowCode(!showCode)}
+            className="w-full flex items-center justify-between px-4 py-2 bg-gray-50"
+          >
+            <div className="flex items-center space-x-2">
+              <Code size={16} className="text-gray-500" />
+              <span className="text-sm font-medium text-gray-700">
+                {showCode ? "Hide code" : "Show code"}
+              </span>
+            </div>
+            <div>
+              <Copy size={16} className="text-gray-500" />
+            </div>
+          </button>
         </div>
         
         {showCode && (
