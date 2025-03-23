@@ -57,12 +57,14 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
     ...props
   }, ref) => {
     // Generate initials if avatarText isn't provided
-    const userInitials = avatarText || userName
-      .split(" ")
-      .map(part => part[0])
-      .join("")
-      .slice(0, 2)
-      .toUpperCase();
+    const userInitials = avatarText || (userName && userName.trim() !== "" ? 
+      userName
+        .split(" ")
+        .map(part => part[0])
+        .join("")
+        .slice(0, 2)
+        .toUpperCase() 
+      : "AA");
     
     // Truncate text if longer than maxTextLength
     const truncateText = (text: string, maxLength: number) => {

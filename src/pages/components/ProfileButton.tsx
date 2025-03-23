@@ -80,6 +80,7 @@ const ProfileButtonPage = () => {
                     showClientLogo={true}
                     showAvatar={true}
                     showMenuIcon={false}
+                    avatarText="AA"
                   />
                 </div>
               </div>
