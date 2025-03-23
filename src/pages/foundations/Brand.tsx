@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -303,10 +302,10 @@ const Brand = () => {
                   <h3 className="text-xl font-medium mb-4">Box de insights</h3>
                   
                   <div className="space-y-4">
-                    {/* Closed state version - Updated with chip on the left */}
+                    {/* Closed state version - Updated with chip on the left and text taking up more space */}
                     <div className="bg-magenta-50 rounded-lg border border-magenta-200">
                       <div className="px-6 py-4">
-                        <div className="flex items-center justify-between w-full">
+                        <div className="flex items-center gap-2 w-full">
                           <div className="flex items-center gap-2">
                             <img src={AmySvg} alt="Avatar da Amy" className="w-9 h-9 rounded-full" />
                             <div className="inline-flex flex-col justify-start items-start">
@@ -315,11 +314,11 @@ const Brand = () => {
                             <Sparkles size={20} className="text-tertiary-main" />
                             <Chip size="sm">Novo insight gerado</Chip>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <p className="text-gray-700 text-sm line-clamp-1">
+                          <div className="flex items-center gap-2 ml-auto">
+                            <p className="text-gray-700 text-sm line-clamp-1 flex-grow">
                               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...
                             </p>
-                            <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />
+                            <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 flex-shrink-0" />
                           </div>
                         </div>
                       </div>
