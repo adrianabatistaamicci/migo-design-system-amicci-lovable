@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
-import HeaderLibrary from '@/components/library-components/HeaderLibrary';
+import Header from '@/components/library-components/Header';
 
 const CheckboxPage = () => {
   const [checked, setChecked] = useState(true);
@@ -12,7 +12,7 @@ const CheckboxPage = () => {
   return (
     <div className="w-full animate-slide-in">
       <div className="mb-12">
-        <HeaderLibrary 
+        <Header 
           title="Checkbox"
           description="Checkboxes allow users to select one or more items from a set and can be used to turn an option on or off."
           type="components"

@@ -4,11 +4,12 @@ import ComponentCard from '@/components/ComponentCard';
 import { Progress } from '@/components/ui/progress';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
-import HeaderLibrary from '@/components/library-components/HeaderLibrary';
+import Header from '@/components/library-components/Header';
 
 const ProgressPage = () => {
   const [progress, setProgress] = useState(0);
   
+  // For the demo of a controlled progress
   useEffect(() => {
     const timer = setTimeout(() => {
       setProgress(progress >= 100 ? 0 : progress + 10);
@@ -17,6 +18,7 @@ const ProgressPage = () => {
     return () => clearTimeout(timer);
   }, [progress]);
   
+  // For the demo of a restart button
   const [manualProgress, setManualProgress] = useState(100);
   const restartProgress = () => {
     setManualProgress(0);
@@ -27,7 +29,7 @@ const ProgressPage = () => {
   return (
     <div className="w-full animate-slide-in">
       <div className="mb-12">
-        <HeaderLibrary 
+        <Header 
           title="Progress"
           description="Progress indicators show the completion status of an operation or task."
           type="components"

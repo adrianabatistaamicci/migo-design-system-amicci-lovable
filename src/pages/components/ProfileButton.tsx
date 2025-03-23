@@ -1,6 +1,6 @@
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
-import HeaderLibrary from '@/components/library-components/HeaderLibrary';
+import Header from '@/components/library-components/Header';
 import { Menu, List, User } from 'lucide-react';
 import { ProfileButton } from '@/components/ui/profile-button';
 import { cn } from '@/lib/utils';
@@ -9,7 +9,7 @@ import defaultLogo from '@/pages/assets/client-logo.svg';
 const ProfileButtonPage = () => {
   return (
     <div className="w-full animate-fade-in">
-      <HeaderLibrary 
+      <Header 
         title="Profile Button"
         description="Componente de botão de perfil que exibe informações do usuário e oferece acesso a opções e configurações."
         type="components"

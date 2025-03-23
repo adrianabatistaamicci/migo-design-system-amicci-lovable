@@ -1,5 +1,5 @@
-import React from 'react';
-import { useState } from 'react';
+
+import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import { Chip } from '@/components/ui/chip';
 import { getMaterialIconUrl, ICON_SIZES, getIconSizeClass, shouldInvertIcon, formatIconName } from '@/utils/iconUtils';
@@ -7,7 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import ComponentCard from '@/components/ComponentCard';
-import HeaderLibrary from '@/components/library-components/HeaderLibrary';
+import Header from '@/components/library-components/Header';
 import { TailwindTabs } from "@/components/ui/tabs";
 
 const Icons = () => {
@@ -15,7 +15,7 @@ const Icons = () => {
   
   return (
     <div className="w-full animate-fade-in">
-      <HeaderLibrary 
+      <Header 
         title="Ícones"
         description="Usamos ícones Outlined da Material Design como biblioteca oficial"
         type="foundations"

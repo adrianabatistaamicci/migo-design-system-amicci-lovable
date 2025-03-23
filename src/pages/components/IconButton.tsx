@@ -1,6 +1,6 @@
 
 import React from 'react';
-import HeaderLibrary from '@/components/library-components/HeaderLibrary';
+import Header from '@/components/library-components/Header';
 import ComponentCard from '@/components/ComponentCard';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { IconButton } from '@/components/ui/icon-button';
@@ -9,7 +9,7 @@ import { Heart, Trash, Plus, Edit, Search, Settings, Mail, Check, Save, ArrowRig
 const IconButtonPage = () => {
   return (
     <div className="animate-slide-in">
-      <HeaderLibrary
+      <Header
         title="Icon Button"
         description="Square buttons with icons for compact UI elements."
         type="components"

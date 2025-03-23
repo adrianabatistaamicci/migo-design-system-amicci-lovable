@@ -1,12 +1,12 @@
 
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
-import HeaderLibrary from '@/components/library-components/HeaderLibrary';
+import Header from '@/components/library-components/Header';
 
 const DetailScreens = () => {
   return (
     <div className="w-full animate-fade-in">
-      <HeaderLibrary 
+      <Header 
         title="Detail Screens"
         description="Em breve"
         type="components"

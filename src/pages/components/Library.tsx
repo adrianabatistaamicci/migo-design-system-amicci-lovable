@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
-import HeaderLibrary from '@/components/library-components/HeaderLibrary';
+import Header from '@/components/library-components/Header';
 import EmptyState from '@/components/library-components/EmptyState';
 
 // Define the type for the module records returned by import.meta.glob
@@ -24,10 +24,10 @@ const LibraryPage: React.FC = () => {
     const formattedComponents: Record<string, React.ComponentType<any>> = {};
     for (const path in libraryComponents) {
       const componentName = path.split('/').pop()?.replace('.tsx', '') || '';
-      // Skip EmptyState component and HeaderLibrary component as we'll add them manually to prevent duplication
+      // Skip EmptyState component and Header component as we'll add them manually to prevent duplication
       if (componentName && 
           componentName !== 'EmptyState' && 
-          componentName !== 'HeaderLibrary' &&
+          componentName !== 'Header' &&
           componentName !== 'ComponentsHeader' &&
           componentName !== 'FoundationsHeader' &&
           libraryComponents[path].default) {
@@ -40,7 +40,7 @@ const LibraryPage: React.FC = () => {
   return (
     <div className="animate-fade-in w-full max-w-[1280px] mx-auto">
       <div className="w-full mb-12">
-        <HeaderLibrary
+        <Header
           title="Library Components"
           description="Uma coleção de componentes de UI reutilizáveis projetados para o nossa documentação de design system."
           type="components"
@@ -81,25 +81,25 @@ const LibraryPage: React.FC = () => {
             </ComponentCard>
           </div>
           
-          {/* Add HeaderLibrary component card */}
+          {/* Add Header component card */}
           <div className="space-y-3 w-full">
             <div className="px-4">
-              <h3 className="text-xl font-medium text-gray-900">HeaderLibrary</h3>
+              <h3 className="text-xl font-medium text-gray-900">Header</h3>
             </div>
             <ComponentCard 
-              title="HeaderLibrary" 
+              title="Header" 
               description="Cabeçalho usado para seções principais do design system."
-              code={`<HeaderLibrary 
+              code={`<Header 
   title="Título de exemplo" 
-  description="Descrição de exemplo para demonstrar o componente HeaderLibrary." 
+  description="Descrição de exemplo para demonstrar o componente Header." 
   type="components" 
 />`}
               className="w-full"
             >
               <div className="p-4 w-full">
-                <HeaderLibrary 
+                <Header 
                   title="Título de exemplo" 
-                  description="Descrição de exemplo para demonstrar o componente HeaderLibrary."
+                  description="Descrição de exemplo para demonstrar o componente Header."
                   type="components"
                 />
               </div>
@@ -114,10 +114,10 @@ const LibraryPage: React.FC = () => {
 // Helper function to provide default props for each component type
 const getDefaultProps = (componentName: string): Record<string, any> => {
   switch (componentName) {
-    case 'HeaderLibrary':
+    case 'Header':
       return {
         title: "Example Title",
-        description: "This is an example description to showcase the HeaderLibrary component.",
+        description: "This is an example description to showcase the Header component.",
         type: "components"
       };
     case 'EmptyState':

@@ -3,13 +3,13 @@ import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
-import HeaderLibrary from '@/components/library-components/HeaderLibrary';
+import Header from '@/components/library-components/Header';
 
 const AvatarPage = () => {
   return (
     <div className="w-full animate-slide-in">
       <div className="mb-12">
-        <HeaderLibrary 
+        <Header 
           title="Avatar"
           description="The Avatar component is used to represent a user, and displays an image or initials."
           type="components"

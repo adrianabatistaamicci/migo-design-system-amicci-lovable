@@ -3,19 +3,19 @@ import React from 'react';
 import { Chip } from '@/components/ui/chip';
 import { cn } from '@/lib/utils';
 
-interface HeaderLibraryProps {
+interface HeaderProps {
   title: string;
   description: string;
   type?: 'foundations' | 'components';
   className?: string;
 }
 
-const HeaderLibrary = ({
+const Header = ({
   title,
   description,
   type = 'components',
   className
-}: HeaderLibraryProps) => {
+}: HeaderProps) => {
   return (
     <div className={cn("w-full animate-fade-in mb-8", className)}>
       <div className="space-y-2">
@@ -37,4 +37,4 @@ const HeaderLibrary = ({
   );
 };
 
-export default HeaderLibrary;
+export default Header;

@@ -1,14 +1,14 @@
 
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
-import HeaderLibrary from '@/components/library-components/HeaderLibrary';
+import Header from '@/components/library-components/Header';
 
 const Skeletons = () => {
   return (
     <div className="w-full animate-fade-in">
-      <HeaderLibrary 
+      <Header 
         title="Skeletons"
-        description="Em breve"
+        description="Placeholders animados para indicar conteúdo em carregamento."
         type="components"
       />
       

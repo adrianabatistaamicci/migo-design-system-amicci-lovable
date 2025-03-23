@@ -4,7 +4,7 @@ import { Mail, Search, Eye, EyeOff } from 'lucide-react';
 import ComponentCard from '@/components/ComponentCard';
 import { Input } from '@/components/ui/input';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
-import HeaderLibrary from '@/components/library-components/HeaderLibrary';
+import Header from '@/components/library-components/Header';
 
 const InputPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -13,7 +13,7 @@ const InputPage = () => {
   return (
     <div className="w-full animate-slide-in">
       <div className="mb-12">
-        <HeaderLibrary 
+        <Header 
           title="Input"
           description="Input components allow users to enter text into a UI. They typically appear in forms and dialogs."
           type="components"

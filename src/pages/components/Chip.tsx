@@ -1,10 +1,9 @@
-
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Chip } from '@/components/ui/chip';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { X, Check, Info, AlertTriangle, Loader2, User, Mail, Heart, Star } from 'lucide-react';
-import HeaderLibrary from '@/components/library-components/HeaderLibrary';
+import Header from '@/components/library-components/Header';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 const ChipPage = () => {
@@ -17,7 +16,7 @@ const ChipPage = () => {
   return (
     <div className="w-full animate-slide-in">
       <div className="mb-12">
-        <HeaderLibrary 
+        <Header 
           title="Chip"
           description="Chips are compact elements that represent an input, attribute, or action."
           type="components"

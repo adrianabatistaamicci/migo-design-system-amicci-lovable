@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import HeaderLibrary from '@/components/library-components/HeaderLibrary';
+import Header from '@/components/library-components/Header';
 import { TailwindTabs } from '@/components/ui/tabs';
 import ComponentCard from '@/components/ComponentCard';
 import { baseColorsData, paletteData } from '@/data/colorsData';
@@ -26,7 +26,7 @@ const Colors = () => {
 
   return (
     <div className="w-full animate-fade-in">
-      <HeaderLibrary 
+      <Header 
         title="Sistema de Cores" 
         description="Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização." 
         type="foundations" 

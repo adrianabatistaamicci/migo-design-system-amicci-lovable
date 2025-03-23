@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
-import HeaderLibrary from '@/components/library-components/HeaderLibrary';
+import Header from '@/components/library-components/Header';
 import { Heart, ArrowRight, Save, Check } from 'lucide-react';
 
 const componentData = {
@@ -212,7 +212,7 @@ const ComponentDetail = () => {
   }
   return <div className="animate-slide-in w-full mb-6">
       <div className="w-full">
-        <HeaderLibrary title={component.title} description={component.description} type="components" />
+        <Header title={component.title} description={component.description} type="components" />
         
         <div className="mb-12">
           
