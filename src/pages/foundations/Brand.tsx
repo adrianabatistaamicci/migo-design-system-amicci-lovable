@@ -178,7 +178,7 @@ const Brand = () => {
                 
                 <div className="p-4 border rounded-lg">
                   <h5 className="font-medium mb-3">Escala Completa</h5>
-                  <div className="flex gap-3 overflow-x-auto pb-2">
+                  <div className="flex gap-3 overflow-x-auto pb-2sss">
                     {tertiaryColors.map(color => <div key={color.name} className="flex flex-col items-center flex-shrink-0">
                         <div className={`h-16 w-16 rounded-md flex items-center justify-center ${color.name.includes('50') || color.name.includes('100') || color.name.includes('200') ? 'text-tertiary-800' : 'text-white'}`} style={{
                       backgroundColor: color.hex
