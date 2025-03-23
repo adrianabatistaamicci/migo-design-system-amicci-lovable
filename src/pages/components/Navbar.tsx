@@ -21,8 +21,7 @@ const Navbar = () => {
       
       <div className="space-y-12 mt-10">
         <LayoutComponent title="Navbar Institucional" component={<InstitutionalNav />} />
-        <LayoutComponent title="Navbar Marketplace Seller" component={<MarketplaceSellerNav />} />
-        <LayoutComponent title="Navbar Marketplace Buyer" component={<MarketplaceBuyerNav />} />
+        <LayoutComponent title="Navbar Marketplace" component={<MarketplaceNav />} />
       </div>
     </div>
   );
@@ -47,7 +46,7 @@ const LayoutComponent = ({
   );
 };
 
-const MarketplaceSellerNav = () => {
+const MarketplaceNav = () => {
   return (
     <div className="min-h-[160px] w-full bg-white">
       <nav className="bg-white border-b border-gray-200">
@@ -88,48 +87,6 @@ const MarketplaceSellerNav = () => {
                 companyName="Empresa XYZ"
                 showClientLogo={false}
                 avatarText="AS"
-                showMenuIcon={true}
-                menuIcon={<Menu className="h-6 w-6" />}
-              />
-            </div>
-          </div>
-        </div>
-      </nav>
-    </div>
-  );
-};
-
-const MarketplaceBuyerNav = () => {
-  return (
-    <div className="min-h-[160px] w-full bg-white">
-      <nav className="bg-white border-b border-gray-200">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-[88px] items-center justify-between">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
-              </div>
-              <div className="hidden md:ml-6 md:flex md:space-x-6">
-                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-text-primary">Oportunidades</a>
-                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Planejamento</a>
-                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Projetos</a>
-                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">SKUs</a>
-              </div>
-            </div>
-            <div className="flex items-center space-x-4">
-              <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
-                <span className="sr-only">Ajuda</span>
-                <Search className="h-6 w-6" aria-hidden="true" />
-              </button>
-              <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
-                <span className="sr-only">Ver notificações</span>
-                <Bell className="h-6 w-6" aria-hidden="true" />
-              </button>
-              <ProfileButton 
-                userName="Carlos Mendes"
-                companyName="Construção XYZ"
-                showClientLogo={true}
-                avatarText="CM"
                 showMenuIcon={true}
                 menuIcon={<Menu className="h-6 w-6" />}
               />
