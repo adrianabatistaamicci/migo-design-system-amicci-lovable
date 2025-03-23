@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Search as SearchIcon, Github, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { ProfileButton } from '@/components/ui/profile-button';
 import AmicciLogoTagDesignSystem from '@/pages/assets/amicci-logo-tag-design-system.svg';
 
 interface HeaderProps {
@@ -67,6 +68,13 @@ const Header: React.FC<HeaderProps> = ({
               <Github size={20} className="text-primary-dark" />
             </a>
           </Button>
+          
+          <ProfileButton 
+            userName="Maria"
+            companyName="Amicci"
+            showMenuIcon={false}
+            className="hidden sm:flex"
+          />
         </div>
       </div>
     </header>;

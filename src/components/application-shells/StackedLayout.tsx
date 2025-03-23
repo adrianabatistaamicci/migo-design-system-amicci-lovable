@@ -1,6 +1,8 @@
+
 import React, { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, Bell } from 'lucide-react';
+import { ProfileButton } from '@/components/ui/profile-button';
 
 export interface StackedLayoutProps {
   /** Conteúdo a ser renderizado no corpo principal do layout */
@@ -107,11 +109,16 @@ const StackedLayout = ({
                     <div className="h-8 w-auto bg-white/20 rounded-md px-4 py-1 text-white">Logo</div>
                   </div>
                 </div>
-                <div className="hidden lg:flex lg:items-center">
+                <div className="hidden lg:flex lg:items-center gap-4">
                   <button type="button" className="relative p-1 text-white hover:text-amicciDark-100 focus:outline-none">
                     <span className="sr-only">Ver notificações</span>
                     <Bell className="h-6 w-6 text-white" aria-hidden="true" />
                   </button>
+                  <ProfileButton 
+                    userName="Maria Silva"
+                    companyName="Empresa Ltda."
+                    showMenuIcon={false}
+                  />
                 </div>
               </>
             )}
@@ -152,11 +159,16 @@ const StackedLayout = ({
                     <a href="#" className={cn("text-base font-medium leading-7 tracking-tight font-roboto", darkHeader ? 'text-amicciDark-50 hover:text-white' : classes.lightText + ' hover:text-gray-700')}>Item 3</a>
                   </div>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center gap-4">
                   <button type="button" className={cn("relative rounded-full p-1 focus:outline-none", darkHeader ? 'text-white hover:text-amicciDark-100' : 'text-gray-950 hover:text-gray-700')}>
                     <span className="sr-only">Ver notificações</span>
                     <Bell className="h-6 w-6" aria-hidden="true" />
                   </button>
+                  <ProfileButton 
+                    userName="Maria Silva"
+                    companyName="Empresa Ltda."
+                    showMenuIcon={false}
+                  />
                   <div className="ml-2 -mr-2 flex items-center md:hidden">
                     <button type="button" className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none">
                       <span className="sr-only">Abrir menu principal</span>
