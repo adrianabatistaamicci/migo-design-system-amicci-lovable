@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import { Link } from 'react-router-dom';
@@ -229,7 +228,6 @@ const BrandNavWithOverlapWithReusable = () => (
   <DarkOverlapExample />
 );
 
-// Fixed: Changed MarketplaceExample to MarketplaceBuyerExample
 const MarketplaceNavWithReusable = () => (
   <MarketplaceBuyerExample />
 );
@@ -238,7 +236,6 @@ const InstitutionalNavWithReusable = () => (
   <InstitutionalExample />
 );
 
-// Códigos para exibição nos blocos de código
 const lightNavBottomBorderCode = `import React from 'react';
 import { StackedLayout } from '@/components/application-shells/StackedLayout';
 import { IconButton } from '@/components/ui/icon-button';
@@ -280,7 +277,6 @@ export const LightNavBottomBorder = () => (
       </>
     }
   >
-    {/* Seu conteúdo aqui */}
     <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>
 );`;
@@ -324,7 +320,6 @@ export const LightNavGrayBackground = () => (
       </>
     }
   >
-    {/* Seu conteúdo aqui */}
     <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>
 );`;
@@ -363,7 +358,6 @@ export const BrandedNavCompactHeader = () => (
     }
     headerContent={<h1 className="text-lg font-medium leading-6 text-gray-900">Dashboard</h1>}
   >
-    {/* Seu conteúdo aqui */}
     <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>
 );`;
@@ -402,7 +396,6 @@ export const BrandedNavWithWhiteHeader = () => (
     }
     headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Dashboard</h1>}
   >
-    {/* Seu conteúdo aqui */}
     <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>
 );`;
@@ -530,7 +523,6 @@ export const MarketplaceSellerExample = () => (
     }
     headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Minha vitrine</h1>}
   >
-    {/* Seu conteúdo aqui */}
     <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>
 );`;
@@ -581,7 +573,6 @@ export const MarketplaceBuyerExample = () => (
     }
     headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Oportunidades</h1>}
   >
-    {/* Seu conteúdo aqui */}
     <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>
 );`;
@@ -669,7 +660,6 @@ export const InstitutionalExample = () => (
   </StackedLayout>
 );`;
 
-// Fixed: Completed the implementation of the LayoutComponent that was incomplete before
 const LayoutComponent = ({ title, component, code }) => {
   const [showCode, setShowCode] = useState(false);
   
@@ -703,7 +693,6 @@ const LayoutComponent = ({ title, component, code }) => {
         
         {showCode && (
           <div className="border-t border-gray-200">
-            {/* Fixed: Removed showCopyButton prop since it doesn't exist in CodeBlock component interface */}
             <CodeBlock code={code} language="jsx" />
           </div>
         )}
