@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   Home, 
@@ -84,6 +83,8 @@ const SidebarExample = () => {
   const collapsibleSidebarCode = `// Collapsible Sidebar Component Example
 import React, { useState } from 'react';
 import { Home, Mail, Settings, Users, Menu, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Chip } from '@/components/ui/chip';
+import { Badge } from '@/components/ui/badge';
 
 const CollapsibleSidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -127,6 +128,7 @@ const CollapsibleSidebar = () => {
               <a href="#" className={\`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 \${!isOpen && 'justify-center'}\`}>
                 <Mail size={18} className={isOpen ? 'mr-2' : ''} />
                 {isOpen && <span>Messages</span>}
+                {isOpen && <Chip variant="filled" color="primary" size="sm" className="ml-2">New</Chip>}
               </a>
             </li>
             <li>
@@ -136,9 +138,12 @@ const CollapsibleSidebar = () => {
               </a>
             </li>
             <li>
-              <a href="#" className={\`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 \${!isOpen && 'justify-center'}\`}>
-                <Settings size={18} className={isOpen ? 'mr-2' : ''} />
-                {isOpen && <span>Settings</span>}
+              <a href="#" className={\`flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 \${!isOpen && 'justify-center'}\`}>
+                <div className="flex items-center">
+                  <Settings size={18} className={isOpen ? 'mr-2' : ''} />
+                  {isOpen && <span>Settings</span>}
+                </div>
+                {isOpen && <Badge color="primary" variant="dot" />}
               </a>
             </li>
           </ul>
@@ -220,7 +225,7 @@ const AdvancedSidebar = () => {
                 </a>
                 <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                   <span>Reports</span>
-                  <Badge variant="secondary" size="sm">New</Badge>
+                  <Chip variant="filled" color="primary" size="sm">New</Chip>
                 </a>
               </div>
             </CollapsibleContent>
@@ -250,7 +255,7 @@ const AdvancedSidebar = () => {
               <div className="ml-6 mt-1 space-y-1">
                 <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                   <span>Inbox</span>
-                  <Badge color="error" size="sm" badgeContent="14" />
+                  <Badge color="primary" size="sm" badgeContent="14" />
                 </a>
                 <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                   Sent
@@ -291,7 +296,7 @@ const AdvancedSidebar = () => {
                 </a>
                 <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                   <span>Categories</span>
-                  <Badge variant="dot" color="success" />
+                  <Badge color="primary" variant="dot" />
                 </a>
                 <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                   Inventory
@@ -317,7 +322,7 @@ const AdvancedSidebar = () => {
           
           <a href="#" className="flex items-center justify-center w-8 h-8 rounded-md text-gray-700 hover:bg-gray-100 relative">
             <Bell size={18} />
-            <Badge variant="dot" color="error" className="absolute top-1 right-1" />
+            <Badge color="primary" variant="dot" className="absolute top-1 right-1" />
           </a>
         </div>
       </div>
@@ -435,6 +440,9 @@ const AdvancedSidebar = () => {
                         <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
                           <Mail size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
                           {isCollapsibleSidebarOpen && <span>Messages</span>}
+                          {isCollapsibleSidebarOpen && (
+                            <Chip variant="filled" color="primary" size="sm" className="ml-2">New</Chip>
+                          )}
                         </a>
                       </li>
                       <li>
@@ -444,9 +452,14 @@ const AdvancedSidebar = () => {
                         </a>
                       </li>
                       <li>
-                        <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
-                          <Settings size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
-                          {isCollapsibleSidebarOpen && <span>Settings</span>}
+                        <a href="#" className={`flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
+                          <div className="flex items-center">
+                            <Settings size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
+                            {isCollapsibleSidebarOpen && <span>Settings</span>}
+                          </div>
+                          {isCollapsibleSidebarOpen && (
+                            <Badge color="primary" variant="dot" />
+                          )}
                         </a>
                       </li>
                     </ul>
@@ -508,7 +521,7 @@ const AdvancedSidebar = () => {
                             </a>
                             <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                               <span>Reports</span>
-                              <Badge variant="secondary" size="sm">New</Badge>
+                              <Chip variant="filled" color="primary" size="sm">New</Chip>
                             </a>
                           </div>
                         </CollapsibleContent>
@@ -538,7 +551,7 @@ const AdvancedSidebar = () => {
                           <div className="ml-6 mt-1 space-y-1">
                             <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                               <span>Inbox</span>
-                              <Badge color="error" size="sm" badgeContent="14" />
+                              <Badge color="primary" size="sm" badgeContent="14" />
                             </a>
                             <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                               Sent
@@ -579,7 +592,7 @@ const AdvancedSidebar = () => {
                             </a>
                             <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                               <span>Categories</span>
-                              <Badge variant="dot" color="success" />
+                              <Badge color="primary" variant="dot" />
                             </a>
                             <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                               Inventory
@@ -605,7 +618,7 @@ const AdvancedSidebar = () => {
                       
                       <a href="#" className="flex items-center justify-center w-8 h-8 rounded-md text-gray-700 hover:bg-gray-100 relative">
                         <Bell size={18} />
-                        <Badge variant="dot" color="error" className="absolute top-1 right-1" />
+                        <Badge color="primary" variant="dot" className="absolute top-1 right-1" />
                       </a>
                     </div>
                   </div>
@@ -630,73 +643,3 @@ const AdvancedSidebar = () => {
             <li>Agrupe itens de navegação relacionados para uma melhor arquitetura de informação.</li>
             <li>Use cabeçalhos de grupo para categorizar seções da barra lateral.</li>
             <li>Implemente badges apenas para contagens ou notificações que realmente importam.</li>
-            <li>Mantenha submenus curtos (3-5 itens) para evitar sobrecarregar a navegação.</li>
-          </ul>
-        </section>
-
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">Acessibilidade</h2>
-          <ul className="list-disc pl-6 space-y-3 text-gray-700">
-            <li>Garanta que todos os itens de navegação sejam acessíveis por teclado.</li>
-            <li>Use funções ARIA adequadas para elementos de navegação (role="navigation").</li>
-            <li>Adicione aria-current="page" ao item de navegação atualmente ativo.</li>
-            <li>Forneça contraste de cor suficiente para texto e ícones.</li>
-            <li>Ao usar uma barra lateral recolhível, certifique-se de que os controles de alternância sejam acessíveis e adequadamente rotulados.</li>
-            <li>Implemente aria-expanded para indicar o estado atual de itens expansíveis/colapsáveis.</li>
-            <li>Use aria-label para badges que contêm apenas números para fornecer contexto completo.</li>
-          </ul>
-        </section>
-      </div>
-    </div>
-  );
-};
-
-const LayoutComponentFooter = ({ code }) => {
-  const [showCode, setShowCode] = useState(false);
-  const [copied, setCopied] = useState(false);
-  
-  const copyToClipboard = () => {
-    if (code) {
-      navigator.clipboard.writeText(code);
-      setCopied(true);
-      setTimeout(() => {
-        setCopied(false);
-      }, 2000);
-    }
-  };
-  
-  return (
-    <>
-      <div className="border-t border-gray-200 px-4 py-3 flex justify-between items-center bg-white">
-        <Button variant="ghost" size="sm" onClick={() => setShowCode(!showCode)} className="flex items-center gap-1 text-sm">
-          <Code size={16} />
-          <span>{showCode ? 'Hide code' : 'Show code'}</span>
-        </Button>
-        
-        <Button variant="ghost" size="sm" onClick={copyToClipboard} className="flex items-center gap-1 text-sm">
-          {copied ? <>
-              <CheckCheck size={16} />
-              <span>Copied</span>
-            </> : <>
-              <Copy size={16} />
-              <span>Copy</span>
-            </>}
-        </Button>
-      </div>
-      
-      <div className={cn(
-        "border-t bg-white overflow-x-auto transition-all duration-300 w-full",
-        showCode ? "h-auto max-h-[400px] p-4" : "h-0 p-0 opacity-0"
-      )}>
-        {showCode && (
-          <pre className="text-sm w-full">
-            <code>{code}</code>
-          </pre>
-        )}
-      </div>
-    </>
-  );
-};
-
-export default SidebarLayouts;
-
