@@ -3,6 +3,7 @@ import React, { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, Bell } from 'lucide-react';
 import { ProfileButton } from '@/components/ui/profile-button';
+import { IconButton } from '@/components/ui/icon-button';
 
 export interface StackedLayoutProps {
   /** Conteúdo a ser renderizado no corpo principal do layout */
@@ -110,10 +111,11 @@ const StackedLayout = ({
                   </div>
                 </div>
                 <div className="hidden lg:flex lg:items-center gap-4">
-                  <button type="button" className="relative p-1 text-white hover:text-amicciDark-100 focus:outline-none">
-                    <span className="sr-only">Ver notificações</span>
-                    <Bell className="h-6 w-6 text-white" aria-hidden="true" />
-                  </button>
+                  <IconButton 
+                    variant="outline-secondary" 
+                    icon={<Bell size={18} />}
+                    aria-label="Ver notificações"
+                  />
                   <ProfileButton 
                     userName="Maria Silva"
                     companyName="Empresa Ltda."
@@ -156,10 +158,11 @@ const StackedLayout = ({
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <button type="button" className={cn("relative rounded-full p-1 focus:outline-none", darkHeader ? 'text-white hover:text-amicciDark-100' : 'text-gray-950 hover:text-gray-700')}>
-                    <span className="sr-only">Ver notificações</span>
-                    <Bell className="h-6 w-6" aria-hidden="true" />
-                  </button>
+                  <IconButton 
+                    variant="outline-secondary" 
+                    icon={<Bell size={18} />}
+                    aria-label="Ver notificações"
+                  />
                   <ProfileButton 
                     userName="Maria Silva"
                     companyName="Empresa Ltda."

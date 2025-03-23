@@ -6,6 +6,7 @@ import amicciLogo from '@/pages/assets/Amicci-Simbolo_Turquesa_Escuro.svg';
 import amicciLogoDark from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg';
 import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
 import { Button } from '@/components/ui/button';
+import { IconButton } from '@/components/ui/icon-button';
 import { cn } from '@/lib/utils';
 import { TailwindTabs } from '@/components/ui/tabs';
 import StackedLayout from '@/components/application-shells/StackedLayout';
@@ -69,10 +70,11 @@ const LightNavBottomBorderWithReusable = () => (
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700 focus:outline-none">
-            <span className="sr-only">Ver notificações</span>
-            <Bell className="h-6 w-6" aria-hidden="true" />
-          </button>
+          <IconButton 
+            variant="outline-secondary" 
+            icon={<Bell size={18} />}
+            aria-label="Ver notificações"
+          />
           <ProfileButton 
             userName="Maria Silva"
             companyName="Empresa Ltda."
@@ -104,10 +106,11 @@ const LightNavGrayBackgroundWithReusable = () => (
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700 focus:outline-none">
-            <span className="sr-only">Ver notificações</span>
-            <Bell className="h-6 w-6" aria-hidden="true" />
-          </button>
+          <IconButton 
+            variant="outline-secondary" 
+            icon={<Bell size={18} />}
+            aria-label="Ver notificações"
+          />
           <ProfileButton 
             userName="Maria Silva"
             companyName="Empresa Ltda."
@@ -140,10 +143,11 @@ const BrandedNavCompactHeaderWithReusable = () => (
           </div>
         </div>
         <div className="hidden lg:flex lg:items-center gap-4">
-          <button type="button" className="relative p-1 text-white hover:text-amicciDark-100 focus:outline-none">
-            <span className="sr-only">Ver notificações</span>
-            <Bell className="h-6 w-6 text-white" aria-hidden="true" />
-          </button>
+          <IconButton 
+            variant="outline-secondary" 
+            icon={<Bell size={18} />}
+            aria-label="Ver notificações"
+          />
           <ProfileButton 
             userName="Maria Silva"
             companyName="Empresa Ltda."
@@ -177,10 +181,11 @@ const BrandedNavWithWhiteHeaderWithReusable = () => (
           </div>
         </div>
         <div className="hidden lg:flex lg:items-center gap-4">
-          <button type="button" className="relative p-1 text-white hover:text-amicciDark-100 focus:outline-none">
-            <span className="sr-only">Ver notificações</span>
-            <Bell className="h-6 w-6 text-white" aria-hidden="true" />
-          </button>
+          <IconButton 
+            variant="outline-secondary" 
+            icon={<Bell size={18} />}
+            aria-label="Ver notificações"
+          />
           <ProfileButton 
             userName="Maria Silva"
             companyName="Empresa Ltda."
