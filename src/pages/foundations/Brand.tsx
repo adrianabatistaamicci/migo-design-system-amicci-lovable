@@ -24,6 +24,7 @@ import Amy004 from '@/pages/assets/Amy 004.png';
 import AmySvg from '@/pages/assets/amy.svg';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { IconButton } from "@/components/ui/icon-button";
+
 const Brand = () => {
   const [activeTab, setActiveTab] = useState('logo');
   const handleDownload = (url: string, filename: string) => {
@@ -120,6 +121,7 @@ const Brand = () => {
     hex: 'rgba(155, 36, 127, 0.50)',
     tailwindClass: 'bg-tertiary-outlinedBorder'
   }];
+
   const renderTabContent = () => {
     switch (activeTab) {
       case 'logo':
@@ -294,27 +296,35 @@ const Brand = () => {
 
                 <Card className="p-6 shadow-none border">
                   <h3 className="text-xl font-medium mb-4">Box de insights</h3>
-                  <div className="border border-tertiary-200 rounded-lg p-4">
-                    <div className="flex items-start gap-3">
-                      <Avatar className="w-10 h-10 flex-shrink-0">
-                        <AvatarImage src={AmySvg} alt="Avatar da Amy" />
-                        <AvatarFallback>AM</AvatarFallback>
-                      </Avatar>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <span className="font-medium">Insight da Amy</span>
-                          <Sparkles size={16} className="text-tertiary-main" />
-                        </div>
-                        <div className="bg-gray-100 text-gray-800 px-3 py-1 rounded-md text-sm inline-block mb-3">
-                          Novo insight gerado
-                        </div>
-                        <p className="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+                  
+                  <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="insight-1" className="border-0">
+                      <div className="bg-magenta-50 rounded outline outline-1 outline-offset-[-1px] outline-magenta-200">
+                        <AccordionTrigger className="px-6 py-4 hover:no-underline">
+                          <div className="flex items-center gap-4 w-full">
+                            <div className="flex items-center gap-2">
+                              <Avatar className="w-9 h-9 outline outline-2 outline-tertiary-main">
+                                <AvatarImage src={AmySvg} alt="Avatar da Amy" />
+                                <AvatarFallback>AM</AvatarFallback>
+                              </Avatar>
+                              <div className="inline-flex flex-col justify-start items-start">
+                                <div className="text-text-primary text-sm font-medium font-['Roboto'] leading-snug tracking-tight">Insight da Amy</div>
+                              </div>
+                              <Sparkles size={20} className="text-tertiary-main" />
+                            </div>
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="px-6 pb-4">
+                          <div className="bg-gray-100 text-gray-800 px-3 py-1 rounded-md text-sm inline-block mb-3">
+                            Novo insight gerado
+                          </div>
+                          <p className="text-gray-700">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                          </p>
+                        </AccordionContent>
                       </div>
-                      <Button variant="ghost" size="icon" className="flex-shrink-0">
-                        <ChevronDown className="h-5 w-5" />
-                      </Button>
-                    </div>
-                  </div>
+                    </AccordionItem>
+                  </Accordion>
                 </Card>
               </div>
             </ComponentCard>
@@ -323,6 +333,7 @@ const Brand = () => {
         return null;
     }
   };
+
   return <div className="w-full animate-fade-in">
       <Header title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." type="foundations" />
 
@@ -344,4 +355,5 @@ const Brand = () => {
       </div>
     </div>;
 };
+
 export default Brand;
