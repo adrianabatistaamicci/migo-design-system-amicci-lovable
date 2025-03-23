@@ -1,4 +1,3 @@
-
 import React from 'react';
 import StackedLayout from './StackedLayout';
 import { Bell, Menu, Search, Globe, Rocket, ChevronDown } from 'lucide-react';
@@ -79,7 +78,7 @@ export const DarkOverlapExample = () => {
   );
 };
 
-export const MarketplaceExample = () => {
+export const MarketplaceSellerExample = () => {
   return (
     <StackedLayout
       variant="light-border"
@@ -129,6 +128,52 @@ export const MarketplaceExample = () => {
         </>
       }
       headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Minha vitrine</h1>}
+    >
+      <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 relative"></div>
+    </StackedLayout>
+  );
+};
+
+export const MarketplaceBuyerExample = () => {
+  return (
+    <StackedLayout
+      variant="light-border"
+      mainClassName="bg-white"
+      headerClassName="bg-white"
+      navigationContent={
+        <>
+          <div className="flex items-center">
+            <div className="flex-shrink-0">
+              <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
+            </div>
+            <div className="hidden md:ml-6 md:flex md:space-x-6">
+              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-text-primary">Oportunidades</a>
+              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Planejamento</a>
+              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Projetos</a>
+              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">SKUs</a>
+            </div>
+          </div>
+          <div className="flex items-center space-x-4">
+            <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
+              <span className="sr-only">Ajuda</span>
+              <Search className="h-6 w-6" aria-hidden="true" />
+            </button>
+            <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
+              <span className="sr-only">Ver notificações</span>
+              <Bell className="h-6 w-6" aria-hidden="true" />
+            </button>
+            <ProfileButton 
+              userName="Carlos Mendes"
+              companyName="Construção XYZ"
+              showClientLogo={true}
+              avatarText="CM"
+              showMenuIcon={true}
+              menuIcon={<Menu className="h-6 w-6" />}
+            />
+          </div>
+        </>
+      }
+      headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Oportunidades</h1>}
     >
       <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 relative"></div>
     </StackedLayout>
