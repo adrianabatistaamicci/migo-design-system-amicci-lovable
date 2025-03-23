@@ -4,7 +4,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Search as SearchIcon, Github, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { ProfileButton } from '@/components/ui/profile-button';
 import AmicciLogoTagDesignSystem from '@/pages/assets/amicci-logo-tag-design-system.svg';
 
 interface HeaderProps {
@@ -28,7 +27,8 @@ const Header: React.FC<HeaderProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return <header className={`sticky top-0 z-40 w-full transition-all duration-200 ease-elastic ${scrolled ? 'bg-white shadow-[0px_12px_16px_-4px_rgba(14,24,41,0.08),0px_4px_6px_-2px_rgba(14,24,41,0.03)]' : 'bg-white shadow-[0px_12px_16px_-4px_rgba(14,24,41,0.08),0px_4px_6px_-2px_rgba(14,24,41,0.03)]'}`}>
+  return (
+    <header className={`sticky top-0 z-40 w-full transition-all duration-200 ease-elastic ${scrolled ? 'bg-white shadow-[0px_12px_16px_-4px_rgba(14,24,41,0.08),0px_4px_6px_-2px_rgba(14,24,41,0.03)]' : 'bg-white border-b border-gray-200'}`}>
       <div className="w-full h-16 flex items-center justify-between px-6">
         <div className="flex items-center gap-6">
           <Button variant="ghost" size="icon" onClick={toggleSidebar} className="md:hidden" aria-label={isSidebarOpen ? "Close sidebar" : "Open sidebar"}>
@@ -54,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({
           </Button>
         </div>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon" onClick={() => setSearchActive(true)} aria-label="Search">
             <SearchIcon size={20} className="text-primary-dark" />
           </Button>
@@ -68,16 +68,10 @@ const Header: React.FC<HeaderProps> = ({
               <Github size={20} className="text-primary-dark" />
             </a>
           </Button>
-          
-          <ProfileButton 
-            userName="Maria"
-            companyName="Amicci"
-            showMenuIcon={false}
-            className="hidden sm:flex"
-          />
         </div>
       </div>
-    </header>;
+    </header>
+  );
 };
 
 export default Header;
