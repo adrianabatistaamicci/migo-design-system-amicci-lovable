@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -5,7 +6,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { TailwindTabs } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
-import { Sparkles, CircleUser, ChevronDown } from "lucide-react";
+import { Sparkles, CircleUser, ChevronDown, RefreshCw } from "lucide-react";
 import Header from '@/components/library-components/Header';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -301,7 +302,7 @@ const Brand = () => {
                     <AccordionItem value="insight-1" className="border-0">
                       <div className="bg-magenta-50 rounded outline outline-1 outline-offset-[-1px] outline-magenta-200">
                         <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                          <div className="flex items-center gap-4 w-full">
+                          <div className="flex items-center justify-between w-full">
                             <div className="flex items-center gap-2">
                               <img 
                                 src={AmySvg} 
@@ -313,6 +314,14 @@ const Brand = () => {
                               </div>
                               <Sparkles size={20} className="text-tertiary-main" />
                             </div>
+                            <Button 
+                              variant="outline-secondary" 
+                              size="sm"
+                              className="ml-auto mr-4"
+                              startIcon={<RefreshCw size={16} />}
+                            >
+                              Gerar novo insight
+                            </Button>
                           </div>
                         </AccordionTrigger>
                         <AccordionContent className="px-6 pb-4">
