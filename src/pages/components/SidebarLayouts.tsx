@@ -123,7 +123,6 @@ const CollapsibleSidebar = () => {
       <div className="max-w-[1280px] mx-auto">
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-6">Basic Sidebar</h2>
-          <ComponentCard title="Basic Sidebar" description="A standard sidebar with navigation links and icons." code={sidebarCode}>
             <AspectRatio ratio={4 / 3} className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden">
               <div className="flex h-full">
                 <div className="w-64 h-full bg-white border-r border-gray-200">
