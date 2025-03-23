@@ -1,3 +1,4 @@
+
 /**
  * Utilitários para gerenciamento e cálculo de cores
  */

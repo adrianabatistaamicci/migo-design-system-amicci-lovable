@@ -27,7 +27,7 @@ import { IconButton } from "@/components/ui/icon-button";
 
 const Brand = () => {
   const [activeTab, setActiveTab] = useState('logo');
-  
+
   const handleDownload = (url: string, filename: string) => {
     const link = document.createElement('a');
     link.href = url;
@@ -218,23 +218,9 @@ const Brand = () => {
               <div className="space-y-6">
                 <div className="mt-0">
                   <h4 className="text-xl font-medium mb-4">Paleta de cores Tertiary (Amy)</h4>
-                  <p className="text-gray-600 mb-4">A Amy é representada pela paleta de cores tertiary, que consiste em tons de magenta/roxo que transmitem inovação e inteligência.</p>
                   
                   <div className="p-4 border rounded-lg mb-6">
-                    <h5 className="font-medium mb-4">Cores Tertiary</h5>
-                    
                     <div className="space-y-6">
-                      <div className="flex items-center gap-4 mb-6 p-4 bg-gray-50 rounded-md">
-                        <div className="h-20 w-20 rounded-md bg-tertiary-main flex items-center justify-center">
-                          <span className="text-white font-medium">500</span>
-                        </div>
-                        <div>
-                          <p className="font-medium">Cor Principal</p>
-                          <p className="text-sm text-gray-500">tertiary-500 / tertiary-main</p>
-                          <p className="text-sm text-gray-500">#9B247F</p>
-                        </div>
-                      </div>
-                      
                       <div>
                         <h6 className="font-medium mb-3">Escala Completa</h6>
                         <div className="grid grid-cols-11 gap-1 w-full">
@@ -255,7 +241,7 @@ const Brand = () => {
                       
                       <div>
                         <h6 className="font-medium mb-3">Variáveis de Aplicação</h6>
-                        <div className="grid grid-cols-4 md:grid-cols-8 gap-4 w-full">
+                        <div className="grid grid-cols-8 gap-1 w-full">
                           {tertiaryPalette.map(item => (
                             <div key={item.name} className="flex flex-col items-center">
                               <div 

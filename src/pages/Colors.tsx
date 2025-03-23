@@ -491,363 +491,342 @@ const Colors = () => {
         className="mt-8"
         tabs={[
           { name: 'Visão geral', value: 'overview' },
-          { name: 'Cores Base', value: 'base-colors' },
-          { name: 'Paletas', value: 'palettes' },
-          { name: 'Uso', value: 'usage' },
+          { name: 'Cores primárias', value: 'base-colors' },
+          { name: 'Paleta semântica', value: 'semantics' },
           { name: 'Acessibilidade', value: 'accessibility' }
         ]}
-        variant="pillsGray"
-        onChange={value => setActiveTab(value)}
+        onValueChange={(value) => setActiveTab(value)}
       >
         {activeTab === 'overview' && (
-          <div className="space-y-6 mt-6">
+          <div className="space-y-8 py-6">
+            <div className="grid gap-6 md:grid-cols-2">
+              <ComponentCard
+                title="Cores primárias"
+                description="Cores base do sistema que formam a fundação da paleta de cores"
+                className="h-full"
+              >
+                <div className="grid grid-cols-10 gap-2 h-12">
+                  {baseColorsData[0].weights.map((weight) => (
+                    <ColorSwatch 
+                      key={weight.weight} 
+                      color={weight.colorClass}
+                      weight={weight.weight}
+                      hexValue={weight.hexValue}
+                      simulationType={simulationType}
+                    />
+                  ))}
+                </div>
+                <div className="grid grid-cols-10 gap-2 h-12 mt-2">
+                  {baseColorsData[1].weights.map((weight) => (
+                    <ColorSwatch 
+                      key={weight.weight} 
+                      color={weight.colorClass}
+                      weight={weight.weight}
+                      hexValue={weight.hexValue}
+                      simulationType={simulationType}
+                    />
+                  ))}
+                </div>
+              </ComponentCard>
+
+              <ComponentCard
+                title="Cores neutras"
+                description="Escala de cinza usada para texto, bordas e superfícies"
+                className="h-full"
+              >
+                <div className="grid grid-cols-10 gap-2 h-12">
+                  {baseColorsData[2].weights.map((weight) => (
+                    <ColorSwatch 
+                      key={weight.weight} 
+                      color={weight.colorClass}
+                      weight={weight.weight}
+                      hexValue={weight.hexValue}
+                      simulationType={simulationType}
+                    />
+                  ))}
+                </div>
+              </ComponentCard>
+            </div>
+
             <ComponentCard
-              title="Sistema de Cores"
-              description="Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização."
+              title="Paleta semântica"
+              description="Cores com significados específicos para comunicação de status, feedback e interações"
             >
-              <p className="text-gray-600 mb-6">
-                O sistema é organizado para proporcionar consistência visual e flexibilidade em toda a aplicação.
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold">Tipos de Variações</h3>
-                  
-                  <div>
-                    <h4 className="font-medium text-lg">Variações de Estado</h4>
-                    <ul className="mt-2 space-y-2 list-disc pl-5">
-                      <li><span className="font-mono text-sm">main</span>: Cor principal para elementos de destaque</li>
-                      <li><span className="font-mono text-sm">dark</span>: Variação mais escura para contraste</li>
-                      <li><span className="font-mono text-sm">light</span>: Variação mais clara para fundos e elementos sutis</li>
-                      <li><span className="font-mono text-sm">hover</span>: Estado de hover para elementos interativos</li>
-                      <li><span className="font-mono text-sm">selected</span>: Estado selecionado para elementos interativos</li>
-                      <li><span className="font-mono text-sm">focusVisible</span>: Estado de foco visível para acessibilidade</li>
-                      <li><span className="font-mono text-sm">outlinedBorder</span>: Cor para bordas e contornos</li>
-                      <li><span className="font-mono text-sm">contrast</span>: Cor de texto sobre fundos primários</li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-medium text-lg">Variações de Texto</h4>
-                    <ul className="mt-2 space-y-2 list-disc pl-5">
-                      <li><span className="font-mono text-sm">primary</span>: Texto principal para conteúdo importante</li>
-                      <li><span className="font-mono text-sm">secondary</span>: Texto secundário para descrições e detalhes</li>
-                      <li><span className="font-mono text-sm">disabled</span>: Texto para elementos desabilitados</li>
-                      <li><span className="font-mono text-sm">hover</span>: Estado de hover para texto interativo</li>
-                      <li><span className="font-mono text-sm">selected</span>: Estado selecionado para texto interativo</li>
-                      <li><span className="font-mono text-sm">focus</span>: Estado de foco para texto interativo</li>
-                      <li><span className="font-mono text-sm">focusVisible</span>: Estado de foco visível para acessibilidade</li>
-                    </ul>
-                  </div>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-semibold border-b pb-2">Organização do Sistema</h3>
-                  <p className="text-gray-600 mt-2">O sistema é organizado em dois níveis principais:</p>
-                  
-                  <div className="mt-4">
-                    <h4 className="font-medium text-lg">1. Cores Básicas</h4>
-                    <p className="text-gray-600 mt-1 mb-2">Um conjunto completo de cores de 50 a 900 para:</p>
-                    <div className="grid grid-cols-2 gap-2">
-                      <div className="bg-gray-100 p-3 rounded-md">
-                        <code className="text-xs">base-color-amicci</code>
-                      </div>
-                      <div className="bg-gray-100 p-3 rounded-md">
-                        <code className="text-xs">base-color-amicciDark</code>
-                      </div>
-                      <div className="bg-gray-100 p-3 rounded-md">
-                        <code className="text-xs">base-color-blue</code>
-                      </div>
-                      <div className="bg-gray-100 p-3 rounded-md">
-                        <code className="text-xs">base-color-magenta</code>
-                      </div>
-                      <div className="bg-gray-100 p-3 rounded-md">
-                        <code className="text-xs">base-color-green</code>
-                      </div>
-                      <div className="bg-gray-100 p-3 rounded-md">
-                        <code className="text-xs">base-color-gray</code>
-                      </div>
-                      <div className="bg-gray-100 p-3 rounded-md">
-                        <code className="text-xs">base-color-orange</code>
-                      </div>
-                      <div className="bg-gray-100 p-3 rounded-md">
-                        <code className="text-xs">base-color-red</code>
-                      </div>
-                      <div className="bg-gray-100 p-3 rounded-md">
-                        <code className="text-xs">base-color-yellow</code>
-                      </div>
-                      <div className="bg-gray-100 p-3 rounded-md">
-                        <code className="text-xs">base-color-common-white</code>
-                      </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {paletteData.slice(0, 3).map(palette => (
+                  <div key={palette.name} className="space-y-2">
+                    <h3 className="text-sm font-medium">{palette.name}</h3>
+                    <div className="space-y-1">
+                      {palette.variants.slice(0, 3).map(variant => (
+                        <ColorSwatch
+                          key={variant.name}
+                          color={variant.colorClass}
+                          textOverlay={variant.name}
+                          hexValue={variant.hexValue}
+                          className="h-10"
+                          simulationType={simulationType}
+                        />
+                      ))}
                     </div>
                   </div>
-                  
-                  <div className="mt-6">
-                    <h4 className="font-medium text-lg">2. Paletas Compostas</h4>
-                    <p className="text-gray-600 mt-1 mb-2">Paletas semânticas que utilizam as cores básicas como base:</p>
-                    <div className="grid grid-cols-2 gap-2">
-                      <div className="bg-gray-100 p-3 rounded-md">
-                        <code className="text-xs">primary</code>
-                      </div>
-                      <div className="bg-gray-100 p-3 rounded-md">
-                        <code className="text-xs">secondary</code>
-                      </div>
-                      <div className="bg-gray-100 p-3 rounded-md">
-                        <code className="text-xs">text</code>
-                      </div>
-                      <div className="bg-gray-100 p-3 rounded-md">
-                        <code className="text-xs">error</code>
-                      </div>
-                      <div className="bg-gray-100 p-3 rounded-md">
-                        <code className="text-xs">warning</code>
-                      </div>
-                      <div className="bg-gray-100 p-3 rounded-md">
-                        <code className="text-xs">info</code>
-                      </div>
-                      <div className="bg-gray-100 p-3 rounded-md">
-                        <code className="text-xs">success</code>
-                      </div>
-                      <div className="bg-gray-100 p-3 rounded-md">
-                        <code className="text-xs">background</code>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </ComponentCard>
-            
+
             <ComponentCard
-              title="Como Usar"
-              description="Utilize as cores através das classes do Tailwind e tokens CSS."
+              title="Cores de estado"
+              description="Cores para comunicar feedbacks, alertas e status do sistema"
             >
-              <p className="text-gray-600 mb-4">
-                Acesse as cores usando as classes utilitárias do Tailwind baseadas na nomenclatura semântica:
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-gray-50 p-4 rounded-md border">
-                  <code className="text-sm bg-amicci-50 p-1 rounded text-amicci-800">bg-primary-main</code>
-                  <p className="text-sm mt-2 text-gray-600">Cor primária principal</p>
-                </div>
-                <div className="bg-gray-50 p-4 rounded-md border">
-                  <code className="text-sm bg-amicci-50 p-1 rounded text-amicci-800">text-error-main</code>
-                  <p className="text-sm mt-2 text-gray-600">Texto na cor de erro</p>
-                </div>
-                <div className="bg-gray-50 p-4 rounded-md border">
-                  <code className="text-sm bg-amicci-50 p-1 rounded text-amicci-800">border-warning-outlinedBorder</code>
-                  <p className="text-sm mt-2 text-gray-600">Borda na cor de contorno de aviso</p>
-                </div>
-                <div className="bg-gray-50 p-4 rounded-md border">
-                  <code className="text-sm bg-amicci-50 p-1 rounded text-amicci-800">bg-amicci-500</code>
-                  <p className="text-sm mt-2 text-gray-600">Cor básica amicci (500)</p>
-                </div>
-                <div className="bg-gray-50 p-4 rounded-md border">
-                  <code className="text-sm bg-amicci-50 p-1 rounded text-amicci-800">text-gray-900</code>
-                  <p className="text-sm mt-2 text-gray-600">Texto principal</p>
-                </div>
+              <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+                {paletteData.slice(4, 8).map(palette => (
+                  <div key={palette.name} className="space-y-2">
+                    <h3 className="text-sm font-medium">{palette.name}</h3>
+                    <div className="space-y-1">
+                      {palette.variants.slice(0, 3).map(variant => (
+                        <ColorSwatch
+                          key={variant.name}
+                          color={variant.colorClass}
+                          textOverlay={variant.name}
+                          hexValue={variant.hexValue}
+                          className="h-10"
+                          simulationType={simulationType}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </ComponentCard>
           </div>
         )}
-        
+
         {activeTab === 'base-colors' && (
-          <ComponentCard
-            title="Cores Base"
-            description="Conjunto de cores básicas que formam a fundação do sistema."
-          >
-            <p className="text-gray-600 mb-6">
-              Estas cores básicas servem como alicerce para todo o sistema de design, fornecendo consistência visual em toda a aplicação.
-            </p>
+          <div className="space-y-12 py-6">
             <BaseColorsTable baseColors={baseColorsData} />
-          </ComponentCard>
+          </div>
         )}
-        
-        {activeTab === 'palettes' && (
-          <ComponentCard
-            title="Paletas"
-            description="Paletas semânticas construídas a partir das cores base."
-          >
-            <p className="text-gray-600 mb-6">
-              Nossas paletas semânticas atribuem significado e função às cores, facilitando o uso consistente em toda a interface.
-            </p>
+
+        {activeTab === 'semantics' && (
+          <div className="space-y-12 py-6">
             <PaletteTable palettes={paletteData} />
-          </ComponentCard>
+          </div>
         )}
-        
-        {activeTab === 'usage' && (
-          <ComponentCard
-            title="Uso"
-            description="Orientações para a aplicação correta das cores na interface."
-          >
-            <p className="text-gray-600 mb-6">
-              Diretrizes de uso que asseguram consistência visual e funcional em toda a experiência do usuário.
-            </p>
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-xl font-semibold mb-3">Aplicação em Componentes</h3>
-                <p className="text-gray-600 mb-4">
-                  Nossas cores são aplicadas de acordo com as seguintes diretrizes para manter consistência visual em toda a plataforma.
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                  <div className="border p-4 rounded-lg">
-                    <h4 className="font-medium mb-3">Botões</h4>
-                    <div className="flex flex-col space-y-4">
-                      <Button>Botão Primário</Button>
-                      <Button variant="secondary">Botão Secundário</Button>
-                      <Button variant="outline-default">Botão Outline</Button>
-                      <Button variant="text-default">Botão Texto</Button>
-                    </div>
-                  </div>
-                  
-                  <div className="border p-4 rounded-lg">
-                    <h4 className="font-medium mb-3">Badges</h4>
-                    <div className="flex flex-wrap gap-3">
-                      <Badge>Default</Badge>
-                      <Badge variant="secondary">Secondary</Badge>
-                      <Badge variant="outline">Outline</Badge>
-                      <Badge variant="destructive">Destructive</Badge>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold mb-3">Diretrizes de Contraste</h3>
-                <p className="text-gray-600 mb-4">
-                  Todas as cores foram testadas para garantir contraste adequado seguindo as diretrizes WCAG 2.1.
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="border p-4 rounded-lg">
-                    <h4 className="font-medium mb-2">Combinações Recomendadas</h4>
-                    <div className="space-y-2">
-                      <div className="p-3 bg-primary-main rounded">
-                        <p className="text-white">Texto em branco sobre fundo primário</p>
-                      </div>
-                      <div className="p-3 bg-white border border-primary-main rounded">
-                        <p className="text-primary-main">Texto primário sobre fundo branco</p>
-                      </div>
-                      <div className="p-3 bg-secondary-dark rounded">
-                        <p className="text-white">Texto em branco sobre fundo secundário escuro</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="border p-4 rounded-lg">
-                    <h4 className="font-medium mb-2">Combinações a Evitar</h4>
-                    <div className="space-y-2">
-                      <div className="p-3 bg-amicci-100 rounded">
-                        <p className="text-amicci-200">❌ Contraste insuficiente: cores próximas</p>
-                      </div>
-                      <div className="p-3 bg-yellow-300 rounded">
-                        <p className="text-white">❌ Combinação que pode dificultar a leitura</p>
-                      </div>
-                      <div className="p-3 bg-gray-200 rounded">
-                        <p className="text-gray-400">❌ Texto muito claro em fundo claro</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ComponentCard>
-        )}
-        
+
         {activeTab === 'accessibility' && (
-          <ComponentCard
-            title="Acessibilidade de Cores"
-            description="Garantindo que nosso sistema de cores seja acessível a todos."
-          >
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-3">Contraste</h3>
-                <p className="text-gray-600 mb-4">
-                  Todas as combinações de cores de texto e fundo atendem aos requisitos de contraste WCAG 2.1 AA:
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-                  <div className="border p-4 rounded-lg space-y-2">
-                    <div className="flex items-center gap-2">
-                      <Info className="h-5 w-5 text-info-main" />
-                      <h4 className="font-medium">Texto normal</h4>
+          <div className="space-y-8 py-6">
+            <ComponentCard
+              title="Simulação de daltonismo"
+              description="Visualize como as pessoas com diferentes tipos de daltonismo veem as cores"
+            >
+              <div className="space-y-6">
+                <div className="flex flex-col space-y-2">
+                  <div className="text-sm font-medium mb-2">Selecione um tipo de daltonismo para simular:</div>
+                  <ToggleGroup type="single" value={simulationType} onValueChange={setSimulationType} className="justify-start flex-wrap">
+                    <ToggleGroupItem value="protanopia" aria-label="Protanopia" className="gap-2 data-[state=on]:bg-primary-main data-[state=on]:text-white">
+                      <div className="w-3 h-3 rounded-full bg-red-500 filter opacity-50"></div>
+                      Protanopia
+                      <span className="text-xs text-gray-500">(perda de vermelho)</span>
+                    </ToggleGroupItem>
+                    <ToggleGroupItem value="deuteranopia" aria-label="Deuteranopia" className="gap-2 data-[state=on]:bg-primary-main data-[state=on]:text-white">
+                      <div className="w-3 h-3 rounded-full bg-green-500 filter opacity-50"></div>
+                      Deuteranopia
+                      <span className="text-xs text-gray-500">(perda de verde)</span>
+                    </ToggleGroupItem>
+                    <ToggleGroupItem value="tritanopia" aria-label="Tritanopia" className="gap-2 data-[state=on]:bg-primary-main data-[state=on]:text-white">
+                      <div className="w-3 h-3 rounded-full bg-blue-500 filter opacity-50"></div>
+                      Tritanopia
+                      <span className="text-xs text-gray-500">(perda de azul)</span>
+                    </ToggleGroupItem>
+                    <ToggleGroupItem value="achromatopsia" aria-label="Achromatopsia" className="gap-2 data-[state=on]:bg-primary-main data-[state=on]:text-white">
+                      <div className="w-3 h-3 rounded-full bg-gray-500"></div>
+                      Achromatopsia
+                      <span className="text-xs text-gray-500">(sem cores)</span>
+                    </ToggleGroupItem>
+                  </ToggleGroup>
+                </div>
+
+                {simulationType && (
+                  <div className="flex items-center gap-2">
+                    <Badge variant="outline" className="gap-1.5">
+                      <Eye className="w-3.5 h-3.5" />
+                      Simulando: {simulationType}
+                    </Badge>
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      onClick={() => setSimulationType('')}
+                      className="h-7 px-2 text-xs"
+                    >
+                      Remover simulação
+                    </Button>
+                  </div>
+                )}
+
+                <div className="border rounded-md p-4 bg-gray-50">
+                  <div className="text-sm font-medium mb-4">Amostra de cores primárias com simulação:</div>
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-10 gap-2 h-12">
+                      {baseColorsData[0].weights.map((weight) => (
+                        <ColorSwatch 
+                          key={weight.weight} 
+                          color={weight.colorClass}
+                          weight={weight.weight}
+                          hexValue={weight.hexValue}
+                          simulationType={simulationType}
+                        />
+                      ))}
                     </div>
-                    <p className="text-sm text-gray-600">Contraste mínimo de 4.5:1</p>
-                    <div className="p-3 bg-primary-main rounded">
-                      <p className="text-white text-sm">Exemplo de texto com contraste adequado</p>
+                    <div className="grid grid-cols-10 gap-2 h-12">
+                      {baseColorsData[1].weights.map((weight) => (
+                        <ColorSwatch 
+                          key={weight.weight} 
+                          color={weight.colorClass}
+                          weight={weight.weight}
+                          hexValue={weight.hexValue}
+                          simulationType={simulationType}
+                        />
+                      ))}
+                    </div>
+                    <div className="grid grid-cols-10 gap-2 h-12">
+                      {baseColorsData[3].weights.map((weight) => (
+                        <ColorSwatch 
+                          key={weight.weight} 
+                          color={weight.colorClass}
+                          weight={weight.weight}
+                          hexValue={weight.hexValue}
+                          simulationType={simulationType}
+                        />
+                      ))}
                     </div>
                   </div>
-                  
-                  <div className="border p-4 rounded-lg space-y-2">
-                    <div className="flex items-center gap-2">
-                      <Info className="h-5 w-5 text-info-main" />
-                      <h4 className="font-medium">Texto grande (18pt ou 14pt bold)</h4>
+                </div>
+
+                <div className="border rounded-md p-4">
+                  <div className="text-sm font-medium mb-4">Amostra de elementos da interface:</div>
+                  <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
+                    <div className="space-y-4">
+                      <div className="flex gap-2">
+                        <Button variant="default">Botão primário</Button>
+                        <Button variant="outline">Botão outline</Button>
+                        <Button variant="secondary">Secundário</Button>
+                      </div>
+                      <div className="flex gap-2">
+                        <Badge>Badge padrão</Badge>
+                        <Badge variant="outline">Badge outline</Badge>
+                        <Badge variant="secondary">Badge secundária</Badge>
+                      </div>
+                      <div className="p-4 border rounded-md bg-card">
+                        <div className="text-lg font-semibold">Texto de título</div>
+                        <div className="text-sm text-muted-foreground">
+                          Este é um exemplo de texto secundário que tem contraste reduzido
+                        </div>
+                        <Separator className="my-2" />
+                        <div className="flex justify-between">
+                          <div className="text-xs">Detalhes</div>
+                          <div className="text-xs font-medium">Valor</div>
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-sm text-gray-600">Contraste mínimo de 3:1</p>
-                    <div className="p-3 bg-amicci-300 rounded">
-                      <p className="text-gray-800 text-xl font-bold">Texto grande</p>
-                    </div>
-                  </div>
-                  
-                  <div className="border p-4 rounded-lg space-y-2">
-                    <div className="flex items-center gap-2">
-                      <Info className="h-5 w-5 text-info-main" />
-                      <h4 className="font-medium">Componentes de interface e gráficos</h4>
-                    </div>
-                    <p className="text-sm text-gray-600">Contraste mínimo de 3:1</p>
-                    <div className="p-3 rounded flex justify-center">
-                      <Button>Botão de exemplo</Button>
+                    <div className="p-4 border rounded-md space-y-4">
+                      <div className="flex items-center gap-4">
+                        <Avatar>
+                          <AvatarFallback>AM</AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <div className="font-medium">Amicci Medical</div>
+                          <div className="text-sm text-muted-foreground">amicci@example.com</div>
+                        </div>
+                      </div>
+                      <Separator />
+                      <div className="grid gap-2">
+                        <div className="flex justify-between text-sm">
+                          <span>Status:</span>
+                          <Badge variant="outline" className="bg-success-light text-success-dark">Ativo</Badge>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span>Plano:</span>
+                          <Badge variant="outline" className="bg-info-light text-info-dark">Premium</Badge>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span>Alerta:</span>
+                          <Badge variant="outline" className="bg-warning-light text-warning-dark">Pendente</Badge>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold mb-3">Não Dependa Apenas da Cor</h3>
-                <p className="text-gray-600 mb-4">
-                  Para garantir que as informações sejam acessíveis a pessoas com deficiência visual ou daltonismo, 
-                  não usamos apenas cor para transmitir informações importantes:
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-                  <div className="border p-4 rounded-lg space-y-2">
-                    <div className="flex items-center gap-2 text-primary-main">
-                      <Check className="h-5 w-5" />
-                      <h4 className="font-medium">Combinação com elementos visuais</h4>
+            </ComponentCard>
+
+            <ComponentCard
+              title="Guias de acessibilidade WCAG"
+              description="Certificações de contraste e recomendações para uso acessível das cores"
+            >
+              <div className="space-y-6">
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className="p-4 border rounded-md space-y-4">
+                    <div className="flex items-start gap-2">
+                      <AlertCircle className="w-5 h-5 text-warning-main mt-0.5" />
+                      <div>
+                        <h4 className="font-medium">Níveis de contraste WCAG</h4>
+                        <p className="text-sm text-muted-foreground">
+                          WCAG define dois níveis de contraste: AA (mínimo) e AAA (aprimorado)
+                        </p>
+                      </div>
                     </div>
-                    <p className="text-sm text-gray-600">Combinamos cores com ícones, textos e padrões</p>
-                    <div className="p-3 bg-gray-100 rounded flex items-center gap-2">
-                      <AlertCircle className="h-5 w-5 text-error-main" />
-                      <span className="text-error-main">Erro no formulário</span>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <span>AA texto normal (4.5:1)</span>
+                        <Badge variant="outline" className="bg-success-light text-success-dark">Recomendado</Badge>
+                      </div>
+                      <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <span>AA texto grande (3:1)</span>
+                        <Badge variant="outline" className="bg-success-light text-success-dark">Mínimo</Badge>
+                      </div>
+                      <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <span>AAA texto normal (7:1)</span>
+                        <Badge variant="outline" className="bg-info-light text-info-dark">Melhor prática</Badge>
+                      </div>
+                      <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <span>AAA texto grande (4.5:1)</span>
+                        <Badge variant="outline" className="bg-info-light text-info-dark">Aprimorado</Badge>
+                      </div>
                     </div>
                   </div>
-                  
-                  <div className="border p-4 rounded-lg space-y-2">
-                    <div className="flex items-center gap-2 text-primary-main">
-                      <Check className="h-5 w-5" />
-                      <h4 className="font-medium">Uso de padrões e texturas</h4>
+
+                  <div className="p-4 border rounded-md space-y-4">
+                    <div className="flex items-start gap-2">
+                      <Info className="w-5 h-5 text-info-main mt-0.5" />
+                      <div>
+                        <h4 className="font-medium">Não use apenas cor para transmitir informação</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Sempre combine cores com textos, ícones ou padrões para garantir a acessibilidade
+                        </p>
+                      </div>
                     </div>
-                    <p className="text-sm text-gray-600">Utilizamos padrões diferentes para distinguir áreas</p>
-                    <div className="p-3 bg-gray-100 rounded border-l-4 border-warning-main">
-                      <p className="text-warning-dark">Aviso com borda e fundo diferenciado</p>
-                    </div>
-                  </div>
-                  
-                  <div className="border p-4 rounded-lg space-y-2">
-                    <div className="flex items-center gap-2 text-primary-main">
-                      <Check className="h-5 w-5" />
-                      <h4 className="font-medium">Testado para daltonismo</h4>
-                    </div>
-                    <p className="text-sm text-gray-600">Nossas combinações são testadas para diferentes tipos de daltonismo</p>
-                    <div className="grid grid-cols-2 gap-2">
-                      <div className="h-12 bg-success-main rounded"></div>
-                      <div className="h-12 bg-error-main rounded"></div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="flex items-center gap-2 p-3 bg-error-light rounded text-sm">
+                        <div className="w-3 h-3 rounded-full bg-error-main"></div>
+                        <span className="text-error-dark font-medium">Erro</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-3 bg-success-light rounded text-sm">
+                        <div className="w-3 h-3 rounded-full bg-success-main"></div>
+                        <span className="text-success-dark font-medium">Sucesso</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-3 bg-warning-light rounded text-sm">
+                        <div className="w-3 h-3 rounded-full bg-warning-main"></div>
+                        <span className="text-warning-dark font-medium">Aviso</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-3 bg-info-light rounded text-sm">
+                        <div className="w-3 h-3 rounded-full bg-info-main"></div>
+                        <span className="text-info-dark font-medium">Informação</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </ComponentCard>
+            </ComponentCard>
+          </div>
         )}
       </TailwindTabs>
     </div>
