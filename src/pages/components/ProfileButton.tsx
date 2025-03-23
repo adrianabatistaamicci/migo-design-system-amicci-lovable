@@ -75,10 +75,10 @@ const ProfileButtonPage = () => {
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-medium">Buyer com Logo e Ícone</h3>
                   <ProfileButton
-                    userName="Carlos Mendes"
-                    companyName="Tech Solutions"
                     logoSrc={defaultLogo}
-                    avatarText="CM"
+                    companyName=""
+                    userName=""
+                    showClientLogo={true}
                   />
                 </div>
               </div>
