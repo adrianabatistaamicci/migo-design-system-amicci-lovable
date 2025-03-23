@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -18,6 +19,9 @@ import AmicciTagDesignSystem from '@/pages/assets/amicci-logo-tag-design-system.
 import AmicciTagBlog from '@/pages/assets/amicci-logo-tag-blog.svg';
 import AmicciTagEngenharia from '@/pages/assets/amicci-logo-tag-engenharia.svg';
 import AmicciTagUpdates from '@/pages/assets/amicci-logo-tag-updates.svg';
+import Amy001 from '@/pages/assets/Amy 001.png';
+import Amy002 from '@/pages/assets/Amy 002.png';
+import Amy004 from '@/pages/assets/Amy 004.png';
 
 const Brand = () => {
   const handleDownload = (url: string, filename: string) => {
@@ -235,20 +239,20 @@ const Brand = () => {
               <h4 className="text-xl font-medium">Imagens da Amy</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="flex flex-col items-center gap-2">
-                  <img src="/lovable-uploads/79898233-8ca1-4e72-ac85-afcf73053fff.png" alt="Amy, a IA da Amicci" className="w-[150px] h-auto object-contain rounded-md" />
-                  <Button variant="outline" onClick={() => handleDownload('/lovable-uploads/79898233-8ca1-4e72-ac85-afcf73053fff.png', 'amy-image-1.png')}>
+                  <img src={Amy001} alt="Amy, a IA da Amicci" className="w-[150px] h-auto object-contain rounded-md" />
+                  <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amy 001.png', 'amy-image-1.png')}>
                     Download PNG
                   </Button>
                 </div>
                 <div className="flex flex-col items-center gap-2">
-                  <img src="/lovable-uploads/097cfa6e-4055-443e-934b-320041b8deac.png" alt="Amy, a IA da Amicci em outra pose" className="w-[150px] h-auto object-contain rounded-md" />
-                  <Button variant="outline" onClick={() => handleDownload('/lovable-uploads/097cfa6e-4055-443e-934b-320041b8deac.png', 'amy-image-2.png')}>
+                  <img src={Amy002} alt="Amy, a IA da Amicci em outra pose" className="w-[150px] h-auto object-contain rounded-md" />
+                  <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amy 002.png', 'amy-image-2.png')}>
                     Download PNG
                   </Button>
                 </div>
                 <div className="flex flex-col items-center gap-2">
-                  <img src="/lovable-uploads/e778bf14-8d9d-424d-ab01-0ff69e892a9b.png" alt="Amy, avatar em formato de perfil" className="w-[150px] h-auto object-contain rounded-md" />
-                  <Button variant="outline" onClick={() => handleDownload('/lovable-uploads/e778bf14-8d9d-424d-ab01-0ff69e892a9b.png', 'amy-avatar.png')}>
+                  <img src={Amy004} alt="Amy, avatar em formato de perfil" className="w-[150px] h-auto object-contain rounded-md" />
+                  <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amy 004.png', 'amy-avatar.png')}>
                     Download PNG
                   </Button>
                 </div>
@@ -306,7 +310,7 @@ const Brand = () => {
                       <div className="flex items-center gap-4">
                         <div className="flex-shrink-0">
                           <div className="w-10 h-10 rounded-full overflow-hidden">
-                            <img src="/lovable-uploads/e778bf14-8d9d-424d-ab01-0ff69e892a9b.png" alt="Avatar da Amy" className="w-full h-full object-cover" />
+                            <img src={Amy004} alt="Avatar da Amy" className="w-full h-full object-cover" />
                           </div>
                         </div>
                         <div className="flex items-center gap-2">
@@ -327,7 +331,7 @@ const Brand = () => {
                 </Accordion>
                 
                 <div className="mt-8">
-                  <img src="/lovable-uploads/1b008d0e-08f9-46a3-98cb-21860633fef4.png" alt="Exemplo completo do container de insights da Amy" className="w-full h-auto object-contain border rounded-lg" />
+                  <img src={Amy002} alt="Exemplo completo do container de insights da Amy" className="w-full h-auto object-contain border rounded-lg" />
                 </div>
               </div>
             </div>
