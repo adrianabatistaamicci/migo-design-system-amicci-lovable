@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import { Link } from 'react-router-dom';
@@ -669,4 +670,52 @@ const LayoutComponent = ({
   const [copied, setCopied] = useState(false);
   
   const copyToClipboard = () => {
-    if
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+  };
+  
+  return (
+    <div className="w-full">
+      <div className="mb-4 flex items-center justify-between">
+        <h3 className="text-lg font-medium text-gray-900">{title}</h3>
+        <div className="flex space-x-2">
+          <Button 
+            variant="outline" 
+            size="sm" 
+            onClick={() => setShowCode(!showCode)}
+            className="flex items-center gap-1"
+          >
+            <Code size={16} />
+            {showCode ? 'Hide' : 'Show'} code
+          </Button>
+          {showCode && (
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={copyToClipboard}
+              className="flex items-center gap-1"
+            >
+              {copied ? <CheckCheck size={16} /> : <Copy size={16} />}
+              {copied ? 'Copied!' : 'Copy'}
+            </Button>
+          )}
+        </div>
+      </div>
+      
+      <div className="mb-6 overflow-hidden rounded-lg border border-gray-200">
+        {component}
+      </div>
+      
+      {showCode && (
+        <div className="w-full">
+          <CodeBlock code={code} language="jsx" />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default StackedLayouts;
