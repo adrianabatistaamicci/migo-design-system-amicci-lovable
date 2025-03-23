@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import { Link } from 'react-router-dom';
@@ -10,7 +11,7 @@ import { IconButton } from '@/components/ui/icon-button';
 import { cn } from '@/lib/utils';
 import { TailwindTabs } from '@/components/ui/tabs';
 import StackedLayout from '@/components/application-shells/StackedLayout';
-import { LightBorderExample, DarkOverlapExample, MarketplaceExample, InstitutionalExample } from '@/components/application-shells/StackedLayoutExamples';
+import { LightBorderExample, DarkOverlapExample, MarketplaceExample, MarketplaceBuyerExample, InstitutionalExample } from '@/components/application-shells/StackedLayoutExamples';
 import { ProfileButton } from '@/components/ui/profile-button';
 import CodeBlock from '@/components/CodeBlock';
 
