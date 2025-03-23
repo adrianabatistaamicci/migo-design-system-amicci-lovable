@@ -38,8 +38,8 @@ const LibraryPage: React.FC = () => {
   }, []);
   
   return (
-    <div className="animate-fade-in">
-      <div className="max-w-3xl mb-12">
+    <div className="animate-fade-in w-full max-w-[1280px] mx-auto">
+      <div className="w-full mb-12">
         <Header
           title="Library Components"
           description="Uma coleção de componentes de UI reutilizáveis projetados para o nossa documentação de design system."
@@ -48,8 +48,8 @@ const LibraryPage: React.FC = () => {
         
         <div className="mt-8 grid grid-cols-1 gap-6">
           {Object.entries(components).map(([name, Component]) => (
-            <ComponentCard key={name} title={name} description="">
-              <div className="p-4">
+            <ComponentCard key={name} title={name} description="" className="w-full">
+              <div className="p-4 w-full">
                 <Component {...getDefaultProps(name)} />
               </div>
             </ComponentCard>
@@ -64,8 +64,9 @@ const LibraryPage: React.FC = () => {
   description="Esta documentação está atualmente sendo desenvolvida." 
   icon="construction" 
 />`}
+            className="w-full"
           >
-            <div className="p-4">
+            <div className="p-4 w-full">
               <EmptyState />
             </div>
           </ComponentCard>
@@ -79,8 +80,9 @@ const LibraryPage: React.FC = () => {
   description="Descrição de exemplo para demonstrar o componente Header." 
   type="components" 
 />`}
+            className="w-full"
           >
-            <div className="p-4">
+            <div className="p-4 w-full">
               <Header 
                 title="Título de exemplo" 
                 description="Descrição de exemplo para demonstrar o componente Header."
