@@ -18,6 +18,7 @@ import AmicciTagDesignSystem from '@/pages/assets/amicci-logo-tag-design-system.
 import AmicciTagBlog from '@/pages/assets/amicci-logo-tag-blog.svg';
 import AmicciTagEngenharia from '@/pages/assets/amicci-logo-tag-engenharia.svg';
 import AmicciTagUpdates from '@/pages/assets/amicci-logo-tag-updates.svg';
+
 const Brand = () => {
   const handleDownload = (url: string, filename: string) => {
     const link = document.createElement('a');
@@ -178,16 +179,19 @@ const Brand = () => {
                 
                 <div className="p-4 border rounded-lg">
                   <h5 className="font-medium mb-3">Escala Completa</h5>
-                  <div className="flex gap-3 overflow-x-auto pb-2sss">
-                    {tertiaryColors.map(color => <div key={color.name} className="flex flex-col items-center flex-shrink-0">
-                        <div className={`h-16 w-16 rounded-md flex items-center justify-center ${color.name.includes('50') || color.name.includes('100') || color.name.includes('200') ? 'text-tertiary-800' : 'text-white'}`} style={{
-                      backgroundColor: color.hex
-                    }}>
+                  <div className="grid grid-cols-11 gap-1 w-full">
+                    {tertiaryColors.map(color => (
+                      <div key={color.name} className="flex flex-col items-center">
+                        <div 
+                          className={`h-16 w-full rounded-md flex items-center justify-center ${color.name.includes('50') || color.name.includes('100') || color.name.includes('200') ? 'text-tertiary-800' : 'text-white'}`} 
+                          style={{ backgroundColor: color.hex }}
+                        >
                           {color.name.split('-')[1]}
                         </div>
-                        <span className="text-xs mt-1">{color.name}</span>
-                        <span className="text-xs text-gray-500">{color.hex}</span>
-                      </div>)}
+                        <span className="text-xs mt-1 truncate w-full text-center">{color.name}</span>
+                        <span className="text-xs text-gray-500 truncate w-full text-center">{color.hex}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
