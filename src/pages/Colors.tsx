@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Chip } from '@/components/ui/chip';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -620,3 +621,39 @@ const Colors = () => {
                     <div className="p-3 bg-gray-100 rounded flex items-center gap-2">
                       <AlertCircle className="h-5 w-5 text-error-main" />
                       <span className="text-error-main">Erro no formulário</span>
+                    </div>
+                  </div>
+                  
+                  <div className="border p-4 rounded-lg space-y-2">
+                    <div className="flex items-center gap-2 text-primary-main">
+                      <Check className="h-5 w-5" />
+                      <h4 className="font-medium">Uso de padrões e texturas</h4>
+                    </div>
+                    <p className="text-sm text-gray-600">Utilizamos padrões diferentes para distinguir áreas</p>
+                    <div className="p-3 bg-gray-100 rounded border-l-4 border-warning-main">
+                      <p className="text-warning-dark">Aviso com borda e fundo diferenciado</p>
+                    </div>
+                  </div>
+                  
+                  <div className="border p-4 rounded-lg space-y-2">
+                    <div className="flex items-center gap-2 text-primary-main">
+                      <Check className="h-5 w-5" />
+                      <h4 className="font-medium">Testado para daltonismo</h4>
+                    </div>
+                    <p className="text-sm text-gray-600">Nossas combinações são testadas para diferentes tipos de daltonismo</p>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="h-12 bg-success-main rounded"></div>
+                      <div className="h-12 bg-error-main rounded"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ComponentCard>
+        )}
+      </TailwindTabs>
+    </div>
+  );
+};
+
+export default Colors;
