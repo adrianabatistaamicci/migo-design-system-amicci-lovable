@@ -24,6 +24,7 @@ import Amy004 from '@/pages/assets/Amy 004.png';
 import AmySvg from '@/pages/assets/amy.svg';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { IconButton } from "@/components/ui/icon-button";
+import { Chip } from "@/components/ui/chip";
 
 const Brand = () => {
   const [activeTab, setActiveTab] = useState('logo');
@@ -325,16 +326,19 @@ const Brand = () => {
                         </AccordionTrigger>
                         <AccordionContent className="px-6 pb-4">
                           <div className="flex items-center gap-3 mb-3">
-                            <div className="bg-gray-100 text-gray-800 px-3 py-1 rounded-md text-sm inline-block">
-                              Novo insight gerado
-                            </div>
+                            <Chip>Novo insight gerado</Chip>
                             <p className="text-gray-500 text-sm">
                               Insight gerado em 13/03/2024 às 13:45
                             </p>
                           </div>
-                          <p className="text-gray-700">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                          </p>
+                          <div>
+                            <h4 className="font-medium text-base mb-2">Recomendações</h4>
+                            <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                              <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>
+                              <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+                              <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</li>
+                            </ul>
+                          </div>
                         </AccordionContent>
                       </div>
                     </AccordionItem>
