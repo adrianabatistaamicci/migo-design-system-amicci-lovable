@@ -4,6 +4,7 @@ import Header from '@/components/library-components/Header';
 import ComponentCard from '@/components/ComponentCard';
 import CodeBlock from '@/components/CodeBlock';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+
 const SidebarLayouts = () => {
   const sidebarCode = `// Basic Sidebar Component Example
 import React from 'react';
@@ -52,6 +53,7 @@ const SidebarExample = () => {
 };
 
 export default SidebarExample;`;
+
   const collapsibleSidebarCode = `// Collapsible Sidebar Component Example
 import React, { useState } from 'react';
 import { Home, Mail, Settings, Users, Menu, X, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -114,12 +116,11 @@ const CollapsibleSidebar = () => {
     </div>
   );
 };`;
+
   return <div className="w-full animate-fade-in">
       <Header title="Sidebar Layouts" description="Os layouts de barra lateral oferecem uma navegação vertical intuitiva que permite aos usuários transitarem facilmente entre diferentes seções da aplicação. Amplamente utilizados em dashboards, painéis administrativos e aplicações complexas, eles organizam o conteúdo de forma clara e acessível. Explore nossas opções para criar menus laterais responsivos com recursos avançados como ícones informativos, emblemas de notificação, submenus expansíveis e seções de rodapé personalizáveis." type="components" />
       
       <div className="max-w-[1280px] mx-auto">
-        
-
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-6">Basic Sidebar</h2>
           <ComponentCard title="Basic Sidebar" description="A standard sidebar with navigation links and icons." code={sidebarCode}>
@@ -204,4 +205,5 @@ const CollapsibleSidebar = () => {
       </div>
     </div>;
 };
+
 export default SidebarLayouts;
