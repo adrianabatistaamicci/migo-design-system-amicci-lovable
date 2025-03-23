@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { Menu, Bell } from 'lucide-react';
 import { ProfileButton } from '@/components/ui/profile-button';
 import { IconButton } from '@/components/ui/icon-button';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export interface StackedLayoutProps {
   /** Conteúdo a ser renderizado no corpo principal do layout */
@@ -22,6 +23,8 @@ export interface StackedLayoutProps {
   mainClassName?: string;
   /** Estilo de layout */
   variant?: 'light-border' | 'light-gray' | 'dark-compact' | 'dark-standard' | 'dark-overlap';
+  /** Estado de carregamento */
+  isLoading?: boolean;
 }
 
 /**
@@ -36,7 +39,8 @@ const StackedLayout = ({
   headerClassName,
   navClassName,
   mainClassName,
-  variant = 'light-border'
+  variant = 'light-border',
+  isLoading = false
 }: StackedLayoutProps) => {
   // Determina as classes com base na variante
   const getVariantClasses = () => {
@@ -96,6 +100,19 @@ const StackedLayout = ({
 
   const classes = getVariantClasses();
 
+  const renderContent = () => {
+    if (isLoading) {
+      return (
+        <div className="space-y-4 p-4">
+          <Skeleton className="h-8 w-3/4" />
+          <Skeleton className="h-64 w-full" />
+          <Skeleton className="h-8 w-1/2" />
+        </div>
+      );
+    }
+    return children;
+  };
+
   // Renderiza o layout específico para overlap
   if (variant === 'dark-overlap') {
     return (
@@ -131,7 +148,7 @@ const StackedLayout = ({
         <main className={cn("-mt-32", classes.mainClass, mainClassName)}>
           <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
             <div className="rounded-lg bg-white p-6 shadow">
-              {children}
+              {renderContent()}
             </div>
           </div>
         </main>
@@ -193,7 +210,7 @@ const StackedLayout = ({
       <main className={cn(classes.mainBg, mainClassName)}>
         <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
           <div className="px-4 py-6 sm:px-0">
-            {children}
+            {renderContent()}
           </div>
         </div>
       </main>
