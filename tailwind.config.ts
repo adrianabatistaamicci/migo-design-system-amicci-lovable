@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -244,6 +243,9 @@ export default {
 						secondary: '#3E5060',
 						disabled: '#6F7E8C',
 					},
+				},
+				amy: {
+					avatar: 'var(--amy-avatar-url)'
 				}
 			},
 			boxShadow: {
@@ -303,7 +305,6 @@ export default {
 			},
 		}
 	},
-	// Enable all required color-related core plugins
 	corePlugins: {
 		textColor: true,
 		backgroundColor: true,
@@ -316,9 +317,7 @@ export default {
 	},
 	plugins: [
 		require("tailwindcss-animate"),
-		// Custom plugin to explicitly specify which colors are available
 		function({ addBase, theme, config }) {
-			// Remove zinc, stone and neutral from the theme
 			addBase({
 				':root': {
 					'--remove-zinc': 'true',
@@ -327,9 +326,7 @@ export default {
 				}
 			});
 		},
-		// Add a custom plugin to explicitly specify which colors are available
 		function({ addUtilities, theme }) {
-			// This plugin helps ensure only our defined colors are available
 			const customColors = theme('colors');
 			const allowedColors = [
 				'blue', 'amicci', 'amicciDark', 'magenta', 'green', 'gray', 
@@ -339,11 +336,9 @@ export default {
 				'border-default', 'input', 'ring', 'background', 'foreground', 'common'
 			];
 			
-			// Generate utilities only for allowed colors
 			let utilities = {};
 			allowedColors.forEach(colorName => {
 				if (customColors[colorName]) {
-					// Add utilities for this color family
 				}
 			});
 		}

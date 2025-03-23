@@ -165,6 +165,9 @@
     --tertiary-focusVisible: rgba(155, 36, 127, 0.30);
     --tertiary-outlinedBorder: rgba(155, 36, 127, 0.50);
 
+    /* Amy svg component */
+    --amy-avatar-url: url('@/pages/assets/amy.svg');
+
     /* Action (Gray) - Updated to use the new gray values */
     --action-main: #71717A;
     --action-dark: #3F3F46;

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -296,7 +295,7 @@ const Brand = () => {
                           <AvatarFallback>AM</AvatarFallback>
                         </Avatar>
                         <span className="text-sm mt-2">Avatar Amy</span>
-                        <span className="text-xs text-gray-500 mt-1">Token: component.avatar</span>
+                        <span className="text-xs text-gray-500 mt-1">Token: component.avatar, amy.avatar</span>
                       </div>
                     </div>
                   </Card>
