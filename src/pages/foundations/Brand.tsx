@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -326,7 +327,7 @@ const Brand = () => {
                         </AccordionTrigger>
                         <AccordionContent className="px-6 pb-4">
                           <div className="flex items-center gap-3 mb-3">
-                            <Chip>Novo insight gerado</Chip>
+                            <Chip size="sm">Novo insight gerado</Chip>
                             <p className="text-gray-500 text-sm">
                               Insight gerado em 13/03/2024 às 13:45
                             </p>
@@ -375,3 +376,4 @@ const Brand = () => {
 };
 
 export default Brand;
+
