@@ -31,6 +31,7 @@ export interface ProfileButtonProps
   avatarSrc?: string;
   avatarAlt?: string;
   showClientLogo?: boolean;
+  showAvatar?: boolean;
   menuIcon?: React.ReactNode;
   maxTextLength?: number;
 }
@@ -48,6 +49,7 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
     avatarSrc,
     avatarAlt = "User avatar",
     showClientLogo = true,
+    showAvatar = true,
     menuIcon,
     maxTextLength = 10,
     ...props
@@ -86,20 +88,24 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
             </div>
           )}
           
-          <div className="flex items-center">
-            <div className="h-8 w-8 rounded-full bg-[#001A1A] text-white flex items-center justify-center font-medium">
-              {avatarSrc ? (
-                <img src={avatarSrc} alt={avatarAlt} className="h-full w-full rounded-full object-cover" />
-              ) : (
-                userInitials
+          {showAvatar && (
+            <div className="flex items-center">
+              <div className="h-8 w-8 rounded-full bg-[#001A1A] text-white flex items-center justify-center font-medium">
+                {avatarSrc ? (
+                  <img src={avatarSrc} alt={avatarAlt} className="h-full w-full rounded-full object-cover" />
+                ) : (
+                  userInitials
+                )}
+              </div>
+            
+              {(userName || companyName) && (
+                <div className="flex flex-col items-start text-left ml-3">
+                  {userName && <span className="text-base font-medium text-gray-900 leading-tight">{displayUserName}</span>}
+                  {companyName && <span className="text-sm text-gray-500 leading-tight">{displayCompanyName}</span>}
+                </div>
               )}
             </div>
-          
-            <div className="flex flex-col items-start text-left ml-3">
-              <span className="text-base font-medium text-gray-900 leading-tight">{displayUserName}</span>
-              <span className="text-sm text-gray-500 leading-tight">{displayCompanyName}</span>
-            </div>
-          </div>
+          )}
           
           <div className="text-gray-600 ml-auto pl-[15px]">
             <div className="mr-2">

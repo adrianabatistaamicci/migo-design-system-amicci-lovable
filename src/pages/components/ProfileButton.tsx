@@ -1,4 +1,3 @@
-
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
@@ -79,6 +78,7 @@ const ProfileButtonPage = () => {
                     companyName=""
                     userName=""
                     showClientLogo={true}
+                    showAvatar={false}
                   />
                 </div>
               </div>
@@ -156,6 +156,12 @@ const ProfileButtonPage = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">number</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">10</td>
                     <td className="px-6 py-4 text-sm text-gray-500">Limite máximo de caracteres para nome e empresa (trunca e adiciona "...")</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">showAvatar</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">boolean</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">true</td>
+                    <td className="px-6 py-4 text-sm text-gray-500">Controla a exibição do avatar e informações do usuário</td>
                   </tr>
                 </tbody>
               </table>
