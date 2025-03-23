@@ -42,7 +42,7 @@ const LibraryPage: React.FC = () => {
       <div className="max-w-3xl mb-12">
         <Header
           title="Library Components"
-          description="A collection of reusable UI components designed for our design system."
+          description="Uma coleção de componentes de UI reutilizáveis projetados para o nossa documentação de design system."
           type="components"
         />
         
