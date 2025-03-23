@@ -29,6 +29,7 @@ import ComponentCard from '@/components/ComponentCard';
 import CodeBlock from '@/components/CodeBlock';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Badge } from '@/components/ui/badge';
+import { Chip } from '@/components/ui/chip';
 import { Button } from '@/components/ui/button';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { cn } from '@/lib/utils';
@@ -164,6 +165,7 @@ import {
   ChevronRight 
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { Chip } from '@/components/ui/chip';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 const AdvancedSidebar = () => {
@@ -184,7 +186,7 @@ const AdvancedSidebar = () => {
     <div className="w-72 h-screen bg-white border-r border-gray-200 overflow-y-auto flex flex-col">
       <div className="p-4 border-b border-gray-200 flex items-center space-x-3">
         <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg" alt="Amicci" className="h-6" />
-        <Badge variant="outline" color="primary">v1.2.0</Badge>
+        <Chip variant="outlined" color="primary">v1.2.0</Chip>
       </div>
       
       <div className="p-3">
@@ -229,7 +231,7 @@ const AdvancedSidebar = () => {
               <Users size={18} className="mr-2 text-gray-500" />
               <span>User Activity</span>
             </div>
-            <Badge size="sm" color="primary">8</Badge>
+            <Badge color="primary" size="sm" badgeContent="8" />
           </a>
         </div>
         
@@ -248,7 +250,7 @@ const AdvancedSidebar = () => {
               <div className="ml-6 mt-1 space-y-1">
                 <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                   <span>Inbox</span>
-                  <Badge color="error" size="sm">14</Badge>
+                  <Badge color="error" size="sm" badgeContent="14" />
                 </a>
                 <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                   Sent
@@ -289,7 +291,7 @@ const AdvancedSidebar = () => {
                 </a>
                 <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                   <span>Categories</span>
-                  <Badge variant="dot" color="success"></Badge>
+                  <Badge variant="dot" color="success" />
                 </a>
                 <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                   Inventory
@@ -315,7 +317,7 @@ const AdvancedSidebar = () => {
           
           <a href="#" className="flex items-center justify-center w-8 h-8 rounded-md text-gray-700 hover:bg-gray-100 relative">
             <Bell size={18} />
-            <Badge variant="dot" color="error" className="absolute top-1 right-1"></Badge>
+            <Badge variant="dot" color="error" className="absolute top-1 right-1" />
           </a>
         </div>
       </div>
@@ -472,7 +474,7 @@ const AdvancedSidebar = () => {
                 <div className="w-72 h-full bg-white border-r border-gray-200 overflow-y-auto flex flex-col">
                   <div className="p-4 border-b border-gray-200 flex items-center space-x-3">
                     <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg" alt="Amicci" className="h-6" />
-                    <Badge variant="outline" color="primary">v1.2.0</Badge>
+                    <Chip variant="outlined" color="primary">v1.2.0</Chip>
                   </div>
                   
                   <div className="p-3">
@@ -517,7 +519,7 @@ const AdvancedSidebar = () => {
                           <Users size={18} className="mr-2 text-gray-500" />
                           <span>User Activity</span>
                         </div>
-                        <Badge size="sm" color="primary">8</Badge>
+                        <Badge color="primary" size="sm" badgeContent="8" />
                       </a>
                     </div>
                     
@@ -536,7 +538,7 @@ const AdvancedSidebar = () => {
                           <div className="ml-6 mt-1 space-y-1">
                             <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                               <span>Inbox</span>
-                              <Badge color="error" size="sm">14</Badge>
+                              <Badge color="error" size="sm" badgeContent="14" />
                             </a>
                             <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                               Sent
@@ -577,7 +579,7 @@ const AdvancedSidebar = () => {
                             </a>
                             <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                               <span>Categories</span>
-                              <Badge variant="dot" color="success"></Badge>
+                              <Badge variant="dot" color="success" />
                             </a>
                             <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                               Inventory
@@ -603,7 +605,7 @@ const AdvancedSidebar = () => {
                       
                       <a href="#" className="flex items-center justify-center w-8 h-8 rounded-md text-gray-700 hover:bg-gray-100 relative">
                         <Bell size={18} />
-                        <Badge variant="dot" color="error" className="absolute top-1 right-1"></Badge>
+                        <Badge variant="dot" color="error" className="absolute top-1 right-1" />
                       </a>
                     </div>
                   </div>
@@ -697,3 +699,4 @@ const LayoutComponentFooter = ({ code }) => {
 };
 
 export default SidebarLayouts;
+
