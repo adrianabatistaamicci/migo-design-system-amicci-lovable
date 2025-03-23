@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -278,6 +279,7 @@ const Brand = () => {
                       <div className="flex flex-col items-center">
                         <Sparkles size={40} className="text-tertiary-main mb-2" />
                         <span className="text-sm">Ícone Amy</span>
+                        <span className="text-xs text-gray-500 mt-1">Token: tertiary-main</span>
                       </div>
                       
                       <div className="flex flex-col items-center">
@@ -285,6 +287,7 @@ const Brand = () => {
                           <Sparkles size={24} className="text-tertiary-main" />
                         </div>
                         <span className="text-sm mt-2">Ícone com círculo</span>
+                        <span className="text-xs text-gray-500 mt-1">Token: bg-tertiary-light, text-tertiary-main</span>
                       </div>
                       
                       <div className="flex flex-col items-center">
@@ -293,6 +296,7 @@ const Brand = () => {
                           <AvatarFallback>AM</AvatarFallback>
                         </Avatar>
                         <span className="text-sm mt-2">Avatar Amy</span>
+                        <span className="text-xs text-gray-500 mt-1">Token: component.avatar</span>
                       </div>
                     </div>
                   </Card>
@@ -406,4 +410,3 @@ const Brand = () => {
 };
 
 export default Brand;
-
