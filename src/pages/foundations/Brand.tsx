@@ -301,64 +301,80 @@ const Brand = () => {
                 <Card className="p-6 shadow-none border">
                   <h3 className="text-xl font-medium mb-4">Box de insights</h3>
                   
-                  <Accordion type="single" collapsible className="w-full">
-                    <AccordionItem value="insight-1" className="border-0">
-                      <div className="bg-magenta-50 rounded-lg border border-magenta-200">
-                        <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                          <div className="flex items-center justify-between w-full">
-                            <div className="flex items-center gap-2">
-                              <img src={AmySvg} alt="Avatar da Amy" className="w-9 h-9 rounded-full" />
-                              <div className="inline-flex flex-col justify-start items-start">
-                                <div className="text-text-primary text-sm font-medium font-['Roboto'] leading-snug tracking-tight">Insight da Amy</div>
-                              </div>
-                              <Sparkles size={20} className="text-tertiary-main" />
+                  <div className="space-y-4">
+                    {/* Closed state version */}
+                    <div className="bg-magenta-50 rounded-lg border border-magenta-200">
+                      <div className="px-6 py-4">
+                        <div className="flex items-center justify-between w-full">
+                          <div className="flex items-center gap-2">
+                            <img src={AmySvg} alt="Avatar da Amy" className="w-9 h-9 rounded-full" />
+                            <div className="inline-flex flex-col justify-start items-start">
+                              <div className="text-text-primary text-sm font-medium font-['Roboto'] leading-snug tracking-tight">Insight da Amy</div>
                             </div>
-                            <div className="hidden data-[state=closed]:flex data-[state=open]:hidden items-center gap-2">
-                              <p className="text-gray-700 text-sm line-clamp-1">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...
-                              </p>
-                              <Chip size="sm">Novo insight gerado</Chip>
-                            </div>
-                            <Button variant="outline-secondary" size="sm" className="ml-auto mr-4 data-[state=closed]:hidden data-[state=open]:flex" startIcon={<RefreshCw size={16} />}>
-                              Gerar novo insight
-                            </Button>
+                            <Sparkles size={20} className="text-tertiary-main" />
                           </div>
-                        </AccordionTrigger>
-                        <AccordionContent className="px-6 pb-4">
-                          <div className="flex items-center gap-3 mb-3">
-                            <p className="text-gray-500 text-sm">
-                              Insight gerado em 13/03/2024 às 13:45
+                          <div className="flex items-center gap-2">
+                            <p className="text-gray-700 text-sm line-clamp-1">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...
                             </p>
+                            <Chip size="sm">Novo insight gerado</Chip>
                           </div>
-                          <div>
-                            <h4 className="font-medium text-base mb-2">Recomendações</h4>
-                            <ul className="list-disc pl-5 space-y-2 text-gray-700">
-                              <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>
-                              <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-                              <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</li>
-                            </ul>
+                          <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Open state version */}
+                    <div className="bg-magenta-50 rounded-lg border border-magenta-200">
+                      <div className="px-6 py-4">
+                        <div className="flex items-center justify-between w-full">
+                          <div className="flex items-center gap-2">
+                            <img src={AmySvg} alt="Avatar da Amy" className="w-9 h-9 rounded-full" />
+                            <div className="inline-flex flex-col justify-start items-start">
+                              <div className="text-text-primary text-sm font-medium font-['Roboto'] leading-snug tracking-tight">Insight da Amy</div>
+                            </div>
+                            <Sparkles size={20} className="text-tertiary-main" />
                           </div>
-                          
-                          <Separator className="my-4" />
-                          
-                          <div className="flex items-center justify-between text-sm text-gray-500">
-                            <p>Os insights da Amy são gerados por inteligência artificial e podem conter erros.</p>
-                            <div className="flex items-center gap-2">
-                              <span>Este insight foi útil?</span>
-                              <div className="flex gap-2">
-                                <Button variant="text-secondary" size="sm" className="flex items-center gap-1" startIcon={<ThumbsUp size={16} />}>
-                                  Sim
-                                </Button>
-                                <Button variant="text-secondary" size="sm" className="flex items-center gap-1" startIcon={<ThumbsDown size={16} />}>
-                                  Não
-                                </Button>
-                              </div>
+                          <Button variant="outline-secondary" size="sm" className="ml-auto mr-4" startIcon={<RefreshCw size={16} />}>
+                            Gerar novo insight
+                          </Button>
+                          <ChevronDown className="h-4 w-4 shrink-0 rotate-180 transition-transform duration-200" />
+                        </div>
+                      </div>
+                      <div className="px-6 pb-4">
+                        <div className="flex items-center gap-3 mb-3">
+                          <p className="text-gray-500 text-sm">
+                            Insight gerado em 13/03/2024 às 13:45
+                          </p>
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-base mb-2">Recomendações</h4>
+                          <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>
+                            <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+                            <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</li>
+                          </ul>
+                        </div>
+                        
+                        <Separator className="my-4" />
+                        
+                        <div className="flex items-center justify-between text-sm text-gray-500">
+                          <p>Os insights da Amy são gerados por inteligência artificial e podem conter erros.</p>
+                          <div className="flex items-center gap-2">
+                            <span>Este insight foi útil?</span>
+                            <div className="flex gap-2">
+                              <Button variant="text-secondary" size="sm" className="flex items-center gap-1" startIcon={<ThumbsUp size={16} />}>
+                                Sim
+                              </Button>
+                              <Button variant="text-secondary" size="sm" className="flex items-center gap-1" startIcon={<ThumbsDown size={16} />}>
+                                Não
+                              </Button>
                             </div>
                           </div>
-                        </AccordionContent>
+                        </div>
                       </div>
-                    </AccordionItem>
-                  </Accordion>
+                    </div>
+                  </div>
                 </Card>
               </div>
             </ComponentCard>
