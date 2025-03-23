@@ -1,3 +1,4 @@
+
 import React from 'react';
 import StackedLayout from './StackedLayout';
 import { Bell, Menu, Search, Globe, Rocket, ChevronDown } from 'lucide-react';
@@ -117,11 +118,12 @@ export const MarketplaceExample = () => {
               <Bell className="h-6 w-6" aria-hidden="true" />
             </button>
             <ProfileButton 
-              userName="Maria Rita"
-              companyName="Nome da Empresa"
+              userName="Amanda Silva"
+              companyName="Empresa XYZ"
+              showClientLogo={false}
+              avatarText="AS"
               showMenuIcon={true}
               menuIcon={<Menu className="h-6 w-6" />}
-              avatarText="OP"
             />
           </div>
         </>
