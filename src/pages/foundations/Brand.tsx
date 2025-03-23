@@ -18,7 +18,6 @@ import AmicciTagDesignSystem from '@/pages/assets/amicci-logo-tag-design-system.
 import AmicciTagBlog from '@/pages/assets/amicci-logo-tag-blog.svg';
 import AmicciTagEngenharia from '@/pages/assets/amicci-logo-tag-engenharia.svg';
 import AmicciTagUpdates from '@/pages/assets/amicci-logo-tag-updates.svg';
-
 const Brand = () => {
   const handleDownload = (url: string, filename: string) => {
     const link = document.createElement('a');
@@ -30,27 +29,53 @@ const Brand = () => {
   };
 
   // Tertiary (Amy) color palette data
-  const tertiaryColors = [
-    { name: 'tertiary-50', hex: '#FDF5FA', className: 'bg-tertiary-light' },
-    { name: 'tertiary-100', hex: '#F9E5F4', className: 'bg-tertiary-light' },
-    { name: 'tertiary-200', hex: '#F2CAEB', className: 'bg-tertiary-light' },
-    { name: 'tertiary-300', hex: '#E7A4DD', className: 'bg-tertiary-light' },
-    { name: 'tertiary-400', hex: '#C963BA', className: 'bg-tertiary-light' },
-    { name: 'tertiary-500', hex: '#9B247F', className: 'bg-tertiary-main' },
-    { name: 'tertiary-600', hex: '#841E6C', className: 'bg-tertiary-dark' },
-    { name: 'tertiary-700', hex: '#6D1959', className: 'bg-tertiary-dark' },
-    { name: 'tertiary-800', hex: '#571447', className: 'bg-tertiary-dark' },
-    { name: 'tertiary-900', hex: '#49123C', className: 'bg-tertiary-dark' },
-    { name: 'tertiary-950', hex: '#3E0F32', className: 'bg-tertiary-dark' },
-  ];
-
-  return (
-    <div className="w-full animate-fade-in">
-      <Header 
-        title="Brand" 
-        description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." 
-        type="foundations" 
-      />
+  const tertiaryColors = [{
+    name: 'tertiary-50',
+    hex: '#FDF5FA',
+    className: 'bg-tertiary-light'
+  }, {
+    name: 'tertiary-100',
+    hex: '#F9E5F4',
+    className: 'bg-tertiary-light'
+  }, {
+    name: 'tertiary-200',
+    hex: '#F2CAEB',
+    className: 'bg-tertiary-light'
+  }, {
+    name: 'tertiary-300',
+    hex: '#E7A4DD',
+    className: 'bg-tertiary-light'
+  }, {
+    name: 'tertiary-400',
+    hex: '#C963BA',
+    className: 'bg-tertiary-light'
+  }, {
+    name: 'tertiary-500',
+    hex: '#9B247F',
+    className: 'bg-tertiary-main'
+  }, {
+    name: 'tertiary-600',
+    hex: '#841E6C',
+    className: 'bg-tertiary-dark'
+  }, {
+    name: 'tertiary-700',
+    hex: '#6D1959',
+    className: 'bg-tertiary-dark'
+  }, {
+    name: 'tertiary-800',
+    hex: '#571447',
+    className: 'bg-tertiary-dark'
+  }, {
+    name: 'tertiary-900',
+    hex: '#49123C',
+    className: 'bg-tertiary-dark'
+  }, {
+    name: 'tertiary-950',
+    hex: '#3E0F32',
+    className: 'bg-tertiary-dark'
+  }];
+  return <div className="w-full animate-fade-in">
+      <Header title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." type="foundations" />
 
       <Tabs defaultValue="logo" className="mt-8">
         <TabsList className="mb-8">
@@ -147,25 +172,22 @@ const Brand = () => {
         <TabsContent value="amy" className="space-y-10">
           <ComponentCard title="Amy" description="A inteligência artificial da Amicci que ajuda os clientes no fluxo de planejamento, projeto e performance comercial da plataforma.">
             <div className="space-y-8">
-              <div className="mt-6">
+              <div className="mt-3">
                 <h4 className="text-xl font-medium mb-4">Paleta de cores Tertiary (Amy)</h4>
                 <p className="text-gray-600 mb-4">A Amy é representada pela paleta de cores tertiary, que consiste em tons de magenta/roxo que transmitem inovação e inteligência.</p>
                 
                 <div className="p-4 border rounded-lg">
                   <h5 className="font-medium mb-3">Escala Completa</h5>
-                  <div className="flex gap-2 overflow-x-auto pb-2">
-                    {tertiaryColors.map((color) => (
-                      <div key={color.name} className="flex flex-col items-center flex-shrink-0">
-                        <div 
-                          className={`h-16 w-16 rounded-md flex items-center justify-center ${color.name.includes('50') || color.name.includes('100') || color.name.includes('200') ? 'text-tertiary-800' : 'text-white'}`}
-                          style={{ backgroundColor: color.hex }}
-                        >
+                  <div className="flex gap-3 overflow-x-auto pb-2">
+                    {tertiaryColors.map(color => <div key={color.name} className="flex flex-col items-center flex-shrink-0">
+                        <div className={`h-16 w-16 rounded-md flex items-center justify-center ${color.name.includes('50') || color.name.includes('100') || color.name.includes('200') ? 'text-tertiary-800' : 'text-white'}`} style={{
+                      backgroundColor: color.hex
+                    }}>
                           {color.name.split('-')[1]}
                         </div>
                         <span className="text-xs mt-1">{color.name}</span>
                         <span className="text-xs text-gray-500">{color.hex}</span>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </div>
               </div>
@@ -209,31 +231,19 @@ const Brand = () => {
               <h4 className="text-xl font-medium">Imagens da Amy</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="flex flex-col items-center gap-2">
-                  <img 
-                    src="/lovable-uploads/79898233-8ca1-4e72-ac85-afcf73053fff.png" 
-                    alt="Amy, a IA da Amicci" 
-                    className="w-[150px] h-auto object-contain rounded-md" 
-                  />
+                  <img src="/lovable-uploads/79898233-8ca1-4e72-ac85-afcf73053fff.png" alt="Amy, a IA da Amicci" className="w-[150px] h-auto object-contain rounded-md" />
                   <Button variant="outline" onClick={() => handleDownload('/lovable-uploads/79898233-8ca1-4e72-ac85-afcf73053fff.png', 'amy-image-1.png')}>
                     Download PNG
                   </Button>
                 </div>
                 <div className="flex flex-col items-center gap-2">
-                  <img 
-                    src="/lovable-uploads/097cfa6e-4055-443e-934b-320041b8deac.png" 
-                    alt="Amy, a IA da Amicci em outra pose" 
-                    className="w-[150px] h-auto object-contain rounded-md" 
-                  />
+                  <img src="/lovable-uploads/097cfa6e-4055-443e-934b-320041b8deac.png" alt="Amy, a IA da Amicci em outra pose" className="w-[150px] h-auto object-contain rounded-md" />
                   <Button variant="outline" onClick={() => handleDownload('/lovable-uploads/097cfa6e-4055-443e-934b-320041b8deac.png', 'amy-image-2.png')}>
                     Download PNG
                   </Button>
                 </div>
                 <div className="flex flex-col items-center gap-2">
-                  <img 
-                    src="/lovable-uploads/e778bf14-8d9d-424d-ab01-0ff69e892a9b.png" 
-                    alt="Amy, avatar em formato de perfil" 
-                    className="w-[150px] h-auto object-contain rounded-md" 
-                  />
+                  <img src="/lovable-uploads/e778bf14-8d9d-424d-ab01-0ff69e892a9b.png" alt="Amy, avatar em formato de perfil" className="w-[150px] h-auto object-contain rounded-md" />
                   <Button variant="outline" onClick={() => handleDownload('/lovable-uploads/e778bf14-8d9d-424d-ab01-0ff69e892a9b.png', 'amy-avatar.png')}>
                     Download PNG
                   </Button>
@@ -292,11 +302,7 @@ const Brand = () => {
                       <div className="flex items-center gap-4">
                         <div className="flex-shrink-0">
                           <div className="w-10 h-10 rounded-full overflow-hidden">
-                            <img 
-                              src="/lovable-uploads/e778bf14-8d9d-424d-ab01-0ff69e892a9b.png" 
-                              alt="Avatar da Amy" 
-                              className="w-full h-full object-cover" 
-                            />
+                            <img src="/lovable-uploads/e778bf14-8d9d-424d-ab01-0ff69e892a9b.png" alt="Avatar da Amy" className="w-full h-full object-cover" />
                           </div>
                         </div>
                         <div className="flex items-center gap-2">
@@ -317,19 +323,13 @@ const Brand = () => {
                 </Accordion>
                 
                 <div className="mt-8">
-                  <img 
-                    src="/lovable-uploads/1b008d0e-08f9-46a3-98cb-21860633fef4.png" 
-                    alt="Exemplo completo do container de insights da Amy" 
-                    className="w-full h-auto object-contain border rounded-lg" 
-                  />
+                  <img src="/lovable-uploads/1b008d0e-08f9-46a3-98cb-21860633fef4.png" alt="Exemplo completo do container de insights da Amy" className="w-full h-auto object-contain border rounded-lg" />
                 </div>
               </div>
             </div>
           </ComponentCard>
         </TabsContent>
       </Tabs>
-    </div>
-  );
+    </div>;
 };
-
 export default Brand;
