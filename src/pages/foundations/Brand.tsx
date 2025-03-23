@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -227,7 +228,7 @@ const Brand = () => {
                     A Amy é representada pela paleta de cores tertiary, que consiste em tons de magenta/roxo que transmitem inovação e inteligência.
                   </p>
                   
-                  <div className="grid grid-cols-8 gap-2">
+                  <div className="grid grid-cols-8 gap-3">
                     {tertiaryPalette.map(item => (
                       <div key={item.name} className="flex flex-col items-center">
                         <div 
@@ -243,7 +244,7 @@ const Brand = () => {
 
                 <Card className="p-6">
                   <h3 className="text-xl font-medium mb-3">Magenta color base</h3>
-                  <div className="grid grid-cols-11 gap-1">
+                  <div className="grid grid-cols-11 gap-3">
                     {tertiaryColors.map(color => (
                       <div key={color.name} className="flex flex-col items-center">
                         <div 
@@ -299,7 +300,7 @@ const Brand = () => {
                       
                       <div className="flex flex-col items-center">
                         <Avatar className="w-14 h-14">
-                          <AvatarImage src={Amy004} alt="Avatar da Amy" />
+                          <AvatarImage src={AmySvg} alt="Avatar da Amy" />
                           <AvatarFallback>AM</AvatarFallback>
                         </Avatar>
                         <span className="text-sm mt-2">Avatar Amy</span>
@@ -313,7 +314,7 @@ const Brand = () => {
                   <div className="border border-tertiary-200 rounded-lg p-4">
                     <div className="flex items-start gap-3">
                       <Avatar className="w-10 h-10 flex-shrink-0">
-                        <AvatarImage src={Amy004} alt="Avatar da Amy" />
+                        <AvatarImage src={AmySvg} alt="Avatar da Amy" />
                         <AvatarFallback>AM</AvatarFallback>
                       </Avatar>
                       <div className="flex-1">
