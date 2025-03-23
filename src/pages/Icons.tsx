@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import { Chip } from '@/components/ui/chip';
@@ -9,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import ComponentCard from '@/components/ComponentCard';
 import Header from '@/components/library-components/Header';
 import { TailwindTabs } from "@/components/ui/tabs";
+import { Home, Settings, Eye, User } from "lucide-react";
 
 const Icons = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -17,7 +17,7 @@ const Icons = () => {
     <div className="w-full animate-fade-in">
       <Header 
         title="Ícones"
-        description="Usamos ícones Outlined da Material Design como biblioteca oficial"
+        description="Usamos ícones Lucide como biblioteca oficial"
         type="foundations"
       />
       
@@ -35,24 +35,24 @@ const Icons = () => {
       />
       
       {activeTab === 'overview' && (
-        <ComponentCard title="Material Design Icons" description="Os ícones do Material Design são o conjunto oficial de ícones do Google que são projetados de acordo com as diretrizes do Material Design.">
+        <ComponentCard title="Lucide Icons" description="Os ícones Lucide são um conjunto moderno e leve de ícones de código aberto projetados para interfaces digitais.">
           <p className="text-mui-text-secondary mb-6">
-            Os ícones do Material Design são simples, modernos e amigáveis. Eles seguem os princípios de design do Material e funcionam bem em diferentes tamanhos e contextos.
+            Os ícones Lucide são simples, modernos e amigáveis. Eles são fáceis de integrar em projetos React e oferecem alto grau de customização.
           </p>
           
           <div className="flex flex-col md:flex-row gap-6 mt-6">
             <div className="flex-1 p-4 border flex flex-col items-center justify-center rounded">
-              <img src={getMaterialIconUrl("account_circle")} alt="Account Icon" className="w-10 h-10 mb-2" />
+              <User className="w-10 h-10 mb-2" />
               <h3 className="font-medium">Simples</h3>
               <p className="text-sm text-center text-muted-foreground">Design limpo e minimalista que funciona bem em tamanhos pequenos</p>
             </div>
             <div className="flex-1 p-4 border flex flex-col items-center justify-center rounded">
-              <img src={getMaterialIconUrl("settings")} alt="Settings Icon" className="w-10 h-10 mb-2" />
+              <Settings className="w-10 h-10 mb-2" />
               <h3 className="font-medium">Consistente</h3>
               <p className="text-sm text-center text-muted-foreground">Estilo uniforme em todos os ícones do sistema</p>
             </div>
             <div className="flex-1 p-4 border flex flex-col items-center justify-center rounded">
-              <img src={getMaterialIconUrl("visibility")} alt="Visibility Icon" className="w-10 h-10 mb-2" />
+              <Eye className="w-10 h-10 mb-2" />
               <h3 className="font-medium">Significativo</h3>
               <p className="text-sm text-center text-muted-foreground">Metáforas reconhecíveis que comunicam rapidamente o significado</p>
             </div>
@@ -61,7 +61,7 @@ const Icons = () => {
           <Alert className="mt-8 border-amicci-400 rounded bg-amicci-100">
             <AlertDescription className="flex flex-row justify-between items-center">
               <span className="font-medium text-base">A biblioteca completa pode ser acessada no site oficial.</span>
-              <Button variant="default" onClick={() => window.open("https://fonts.google.com/icons", "_blank", "noopener,noreferrer")}>Acessar Material Design Icons</Button>
+              <Button variant="default" onClick={() => window.open("https://lucide.dev/icons/", "_blank", "noopener,noreferrer")}>Acessar Lucide Icons</Button>
             </AlertDescription>
           </Alert>
           
@@ -69,42 +69,39 @@ const Icons = () => {
 
           <div className="mb-6">
             <h3 className="text-lg font-medium mb-2">Guia de Integração</h3>
-            <p className="mb-4">Existem várias maneiras de integrar os ícones do Material Design em seu projeto:</p>
+            <p className="mb-4">Existem várias maneiras de integrar os ícones Lucide em seu projeto:</p>
             
             <div className="space-y-6">
               <div className="rounded border p-4">
-                <h4 className="font-medium mb-2">1. Google Fonts (CDN)</h4>
-                <p className="text-sm mb-3">Adicione esta linha ao cabeçalho HTML:</p>
+                <h4 className="font-medium mb-2">1. Instalação via NPM</h4>
+                <p className="text-sm mb-3">Instale o pacote lucide-react:</p>
                 <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
-                  &lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"&gt;
+                  npm install lucide-react
                 </div>
-                <p className="text-sm mt-3">Então use os ícones com:</p>
+                <p className="text-sm mt-3">Então importe e use os ícones:</p>
                 <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
-                  &lt;span className="material-icons-outlined"&gt;home&lt;/span&gt;
-                </div>
-              </div>
-              
-              <div className="rounded border p-4">
-                <h4 className="font-medium mb-2">2. Ícones SVG</h4>
-                <p className="text-sm mb-3">Use URLs SVG diretamente do Google Fonts:</p>
-                <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
-                  &lt;img src="https://fonts.gstatic.com/s/i/materialiconsoutlined/home/v12/24px.svg" alt="Home"&gt;
-                </div>
-                <p className="text-sm mt-3">Você pode criar uma função utilitária para gerar essas URLs:</p>
-                <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
-                  {`const getMaterialIconUrl = (name, size = 24) => \`https://fonts.gstatic.com/s/i/materialiconsoutlined/\${name}/v12/\${size}px.svg\`;`}
+                  import {'{ Home }'} from 'lucide-react';<br/>
+                  &lt;Home /&gt;
                 </div>
               </div>
               
               <div className="rounded border p-4">
-                <h4 className="font-medium mb-2">3. Bibliotecas de Ícones</h4>
-                <p className="text-sm mb-3">Use um pacote como material-icons:</p>
+                <h4 className="font-medium mb-2">2. Customização</h4>
+                <p className="text-sm mb-3">Os ícones Lucide são altamente customizáveis:</p>
                 <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
-                  npm install material-icons
+                  &lt;Home size={24} color="blue" strokeWidth={2} /&gt;
                 </div>
-                <p className="text-sm mt-3">Depois importe em seu CSS/JS:</p>
+                <p className="text-sm mt-3">Você pode passar qualquer propriedade SVG para personalizar ainda mais:</p>
                 <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
-                  import 'material-icons/iconfont/material-icons.css';
+                  &lt;Home className="text-primary hover:text-secondary" /&gt;
+                </div>
+              </div>
+              
+              <div className="rounded border p-4">
+                <h4 className="font-medium mb-2">3. Componente Genérico</h4>
+                <p className="text-sm mb-3">Crie um componente de ícone genérico para uso dinâmico:</p>
+                <div className="bg-muted p-3 rounded text-xs font-mono overflow-x-auto">
+                  {`import { icons } from 'lucide-react';\n\nconst Icon = ({ name, ...props }) => {\n  const LucideIcon = icons[name];\n  return <LucideIcon {...props} />;\n};\n\n// Uso: <Icon name="Home" size={24} />`}
                 </div>
               </div>
             </div>
@@ -113,42 +110,42 @@ const Icons = () => {
           <div className="mt-8">
             <h3 className="text-lg font-medium mb-2">Recursos Oficiais</h3>
             <ul className="list-disc list-inside space-y-2 text-sm">
-              <li><a href="https://fonts.google.com/icons" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google Fonts Icons Library</a> - Navegue e baixe ícones do Material</li>
-              <li><a href="https://m3.material.io/styles/icons/overview" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Material Design 3 Icons</a> - Diretrizes oficiais</li>
-              <li><a href="https://github.com/google/material-design-icons" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Material Design Icons GitHub</a> - Repositório oficial</li>
+              <li><a href="https://lucide.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Site Oficial Lucide</a> - Navegue e busque ícones</li>
+              <li><a href="https://github.com/lucide-icons/lucide" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GitHub Lucide</a> - Repositório oficial</li>
+              <li><a href="https://lucide.dev/docs/lucide-react" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Documentação lucide-react</a> - Guia completo de uso com React</li>
             </ul>
           </div>
         </ComponentCard>
       )}
-        
+      
       {activeTab === 'styles' && (
         <div className="p-6 border rounded-lg mt-6">
           <h2 className="text-2xl font-semibold mb-4">Estilos de Ícones</h2>
-          <p className="mb-4">Os ícones do Material Design estão disponíveis em diferentes estilos para atender às necessidades do seu projeto.</p>
+          <p className="mb-4">Os ícones Lucide mantêm um estilo consistente em toda a biblioteca, com linhas limpas e claras.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
             <div className="border p-4 rounded-lg">
-              <h3 className="font-medium mb-3">Outlined</h3>
+              <h3 className="font-medium mb-3">Padrão</h3>
               <div className="flex justify-center mb-3">
-                <img src={getMaterialIconUrl("favorite_border")} alt="Outlined Heart" className="w-12 h-12" />
+                <Home className="w-12 h-12" />
               </div>
               <p className="text-sm text-center">Estilo padrão com contornos limpos, adequado para a maioria das interfaces.</p>
             </div>
             
             <div className="border p-4 rounded-lg">
-              <h3 className="font-medium mb-3">Filled</h3>
+              <h3 className="font-medium mb-3">Espesso</h3>
               <div className="flex justify-center mb-3">
-                <img src="https://fonts.gstatic.com/s/i/materialicons/favorite/v12/24px.svg" alt="Filled Heart" className="w-12 h-12" />
+                <Home className="w-12 h-12" strokeWidth={3} />
               </div>
-              <p className="text-sm text-center">Ícones preenchidos que proporcionam maior ênfase visual.</p>
+              <p className="text-sm text-center">Aumente o strokeWidth para ícones com linhas mais espessas e maior ênfase visual.</p>
             </div>
             
             <div className="border p-4 rounded-lg">
-              <h3 className="font-medium mb-3">Round</h3>
+              <h3 className="font-medium mb-3">Fino</h3>
               <div className="flex justify-center mb-3">
-                <img src="https://fonts.gstatic.com/s/i/materialiconsround/favorite/v12/24px.svg" alt="Round Heart" className="w-12 h-12" />
+                <Home className="w-12 h-12" strokeWidth={1} />
               </div>
-              <p className="text-sm text-center">Cantos arredondados para um visual mais suave e amigável.</p>
+              <p className="text-sm text-center">Diminua o strokeWidth para ícones mais leves e sutis.</p>
             </div>
           </div>
           
@@ -160,7 +157,7 @@ const Icons = () => {
               <div className="border p-4 rounded-lg">
                 <h4 className="font-medium mb-2">Primário</h4>
                 <div className="flex items-center space-x-4">
-                  <img src={getMaterialIconUrl("home")} alt="Home Icon" className="w-8 h-8" />
+                  <Home className="w-8 h-8 text-primary" />
                   <div>
                     <p className="text-sm">Usado para ações e elementos principais</p>
                     <p className="text-xs text-muted-foreground mt-1">Alta visibilidade, cor primária</p>
@@ -171,7 +168,7 @@ const Icons = () => {
               <div className="border p-4 rounded-lg">
                 <h4 className="font-medium mb-2">Secundário</h4>
                 <div className="flex items-center space-x-4">
-                  <img src={getMaterialIconUrl("info")} alt="Info Icon" className="w-8 h-8 opacity-60" />
+                  <Home className="w-8 h-8 text-muted-foreground" />
                   <div>
                     <p className="text-sm">Usado para suporte e elementos auxiliares</p>
                     <p className="text-xs text-muted-foreground mt-1">Visibilidade média, cor secundária ou opacidade reduzida</p>
@@ -310,3 +307,4 @@ const Icons = () => {
 };
 
 export default Icons;
+
