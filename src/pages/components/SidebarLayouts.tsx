@@ -1,10 +1,12 @@
 
-import React from 'react';
-import { Sidebar, Home, Settings, Users, FileText, Mail, ChevronDown, ChevronRight, ChevronLeft, Menu, X } from 'lucide-react';
+import React, { useState } from 'react';
+import { Sidebar, Home, Settings, Users, FileText, Mail, ChevronDown, ChevronRight, ChevronLeft, Menu, X, Code, Copy, CheckCheck } from 'lucide-react';
 import Header from '@/components/library-components/Header';
 import ComponentCard from '@/components/ComponentCard';
 import CodeBlock from '@/components/CodeBlock';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 const SidebarLayouts = () => {
   const sidebarCode = `// Basic Sidebar Component Example
@@ -123,10 +125,13 @@ const CollapsibleSidebar = () => {
       <Header title="Sidebar Layouts" description="Barras laterais de navegação responsivas com recursos avançados como ícones, badges, submenus expansíveis e seções de rodapé" type="components" />
       
       <div className="max-w-[1280px] mx-auto">
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">Basic Sidebar</h2>
-          <ComponentCard title="Basic Sidebar Example">
-            <AspectRatio ratio={4 / 3} className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden">
+        <section className="space-y-3 mb-12">
+          <div className="px-4">
+            <h3 className="text-xl font-medium text-gray-900">Basic Sidebar</h3>
+          </div>
+          
+          <div className="border rounded-lg overflow-hidden shadow-sm">
+            <div className="bg-gray-100 w-full h-[500px] overflow-hidden">
               <div className="flex h-full">
                 <div className="w-64 h-full bg-white border-r border-gray-200">
                   <div className="p-4 border-b border-gray-200">
@@ -170,16 +175,66 @@ const CollapsibleSidebar = () => {
                   <p className="text-gray-600">Main content would go here</p>
                 </div>
               </div>
-            </AspectRatio>
-          </ComponentCard>
+            </div>
+            
+            <LayoutComponentFooter code={sidebarCode} />
+          </div>
         </section>
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">Collapsible Sidebar</h2>
-          <p className="text-gray-700 mb-6">
-            A collapsible sidebar can be expanded or collapsed to save screen space while still providing navigation.
-          </p>
-          <CodeBlock code={collapsibleSidebarCode} language="jsx" title="Collapsible Sidebar Example" />
+        <section className="space-y-3 mb-12">
+          <div className="px-4">
+            <h3 className="text-xl font-medium text-gray-900">Collapsible Sidebar</h3>
+          </div>
+          
+          <div className="border rounded-lg overflow-hidden shadow-sm">
+            <div className="bg-gray-100 w-full h-[500px] overflow-hidden">
+              <div className="relative">
+                <div className="fixed top-0 left-0 h-screen bg-white border-r border-gray-200 shadow-sm transition-all duration-300 w-64 md:relative">
+                  <div className="p-4 border-b border-gray-200 flex items-center justify-between">
+                    <h2 className="text-lg font-medium">App Name</h2>
+                    <button className="hidden md:block text-gray-500 hover:text-gray-700">
+                      <ChevronLeft size={20} />
+                    </button>
+                  </div>
+                  
+                  <nav className="mt-4">
+                    <ul className="space-y-1 px-2">
+                      <li>
+                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main">
+                          <Home size={18} className="mr-2" />
+                          <span>Dashboard</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                          <Mail size={18} className="mr-2" />
+                          <span>Messages</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                          <Users size={18} className="mr-2" />
+                          <span>Team</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                          <Settings size={18} className="mr-2" />
+                          <span>Settings</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                <div className="ml-64 p-6">
+                  <h1 className="text-xl font-semibold mb-4">Dashboard</h1>
+                  <p className="text-gray-600">Main content would go here</p>
+                </div>
+              </div>
+            </div>
+            
+            <LayoutComponentFooter code={collapsibleSidebarCode} />
+          </div>
         </section>
 
         <section className="mb-12">
@@ -206,6 +261,53 @@ const CollapsibleSidebar = () => {
         </section>
       </div>
     </div>
+  );
+};
+
+const LayoutComponentFooter = ({ code }) => {
+  const [showCode, setShowCode] = useState(false);
+  const [copied, setCopied] = useState(false);
+  
+  const copyToClipboard = () => {
+    if (code) {
+      navigator.clipboard.writeText(code);
+      setCopied(true);
+      setTimeout(() => {
+        setCopied(false);
+      }, 2000);
+    }
+  };
+  
+  return (
+    <>
+      <div className="border-t border-gray-200 px-4 py-3 flex justify-between items-center bg-gray-50">
+        <Button variant="ghost" size="sm" onClick={() => setShowCode(!showCode)} className="flex items-center gap-1 text-sm">
+          <Code size={16} />
+          <span>{showCode ? 'Hide code' : 'Show code'}</span>
+        </Button>
+        
+        <Button variant="ghost" size="sm" onClick={copyToClipboard} className="flex items-center gap-1 text-sm">
+          {copied ? <>
+              <CheckCheck size={16} />
+              <span>Copied</span>
+            </> : <>
+              <Copy size={16} />
+              <span>Copy</span>
+            </>}
+        </Button>
+      </div>
+      
+      <div className={cn(
+        "border-t bg-gray-50 overflow-x-auto transition-all duration-300 w-full",
+        showCode ? "h-auto max-h-[400px] p-4" : "h-0 p-0 opacity-0"
+      )}>
+        {showCode && (
+          <pre className="text-sm w-full">
+            <code>{code}</code>
+          </pre>
+        )}
+      </div>
+    </>
   );
 };
 
