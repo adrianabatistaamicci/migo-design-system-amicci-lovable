@@ -116,7 +116,7 @@ const CollapsibleSidebar = () => {
       </div>
     </div>
   );
-};`;
+}`;
 
   return (
     <div className="w-full animate-fade-in">
