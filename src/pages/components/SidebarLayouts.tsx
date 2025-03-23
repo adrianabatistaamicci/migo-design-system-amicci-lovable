@@ -130,9 +130,9 @@ const CollapsibleSidebar = () => {
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">Overview</h2>
           <p className="text-gray-700 mb-6">
-            Os layouts de barra lateral fornecem navegação vertical para aplicações, permitindo que os usuários se movam entre diferentes seções.
-            Eles são comumente usados em dashboards, painéis administrativos e aplicações com múltiplas páginas.
-            Para criar menus laterais responsivos com recursos como ícones e emblemas, submenus expansíveis e seções de rodapé.
+            Os layouts de barra lateral oferecem uma navegação vertical intuitiva que permite aos usuários transitarem facilmente entre diferentes seções da aplicação.
+            Amplamente utilizados em dashboards, painéis administrativos e aplicações complexas, eles organizam o conteúdo de forma clara e acessível.
+            Explore nossas opções para criar menus laterais responsivos com recursos avançados como ícones informativos, emblemas de notificação, submenus expansíveis e seções de rodapé personalizáveis.
           </p>
         </section>
 
