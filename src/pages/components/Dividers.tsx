@@ -17,7 +17,7 @@ const Dividers = () => {
         type="components"
       />
       
-      <div className="max-w-3xl space-y-12">
+      <div className="w-full space-y-12">
         <section>
           <h2 className="text-xl font-semibold mb-6">Uso básico</h2>
           <p className="text-mui-text-secondary mb-6">
