@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Chip } from '@/components/ui/chip';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -803,6 +804,99 @@ const Colors = () => {
               </div>
               
               <div>
+                <h3 className="text-xl font-semibold mb-3">Teste de Daltonismo</h3>
+                <p className="text-gray-600 mb-4">
+                  Simulações de como nosso sistema de cores é percebido por pessoas com diferentes tipos de daltonismo:
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    <h4 className="font-medium">Selecione um tipo de daltonismo para simular:</h4>
+                    <div className="flex flex-wrap gap-3">
+                      <ToggleGroup type="single" value={simulationType} onValueChange={setSimulationType}>
+                        <ToggleGroupItem value="protanopia" aria-label="Protanopia">
+                          <span className="px-2">Protanopia</span>
+                        </ToggleGroupItem>
+                        <ToggleGroupItem value="deuteranopia" aria-label="Deuteranopia">
+                          <span className="px-2">Deuteranopia</span>
+                        </ToggleGroupItem>
+                        <ToggleGroupItem value="tritanopia" aria-label="Tritanopia">
+                          <span className="px-2">Tritanopia</span>
+                        </ToggleGroupItem>
+                        <ToggleGroupItem value="achromatopsia" aria-label="Achromatopsia">
+                          <span className="px-2">Achromatopsia</span>
+                        </ToggleGroupItem>
+                      </ToggleGroup>
+                      
+                      {simulationType && (
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          onClick={() => setSimulationType('')}
+                          className="flex items-center gap-1"
+                        >
+                          <EyeOff className="h-4 w-4" />
+                          Remover simulação
+                        </Button>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="border p-4 rounded-lg space-y-3">
+                    <h4 className="font-medium">Tipos de Daltonismo:</h4>
+                    <ul className="space-y-2 list-disc pl-5 text-sm text-gray-700">
+                      <li><strong>Protanopia:</strong> Dificuldade em perceber vermelho</li>
+                      <li><strong>Deuteranopia:</strong> Dificuldade em perceber verde</li>
+                      <li><strong>Tritanopia:</strong> Dificuldade em perceber azul</li>
+                      <li><strong>Achromatopsia:</strong> Ausência total de percepção de cores</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="mt-6 space-y-6">
+                  <h4 className="font-medium">Visualização das cores com simulação de daltonismo:</h4>
+                  
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {baseColorsData.slice(0, 2).map(baseColor => (
+                      <div key={baseColor.name} className="space-y-2">
+                        <h5 className="text-sm font-medium">{baseColor.name}</h5>
+                        <div className="grid grid-cols-5 gap-1">
+                          {baseColor.weights.filter((_, index) => index % 2 === 0).map(weight => (
+                            <ColorSwatch
+                              key={`${baseColor.name}-${weight.weight}`}
+                              color={weight.colorClass}
+                              hexValue={weight.hexValue}
+                              weight={weight.weight}
+                              className="h-12"
+                              simulationType={simulationType}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                    
+                    {paletteData.slice(0, 4).map(palette => (
+                      <div key={palette.name} className="space-y-2">
+                        <h5 className="text-sm font-medium">{palette.name}</h5>
+                        <div className="grid grid-cols-3 gap-1">
+                          {palette.variants.slice(0, 3).map(variant => (
+                            <ColorSwatch
+                              key={`${palette.name}-${variant.name}`}
+                              color={variant.colorClass}
+                              hexValue={variant.hexValue}
+                              weight={variant.name}
+                              className="h-12"
+                              simulationType={simulationType}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              
+              <div>
                 <h3 className="text-xl font-semibold mb-3">Não Dependa Apenas da Cor</h3>
                 <p className="text-gray-600 mb-4">
                   Para garantir que as informações sejam acessíveis a pessoas com deficiência visual ou daltonismo, 
@@ -840,8 +934,12 @@ const Colors = () => {
                     </div>
                     <p className="text-sm text-gray-600">Nossas combinações são testadas para diferentes tipos de daltonismo</p>
                     <div className="grid grid-cols-2 gap-2">
-                      <div className="h-12 bg-success-main rounded"></div>
-                      <div className="h-12 bg-error-main rounded"></div>
+                      <div className="h-12 bg-success-main rounded flex items-center justify-center">
+                        <Check className="h-5 w-5 text-white" />
+                      </div>
+                      <div className="h-12 bg-error-main rounded flex items-center justify-center">
+                        <AlertCircle className="h-5 w-5 text-white" />
+                      </div>
                     </div>
                   </div>
                 </div>
