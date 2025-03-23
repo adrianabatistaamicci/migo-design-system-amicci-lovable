@@ -166,11 +166,11 @@ export const MarketplaceBuyerExample = () => {
           <div className="flex items-center space-x-4">
             <Button 
               variant="outline-secondary" 
-              className="flex items-center gap-2 relative text-tertiary-main"
+              className="flex items-center gap-2 relative"
             >
               <Sparkles className="h-5 w-5 text-tertiary-main" />
-              <span>Amy</span>
-              <div className="absolute -top-1 -right-1 h-4 w-4">
+              <span className="text-primary-main">Amy</span>
+              <div className="absolute -top-2 -right-2 h-6 w-6">
                 <Lottie
                   animationData={animationData}
                   loop={true}
