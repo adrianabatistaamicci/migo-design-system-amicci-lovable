@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import Header from '@/components/library-components/Header';
 import EmptyState from '@/components/library-components/EmptyState';
-import { Separator } from "@/components/ui/separator";
 
 // Define the type for the module records returned by import.meta.glob
 type ModuleRecord = Record<string, {
