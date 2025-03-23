@@ -223,13 +223,13 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
   // Main section headers (level 0) should not be collapsible
   if (level === 0) {
     return (
-      <div className="mb-6">
+      <div className="mb-8">
         {item.title && (
           <div className="mb-2">
             <div className={cn(
               "flex items-center w-full py-2 px-3 rounded-md text-sm font-medium text-primary uppercase text-xs"
             )}>
-              {item.icon && <item.icon size={20} className="text-primary-main mr-2" />}
+              {item.icon && <item.icon size={20} className="text-primary mr-2" />}
               <span>{item.title}</span>
             </div>
             
@@ -252,19 +252,19 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
           <Collapsible open={expanded} onOpenChange={setExpanded}>
             <CollapsibleTrigger className={cn(
               "flex items-center justify-between w-full py-2 px-3 rounded-md text-sm",
-              level === 0 ? "font-medium text-primary uppercase text-xs" : "text-foreground",
-              active && !item.href ? "text-primary-main font-semibold" : "",
+              level === 0 ? "font-medium text-primary uppercase text-xs" : "text-primary",
+              active && !item.href ? "text-primary font-semibold" : "",
               level > 0 && "pl-8",
               item.href ? "hover:bg-gray-100 cursor-pointer" : ""
             )}>
               <div className="flex items-center gap-2">
-                {item.icon && <item.icon size={20} className="text-primary-main" />}
+                {item.icon && <item.icon size={20} className="text-primary" />}
                 {item.href ? (
                   <Link 
                     to={item.href} 
                     className={cn(
                       "w-full",
-                      location.pathname === item.href ? "text-primary-main font-semibold" : ""
+                      location.pathname === item.href ? "text-primary font-semibold" : ""
                     )}
                   >
                     {item.title}
@@ -310,13 +310,13 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
       className={cn(
         "flex items-center justify-between py-2 px-3 text-sm rounded-md mb-1",
         location.pathname === item.href 
-          ? "bg-primary-hover text-primary-main font-semibold" 
+          ? "bg-primary-hover text-primary font-semibold" 
           : "text-gray-700 hover:bg-gray-100",
         level > 0 && "pl-8",
       )}
     >
       <div className="flex items-center">
-        {item.icon && <item.icon size={20} className="mr-2 text-gray-500" />}
+        {item.icon && <item.icon size={20} className="mr-2 text-primary" />}
         <span>{item.title}</span>
       </div>
       
