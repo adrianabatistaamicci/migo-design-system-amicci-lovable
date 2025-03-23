@@ -1,4 +1,3 @@
-
 import React from 'react';
 import StackedLayout from './StackedLayout';
 import { Bell, Menu, Search, Globe, Rocket, ChevronDown } from 'lucide-react';
@@ -129,7 +128,6 @@ export const MarketplaceExample = () => {
           </div>
         </>
       }
-      headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Minha vitrine</h1>}
     >
       <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 relative"></div>
     </StackedLayout>
@@ -182,7 +180,6 @@ export const MarketplaceBuyerExample = () => {
           </div>
         </>
       }
-      headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Meus Projetos</h1>}
     >
       <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 relative"></div>
     </StackedLayout>
@@ -234,7 +231,6 @@ export const InstitutionalExample = () => {
           </div>
         </>
       }
-      headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Home</h1>}
     >
       <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
     </StackedLayout>
