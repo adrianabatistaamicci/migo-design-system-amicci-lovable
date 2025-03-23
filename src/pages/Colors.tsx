@@ -1,4 +1,4 @@
-<lov-code>
+
 import React, { useState } from 'react';
 import { Chip } from '@/components/ui/chip';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -703,4 +703,172 @@ const paletteData = [
     name: 'Tertiary',
     description: 'Magenta',
     variants: [
-      { name: '
+      { name: 'main', colorClass: 'bg-tertiary-main', baseColor: 'Magenta-500', textColor: 'text-tertiary-contrast', opacity: '100%', hexValue: '#9B247F' },
+      { name: 'light', colorClass: 'bg-tertiary-light', baseColor: 'Magenta-100', textColor: 'text-black', opacity: '100%', hexValue: '#F9E5F4' },
+      { name: 'dark', colorClass: 'bg-tertiary-dark', baseColor: 'Magenta-700', textColor: 'text-tertiary-contrast', opacity: '100%', hexValue: '#6D1959' },
+      { name: 'hover', colorClass: 'bg-tertiary-hover', baseColor: 'Magenta-500', textColor: 'text-tertiary-contrast', opacity: '4%', hexValue: '#9B247F0A' },
+      { name: 'selected', colorClass: 'bg-tertiary-selected', baseColor: 'Magenta-500', textColor: 'text-tertiary-contrast', opacity: '8%', hexValue: '#9B247F14' },
+      { name: 'focus', colorClass: 'bg-tertiary-focus', baseColor: 'Magenta-500', textColor: 'text-black', opacity: '12%', hexValue: '#9B247F1F' },
+      { name: 'focusVisible', colorClass: 'bg-tertiary-focusVisible', baseColor: 'Magenta-500', textColor: 'text-black', opacity: '30%', hexValue: '#9B247F4D' },
+      { name: 'outlinedBorder', colorClass: 'bg-tertiary-outlinedBorder', baseColor: 'Magenta-500', textColor: 'text-black', opacity: '50%', hexValue: '#9B247F80' },
+      { name: 'contrastText', colorClass: 'bg-tertiary-contrast', baseColor: 'White', textColor: 'text-tertiary-main', opacity: '100%', hexValue: '#FFFFFF' }
+    ]
+  },
+  {
+    name: 'Action',
+    description: 'Gray',
+    variants: [
+      { name: 'active', colorClass: 'text-action-active', baseColor: 'Gray-500', opacity: '100%', hexValue: '#808586' },
+      { name: 'hover', colorClass: 'bg-action-hover', baseColor: 'Gray-100', opacity: '100%', hexValue: '#F3F6F5' },
+      { name: 'selected', colorClass: 'bg-action-selected', baseColor: 'Gray-500', opacity: '100%', hexValue: '#808586' },
+      { name: 'focus', colorClass: 'bg-action-focus', baseColor: 'Gray-400', opacity: '100%', hexValue: '#AFB9BA' },
+      { name: 'disabled', colorClass: 'text-action-disabled', baseColor: 'Gray-400', opacity: '100%', hexValue: '#AFB9BA' },
+      { name: 'disabledBackground', colorClass: 'bg-action-disabledBackground', baseColor: 'Gray-300', opacity: '100%', hexValue: '#CED6D6' },
+      { name: 'contrastText', colorClass: 'text-action-contrastText', baseColor: 'White', opacity: '100%', hexValue: '#FFFFFF' }
+    ]
+  },
+  {
+    name: 'Error',
+    description: 'Red',
+    variants: [
+      { name: 'main', colorClass: 'bg-error-main', baseColor: 'Red-600', opacity: '100%', hexValue: '#D92D20' },
+      { name: 'light', colorClass: 'bg-error-light', baseColor: 'Red-100', opacity: '100%', hexValue: '#FEE4E2' },
+      { name: 'dark', colorClass: 'bg-error-dark', baseColor: 'Red-900', opacity: '100%', hexValue: '#862017' },
+      { name: 'hover', colorClass: 'bg-error-hover', baseColor: 'Red-600', opacity: '4%', hexValue: '#D92D200A' },
+      { name: 'selected', colorClass: 'bg-error-selected', baseColor: 'Red-600', opacity: '8%', hexValue: '#D92D2014' },
+      { name: 'focusVisible', colorClass: 'bg-error-focusVisible', baseColor: 'Red-600', opacity: '30%', hexValue: '#D92D204D' },
+      { name: 'outlinedBorder', colorClass: 'bg-error-outlinedBorder', baseColor: 'Red-600', opacity: '50%', hexValue: '#D92D2080' },
+      { name: 'contrastText', colorClass: 'text-error-contrastText', baseColor: 'White', opacity: '100%', hexValue: '#FFFFFF' }
+    ]
+  },
+  {
+    name: 'Info',
+    description: 'Blue',
+    variants: [
+      { name: 'main', colorClass: 'bg-info-main', baseColor: 'Blue-600', opacity: '100%', hexValue: '#1F5AE8' },
+      { name: 'light', colorClass: 'bg-info-light', baseColor: 'Blue-100', opacity: '100%', hexValue: '#D6E8FF' },
+      { name: 'dark', colorClass: 'bg-info-dark', baseColor: 'Blue-900', opacity: '100%', hexValue: '#093186' },
+      { name: 'hover', colorClass: 'bg-info-hover', baseColor: 'Blue-700', opacity: '4%', hexValue: '#0057B20A' },
+      { name: 'selected', colorClass: 'bg-info-selected', baseColor: 'Blue-700', opacity: '8%', hexValue: '#0057B214' },
+      { name: 'focusVisible', colorClass: 'bg-info-focusVisible', baseColor: 'Blue-700', opacity: '30%', hexValue: '#0057B24D' },
+      { name: 'outlinedBorder', colorClass: 'bg-info-outlinedBorder', baseColor: 'Blue-700', opacity: '50%', hexValue: '#0057B280' },
+      { name: 'contrastText', colorClass: 'text-info-contrastText', baseColor: 'White', opacity: '100%', hexValue: '#FFFFFF' }
+    ]
+  },
+  {
+    name: 'Warning',
+    description: 'Orange',
+    variants: [
+      { name: 'main', colorClass: 'bg-warning-main', baseColor: 'Orange-400', opacity: '100%', hexValue: '#FDB022' },
+      { name: 'light', colorClass: 'bg-warning-light', baseColor: 'Orange-100', opacity: '100%', hexValue: '#FEF0C7' },
+      { name: 'dark', colorClass: 'bg-warning-dark', baseColor: 'Orange-600', opacity: '100%', hexValue: '#DC6803' },
+      { name: 'hover', colorClass: 'bg-warning-hover', baseColor: 'Orange-600', opacity: '4%', hexValue: '#DC68030A' },
+      { name: 'selected', colorClass: 'bg-warning-selected', baseColor: 'Orange-600', opacity: '8%', hexValue: '#DC680314' },
+      { name: 'focusVisible', colorClass: 'bg-warning-focusVisible', baseColor: 'Orange-600', opacity: '30%', hexValue: '#DC68034D' },
+      { name: 'outlinedBorder', colorClass: 'bg-warning-outlinedBorder', baseColor: 'Orange-600', opacity: '50%', hexValue: '#DC680380' },
+      { name: 'contrastText', colorClass: 'text-warning-contrastText', baseColor: 'White', opacity: '100%', hexValue: '#FFFFFF' }
+    ]
+  },
+  {
+    name: 'Success',
+    description: 'Green',
+    variants: [
+      { name: 'main', colorClass: 'bg-success-main', baseColor: 'Green-500', opacity: '100%', hexValue: '#12B76A' },
+      { name: 'light', colorClass: 'bg-success-light', baseColor: 'Green-100', opacity: '100%', hexValue: '#D1FADF' },
+      { name: 'dark', colorClass: 'bg-success-dark', baseColor: 'Green-700', opacity: '100%', hexValue: '#027A48' },
+      { name: 'hover', colorClass: 'bg-success-hover', baseColor: 'Green-500', opacity: '4%', hexValue: '#12B76A0A' },
+      { name: 'selected', colorClass: 'bg-success-selected', baseColor: 'Green-500', opacity: '8%', hexValue: '#12B76A14' },
+      { name: 'focusVisible', colorClass: 'bg-success-focusVisible', baseColor: 'Green-500', opacity: '30%', hexValue: '#12B76A4D' },
+      { name: 'outlinedBorder', colorClass: 'bg-success-outlinedBorder', baseColor: 'Green-500', opacity: '50%', hexValue: '#12B76A80' },
+      { name: 'contrastText', colorClass: 'text-success-contrastText', baseColor: 'White', opacity: '100%', hexValue: '#FFFFFF' }
+    ]
+  }
+];
+
+const Colors = () => {
+  const [simulationType, setSimulationType] = useState("");
+
+  return (
+    <div className="container mx-auto py-10 space-y-10">
+      <Header title="Cores" description="Paleta de cores do Amicci Design System" />
+
+      <TailwindTabs 
+        tabs={[
+          {
+            id: "base-colors",
+            title: "Cores Base",
+            content: <BaseColorsTable baseColors={baseColorsData} />
+          },
+          {
+            id: "palettes",
+            title: "Paletas",
+            content: <PaletteTable palettes={paletteData} />
+          },
+          {
+            id: "color-blindness",
+            title: "Simulação Daltonismo",
+            content: (
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <div className="flex gap-2 flex-wrap">
+                    <Button 
+                      variant={simulationType === "" ? "default" : "outline"}
+                      onClick={() => setSimulationType("")}
+                    >
+                      Visão Normal
+                    </Button>
+                    <Button 
+                      variant={simulationType === "deuteranopia" ? "default" : "outline"}
+                      onClick={() => setSimulationType("deuteranopia")}
+                    >
+                      Deuteranopia
+                    </Button>
+                    <Button 
+                      variant={simulationType === "protanopia" ? "default" : "outline"}
+                      onClick={() => setSimulationType("protanopia")}
+                    >
+                      Protanopia
+                    </Button>
+                    <Button 
+                      variant={simulationType === "tritanopia" ? "default" : "outline"}
+                      onClick={() => setSimulationType("tritanopia")}
+                    >
+                      Tritanopia
+                    </Button>
+                    <Button 
+                      variant={simulationType === "achromatopsia" ? "default" : "outline"}
+                      onClick={() => setSimulationType("achromatopsia")}
+                    >
+                      Acromatopsia
+                    </Button>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {baseColorsData.flatMap(colorSet => 
+                      colorSet.weights
+                        .filter(w => ["500", "600", "700"].includes(w.weight))
+                        .map(weight => (
+                          <div key={`${colorSet.name}-${weight.weight}`} className="space-y-2">
+                            <ColorSwatch
+                              color={weight.colorClass}
+                              hexValue={weight.hexValue}
+                              textOverlay={`${colorSet.name} ${weight.weight}`}
+                              className="h-16"
+                              simulationType={simulationType}
+                            />
+                            <p className="text-sm text-center">{weight.hexValue}</p>
+                          </div>
+                        ))
+                    )}
+                  </div>
+                </div>
+              </div>
+            )
+          }
+        ]}
+      />
+    </div>
+  );
+};
+
+export default Colors;
