@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Search as SearchIcon, Github, Moon, Sun } from 'lucide-react';
+import { Menu, X, Search as SearchIcon, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import AmicciLogoTagDesignSystem from '@/pages/assets/amicci-logo-tag-design-system.svg';
@@ -55,17 +55,13 @@ const Header: React.FC<HeaderProps> = ({
         </div>
 
         <div className="flex items-center gap-4">
-          <Button variant="ghost" size="icon" onClick={() => setSearchActive(true)} aria-label="Search">
-            <SearchIcon size={20} className="text-primary-dark" />
+          <Button variant="text-default" size="icon" onClick={() => setSearchActive(true)} aria-label="Search">
+            <SearchIcon size={20} className="text-primary-main" />
           </Button>
           
-          <Button variant="ghost" size="icon" className="hidden sm:flex" aria-label="Toggle theme">
-            <Sun size={20} className="rotate-0 scale-100 transition-transform text-primary-dark" />
-          </Button>
-          
-          <Button variant="ghost" size="icon" asChild className="hidden sm:flex" aria-label="GitHub repository">
+          <Button variant="text-default" size="icon" asChild aria-label="GitHub repository">
             <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-              <Github size={20} className="text-primary-dark" />
+              <Github size={20} className="text-primary-main" />
             </a>
           </Button>
         </div>
