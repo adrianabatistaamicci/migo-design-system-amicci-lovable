@@ -1,3 +1,4 @@
+
 import React from 'react';
 import StackedLayout from './StackedLayout';
 import { Bell, Menu, Search, Globe, Rocket, ChevronDown } from 'lucide-react';
@@ -7,6 +8,9 @@ import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg
 import amicciLogoDark from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg';
 import { ProfileButton } from '@/components/ui/profile-button';
 import defaultLogo from '@/pages/assets/client-logo.svg';
+import amySvg from '@/pages/assets/amy.svg';
+import Lottie from 'lottie-react';
+import animationData from '@/pages/assets/lottie-dot.json';
 
 export const LightBorderExample = () => {
   return (
@@ -160,6 +164,21 @@ export const MarketplaceBuyerExample = () => {
             </div>
           </div>
           <div className="flex items-center space-x-4">
+            <Button 
+              variant="outline-secondary" 
+              className="flex items-center gap-2 relative"
+            >
+              <img src={amySvg} alt="Amy" className="h-5 w-5" />
+              <span>Amy</span>
+              <div className="absolute -top-1 -right-1 h-4 w-4">
+                <Lottie
+                  animationData={animationData}
+                  loop={true}
+                  autoplay={true}
+                  style={{ height: '100%', width: '100%' }}
+                />
+              </div>
+            </Button>
             <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
               <span className="sr-only">Ajuda</span>
               <Search className="h-6 w-6" aria-hidden="true" />
