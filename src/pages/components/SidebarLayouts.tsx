@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Sidebar, Home, Settings, Users, FileText, Mail, ChevronDown, ChevronRight, ChevronLeft, Menu, X, Code, Copy, CheckCheck } from 'lucide-react';
 import Header from '@/components/library-components/Header';
@@ -52,9 +53,9 @@ const SidebarExample = () => {
       </nav>
     </div>
   );
-};
+};`;
 
-const collapsibleSidebarCode = `// Collapsible Sidebar Component Example
+  const collapsibleSidebarCode = `// Collapsible Sidebar Component Example
 import React, { useState } from 'react';
 import { Home, Mail, Settings, Users, Menu, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
