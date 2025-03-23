@@ -303,7 +303,7 @@ const Brand = () => {
                   
                   <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="insight-1" className="border-0">
-                      <div className="bg-magenta-50">
+                      <div className="bg-magenta-50 rounded-lg border border-magenta-200">
                         <AccordionTrigger className="px-6 py-4 hover:no-underline">
                           <div className="flex items-center justify-between w-full">
                             <div className="flex items-center gap-2">
