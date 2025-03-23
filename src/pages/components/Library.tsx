@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import Header from '@/components/library-components/Header';
 import EmptyState from '@/components/library-components/EmptyState';
+import { Separator } from '@/components/ui/separator';
 
 // Define the type for the module records returned by import.meta.glob
 type ModuleRecord = Record<string, {
@@ -55,8 +56,9 @@ const LibraryPage: React.FC = () => {
                 className="w-full"
               >
                 <div className="p-4 w-full">
-                  <div className="mb-4 pb-2 border-b border-gray-200">
+                  <div className="mb-4">
                     <h3 className="text-lg font-medium text-gray-900">{name}</h3>
+                    <Separator className="mt-2" />
                   </div>
                   <Component {...getDefaultProps(name)} />
                 </div>
@@ -77,8 +79,9 @@ const LibraryPage: React.FC = () => {
               className="w-full"
             >
               <div className="p-4 w-full">
-                <div className="mb-4 pb-2 border-b border-gray-200">
+                <div className="mb-4">
                   <h3 className="text-lg font-medium text-gray-900">EmptyState</h3>
+                  <Separator className="mt-2" />
                 </div>
                 <EmptyState />
               </div>
@@ -98,8 +101,9 @@ const LibraryPage: React.FC = () => {
               className="w-full"
             >
               <div className="p-4 w-full">
-                <div className="mb-4 pb-2 border-b border-gray-200">
+                <div className="mb-4">
                   <h3 className="text-lg font-medium text-gray-900">Header</h3>
+                  <Separator className="mt-2" />
                 </div>
                 <Header 
                   title="Título de exemplo" 
