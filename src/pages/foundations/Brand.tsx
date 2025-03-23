@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -325,8 +324,13 @@ const Brand = () => {
                           </div>
                         </AccordionTrigger>
                         <AccordionContent className="px-6 pb-4">
-                          <div className="bg-gray-100 text-gray-800 px-3 py-1 rounded-md text-sm inline-block mb-3">
-                            Novo insight gerado
+                          <div className="flex items-center gap-3 mb-3">
+                            <div className="bg-gray-100 text-gray-800 px-3 py-1 rounded-md text-sm inline-block">
+                              Novo insight gerado
+                            </div>
+                            <p className="text-gray-500 text-sm">
+                              Insight gerado em 13/03/2024 às 13:45
+                            </p>
                           </div>
                           <p className="text-gray-700">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
