@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -6,7 +5,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { TailwindTabs } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
-import { Sparkles, CircleUser, ChevronDown, RefreshCw, ThumbsUp, ThumbsDown } from "lucide-react";
+import { Sparkles, CircleUser, ChevronDown } from "lucide-react";
 import Header from '@/components/library-components/Header';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -25,7 +24,6 @@ import Amy004 from '@/pages/assets/Amy 004.png';
 import AmySvg from '@/pages/assets/amy.svg';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { IconButton } from "@/components/ui/icon-button";
-import { Badge } from "@/components/ui/badge";
 
 const Brand = () => {
   const [activeTab, setActiveTab] = useState('logo');
@@ -299,94 +297,35 @@ const Brand = () => {
                 <Card className="p-6 shadow-none border">
                   <h3 className="text-xl font-medium mb-4">Box de insights</h3>
                   
-                  <div className="border border-magenta-200 border-dashed rounded-lg p-3">
-                    <div className="flex items-center gap-2 text-tertiary-main mb-2">
-                      <Sparkles size={16} />
-                      <span className="text-sm font-medium">Insight da Amy</span>
-                    </div>
-                    
-                    <Accordion type="single" collapsible className="w-full">
-                      {/* Exemplo de Insight fechado */}
-                      <AccordionItem value="insight-1" className="border-0 mb-2">
-                        <div className="bg-magenta-50 rounded border border-magenta-200">
-                          <AccordionTrigger className="px-4 py-3 hover:no-underline">
-                            <div className="flex items-center gap-3 w-full">
+                  <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="insight-1" className="border-0">
+                      <div className="bg-magenta-50 rounded outline outline-1 outline-offset-[-1px] outline-magenta-200">
+                        <AccordionTrigger className="px-6 py-4 hover:no-underline">
+                          <div className="flex items-center gap-4 w-full">
+                            <div className="flex items-center gap-2">
                               <img 
                                 src={AmySvg} 
                                 alt="Avatar da Amy" 
                                 className="w-9 h-9 rounded-full"
                               />
-                              <div className="flex-1 flex items-center gap-2">
-                                <span className="text-sm font-medium">Insight da Amy</span>
-                                <Sparkles size={16} className="text-tertiary-main" />
+                              <div className="inline-flex flex-col justify-start items-start">
+                                <div className="text-text-primary text-sm font-medium font-['Roboto'] leading-snug tracking-tight">Insight da Amy</div>
                               </div>
-                              <Badge variant="secondary" className="bg-gray-100 text-gray-800 mr-2">Novo insight gerado</Badge>
+                              <Sparkles size={20} className="text-tertiary-main" />
                             </div>
-                            <div className="text-left ml-12 mr-8 text-gray-700 text-sm line-clamp-1">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
-                            </div>
-                          </AccordionTrigger>
-                        </div>
-                      </AccordionItem>
-                      
-                      {/* Exemplo de Insight aberto */}
-                      <AccordionItem value="insight-2" className="border-0">
-                        <div className="bg-magenta-50 rounded border border-magenta-200">
-                          <AccordionTrigger className="px-4 py-3 hover:no-underline">
-                            <div className="flex items-center gap-3 w-full">
-                              <img 
-                                src={AmySvg} 
-                                alt="Avatar da Amy" 
-                                className="w-9 h-9 rounded-full"
-                              />
-                              <div className="flex-1 flex items-center gap-2">
-                                <span className="text-sm font-medium">Insight da Amy</span>
-                                <Sparkles size={16} className="text-tertiary-main" />
-                              </div>
-                              <Button size="sm" variant="outline" className="flex items-center gap-1 h-8 mr-2">
-                                <RefreshCw size={14} />
-                                <span>Gerar novo insight</span>
-                              </Button>
-                            </div>
-                          </AccordionTrigger>
-                          <AccordionContent className="px-4 pb-4">
-                            <div className="ml-12">
-                              <div className="flex items-center gap-2 text-gray-500 text-xs mb-2">
-                                <span>Insight gerado em 13/03/2024 às 13:45</span>
-                                <Badge variant="secondary" className="bg-gray-100 text-gray-800">Novo insight gerado</Badge>
-                              </div>
-                              
-                              <div className="mb-4">
-                                <h4 className="font-medium mb-2">Recomendações</h4>
-                                <ul className="list-disc pl-5 space-y-2 text-gray-700">
-                                  <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>
-                                  <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-                                  <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</li>
-                                </ul>
-                              </div>
-                              
-                              <div className="border-t pt-3 flex justify-between items-center">
-                                <div className="text-gray-500 text-xs">
-                                  Os insights da Amy são gerados por inteligência artificial e podem conter erros.
-                                </div>
-                                <div className="flex items-center gap-2">
-                                  <span className="text-sm text-gray-600">Este insight foi útil?</span>
-                                  <Button size="sm" variant="outline" className="h-8 px-3 bg-white">
-                                    <ThumbsUp size={16} />
-                                    <span className="ml-1">Sim</span>
-                                  </Button>
-                                  <Button size="sm" variant="outline" className="h-8 px-3 bg-white">
-                                    <ThumbsDown size={16} />
-                                    <span className="ml-1">Não</span>
-                                  </Button>
-                                </div>
-                              </div>
-                            </div>
-                          </AccordionContent>
-                        </div>
-                      </AccordionItem>
-                    </Accordion>
-                  </div>
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="px-6 pb-4">
+                          <div className="bg-gray-100 text-gray-800 px-3 py-1 rounded-md text-sm inline-block mb-3">
+                            Novo insight gerado
+                          </div>
+                          <p className="text-gray-700">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                          </p>
+                        </AccordionContent>
+                      </div>
+                    </AccordionItem>
+                  </Accordion>
                 </Card>
               </div>
             </ComponentCard>
