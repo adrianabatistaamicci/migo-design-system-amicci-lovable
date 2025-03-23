@@ -95,7 +95,7 @@ const PaletteTable: React.FC<PaletteTableProps> = ({ palettes }) => {
                         color={variant.colorClass} 
                         hexValue={variant.hexValue} 
                         copyValue={variant.hexValue} 
-                        textOverlay={variant.hexValue || '#F0F0F0'} 
+                        textOverlay={variant.hexValue || ''} 
                         className="h-12" 
                       />
                     </TableCell>
