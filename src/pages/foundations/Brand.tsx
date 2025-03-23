@@ -24,7 +24,6 @@ import Amy004 from '@/pages/assets/Amy 004.png';
 import AmySvg from '@/pages/assets/amy.svg';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { IconButton } from "@/components/ui/icon-button";
-
 const Brand = () => {
   const [activeTab, setActiveTab] = useState('logo');
   const handleDownload = (url: string, filename: string) => {
@@ -35,7 +34,6 @@ const Brand = () => {
     link.click();
     document.body.removeChild(link);
   };
-
   const tertiaryColors = [{
     name: 'tertiary-50',
     hex: '#FDF5FA',
@@ -81,7 +79,6 @@ const Brand = () => {
     hex: '#3E0F32',
     className: 'bg-tertiary-dark'
   }];
-
   const tertiaryPalette = [{
     name: 'main',
     color: 'bg-tertiary-main',
@@ -123,7 +120,6 @@ const Brand = () => {
     hex: 'rgba(155, 36, 127, 0.50)',
     tailwindClass: 'bg-tertiary-outlinedBorder'
   }];
-
   const renderTabContent = () => {
     switch (activeTab) {
       case 'logo':
@@ -214,7 +210,7 @@ const Brand = () => {
       case 'amy':
         return <div className="space-y-10">
             <ComponentCard title="Amy" description="A inteligência artificial da Amicci que ajuda os clientes no fluxo de planejamento, projeto e performance comercial da plataforma.">
-              <div className="space-y-8">
+              <div className="space-y-4">
                 <div className="mt-0">
                   <h4 className="text-xl font-medium mb-4">Paleta de cores Tertiary (Amy)</h4>
                   <p className="text-gray-600 mb-4">A Amy é representada pela paleta de cores tertiary, que consiste em tons de magenta/roxo que transmitem inovação e inteligência.</p>
@@ -264,27 +260,7 @@ const Brand = () => {
                   </div>
                 </div>
                 
-                <div className="p-4 border rounded-lg">
-                  <h5 className="font-medium mb-3">Uso em Componentes</h5>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div>
-                      <Button className="bg-tertiary-main hover:bg-tertiary-dark">Botão Tertiary</Button>
-                      <p className="text-xs text-gray-500 mt-2">bg-tertiary-main</p>
-                    </div>
-                    <div>
-                      <div className="p-3 bg-tertiary-light text-tertiary-main rounded-md border border-tertiary-main">
-                        Box com fundo light
-                      </div>
-                      <p className="text-xs text-gray-500 mt-2">bg-tertiary-light / text-tertiary-main</p>
-                    </div>
-                    <div>
-                      <div className="p-3 bg-tertiary-main text-white rounded-md">
-                        Box com fundo main
-                      </div>
-                      <p className="text-xs text-gray-500 mt-2">bg-tertiary-main / text-white</p>
-                    </div>
-                  </div>
-                </div>
+                
 
                 <h4 className="text-xl font-medium">Imagens da Amy</h4>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -309,31 +285,7 @@ const Brand = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="p-4 border rounded-lg">
-                    <h5 className="font-medium mb-4">Paleta de cores</h5>
-                    <div className="flex gap-4">
-                      <div className="flex flex-col items-center">
-                        <div className="h-16 w-16 rounded-md bg-tertiary-main"></div>
-                        <span className="text-xs mt-1">tertiary-500</span>
-                        <span className="text-xs text-gray-500">#9B247F</span>
-                      </div>
-                      <div className="flex flex-col items-center">
-                        <div className="h-16 w-16 rounded-md bg-tertiary-400"></div>
-                        <span className="text-xs mt-1">tertiary-400</span>
-                        <span className="text-xs text-gray-500">#C963BA</span>
-                      </div>
-                      <div className="flex flex-col items-center">
-                        <div className="h-16 w-16 rounded-md bg-tertiary-300"></div>
-                        <span className="text-xs mt-1">tertiary-300</span>
-                        <span className="text-xs text-gray-500">#E7A4DD</span>
-                      </div>
-                      <div className="flex flex-col items-center">
-                        <div className="h-16 w-16 rounded-md bg-tertiary-100"></div>
-                        <span className="text-xs mt-1">tertiary-100</span>
-                        <span className="text-xs text-gray-500">#F9E5F4</span>
-                      </div>
-                    </div>
-                  </div>
+                  
                   
                   <div className="p-4 border rounded-lg">
                     <h5 className="font-medium mb-4">Ícone</h5>
@@ -342,12 +294,7 @@ const Brand = () => {
                         <Sparkles size={48} className="text-tertiary-main" />
                         <span className="text-xs mt-2">Ícone padrão</span>
                       </div>
-                      <div className="flex flex-col items-center">
-                        <div className="h-14 w-14 rounded-full bg-tertiary-main flex items-center justify-center">
-                          <Sparkles size={24} className="text-white" />
-                        </div>
-                        <span className="text-xs mt-2">Ícone em círculo</span>
-                      </div>
+                      
                       <div className="flex flex-col items-center">
                         <div className="h-14 w-14 rounded-full bg-tertiary-light flex items-center justify-center">
                           <Sparkles size={24} className="text-tertiary-main" />
@@ -362,39 +309,7 @@ const Brand = () => {
                   </div>
                 </div>
                 
-                <div className="p-4 border rounded-lg">
-                  <h5 className="font-medium mb-4">Avatar Circular da Amy</h5>
-                  <div className="flex items-center gap-6">
-                    <div className="flex flex-col items-center">
-                      <img src={AmySvg} alt="Avatar da Amy" className="w-12 h-12" />
-                      <span className="text-xs mt-2">Avatar SVG</span>
-                    </div>
-                    <div className="flex flex-col items-center">
-                      <Avatar className="h-12 w-12 border-2 border-tertiary-main">
-                        <AvatarImage src={Amy004} alt="Amy" />
-                        <AvatarFallback className="bg-tertiary-light text-tertiary-main">
-                          <Sparkles />
-                        </AvatarFallback>
-                      </Avatar>
-                      <span className="text-xs mt-2">Avatar com borda</span>
-                    </div>
-                    <div className="flex flex-col items-center">
-                      <div className="h-12 w-12 rounded-full bg-tertiary-light flex items-center justify-center">
-                        <Sparkles className="h-6 w-6 text-tertiary-main" />
-                      </div>
-                      <span className="text-xs mt-2">Ícone em círculo</span>
-                    </div>
-                    <div className="flex flex-col items-center">
-                      <IconButton 
-                        variant="text-secondary" 
-                        size="lg"
-                        icon={<Sparkles className="text-tertiary-main" />}
-                        className="bg-tertiary-light"
-                      />
-                      <span className="text-xs mt-2">IconButton</span>
-                    </div>
-                  </div>
-                </div>
+                
                 
                 <div className="p-4 border rounded-lg">
                   <h5 className="font-medium mb-4">Container de Insights</h5>
