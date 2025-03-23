@@ -1,3 +1,4 @@
+
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
@@ -74,9 +75,10 @@ const ProfileButtonPage = () => {
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-medium">Buyer com Logo e Ícone</h3>
                   <ProfileButton
-                    userName="Roberto Alves"
-                    companyName="Marketing Pro"
+                    userName="Carlos Mendes"
+                    companyName="Tech Solutions"
                     logoSrc={defaultLogo}
+                    avatarText="CM"
                   />
                 </div>
               </div>
