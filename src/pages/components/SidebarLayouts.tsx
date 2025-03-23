@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { 
   Home, 
@@ -320,7 +321,6 @@ const AdvancedSidebar = () => {
           
           <a href="#" className="flex items-center justify-center w-8 h-8 rounded-md text-gray-700 hover:bg-gray-100 relative">
             <Bell size={18} />
-            <Badge color="primary" variant="dot" className="absolute top-1 right-1" />
           </a>
         </div>
       </div>
@@ -429,13 +429,13 @@ const AdvancedSidebar = () => {
                   <nav className="mt-4">
                     <ul className="space-y-1 px-2">
                       <li>
-                        <a href="#" className={\`flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main \${!isCollapsibleSidebarOpen && 'justify-center'}\`}>
+                        <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
                           <Home size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
                           {isCollapsibleSidebarOpen && <span>Dashboard</span>}
                         </a>
                       </li>
                       <li>
-                        <a href="#" className={\`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 \${!isCollapsibleSidebarOpen && 'justify-center'}\`}>
+                        <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
                           <Mail size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
                           {isCollapsibleSidebarOpen && <span>Messages</span>}
                           {isCollapsibleSidebarOpen && (
@@ -444,13 +444,13 @@ const AdvancedSidebar = () => {
                         </a>
                       </li>
                       <li>
-                        <a href="#" className={\`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 \${!isCollapsibleSidebarOpen && 'justify-center'}\`}>
+                        <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
                           <Users size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
                           {isCollapsibleSidebarOpen && <span>Team</span>}
                         </a>
                       </li>
                       <li>
-                        <a href="#" className={\`flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 \${!isCollapsibleSidebarOpen && 'justify-center'}\`}>
+                        <a href="#" className={`flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
                           <div className="flex items-center">
                             <Settings size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
                             {isCollapsibleSidebarOpen && <span>Settings</span>}
@@ -613,7 +613,6 @@ const AdvancedSidebar = () => {
                       
                       <a href="#" className="flex items-center justify-center w-8 h-8 rounded-md text-gray-700 hover:bg-gray-100 relative">
                         <Bell size={18} />
-                        <Badge color="primary" variant="dot" className="absolute top-1 right-1" />
                       </a>
                     </div>
                   </div>
