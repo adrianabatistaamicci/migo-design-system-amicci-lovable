@@ -77,6 +77,21 @@ const sidebarItems: SidebarItem[] = [
         ]
       },
       {
+        title: 'Elements',
+        items: [
+          { title: 'Avatars', href: '/components/avatar' },
+          { title: 'Chips', href: '/components/chip' },
+          { title: 'Badges', href: '/components/badge' },
+          { title: 'Dropdowns', href: '/components/dropdown' },
+          { title: 'Buttons', href: '/components/buttons' },
+          { title: 'Icon Button', href: '/components/icon-button' },
+          { title: 'Button Groups', href: '/components/button-groups' },
+          { title: 'Profile Button', href: '/components/profile-button' },
+          { title: 'Accordions', href: '/components/accordion' },
+          { title: 'Tooltips', href: '/components/tooltips' },
+        ]
+      },
+      {
         title: 'Data Display',
         items: [
           { title: 'Description Lists', href: '/components/description-lists' },
@@ -134,21 +149,6 @@ const sidebarItems: SidebarItem[] = [
           { title: 'Modal Dialogs', href: '/components/dialog' },
           { title: 'Drawers', href: '/components/drawer' },
           { title: 'Notification Toasts', href: '/components/snackbar' },
-        ]
-      },
-      {
-        title: 'Elements',
-        items: [
-          { title: 'Avatars', href: '/components/avatar' },
-          { title: 'Chips', href: '/components/chip' },
-          { title: 'Badges', href: '/components/badge' },
-          { title: 'Dropdowns', href: '/components/dropdown' },
-          { title: 'Buttons', href: '/components/buttons' },
-          { title: 'Icon Button', href: '/components/icon-button' },
-          { title: 'Button Groups', href: '/components/button-groups' },
-          { title: 'Profile Button', href: '/components/profile-button' },
-          { title: 'Accordions', href: '/components/accordion' },
-          { title: 'Tooltips', href: '/components/tooltips' },
         ]
       },
       {
