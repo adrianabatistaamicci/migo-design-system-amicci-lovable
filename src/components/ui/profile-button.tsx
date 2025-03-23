@@ -71,6 +71,7 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
 
     const displayUserName = truncateText(userName, maxTextLength);
     const displayCompanyName = truncateText(companyName, maxTextLength);
+    const showUserInfo = (userName || companyName) && (userName.trim() !== "" || companyName.trim() !== "");
 
     return (
       <button
@@ -100,10 +101,14 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
                 )}
               </div>
             
-              {(userName || companyName) && (
+              {showUserInfo && (
                 <div className="flex flex-col items-start text-left ml-3">
-                  {userName && <span className="text-base font-medium text-gray-900 leading-tight">{displayUserName}</span>}
-                  {companyName && <span className="text-sm text-gray-500 leading-tight">{displayCompanyName}</span>}
+                  {userName && userName.trim() !== "" && (
+                    <span className="text-base font-medium text-gray-900 leading-tight">{displayUserName}</span>
+                  )}
+                  {companyName && companyName.trim() !== "" && (
+                    <span className="text-sm text-gray-500 leading-tight">{displayCompanyName}</span>
+                  )}
                 </div>
               )}
             </div>

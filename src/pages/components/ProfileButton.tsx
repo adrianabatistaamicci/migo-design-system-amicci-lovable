@@ -1,4 +1,3 @@
-
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
@@ -76,8 +75,8 @@ const ProfileButtonPage = () => {
                   <h3 className="text-lg font-medium">Buyer com Logo e Avatar</h3>
                   <ProfileButton
                     logoSrc={defaultLogo}
-                    companyName="BuyerCorp"
-                    userName="João Buyer"
+                    companyName=""
+                    userName=""
                     showClientLogo={true}
                     showAvatar={true}
                     showMenuIcon={false}
