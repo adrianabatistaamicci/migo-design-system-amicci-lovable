@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -5,7 +6,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { TailwindTabs } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
-import { Sparkles, CircleUser } from "lucide-react";
+import { Sparkles, CircleUser, ChevronDown } from "lucide-react";
 import Header from '@/components/library-components/Header';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
