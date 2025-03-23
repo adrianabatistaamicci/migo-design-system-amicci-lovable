@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   Home, 
@@ -85,7 +84,6 @@ const SidebarExample = () => {
 import React, { useState } from 'react';
 import { Home, Mail, Settings, Users, Menu, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Chip } from '@/components/ui/chip';
-import { Badge } from '@/components/ui/badge';
 
 const CollapsibleSidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -431,13 +429,13 @@ const AdvancedSidebar = () => {
                   <nav className="mt-4">
                     <ul className="space-y-1 px-2">
                       <li>
-                        <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
+                        <a href="#" className={\`flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main \${!isCollapsibleSidebarOpen && 'justify-center'}\`}>
                           <Home size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
                           {isCollapsibleSidebarOpen && <span>Dashboard</span>}
                         </a>
                       </li>
                       <li>
-                        <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
+                        <a href="#" className={\`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 \${!isCollapsibleSidebarOpen && 'justify-center'}\`}>
                           <Mail size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
                           {isCollapsibleSidebarOpen && <span>Messages</span>}
                           {isCollapsibleSidebarOpen && (
@@ -446,13 +444,13 @@ const AdvancedSidebar = () => {
                         </a>
                       </li>
                       <li>
-                        <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
+                        <a href="#" className={\`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 \${!isCollapsibleSidebarOpen && 'justify-center'}\`}>
                           <Users size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
                           {isCollapsibleSidebarOpen && <span>Team</span>}
                         </a>
                       </li>
                       <li>
-                        <a href="#" className={`flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
+                        <a href="#" className={\`flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 \${!isCollapsibleSidebarOpen && 'justify-center'}\`}>
                           <div className="flex items-center">
                             <Settings size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
                             {isCollapsibleSidebarOpen && <span>Settings</span>}
@@ -640,6 +638,7 @@ const AdvancedSidebar = () => {
             <li>Agrupe itens de navegação relacionados para uma melhor arquitetura de informação.</li>
             <li>Use cabeçalhos de grupo para categorizar seções da barra lateral.</li>
             <li>Implemente badges apenas para contagens ou notificações que realmente importam.</li>
+            <li>O espaçamento padrão entre cabeçalhos de grupos no sidebar é de 16px (mt-4).</li>
           </ul>
         </section>
       </div>
