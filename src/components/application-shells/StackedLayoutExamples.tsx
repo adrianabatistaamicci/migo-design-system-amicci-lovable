@@ -1,8 +1,9 @@
 
 import React from 'react';
 import StackedLayout from './StackedLayout';
-import { Bell, Menu, Search, Globe, Rocket, ChevronDown } from 'lucide-react';
+import { Bell, Menu, Search, Globe, Rocket, ChevronDown, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ProfileButton } from '@/components/ui/profile-button';
 import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
 import amicciLogoDark from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg';
 
@@ -23,11 +24,16 @@ export const LightBorderExample = () => {
               <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Calendário</a>
             </div>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center gap-3">
             <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700 focus:outline-none">
               <span className="sr-only">Ver notificações</span>
               <Bell className="h-6 w-6" aria-hidden="true" />
             </button>
+            <ProfileButton 
+              userName="Maria Silva" 
+              companyName="Amicci" 
+              showMenuIcon={false} 
+            />
           </div>
         </>
       }
@@ -56,11 +62,17 @@ export const DarkOverlapExample = () => {
               <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Calendário</a>
             </div>
           </div>
-          <div className="hidden lg:flex lg:items-center">
+          <div className="hidden lg:flex lg:items-center gap-3">
             <button type="button" className="relative p-1 text-white hover:text-amicciDark-100 focus:outline-none">
               <span className="sr-only">Ver notificações</span>
               <Bell className="h-6 w-6 text-white" aria-hidden="true" />
             </button>
+            <ProfileButton 
+              userName="Maria Silva" 
+              companyName="Amicci" 
+              showMenuIcon={false}
+              className="border-white/30"
+            />
           </div>
         </>
       }
@@ -109,16 +121,11 @@ export const MarketplaceExample = () => {
               <span className="sr-only">Ver notificações</span>
               <Bell className="h-6 w-6" aria-hidden="true" />
             </button>
-            <div className="flex items-center gap-3">
-              <div className="flex flex-col items-end">
-                <p className="text-sm font-medium">Maria Rita</p>
-                <p className="text-xs text-gray-500">Nome da Empresa</p>
-              </div>
-              <div className="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center text-white">
-                OP
-              </div>
-              <Menu className="h-6 w-6" />
-            </div>
+            <ProfileButton 
+              userName="Maria Rita" 
+              companyName="Nome da Empresa" 
+              avatarText="MR"
+            />
           </div>
         </>
       }
@@ -171,6 +178,12 @@ export const InstitutionalExample = () => {
             <Button variant="outline" className="p-2">
               <Globe className="h-5 w-5" />
             </Button>
+            <ProfileButton 
+              userName="Admin" 
+              companyName="Amicci" 
+              showMenuIcon={false}
+              avatarText="AD"
+            />
           </div>
         </>
       }

@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Search as SearchIcon, Github, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { ProfileButton } from '@/components/ui/profile-button';
 import AmicciLogoTagDesignSystem from '@/pages/assets/amicci-logo-tag-design-system.svg';
 
 interface HeaderProps {
@@ -53,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({
           </Button>
         </div>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon" onClick={() => setSearchActive(true)} aria-label="Search">
             <SearchIcon size={20} className="text-primary-dark" />
           </Button>
@@ -67,6 +68,13 @@ const Header: React.FC<HeaderProps> = ({
               <Github size={20} className="text-primary-dark" />
             </a>
           </Button>
+
+          <ProfileButton 
+            userName="Designer" 
+            companyName="Amicci" 
+            showMenuIcon={false}
+            avatarText="DS"
+          />
         </div>
       </div>
     </header>;
