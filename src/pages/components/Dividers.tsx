@@ -52,7 +52,9 @@ const Dividers = () => {
               <div className="flex-grow border-t border-border"></div>
             </div>
           </ComponentCard>
+        </section>
           
+        <section>
           <ComponentCard title="Divider com ícone" code={`<div className="relative flex items-center py-5">
   <div className="flex-grow border-t border-border"></div>
   <div className="flex-shrink mx-3 p-1 bg-white rounded-full border border-border">
@@ -68,7 +70,9 @@ const Dividers = () => {
               <div className="flex-grow border-t border-border"></div>
             </div>
           </ComponentCard>
+        </section>
           
+        <section>
           <ComponentCard title="Divider com botão" code={`<div className="relative flex items-center py-5">
   <div className="flex-grow border-t border-border"></div>
   <Button size="sm" variant="outline-secondary" className="mx-4 flex-shrink-0">
