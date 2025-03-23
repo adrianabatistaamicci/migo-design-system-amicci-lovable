@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -151,74 +150,70 @@ const Brand = () => {
               <div className="space-y-6">
                 <h3 className="text-xl font-medium">A IA da Amicci</h3>
                 
-                {/* Tertiary Color Palette Section */}
-                <div className="border rounded-lg p-8 bg-white">
-                  <h4 className="font-medium mb-4">Paleta de cores Tertiary (Amy)</h4>
-                  <p className="text-gray-600 mb-6">A Amy é representada pela paleta de cores tertiary, que consiste em tons de magenta/roxo que transmitem inovação e inteligência.</p>
+                {/* Tertiary Color Palette Section - Simplified Layout */}
+                <div className="space-y-8 mt-6">
+                  <h4 className="text-xl font-medium">Paleta de cores Tertiary (Amy)</h4>
+                  <p className="text-gray-600">A Amy é representada pela paleta de cores tertiary, que consiste em tons de magenta/roxo que transmitem inovação e inteligência.</p>
                   
-                  <div className="grid grid-cols-1 gap-6">
-                    {/* Main Tertiary Color */}
-                    <div className="p-4 border rounded-lg">
-                      <h5 className="font-medium mb-3">Cor Principal</h5>
-                      <div className="flex items-center gap-4">
-                        <div className="h-20 w-20 rounded-md bg-tertiary-main flex items-center justify-center">
-                          <span className="text-white font-medium">500</span>
-                        </div>
-                        <div>
-                          <p className="font-medium">tertiary-500</p>
-                          <p className="text-sm text-gray-500">#9B247F</p>
-                          <p className="text-sm text-gray-500">var(--tertiary-main)</p>
-                        </div>
+                  {/* Main Tertiary Color */}
+                  <div className="p-4 border rounded-lg">
+                    <h5 className="font-medium mb-3">Cor Principal</h5>
+                    <div className="flex items-center gap-4">
+                      <div className="h-20 w-20 rounded-md bg-tertiary-main flex items-center justify-center">
+                        <span className="text-white font-medium">500</span>
                       </div>
-                    </div>
-                    
-                    {/* All Tertiary Colors */}
-                    <div className="p-4 border rounded-lg">
-                      <h5 className="font-medium mb-3">Escala Completa</h5>
-                      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                        {tertiaryColors.map((color) => (
-                          <div key={color.name} className="flex flex-col items-center">
-                            <div 
-                              className={`h-16 w-16 rounded-md flex items-center justify-center ${color.name.includes('50') || color.name.includes('100') || color.name.includes('200') ? 'text-tertiary-800' : 'text-white'}`}
-                              style={{ backgroundColor: color.hex }}
-                            >
-                              {color.name.split('-')[1]}
-                            </div>
-                            <span className="text-xs mt-1">{color.name}</span>
-                            <span className="text-xs text-gray-500">{color.hex}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    {/* Tertiary Color Usage */}
-                    <div className="p-4 border rounded-lg">
-                      <h5 className="font-medium mb-3">Uso em Componentes</h5>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="space-y-2">
-                          <Button className="bg-tertiary-main hover:bg-tertiary-dark">Botão Tertiary</Button>
-                          <p className="text-xs text-gray-500">bg-tertiary-main</p>
-                        </div>
-                        <div className="space-y-2">
-                          <div className="p-3 bg-tertiary-light text-tertiary-main rounded-md border border-tertiary-main">
-                            Box com fundo light
-                          </div>
-                          <p className="text-xs text-gray-500">bg-tertiary-light / text-tertiary-main</p>
-                        </div>
-                        <div className="space-y-2">
-                          <div className="p-3 bg-tertiary-main text-white rounded-md">
-                            Box com fundo main
-                          </div>
-                          <p className="text-xs text-gray-500">bg-tertiary-main / text-white</p>
-                        </div>
+                      <div>
+                        <p className="font-medium">tertiary-500</p>
+                        <p className="text-sm text-gray-500">#9B247F</p>
+                        <p className="text-sm text-gray-500">var(--tertiary-main)</p>
                       </div>
                     </div>
                   </div>
-                </div>
+                  
+                  {/* All Tertiary Colors */}
+                  <div className="p-4 border rounded-lg">
+                    <h5 className="font-medium mb-3">Escala Completa</h5>
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                      {tertiaryColors.map((color) => (
+                        <div key={color.name} className="flex flex-col items-center">
+                          <div 
+                            className={`h-16 w-16 rounded-md flex items-center justify-center ${color.name.includes('50') || color.name.includes('100') || color.name.includes('200') ? 'text-tertiary-800' : 'text-white'}`}
+                            style={{ backgroundColor: color.hex }}
+                          >
+                            {color.name.split('-')[1]}
+                          </div>
+                          <span className="text-xs mt-1">{color.name}</span>
+                          <span className="text-xs text-gray-500">{color.hex}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Usage Examples - Simplified */}
+                  <div className="p-4 border rounded-lg">
+                    <h5 className="font-medium mb-3">Uso em Componentes</h5>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div>
+                        <Button className="bg-tertiary-main hover:bg-tertiary-dark">Botão Tertiary</Button>
+                        <p className="text-xs text-gray-500 mt-2">bg-tertiary-main</p>
+                      </div>
+                      <div>
+                        <div className="p-3 bg-tertiary-light text-tertiary-main rounded-md border border-tertiary-main">
+                          Box com fundo light
+                        </div>
+                        <p className="text-xs text-gray-500 mt-2">bg-tertiary-light / text-tertiary-main</p>
+                      </div>
+                      <div>
+                        <div className="p-3 bg-tertiary-main text-white rounded-md">
+                          Box com fundo main
+                        </div>
+                        <p className="text-xs text-gray-500 mt-2">bg-tertiary-main / text-white</p>
+                      </div>
+                    </div>
+                  </div>
 
-                {/* Images section with download options */}
-                <div className="border rounded-lg p-8 bg-white">
-                  <h4 className="font-medium mb-4">Imagens da Amy</h4>
+                  {/* Images - Simplified Layout */}
+                  <h4 className="text-xl font-medium">Imagens da Amy</h4>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div className="flex flex-col items-center gap-2">
                       <img 
@@ -251,96 +246,92 @@ const Brand = () => {
                       </Button>
                     </div>
                   </div>
-                </div>
 
-                {/* Color and Icon section */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-                  <div className="border rounded-lg p-8 bg-white">
-                    <h4 className="font-medium mb-4">Paleta de cores</h4>
-                    <p className="text-gray-600 mb-4">A Amy é sempre representada com a cor tertiary (magenta) e suas variações.</p>
-                    <div className="flex gap-4 mt-4">
-                      <div className="flex flex-col items-center">
-                        <div className="h-16 w-16 rounded-md bg-tertiary-main"></div>
-                        <span className="text-xs mt-1">tertiary-500</span>
-                        <span className="text-xs text-gray-500">#9B247F</span>
-                      </div>
-                      <div className="flex flex-col items-center">
-                        <div className="h-16 w-16 rounded-md bg-tertiary-400"></div>
-                        <span className="text-xs mt-1">tertiary-400</span>
-                        <span className="text-xs text-gray-500">#C963BA</span>
-                      </div>
-                      <div className="flex flex-col items-center">
-                        <div className="h-16 w-16 rounded-md bg-tertiary-300"></div>
-                        <span className="text-xs mt-1">tertiary-300</span>
-                        <span className="text-xs text-gray-500">#E7A4DD</span>
-                      </div>
-                      <div className="flex flex-col items-center">
-                        <div className="h-16 w-16 rounded-md bg-tertiary-100"></div>
-                        <span className="text-xs mt-1">tertiary-100</span>
-                        <span className="text-xs text-gray-500">#F9E5F4</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="border rounded-lg p-8 bg-white">
-                    <h4 className="font-medium mb-4">Ícone</h4>
-                    <p className="text-gray-600 mb-4">O ícone utilizado é o de "sparkles" para representar sua inteligência e capacidade de gerar insights.</p>
-                    <div className="flex gap-8 mt-4">
-                      <div className="flex flex-col items-center">
-                        <Sparkles size={48} className="text-tertiary-main" />
-                        <span className="text-xs mt-2">Ícone padrão</span>
-                      </div>
-                      <div className="flex flex-col items-center">
-                        <div className="h-14 w-14 rounded-full bg-tertiary-main flex items-center justify-center">
-                          <Sparkles size={24} className="text-white" />
+                  {/* Colors and Icon - Single Row */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="p-4 border rounded-lg">
+                      <h5 className="font-medium mb-4">Paleta de cores</h5>
+                      <div className="flex gap-4">
+                        <div className="flex flex-col items-center">
+                          <div className="h-16 w-16 rounded-md bg-tertiary-main"></div>
+                          <span className="text-xs mt-1">tertiary-500</span>
+                          <span className="text-xs text-gray-500">#9B247F</span>
                         </div>
-                        <span className="text-xs mt-2">Ícone em círculo</span>
+                        <div className="flex flex-col items-center">
+                          <div className="h-16 w-16 rounded-md bg-tertiary-400"></div>
+                          <span className="text-xs mt-1">tertiary-400</span>
+                          <span className="text-xs text-gray-500">#C963BA</span>
+                        </div>
+                        <div className="flex flex-col items-center">
+                          <div className="h-16 w-16 rounded-md bg-tertiary-300"></div>
+                          <span className="text-xs mt-1">tertiary-300</span>
+                          <span className="text-xs text-gray-500">#E7A4DD</span>
+                        </div>
+                        <div className="flex flex-col items-center">
+                          <div className="h-16 w-16 rounded-md bg-tertiary-100"></div>
+                          <span className="text-xs mt-1">tertiary-100</span>
+                          <span className="text-xs text-gray-500">#F9E5F4</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="p-4 border rounded-lg">
+                      <h5 className="font-medium mb-4">Ícone</h5>
+                      <div className="flex gap-8 items-center">
+                        <div className="flex flex-col items-center">
+                          <Sparkles size={48} className="text-tertiary-main" />
+                          <span className="text-xs mt-2">Ícone padrão</span>
+                        </div>
+                        <div className="flex flex-col items-center">
+                          <div className="h-14 w-14 rounded-full bg-tertiary-main flex items-center justify-center">
+                            <Sparkles size={24} className="text-white" />
+                          </div>
+                          <span className="text-xs mt-2">Ícone em círculo</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                
-                {/* Accordion Insights Container */}
-                <div className="border rounded-lg p-8 bg-white mt-8">
-                  <h4 className="font-medium mb-4">Container de Insights</h4>
-                  <p className="text-gray-600 mb-6">Exemplo de como a Amy é apresentada na plataforma Amicci, com um container tipo accordion para destacar seus insights.</p>
                   
-                  <Accordion type="single" collapsible className="border border-tertiary-200 rounded-lg">
-                    <AccordionItem value="item-1" className="border-b-0">
-                      <AccordionTrigger className="px-4 py-4 hover:no-underline">
-                        <div className="flex items-center gap-4">
-                          <div className="flex-shrink-0">
-                            <div className="w-10 h-10 rounded-full overflow-hidden">
-                              <img 
-                                src="/lovable-uploads/e778bf14-8d9d-424d-ab01-0ff69e892a9b.png" 
-                                alt="Avatar da Amy" 
-                                className="w-full h-full object-cover" 
-                              />
+                  {/* Accordion Insights Container */}
+                  <div className="p-4 border rounded-lg">
+                    <h5 className="font-medium mb-4">Container de Insights</h5>
+                    <Accordion type="single" collapsible className="border border-tertiary-200 rounded-lg">
+                      <AccordionItem value="item-1" className="border-b-0">
+                        <AccordionTrigger className="px-4 py-4 hover:no-underline">
+                          <div className="flex items-center gap-4">
+                            <div className="flex-shrink-0">
+                              <div className="w-10 h-10 rounded-full overflow-hidden">
+                                <img 
+                                  src="/lovable-uploads/e778bf14-8d9d-424d-ab01-0ff69e892a9b.png" 
+                                  alt="Avatar da Amy" 
+                                  className="w-full h-full object-cover" 
+                                />
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="font-medium">Insight da Amy</span>
+                              <Sparkles size={16} className="text-tertiary-main" />
                             </div>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <span className="font-medium">Insight da Amy</span>
-                            <Sparkles size={16} className="text-tertiary-main" />
+                        </AccordionTrigger>
+                        <AccordionContent className="px-4 pb-4">
+                          <div className="ml-14">
+                            <div className="bg-gray-100 text-gray-800 px-3 py-1 rounded-md text-sm inline-block mb-3">
+                              Novo insight gerado
+                            </div>
+                            <p className="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
                           </div>
-                        </div>
-                      </AccordionTrigger>
-                      <AccordionContent className="px-4 pb-4">
-                        <div className="ml-14">
-                          <div className="bg-gray-100 text-gray-800 px-3 py-1 rounded-md text-sm inline-block mb-3">
-                            Novo insight gerado
-                          </div>
-                          <p className="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
-                  
-                  <div className="mt-8">
-                    <img 
-                      src="/lovable-uploads/1b008d0e-08f9-46a3-98cb-21860633fef4.png" 
-                      alt="Exemplo completo do container de insights da Amy" 
-                      className="w-full h-auto object-contain border rounded-lg" 
-                    />
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                    
+                    <div className="mt-8">
+                      <img 
+                        src="/lovable-uploads/1b008d0e-08f9-46a3-98cb-21860633fef4.png" 
+                        alt="Exemplo completo do container de insights da Amy" 
+                        className="w-full h-auto object-contain border rounded-lg" 
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
