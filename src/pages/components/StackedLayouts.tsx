@@ -64,9 +64,15 @@ const StackedLayouts = () => {
 
       {activeTab === 'marketplace' && <div className="space-y-12 mt-10">
           <LayoutComponent 
-            title="Marketplace Navigation" 
+            title="Marketplace Seller Navigation" 
             component={<MarketplaceExample />} 
             code={marketplaceExampleCode}
+          />
+          
+          <LayoutComponent 
+            title="Marketplace Buyer Navigation" 
+            component={<MarketplaceBuyerExample />} 
+            code={marketplaceBuyerExampleCode}
           />
         </div>}
 
@@ -429,7 +435,7 @@ export const BrandNavWithOverlap = () => (
           <div className="flex items-center space-x-4">
             <IconButton 
               variant="outline-secondary" 
-              icon={<Bell size={18} />} 
+              icon={<Bell size={18} />}
               aria-label="Ver notificações"
             />
             <ProfileButton 
@@ -446,7 +452,7 @@ export const BrandNavWithOverlap = () => (
       <div className="mx-auto max-w-7xl">
         <div className="border-b border-gray-200 pb-5 flex justify-between items-center">
           <div>
-            <h1 className="text-3xl font-medium tracking-tight text-gray-900">Projetos</h1>
+            <h1 className="text-3xl font-medium leading-6 text-gray-900">Dashboard</h1>
             <p className="mt-2 max-w-4xl text-sm text-gray-500">Todos os projetos ativos, incluindo aqueles em fase de desenvolvimento e em produção.</p>
           </div>
           <div className="flex gap-2">
@@ -605,6 +611,63 @@ export const InstitutionalExample = () => (
       
       <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 max-w-6xl mx-auto"></div>
     </div>
+  </StackedLayout>
+);`;
+
+const marketplaceBuyerExampleCode = `import React from 'react';
+import { StackedLayout } from '@/components/application-shells/StackedLayout';
+import { IconButton } from '@/components/ui/icon-button';
+import { Bell, Search, ChevronDown, Menu } from 'lucide-react';
+import { ProfileButton } from '@/components/ui/profile-button';
+import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
+
+export const MarketplaceBuyerExample = () => (
+  <StackedLayout
+    variant="light-border"
+    mainClassName="bg-white"
+    headerClassName="bg-white"
+    navigationContent={
+      <>
+        <div className="flex items-center">
+          <div className="flex-shrink-0">
+            <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
+          </div>
+          <div className="hidden md:ml-6 md:flex md:space-x-6">
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">
+              Oportunidades
+              <ChevronDown className="ml-1 h-4 w-4 inline" />
+            </a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Planejamento</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-text-primary">Projetos</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">
+              SKUs
+              <ChevronDown className="ml-1 h-4 w-4 inline" />
+            </a>
+          </div>
+        </div>
+        <div className="flex items-center space-x-4">
+          <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
+            <span className="sr-only">Ajuda</span>
+            <Search className="h-6 w-6" aria-hidden="true" />
+          </button>
+          <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
+            <span className="sr-only">Ver notificações</span>
+            <Bell className="h-6 w-6" aria-hidden="true" />
+          </button>
+          <ProfileButton 
+            userName="João Costa"
+            companyName="Empresa ABC"
+            showClientLogo={true}
+            avatarText="JC"
+            showMenuIcon={true}
+            menuIcon={<Menu className="h-6 w-6" />}
+          />
+        </div>
+      </>
+    }
+    headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Meus Projetos</h1>}
+  >
+    <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>
 );`;
 
