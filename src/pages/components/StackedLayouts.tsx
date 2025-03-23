@@ -660,11 +660,17 @@ const LayoutComponent = ({
           </Button>
         </div>
         
-        {showCode && <div className="border-t p-4 bg-gray-50 overflow-x-auto">
+        {/* Fixed height container to prevent layout shifts when toggling code visibility */}
+        <div className={cn(
+          "border-t bg-gray-50 overflow-x-auto transition-all duration-300",
+          showCode ? "h-auto max-h-[400px] p-4" : "h-0 p-0"
+        )}>
+          {showCode && (
             <pre className="text-sm">
               <code>{code}</code>
             </pre>
-          </div>}
+          )}
+        </div>
       </div>
     </div>
   );
