@@ -61,19 +61,20 @@ const Header: React.FC<HeaderProps> = ({
             onClick={() => setSearchActive(true)}
           />
           
-          <Button 
-            variant="outline-secondary"
-            startIcon={<Github size={18} />}
-            asChild
+          <a 
+            href="https://github.com/adrianabatistaamicci/migo-design-system-amicci-lovable" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center"
           >
-            <a 
-              href="https://github.com/adrianabatistaamicci/migo-design-system-amicci-lovable" 
-              target="_blank" 
-              rel="noopener noreferrer"
+            <Button 
+              variant="outline-secondary"
+              className="border border-gray-300 bg-transparent text-gray-800 hover:bg-gray-50"
             >
+              <Github size={18} className="mr-2" />
               GitHub
-            </a>
-          </Button>
+            </Button>
+          </a>
         </div>
       </div>
     </header>
