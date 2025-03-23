@@ -66,6 +66,7 @@ const Header: React.FC<HeaderProps> = ({
             variant="outline-secondary" 
             icon={<Github size={20} />} 
             aria-label="GitHub repository"
+            className="p-2" // Added padding to give proper internal margin
             asChild
           >
             <a href="https://github.com" target="_blank" rel="noopener noreferrer" />
