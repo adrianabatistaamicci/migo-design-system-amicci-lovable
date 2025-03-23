@@ -10,7 +10,8 @@ import {
   MousePointer,
   LayoutDashboard,
   MessageSquare,
-  Bell
+  Bell,
+  Palette
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
@@ -160,17 +161,18 @@ const sidebarItems: SidebarItem[] = [
           { title: 'Skeletons', href: '/components/skeleton' },
         ]
       },
-      {
-        title: 'Page Examples',
-        items: [
-          { title: 'Home Screens', href: '/components/home-screens' },
-          { title: 'Detail Screens', href: '/components/detail-screens' },
-          { title: 'Settings Screens', href: '/components/settings-screens' },
-          { title: 'Projects Screens', href: '/components/projects-screens' },
-          { title: 'Marketplace Screens', href: '/components/marketplace-screens' },
-        ]
-      },
       { title: 'Library', href: '/components/library' },
+    ]
+  },
+  {
+    title: 'Template',
+    icon: Palette,
+    items: [
+      { title: 'Home Screens', href: '/components/home-screens' },
+      { title: 'Detail Screens', href: '/components/detail-screens' },
+      { title: 'Settings Screens', href: '/components/settings-screens' },
+      { title: 'Projects Screens', href: '/components/projects-screens' },
+      { title: 'Marketplace Screens', href: '/components/marketplace-screens' },
     ]
   },
   {
