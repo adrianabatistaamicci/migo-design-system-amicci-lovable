@@ -491,4 +491,346 @@ const Colors = () => {
         className="mt-8"
         tabs={[
           { name: 'Visão geral', value: 'overview' },
-          { name: '
+          { name: 'Cores primárias', value: 'base-colors' },
+          { name: 'Paleta semântica', value: 'semantics' },
+          { name: 'Acessibilidade', value: 'accessibility' }
+        ]}
+        onValueChange={(value) => setActiveTab(value)}
+      >
+        {activeTab === 'overview' && (
+          <div className="space-y-8 py-6">
+            <div className="grid gap-6 md:grid-cols-2">
+              <ComponentCard
+                title="Cores primárias"
+                description="Cores base do sistema que formam a fundação da paleta de cores"
+                className="h-full"
+              >
+                <div className="grid grid-cols-10 gap-2 h-12">
+                  {baseColorsData[0].weights.map((weight) => (
+                    <ColorSwatch 
+                      key={weight.weight} 
+                      color={weight.colorClass}
+                      weight={weight.weight}
+                      hexValue={weight.hexValue}
+                      simulationType={simulationType}
+                    />
+                  ))}
+                </div>
+                <div className="grid grid-cols-10 gap-2 h-12 mt-2">
+                  {baseColorsData[1].weights.map((weight) => (
+                    <ColorSwatch 
+                      key={weight.weight} 
+                      color={weight.colorClass}
+                      weight={weight.weight}
+                      hexValue={weight.hexValue}
+                      simulationType={simulationType}
+                    />
+                  ))}
+                </div>
+              </ComponentCard>
+
+              <ComponentCard
+                title="Cores neutras"
+                description="Escala de cinza usada para texto, bordas e superfícies"
+                className="h-full"
+              >
+                <div className="grid grid-cols-10 gap-2 h-12">
+                  {baseColorsData[2].weights.map((weight) => (
+                    <ColorSwatch 
+                      key={weight.weight} 
+                      color={weight.colorClass}
+                      weight={weight.weight}
+                      hexValue={weight.hexValue}
+                      simulationType={simulationType}
+                    />
+                  ))}
+                </div>
+              </ComponentCard>
+            </div>
+
+            <ComponentCard
+              title="Paleta semântica"
+              description="Cores com significados específicos para comunicação de status, feedback e interações"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {paletteData.slice(0, 3).map(palette => (
+                  <div key={palette.name} className="space-y-2">
+                    <h3 className="text-sm font-medium">{palette.name}</h3>
+                    <div className="space-y-1">
+                      {palette.variants.slice(0, 3).map(variant => (
+                        <ColorSwatch
+                          key={variant.name}
+                          color={variant.colorClass}
+                          textOverlay={variant.name}
+                          hexValue={variant.hexValue}
+                          className="h-10"
+                          simulationType={simulationType}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </ComponentCard>
+
+            <ComponentCard
+              title="Cores de estado"
+              description="Cores para comunicar feedbacks, alertas e status do sistema"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+                {paletteData.slice(4, 8).map(palette => (
+                  <div key={palette.name} className="space-y-2">
+                    <h3 className="text-sm font-medium">{palette.name}</h3>
+                    <div className="space-y-1">
+                      {palette.variants.slice(0, 3).map(variant => (
+                        <ColorSwatch
+                          key={variant.name}
+                          color={variant.colorClass}
+                          textOverlay={variant.name}
+                          hexValue={variant.hexValue}
+                          className="h-10"
+                          simulationType={simulationType}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </ComponentCard>
+          </div>
+        )}
+
+        {activeTab === 'base-colors' && (
+          <div className="space-y-12 py-6">
+            <BaseColorsTable baseColors={baseColorsData} />
+          </div>
+        )}
+
+        {activeTab === 'semantics' && (
+          <div className="space-y-12 py-6">
+            <PaletteTable palettes={paletteData} />
+          </div>
+        )}
+
+        {activeTab === 'accessibility' && (
+          <div className="space-y-8 py-6">
+            <ComponentCard
+              title="Simulação de daltonismo"
+              description="Visualize como as pessoas com diferentes tipos de daltonismo veem as cores"
+            >
+              <div className="space-y-6">
+                <div className="flex flex-col space-y-2">
+                  <div className="text-sm font-medium mb-2">Selecione um tipo de daltonismo para simular:</div>
+                  <ToggleGroup type="single" value={simulationType} onValueChange={setSimulationType} className="justify-start flex-wrap">
+                    <ToggleGroupItem value="protanopia" aria-label="Protanopia" className="gap-2 data-[state=on]:bg-primary-main data-[state=on]:text-white">
+                      <div className="w-3 h-3 rounded-full bg-red-500 filter opacity-50"></div>
+                      Protanopia
+                      <span className="text-xs text-gray-500">(perda de vermelho)</span>
+                    </ToggleGroupItem>
+                    <ToggleGroupItem value="deuteranopia" aria-label="Deuteranopia" className="gap-2 data-[state=on]:bg-primary-main data-[state=on]:text-white">
+                      <div className="w-3 h-3 rounded-full bg-green-500 filter opacity-50"></div>
+                      Deuteranopia
+                      <span className="text-xs text-gray-500">(perda de verde)</span>
+                    </ToggleGroupItem>
+                    <ToggleGroupItem value="tritanopia" aria-label="Tritanopia" className="gap-2 data-[state=on]:bg-primary-main data-[state=on]:text-white">
+                      <div className="w-3 h-3 rounded-full bg-blue-500 filter opacity-50"></div>
+                      Tritanopia
+                      <span className="text-xs text-gray-500">(perda de azul)</span>
+                    </ToggleGroupItem>
+                    <ToggleGroupItem value="achromatopsia" aria-label="Achromatopsia" className="gap-2 data-[state=on]:bg-primary-main data-[state=on]:text-white">
+                      <div className="w-3 h-3 rounded-full bg-gray-500"></div>
+                      Achromatopsia
+                      <span className="text-xs text-gray-500">(sem cores)</span>
+                    </ToggleGroupItem>
+                  </ToggleGroup>
+                </div>
+
+                {simulationType && (
+                  <div className="flex items-center gap-2">
+                    <Badge variant="outline" className="gap-1.5">
+                      <Eye className="w-3.5 h-3.5" />
+                      Simulando: {simulationType}
+                    </Badge>
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      onClick={() => setSimulationType('')}
+                      className="h-7 px-2 text-xs"
+                    >
+                      Remover simulação
+                    </Button>
+                  </div>
+                )}
+
+                <div className="border rounded-md p-4 bg-gray-50">
+                  <div className="text-sm font-medium mb-4">Amostra de cores primárias com simulação:</div>
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-10 gap-2 h-12">
+                      {baseColorsData[0].weights.map((weight) => (
+                        <ColorSwatch 
+                          key={weight.weight} 
+                          color={weight.colorClass}
+                          weight={weight.weight}
+                          hexValue={weight.hexValue}
+                          simulationType={simulationType}
+                        />
+                      ))}
+                    </div>
+                    <div className="grid grid-cols-10 gap-2 h-12">
+                      {baseColorsData[1].weights.map((weight) => (
+                        <ColorSwatch 
+                          key={weight.weight} 
+                          color={weight.colorClass}
+                          weight={weight.weight}
+                          hexValue={weight.hexValue}
+                          simulationType={simulationType}
+                        />
+                      ))}
+                    </div>
+                    <div className="grid grid-cols-10 gap-2 h-12">
+                      {baseColorsData[3].weights.map((weight) => (
+                        <ColorSwatch 
+                          key={weight.weight} 
+                          color={weight.colorClass}
+                          weight={weight.weight}
+                          hexValue={weight.hexValue}
+                          simulationType={simulationType}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="border rounded-md p-4">
+                  <div className="text-sm font-medium mb-4">Amostra de elementos da interface:</div>
+                  <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
+                    <div className="space-y-4">
+                      <div className="flex gap-2">
+                        <Button variant="default">Botão primário</Button>
+                        <Button variant="outline">Botão outline</Button>
+                        <Button variant="secondary">Secundário</Button>
+                      </div>
+                      <div className="flex gap-2">
+                        <Badge>Badge padrão</Badge>
+                        <Badge variant="outline">Badge outline</Badge>
+                        <Badge variant="secondary">Badge secundária</Badge>
+                      </div>
+                      <div className="p-4 border rounded-md bg-card">
+                        <div className="text-lg font-semibold">Texto de título</div>
+                        <div className="text-sm text-muted-foreground">
+                          Este é um exemplo de texto secundário que tem contraste reduzido
+                        </div>
+                        <Separator className="my-2" />
+                        <div className="flex justify-between">
+                          <div className="text-xs">Detalhes</div>
+                          <div className="text-xs font-medium">Valor</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-4 border rounded-md space-y-4">
+                      <div className="flex items-center gap-4">
+                        <Avatar>
+                          <AvatarFallback>AM</AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <div className="font-medium">Amicci Medical</div>
+                          <div className="text-sm text-muted-foreground">amicci@example.com</div>
+                        </div>
+                      </div>
+                      <Separator />
+                      <div className="grid gap-2">
+                        <div className="flex justify-between text-sm">
+                          <span>Status:</span>
+                          <Badge variant="outline" className="bg-success-light text-success-dark">Ativo</Badge>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span>Plano:</span>
+                          <Badge variant="outline" className="bg-info-light text-info-dark">Premium</Badge>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span>Alerta:</span>
+                          <Badge variant="outline" className="bg-warning-light text-warning-dark">Pendente</Badge>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ComponentCard>
+
+            <ComponentCard
+              title="Guias de acessibilidade WCAG"
+              description="Certificações de contraste e recomendações para uso acessível das cores"
+            >
+              <div className="space-y-6">
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className="p-4 border rounded-md space-y-4">
+                    <div className="flex items-start gap-2">
+                      <AlertCircle className="w-5 h-5 text-warning-main mt-0.5" />
+                      <div>
+                        <h4 className="font-medium">Níveis de contraste WCAG</h4>
+                        <p className="text-sm text-muted-foreground">
+                          WCAG define dois níveis de contraste: AA (mínimo) e AAA (aprimorado)
+                        </p>
+                      </div>
+                    </div>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <span>AA texto normal (4.5:1)</span>
+                        <Badge variant="outline" className="bg-success-light text-success-dark">Recomendado</Badge>
+                      </div>
+                      <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <span>AA texto grande (3:1)</span>
+                        <Badge variant="outline" className="bg-success-light text-success-dark">Mínimo</Badge>
+                      </div>
+                      <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <span>AAA texto normal (7:1)</span>
+                        <Badge variant="outline" className="bg-info-light text-info-dark">Melhor prática</Badge>
+                      </div>
+                      <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <span>AAA texto grande (4.5:1)</span>
+                        <Badge variant="outline" className="bg-info-light text-info-dark">Aprimorado</Badge>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="p-4 border rounded-md space-y-4">
+                    <div className="flex items-start gap-2">
+                      <Info className="w-5 h-5 text-info-main mt-0.5" />
+                      <div>
+                        <h4 className="font-medium">Não use apenas cor para transmitir informação</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Sempre combine cores com textos, ícones ou padrões para garantir a acessibilidade
+                        </p>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="flex items-center gap-2 p-3 bg-error-light rounded text-sm">
+                        <div className="w-3 h-3 rounded-full bg-error-main"></div>
+                        <span className="text-error-dark font-medium">Erro</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-3 bg-success-light rounded text-sm">
+                        <div className="w-3 h-3 rounded-full bg-success-main"></div>
+                        <span className="text-success-dark font-medium">Sucesso</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-3 bg-warning-light rounded text-sm">
+                        <div className="w-3 h-3 rounded-full bg-warning-main"></div>
+                        <span className="text-warning-dark font-medium">Aviso</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-3 bg-info-light rounded text-sm">
+                        <div className="w-3 h-3 rounded-full bg-info-main"></div>
+                        <span className="text-info-dark font-medium">Informação</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ComponentCard>
+          </div>
+        )}
+      </TailwindTabs>
+    </div>
+  );
+};
+
+export default Colors;
