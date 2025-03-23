@@ -122,7 +122,7 @@ const CollapsibleSidebar = () => {
     <div className="w-full animate-fade-in">
       <Header 
         title="Sidebar Layouts"
-        description="Para criar menus laterais responsivos com recursos como ícones e emblemas, submenus expansíveis e seções de rodapé"
+        description="Os layouts de barra lateral oferecem uma navegação vertical intuitiva que permite aos usuários transitarem facilmente entre diferentes seções da aplicação. Amplamente utilizados em dashboards, painéis administrativos e aplicações complexas, eles organizam o conteúdo de forma clara e acessível. Explore nossas opções para criar menus laterais responsivos com recursos avançados como ícones informativos, emblemas de notificação, submenus expansíveis e seções de rodapé personalizáveis."
         type="components"
       />
       
