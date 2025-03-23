@@ -213,133 +213,128 @@ const Brand = () => {
             </ComponentCard>
           </div>;
       case 'amy':
-        return <div className="space-y-10">
-            <ComponentCard title="Amy" description="A inteligência artificial da Amicci que ajuda os clientes no fluxo de planejamento, projeto e performance comercial da plataforma.">
-              <div className="space-y-6">
-                <div className="mt-0">
-                  <h4 className="text-xl font-medium mb-4">Paleta de cores Tertiary (Amy)</h4>
-                  
-                  <div className="p-4 border rounded-lg mb-6">
-                    <div className="space-y-6">
-                      <div>
-                        <h6 className="font-medium mb-3">Escala Completa</h6>
-                        <div className="grid grid-cols-11 gap-1 w-full">
-                          {tertiaryColors.map(color => (
-                            <div key={color.name} className="flex flex-col items-center">
-                              <div 
-                                className={`h-16 w-full rounded-md flex items-center justify-center ${color.name.includes('50') || color.name.includes('100') || color.name.includes('200') ? 'text-tertiary-800' : 'text-white'}`} 
-                                style={{ backgroundColor: color.hex }}
-                              >
-                                {color.name.split('-')[1]}
-                              </div>
-                              <span className="text-xs mt-1 truncate w-full text-center">{color.name}</span>
-                              <span className="text-xs text-gray-500 truncate w-full text-center">{color.hex}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <h6 className="font-medium mb-3">Variáveis de Aplicação</h6>
-                        <div className="grid grid-cols-8 gap-1 w-full">
-                          {tertiaryPalette.map(item => (
-                            <div key={item.name} className="flex flex-col items-center">
-                              <div 
-                                className={`h-16 w-full rounded-md flex items-center justify-center ${item.name === 'light' ? 'text-tertiary-800' : 'text-white'}`} 
-                                style={{ backgroundColor: item.hex }}
-                              >
-                                {item.name}
-                              </div>
-                              <span className="text-xs mt-1 truncate w-full text-center">tertiary-{item.name}</span>
-                              <span className="text-xs text-gray-500 truncate w-full text-center">{item.hex}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <h4 className="text-xl font-medium">Imagens da Amy</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="flex flex-col items-center gap-2">
-                      <img src={Amy001} alt="Amy, a IA da Amicci" className="w-[150px] h-auto object-contain rounded-md" />
-                      <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amy 001.png', 'amy-image-1.png')}>
-                        Download PNG
-                      </Button>
-                    </div>
-                    <div className="flex flex-col items-center gap-2">
-                      <img src={Amy002} alt="Amy, a IA da Amicci em outra pose" className="w-[150px] h-auto object-contain rounded-md" />
-                      <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amy 002.png', 'amy-image-2.png')}>
-                        Download PNG
-                      </Button>
-                    </div>
-                    <div className="flex flex-col items-center gap-2">
-                      <img src={Amy004} alt="Amy, avatar em formato de perfil" className="w-[150px] h-auto object-contain rounded-md" />
-                      <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amy 004.png', 'amy-avatar.png')}>
-                        Download PNG
-                      </Button>
-                    </div>
-                  </div>
+        return (
+          <div className="space-y-8">
+            <div className="pb-6">
+              <h2 className="text-2xl font-semibold">Amy</h2>
+              <p className="text-gray-600 mt-1">
+                A inteligência artificial da Amicci que ajuda os clientes no fluxo de planejamento, projeto e performance comercial da plataforma.
+              </p>
+            </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="p-4 border rounded-lg">
-                      <h5 className="font-medium mb-4">Ícone</h5>
-                      <div className="flex gap-8 items-center">
-                        <div className="flex flex-col items-center">
-                          <Sparkles size={48} className="text-tertiary-main" />
-                          <span className="text-xs mt-2">Ícone padrão</span>
-                        </div>
-                        
-                        <div className="flex flex-col items-center">
-                          <div className="h-14 w-14 rounded-full bg-tertiary-light flex items-center justify-center">
-                            <Sparkles size={24} className="text-tertiary-main" />
-                          </div>
-                          <span className="text-xs mt-2">Ícone com círculo tertiary-light</span>
-                        </div>
-                        <div className="flex flex-col items-center">
-                          <img src={AmySvg} alt="Avatar da Amy" className="w-14 h-14" />
-                          <span className="text-xs mt-2">Amy SVG</span>
-                        </div>
-                      </div>
-                    </div>
+            <Card className="p-6">
+              <h3 className="text-xl font-medium mb-3">Paleta terciária</h3>
+              <p className="text-gray-600 mb-6">
+                A Amy é representada pela paleta de cores tertiary, que consiste em tons de magenta/roxo que transmitem inovação e inteligência.
+              </p>
+              
+              <div className="grid grid-cols-7 gap-4">
+                {tertiaryPalette.map(item => (
+                  <div key={item.name} className="flex flex-col items-center">
+                    <div 
+                      className={`h-16 w-full rounded-md ${item.name === 'light' ? 'text-tertiary-800' : 'text-white'}`} 
+                      style={{ backgroundColor: item.hex }}
+                    ></div>
+                    <span className="text-xs mt-2 text-center">tertiary-{item.name}</span>
+                    <span className="text-xs text-gray-500 text-center">{item.hex}</span>
                   </div>
-                  
-                  <div className="p-4 border rounded-lg">
-                    <h5 className="font-medium mb-4">Container de Insights</h5>
-                    <Accordion type="single" collapsible className="border border-tertiary-200 rounded-lg">
-                      <AccordionItem value="item-1" className="border-b-0">
-                        <AccordionTrigger className="px-4 py-4 hover:no-underline">
-                          <div className="flex items-center gap-4">
-                            <div className="flex-shrink-0">
-                              <div className="w-10 h-10 rounded-full overflow-hidden">
-                                <img src={Amy004} alt="Avatar da Amy" className="w-full h-full object-cover" />
-                              </div>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <span className="font-medium">Insight da Amy</span>
-                              <Sparkles size={16} className="text-tertiary-main" />
-                            </div>
-                          </div>
-                        </AccordionTrigger>
-                        <AccordionContent className="px-4 pb-4">
-                          <div className="ml-14">
-                            <div className="bg-gray-100 text-gray-800 px-3 py-1 rounded-md text-sm inline-block mb-3">
-                              Novo insight gerado
-                            </div>
-                            <p className="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                    
-                    <div className="mt-8">
-                      
-                    </div>
+                ))}
+              </div>
+            </Card>
+
+            <Card className="p-6">
+              <h3 className="text-xl font-medium mb-3">Magenta color base</h3>
+              <div className="grid grid-cols-11 gap-1">
+                {tertiaryColors.map(color => (
+                  <div key={color.name} className="flex flex-col items-center">
+                    <div 
+                      className={`h-16 w-full rounded-md ${color.name.includes('50') || color.name.includes('100') || color.name.includes('200') ? 'text-tertiary-800' : 'text-white'}`} 
+                      style={{ backgroundColor: color.hex }}
+                    ></div>
+                    <span className="text-xs mt-1">magenta-{color.name.split('-')[1]}</span>
+                    <span className="text-xs text-gray-500">{color.hex}</span>
+                  </div>
+                ))}
+              </div>
+            </Card>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card className="p-6">
+                <h3 className="text-xl font-medium mb-4">Imagens da Amy</h3>
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="flex flex-col items-center gap-2">
+                    <img src={Amy001} alt="Amy, a IA da Amicci" className="w-full h-auto object-contain rounded-md" />
+                    <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amy 001.png', 'amy-image-1.png')}>
+                      Download PNG
+                    </Button>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <img src={Amy002} alt="Amy, a IA da Amicci em outra pose" className="w-full h-auto object-contain rounded-md" />
+                    <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amy 002.png', 'amy-image-2.png')}>
+                      Download PNG
+                    </Button>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <img src={Amy004} alt="Amy, avatar em formato de perfil" className="w-full h-auto object-contain rounded-md" />
+                    <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amy 004.png', 'amy-avatar.png')}>
+                      Download PNG
+                    </Button>
                   </div>
                 </div>
+              </Card>
+
+              <Card className="p-6">
+                <h3 className="text-xl font-medium mb-4">Ícones</h3>
+                <div className="space-y-8">
+                  <div className="flex flex-col items-center">
+                    <Sparkles size={40} className="text-tertiary-main mb-2" />
+                    <span className="text-sm">Ícone Amy</span>
+                  </div>
+                  
+                  <div className="flex flex-col items-center">
+                    <div className="h-14 w-14 rounded-full bg-tertiary-light flex items-center justify-center">
+                      <Sparkles size={24} className="text-tertiary-main" />
+                    </div>
+                    <span className="text-sm mt-2">Ícone com círculo</span>
+                  </div>
+                  
+                  <div className="flex flex-col items-center">
+                    <Avatar className="w-14 h-14">
+                      <AvatarImage src={Amy004} alt="Avatar da Amy" />
+                      <AvatarFallback>AM</AvatarFallback>
+                    </Avatar>
+                    <span className="text-sm mt-2">Avatar Amy</span>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            <Card className="p-6">
+              <h3 className="text-xl font-medium mb-4">Box de insights</h3>
+              <div className="border border-tertiary-200 rounded-lg p-4">
+                <div className="flex items-start gap-3">
+                  <Avatar className="w-10 h-10 flex-shrink-0">
+                    <AvatarImage src={Amy004} alt="Avatar da Amy" />
+                    <AvatarFallback>AM</AvatarFallback>
+                  </Avatar>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="font-medium">Insight da Amy</span>
+                      <Sparkles size={16} className="text-tertiary-main" />
+                    </div>
+                    <div className="bg-gray-100 text-gray-800 px-3 py-1 rounded-md text-sm inline-block mb-3">
+                      Novo insight gerado
+                    </div>
+                    <p className="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+                  </div>
+                  <Button variant="ghost" size="icon" className="flex-shrink-0">
+                    <ChevronDown className="h-5 w-5" />
+                  </Button>
+                </div>
               </div>
-            </ComponentCard>
-          </div>;
+            </Card>
+          </div>
+        );
       default:
         return null;
     }
