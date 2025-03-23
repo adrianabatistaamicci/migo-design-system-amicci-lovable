@@ -25,8 +25,11 @@ import AmySvg from '@/pages/assets/amy.svg';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { IconButton } from "@/components/ui/icon-button";
 import { Chip } from "@/components/ui/chip";
+
 const Brand = () => {
   const [activeTab, setActiveTab] = useState('logo');
+  const [insightExpanded, setInsightExpanded] = useState(false);
+
   const handleDownload = (url: string, filename: string) => {
     const link = document.createElement('a');
     link.href = url;
@@ -35,6 +38,7 @@ const Brand = () => {
     link.click();
     document.body.removeChild(link);
   };
+
   const tertiaryColors = [{
     name: 'tertiary-50',
     hex: '#FDF5FA',
@@ -80,6 +84,7 @@ const Brand = () => {
     hex: '#3E0F32',
     className: 'bg-tertiary-dark'
   }];
+
   const tertiaryPalette = [{
     name: 'main',
     color: 'bg-tertiary-main',
@@ -115,12 +120,12 @@ const Brand = () => {
     color: 'bg-tertiary-focusVisible',
     hex: 'rgba(155, 36, 127, 0.30)',
     tailwindClass: 'bg-tertiary-focusVisible'
-  }, {
-    name: 'outlinedBorder',
-    color: 'bg-tertiary-outlinedBorder',
-    hex: 'rgba(155, 36, 127, 0.50)',
-    tailwindClass: 'bg-tertiary-outlinedBorder'
   }];
+
+  const toggleInsightExpanded = () => {
+    setInsightExpanded(!insightExpanded);
+  };
+
   const renderTabContent = () => {
     switch (activeTab) {
       case 'logo':
@@ -193,7 +198,7 @@ const Brand = () => {
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
                     <div className="border rounded-lg p-8 flex items-center justify-center bg-white">
-                      <img src={AmicciSimbolo} alt="S��mbolo Amicci" className="max-w-[250px] h-[117px]" />
+                      <img src={AmicciSimbolo} alt="Smbolo Amicci" className="max-w-[250px] h-[117px]" />
                     </div>
                     <div className="space-y-4">
                       <h4 className="font-medium">Símbolo</h4>
@@ -371,6 +376,89 @@ const Brand = () => {
                         </div>
                       </div>
                     </div>
+
+                    {/* New toggleable insight box */}
+                    <div className="bg-magenta-50 rounded-lg border border-magenta-200">
+                      {!insightExpanded ? (
+                        // Collapsed state
+                        <div className="px-6 py-4">
+                          <div className="flex items-center w-full">
+                            <div className="flex items-center gap-1 mr-2">
+                              <img src={AmySvg} alt="Avatar da Amy" className="w-9 h-9 rounded-full" />
+                              <div className="inline-flex flex-col justify-start items-start ml-2">
+                                <div className="text-text-primary text-sm font-medium font-['Roboto'] leading-snug tracking-tight">Insight da Amy</div>
+                              </div>
+                              <Sparkles size={20} className="text-tertiary-main ml-1" />
+                              <Chip size="sm" className="ml-0.5">Novo insight gerado</Chip>
+                            </div>
+                            <div className="flex-1 flex items-center min-w-0 ml-2">
+                              <p className="text-gray-700 text-sm whitespace-nowrap overflow-hidden text-ellipsis flex-1">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                              </p>
+                              <ChevronDown 
+                                className="h-4 w-4 shrink-0 transition-transform duration-200 ml-2 flex-shrink-0 cursor-pointer" 
+                                onClick={toggleInsightExpanded}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        // Expanded state
+                        <>
+                          <div className="px-6 py-4">
+                            <div className="flex items-center justify-between w-full">
+                              <div className="flex items-center gap-2">
+                                <img src={AmySvg} alt="Avatar da Amy" className="w-9 h-9 rounded-full" />
+                                <div className="inline-flex flex-col justify-start items-start">
+                                  <div className="text-text-primary text-sm font-medium font-['Roboto'] leading-snug tracking-tight">Insight da Amy</div>
+                                </div>
+                                <Sparkles size={20} className="text-tertiary-main" />
+                              </div>
+                              <Button variant="outline-secondary" size="sm" className="ml-auto mr-4" startIcon={<RefreshCw size={16} />}>
+                                Gerar novo insight
+                              </Button>
+                              <ChevronDown 
+                                className="h-4 w-4 shrink-0 rotate-180 transition-transform duration-200 cursor-pointer" 
+                                onClick={toggleInsightExpanded}
+                              />
+                            </div>
+                          </div>
+                          <div className="px-6 pb-4">
+                            <div className="flex items-center gap-3 mb-3">
+                              <Chip size="sm" variant="default">Novo insight gerado</Chip>
+                              <p className="text-gray-500 text-sm">
+                                Insight gerado em 14/03/2024 às 10:30
+                              </p>
+                            </div>
+                            <div>
+                              <h4 className="font-medium text-base mb-2">Recomendações</h4>
+                              <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</li>
+                                <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</li>
+                                <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</li>
+                              </ul>
+                            </div>
+                            
+                            <Separator className="my-4" />
+                            
+                            <div className="flex items-center justify-between text-sm text-gray-500">
+                              <p>Os insights da Amy são gerados por inteligência artificial e podem conter erros.</p>
+                              <div className="flex items-center gap-2">
+                                <span>Este insight foi útil?</span>
+                                <div className="flex gap-2">
+                                  <Button variant="text-secondary" size="sm" className="flex items-center gap-1" startIcon={<ThumbsUp size={16} />}>
+                                    Sim
+                                  </Button>
+                                  <Button variant="text-secondary" size="sm" className="flex items-center gap-1" startIcon={<ThumbsDown size={16} />}>
+                                    Não
+                                  </Button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </>
+                      )}
+                    </div>
                   </div>
                 </Card>
               </div>
@@ -380,6 +468,7 @@ const Brand = () => {
         return null;
     }
   };
+
   return <div className="w-full animate-fade-in">
       <Header title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." type="foundations" />
 
