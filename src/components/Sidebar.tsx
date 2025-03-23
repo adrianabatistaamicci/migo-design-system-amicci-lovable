@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
+import { Chip } from '@/components/ui/chip';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 interface SidebarItem {
@@ -271,6 +272,10 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
                 ) : (
                   <span>{item.title}</span>
                 )}
+                
+                {item.title === 'Sidebar Layouts' && (
+                  <Chip variant="filled" color="primary" size="sm" className="ml-2">New</Chip>
+                )}
               </div>
               
               {expanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
@@ -314,6 +319,10 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
         {item.icon && <item.icon size={20} className="mr-2 text-primary-main" />}
         <span>{item.title}</span>
       </div>
+      
+      {item.title === 'Settings' && (
+        <Badge color="primary" variant="dot" className="ml-2" />
+      )}
     </Link>
   );
 };

@@ -4,6 +4,7 @@ import { Home, Mail, Settings, Users, ChevronRight, ChevronLeft } from 'lucide-r
 import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
 import { Badge } from '@/components/ui/badge';
+import { Chip } from '@/components/ui/chip';
 import { cn } from '@/lib/utils';
 import CodeBlock from '@/components/CodeBlock';
 
@@ -59,6 +60,9 @@ const SidebarExample = () => {
               >
                 <Mail size={20} className={isOpen ? "mr-3" : ""} />
                 {isOpen && <span>Messages</span>}
+                {isOpen && (
+                  <Chip variant="filled" color="primary" size="sm" className="ml-2">New</Chip>
+                )}
               </a>
             </li>
             <li>
@@ -78,17 +82,17 @@ const SidebarExample = () => {
               <a 
                 href="#" 
                 className={cn(
-                  "flex items-center py-2 px-3 rounded-md",
+                  "flex items-center justify-between py-2 px-3 rounded-md",
                   isOpen ? "" : "justify-center",
                   "text-gray-700 hover:bg-gray-100"
                 )}
               >
-                <Settings size={20} className={isOpen ? "mr-3" : ""} />
-                {isOpen && <span>Settings</span>}
+                <div className="flex items-center">
+                  <Settings size={20} className={isOpen ? "mr-3" : ""} />
+                  {isOpen && <span>Settings</span>}
+                </div>
                 {isOpen && (
-                  <div className="ml-auto relative">
-                    <Badge color="error" variant="dot" className="absolute -right-1 -top-1" />
-                  </div>
+                  <Badge color="primary" variant="dot" />
                 )}
               </a>
             </li>
@@ -103,6 +107,7 @@ const SidebarExample = () => {
 const sidebarCode = `import React, { useState } from 'react';
 import { Home, Mail, Settings, Users, ChevronRight, ChevronLeft } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { Chip } from '@/components/ui/chip';
 import { cn } from '@/lib/utils';
 
 const SidebarExample = () => {
@@ -156,6 +161,9 @@ const SidebarExample = () => {
               >
                 <Mail size={20} className={isOpen ? "mr-3" : ""} />
                 {isOpen && <span>Messages</span>}
+                {isOpen && (
+                  <Chip variant="filled" color="primary" size="sm" className="ml-2">New</Chip>
+                )}
               </a>
             </li>
             <li>
@@ -175,17 +183,17 @@ const SidebarExample = () => {
               <a 
                 href="#" 
                 className={\`
-                  flex items-center py-2 px-3 rounded-md
+                  flex items-center justify-between py-2 px-3 rounded-md
                   \${isOpen ? "" : "justify-center"}
                   text-gray-700 hover:bg-gray-100
                 \`}
               >
-                <Settings size={20} className={isOpen ? "mr-3" : ""} />
-                {isOpen && <span>Settings</span>}
+                <div className="flex items-center">
+                  <Settings size={20} className={isOpen ? "mr-3" : ""} />
+                  {isOpen && <span>Settings</span>}
+                </div>
                 {isOpen && (
-                  <div className="ml-auto relative">
-                    <Badge color="error" variant="dot" className="absolute -right-1 -top-1" />
-                  </div>
+                  <Badge color="primary" variant="dot" />
                 )}
               </a>
             </li>
