@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -302,7 +303,7 @@ const Brand = () => {
                   <h3 className="text-xl font-medium mb-4">Box de insights</h3>
                   
                   <div className="space-y-4">
-                    {/* Closed state version */}
+                    {/* Closed state version - Updated with chip on the left */}
                     <div className="bg-magenta-50 rounded-lg border border-magenta-200">
                       <div className="px-6 py-4">
                         <div className="flex items-center justify-between w-full">
@@ -312,14 +313,14 @@ const Brand = () => {
                               <div className="text-text-primary text-sm font-medium font-['Roboto'] leading-snug tracking-tight">Insight da Amy</div>
                             </div>
                             <Sparkles size={20} className="text-tertiary-main" />
+                            <Chip size="sm">Novo insight gerado</Chip>
                           </div>
                           <div className="flex items-center gap-2">
                             <p className="text-gray-700 text-sm line-clamp-1">
                               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...
                             </p>
-                            <Chip size="sm">Novo insight gerado</Chip>
+                            <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />
                           </div>
-                          <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />
                         </div>
                       </div>
                     </div>
