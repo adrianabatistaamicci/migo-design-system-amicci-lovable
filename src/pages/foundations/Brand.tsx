@@ -79,6 +79,19 @@ const Brand = () => {
     hex: '#3E0F32',
     className: 'bg-tertiary-dark'
   }];
+  
+  // Tertiary palette variations data
+  const tertiaryPalette = [
+    { name: 'main', color: 'bg-tertiary-main', hex: '#9B247F', tailwindClass: 'bg-tertiary-main' },
+    { name: 'light', color: 'bg-tertiary-light', hex: '#F9E5F4', tailwindClass: 'bg-tertiary-light' },
+    { name: 'dark', color: 'bg-tertiary-dark', hex: '#6D1959', tailwindClass: 'bg-tertiary-dark' },
+    { name: 'hover', color: 'bg-tertiary-hover', hex: 'rgba(155, 36, 127, 0.04)', tailwindClass: 'bg-tertiary-hover' },
+    { name: 'selected', color: 'bg-tertiary-selected', hex: 'rgba(155, 36, 127, 0.08)', tailwindClass: 'bg-tertiary-selected' },
+    { name: 'focus', color: 'bg-tertiary-focus', hex: 'rgba(155, 36, 127, 0.12)', tailwindClass: 'bg-tertiary-focus' },
+    { name: 'focusVisible', color: 'bg-tertiary-focusVisible', hex: 'rgba(155, 36, 127, 0.30)', tailwindClass: 'bg-tertiary-focusVisible' },
+    { name: 'outlinedBorder', color: 'bg-tertiary-outlinedBorder', hex: 'rgba(155, 36, 127, 0.50)', tailwindClass: 'bg-tertiary-outlinedBorder' },
+  ];
+  
   return <div className="w-full animate-fade-in">
       <Header title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." type="foundations" />
 
@@ -194,6 +207,24 @@ const Brand = () => {
                         </div>
                         <span className="text-xs mt-1 truncate w-full text-center">{color.name}</span>
                         <span className="text-xs text-gray-500 truncate w-full text-center">{color.hex}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="p-4 border rounded-lg mt-6">
+                  <h5 className="font-medium mb-3">Paleta Tertiary</h5>
+                  <div className="grid grid-cols-4 md:grid-cols-8 gap-4 w-full">
+                    {tertiaryPalette.map(item => (
+                      <div key={item.name} className="flex flex-col items-center">
+                        <div 
+                          className={`h-16 w-full rounded-md flex items-center justify-center ${item.name === 'light' ? 'text-tertiary-800' : 'text-white'}`}
+                          style={{ backgroundColor: item.hex }}
+                        >
+                          {item.name}
+                        </div>
+                        <span className="text-xs mt-1 truncate w-full text-center">tertiary-{item.name}</span>
+                        <span className="text-xs text-gray-500 truncate w-full text-center">{item.hex}</span>
                       </div>
                     ))}
                   </div>
