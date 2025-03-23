@@ -172,7 +172,7 @@ const Brand = () => {
         <TabsContent value="amy" className="space-y-10">
           <ComponentCard title="Amy" description="A inteligência artificial da Amicci que ajuda os clientes no fluxo de planejamento, projeto e performance comercial da plataforma.">
             <div className="space-y-8">
-              <div className="mt-2">
+              <div className="mt-0">
                 <h4 className="text-xl font-medium mb-4">Paleta de cores Tertiary (Amy)</h4>
                 <p className="text-gray-600 mb-4">A Amy é representada pela paleta de cores tertiary, que consiste em tons de magenta/roxo que transmitem inovação e inteligência.</p>
                 
