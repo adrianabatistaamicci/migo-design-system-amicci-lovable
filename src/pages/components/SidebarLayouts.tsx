@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Sidebar, Home, Settings, Users, FileText, Mail, ChevronDown, ChevronRight, ChevronLeft, Menu, X } from 'lucide-react';
 import Header from '@/components/library-components/Header';
@@ -118,7 +119,7 @@ const CollapsibleSidebar = () => {
 };`;
 
   return <div className="w-full animate-fade-in">
-      <Header title="Sidebar Layouts" description="Os layouts de barra lateral oferecem uma navegação vertical intuitiva que permite aos usuários transitarem facilmente entre diferentes seções da aplicação. Amplamente utilizados em dashboards, painéis administrativos e aplicações complexas, eles organizam o conteúdo de forma clara e acessível. Explore nossas opções para criar menus laterais responsivos com recursos avançados como ícones, badges, submenus expansíveis e seções de rodapé." type="components" />
+      <Header title="Sidebar Layouts" description="Barras laterais de navegação esponsivas com recursos avançados como ícones, badges, submenus expansíveis e seções de rodapé" type="components" />
       
       <div className="max-w-[1280px] mx-auto">
         <section className="mb-12">
