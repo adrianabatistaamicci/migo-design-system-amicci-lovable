@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import { Link } from 'react-router-dom';
@@ -231,7 +230,6 @@ const InstitutionalNavWithReusable = () => (
   <InstitutionalExample />
 );
 
-// Códigos para exibição nos blocos de código
 const lightNavBottomBorderCode = `import React from 'react';
 import { StackedLayout } from '@/components/application-shells/StackedLayout';
 import { IconButton } from '@/components/ui/icon-button';
@@ -273,7 +271,6 @@ export const LightNavBottomBorder = () => (
       </>
     }
   >
-    {/* Seu conteúdo aqui */}
     <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>
 );`;
@@ -317,7 +314,6 @@ export const LightNavGrayBackground = () => (
       </>
     }
   >
-    {/* Seu conteúdo aqui */}
     <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>
 );`;
@@ -356,7 +352,6 @@ export const BrandedNavCompactHeader = () => (
     }
     headerContent={<h1 className="text-lg font-medium leading-6 text-gray-900">Dashboard</h1>}
   >
-    {/* Seu conteúdo aqui */}
     <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>
 );`;
@@ -395,7 +390,6 @@ export const BrandedNavWithWhiteHeader = () => (
     }
     headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Dashboard</h1>}
   >
-    {/* Seu conteúdo aqui */}
     <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>
 );`;
@@ -633,12 +627,12 @@ const LayoutComponent = ({
   };
   
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 w-full">
       <div className="px-4">
         <h3 className="text-xl font-medium text-gray-900">{title}</h3>
       </div>
       
-      <div className="border rounded-lg overflow-hidden shadow-sm">
+      <div className="border rounded-lg overflow-hidden shadow-sm w-full">
         <div className="bg-gray-100 w-full h-[500px] overflow-hidden">
           {component}
         </div>
@@ -660,13 +654,12 @@ const LayoutComponent = ({
           </Button>
         </div>
         
-        {/* Fixed height container to prevent layout shifts when toggling code visibility */}
         <div className={cn(
-          "border-t bg-gray-50 overflow-x-auto transition-all duration-300",
-          showCode ? "h-auto max-h-[400px] p-4" : "h-0 p-0"
+          "border-t bg-gray-50 overflow-x-auto transition-all duration-300 w-full",
+          showCode ? "h-auto max-h-[400px] p-4" : "h-0 p-0 opacity-0"
         )}>
           {showCode && (
-            <pre className="text-sm">
+            <pre className="text-sm w-full">
               <code>{code}</code>
             </pre>
           )}
@@ -677,4 +670,3 @@ const LayoutComponent = ({
 };
 
 export default StackedLayouts;
-
