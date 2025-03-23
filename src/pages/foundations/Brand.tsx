@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -229,11 +228,11 @@ const Brand = () => {
                 A Amy é representada pela paleta de cores tertiary, que consiste em tons de magenta/roxo que transmitem inovação e inteligência.
               </p>
               
-              <div className="grid grid-cols-7 gap-4">
+              <div className="flex overflow-x-auto gap-3 pb-2">
                 {tertiaryPalette.map(item => (
                   <div key={item.name} className="flex flex-col items-center">
                     <div 
-                      className={`h-16 w-full rounded-md ${item.name === 'light' ? 'text-tertiary-800' : 'text-white'}`} 
+                      className={`h-16 w-16 rounded-md ${item.name === 'light' ? 'text-tertiary-800' : 'text-white'}`} 
                       style={{ backgroundColor: item.hex }}
                     ></div>
                     <span className="text-xs mt-2 text-center">tertiary-{item.name}</span>
@@ -259,8 +258,8 @@ const Brand = () => {
               </div>
             </Card>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card className="p-6">
+            <div className="grid grid-cols-1 md:grid-cols-10 gap-6">
+              <Card className="p-6 md:col-span-7">
                 <h3 className="text-xl font-medium mb-4">Imagens da Amy</h3>
                 <div className="grid grid-cols-3 gap-4">
                   <div className="flex flex-col items-center gap-2">
@@ -284,7 +283,7 @@ const Brand = () => {
                 </div>
               </Card>
 
-              <Card className="p-6">
+              <Card className="p-6 md:col-span-3">
                 <h3 className="text-xl font-medium mb-4">Ícones</h3>
                 <div className="space-y-8">
                   <div className="flex flex-col items-center">
