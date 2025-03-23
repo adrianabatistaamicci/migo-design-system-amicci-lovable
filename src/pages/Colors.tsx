@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Chip } from '@/components/ui/chip';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -12,6 +13,7 @@ import Header from '@/components/library-components/Header';
 import { Toggle } from '@/components/ui/toggle';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { TailwindTabs } from '@/components/ui/tabs';
+
 const ColorSwatch = ({
   color,
   className = "",
@@ -80,6 +82,7 @@ const ColorSwatch = ({
       </div>
     </div>;
 };
+
 const BaseColorsTable = ({
   baseColors
 }) => {
@@ -138,6 +141,7 @@ const BaseColorsTable = ({
         </div>)}
     </div>;
 };
+
 const PaletteTable = ({
   palettes
 }) => {
@@ -222,6 +226,8 @@ const PaletteTable = ({
         </div>)}
     </div>;
 };
+
+// Define baseColorsData here to fix the reference error
 const baseColorsData = [{
   name: 'Amicci',
   weights: [{
@@ -646,6 +652,7 @@ const baseColorsData = [{
     hexValue: '#7A2E0E'
   }]
 }];
+
 const paletteData = [{
   name: 'Text',
   description: 'Gray',
@@ -809,6 +816,7 @@ const paletteData = [{
     hexValue: '#FFFFFF'
   }]
 }];
+
 const Colors = () => {
   const [simulationType, setSimulationType] = useState('');
   const [activeTab, setActiveTab] = useState('overview');
@@ -837,7 +845,7 @@ const Colors = () => {
     }, {
       name: 'Acessibilidade',
       value: 'accessibility'
-    }]} variant="pillsGray" onChange={value => setActiveTab(value)}>
+    }]} onChange={value => setActiveTab(value)}>
         {activeTab === 'overview' && <div className="space-y-6 mt-6">
             <ComponentCard title="Sistema de Cores" description="Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização.">
               <p className="text-gray-600 mb-6">
