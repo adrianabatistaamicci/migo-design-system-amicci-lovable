@@ -223,7 +223,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
   // Main section headers (level 0) should not be collapsible
   if (level === 0) {
     return (
-      <div className="mb-2">
+      <div className="mb-6">
         {item.title && (
           <div className="mb-2">
             <div className={cn(
@@ -253,7 +253,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
             <CollapsibleTrigger className={cn(
               "flex items-center justify-between w-full py-2 px-3 rounded-md text-sm",
               level === 0 ? "font-medium text-primary uppercase text-xs" : "text-foreground",
-              active && !item.href ? "text-primary-main" : "",
+              active && !item.href ? "text-primary-main font-semibold" : "",
               level > 0 && "pl-8",
               item.href ? "hover:bg-gray-100 cursor-pointer" : ""
             )}>
@@ -264,7 +264,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
                     to={item.href} 
                     className={cn(
                       "w-full",
-                      location.pathname === item.href ? "text-primary-main font-medium" : ""
+                      location.pathname === item.href ? "text-primary-main font-semibold" : ""
                     )}
                   >
                     {item.title}
@@ -310,7 +310,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
       className={cn(
         "flex items-center justify-between py-2 px-3 text-sm rounded-md mb-1",
         location.pathname === item.href 
-          ? "bg-primary-hover text-primary-main font-medium" 
+          ? "bg-primary-hover text-primary-main font-semibold" 
           : "text-gray-700 hover:bg-gray-100",
         level > 0 && "pl-8",
       )}
