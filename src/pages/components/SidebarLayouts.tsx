@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { 
   Home, 
@@ -465,7 +466,7 @@ const AdvancedSidebar = () => {
                     </ul>
                   </nav>
                 </div>
-                <div className={`flex-1 p-6 bg-white`}>
+                <div className="flex-1 p-6 bg-white">
                   <h1 className="text-xl font-semibold mb-4">Dashboard</h1>
                   <p className="text-gray-600">Main content would go here</p>
                 </div>
@@ -643,3 +644,55 @@ const AdvancedSidebar = () => {
             <li>Agrupe itens de navegação relacionados para uma melhor arquitetura de informação.</li>
             <li>Use cabeçalhos de grupo para categorizar seções da barra lateral.</li>
             <li>Implemente badges apenas para contagens ou notificações que realmente importam.</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  );
+};
+
+const LayoutComponentFooter = ({
+  code
+}) => {
+  const [showCode, setShowCode] = useState(false);
+  const [copied, setCopied] = useState(false);
+  
+  const copyToClipboard = () => {
+    if (code) {
+      navigator.clipboard.writeText(code);
+      setCopied(true);
+      setTimeout(() => {
+        setCopied(false);
+      }, 2000);
+    }
+  };
+  
+  return (
+    <div className="border-t border-gray-200 px-4 py-3 flex justify-between items-center bg-gray-50">
+      <Button variant="ghost" size="sm" onClick={() => setShowCode(!showCode)} className="flex items-center gap-1 text-sm">
+        <Code size={16} />
+        <span>{showCode ? 'Hide code' : 'Show code'}</span>
+      </Button>
+      
+      <Button variant="ghost" size="sm" onClick={copyToClipboard} className="flex items-center gap-1 text-sm">
+        {copied ? <>
+            <CheckCheck size={16} />
+            <span>Copied</span>
+          </> : <>
+            <Copy size={16} />
+            <span>Copy</span>
+          </>}
+      </Button>
+      
+      {showCode && (
+        <div className="border-t bg-gray-50 p-4 overflow-x-auto max-h-[400px] mt-3">
+          <pre className="text-sm">
+            <code>{code}</code>
+          </pre>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default SidebarLayouts;
