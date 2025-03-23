@@ -26,7 +26,6 @@ const Dividers = () => {
           
           <ComponentCard 
             title="Horizontal Divider" 
-            description="Uma linha horizontal simples que separa o conteúdo."
             code={`<div className="space-y-4">
   <div>Conteúdo acima do divisor</div>
   <Separator />
@@ -49,7 +48,6 @@ const Dividers = () => {
           
           <ComponentCard 
             title="Vertical Divider" 
-            description="Uma linha vertical que separa elementos lado a lado."
             code={`<div className="flex h-20 items-center">
   <div>Conteúdo à esquerda</div>
   <Separator orientation="vertical" className="mx-4 h-full" />
@@ -72,7 +70,6 @@ const Dividers = () => {
           
           <ComponentCard 
             title="Divider com rótulo" 
-            description="Divisor com texto centralizado."
             code={`<div className="relative flex items-center py-5">
   <div className="flex-grow border-t border-border"></div>
   <span className="flex-shrink mx-4 text-gray-500">Rótulo</span>
@@ -88,7 +85,6 @@ const Dividers = () => {
           
           <ComponentCard 
             title="Divider com ícone" 
-            description="Divisor com ícone centralizado."
             code={`<div className="relative flex items-center py-5">
   <div className="flex-grow border-t border-border"></div>
   <div className="flex-shrink mx-3 p-1 bg-white rounded-full border border-border">
@@ -108,7 +104,6 @@ const Dividers = () => {
           
           <ComponentCard 
             title="Divider com rótulo à esquerda" 
-            description="Divisor com texto alinhado à esquerda."
             code={`<div className="relative flex items-center py-5">
   <span className="pr-3 text-gray-500 font-medium">Categoria</span>
   <div className="flex-grow border-t border-border"></div>
@@ -122,7 +117,6 @@ const Dividers = () => {
           
           <ComponentCard 
             title="Divider com título" 
-            description="Divisor com título enfatizado."
             code={`<div className="relative flex flex-col space-y-3 py-5">
   <h3 className="text-lg font-semibold">Seção de Conteúdo</h3>
   <Separator className="w-full" />
@@ -136,7 +130,6 @@ const Dividers = () => {
           
           <ComponentCard 
             title="Divider com título à esquerda" 
-            description="Divisor com título alinhado à esquerda."
             code={`<div className="relative flex items-center py-5">
   <h3 className="pr-3 text-lg font-semibold">Seção</h3>
   <div className="flex-grow border-t border-border"></div>
@@ -150,7 +143,6 @@ const Dividers = () => {
           
           <ComponentCard 
             title="Divider com botão" 
-            description="Divisor com botão centralizado."
             code={`<div className="relative flex items-center py-5">
   <div className="flex-grow border-t border-border"></div>
   <Button size="sm" variant="outline-secondary" className="mx-4 flex-shrink-0">
@@ -172,7 +164,6 @@ const Dividers = () => {
           
           <ComponentCard 
             title="Divider com título e botão" 
-            description="Divisor com título e botão de ação."
             code={`<div className="relative flex items-center justify-between py-5">
   <h3 className="text-lg font-semibold">Conteúdo Recente</h3>
   <div className="flex items-center">
@@ -196,7 +187,6 @@ const Dividers = () => {
           
           <ComponentCard 
             title="Divider com barra de ferramentas" 
-            description="Divisor com conjunto de ações."
             code={`<div className="relative py-5 space-y-3">
   <div className="flex items-center justify-between">
     <h3 className="text-lg font-semibold">Navegação</h3>
@@ -231,7 +221,6 @@ const Dividers = () => {
           
           <ComponentCard 
             title="Custom Divider Styles" 
-            description="Dividers personalizados com diferentes cores e espessuras."
             code={`<div className="space-y-6">
   <div className="space-y-4">
     <div>Divisor padrão</div>
