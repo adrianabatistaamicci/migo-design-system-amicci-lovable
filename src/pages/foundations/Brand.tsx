@@ -312,13 +312,11 @@ const Brand = () => {
                               <Sparkles size={20} className="text-tertiary-main" />
                             </div>
                             <div className="flex items-center gap-3">
-                              <Chip size="sm" variant="default">Novo insight gerado</Chip>
+                              
                               <div className="max-w-xl overflow-hidden text-ellipsis whitespace-nowrap text-gray-600 text-sm">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
                               </div>
-                              <Button variant="outline-secondary" size="sm" className="ml-auto" startIcon={<RefreshCw size={16} />}>
-                                Gerar novo insight
-                              </Button>
+                              
                             </div>
                           </div>
                         </AccordionTrigger>
@@ -327,7 +325,7 @@ const Brand = () => {
                             <p className="text-gray-500 text-sm">
                               Insight gerado em 13/03/2024 às 13:45
                             </p>
-                            <Chip size="sm">Novo insight gerado</Chip>
+                            
                           </div>
                           <div>
                             <h4 className="font-medium text-base mb-2">Recomendações</h4>
