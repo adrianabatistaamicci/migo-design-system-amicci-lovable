@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   Home, 
@@ -190,7 +189,7 @@ const AdvancedSidebar = () => {
     <div className="w-72 h-screen bg-white border-r border-gray-200 overflow-y-auto flex flex-col">
       <div className="p-4 border-b border-gray-200 flex items-center space-x-3">
         <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg" alt="Amicci" className="h-6" />
-        <Chip variant="outlined" color="primary">v1.2.0</Chip>
+        <Chip variant="default" color="primary">v1.2.0</Chip>
       </div>
       
       <div className="p-3">
@@ -482,7 +481,7 @@ const AdvancedSidebar = () => {
                 <div className="w-72 h-full bg-white border-r border-gray-200 overflow-y-auto flex flex-col">
                   <div className="p-4 border-b border-gray-200 flex items-center space-x-3">
                     <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg" alt="Amicci" className="h-6" />
-                    <Chip variant="outlined" color="primary">v1.2.0</Chip>
+                    <Chip variant="default" color="primary">v1.2.0</Chip>
                   </div>
                   
                   <div className="p-3">
