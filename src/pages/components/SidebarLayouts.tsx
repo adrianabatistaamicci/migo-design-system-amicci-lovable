@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Sidebar, Home, Settings, Users, FileText, Mail, ChevronDown, ChevronRight, ChevronLeft, Menu, X, Code, Copy, CheckCheck } from 'lucide-react';
 import Header from '@/components/library-components/Header';
@@ -55,9 +54,7 @@ const SidebarExample = () => {
   );
 };
 
-export default SidebarExample;`;
-
-  const collapsibleSidebarCode = `// Collapsible Sidebar Component Example
+const collapsibleSidebarCode = `// Collapsible Sidebar Component Example
 import React, { useState } from 'react';
 import { Home, Mail, Settings, Users, Menu, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -251,25 +248,25 @@ const CollapsibleSidebar = () => {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">Best Practices</h2>
+          <h2 className="text-2xl font-semibold mb-6">Melhores Práticas</h2>
           <ul className="list-disc pl-6 space-y-3 text-gray-700">
-            <li>Organize navigation items in a logical order, with the most important items at the top.</li>
-            <li>Use icons alongside text to enhance recognition and scannability.</li>
-            <li>Highlight the current page or section to provide context.</li>
-            <li>Consider responsive behavior - collapse or hide the sidebar on smaller screens.</li>
-            <li>Group related navigation items together for better information architecture.</li>
-            <li>Keep the sidebar fixed on scroll for constant access to navigation.</li>
+            <li>Organize os itens de navegação em ordem lógica, com os itens mais importantes no topo.</li>
+            <li>Use ícones junto com texto para melhorar o reconhecimento e a capacidade de escaneamento.</li>
+            <li>Destaque a página ou seção atual para fornecer contexto.</li>
+            <li>Considere o comportamento responsivo - recolha ou oculte a barra lateral em telas menores.</li>
+            <li>Agrupe itens de navegação relacionados para uma melhor arquitetura de informação.</li>
+            <li>Mantenha a barra lateral fixa durante a rolagem para acesso constante à navegação.</li>
           </ul>
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">Accessibility</h2>
+          <h2 className="text-2xl font-semibold mb-6">Acessibilidade</h2>
           <ul className="list-disc pl-6 space-y-3 text-gray-700">
-            <li>Ensure all navigation items are keyboard accessible.</li>
-            <li>Use proper ARIA roles for navigation elements (role="navigation").</li>
-            <li>Add aria-current="page" to the currently active navigation item.</li>
-            <li>Provide sufficient color contrast for text and icons.</li>
-            <li>When using a collapsible sidebar, ensure toggle controls are accessible and properly labeled.</li>
+            <li>Garanta que todos os itens de navegação sejam acessíveis por teclado.</li>
+            <li>Use funções ARIA adequadas para elementos de navegação (role="navigation").</li>
+            <li>Adicione aria-current="page" ao item de navegação atualmente ativo.</li>
+            <li>Forneça contraste de cor suficiente para texto e ícones.</li>
+            <li>Ao usar uma barra lateral recolhível, certifique-se de que os controles de alternância sejam acessíveis e adequadamente rotulados.</li>
           </ul>
         </section>
       </div>
