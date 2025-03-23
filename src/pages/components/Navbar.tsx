@@ -1,4 +1,3 @@
-
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
@@ -8,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
 import amicciLogoDark from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg';
+import { ProfileButton } from '@/components/ui/profile-button';
 
 const Navbar = () => {
   return (
@@ -81,16 +81,13 @@ const MarketplaceNav = () => {
                 <span className="sr-only">Ver notificações</span>
                 <Bell className="h-6 w-6" aria-hidden="true" />
               </button>
-              <div className="flex items-center gap-3">
-                <div className="flex flex-col items-end">
-                  <p className="text-sm font-medium">Maria Rita</p>
-                  <p className="text-xs text-gray-500">Nome da Empresa</p>
-                </div>
-                <div className="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center text-white">
-                  OP
-                </div>
-                <Menu className="h-6 w-6" />
-              </div>
+              <ProfileButton 
+                userName="Maria Rita"
+                companyName="Nome da Empresa"
+                showMenuIcon={true}
+                menuIcon={<Menu className="h-6 w-6" />}
+                avatarText="OP"
+              />
             </div>
           </div>
         </div>
