@@ -1,3 +1,4 @@
+
 import React from 'react';
 import StackedLayout from './StackedLayout';
 import { Bell, Menu, Search, Globe, Rocket, ChevronDown } from 'lucide-react';
@@ -31,7 +32,8 @@ export const LightBorderExample = () => {
             <ProfileButton 
               userName="Maria Silva"
               companyName="Empresa Ltda."
-              showMenuIcon={false}
+              showMenuIcon={true}
+              menuIcon={<Menu className="h-6 w-6" />}
             />
           </div>
         </>

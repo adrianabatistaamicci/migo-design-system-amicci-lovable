@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import { Link } from 'react-router-dom';
@@ -77,7 +76,8 @@ const LightNavBottomBorderWithReusable = () => (
           <ProfileButton 
             userName="Maria Silva"
             companyName="Empresa Ltda."
-            showMenuIcon={false}
+            showMenuIcon={true}
+            menuIcon={<Menu className="h-6 w-6" />}
           />
         </div>
       </>
@@ -111,7 +111,8 @@ const LightNavGrayBackgroundWithReusable = () => (
           <ProfileButton 
             userName="Maria Silva"
             companyName="Empresa Ltda."
-            showMenuIcon={false}
+            showMenuIcon={true}
+            menuIcon={<Menu className="h-6 w-6" />}
           />
         </div>
       </>
@@ -146,7 +147,8 @@ const BrandedNavCompactHeaderWithReusable = () => (
           <ProfileButton 
             userName="Maria Silva"
             companyName="Empresa Ltda."
-            showMenuIcon={false}
+            showMenuIcon={true}
+            menuIcon={<Menu className="h-6 w-6 text-white" />}
           />
         </div>
       </>
@@ -182,7 +184,8 @@ const BrandedNavWithWhiteHeaderWithReusable = () => (
           <ProfileButton 
             userName="Maria Silva"
             companyName="Empresa Ltda."
-            showMenuIcon={false}
+            showMenuIcon={true}
+            menuIcon={<Menu className="h-6 w-6 text-white" />}
           />
         </div>
       </>
