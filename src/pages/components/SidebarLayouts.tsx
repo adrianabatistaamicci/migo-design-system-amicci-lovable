@@ -17,7 +17,7 @@ const SidebarExample = () => {
   return (
     <div className="w-64 h-screen bg-white border-r border-gray-200">
       <div className="p-4 border-b border-gray-200">
-        <h2 className="text-lg font-medium">App Name</h2>
+        <img src="/src/pages/assets/amicci-logo-tag-updates.svg" alt="Amicci" className="h-6" />
       </div>
       
       <nav className="mt-4">
@@ -78,7 +78,11 @@ const CollapsibleSidebar = () => {
         \${isOpen ? 'w-64' : 'w-20'} md:relative
       \`}>
         <div className="p-4 border-b border-gray-200 flex items-center justify-between">
-          <h2 className={\`text-lg font-medium \${!isOpen && 'md:hidden'}\`}>App Name</h2>
+          {isOpen ? (
+            <img src="/src/pages/assets/amicci-logo-tag-updates.svg" alt="Amicci" className="h-6" />
+          ) : (
+            <img src="/src/pages/assets/Amicci-Simbolo_Turquesa_Escuro.svg" alt="Amicci" className="h-6 mx-auto" />
+          )}
           <button 
             onClick={() => setIsOpen(!isOpen)}
             className="hidden md:block text-gray-500 hover:text-gray-700"
@@ -135,7 +139,7 @@ const CollapsibleSidebar = () => {
               <div className="flex h-full">
                 <div className="w-64 h-full bg-white border-r border-gray-200">
                   <div className="p-4 border-b border-gray-200">
-                    <h2 className="text-lg font-medium">App Name</h2>
+                    <img src="/src/pages/assets/amicci-logo-tag-updates.svg" alt="Amicci" className="h-6" />
                   </div>
                   
                   <nav className="mt-4">
@@ -191,7 +195,7 @@ const CollapsibleSidebar = () => {
               <div className="relative">
                 <div className="fixed top-0 left-0 h-screen bg-white border-r border-gray-200 shadow-sm transition-all duration-300 w-64 md:relative">
                   <div className="p-4 border-b border-gray-200 flex items-center justify-between">
-                    <h2 className="text-lg font-medium">App Name</h2>
+                    <img src="/src/pages/assets/amicci-logo-tag-updates.svg" alt="Amicci" className="h-6" />
                     <button className="hidden md:block text-gray-500 hover:text-gray-700">
                       <ChevronLeft size={20} />
                     </button>
