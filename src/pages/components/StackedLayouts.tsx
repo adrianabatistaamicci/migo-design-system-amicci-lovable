@@ -181,7 +181,7 @@ const BrandedNavCompactHeaderWithReusable = () => (
         <div className="hidden lg:flex lg:items-center gap-4">
           <IconButton 
             variant="outline-secondary" 
-            icon={<Bell size={18} />}
+            icon={<Bell size={18} className="text-white" />}
             aria-label="Ver notificações"
           />
         </div>
@@ -213,7 +213,7 @@ const BrandedNavWithWhiteHeaderWithReusable = () => (
         <div className="hidden lg:flex lg:items-center gap-4">
           <IconButton 
             variant="outline-secondary" 
-            icon={<Bell size={18} />}
+            icon={<Bell size={18} className="text-white" />}
             aria-label="Ver notificações"
           />
         </div>
