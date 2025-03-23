@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -120,6 +121,7 @@ export default {
 					contrast: 'var(--primary-contrast)',
 					hover: 'var(--primary-hover)',
 					selected: 'var(--primary-selected)',
+					focus: 'var(--primary-focus)',
 					focusVisible: 'var(--primary-focusVisible)',
 					outlinedBorder: 'var(--primary-outlinedBorder)',
 				},
@@ -132,6 +134,7 @@ export default {
 					contrast: 'var(--secondary-contrast)',
 					hover: 'var(--secondary-hover)',
 					selected: 'var(--secondary-selected)',
+					focus: 'var(--secondary-focus)',
 					focusVisible: 'var(--secondary-focusVisible)',
 					outlinedBorder: 'var(--secondary-outlinedBorder)',
 				},
@@ -142,6 +145,7 @@ export default {
 					contrast: 'var(--tertiary-contrast)',
 					hover: 'var(--tertiary-hover)',
 					selected: 'var(--tertiary-selected)',
+					focus: 'var(--tertiary-focus)',
 					focusVisible: 'var(--tertiary-focusVisible)',
 					outlinedBorder: 'var(--tertiary-outlinedBorder)',
 				},
@@ -152,8 +156,9 @@ export default {
 					contrast: 'var(--action-contrast)',
 					hover: 'var(--action-hover)',
 					selected: 'var(--action-selected)',
-					focusVisible: 'var(--action-focusVisible)',
-					outlinedBorder: 'var(--action-outlinedBorder)',
+					focus: 'var(--action-focus)',
+					disabled: 'var(--action-disabled)',
+					disabledBackground: 'var(--action-disabledBackground)',
 				},
 				error: {
 					DEFAULT: 'var(--error)',
@@ -164,6 +169,7 @@ export default {
 					contrast: 'var(--error-contrast)',
 					hover: 'var(--error-hover)',
 					selected: 'var(--error-selected)',
+					focus: 'var(--error-focus)',
 					focusVisible: 'var(--error-focusVisible)',
 					outlinedBorder: 'var(--error-outlinedBorder)',
 				},
@@ -174,6 +180,7 @@ export default {
 					contrast: 'var(--warning-contrast)',
 					hover: 'var(--warning-hover)',
 					selected: 'var(--warning-selected)',
+					focus: 'var(--warning-focus)',
 					focusVisible: 'var(--warning-focusVisible)',
 					outlinedBorder: 'var(--warning-outlinedBorder)',
 				},
@@ -184,6 +191,7 @@ export default {
 					contrast: 'var(--info-contrast)',
 					hover: 'var(--info-hover)',
 					selected: 'var(--info-selected)',
+					focus: 'var(--info-focus)',
 					focusVisible: 'var(--info-focusVisible)',
 					outlinedBorder: 'var(--info-outlinedBorder)',
 				},
@@ -194,6 +202,7 @@ export default {
 					contrast: 'var(--success-contrast)',
 					hover: 'var(--success-hover)',
 					selected: 'var(--success-selected)',
+					focus: 'var(--success-focus)',
 					focusVisible: 'var(--success-focusVisible)',
 					outlinedBorder: 'var(--success-outlinedBorder)',
 				},
