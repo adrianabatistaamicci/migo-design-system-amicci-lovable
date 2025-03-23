@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
@@ -158,7 +157,7 @@ const sidebarItems: SidebarItem[] = [
           { title: 'Cards', href: '/components/cards' },
           { title: 'List Containers', href: '/components/list-containers' },
           { title: 'Media Objects', href: '/components/media-objects' },
-          { title: 'Dividers', href: '/components/divider' },
+          { title: 'Dividers', href: '/components/dividers' },
           { title: 'Skeletons', href: '/components/skeleton' },
         ]
       },
