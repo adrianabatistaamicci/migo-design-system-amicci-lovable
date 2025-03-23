@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Chip } from '@/components/ui/chip';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -227,646 +226,592 @@ const PaletteTable = ({
     </div>;
 };
 
-// Define baseColorsData here to fix the reference error
-const baseColorsData = [{
-  name: 'Amicci',
-  weights: [{
-    weight: '50',
-    colorClass: 'bg-amicci-50',
-    hexValue: '#F1FDFC'
-  }, {
-    weight: '100',
-    colorClass: 'bg-amicci-100',
-    hexValue: '#E3FAF9'
-  }, {
-    weight: '200',
-    colorClass: 'bg-amicci-200',
-    hexValue: '#C7F5F3'
-  }, {
-    weight: '300',
-    colorClass: 'bg-amicci-300',
-    hexValue: '#93EDEA'
-  }, {
-    weight: '400',
-    colorClass: 'bg-amicci-400',
-    hexValue: '#51DEDA'
-  }, {
-    weight: '500',
-    colorClass: 'bg-amicci-500',
-    hexValue: '#10C2C0'
-  }, {
-    weight: '600',
-    colorClass: 'bg-amicci-600',
-    hexValue: '#0EA3A1'
-  }, {
-    weight: '700',
-    colorClass: 'bg-amicci-700',
-    hexValue: '#0C8482'
-  }, {
-    weight: '800',
-    colorClass: 'bg-amicci-800',
-    hexValue: '#096665'
-  }, {
-    weight: '900',
-    colorClass: 'bg-amicci-900',
-    hexValue: '#074A47'
-  }, {
-    weight: '950',
-    colorClass: 'bg-amicci-950',
-    hexValue: '#062630'
-  }]
-}, {
-  name: 'AmicciDark',
-  weights: [{
-    weight: '50',
-    colorClass: 'bg-amicciDark-50',
-    hexValue: '#E6F5F5'
-  }, {
-    weight: '100',
-    colorClass: 'bg-amicciDark-100',
-    hexValue: '#C7E8E9'
-  }, {
-    weight: '200',
-    colorClass: 'bg-amicciDark-200',
-    hexValue: '#A1D6D8'
-  }, {
-    weight: '300',
-    colorClass: 'bg-amicciDark-300',
-    hexValue: '#72BEC2'
-  }, {
-    weight: '400',
-    colorClass: 'bg-amicciDark-400',
-    hexValue: '#3A9CA1'
-  }, {
-    weight: '500',
-    colorClass: 'bg-amicciDark-500',
-    hexValue: '#14818A'
-  }, {
-    weight: '600',
-    colorClass: 'bg-amicciDark-600',
-    hexValue: '#0D646D'
-  }, {
-    weight: '700',
-    colorClass: 'bg-amicciDark-700',
-    hexValue: '#06454A'
-  }, {
-    weight: '800',
-    colorClass: 'bg-amicciDark-800',
-    hexValue: '#043A3E'
-  }, {
-    weight: '900',
-    colorClass: 'bg-amicciDark-900',
-    hexValue: '#033034'
-  }, {
-    weight: '950',
-    colorClass: 'bg-amicciDark-950',
-    hexValue: '#02282A'
-  }]
-}, {
-  name: 'Blue',
-  weights: [{
-    weight: '50',
-    colorClass: 'bg-blue-50',
-    hexValue: '#EBF5FF'
-  }, {
-    weight: '100',
-    colorClass: 'bg-blue-100',
-    hexValue: '#D6E8FF'
-  }, {
-    weight: '200',
-    colorClass: 'bg-blue-200',
-    hexValue: '#ADC8FF'
-  }, {
-    weight: '300',
-    colorClass: 'bg-blue-300',
-    hexValue: '#84A9FF'
-  }, {
-    weight: '400',
-    colorClass: 'bg-blue-400',
-    hexValue: '#5A8CF8'
-  }, {
-    weight: '500',
-    colorClass: 'bg-blue-500',
-    hexValue: '#2970FF'
-  }, {
-    weight: '600',
-    colorClass: 'bg-blue-600',
-    hexValue: '#1F5AE8'
-  }, {
-    weight: '700',
-    colorClass: 'bg-blue-700',
-    hexValue: '#0057B2'
-  }, {
-    weight: '800',
-    colorClass: 'bg-blue-800',
-    hexValue: '#0C41A0'
-  }, {
-    weight: '900',
-    colorClass: 'bg-blue-900',
-    hexValue: '#093186'
-  }, {
-    weight: '950',
-    colorClass: 'bg-blue-950',
-    hexValue: '#072B7A'
-  }]
-}, {
-  name: 'Magenta',
-  weights: [{
-    weight: '50',
-    colorClass: 'bg-magenta-50',
-    hexValue: '#FDF5FA'
-  }, {
-    weight: '100',
-    colorClass: 'bg-magenta-100',
-    hexValue: '#F9E5F4'
-  }, {
-    weight: '200',
-    colorClass: 'bg-magenta-200',
-    hexValue: '#F2CAEB'
-  }, {
-    weight: '300',
-    colorClass: 'bg-magenta-300',
-    hexValue: '#E7A4DD'
-  }, {
-    weight: '400',
-    colorClass: 'bg-magenta-400',
-    hexValue: '#C963BA'
-  }, {
-    weight: '500',
-    colorClass: 'bg-magenta-500',
-    hexValue: '#9B247F'
-  }, {
-    weight: '600',
-    colorClass: 'bg-magenta-600',
-    hexValue: '#841E6C'
-  }, {
-    weight: '700',
-    colorClass: 'bg-magenta-700',
-    hexValue: '#6D1959'
-  }, {
-    weight: '800',
-    colorClass: 'bg-magenta-800',
-    hexValue: '#571447'
-  }, {
-    weight: '900',
-    colorClass: 'bg-magenta-900',
-    hexValue: '#49123C'
-  }, {
-    weight: '950',
-    colorClass: 'bg-magenta-950',
-    hexValue: '#3E0F32'
-  }]
-}, {
-  name: 'Green',
-  weights: [{
-    weight: '50',
-    colorClass: 'bg-green-50',
-    hexValue: '#ECFDF3'
-  }, {
-    weight: '100',
-    colorClass: 'bg-green-100',
-    hexValue: '#D1FADF'
-  }, {
-    weight: '200',
-    colorClass: 'bg-green-200',
-    hexValue: '#A6F4C5'
-  }, {
-    weight: '300',
-    colorClass: 'bg-green-300',
-    hexValue: '#6CE9A6'
-  }, {
-    weight: '400',
-    colorClass: 'bg-green-400',
-    hexValue: '#32D583'
-  }, {
-    weight: '500',
-    colorClass: 'bg-green-500',
-    hexValue: '#12B76A'
-  }, {
-    weight: '600',
-    colorClass: 'bg-green-600',
-    hexValue: '#039855'
-  }, {
-    weight: '700',
-    colorClass: 'bg-green-700',
-    hexValue: '#027A48'
-  }, {
-    weight: '800',
-    colorClass: 'bg-green-800',
-    hexValue: '#05603A'
-  }, {
-    weight: '900',
-    colorClass: 'bg-green-900',
-    hexValue: '#055735'
-  }, {
-    weight: '950',
-    colorClass: 'bg-green-950',
-    hexValue: '#054F31'
-  }]
-}, {
-  name: 'Gray',
-  weights: [{
-    weight: '50',
-    colorClass: 'bg-gray-50',
-    hexValue: '#F9FBFB'
-  }, {
-    weight: '100',
-    colorClass: 'bg-gray-100',
-    hexValue: '#F3F6F5'
-  }, {
-    weight: '200',
-    colorClass: 'bg-gray-200',
-    hexValue: '#EAEFF0'
-  }, {
-    weight: '300',
-    colorClass: 'bg-gray-300',
-    hexValue: '#CED6D6'
-  }, {
-    weight: '400',
-    colorClass: 'bg-gray-400',
-    hexValue: '#AFB9BA'
-  }, {
-    weight: '500',
-    colorClass: 'bg-gray-500',
-    hexValue: '#808586'
-  }, {
-    weight: '600',
-    colorClass: 'bg-gray-600',
-    hexValue: '#656969'
-  }, {
-    weight: '700',
-    colorClass: 'bg-gray-700',
-    hexValue: '#4A4F4F'
-  }, {
-    weight: '800',
-    colorClass: 'bg-gray-800',
-    hexValue: '#313536'
-  }, {
-    weight: '900',
-    colorClass: 'bg-gray-900',
-    hexValue: '#292C2D'
-  }, {
-    weight: '950',
-    colorClass: 'bg-gray-950',
-    hexValue: '#212323'
-  }]
-}, {
-  name: 'Red',
-  weights: [{
-    weight: '50',
-    colorClass: 'bg-red-50',
-    hexValue: '#FEF3F2'
-  }, {
-    weight: '100',
-    colorClass: 'bg-red-100',
-    hexValue: '#FEE4E2'
-  }, {
-    weight: '200',
-    colorClass: 'bg-red-200',
-    hexValue: '#FECDCA'
-  }, {
-    weight: '300',
-    colorClass: 'bg-red-300',
-    hexValue: '#FDA29B'
-  }, {
-    weight: '400',
-    colorClass: 'bg-red-400',
-    hexValue: '#F97066'
-  }, {
-    weight: '500',
-    colorClass: 'bg-red-500',
-    hexValue: '#F04438'
-  }, {
-    weight: '600',
-    colorClass: 'bg-red-600',
-    hexValue: '#D92D20'
-  }, {
-    weight: '700',
-    colorClass: 'bg-red-700',
-    hexValue: '#B42318'
-  }, {
-    weight: '800',
-    colorClass: 'bg-red-800',
-    hexValue: '#912018'
-  }, {
-    weight: '900',
-    colorClass: 'bg-red-900',
-    hexValue: '#862017'
-  }, {
-    weight: '950',
-    colorClass: 'bg-red-950',
-    hexValue: '#7A271A'
-  }]
-}, {
-  name: 'Yellow',
-  weights: [{
-    weight: '50',
-    colorClass: 'bg-yellow-50',
-    hexValue: '#FFFDE7'
-  }, {
-    weight: '100',
-    colorClass: 'bg-yellow-100',
-    hexValue: '#FFF9C4'
-  }, {
-    weight: '200',
-    colorClass: 'bg-yellow-200',
-    hexValue: '#FFF59D'
-  }, {
-    weight: '300',
-    colorClass: 'bg-yellow-300',
-    hexValue: '#FFF176'
-  }, {
-    weight: '400',
-    colorClass: 'bg-yellow-400',
-    hexValue: '#FFEB3B'
-  }, {
-    weight: '500',
-    colorClass: 'bg-yellow-500',
-    hexValue: '#FFEB3B'
-  }, {
-    weight: '600',
-    colorClass: 'bg-yellow-600',
-    hexValue: '#FDD835'
-  }, {
-    weight: '700',
-    colorClass: 'bg-yellow-700',
-    hexValue: '#FBC02D'
-  }, {
-    weight: '800',
-    colorClass: 'bg-yellow-800',
-    hexValue: '#F9A825'
-  }, {
-    weight: '900',
-    colorClass: 'bg-yellow-900',
-    hexValue: '#F78F1E'
-  }, {
-    weight: '950',
-    colorClass: 'bg-yellow-950',
-    hexValue: '#F57F17'
-  }]
-}, {
-  name: 'Orange',
-  weights: [{
-    weight: '50',
-    colorClass: 'bg-orange-50',
-    hexValue: '#FFFAEB'
-  }, {
-    weight: '100',
-    colorClass: 'bg-orange-100',
-    hexValue: '#FEF0C7'
-  }, {
-    weight: '200',
-    colorClass: 'bg-orange-200',
-    hexValue: '#FEDF89'
-  }, {
-    weight: '300',
-    colorClass: 'bg-orange-300',
-    hexValue: '#FEC84B'
-  }, {
-    weight: '400',
-    colorClass: 'bg-orange-400',
-    hexValue: '#FDB022'
-  }, {
-    weight: '500',
-    colorClass: 'bg-orange-500',
-    hexValue: '#F79009'
-  }, {
-    weight: '600',
-    colorClass: 'bg-orange-600',
-    hexValue: '#DC6803'
-  }, {
-    weight: '700',
-    colorClass: 'bg-orange-700',
-    hexValue: '#B54708'
-  }, {
-    weight: '800',
-    colorClass: 'bg-orange-800',
-    hexValue: '#93370D'
-  }, {
-    weight: '900',
-    colorClass: 'bg-orange-900',
-    hexValue: '#86320D'
-  }, {
-    weight: '950',
-    colorClass: 'bg-orange-950',
-    hexValue: '#7A2E0E'
-  }]
-}];
+const baseColorsData = [
+  {
+    name: 'Amicci',
+    weights: [{
+      weight: '50',
+      colorClass: 'bg-amicci-50',
+      hexValue: '#F1FDFC'
+    }, {
+      weight: '100',
+      colorClass: 'bg-amicci-100',
+      hexValue: '#E3FAF9'
+    }, {
+      weight: '200',
+      colorClass: 'bg-amicci-200',
+      hexValue: '#C7F5F3'
+    }, {
+      weight: '300',
+      colorClass: 'bg-amicci-300',
+      hexValue: '#93EDEA'
+    }, {
+      weight: '400',
+      colorClass: 'bg-amicci-400',
+      hexValue: '#51DEDA'
+    }, {
+      weight: '500',
+      colorClass: 'bg-amicci-500',
+      hexValue: '#10C2C0'
+    }, {
+      weight: '600',
+      colorClass: 'bg-amicci-600',
+      hexValue: '#0EA3A1'
+    }, {
+      weight: '700',
+      colorClass: 'bg-amicci-700',
+      hexValue: '#0C8482'
+    }, {
+      weight: '800',
+      colorClass: 'bg-amicci-800',
+      hexValue: '#096665'
+    }, {
+      weight: '900',
+      colorClass: 'bg-amicci-900',
+      hexValue: '#074A47'
+    }, {
+      weight: '950',
+      colorClass: 'bg-amicci-950',
+      hexValue: '#062630'
+    }]
+  }, {
+    name: 'AmicciDark',
+    weights: [{
+      weight: '50',
+      colorClass: 'bg-amicciDark-50',
+      hexValue: '#E6F5F5'
+    }, {
+      weight: '100',
+      colorClass: 'bg-amicciDark-100',
+      hexValue: '#C7E8E9'
+    }, {
+      weight: '200',
+      colorClass: 'bg-amicciDark-200',
+      hexValue: '#A1D6D8'
+    }, {
+      weight: '300',
+      colorClass: 'bg-amicciDark-300',
+      hexValue: '#72BEC2'
+    }, {
+      weight: '400',
+      colorClass: 'bg-amicciDark-400',
+      hexValue: '#3A9CA1'
+    }, {
+      weight: '500',
+      colorClass: 'bg-amicciDark-500',
+      hexValue: '#14818A'
+    }, {
+      weight: '600',
+      colorClass: 'bg-amicciDark-600',
+      hexValue: '#0D646D'
+    }, {
+      weight: '700',
+      colorClass: 'bg-amicciDark-700',
+      hexValue: '#06454A'
+    }, {
+      weight: '800',
+      colorClass: 'bg-amicciDark-800',
+      hexValue: '#043A3E'
+    }, {
+      weight: '900',
+      colorClass: 'bg-amicciDark-900',
+      hexValue: '#033034'
+    }, {
+      weight: '950',
+      colorClass: 'bg-amicciDark-950',
+      hexValue: '#02282A'
+    }]
+  }, {
+    name: 'Blue',
+    weights: [{
+      weight: '50',
+      colorClass: 'bg-blue-50',
+      hexValue: '#EBF5FF'
+    }, {
+      weight: '100',
+      colorClass: 'bg-blue-100',
+      hexValue: '#D6E8FF'
+    }, {
+      weight: '200',
+      colorClass: 'bg-blue-200',
+      hexValue: '#ADC8FF'
+    }, {
+      weight: '300',
+      colorClass: 'bg-blue-300',
+      hexValue: '#84A9FF'
+    }, {
+      weight: '400',
+      colorClass: 'bg-blue-400',
+      hexValue: '#5A8CF8'
+    }, {
+      weight: '500',
+      colorClass: 'bg-blue-500',
+      hexValue: '#2970FF'
+    }, {
+      weight: '600',
+      colorClass: 'bg-blue-600',
+      hexValue: '#1F5AE8'
+    }, {
+      weight: '700',
+      colorClass: 'bg-blue-700',
+      hexValue: '#0057B2'
+    }, {
+      weight: '800',
+      colorClass: 'bg-blue-800',
+      hexValue: '#0C41A0'
+    }, {
+      weight: '900',
+      colorClass: 'bg-blue-900',
+      hexValue: '#093186'
+    }, {
+      weight: '950',
+      colorClass: 'bg-blue-950',
+      hexValue: '#072B7A'
+    }]
+  }, {
+    name: 'Magenta',
+    weights: [{
+      weight: '50',
+      colorClass: 'bg-magenta-50',
+      hexValue: '#FDF5FA'
+    }, {
+      weight: '100',
+      colorClass: 'bg-magenta-100',
+      hexValue: '#F9E5F4'
+    }, {
+      weight: '200',
+      colorClass: 'bg-magenta-200',
+      hexValue: '#F2CAEB'
+    }, {
+      weight: '300',
+      colorClass: 'bg-magenta-300',
+      hexValue: '#E7A4DD'
+    }, {
+      weight: '400',
+      colorClass: 'bg-magenta-400',
+      hexValue: '#C963BA'
+    }, {
+      weight: '500',
+      colorClass: 'bg-magenta-500',
+      hexValue: '#9B247F'
+    }, {
+      weight: '600',
+      colorClass: 'bg-magenta-600',
+      hexValue: '#841E6C'
+    }, {
+      weight: '700',
+      colorClass: 'bg-magenta-700',
+      hexValue: '#6D1959'
+    }, {
+      weight: '800',
+      colorClass: 'bg-magenta-800',
+      hexValue: '#571447'
+    }, {
+      weight: '900',
+      colorClass: 'bg-magenta-900',
+      hexValue: '#49123C'
+    }, {
+      weight: '950',
+      colorClass: 'bg-magenta-950',
+      hexValue: '#3E0F32'
+    }]
+  }, {
+    name: 'Green',
+    weights: [{
+      weight: '50',
+      colorClass: 'bg-green-50',
+      hexValue: '#ECFDF3'
+    }, {
+      weight: '100',
+      colorClass: 'bg-green-100',
+      hexValue: '#D1FADF'
+    }, {
+      weight: '200',
+      colorClass: 'bg-green-200',
+      hexValue: '#A6F4C5'
+    }, {
+      weight: '300',
+      colorClass: 'bg-green-300',
+      hexValue: '#6CE9A6'
+    }, {
+      weight: '400',
+      colorClass: 'bg-green-400',
+      hexValue: '#32D583'
+    }, {
+      weight: '500',
+      colorClass: 'bg-green-500',
+      hexValue: '#12B76A'
+    }, {
+      weight: '600',
+      colorClass: 'bg-green-600',
+      hexValue: '#039855'
+    }, {
+      weight: '700',
+      colorClass: 'bg-green-700',
+      hexValue: '#027A48'
+    }, {
+      weight: '800',
+      colorClass: 'bg-green-800',
+      hexValue: '#05603A'
+    }, {
+      weight: '900',
+      colorClass: 'bg-green-900',
+      hexValue: '#055735'
+    }, {
+      weight: '950',
+      colorClass: 'bg-green-950',
+      hexValue: '#054F31'
+    }]
+  }, {
+    name: 'Gray',
+    weights: [{
+      weight: '50',
+      colorClass: 'bg-gray-50',
+      hexValue: '#F9FBFB'
+    }, {
+      weight: '100',
+      colorClass: 'bg-gray-100',
+      hexValue: '#F3F6F5'
+    }, {
+      weight: '200',
+      colorClass: 'bg-gray-200',
+      hexValue: '#EAEFF0'
+    }, {
+      weight: '300',
+      colorClass: 'bg-gray-300',
+      hexValue: '#CED6D6'
+    }, {
+      weight: '400',
+      colorClass: 'bg-gray-400',
+      hexValue: '#AFB9BA'
+    }, {
+      weight: '500',
+      colorClass: 'bg-gray-500',
+      hexValue: '#808586'
+    }, {
+      weight: '600',
+      colorClass: 'bg-gray-600',
+      hexValue: '#656969'
+    }, {
+      weight: '700',
+      colorClass: 'bg-gray-700',
+      hexValue: '#4A4F4F'
+    }, {
+      weight: '800',
+      colorClass: 'bg-gray-800',
+      hexValue: '#313536'
+    }, {
+      weight: '900',
+      colorClass: 'bg-gray-900',
+      hexValue: '#292C2D'
+    }, {
+      weight: '950',
+      colorClass: 'bg-gray-950',
+      hexValue: '#212323'
+    }]
+  }, {
+    name: 'Red',
+    weights: [{
+      weight: '50',
+      colorClass: 'bg-red-50',
+      hexValue: '#FEF3F2'
+    }, {
+      weight: '100',
+      colorClass: 'bg-red-100',
+      hexValue: '#FEE4E2'
+    }, {
+      weight: '200',
+      colorClass: 'bg-red-200',
+      hexValue: '#FECDCA'
+    }, {
+      weight: '300',
+      colorClass: 'bg-red-300',
+      hexValue: '#FDA29B'
+    }, {
+      weight: '400',
+      colorClass: 'bg-red-400',
+      hexValue: '#F97066'
+    }, {
+      weight: '500',
+      colorClass: 'bg-red-500',
+      hexValue: '#F04438'
+    }, {
+      weight: '600',
+      colorClass: 'bg-red-600',
+      hexValue: '#D92D20'
+    }, {
+      weight: '700',
+      colorClass: 'bg-red-700',
+      hexValue: '#B42318'
+    }, {
+      weight: '800',
+      colorClass: 'bg-red-800',
+      hexValue: '#912018'
+    }, {
+      weight: '900',
+      colorClass: 'bg-red-900',
+      hexValue: '#862017'
+    }, {
+      weight: '950',
+      colorClass: 'bg-red-950',
+      hexValue: '#7A271A'
+    }]
+  }, {
+    name: 'Yellow',
+    weights: [{
+      weight: '50',
+      colorClass: 'bg-yellow-50',
+      hexValue: '#FFFDE7'
+    }, {
+      weight: '100',
+      colorClass: 'bg-yellow-100',
+      hexValue: '#FFF9C4'
+    }, {
+      weight: '200',
+      colorClass: 'bg-yellow-200',
+      hexValue: '#FFF59D'
+    }, {
+      weight: '300',
+      colorClass: 'bg-yellow-300',
+      hexValue: '#FFF176'
+    }, {
+      weight: '400',
+      colorClass: 'bg-yellow-400',
+      hexValue: '#FFEB3B'
+    }, {
+      weight: '500',
+      colorClass: 'bg-yellow-500',
+      hexValue: '#FFEB3B'
+    }, {
+      weight: '600',
+      colorClass: 'bg-yellow-600',
+      hexValue: '#FDD835'
+    }, {
+      weight: '700',
+      colorClass: 'bg-yellow-700',
+      hexValue: '#FBC02D'
+    }, {
+      weight: '800',
+      colorClass: 'bg-yellow-800',
+      hexValue: '#F9A825'
+    }, {
+      weight: '900',
+      colorClass: 'bg-yellow-900',
+      hexValue: '#F78F1E'
+    }, {
+      weight: '950',
+      colorClass: 'bg-yellow-950',
+      hexValue: '#F57F17'
+    }]
+  }, {
+    name: 'Orange',
+    weights: [{
+      weight: '50',
+      colorClass: 'bg-orange-50',
+      hexValue: '#FFFAEB'
+    }, {
+      weight: '100',
+      colorClass: 'bg-orange-100',
+      hexValue: '#FEF0C7'
+    }, {
+      weight: '200',
+      colorClass: 'bg-orange-200',
+      hexValue: '#FEDF89'
+    }, {
+      weight: '300',
+      colorClass: 'bg-orange-300',
+      hexValue: '#FEC84B'
+    }, {
+      weight: '400',
+      colorClass: 'bg-orange-400',
+      hexValue: '#FDB022'
+    }, {
+      weight: '500',
+      colorClass: 'bg-orange-500',
+      hexValue: '#F79009'
+    }, {
+      weight: '600',
+      colorClass: 'bg-orange-600',
+      hexValue: '#DC6803'
+    }, {
+      weight: '700',
+      colorClass: 'bg-orange-700',
+      hexValue: '#B54708'
+    }, {
+      weight: '800',
+      colorClass: 'bg-orange-800',
+      hexValue: '#93370D'
+    }, {
+      weight: '900',
+      colorClass: 'bg-orange-900',
+      hexValue: '#86320D'
+    }, {
+      weight: '950',
+      colorClass: 'bg-orange-950',
+      hexValue: '#7A2E0E'
+    }]
+  }
+];
 
 const paletteData = [
   {
     name: 'Text',
     description: 'Gray',
     variants: [
-      { name: 'primary', colorClass: 'text-text-primary', baseColor: 'Gray-900', textColor: 'text-white', hexValue: '#292C2D' },
-      { name: 'secondary', colorClass: 'text-text-secondary', baseColor: 'Gray-500', textColor: 'text-white', hexValue: '#808586' },
-      { name: 'disabled', colorClass: 'text-text-disabled', baseColor: 'Gray-400', textColor: 'text-white', hexValue: '#AFB9BA' },
-      { name: 'hover', colorClass: 'bg-gray-900/[0.04]', baseColor: 'Gray-900', textColor: 'text-black', opacity: '4%', hexValue: '#292C2D0A' },
-      { name: 'selected', colorClass: 'bg-gray-900/[0.08]', baseColor: 'Gray-900', textColor: 'text-black', opacity: '8%', hexValue: '#292C2D14' },
-      { name: 'focus', colorClass: 'bg-gray-900/[0.12]', baseColor: 'Gray-900', textColor: 'text-black', opacity: '12%', hexValue: '#292C2D1F' },
-      { name: 'focusVisible', colorClass: 'bg-gray-900/[0.3]', baseColor: 'Gray-900', textColor: 'text-black', opacity: '30%', hexValue: '#292C2D4D' },
-      { name: 'contrastText', colorClass: 'bg-white', baseColor: 'White', textColor: 'text-black', hexValue: '#FFFFFF' }
+      { name: 'primary', colorClass: 'text-text-primary', baseColor: 'Gray-900', hexValue: '#111827' },
+      { name: 'secondary', colorClass: 'text-text-secondary', baseColor: 'Gray-500', hexValue: '#6B7280' },
+      { name: 'disabled', colorClass: 'text-text-disabled', baseColor: 'Gray-400', hexValue: '#9CA3AF' },
+      { name: 'hover', colorClass: 'bg-gray-900/[0.04]', baseColor: 'Gray-900', opacity: '4%', hexValue: '#1118270A' },
+      { name: 'selected', colorClass: 'bg-gray-900/[0.08]', baseColor: 'Gray-900', opacity: '8%', hexValue: '#11182714' },
+      { name: 'focus', colorClass: 'bg-gray-900/[0.12]', baseColor: 'Gray-900', opacity: '12%', hexValue: '#1118271F' },
+      { name: 'focusVisible', colorClass: 'bg-gray-900/[0.30]', baseColor: 'Gray-900', opacity: '30%', hexValue: '#1118274D' },
+      { name: 'contrastText', colorClass: 'text-white', baseColor: 'White', hexValue: '#FFFFFF' }
     ]
   },
   {
     name: 'Primary',
     description: 'amicci',
     variants: [
-      { name: 'main', colorClass: 'bg-primary-main', baseColor: 'Amicci-500', textColor: 'text-primary-contrast', opacity: '100%', hexValue: '#10C2C0' },
-      { name: 'dark', colorClass: 'bg-primary-dark', baseColor: 'Amicci-700', textColor: 'text-primary-contrast', opacity: '100%', hexValue: '#0C8482' },
-      { name: 'light', colorClass: 'bg-primary-light', baseColor: 'Amicci-100', textColor: 'text-black', opacity: '100%', hexValue: '#E3FAF9' },
-      { name: 'contrast', colorClass: 'bg-primary-contrast', baseColor: 'Common-white-main', textColor: 'text-primary-main', opacity: '100%', hexValue: '#FFFFFF' },
-      { name: 'hover', colorClass: 'bg-primary-hover', baseColor: 'Amicci-500', textColor: 'text-primary-contrast', opacity: '4%', hexValue: '#10C2C00A' },
-      { name: 'selected', colorClass: 'bg-primary-selected', baseColor: 'Amicci-500', textColor: 'text-primary-contrast', opacity: '8%', hexValue: '#10C2C014' },
-      { name: 'focus', colorClass: 'bg-primary-focus', baseColor: 'Amicci-500', textColor: 'text-black', opacity: '12%', hexValue: '#10C2C01F' },
-      { name: 'focusVisible', colorClass: 'bg-primary-focusVisible', baseColor: 'Amicci-500', textColor: 'text-black', opacity: '30%', hexValue: '#10C2C04D' },
-      { name: 'outlinedBorder', colorClass: 'bg-primary-outlinedBorder', baseColor: 'Amicci-500', textColor: 'text-black', opacity: '50%', hexValue: '#10C2C080' }
+      { name: 'main', colorClass: 'bg-primary-main', baseColor: 'Amicci-500', opacity: '100%', hexValue: '#00A696' },
+      { name: 'light', colorClass: 'bg-primary-light', baseColor: 'Amicci-100', opacity: '100%', hexValue: '#C5F9F5' },
+      { name: 'dark', colorClass: 'bg-primary-dark', baseColor: 'Amicci-700', opacity: '100%', hexValue: '#00655D' },
+      { name: 'hover', colorClass: 'bg-primary-hover', baseColor: 'Amicci-500', opacity: '4%', hexValue: '#00A6960A' },
+      { name: 'selected', colorClass: 'bg-primary-selected', baseColor: 'Amicci-500', opacity: '8%', hexValue: '#00A69614' },
+      { name: 'focus', colorClass: 'bg-primary-focus', baseColor: 'Amicci-500', opacity: '12%', hexValue: '#00A6961F' },
+      { name: 'focusVisible', colorClass: 'bg-primary-focusVisible', baseColor: 'Amicci-500', opacity: '30%', hexValue: '#00A6964D' },
+      { name: 'outlinedBorder', colorClass: 'bg-primary-outlinedBorder', baseColor: 'Amicci-500', opacity: '50%', hexValue: '#00A69680' },
+      { name: 'contrastText', colorClass: 'bg-primary-contrast', baseColor: 'White', opacity: '100%', hexValue: '#FFFFFF' }
     ]
   },
   {
     name: 'Secondary',
-    description: 'AmicciDark',
+    description: 'amicciDark',
     variants: [
-      { name: 'main', colorClass: 'bg-secondary-main', baseColor: 'AmicciDark-500', textColor: 'text-secondary-contrast', opacity: '100%', hexValue: '#14818A' },
-      { name: 'dark', colorClass: 'bg-secondary-dark', baseColor: 'AmicciDark-700', textColor: 'text-secondary-contrast', opacity: '100%', hexValue: '#06454A' },
-      { name: 'light', colorClass: 'bg-secondary-light', baseColor: 'AmicciDark-100', textColor: 'text-black', opacity: '100%', hexValue: '#C7E8E9' },
-      { name: 'dark2', colorClass: 'bg-amicciDark-800', baseColor: 'AmicciDark-800', textColor: 'text-white', opacity: '100%', hexValue: '#043A3E' },
-      { name: 'contrast', colorClass: 'bg-secondary-contrast', baseColor: 'Common-white-main', textColor: 'text-secondary-main', opacity: '100%', hexValue: '#FFFFFF' },
-      { name: 'hover', colorClass: 'bg-secondary-hover', baseColor: 'AmicciDark-500', textColor: 'text-secondary-contrast', opacity: '4%', hexValue: '#14818A0A' },
-      { name: 'selected', colorClass: 'bg-secondary-selected', baseColor: 'AmicciDark-500', textColor: 'text-secondary-contrast', opacity: '8%', hexValue: '#14818A14' },
-      { name: 'focus', colorClass: 'bg-secondary-focus', baseColor: 'AmicciDark-500', textColor: 'text-black', opacity: '12%', hexValue: '#14818A1F' },
-      { name: 'focusVisible', colorClass: 'bg-secondary-focusVisible', baseColor: 'AmicciDark-500', textColor: 'text-black', opacity: '30%', hexValue: '#14818A4D' },
-      { name: 'outlinedBorder', colorClass: 'bg-secondary-outlinedBorder', baseColor: 'AmicciDark-500', textColor: 'text-black', opacity: '50%', hexValue: '#14818A80' }
+      { name: 'main', colorClass: 'bg-secondary-main', baseColor: 'AmicciDark-500', opacity: '100%', hexValue: '#008FB7' },
+      { name: 'light', colorClass: 'bg-secondary-light', baseColor: 'AmicciDark-100', opacity: '100%', hexValue: '#C0E3EB' },
+      { name: 'dark', colorClass: 'bg-secondary-dark', baseColor: 'AmicciDark-700', opacity: '100%', hexValue: '#005974' },
+      { name: 'dark2', colorClass: 'bg-secondary-dark2', baseColor: 'AmicciDark-800', opacity: '100%', hexValue: '#004258' },
+      { name: 'hover', colorClass: 'bg-secondary-hover', baseColor: 'AmicciDark-500', opacity: '4%', hexValue: '#008FB70A' },
+      { name: 'selected', colorClass: 'bg-secondary-selected', baseColor: 'AmicciDark-500', opacity: '8%', hexValue: '#008FB714' },
+      { name: 'focus', colorClass: 'bg-secondary-focus', baseColor: 'AmicciDark-500', opacity: '12%', hexValue: '#008FB71F' },
+      { name: 'focusVisible', colorClass: 'bg-secondary-focusVisible', baseColor: 'AmicciDark-500', opacity: '30%', hexValue: '#008FB74D' },
+      { name: 'outlinedBorder', colorClass: 'bg-secondary-outlinedBorder', baseColor: 'AmicciDark-500', opacity: '50%', hexValue: '#008FB780' },
+      { name: 'contrastText', colorClass: 'bg-secondary-contrast', baseColor: 'White', opacity: '100%', hexValue: '#FFFFFF' }
     ]
   },
   {
     name: 'Tertiary',
-    description: 'Magenta',
+    description: 'magenta',
     variants: [
-      { name: 'main', colorClass: 'bg-tertiary-main', baseColor: 'Magenta-500', textColor: 'text-tertiary-contrast', opacity: '100%', hexValue: '#9B247F' },
-      { name: 'light', colorClass: 'bg-tertiary-light', baseColor: 'Magenta-100', textColor: 'text-black', opacity: '100%', hexValue: '#F9E5F4' },
-      { name: 'dark', colorClass: 'bg-tertiary-dark', baseColor: 'Magenta-700', textColor: 'text-tertiary-contrast', opacity: '100%', hexValue: '#6D1959' },
-      { name: 'hover', colorClass: 'bg-tertiary-hover', baseColor: 'Magenta-500', textColor: 'text-tertiary-contrast', opacity: '4%', hexValue: '#9B247F0A' },
-      { name: 'selected', colorClass: 'bg-tertiary-selected', baseColor: 'Magenta-500', textColor: 'text-tertiary-contrast', opacity: '8%', hexValue: '#9B247F14' },
-      { name: 'focus', colorClass: 'bg-tertiary-focus', baseColor: 'Magenta-500', textColor: 'text-black', opacity: '12%', hexValue: '#9B247F1F' },
-      { name: 'focusVisible', colorClass: 'bg-tertiary-focusVisible', baseColor: 'Magenta-500', textColor: 'text-black', opacity: '30%', hexValue: '#9B247F4D' },
-      { name: 'outlinedBorder', colorClass: 'bg-tertiary-outlinedBorder', baseColor: 'Magenta-500', textColor: 'text-black', opacity: '50%', hexValue: '#9B247F80' },
-      { name: 'contrastText', colorClass: 'bg-tertiary-contrast', baseColor: 'White', textColor: 'text-tertiary-main', opacity: '100%', hexValue: '#FFFFFF' }
-    ]
-  },
-  {
-    name: 'Action',
-    description: 'Gray',
-    variants: [
-      { name: 'active', colorClass: 'text-action-active', baseColor: 'Gray-500', opacity: '100%', hexValue: '#808586' },
-      { name: 'hover', colorClass: 'bg-action-hover', baseColor: 'Gray-100', opacity: '100%', hexValue: '#F3F6F5' },
-      { name: 'selected', colorClass: 'bg-action-selected', baseColor: 'Gray-500', opacity: '100%', hexValue: '#808586' },
-      { name: 'focus', colorClass: 'bg-action-focus', baseColor: 'Gray-400', opacity: '100%', hexValue: '#AFB9BA' },
-      { name: 'disabled', colorClass: 'text-action-disabled', baseColor: 'Gray-400', opacity: '100%', hexValue: '#AFB9BA' },
-      { name: 'disabledBackground', colorClass: 'bg-action-disabledBackground', baseColor: 'Gray-300', opacity: '100%', hexValue: '#CED6D6' },
-      { name: 'contrastText', colorClass: 'text-action-contrastText', baseColor: 'White', opacity: '100%', hexValue: '#FFFFFF' }
+      { name: 'main', colorClass: 'bg-tertiary-main', baseColor: 'Magenta-500', opacity: '100%', hexValue: '#D60270' },
+      { name: 'light', colorClass: 'bg-tertiary-light', baseColor: 'Magenta-100', opacity: '100%', hexValue: '#F5C6DC' },
+      { name: 'dark', colorClass: 'bg-tertiary-dark', baseColor: 'Magenta-700', opacity: '100%', hexValue: '#880144' },
+      { name: 'hover', colorClass: 'bg-tertiary-hover', baseColor: 'Magenta-500', opacity: '4%', hexValue: '#D602700A' },
+      { name: 'selected', colorClass: 'bg-tertiary-selected', baseColor: 'Magenta-500', opacity: '8%', hexValue: '#D6027014' },
+      { name: 'focus', colorClass: 'bg-tertiary-focus', baseColor: 'Magenta-500', opacity: '12%', hexValue: '#D602701F' },
+      { name: 'focusVisible', colorClass: 'bg-tertiary-focusVisible', baseColor: 'Magenta-500', opacity: '30%', hexValue: '#D602704D' },
+      { name: 'outlinedBorder', colorClass: 'bg-tertiary-outlinedBorder', baseColor: 'Magenta-500', opacity: '50%', hexValue: '#D6027080' },
+      { name: 'contrastText', colorClass: 'text-white', baseColor: 'White', opacity: '100%', hexValue: '#FFFFFF' }
     ]
   },
   {
     name: 'Error',
-    description: 'Red',
+    description: 'red',
     variants: [
-      { name: 'main', colorClass: 'bg-error-main', baseColor: 'Red-600', opacity: '100%', hexValue: '#D92D20' },
-      { name: 'light', colorClass: 'bg-error-light', baseColor: 'Red-100', opacity: '100%', hexValue: '#FEE4E2' },
-      { name: 'dark', colorClass: 'bg-error-dark', baseColor: 'Red-900', opacity: '100%', hexValue: '#862017' },
-      { name: 'hover', colorClass: 'bg-error-hover', baseColor: 'Red-600', opacity: '4%', hexValue: '#D92D200A' },
-      { name: 'selected', colorClass: 'bg-error-selected', baseColor: 'Red-600', opacity: '8%', hexValue: '#D92D2014' },
-      { name: 'focusVisible', colorClass: 'bg-error-focusVisible', baseColor: 'Red-600', opacity: '30%', hexValue: '#D92D204D' },
-      { name: 'outlinedBorder', colorClass: 'bg-error-outlinedBorder', baseColor: 'Red-600', opacity: '50%', hexValue: '#D92D2080' },
-      { name: 'contrastText', colorClass: 'text-error-contrastText', baseColor: 'White', opacity: '100%', hexValue: '#FFFFFF' }
-    ]
-  },
-  {
-    name: 'Info',
-    description: 'Blue',
-    variants: [
-      { name: 'main', colorClass: 'bg-info-main', baseColor: 'Blue-600', opacity: '100%', hexValue: '#1F5AE8' },
-      { name: 'light', colorClass: 'bg-info-light', baseColor: 'Blue-100', opacity: '100%', hexValue: '#D6E8FF' },
-      { name: 'dark', colorClass: 'bg-info-dark', baseColor: 'Blue-900', opacity: '100%', hexValue: '#093186' },
-      { name: 'hover', colorClass: 'bg-info-hover', baseColor: 'Blue-700', opacity: '4%', hexValue: '#0057B20A' },
-      { name: 'selected', colorClass: 'bg-info-selected', baseColor: 'Blue-700', opacity: '8%', hexValue: '#0057B214' },
-      { name: 'focusVisible', colorClass: 'bg-info-focusVisible', baseColor: 'Blue-700', opacity: '30%', hexValue: '#0057B24D' },
-      { name: 'outlinedBorder', colorClass: 'bg-info-outlinedBorder', baseColor: 'Blue-700', opacity: '50%', hexValue: '#0057B280' },
-      { name: 'contrastText', colorClass: 'text-info-contrastText', baseColor: 'White', opacity: '100%', hexValue: '#FFFFFF' }
-    ]
-  },
-  {
-    name: 'Warning',
-    description: 'Orange',
-    variants: [
-      { name: 'main', colorClass: 'bg-warning-main', baseColor: 'Orange-400', opacity: '100%', hexValue: '#FDB022' },
-      { name: 'light', colorClass: 'bg-warning-light', baseColor: 'Orange-100', opacity: '100%', hexValue: '#FEF0C7' },
-      { name: 'dark', colorClass: 'bg-warning-dark', baseColor: 'Orange-600', opacity: '100%', hexValue: '#DC6803' },
-      { name: 'hover', colorClass: 'bg-warning-hover', baseColor: 'Orange-600', opacity: '4%', hexValue: '#DC68030A' },
-      { name: 'selected', colorClass: 'bg-warning-selected', baseColor: 'Orange-600', opacity: '8%', hexValue: '#DC680314' },
-      { name: 'focusVisible', colorClass: 'bg-warning-focusVisible', baseColor: 'Orange-600', opacity: '30%', hexValue: '#DC68034D' },
-      { name: 'outlinedBorder', colorClass: 'bg-warning-outlinedBorder', baseColor: 'Orange-600', opacity: '50%', hexValue: '#DC680380' },
-      { name: 'contrastText', colorClass: 'text-warning-contrastText', baseColor: 'White', opacity: '100%', hexValue: '#FFFFFF' }
+      { name: 'main', colorClass: 'bg-error-main', baseColor: 'Red-600', opacity: '100%', hexValue: '#DC2626' },
+      { name: 'light', colorClass: 'bg-error-light', baseColor: 'Red-100', opacity: '100%', hexValue: '#FEE2E2' },
+      { name: 'dark', colorClass: 'bg-error-dark', baseColor: 'Red-900', opacity: '100%', hexValue: '#7F1D1D' },
+      { name: 'hover', colorClass: 'bg-error-hover', baseColor: 'Red-600', opacity: '4%', hexValue: '#DC26260A' },
+      { name: 'selected', colorClass: 'bg-error-selected', baseColor: 'Red-600', opacity: '8%', hexValue: '#DC262614' },
+      { name: 'focusVisible', colorClass: 'bg-error-focusVisible', baseColor: 'Red-600', opacity: '30%', hexValue: '#DC26264D' },
+      { name: 'outlinedBorder', colorClass: 'border-error-outlinedBorder', baseColor: 'Red-600', opacity: '50%', hexValue: '#DC262680' },
+      { name: 'contrastText', colorClass: 'text-white', baseColor: 'White', opacity: '100%', hexValue: '#FFFFFF' }
     ]
   },
   {
     name: 'Success',
-    description: 'Green',
+    description: 'green',
     variants: [
-      { name: 'main', colorClass: 'bg-success-main', baseColor: 'Green-500', opacity: '100%', hexValue: '#12B76A' },
-      { name: 'light', colorClass: 'bg-success-light', baseColor: 'Green-100', opacity: '100%', hexValue: '#D1FADF' },
-      { name: 'dark', colorClass: 'bg-success-dark', baseColor: 'Green-700', opacity: '100%', hexValue: '#027A48' },
-      { name: 'hover', colorClass: 'bg-success-hover', baseColor: 'Green-500', opacity: '4%', hexValue: '#12B76A0A' },
-      { name: 'selected', colorClass: 'bg-success-selected', baseColor: 'Green-500', opacity: '8%', hexValue: '#12B76A14' },
-      { name: 'focusVisible', colorClass: 'bg-success-focusVisible', baseColor: 'Green-500', opacity: '30%', hexValue: '#12B76A4D' },
-      { name: 'outlinedBorder', colorClass: 'bg-success-outlinedBorder', baseColor: 'Green-500', opacity: '50%', hexValue: '#12B76A80' },
-      { name: 'contrastText', colorClass: 'text-success-contrastText', baseColor: 'White', opacity: '100%', hexValue: '#FFFFFF' }
+      { name: 'main', colorClass: 'bg-success-main', baseColor: 'Green-500', opacity: '100%', hexValue: '#10B981' },
+      { name: 'light', colorClass: 'bg-success-light', baseColor: 'Green-100', opacity: '100%', hexValue: '#D1FAE5' },
+      { name: 'dark', colorClass: 'bg-success-dark', baseColor: 'Green-700', opacity: '100%', hexValue: '#047857' },
+      { name: 'hover', colorClass: 'bg-success-hover', baseColor: 'Green-500', opacity: '4%', hexValue: '#10B9810A' },
+      { name: 'selected', colorClass: 'bg-success-selected', baseColor: 'Green-500', opacity: '8%', hexValue: '#10B98114' },
+      { name: 'focusVisible', colorClass: 'bg-success-focusVisible', baseColor: 'Green-500', opacity: '30%', hexValue: '#10B9814D' },
+      { name: 'outlinedBorder', colorClass: 'border-success-outlinedBorder', baseColor: 'Green-500', opacity: '50%', hexValue: '#10B98180' },
+      { name: 'contrastText', colorClass: 'text-white', baseColor: 'White', opacity: '100%', hexValue: '#FFFFFF' }
+    ]
+  },
+  {
+    name: 'Warning',
+    description: 'orange',
+    variants: [
+      { name: 'main', colorClass: 'bg-warning-main', baseColor: 'Orange-400', opacity: '100%', hexValue: '#F59E0B' },
+      { name: 'light', colorClass: 'bg-warning-light', baseColor: 'Orange-100', opacity: '100%', hexValue: '#FEF3C7' },
+      { name: 'dark', colorClass: 'bg-warning-dark', baseColor: 'Orange-600', opacity: '100%', hexValue: '#D97706' },
+      { name: 'hover', colorClass: 'bg-warning-hover', baseColor: 'Orange-600', opacity: '4%', hexValue: '#D977060A' },
+      { name: 'selected', colorClass: 'bg-warning-selected', baseColor: 'Orange-600', opacity: '8%', hexValue: '#D9777614' },
+      { name: 'focusVisible', colorClass: 'bg-warning-focusVisible', baseColor: 'Orange-600', opacity: '30%', hexValue: '#D977064D' },
+      { name: 'outlinedBorder', colorClass: 'border-warning-outlinedBorder', baseColor: 'Orange-600', opacity: '50%', hexValue: '#D9770680' },
+      { name: 'contrastText', colorClass: 'text-white', baseColor: 'White', opacity: '100%', hexValue: '#FFFFFF' }
+    ]
+  },
+  {
+    name: 'Info',
+    description: 'blue',
+    variants: [
+      { name: 'main', colorClass: 'bg-info-main', baseColor: 'LightBlue-600', opacity: '100%', hexValue: '#0284C7' },
+      { name: 'light', colorClass: 'bg-info-light', baseColor: 'LightBlue-100', opacity: '100%', hexValue: '#E0F2FE' },
+      { name: 'dark', colorClass: 'bg-info-dark', baseColor: 'LightBlue-900', opacity: '100%', hexValue: '#0C4A6E' },
+      { name: 'hover', colorClass: 'bg-info-hover', baseColor: 'LightBlue-700', opacity: '4%', hexValue: '#0284C70A' },
+      { name: 'selected', colorClass: 'bg-info-selected', baseColor: 'LightBlue-700', opacity: '8%', hexValue: '#0284C714' },
+      { name: 'focusVisible', colorClass: 'bg-info-focusVisible', baseColor: 'LightBlue-700', opacity: '30%', hexValue: '#0284C74D' },
+      { name: 'outlinedBorder', colorClass: 'border-info-outlinedBorder', baseColor: 'LightBlue-700', opacity: '50%', hexValue: '#0284C780' },
+      { name: 'contrastText', colorClass: 'text-white', baseColor: 'White', opacity: '100%', hexValue: '#FFFFFF' }
+    ]
+  },
+  {
+    name: 'Action',
+    description: 'gray',
+    variants: [
+      { name: 'active', colorClass: 'bg-action-active', baseColor: 'Gray-500', opacity: '100%', hexValue: '#6B7280' },
+      { name: 'hover', colorClass: 'bg-action-hover', baseColor: 'Gray-100', opacity: '100%', hexValue: '#F3F4F6' },
+      { name: 'selected', colorClass: 'bg-action-selected', baseColor: 'Gray-500', opacity: '100%', hexValue: '#6B7280' },
+      { name: 'focus', colorClass: 'bg-action-focus', baseColor: 'Gray-400', opacity: '100%', hexValue: '#9CA3AF' },
+      { name: 'disabled', colorClass: 'bg-action-disabled', baseColor: 'Gray-400', opacity: '100%', hexValue: '#9CA3AF' },
+      { name: 'disabledBackground', colorClass: 'bg-action-disabledBackground', baseColor: 'Gray-300', opacity: '100%', hexValue: '#D1D5DB' },
+      { name: 'contrastText', colorClass: 'text-white', baseColor: 'White', opacity: '100%', hexValue: '#FFFFFF' }
     ]
   }
 ];
 
 const Colors = () => {
-  const [simulationType, setSimulationType] = useState("");
+  const [simulationType, setSimulationType] = useState('');
+  const [activeTab, setActiveTab] = useState('overview');
+
+  const handleSimulation = (type: string) => {
+    if (simulationType === type) {
+      setSimulationType('');
+    } else {
+      setSimulationType(type);
+    }
+  };
 
   return (
-    <div className="container mx-auto py-10 space-y-10">
-      <Header title="Cores" description="Paleta de cores do Amicci Design System" />
-
-      <TailwindTabs 
-        tabs={[
-          {
-            id: "base-colors",
-            title: "Cores Base",
-            content: <BaseColorsTable baseColors={baseColorsData} />
-          },
-          {
-            id: "palettes",
-            title: "Paletas",
-            content: <PaletteTable palettes={paletteData} />
-          },
-          {
-            id: "color-blindness",
-            title: "Simulação Daltonismo",
-            content: (
-              <div className="space-y-8">
-                <div className="space-y-4">
-                  <div className="flex gap-2 flex-wrap">
-                    <Button 
-                      variant={simulationType === "" ? "default" : "outline"}
-                      onClick={() => setSimulationType("")}
-                    >
-                      Visão Normal
-                    </Button>
-                    <Button 
-                      variant={simulationType === "deuteranopia" ? "default" : "outline"}
-                      onClick={() => setSimulationType("deuteranopia")}
-                    >
-                      Deuteranopia
-                    </Button>
-                    <Button 
-                      variant={simulationType === "protanopia" ? "default" : "outline"}
-                      onClick={() => setSimulationType("protanopia")}
-                    >
-                      Protanopia
-                    </Button>
-                    <Button 
-                      variant={simulationType === "tritanopia" ? "default" : "outline"}
-                      onClick={() => setSimulationType("tritanopia")}
-                    >
-                      Tritanopia
-                    </Button>
-                    <Button 
-                      variant={simulationType === "achromatopsia" ? "default" : "outline"}
-                      onClick={() => setSimulationType("achromatopsia")}
-                    >
-                      Acromatopsia
-                    </Button>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {baseColorsData.flatMap(colorSet => 
-                      colorSet.weights
-                        .filter(w => ["500", "600", "700"].includes(w.weight))
-                        .map(weight => (
-                          <div key={`${colorSet.name}-${weight.weight}`} className="space-y-2">
-                            <ColorSwatch
-                              color={weight.colorClass}
-                              hexValue={weight.hexValue}
-                              textOverlay={`${colorSet.name} ${weight.weight}`}
-                              className="h-16"
-                              simulationType={simulationType}
-                            />
-                            <p className="text-sm text-center">{weight.hexValue}</p>
-                          </div>
-                        ))
-                    )}
-                  </div>
-                </div>
-              </div>
-            )
-          }
-        ]}
+    <div className="w-full animate-fade-in">
+      <Header
+        title="Sistema de Cores"
+        description="Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização."
+        type="foundations"
       />
+      
+      <div className="w-full mt-8">
+        <BaseColorsTable baseColors={baseColorsData} />
+        <div className="mt-12">
+          <h2 className="text-2xl font-bold mb-6">Paletas Temáticas</h2>
+          <PaletteTable palettes={paletteData} />
+        </div>
+      </div>
     </div>
   );
 };
