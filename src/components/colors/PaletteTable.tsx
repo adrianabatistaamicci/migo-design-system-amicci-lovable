@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Copy } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -61,6 +60,25 @@ const PaletteTable: React.FC<PaletteTableProps> = ({ palettes }) => {
     }
   };
 
+  const formatColorValue = (value?: string): string => {
+    if (!value) return '';
+    
+    if (value.startsWith('#')) return value;
+    
+    if (value.startsWith('rgba')) {
+      const matches = value.match(/rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)/);
+      if (matches) {
+        const [_, r, g, b, a] = matches;
+        if (a === '1') {
+          return `#${parseInt(r).toString(16).padStart(2, '0')}${parseInt(g).toString(16).padStart(2, '0')}${parseInt(b).toString(16).padStart(2, '0')}`;
+        }
+        return `rgba(${r},${g},${b},${a})`;
+      }
+    }
+    
+    return value;
+  };
+
   return (
     <div className="space-y-8">
       {palettes.map(palette => (
@@ -85,6 +103,7 @@ const PaletteTable: React.FC<PaletteTableProps> = ({ palettes }) => {
             </TableHeader>
             <TableBody>
               {palette.variants.map(variant => {
+                const colorValue = formatColorValue(variant.hexValue);
                 const wcagInfo = variant.hexValue ? getWCAGStatus(variant.hexValue) : null;
                 
                 return (
@@ -94,8 +113,8 @@ const PaletteTable: React.FC<PaletteTableProps> = ({ palettes }) => {
                       <ColorSwatch 
                         color={variant.colorClass} 
                         hexValue={variant.hexValue} 
-                        copyValue={variant.hexValue} 
-                        textOverlay={variant.hexValue || ''} 
+                        copyValue={colorValue} 
+                        textOverlay={colorValue} 
                         className="h-12" 
                       />
                     </TableCell>
