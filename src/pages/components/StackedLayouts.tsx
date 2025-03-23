@@ -87,169 +87,156 @@ const StackedLayouts = () => {
 };
 
 const LightNavBottomBorderWithReusable = () => (
-  <div className="h-[350px] overflow-hidden">
-    <StackedLayout
-      variant="light-border"
-      mainClassName="bg-white"
-      headerClassName="bg-white"
-      navigationContent={
-        <>
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
-            </div>
-            <div className="hidden md:ml-6 md:flex md:space-x-6">
-              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-900">Dashboard</a>
-              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Equipe</a>
-              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Projetos</a>
-              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Calendário</a>
-            </div>
+  <StackedLayout
+    variant="light-border"
+    mainClassName="bg-white"
+    headerClassName="bg-white"
+    navigationContent={
+      <>
+        <div className="flex items-center">
+          <div className="flex-shrink-0">
+            <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
           </div>
-          <div className="flex items-center gap-4">
-            <IconButton 
-              variant="outline-secondary" 
-              icon={<Bell size={18} />}
-              aria-label="Ver notificações"
-            />
-            <ProfileButton 
-              userName="Maria Silva"
-              companyName="Empresa Ltda."
-              showMenuIcon={true}
-              menuIcon={<Menu className="h-6 w-6" />}
-            />
+          <div className="hidden md:ml-6 md:flex md:space-x-6">
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-900">Dashboard</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Equipe</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Projetos</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Calendário</a>
           </div>
-        </>
-      }
-    >
-      <div className="h-32 rounded-lg border-4 border-dashed border-gray-200"></div>
-    </StackedLayout>
-  </div>
+        </div>
+        <div className="flex items-center gap-4">
+          <IconButton 
+            variant="outline-secondary" 
+            icon={<Bell size={18} />}
+            aria-label="Ver notificações"
+          />
+          <ProfileButton 
+            userName="Maria Silva"
+            companyName="Empresa Ltda."
+            showMenuIcon={true}
+            menuIcon={<Menu className="h-6 w-6" />}
+          />
+        </div>
+      </>
+    }
+  >
+    <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
+  </StackedLayout>
 );
 
 const LightNavGrayBackgroundWithReusable = () => (
-  <div className="h-[350px] overflow-hidden">
-    <StackedLayout
-      variant="light-gray"
-      navigationContent={
-        <>
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
-            </div>
-            <div className="hidden md:ml-6 md:flex md:space-x-6">
-              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-900">Dashboard</a>
-              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Equipe</a>
-              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Projetos</a>
-              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Calendário</a>
-            </div>
+  <StackedLayout
+    variant="light-gray"
+    navigationContent={
+      <>
+        <div className="flex items-center">
+          <div className="flex-shrink-0">
+            <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
           </div>
-          <div className="flex items-center gap-4">
-            <IconButton 
-              variant="outline-secondary" 
-              icon={<Bell size={18} />}
-              aria-label="Ver notificações"
-            />
-            <ProfileButton 
-              userName="Maria Silva"
-              companyName="Empresa Ltda."
-              showMenuIcon={true}
-              menuIcon={<Menu className="h-6 w-6" />}
-            />
+          <div className="hidden md:ml-6 md:flex md:space-x-6">
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-900">Dashboard</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Equipe</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Projetos</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Calendário</a>
           </div>
-        </>
-      }
-    >
-      <div className="h-32 rounded-lg border-4 border-dashed border-gray-200"></div>
-    </StackedLayout>
-  </div>
+        </div>
+        <div className="flex items-center gap-4">
+          <IconButton 
+            variant="outline-secondary" 
+            icon={<Bell size={18} />}
+            aria-label="Ver notificações"
+          />
+          <ProfileButton 
+            userName="Maria Silva"
+            companyName="Empresa Ltda."
+            showMenuIcon={true}
+            menuIcon={<Menu className="h-6 w-6" />}
+          />
+        </div>
+      </>
+    }
+  >
+    <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
+  </StackedLayout>
 );
 
 const BrandedNavCompactHeaderWithReusable = () => (
-  <div className="h-[350px] overflow-hidden">
-    <StackedLayout
-      variant="dark-compact"
-      navigationContent={
-        <>
-          <div className="flex flex-1 items-center">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Amicci</span>
-              <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
-            </a>
-            <div className="ml-6 flex lg:gap-x-6">
-              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-white">Dashboard</a>
-              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Equipe</a>
-              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Projetos</a>
-              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Calendário</a>
-            </div>
+  <StackedLayout
+    variant="dark-compact"
+    navigationContent={
+      <>
+        <div className="flex flex-1 items-center">
+          <a href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Amicci</span>
+            <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
+          </a>
+          <div className="ml-6 flex lg:gap-x-6">
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-white">Dashboard</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Equipe</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Projetos</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Calendário</a>
           </div>
-          <div className="hidden lg:flex lg:items-center gap-4">
-            <IconButton 
-              variant="outline-secondary" 
-              icon={<Bell size={18} />}
-              aria-label="Ver notificações"
-            />
-          </div>
-        </>
-      }
-      headerContent={<h1 className="text-lg font-medium leading-6 text-gray-900">Dashboard</h1>}
-    >
-      <div className="h-32 rounded-lg border-4 border-dashed border-gray-200"></div>
-    </StackedLayout>
-  </div>
+        </div>
+        <div className="hidden lg:flex lg:items-center gap-4">
+          <IconButton 
+            variant="outline-secondary" 
+            icon={<Bell size={18} />}
+            aria-label="Ver notificações"
+          />
+        </div>
+      </>
+    }
+    headerContent={<h1 className="text-lg font-medium leading-6 text-gray-900">Dashboard</h1>}
+  >
+    <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
+  </StackedLayout>
 );
 
 const BrandedNavWithWhiteHeaderWithReusable = () => (
-  <div className="h-[350px] overflow-hidden">
-    <StackedLayout
-      variant="dark-standard"
-      navigationContent={
-        <>
-          <div className="flex flex-1 items-center">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Amicci</span>
-              <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
-            </a>
-            <div className="ml-6 flex lg:gap-x-6">
-              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-white">Dashboard</a>
-              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Equipe</a>
-              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Projetos</a>
-              <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Calendário</a>
-            </div>
+  <StackedLayout
+    variant="dark-standard"
+    navigationContent={
+      <>
+        <div className="flex flex-1 items-center">
+          <a href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Amicci</span>
+            <img className="h-8 w-auto" src={amicciLogoDark} alt="Logo" />
+          </a>
+          <div className="ml-6 flex lg:gap-x-6">
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-white">Dashboard</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Equipe</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Projetos</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-amicciDark-50 hover:text-white">Calendário</a>
           </div>
-          <div className="hidden lg:flex lg:items-center gap-4">
-            <IconButton 
-              variant="outline-secondary" 
-              icon={<Bell size={18} />}
-              aria-label="Ver notificações"
-            />
-          </div>
-        </>
-      }
-      headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Dashboard</h1>}
-    >
-      <div className="h-32 rounded-lg border-4 border-dashed border-gray-200"></div>
-    </StackedLayout>
-  </div>
+        </div>
+        <div className="hidden lg:flex lg:items-center gap-4">
+          <IconButton 
+            variant="outline-secondary" 
+            icon={<Bell size={18} />}
+            aria-label="Ver notificações"
+          />
+        </div>
+      </>
+    }
+    headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Dashboard</h1>}
+  >
+    <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
+  </StackedLayout>
 );
 
 const BrandNavWithOverlapWithReusable = () => (
-  <div className="h-[350px] overflow-hidden">
-    <DarkOverlapExample />
-  </div>
+  <DarkOverlapExample />
 );
 
 const MarketplaceNavWithReusable = () => (
-  <div className="h-[350px] overflow-hidden">
-    <MarketplaceBuyerExample />
-  </div>
+  <MarketplaceExample />
 );
 
 const InstitutionalNavWithReusable = () => (
-  <div className="h-[350px] overflow-hidden">
-    <InstitutionalExample />
-  </div>
+  <InstitutionalExample />
 );
 
+// Códigos para exibição nos blocos de código
 const lightNavBottomBorderCode = `import React from 'react';
 import { StackedLayout } from '@/components/application-shells/StackedLayout';
 import { IconButton } from '@/components/ui/icon-button';
@@ -291,6 +278,7 @@ export const LightNavBottomBorder = () => (
       </>
     }
   >
+    {/* Seu conteúdo aqui */}
     <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>
 );`;
@@ -334,6 +322,7 @@ export const LightNavGrayBackground = () => (
       </>
     }
   >
+    {/* Seu conteúdo aqui */}
     <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>
 );`;
@@ -372,6 +361,7 @@ export const BrandedNavCompactHeader = () => (
     }
     headerContent={<h1 className="text-lg font-medium leading-6 text-gray-900">Dashboard</h1>}
   >
+    {/* Seu conteúdo aqui */}
     <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>
 );`;
@@ -410,6 +400,7 @@ export const BrandedNavWithWhiteHeader = () => (
     }
     headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Dashboard</h1>}
   >
+    {/* Seu conteúdo aqui */}
     <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>
 );`;
@@ -537,6 +528,7 @@ export const MarketplaceSellerExample = () => (
     }
     headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Minha vitrine</h1>}
   >
+    {/* Seu conteúdo aqui */}
     <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>
 );`;
@@ -587,6 +579,7 @@ export const MarketplaceBuyerExample = () => (
     }
     headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Oportunidades</h1>}
   >
+    {/* Seu conteúdo aqui */}
     <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>
 );`;
@@ -674,43 +667,4 @@ export const InstitutionalExample = () => (
   </StackedLayout>
 );`;
 
-const LayoutComponent = ({ title, component, code }) => {
-  const [showCode, setShowCode] = useState(false);
-  
-  return (
-    <div className="space-y-3">
-      <h3 className="text-xl font-medium text-gray-900 px-4">{title}</h3>
-      
-      <div className="border rounded-lg overflow-hidden shadow-sm">
-        <div className="bg-gray-100 w-full">
-          {component}
-        </div>
-        
-        <div className="border-t border-gray-200">
-          <button 
-            onClick={() => setShowCode(!showCode)}
-            className="w-full flex items-center justify-between px-4 py-2 bg-gray-50"
-          >
-            <div className="flex items-center space-x-2">
-              <Code size={16} className="text-gray-500" />
-              <span className="text-sm font-medium text-gray-700">
-                {showCode ? "Hide code" : "Show code"}
-              </span>
-            </div>
-            <div>
-              <Copy size={16} className="text-gray-500" />
-            </div>
-          </button>
-        </div>
-        
-        {showCode && (
-          <div className="border-t border-gray-200">
-            <CodeBlock code={code} language="jsx" />
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
-export default StackedLayouts;
+const LayoutComponent = ({
