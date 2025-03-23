@@ -5,7 +5,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { TailwindTabs } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
-import { Sparkles } from "lucide-react";
+import { Sparkles, CircleUser } from "lucide-react";
 import Header from '@/components/library-components/Header';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -21,6 +21,10 @@ import AmicciTagUpdates from '@/pages/assets/amicci-logo-tag-updates.svg';
 import Amy001 from '@/pages/assets/Amy 001.png';
 import Amy002 from '@/pages/assets/Amy 002.png';
 import Amy004 from '@/pages/assets/Amy 004.png';
+import AmySvg from '@/pages/assets/amy.svg';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { IconButton } from "@/components/ui/icon-button";
+
 const Brand = () => {
   const [activeTab, setActiveTab] = useState('logo');
   const handleDownload = (url: string, filename: string) => {
@@ -32,7 +36,6 @@ const Brand = () => {
     document.body.removeChild(link);
   };
 
-  // Tertiary (Amy) color palette data
   const tertiaryColors = [{
     name: 'tertiary-50',
     hex: '#FDF5FA',
@@ -79,7 +82,6 @@ const Brand = () => {
     className: 'bg-tertiary-dark'
   }];
 
-  // Tertiary palette variations data
   const tertiaryPalette = [{
     name: 'main',
     color: 'bg-tertiary-main',
@@ -121,6 +123,7 @@ const Brand = () => {
     hex: 'rgba(155, 36, 127, 0.50)',
     tailwindClass: 'bg-tertiary-outlinedBorder'
   }];
+
   const renderTabContent = () => {
     switch (activeTab) {
       case 'logo':
@@ -345,6 +348,46 @@ const Brand = () => {
                         </div>
                         <span className="text-xs mt-2">Ícone em círculo</span>
                       </div>
+                      <div className="flex flex-col items-center">
+                        <div className="h-14 w-14 rounded-full bg-tertiary-light flex items-center justify-center">
+                          <Sparkles size={24} className="text-tertiary-main" />
+                        </div>
+                        <span className="text-xs mt-2">Ícone com círculo tertiary-light</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="p-4 border rounded-lg">
+                  <h5 className="font-medium mb-4">Avatar Circular da Amy</h5>
+                  <div className="flex items-center gap-6">
+                    <div className="flex flex-col items-center">
+                      <img src={AmySvg} alt="Avatar da Amy" className="w-12 h-12" />
+                      <span className="text-xs mt-2">Avatar SVG</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <Avatar className="h-12 w-12 border-2 border-tertiary-main">
+                        <AvatarImage src={Amy004} alt="Amy" />
+                        <AvatarFallback className="bg-tertiary-light text-tertiary-main">
+                          <Sparkles />
+                        </AvatarFallback>
+                      </Avatar>
+                      <span className="text-xs mt-2">Avatar com borda</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <div className="h-12 w-12 rounded-full bg-tertiary-light flex items-center justify-center">
+                        <Sparkles className="h-6 w-6 text-tertiary-main" />
+                      </div>
+                      <span className="text-xs mt-2">Ícone em círculo</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <IconButton 
+                        variant="text-secondary" 
+                        size="lg"
+                        icon={<Sparkles className="text-tertiary-main" />}
+                        className="bg-tertiary-light"
+                      />
+                      <span className="text-xs mt-2">IconButton</span>
                     </div>
                   </div>
                 </div>
@@ -410,3 +453,4 @@ const Brand = () => {
     </div>;
 };
 export default Brand;
+
