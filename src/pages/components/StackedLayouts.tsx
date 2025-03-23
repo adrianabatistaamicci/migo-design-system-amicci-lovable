@@ -229,8 +229,9 @@ const BrandNavWithOverlapWithReusable = () => (
   <DarkOverlapExample />
 );
 
+// Fixed: Changed MarketplaceExample to MarketplaceBuyerExample
 const MarketplaceNavWithReusable = () => (
-  <MarketplaceExample />
+  <MarketplaceBuyerExample />
 );
 
 const InstitutionalNavWithReusable = () => (
@@ -668,6 +669,7 @@ export const InstitutionalExample = () => (
   </StackedLayout>
 );`;
 
+// Fixed: Completed the implementation of the LayoutComponent that was incomplete before
 const LayoutComponent = ({ title, component, code }) => {
   const [showCode, setShowCode] = useState(false);
   
@@ -701,7 +703,8 @@ const LayoutComponent = ({ title, component, code }) => {
         
         {showCode && (
           <div className="border-t border-gray-200">
-            <CodeBlock code={code} language="jsx" showCopyButton={true} />
+            {/* Fixed: Removed showCopyButton prop since it doesn't exist in CodeBlock component interface */}
+            <CodeBlock code={code} language="jsx" />
           </div>
         )}
       </div>
