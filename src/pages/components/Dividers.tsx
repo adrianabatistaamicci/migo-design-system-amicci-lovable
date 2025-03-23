@@ -5,7 +5,7 @@ import Header from '@/components/library-components/Header';
 import ComponentCard from '@/components/ComponentCard';
 import { Button } from "@/components/ui/button";
 import { IconButton } from "@/components/ui/icon-button";
-import { ChevronRight, Plus, Settings, ArrowLeft, ArrowRight } from "lucide-react";
+import { Plus, Settings, ArrowLeft, ArrowRight } from "lucide-react";
 
 const Dividers = () => {
   return <div className="w-full animate-fade-in">
@@ -56,14 +56,14 @@ const Dividers = () => {
           <ComponentCard title="Divider com ícone" code={`<div className="relative flex items-center py-5">
   <div className="flex-grow border-t border-border"></div>
   <div className="flex-shrink mx-3 p-1 bg-white rounded-full border border-border">
-    <ChevronRight size={16} className="text-gray-400" />
+    <Plus size={16} className="text-gray-400" />
   </div>
   <div className="flex-grow border-t border-border"></div>
 </div>`}>
             <div className="relative flex items-center py-5">
               <div className="flex-grow border-t border-border"></div>
               <div className="flex-shrink mx-3 p-1 bg-white rounded-full border border-border">
-                <ChevronRight size={16} className="text-gray-400" />
+                <Plus size={16} className="text-gray-400" />
               </div>
               <div className="flex-grow border-t border-border"></div>
             </div>
