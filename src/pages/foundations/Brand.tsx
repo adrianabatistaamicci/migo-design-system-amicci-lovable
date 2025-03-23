@@ -213,9 +213,9 @@ const Brand = () => {
               </div>
             </ComponentCard>
           </div>;
-      case 'amy':
+      case 'insight-da-amy':
         return <div className="space-y-8">
-            <ComponentCard title="Amy" description="A inteligência artificial da Amicci que ajuda os clientes no fluxo de planejamento, projeto e performance comercial da plataforma." className="mb-6">
+            <ComponentCard title="Insight da Amy" description="A inteligência artificial da Amicci que ajuda os clientes no fluxo de planejamento, projeto e performance comercial da plataforma." className="mb-6">
               <div className="space-y-6">
                 <Card className="p-6 shadow-none border">
                   <h3 className="text-xl font-medium mb-3">Paleta terciária</h3>
@@ -394,8 +394,8 @@ const Brand = () => {
         name: 'Variações',
         value: 'variants'
       }, {
-        name: 'Amy AI',
-        value: 'amy'
+        name: 'Insight da Amy',
+        value: 'insight-da-amy'
       }]} defaultValue="logo" variant="pillsGray" onChange={value => setActiveTab(value)} />
         
         <div className="mt-6">
