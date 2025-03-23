@@ -57,16 +57,12 @@ const sidebarItems: SidebarItem[] = [
     title: 'Components',
     href: '/components',
     icon: Package,
-    badge: {
-      content: 'New',
-      variant: 'secondary',
-    },
     items: [
       {
         title: 'Application Shells',
         items: [
           { title: 'Stacked Layouts', href: '/components/stacked-layouts' },
-          { title: 'Sidebar Layouts', href: '/components/sidebar-layouts', badge: { variant: 'dot', color: 'primary' } },
+          { title: 'Sidebar Layouts', href: '/components/sidebar-layouts' },
           { title: 'Multi-column Layouts', href: '/components/multi-column-layouts' },
         ]
       },
@@ -182,7 +178,7 @@ const sidebarItems: SidebarItem[] = [
     icon: Coffee,
     items: [
       { title: 'Figma Library', href: '/resources/figma-library' },
-      { title: 'FAQ', href: '/resources/faq', badge: { content: '3', color: 'error' } },
+      { title: 'FAQ', href: '/resources/faq' },
     ]
   },
 ];
@@ -231,6 +227,31 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
   
   const active = isActive(item.href, item.items);
   
+  // Main section headers (level 0) should not be collapsible
+  if (level === 0) {
+    return (
+      <div className="mb-2">
+        {item.title && (
+          <div className="mb-2">
+            <div className={cn(
+              "flex items-center w-full py-2 px-3 rounded-md text-sm font-medium text-primary uppercase text-xs"
+            )}>
+              {item.icon && <item.icon size={20} className="text-primary-main mr-2" />}
+              <span>{item.title}</span>
+            </div>
+            
+            <div className="pl-3">
+              {item.items && item.items.map((child, index) => (
+                <SidebarSection key={index} item={child} level={level + 1} />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+  
+  // For levels greater than 0, check if the item has sub-items
   if (item.items && item.items.length > 0) {
     return (
       <div className="mb-2">
@@ -257,15 +278,6 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
                   </Link>
                 ) : (
                   <span>{item.title}</span>
-                )}
-                {item.badge && (
-                  <Badge 
-                    variant={item.badge.variant as "standard" | "dot" | "secondary" | "outline" | "destructive" || "secondary"} 
-                    color={item.badge.color as any || "primary"}
-                    size="sm"
-                  >
-                    {item.badge.content}
-                  </Badge>
                 )}
               </div>
               
@@ -310,16 +322,6 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
         {item.icon && <item.icon size={20} className="mr-2 text-primary-main" />}
         <span>{item.title}</span>
       </div>
-      
-      {item.badge && (
-        <Badge 
-          variant={item.badge.variant as "standard" | "dot" | "secondary" | "outline" | "destructive" || "standard"} 
-          color={item.badge.color as any || "primary"}
-          size="sm"
-        >
-          {item.badge.content}
-        </Badge>
-      )}
     </Link>
   );
 };
