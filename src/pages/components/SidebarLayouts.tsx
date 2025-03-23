@@ -51,7 +51,9 @@ const SidebarExample = () => {
       </nav>
     </div>
   );
-}`;
+};
+
+export default SidebarExample;`;
 
   const collapsibleSidebarCode = `// Collapsible Sidebar Component Example
 import React, { useState } from 'react';
@@ -123,45 +125,53 @@ const CollapsibleSidebar = () => {
       <div className="max-w-[1280px] mx-auto">
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-6">Basic Sidebar</h2>
-          
-          {/* Directly render the sidebar example without wrapping it in a container */}
-          <div className="w-64 h-[400px] bg-white border-r border-gray-200">
-            <div className="p-4 border-b border-gray-200">
-              <h2 className="text-lg font-medium">App Name</h2>
-            </div>
-            
-            <nav className="mt-4">
-              <ul className="space-y-1 px-2">
-                <li>
-                  <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main">
-                    <Home size={18} className="mr-2" />
-                    Dashboard
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                    <Mail size={18} className="mr-2" />
-                    Messages
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                    <Users size={18} className="mr-2" />
-                    Team
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                    <div className="flex items-center">
-                      <Settings size={18} className="mr-2" />
-                      Settings
-                    </div>
-                    <ChevronRight size={16} />
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
+          <ComponentCard title="Basic Sidebar Example">
+            <AspectRatio ratio={4 / 3} className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden">
+              <div className="flex h-full">
+                <div className="w-64 h-full bg-white border-r border-gray-200">
+                  <div className="p-4 border-b border-gray-200">
+                    <h2 className="text-lg font-medium">App Name</h2>
+                  </div>
+                  
+                  <nav className="mt-4">
+                    <ul className="space-y-1 px-2">
+                      <li>
+                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main">
+                          <Home size={18} className="mr-2" />
+                          Dashboard
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                          <Mail size={18} className="mr-2" />
+                          Messages
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                          <Users size={18} className="mr-2" />
+                          Team
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                          <div className="flex items-center">
+                            <Settings size={18} className="mr-2" />
+                            Settings
+                          </div>
+                          <ChevronRight size={16} />
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                <div className="flex-1 p-6 bg-gray-50">
+                  <h1 className="text-xl font-semibold mb-4">Dashboard</h1>
+                  <p className="text-gray-600">Main content would go here</p>
+                </div>
+              </div>
+            </AspectRatio>
+          </ComponentCard>
         </section>
 
         <section className="mb-12">
