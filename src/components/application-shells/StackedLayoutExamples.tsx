@@ -10,6 +10,7 @@ import defaultLogo from '@/pages/assets/client-logo.svg';
 import amySvg from '@/pages/assets/amy.svg';
 import Lottie from 'lottie-react';
 import animationData from '@/pages/assets/lottie-dot.json';
+
 export const LightBorderExample = () => {
   return <StackedLayout variant="light-border" navigationContent={<>
           <div className="flex items-center gap-6">
@@ -31,6 +32,7 @@ export const LightBorderExample = () => {
       <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 relative"></div>
     </StackedLayout>;
 };
+
 export const DarkOverlapExample = () => {
   return <StackedLayout variant="dark-overlap" navigationContent={<>
           <div className="flex flex-1 items-center">
@@ -52,6 +54,7 @@ export const DarkOverlapExample = () => {
       <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
     </StackedLayout>;
 };
+
 export const MarketplaceExample = () => {
   return <StackedLayout variant="light-border" mainClassName="bg-white" headerClassName="bg-white" navigationContent={<>
           <div className="flex items-center">
@@ -84,6 +87,7 @@ export const MarketplaceExample = () => {
       <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 relative"></div>
     </StackedLayout>;
 };
+
 export const MarketplaceBuyerExample = () => {
   return <StackedLayout variant="light-border" mainClassName="bg-white" headerClassName="bg-white" navigationContent={<>
           <div className="flex items-center">
@@ -104,14 +108,14 @@ export const MarketplaceBuyerExample = () => {
             </div>
           </div>
           <div className="flex items-center space-x-4">
-            <Button variant="outline-secondary" className="flex items-center gap-2">
+            <Button variant="outline-secondary" className="flex items-center gap-1">
               <Sparkles className="h-6 w-6 text-tertiary-main" />
               <span className="text-text-primary">Amy</span>
-              <div className="h-12 w-12">
+              <div className="h-10 w-6 flex items-center justify-center">
                 <Lottie animationData={animationData} loop={true} autoplay={true} style={{
-            height: '100%',
-            width: '100%'
-          }} />
+                  height: '100%',
+                  width: '100%'
+                }} />
               </div>
             </Button>
             <IconButton variant="outline-secondary" icon={<HelpCircle size={18} />} aria-label="Ajuda" />
@@ -122,6 +126,7 @@ export const MarketplaceBuyerExample = () => {
       <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 relative"></div>
     </StackedLayout>;
 };
+
 export const InstitutionalExample = () => {
   return <StackedLayout variant="light-border" mainClassName="bg-white" headerClassName="bg-white" navigationContent={<>
           <div className="flex items-center">
