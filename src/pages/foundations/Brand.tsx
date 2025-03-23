@@ -562,9 +562,12 @@ const Brand = () => {
                           <Sparkles className="mr-2 h-4 w-4 text-tertiary-main" /> Perguntar para Amy
                         </Button>
                         
-                        <IconButton variant="outline-default" size="sm" tooltip="Gerar com IA">
-                          <Sparkles className="h-4 w-4" />
-                        </IconButton>
+                        <IconButton 
+                          variant="outline-default" 
+                          size="sm" 
+                          tooltip="Gerar com IA" 
+                          icon={<Sparkles className="h-4 w-4" />}
+                        />
                       </div>
                       <Button size="sm" variant="ghost" className="mt-3" onClick={() => copyToClipboard('<Button variant="default" className="bg-tertiary-main hover:bg-tertiary-600">\n  <Sparkles className="mr-2 h-4 w-4" /> Gerar com Amy\n</Button>', 'Código copiado')}>
                         <Copy size={14} className="mr-1" /> Copiar Código
