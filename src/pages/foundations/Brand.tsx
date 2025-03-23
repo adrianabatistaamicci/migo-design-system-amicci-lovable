@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -25,10 +24,8 @@ import Amy004 from '@/pages/assets/Amy 004.png';
 import AmySvg from '@/pages/assets/amy.svg';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { IconButton } from "@/components/ui/icon-button";
-
 const Brand = () => {
   const [activeTab, setActiveTab] = useState('logo');
-
   const handleDownload = (url: string, filename: string) => {
     const link = document.createElement('a');
     link.href = url;
@@ -37,7 +34,6 @@ const Brand = () => {
     link.click();
     document.body.removeChild(link);
   };
-
   const tertiaryColors = [{
     name: 'tertiary-50',
     hex: '#FDF5FA',
@@ -83,7 +79,6 @@ const Brand = () => {
     hex: '#3E0F32',
     className: 'bg-tertiary-dark'
   }];
-
   const tertiaryPalette = [{
     name: 'main',
     color: 'bg-tertiary-main',
@@ -125,7 +120,6 @@ const Brand = () => {
     hex: 'rgba(155, 36, 127, 0.50)',
     tailwindClass: 'bg-tertiary-outlinedBorder'
   }];
-
   const renderTabContent = () => {
     switch (activeTab) {
       case 'logo':
@@ -214,14 +208,9 @@ const Brand = () => {
             </ComponentCard>
           </div>;
       case 'amy':
-        return (
-          <div className="space-y-8">
-            <ComponentCard 
-              title="Amy" 
-              description="A inteligência artificial da Amicci que ajuda os clientes no fluxo de planejamento, projeto e performance comercial da plataforma."
-              className="mb-6"
-            >
-              <div className="space-y-8">
+        return <div className="space-y-8">
+            <ComponentCard title="Amy" description="A inteligência artificial da Amicci que ajuda os clientes no fluxo de planejamento, projeto e performance comercial da plataforma." className="mb-6">
+              <div className="space-y-6">
                 <Card className="p-6 shadow-none border">
                   <h3 className="text-xl font-medium mb-3">Paleta terciária</h3>
                   <p className="text-gray-600 mb-6">
@@ -229,32 +218,26 @@ const Brand = () => {
                   </p>
                   
                   <div className="grid grid-cols-8 gap-3">
-                    {tertiaryPalette.map(item => (
-                      <div key={item.name} className="flex flex-col items-center">
-                        <div 
-                          className={`h-16 w-full rounded-md ${item.name === 'light' ? 'text-tertiary-800' : 'text-white'}`} 
-                          style={{ backgroundColor: item.hex }}
-                        ></div>
+                    {tertiaryPalette.map(item => <div key={item.name} className="flex flex-col items-center">
+                        <div className={`h-16 w-full rounded-md ${item.name === 'light' ? 'text-tertiary-800' : 'text-white'}`} style={{
+                      backgroundColor: item.hex
+                    }}></div>
                         <span className="text-xs mt-2 text-center">tertiary-{item.name}</span>
                         <span className="text-xs text-gray-500 text-center">{item.hex}</span>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </Card>
 
                 <Card className="p-6 shadow-none border">
                   <h3 className="text-xl font-medium mb-3">Magenta color base</h3>
                   <div className="grid grid-cols-11 gap-3">
-                    {tertiaryColors.map(color => (
-                      <div key={color.name} className="flex flex-col items-center">
-                        <div 
-                          className={`h-16 w-full rounded-md ${color.name.includes('50') || color.name.includes('100') || color.name.includes('200') ? 'text-tertiary-800' : 'text-white'}`} 
-                          style={{ backgroundColor: color.hex }}
-                        ></div>
+                    {tertiaryColors.map(color => <div key={color.name} className="flex flex-col items-center">
+                        <div className={`h-16 w-full rounded-md ${color.name.includes('50') || color.name.includes('100') || color.name.includes('200') ? 'text-tertiary-800' : 'text-white'}`} style={{
+                      backgroundColor: color.hex
+                    }}></div>
                         <span className="text-xs mt-1">magenta-{color.name.split('-')[1]}</span>
                         <span className="text-xs text-gray-500">{color.hex}</span>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </Card>
 
@@ -285,7 +268,7 @@ const Brand = () => {
 
                   <Card className="p-6 md:col-span-3 shadow-none border">
                     <h3 className="text-xl font-medium mb-4">Ícones</h3>
-                    <div className="space-y-8">
+                    <div className="space-y-8l">
                       <div className="flex flex-col items-center">
                         <Sparkles size={40} className="text-tertiary-main mb-2" />
                         <span className="text-sm">Ícone Amy</span>
@@ -335,13 +318,11 @@ const Brand = () => {
                 </Card>
               </div>
             </ComponentCard>
-          </div>
-        );
+          </div>;
       default:
         return null;
     }
   };
-
   return <div className="w-full animate-fade-in">
       <Header title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." type="foundations" />
 
@@ -363,5 +344,4 @@ const Brand = () => {
       </div>
     </div>;
 };
-
 export default Brand;
