@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Home, Mail, Settings, Users, ChevronRight, ChevronLeft } from 'lucide-react';
 import EmptyState from '@/components/library-components/EmptyState';
@@ -91,9 +90,6 @@ const SidebarExample = () => {
                   <Settings size={20} className={isOpen ? "mr-3" : ""} />
                   {isOpen && <span>Settings</span>}
                 </div>
-                {isOpen && (
-                  <Badge color="primary" variant="dot" />
-                )}
               </a>
             </li>
           </ul>
@@ -192,9 +188,6 @@ const SidebarExample = () => {
                   <Settings size={20} className={isOpen ? "mr-3" : ""} />
                   {isOpen && <span>Settings</span>}
                 </div>
-                {isOpen && (
-                  <Badge color="primary" variant="dot" />
-                )}
               </a>
             </li>
           </ul>

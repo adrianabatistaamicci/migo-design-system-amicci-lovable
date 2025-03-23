@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   Home, 
@@ -144,7 +143,6 @@ const CollapsibleSidebar = () => {
                   <Settings size={18} className={isOpen ? 'mr-2' : ''} />
                   {isOpen && <span>Settings</span>}
                 </div>
-                {isOpen && <Badge color="primary" variant="dot" />}
               </a>
             </li>
           </ul>
@@ -458,9 +456,6 @@ const AdvancedSidebar = () => {
                             <Settings size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
                             {isCollapsibleSidebarOpen && <span>Settings</span>}
                           </div>
-                          {isCollapsibleSidebarOpen && (
-                            <Badge color="primary" variant="dot" />
-                          )}
                         </a>
                       </li>
                     </ul>
@@ -654,45 +649,4 @@ const AdvancedSidebar = () => {
 const LayoutComponentFooter = ({
   code
 }) => {
-  const [showCode, setShowCode] = useState(false);
-  const [copied, setCopied] = useState(false);
-  
-  const copyToClipboard = () => {
-    if (code) {
-      navigator.clipboard.writeText(code);
-      setCopied(true);
-      setTimeout(() => {
-        setCopied(false);
-      }, 2000);
-    }
-  };
-  
-  return (
-    <div className="border-t border-gray-200 px-4 py-3 flex justify-between items-center bg-gray-50">
-      <Button variant="ghost" size="sm" onClick={() => setShowCode(!showCode)} className="flex items-center gap-1 text-sm">
-        <Code size={16} />
-        <span>{showCode ? 'Hide code' : 'Show code'}</span>
-      </Button>
-      
-      <Button variant="ghost" size="sm" onClick={copyToClipboard} className="flex items-center gap-1 text-sm">
-        {copied ? <>
-            <CheckCheck size={16} />
-            <span>Copied</span>
-          </> : <>
-            <Copy size={16} />
-            <span>Copy</span>
-          </>}
-      </Button>
-      
-      {showCode && (
-        <div className="border-t bg-gray-50 p-4 overflow-x-auto max-h-[400px] mt-3 w-full absolute left-0">
-          <pre className="text-sm">
-            <code>{code}</code>
-          </pre>
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default SidebarLayouts;
+  const [showCode, setShowCode]
