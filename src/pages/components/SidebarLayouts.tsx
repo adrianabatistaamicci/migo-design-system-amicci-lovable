@@ -181,7 +181,7 @@ const AdvancedSidebar = () => {
   };
 
   return (
-    <div className="w-72 h-screen bg-white border-r border-gray-200 overflow-y-auto">
+    <div className="w-72 h-screen bg-white border-r border-gray-200 overflow-y-auto flex flex-col">
       <div className="p-4 border-b border-gray-200 flex items-center space-x-3">
         <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg" alt="Amicci" className="h-6" />
         <Badge variant="outline" color="primary">v1.2.0</Badge>
@@ -196,115 +196,117 @@ const AdvancedSidebar = () => {
         </div>
       </div>
       
-      {/* Group 1: Analytics */}
-      <div className="px-3 py-2">
-        <h3 className="text-xs uppercase font-semibold text-gray-500 mb-1 px-3">Analytics</h3>
-        <Collapsible open={openMenus.analytics} onOpenChange={() => toggleMenu('analytics')}>
-          <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
+      <div className="flex-1 overflow-y-auto">
+        {/* Group 1: Analytics */}
+        <div className="px-3 py-2">
+          <h3 className="text-xs uppercase font-semibold text-gray-500 mb-1 px-3">Analytics</h3>
+          <Collapsible open={openMenus.analytics} onOpenChange={() => toggleMenu('analytics')}>
+            <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
+              <div className="flex items-center">
+                <CreditCard size={18} className="mr-2 text-gray-500" />
+                <span>Financial</span>
+              </div>
+              {openMenus.analytics ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <div className="ml-6 mt-1 space-y-1">
+                <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                  Overview
+                </a>
+                <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                  Transactions
+                </a>
+                <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                  <span>Reports</span>
+                  <Badge variant="secondary" size="sm">New</Badge>
+                </a>
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
+          
+          <a href="#" className="flex items-center justify-between px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
             <div className="flex items-center">
-              <CreditCard size={18} className="mr-2 text-gray-500" />
-              <span>Financial</span>
+              <Users size={18} className="mr-2 text-gray-500" />
+              <span>User Activity</span>
             </div>
-            {openMenus.analytics ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-          </CollapsibleTrigger>
-          <CollapsibleContent>
-            <div className="ml-6 mt-1 space-y-1">
-              <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                Overview
-              </a>
-              <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                Transactions
-              </a>
-              <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                <span>Reports</span>
-                <Badge variant="secondary" size="sm">New</Badge>
-              </a>
-            </div>
-          </CollapsibleContent>
-        </Collapsible>
+            <Badge size="sm" color="primary">8</Badge>
+          </a>
+        </div>
         
-        <a href="#" className="flex items-center justify-between px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-          <div className="flex items-center">
-            <Users size={18} className="mr-2 text-gray-500" />
-            <span>User Activity</span>
-          </div>
-          <Badge size="sm" color="primary">8</Badge>
-        </a>
-      </div>
-      
-      {/* Group 2: Messages */}
-      <div className="px-3 py-2 mt-4">
-        <h3 className="text-xs uppercase font-semibold text-gray-500 mb-1 px-3">Communication</h3>
-        <Collapsible open={openMenus.messages} onOpenChange={() => toggleMenu('messages')}>
-          <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
-            <div className="flex items-center">
-              <MessageSquare size={18} className="mr-2 text-gray-500" />
-              <span>Messages</span>
-            </div>
-            {openMenus.messages ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-          </CollapsibleTrigger>
-          <CollapsibleContent>
-            <div className="ml-6 mt-1 space-y-1">
-              <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                <span>Inbox</span>
-                <Badge color="error" size="sm">14</Badge>
-              </a>
-              <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                Sent
-              </a>
-              <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                Trash
-              </a>
-            </div>
-          </CollapsibleContent>
-        </Collapsible>
+        {/* Group 2: Messages */}
+        <div className="px-3 py-2 mt-4">
+          <h3 className="text-xs uppercase font-semibold text-gray-500 mb-1 px-3">Communication</h3>
+          <Collapsible open={openMenus.messages} onOpenChange={() => toggleMenu('messages')}>
+            <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
+              <div className="flex items-center">
+                <MessageSquare size={18} className="mr-2 text-gray-500" />
+                <span>Messages</span>
+              </div>
+              {openMenus.messages ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <div className="ml-6 mt-1 space-y-1">
+                <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                  <span>Inbox</span>
+                  <Badge color="error" size="sm">14</Badge>
+                </a>
+                <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                  Sent
+                </a>
+                <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                  Trash
+                </a>
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
+          
+          <a href="#" className="flex items-center px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+            <Mail size={18} className="mr-2 text-gray-500" />
+            <span>Email</span>
+          </a>
+          
+          <a href="#" className="flex items-center px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+            <Calendar size={18} className="mr-2 text-gray-500" />
+            <span>Calendar</span>
+          </a>
+        </div>
         
-        <a href="#" className="flex items-center px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-          <Mail size={18} className="mr-2 text-gray-500" />
-          <span>Email</span>
-        </a>
-        
-        <a href="#" className="flex items-center px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-          <Calendar size={18} className="mr-2 text-gray-500" />
-          <span>Calendar</span>
-        </a>
-      </div>
-      
-      {/* Group 3: Products */}
-      <div className="px-3 py-2 mt-4">
-        <h3 className="text-xs uppercase font-semibold text-gray-500 mb-1 px-3">Inventory</h3>
-        <Collapsible open={openMenus.products} onOpenChange={() => toggleMenu('products')}>
-          <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
-            <div className="flex items-center">
-              <Store size={18} className="mr-2 text-gray-500" />
-              <span>Products</span>
-            </div>
-            {openMenus.products ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-          </CollapsibleTrigger>
-          <CollapsibleContent>
-            <div className="ml-6 mt-1 space-y-1">
-              <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                All Products
-              </a>
-              <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                <span>Categories</span>
-                <Badge variant="dot" color="success"></Badge>
-              </a>
-              <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                Inventory
-              </a>
-            </div>
-          </CollapsibleContent>
-        </Collapsible>
-        
-        <a href="#" className="flex items-center px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-          <Package size={18} className="mr-2 text-gray-500" />
-          <span>Orders</span>
-        </a>
+        {/* Group 3: Products */}
+        <div className="px-3 py-2 mt-4">
+          <h3 className="text-xs uppercase font-semibold text-gray-500 mb-1 px-3">Inventory</h3>
+          <Collapsible open={openMenus.products} onOpenChange={() => toggleMenu('products')}>
+            <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
+              <div className="flex items-center">
+                <Store size={18} className="mr-2 text-gray-500" />
+                <span>Products</span>
+              </div>
+              {openMenus.products ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <div className="ml-6 mt-1 space-y-1">
+                <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                  All Products
+                </a>
+                <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                  <span>Categories</span>
+                  <Badge variant="dot" color="success"></Badge>
+                </a>
+                <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                  Inventory
+                </a>
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
+          
+          <a href="#" className="flex items-center px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+            <Package size={18} className="mr-2 text-gray-500" />
+            <span>Orders</span>
+          </a>
+        </div>
       </div>
       
       {/* Footer Actions */}
-      <div className="mt-auto px-3 py-3 border-t border-gray-200 absolute bottom-0 w-72 bg-white">
+      <div className="px-3 py-3 border-t border-gray-200 mt-auto bg-white">
         <div className="flex items-center justify-between">
           <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
             <Settings size={18} className="mr-2 text-gray-500" />
@@ -467,7 +469,7 @@ const AdvancedSidebar = () => {
           <div className="border rounded-lg overflow-hidden shadow-sm">
             <div className="bg-white w-full h-[600px] overflow-hidden">
               <div className="flex h-full">
-                <div className="w-72 h-full bg-white border-r border-gray-200 overflow-y-auto">
+                <div className="w-72 h-full bg-white border-r border-gray-200 overflow-y-auto flex flex-col">
                   <div className="p-4 border-b border-gray-200 flex items-center space-x-3">
                     <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg" alt="Amicci" className="h-6" />
                     <Badge variant="outline" color="primary">v1.2.0</Badge>
@@ -482,115 +484,117 @@ const AdvancedSidebar = () => {
                     </div>
                   </div>
                   
-                  {/* Group 1: Analytics */}
-                  <div className="px-3 py-2">
-                    <h3 className="text-xs uppercase font-semibold text-gray-500 mb-1 px-3">Analytics</h3>
-                    <Collapsible open={openMenus.analytics} onOpenChange={() => toggleMenu('analytics')}>
-                      <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
+                  <div className="flex-1 overflow-y-auto">
+                    {/* Group 1: Analytics */}
+                    <div className="px-3 py-2">
+                      <h3 className="text-xs uppercase font-semibold text-gray-500 mb-1 px-3">Analytics</h3>
+                      <Collapsible open={openMenus.analytics} onOpenChange={() => toggleMenu('analytics')}>
+                        <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
+                          <div className="flex items-center">
+                            <CreditCard size={18} className="mr-2 text-gray-500" />
+                            <span>Financial</span>
+                          </div>
+                          {openMenus.analytics ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                        </CollapsibleTrigger>
+                        <CollapsibleContent>
+                          <div className="ml-6 mt-1 space-y-1">
+                            <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                              Overview
+                            </a>
+                            <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                              Transactions
+                            </a>
+                            <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                              <span>Reports</span>
+                              <Badge variant="secondary" size="sm">New</Badge>
+                            </a>
+                          </div>
+                        </CollapsibleContent>
+                      </Collapsible>
+                      
+                      <a href="#" className="flex items-center justify-between px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                         <div className="flex items-center">
-                          <CreditCard size={18} className="mr-2 text-gray-500" />
-                          <span>Financial</span>
+                          <Users size={18} className="mr-2 text-gray-500" />
+                          <span>User Activity</span>
                         </div>
-                        {openMenus.analytics ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-                      </CollapsibleTrigger>
-                      <CollapsibleContent>
-                        <div className="ml-6 mt-1 space-y-1">
-                          <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                            Overview
-                          </a>
-                          <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                            Transactions
-                          </a>
-                          <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                            <span>Reports</span>
-                            <Badge variant="secondary" size="sm">New</Badge>
-                          </a>
-                        </div>
-                      </CollapsibleContent>
-                    </Collapsible>
+                        <Badge size="sm" color="primary">8</Badge>
+                      </a>
+                    </div>
                     
-                    <a href="#" className="flex items-center justify-between px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                      <div className="flex items-center">
-                        <Users size={18} className="mr-2 text-gray-500" />
-                        <span>User Activity</span>
-                      </div>
-                      <Badge size="sm" color="primary">8</Badge>
-                    </a>
-                  </div>
-                  
-                  {/* Group 2: Messages */}
-                  <div className="px-3 py-2 mt-4">
-                    <h3 className="text-xs uppercase font-semibold text-gray-500 mb-1 px-3">Communication</h3>
-                    <Collapsible open={openMenus.messages} onOpenChange={() => toggleMenu('messages')}>
-                      <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
-                        <div className="flex items-center">
-                          <MessageSquare size={18} className="mr-2 text-gray-500" />
-                          <span>Messages</span>
-                        </div>
-                        {openMenus.messages ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-                      </CollapsibleTrigger>
-                      <CollapsibleContent>
-                        <div className="ml-6 mt-1 space-y-1">
-                          <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                            <span>Inbox</span>
-                            <Badge color="error" size="sm">14</Badge>
-                          </a>
-                          <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                            Sent
-                          </a>
-                          <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                            Trash
-                          </a>
-                        </div>
-                      </CollapsibleContent>
-                    </Collapsible>
+                    {/* Group 2: Messages */}
+                    <div className="px-3 py-2 mt-4">
+                      <h3 className="text-xs uppercase font-semibold text-gray-500 mb-1 px-3">Communication</h3>
+                      <Collapsible open={openMenus.messages} onOpenChange={() => toggleMenu('messages')}>
+                        <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
+                          <div className="flex items-center">
+                            <MessageSquare size={18} className="mr-2 text-gray-500" />
+                            <span>Messages</span>
+                          </div>
+                          {openMenus.messages ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                        </CollapsibleTrigger>
+                        <CollapsibleContent>
+                          <div className="ml-6 mt-1 space-y-1">
+                            <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                              <span>Inbox</span>
+                              <Badge color="error" size="sm">14</Badge>
+                            </a>
+                            <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                              Sent
+                            </a>
+                            <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                              Trash
+                            </a>
+                          </div>
+                        </CollapsibleContent>
+                      </Collapsible>
+                      
+                      <a href="#" className="flex items-center px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                        <Mail size={18} className="mr-2 text-gray-500" />
+                        <span>Email</span>
+                      </a>
+                      
+                      <a href="#" className="flex items-center px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                        <Calendar size={18} className="mr-2 text-gray-500" />
+                        <span>Calendar</span>
+                      </a>
+                    </div>
                     
-                    <a href="#" className="flex items-center px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                      <Mail size={18} className="mr-2 text-gray-500" />
-                      <span>Email</span>
-                    </a>
-                    
-                    <a href="#" className="flex items-center px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                      <Calendar size={18} className="mr-2 text-gray-500" />
-                      <span>Calendar</span>
-                    </a>
-                  </div>
-                  
-                  {/* Group 3: Products */}
-                  <div className="px-3 py-2 mt-4">
-                    <h3 className="text-xs uppercase font-semibold text-gray-500 mb-1 px-3">Inventory</h3>
-                    <Collapsible open={openMenus.products} onOpenChange={() => toggleMenu('products')}>
-                      <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
-                        <div className="flex items-center">
-                          <Store size={18} className="mr-2 text-gray-500" />
-                          <span>Products</span>
-                        </div>
-                        {openMenus.products ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-                      </CollapsibleTrigger>
-                      <CollapsibleContent>
-                        <div className="ml-6 mt-1 space-y-1">
-                          <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                            All Products
-                          </a>
-                          <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                            <span>Categories</span>
-                            <Badge variant="dot" color="success"></Badge>
-                          </a>
-                          <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                            Inventory
-                          </a>
-                        </div>
-                      </CollapsibleContent>
-                    </Collapsible>
-                    
-                    <a href="#" className="flex items-center px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                      <Package size={18} className="mr-2 text-gray-500" />
-                      <span>Orders</span>
-                    </a>
+                    {/* Group 3: Products */}
+                    <div className="px-3 py-2 mt-4">
+                      <h3 className="text-xs uppercase font-semibold text-gray-500 mb-1 px-3">Inventory</h3>
+                      <Collapsible open={openMenus.products} onOpenChange={() => toggleMenu('products')}>
+                        <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
+                          <div className="flex items-center">
+                            <Store size={18} className="mr-2 text-gray-500" />
+                            <span>Products</span>
+                          </div>
+                          {openMenus.products ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                        </CollapsibleTrigger>
+                        <CollapsibleContent>
+                          <div className="ml-6 mt-1 space-y-1">
+                            <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                              All Products
+                            </a>
+                            <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                              <span>Categories</span>
+                              <Badge variant="dot" color="success"></Badge>
+                            </a>
+                            <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                              Inventory
+                            </a>
+                          </div>
+                        </CollapsibleContent>
+                      </Collapsible>
+                      
+                      <a href="#" className="flex items-center px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                        <Package size={18} className="mr-2 text-gray-500" />
+                        <span>Orders</span>
+                      </a>
+                    </div>
                   </div>
                   
                   {/* Footer Actions */}
-                  <div className="mt-auto px-3 py-3 border-t border-gray-200 absolute bottom-0 w-72 bg-white">
+                  <div className="px-3 py-3 border-t border-gray-200 mt-auto bg-white">
                     <div className="flex items-center justify-between">
                       <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                         <Settings size={18} className="mr-2 text-gray-500" />
