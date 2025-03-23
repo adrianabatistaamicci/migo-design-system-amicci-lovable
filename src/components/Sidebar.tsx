@@ -206,7 +206,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
   level = 0 
 }) => {
   const location = useLocation();
-  const [expanded, setExpanded] = useState(false); // Changed from true to false
+  const [expanded, setExpanded] = useState(false);
   
   const isActive = (href?: string, items?: SidebarItem[]): boolean => {
     if (href && location.pathname === href) return true;
@@ -274,11 +274,11 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
                 )}
                 
                 {item.title === 'Sidebar Layouts' && (
-                  <Chip variant="filled" color="primary" size="sm" className="ml-2">New</Chip>
+                  <Chip variant="default" color="primary" size="sm" className="ml-2">New</Chip>
                 )}
               </div>
               
-              {expanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+              {expanded ? <ChevronDown size={16} className="text-gray-400" /> : <ChevronRight size={16} className="text-gray-400" />}
             </CollapsibleTrigger>
             
             <CollapsibleContent className="mt-1">
@@ -311,17 +311,17 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
         "flex items-center justify-between py-2 px-3 text-sm rounded-md mb-1",
         location.pathname === item.href 
           ? "bg-primary-hover text-primary-main font-medium" 
-          : "text-primary hover:text-primary-main hover:bg-gray-100",
+          : "text-gray-700 hover:bg-gray-100",
         level > 0 && "pl-8",
       )}
     >
       <div className="flex items-center">
-        {item.icon && <item.icon size={20} className="mr-2 text-primary-main" />}
+        {item.icon && <item.icon size={20} className="mr-2 text-gray-500" />}
         <span>{item.title}</span>
       </div>
       
       {item.title === 'Settings' && (
-        <Badge color="primary" variant="dot" className="ml-2" />
+        <div className="w-2 h-2 bg-primary-main rounded-full" />
       )}
     </Link>
   );

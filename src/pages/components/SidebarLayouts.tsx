@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { 
   Home, 
@@ -48,30 +49,30 @@ const SidebarExample = () => {
       <nav className="mt-4">
         <ul className="space-y-1 px-2">
           <li>
-            <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main">
-              <Home size={18} className="mr-2" />
+            <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main font-medium">
+              <Home size={18} className="mr-2 text-primary-main" />
               Dashboard
             </a>
           </li>
           <li>
             <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-              <Mail size={18} className="mr-2" />
+              <Mail size={18} className="mr-2 text-gray-500" />
               Messages
             </a>
           </li>
           <li>
             <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-              <Users size={18} className="mr-2" />
+              <Users size={18} className="mr-2 text-gray-500" />
               Team
             </a>
           </li>
           <li>
             <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
               <div className="flex items-center">
-                <Settings size={18} className="mr-2" />
+                <Settings size={18} className="mr-2 text-gray-500" />
                 Settings
               </div>
-              <ChevronRight size={16} />
+              <ChevronRight size={16} className="text-gray-400" />
             </a>
           </li>
         </ul>
@@ -118,28 +119,30 @@ const CollapsibleSidebar = () => {
         <nav className="mt-4">
           <ul className="space-y-1 px-2">
             <li>
-              <a href="#" className={\`flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main \${!isOpen && 'justify-center'}\`}>
-                <Home size={18} className={isOpen ? 'mr-2' : ''} />
+              <a href="#" className={\`flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main font-medium \${!isOpen && 'justify-center'}\`}>
+                <Home size={18} className={isOpen ? 'mr-2 text-primary-main' : 'text-primary-main'} />
                 {isOpen && <span>Dashboard</span>}
               </a>
             </li>
             <li>
               <a href="#" className={\`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 \${!isOpen && 'justify-center'}\`}>
-                <Mail size={18} className={isOpen ? 'mr-2' : ''} />
+                <Mail size={18} className={isOpen ? 'mr-2 text-gray-500' : 'text-gray-500'} />
                 {isOpen && <span>Messages</span>}
-                {isOpen && <Chip variant="filled" color="primary" size="sm" className="ml-2">New</Chip>}
+                {isOpen && (
+                  <Chip variant="default" color="primary" size="sm" className="ml-2">New</Chip>
+                )}
               </a>
             </li>
             <li>
               <a href="#" className={\`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 \${!isOpen && 'justify-center'}\`}>
-                <Users size={18} className={isOpen ? 'mr-2' : ''} />
+                <Users size={18} className={isOpen ? 'mr-2 text-gray-500' : 'text-gray-500'} />
                 {isOpen && <span>Team</span>}
               </a>
             </li>
             <li>
               <a href="#" className={\`flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 \${!isOpen && 'justify-center'}\`}>
                 <div className="flex items-center">
-                  <Settings size={18} className={isOpen ? 'mr-2' : ''} />
+                  <Settings size={18} className={isOpen ? 'mr-2 text-gray-500' : 'text-gray-500'} />
                   {isOpen && <span>Settings</span>}
                 </div>
               </a>
@@ -204,14 +207,14 @@ const AdvancedSidebar = () => {
       <div className="flex-1 overflow-y-auto">
         {/* Group 1: Analytics */}
         <div className="px-3 py-2">
-          <h3 className="text-xs uppercase font-semibold text-gray-500 mb-1 px-3">Analytics</h3>
+          <h3 className="text-xs uppercase font-semibold text-gray-500 mb-2 px-3">Analytics</h3>
           <Collapsible open={openMenus.analytics} onOpenChange={() => toggleMenu('analytics')}>
             <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
               <div className="flex items-center">
                 <CreditCard size={18} className="mr-2 text-gray-500" />
                 <span>Financial</span>
               </div>
-              {openMenus.analytics ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+              {openMenus.analytics ? <ChevronDown size={16} className="text-gray-400" /> : <ChevronRight size={16} className="text-gray-400" />}
             </CollapsibleTrigger>
             <CollapsibleContent>
               <div className="ml-6 mt-1 space-y-1">
@@ -223,7 +226,7 @@ const AdvancedSidebar = () => {
                 </a>
                 <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                   <span>Reports</span>
-                  <Chip variant="filled" color="primary" size="sm">New</Chip>
+                  <Chip variant="default" color="primary" size="sm">New</Chip>
                 </a>
               </div>
             </CollapsibleContent>
@@ -234,26 +237,26 @@ const AdvancedSidebar = () => {
               <Users size={18} className="mr-2 text-gray-500" />
               <span>User Activity</span>
             </div>
-            <Badge color="primary" size="sm" badgeContent="8" />
+            <Badge className="bg-primary-main text-white px-1.5 rounded-full text-xs">8</Badge>
           </a>
         </div>
         
         {/* Group 2: Messages */}
         <div className="px-3 py-2 mt-4">
-          <h3 className="text-xs uppercase font-semibold text-gray-500 mb-1 px-3">Communication</h3>
+          <h3 className="text-xs uppercase font-semibold text-gray-500 mb-2 px-3">Communication</h3>
           <Collapsible open={openMenus.messages} onOpenChange={() => toggleMenu('messages')}>
             <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
               <div className="flex items-center">
                 <MessageSquare size={18} className="mr-2 text-gray-500" />
                 <span>Messages</span>
               </div>
-              {openMenus.messages ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+              {openMenus.messages ? <ChevronDown size={16} className="text-gray-400" /> : <ChevronRight size={16} className="text-gray-400" />}
             </CollapsibleTrigger>
             <CollapsibleContent>
               <div className="ml-6 mt-1 space-y-1">
                 <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                   <span>Inbox</span>
-                  <Badge color="primary" size="sm" badgeContent="14" />
+                  <Badge className="bg-primary-main text-white px-1.5 rounded-full text-xs">14</Badge>
                 </a>
                 <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                   Sent
@@ -278,14 +281,14 @@ const AdvancedSidebar = () => {
         
         {/* Group 3: Products */}
         <div className="px-3 py-2 mt-4">
-          <h3 className="text-xs uppercase font-semibold text-gray-500 mb-1 px-3">Inventory</h3>
+          <h3 className="text-xs uppercase font-semibold text-gray-500 mb-2 px-3">Inventory</h3>
           <Collapsible open={openMenus.products} onOpenChange={() => toggleMenu('products')}>
             <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
               <div className="flex items-center">
                 <Store size={18} className="mr-2 text-gray-500" />
                 <span>Products</span>
               </div>
-              {openMenus.products ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+              {openMenus.products ? <ChevronDown size={16} className="text-gray-400" /> : <ChevronRight size={16} className="text-gray-400" />}
             </CollapsibleTrigger>
             <CollapsibleContent>
               <div className="ml-6 mt-1 space-y-1">
@@ -294,7 +297,7 @@ const AdvancedSidebar = () => {
                 </a>
                 <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                   <span>Categories</span>
-                  <Badge color="primary" variant="dot" />
+                  <div className="w-2 h-2 bg-primary-main rounded-full"></div>
                 </a>
                 <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                   Inventory
@@ -319,7 +322,8 @@ const AdvancedSidebar = () => {
           </a>
           
           <a href="#" className="flex items-center justify-center w-8 h-8 rounded-md text-gray-700 hover:bg-gray-100 relative">
-            <Bell size={18} />
+            <Bell size={18} className="text-gray-500" />
+            <div className="w-2 h-2 bg-primary-main rounded-full absolute top-1.5 right-1.5"></div>
           </a>
         </div>
       </div>
@@ -362,30 +366,30 @@ const AdvancedSidebar = () => {
                   <nav className="mt-4">
                     <ul className="space-y-1 px-2">
                       <li>
-                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main">
-                          <Home size={18} className="mr-2" />
+                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main font-medium">
+                          <Home size={18} className="mr-2 text-primary-main" />
                           Dashboard
                         </a>
                       </li>
                       <li>
                         <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                          <Mail size={18} className="mr-2" />
+                          <Mail size={18} className="mr-2 text-gray-500" />
                           Messages
                         </a>
                       </li>
                       <li>
                         <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                          <Users size={18} className="mr-2" />
+                          <Users size={18} className="mr-2 text-gray-500" />
                           Team
                         </a>
                       </li>
                       <li>
                         <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                           <div className="flex items-center">
-                            <Settings size={18} className="mr-2" />
+                            <Settings size={18} className="mr-2 text-gray-500" />
                             Settings
                           </div>
-                          <ChevronRight size={16} />
+                          <ChevronRight size={16} className="text-gray-400" />
                         </a>
                       </li>
                     </ul>
@@ -428,30 +432,30 @@ const AdvancedSidebar = () => {
                   <nav className="mt-4">
                     <ul className="space-y-1 px-2">
                       <li>
-                        <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
-                          <Home size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
+                        <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main font-medium ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
+                          <Home size={18} className={isCollapsibleSidebarOpen ? 'mr-2 text-primary-main' : 'text-primary-main'} />
                           {isCollapsibleSidebarOpen && <span>Dashboard</span>}
                         </a>
                       </li>
                       <li>
                         <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
-                          <Mail size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
+                          <Mail size={18} className={isCollapsibleSidebarOpen ? 'mr-2 text-gray-500' : 'text-gray-500'} />
                           {isCollapsibleSidebarOpen && <span>Messages</span>}
                           {isCollapsibleSidebarOpen && (
-                            <Chip variant="filled" color="primary" size="sm" className="ml-2">New</Chip>
+                            <Chip variant="default" color="primary" size="sm" className="ml-2">New</Chip>
                           )}
                         </a>
                       </li>
                       <li>
                         <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
-                          <Users size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
+                          <Users size={18} className={isCollapsibleSidebarOpen ? 'mr-2 text-gray-500' : 'text-gray-500'} />
                           {isCollapsibleSidebarOpen && <span>Team</span>}
                         </a>
                       </li>
                       <li>
                         <a href="#" className={`flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
                           <div className="flex items-center">
-                            <Settings size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
+                            <Settings size={18} className={isCollapsibleSidebarOpen ? 'mr-2 text-gray-500' : 'text-gray-500'} />
                             {isCollapsibleSidebarOpen && <span>Settings</span>}
                           </div>
                         </a>
@@ -496,14 +500,14 @@ const AdvancedSidebar = () => {
                   <div className="flex-1 overflow-y-auto">
                     {/* Group 1: Analytics */}
                     <div className="px-3 py-2">
-                      <h3 className="text-xs uppercase font-semibold text-gray-500 mb-1 px-3">Analytics</h3>
+                      <h3 className="text-xs uppercase font-semibold text-gray-500 mb-2 px-3">Analytics</h3>
                       <Collapsible open={openMenus.analytics} onOpenChange={() => toggleMenu('analytics')}>
                         <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
                           <div className="flex items-center">
                             <CreditCard size={18} className="mr-2 text-gray-500" />
                             <span>Financial</span>
                           </div>
-                          {openMenus.analytics ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                          {openMenus.analytics ? <ChevronDown size={16} className="text-gray-400" /> : <ChevronRight size={16} className="text-gray-400" />}
                         </CollapsibleTrigger>
                         <CollapsibleContent>
                           <div className="ml-6 mt-1 space-y-1">
@@ -515,7 +519,7 @@ const AdvancedSidebar = () => {
                             </a>
                             <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                               <span>Reports</span>
-                              <Chip variant="filled" color="primary" size="sm">New</Chip>
+                              <Chip variant="default" color="primary" size="sm">New</Chip>
                             </a>
                           </div>
                         </CollapsibleContent>
@@ -526,26 +530,26 @@ const AdvancedSidebar = () => {
                           <Users size={18} className="mr-2 text-gray-500" />
                           <span>User Activity</span>
                         </div>
-                        <Badge color="primary" size="sm" badgeContent="8" />
+                        <Badge className="bg-primary-main text-white px-1.5 rounded-full text-xs">8</Badge>
                       </a>
                     </div>
                     
                     {/* Group 2: Messages */}
                     <div className="px-3 py-2 mt-4">
-                      <h3 className="text-xs uppercase font-semibold text-gray-500 mb-1 px-3">Communication</h3>
+                      <h3 className="text-xs uppercase font-semibold text-gray-500 mb-2 px-3">Communication</h3>
                       <Collapsible open={openMenus.messages} onOpenChange={() => toggleMenu('messages')}>
                         <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
                           <div className="flex items-center">
                             <MessageSquare size={18} className="mr-2 text-gray-500" />
                             <span>Messages</span>
                           </div>
-                          {openMenus.messages ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                          {openMenus.messages ? <ChevronDown size={16} className="text-gray-400" /> : <ChevronRight size={16} className="text-gray-400" />}
                         </CollapsibleTrigger>
                         <CollapsibleContent>
                           <div className="ml-6 mt-1 space-y-1">
                             <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                               <span>Inbox</span>
-                              <Badge color="primary" size="sm" badgeContent="14" />
+                              <Badge className="bg-primary-main text-white px-1.5 rounded-full text-xs">14</Badge>
                             </a>
                             <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                               Sent
@@ -570,14 +574,14 @@ const AdvancedSidebar = () => {
                     
                     {/* Group 3: Products */}
                     <div className="px-3 py-2 mt-4">
-                      <h3 className="text-xs uppercase font-semibold text-gray-500 mb-1 px-3">Inventory</h3>
+                      <h3 className="text-xs uppercase font-semibold text-gray-500 mb-2 px-3">Inventory</h3>
                       <Collapsible open={openMenus.products} onOpenChange={() => toggleMenu('products')}>
                         <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
                           <div className="flex items-center">
                             <Store size={18} className="mr-2 text-gray-500" />
                             <span>Products</span>
                           </div>
-                          {openMenus.products ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                          {openMenus.products ? <ChevronDown size={16} className="text-gray-400" /> : <ChevronRight size={16} className="text-gray-400" />}
                         </CollapsibleTrigger>
                         <CollapsibleContent>
                           <div className="ml-6 mt-1 space-y-1">
@@ -586,7 +590,7 @@ const AdvancedSidebar = () => {
                             </a>
                             <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                               <span>Categories</span>
-                              <Badge color="primary" variant="dot" />
+                              <div className="w-2 h-2 bg-primary-main rounded-full"></div>
                             </a>
                             <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                               Inventory
@@ -611,7 +615,8 @@ const AdvancedSidebar = () => {
                       </a>
                       
                       <a href="#" className="flex items-center justify-center w-8 h-8 rounded-md text-gray-700 hover:bg-gray-100 relative">
-                        <Bell size={18} />
+                        <Bell size={18} className="text-gray-500" />
+                        <div className="w-2 h-2 bg-primary-main rounded-full absolute top-1.5 right-1.5"></div>
                       </a>
                     </div>
                   </div>
@@ -637,6 +642,8 @@ const AdvancedSidebar = () => {
             <li>Use cabeçalhos de grupo para categorizar seções da barra lateral.</li>
             <li>Implemente badges apenas para contagens ou notificações que realmente importam.</li>
             <li>O espaçamento padrão entre cabeçalhos de grupos no sidebar é de 16px (mt-4).</li>
+            <li>Mantenha o espaçamento de 8px (mb-2) após os cabeçalhos de grupo para garantir legibilidade.</li>
+            <li>Use texto cinza para ícones inativos e coloração primária para itens ativos ou destacados.</li>
           </ul>
         </section>
       </div>
