@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import { Link } from 'react-router-dom';
@@ -229,7 +230,7 @@ const BrandNavWithOverlapWithReusable = () => (
 );
 
 const MarketplaceNavWithReusable = () => (
-  <MarketplaceExample />
+  <MarketplaceSellerExample />
 );
 
 const InstitutionalNavWithReusable = () => (
@@ -667,4 +668,43 @@ export const InstitutionalExample = () => (
   </StackedLayout>
 );`;
 
-const LayoutComponent = ({
+const LayoutComponent = ({ 
+  title, 
+  component, 
+  code 
+}: { 
+  title: string; 
+  component: React.ReactNode; 
+  code: string;
+}) => {
+  const [showCode, setShowCode] = useState(false);
+  
+  return (
+    <div className="border border-gray-200 rounded-lg overflow-hidden">
+      <div className="p-4 border-b border-gray-200 bg-gray-50 flex justify-between items-center">
+        <h3 className="text-lg font-medium text-gray-900">{title}</h3>
+        <Button 
+          variant="ghost" 
+          size="sm" 
+          onClick={() => setShowCode(!showCode)}
+          className="gap-2"
+        >
+          {showCode ? <CheckCheck size={16} /> : <Code size={16} />}
+          {showCode ? 'Esconder código' : 'Ver código'}
+        </Button>
+      </div>
+      
+      <div className="h-96 overflow-hidden">
+        {component}
+      </div>
+      
+      {showCode && (
+        <div className="border-t border-gray-200">
+          <CodeBlock code={code} language="jsx" />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default StackedLayouts;
