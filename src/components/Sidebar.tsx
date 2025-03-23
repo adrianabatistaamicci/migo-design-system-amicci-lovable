@@ -1,15 +1,31 @@
 
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, ChevronRight, Package, Layers, Coffee, MousePointer } from 'lucide-react';
+import {
+  ChevronDown,
+  ChevronRight,
+  Package,
+  Layers,
+  Coffee,
+  MousePointer,
+  LayoutDashboard,
+  MessageSquare,
+  Bell
+} from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { TailwindTabs } from '@/components/ui/tabs';
+import { Badge } from '@/components/ui/badge';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 interface SidebarItem {
   title: string;
   href?: string;
   icon?: React.ElementType;
   items?: SidebarItem[];
+  badge?: {
+    content?: React.ReactNode;
+    color?: string;
+    variant?: string;
+  };
 }
 
 interface SidebarProps {
@@ -41,12 +57,16 @@ const sidebarItems: SidebarItem[] = [
     title: 'Components',
     href: '/components',
     icon: Package,
+    badge: {
+      content: 'New',
+      variant: 'secondary',
+    },
     items: [
       {
         title: 'Application Shells',
         items: [
           { title: 'Stacked Layouts', href: '/components/stacked-layouts' },
-          { title: 'Sidebar Layouts', href: '/components/sidebar-layouts' },
+          { title: 'Sidebar Layouts', href: '/components/sidebar-layouts', badge: { variant: 'dot', color: 'primary' } },
           { title: 'Multi-column Layouts', href: '/components/multi-column-layouts' },
         ]
       },
@@ -162,10 +182,35 @@ const sidebarItems: SidebarItem[] = [
     icon: Coffee,
     items: [
       { title: 'Figma Library', href: '/resources/figma-library' },
-      { title: 'FAQ', href: '/resources/faq' },
+      { title: 'FAQ', href: '/resources/faq', badge: { content: '3', color: 'error' } },
     ]
   },
 ];
+
+const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
+  return (
+    <aside className={cn(
+      "fixed top-16 left-0 bottom-0 w-64 bg-white border-r border-gray-200 flex flex-col transition-transform duration-300 ease-elastic z-30",
+      isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+    )}>
+      <div className="flex-1 overflow-y-auto py-6">
+        {sidebarItems.map((section, sectionIndex) => (
+          <SidebarSection key={sectionIndex} item={section} />
+        ))}
+      </div>
+      
+      <div className="p-3 border-t border-gray-200 mt-auto">
+        <div className="flex items-center justify-between">
+          <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+            <Bell size={18} className="mr-2 text-gray-500" />
+            <span>Notifications</span>
+          </a>
+          <Badge variant="dot" color="error" className="ml-1" />
+        </div>
+      </div>
+    </aside>
+  );
+};
 
 const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({ 
   item, 
@@ -189,47 +234,59 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
   if (item.items && item.items.length > 0) {
     return (
       <div className="mb-2">
-        <div className={cn(
-          "flex items-center justify-between py-2 px-3 rounded-md text-sm font-medium",
-          level === 0 ? "text-primary" : "text-foreground",
-          active && !item.href ? "text-primary-main" : "",
-          level > 0 && "pl-8",
-          item.href ? "hover:bg-gray-100 cursor-pointer" : ""
-        )}>
-          <div 
-            className="flex items-center gap-2 w-full"
-            onClick={() => item.href ? null : setExpanded(!expanded)}
-          >
-            {item.icon && <item.icon size={20} className="text-primary-main" />}
-            {item.href ? (
-              <Link 
-                to={item.href} 
-                className={cn(
-                  "w-full",
-                  location.pathname === item.href ? "text-primary-main font-medium" : ""
+        {item.title && (
+          <Collapsible open={expanded} onOpenChange={setExpanded}>
+            <CollapsibleTrigger className={cn(
+              "flex items-center justify-between w-full py-2 px-3 rounded-md text-sm",
+              level === 0 ? "font-medium text-primary uppercase text-xs" : "text-foreground",
+              active && !item.href ? "text-primary-main" : "",
+              level > 0 && "pl-8",
+              item.href ? "hover:bg-gray-100 cursor-pointer" : ""
+            )}>
+              <div className="flex items-center gap-2">
+                {item.icon && <item.icon size={20} className="text-primary-main" />}
+                {item.href ? (
+                  <Link 
+                    to={item.href} 
+                    className={cn(
+                      "w-full",
+                      location.pathname === item.href ? "text-primary-main font-medium" : ""
+                    )}
+                  >
+                    {item.title}
+                  </Link>
+                ) : (
+                  <span>{item.title}</span>
                 )}
-              >
-                {item.title}
-              </Link>
-            ) : (
-              <span>{item.title}</span>
-            )}
-          </div>
-          
-          {item.items && item.items.length > 0 && (
-            <button 
-              onClick={() => setExpanded(!expanded)}
-              className="text-gray-500 hover:text-primary-main p-1 rounded-md"
-            >
+                {item.badge && (
+                  <Badge 
+                    variant={item.badge.variant as "standard" | "dot" | "secondary" | "outline" | "destructive" || "secondary"} 
+                    color={item.badge.color as any || "primary"}
+                    size="sm"
+                  >
+                    {item.badge.content}
+                  </Badge>
+                )}
+              </div>
+              
               {expanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-            </button>
-          )}
-        </div>
-        
-        {expanded && item.items && (
-          <div className={cn("mt-1 transition-all duration-200", expanded ? "opacity-100" : "opacity-0 h-0 overflow-hidden")}>
+            </CollapsibleTrigger>
+            
+            <CollapsibleContent className="mt-1">
+              <div className={cn(level === 0 ? "pl-3" : "")}>
+                {item.items.map((child, index) => (
+                  <SidebarSection key={index} item={child} level={level + 1} />
+                ))}
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
+        )}
+
+        {/* If there's no title, just render children directly */}
+        {!item.title && (
+          <div className="mt-1">
             {item.items.map((child, index) => (
-              <SidebarSection key={index} item={child} level={level + 1} />
+              <SidebarSection key={index} item={child} level={level} />
             ))}
           </div>
         )}
@@ -237,42 +294,33 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
     );
   }
   
+  // Leaf item
   return (
     <Link
       to={item.href || '#'}
       className={cn(
-        "flex items-center py-2 px-3 text-sm rounded-md",
+        "flex items-center justify-between py-2 px-3 text-sm rounded-md mb-1",
         location.pathname === item.href 
-          ? "text-primary-main bg-primary-hover font-medium" 
+          ? "bg-primary-hover text-primary-main font-medium" 
           : "text-primary hover:text-primary-main hover:bg-gray-100",
         level > 0 && "pl-8",
       )}
     >
-      {item.icon && <item.icon size={20} className="mr-2 text-primary-main" />}
-      {item.title}
-    </Link>
-  );
-};
-
-const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
-  // For top-level menu items that could use tabs
-  const componentsTabItems = [
-    { name: 'Basic', value: 'basic' },
-    { name: 'Complex', value: 'complex' },
-    { name: 'Layout', value: 'layout' }
-  ];
-
-  return (
-    <aside className={cn(
-      "fixed top-16 left-0 bottom-0 w-64 bg-white border-r border-gray-200 overflow-y-auto transition-transform duration-300 ease-elastic z-30",
-      isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
-    )}>
-      <div className="pt-6 pb-8 px-4">
-        {sidebarItems.map((item, index) => (
-          <SidebarSection key={index} item={item} />
-        ))}
+      <div className="flex items-center">
+        {item.icon && <item.icon size={20} className="mr-2 text-primary-main" />}
+        <span>{item.title}</span>
       </div>
-    </aside>
+      
+      {item.badge && (
+        <Badge 
+          variant={item.badge.variant as "standard" | "dot" | "secondary" | "outline" | "destructive" || "standard"} 
+          color={item.badge.color as any || "primary"}
+          size="sm"
+        >
+          {item.badge.content}
+        </Badge>
+      )}
+    </Link>
   );
 };
 
