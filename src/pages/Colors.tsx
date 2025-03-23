@@ -10,7 +10,6 @@ import ColorSwatch from '@/components/colors/ColorSwatch';
 import BaseColorsTable from '@/components/colors/BaseColorsTable';
 import PaletteTable from '@/components/colors/PaletteTable';
 import ColorOverview from '@/components/colors/ColorOverview';
-import ColorUsage from '@/components/colors/ColorUsage';
 import AccessibilityDemo from '@/components/colors/AccessibilityDemo';
 
 const Colors = () => {
@@ -40,7 +39,6 @@ const Colors = () => {
           { name: 'Visão geral', value: 'overview' },
           { name: 'Cores Base', value: 'base-colors' },
           { name: 'Paletas', value: 'palettes' },
-          { name: 'Uso', value: 'usage' },
           { name: 'Acessibilidade', value: 'accessibility' }
         ]} 
         onChange={value => setActiveTab(value)}
@@ -70,8 +68,6 @@ const Colors = () => {
             <PaletteTable palettes={paletteData} />
           </ComponentCard>
         )}
-        
-        {activeTab === 'usage' && <ColorUsage />}
         
         {activeTab === 'accessibility' && (
           <ComponentCard 
