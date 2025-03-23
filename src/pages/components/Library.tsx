@@ -39,14 +39,14 @@ const LibraryPage: React.FC = () => {
   
   return (
     <div className="animate-fade-in">
-      <div className="max-w-3xl mb-12">
+      <div className="max-w-7xl mx-auto mb-12">
         <Header
           title="Library Components"
           description="Uma coleção de componentes de UI reutilizáveis projetados para o nossa documentação de design system."
           type="components"
         />
         
-        <div className="mt-8 grid grid-cols-1 gap-6">
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {Object.entries(components).map(([name, Component]) => (
             <ComponentCard key={name} title={name} description="">
               <div className="p-4">
