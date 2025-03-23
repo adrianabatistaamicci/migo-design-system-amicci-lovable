@@ -136,7 +136,7 @@ const CollapsibleSidebar = () => {
             </div>
             
             <div className="w-full">
-              <div className="w-64 h-[500px] bg-white border-r border-gray-200">
+              <div className="w-64 h-[500px] bg-white border border-gray-200">
                 <div className="p-4 border-b border-gray-200">
                   <h2 className="text-lg font-medium">App Name</h2>
                 </div>
