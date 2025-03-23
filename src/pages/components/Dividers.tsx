@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Separator } from "@/components/ui/separator";
 import Header from '@/components/library-components/Header';
@@ -7,31 +6,20 @@ import { Button } from "@/components/ui/button";
 import { IconButton } from "@/components/ui/icon-button";
 import { Label } from "@/components/ui/label";
 import { ChevronRight, Plus, Settings, ArrowLeft, ArrowRight } from "lucide-react";
-
 const Dividers = () => {
-  return (
-    <div className="w-full animate-fade-in">
-      <Header 
-        title="Dividers"
-        description="Linhas divisórias para separar conteúdo relacionado."
-        type="components"
-      />
+  return <div className="w-full animate-fade-in">
+      <Header title="Dividers" description="Linhas divisórias para separar conteúdo relacionado." type="components" />
       
-      <div className="w-full space-y-12">
+      <div className="w-full space-y-6">
         <section>
-          <h2 className="text-xl font-semibold mb-6">Uso básico</h2>
-          <p className="text-mui-text-secondary mb-6">
-            Dividers são linhas horizontais ou verticais que separam conteúdo e ajudam na organização visual.
-          </p>
           
-          <ComponentCard 
-            title="Horizontal Divider" 
-            code={`<div className="space-y-4">
+          
+          
+          <ComponentCard title="Horizontal Divider" code={`<div className="space-y-4">
   <div>Conteúdo acima do divisor</div>
   <Separator />
   <div>Conteúdo abaixo do divisor</div>
-</div>`}
-          >
+</div>`}>
             <div className="space-y-4 py-4">
               <div>Conteúdo acima do divisor</div>
               <Separator />
@@ -41,19 +29,14 @@ const Dividers = () => {
         </section>
         
         <section>
-          <h2 className="text-xl font-semibold mb-6">Orientação</h2>
-          <p className="text-mui-text-secondary mb-6">
-            Dividers podem ser orientados horizontalmente (padrão) ou verticalmente.
-          </p>
           
-          <ComponentCard 
-            title="Vertical Divider" 
-            code={`<div className="flex h-20 items-center">
+          
+          
+          <ComponentCard title="Vertical Divider" code={`<div className="flex h-20 items-center">
   <div>Conteúdo à esquerda</div>
   <Separator orientation="vertical" className="mx-4 h-full" />
   <div>Conteúdo à direita</div>
-</div>`}
-          >
+</div>`}>
             <div className="flex h-20 items-center">
               <div>Conteúdo à esquerda</div>
               <Separator orientation="vertical" className="mx-4 h-full" />
@@ -63,19 +46,14 @@ const Dividers = () => {
         </section>
         
         <section>
-          <h2 className="text-xl font-semibold mb-6">Divisores com rótulos e elementos</h2>
-          <p className="text-mui-text-secondary mb-6">
-            Divisores podem incluir texto, ícones ou outros elementos para criar separações semânticas.
-          </p>
           
-          <ComponentCard 
-            title="Divider com rótulo" 
-            code={`<div className="relative flex items-center py-5">
+          
+          
+          <ComponentCard title="Divider com rótulo" code={`<div className="relative flex items-center py-5">
   <div className="flex-grow border-t border-border"></div>
   <span className="flex-shrink mx-4 text-gray-500">Rótulo</span>
   <div className="flex-grow border-t border-border"></div>
-</div>`}
-          >
+</div>`}>
             <div className="relative flex items-center py-5">
               <div className="flex-grow border-t border-border"></div>
               <span className="flex-shrink mx-4 text-gray-500">Rótulo</span>
@@ -83,16 +61,13 @@ const Dividers = () => {
             </div>
           </ComponentCard>
           
-          <ComponentCard 
-            title="Divider com ícone" 
-            code={`<div className="relative flex items-center py-5">
+          <ComponentCard title="Divider com ícone" code={`<div className="relative flex items-center py-5">
   <div className="flex-grow border-t border-border"></div>
   <div className="flex-shrink mx-3 p-1 bg-white rounded-full border border-border">
     <ChevronRight size={16} className="text-gray-400" />
   </div>
   <div className="flex-grow border-t border-border"></div>
-</div>`}
-          >
+</div>`}>
             <div className="relative flex items-center py-5">
               <div className="flex-grow border-t border-border"></div>
               <div className="flex-shrink mx-3 p-1 bg-white rounded-full border border-border">
@@ -102,56 +77,44 @@ const Dividers = () => {
             </div>
           </ComponentCard>
           
-          <ComponentCard 
-            title="Divider com rótulo à esquerda" 
-            code={`<div className="relative flex items-center py-5">
+          <ComponentCard title="Divider com rótulo à esquerda" code={`<div className="relative flex items-center py-5">
   <span className="pr-3 text-gray-500 font-medium">Categoria</span>
   <div className="flex-grow border-t border-border"></div>
-</div>`}
-          >
+</div>`}>
             <div className="relative flex items-center py-5">
               <span className="pr-3 text-gray-500 font-medium">Categoria</span>
               <div className="flex-grow border-t border-border"></div>
             </div>
           </ComponentCard>
           
-          <ComponentCard 
-            title="Divider com título" 
-            code={`<div className="relative flex flex-col space-y-3 py-5">
+          <ComponentCard title="Divider com título" code={`<div className="relative flex flex-col space-y-3 py-5">
   <h3 className="text-lg font-semibold">Seção de Conteúdo</h3>
   <Separator className="w-full" />
-</div>`}
-          >
+</div>`}>
             <div className="relative flex flex-col space-y-3 py-5">
               <h3 className="text-lg font-semibold">Seção de Conteúdo</h3>
               <Separator className="w-full" />
             </div>
           </ComponentCard>
           
-          <ComponentCard 
-            title="Divider com título à esquerda" 
-            code={`<div className="relative flex items-center py-5">
+          <ComponentCard title="Divider com título à esquerda" code={`<div className="relative flex items-center py-5">
   <h3 className="pr-3 text-lg font-semibold">Seção</h3>
   <div className="flex-grow border-t border-border"></div>
-</div>`}
-          >
+</div>`}>
             <div className="relative flex items-center py-5">
               <h3 className="pr-3 text-lg font-semibold">Seção</h3>
               <div className="flex-grow border-t border-border"></div>
             </div>
           </ComponentCard>
           
-          <ComponentCard 
-            title="Divider com botão" 
-            code={`<div className="relative flex items-center py-5">
+          <ComponentCard title="Divider com botão" code={`<div className="relative flex items-center py-5">
   <div className="flex-grow border-t border-border"></div>
   <Button size="sm" variant="outline-secondary" className="mx-4 flex-shrink-0">
     <Plus size={16} className="mr-1" />
     Adicionar
   </Button>
   <div className="flex-grow border-t border-border"></div>
-</div>`}
-          >
+</div>`}>
             <div className="relative flex items-center py-5">
               <div className="flex-grow border-t border-border"></div>
               <Button size="sm" variant="outline-secondary" className="mx-4 flex-shrink-0">
@@ -162,9 +125,7 @@ const Dividers = () => {
             </div>
           </ComponentCard>
           
-          <ComponentCard 
-            title="Divider com título e botão" 
-            code={`<div className="relative flex items-center justify-between py-5">
+          <ComponentCard title="Divider com título e botão" code={`<div className="relative flex items-center justify-between py-5">
   <h3 className="text-lg font-semibold">Conteúdo Recente</h3>
   <div className="flex items-center">
     <div className="w-16 border-t border-border mr-4"></div>
@@ -172,8 +133,7 @@ const Dividers = () => {
       Ver todos
     </Button>
   </div>
-</div>`}
-          >
+</div>`}>
             <div className="relative flex items-center justify-between py-5">
               <h3 className="text-lg font-semibold">Conteúdo Recente</h3>
               <div className="flex items-center">
@@ -185,9 +145,7 @@ const Dividers = () => {
             </div>
           </ComponentCard>
           
-          <ComponentCard 
-            title="Divider com barra de ferramentas" 
-            code={`<div className="relative py-5 space-y-3">
+          <ComponentCard title="Divider com barra de ferramentas" code={`<div className="relative py-5 space-y-3">
   <div className="flex items-center justify-between">
     <h3 className="text-lg font-semibold">Navegação</h3>
     <div className="flex items-center space-x-2">
@@ -197,8 +155,7 @@ const Dividers = () => {
     </div>
   </div>
   <Separator className="w-full" />
-</div>`}
-          >
+</div>`}>
             <div className="relative py-5 space-y-3">
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-semibold">Navegação</h3>
@@ -214,14 +171,10 @@ const Dividers = () => {
         </section>
         
         <section>
-          <h2 className="text-xl font-semibold mb-6">Personalização</h2>
-          <p className="text-mui-text-secondary mb-6">
-            Dividers podem ser personalizados para diferentes estilos, cores e espessuras.
-          </p>
           
-          <ComponentCard 
-            title="Custom Divider Styles" 
-            code={`<div className="space-y-6">
+          
+          
+          <ComponentCard title="Custom Divider Styles" code={`<div className="space-y-6">
   <div className="space-y-4">
     <div>Divisor padrão</div>
     <Separator />
@@ -241,8 +194,7 @@ const Dividers = () => {
     <div>Divisor pontilhado</div>
     <div className="h-[1px] w-full border-t border-dashed border-border" />
   </div>
-</div>`}
-          >
+</div>`}>
             <div className="space-y-6 py-4">
               <div className="space-y-4">
                 <div>Divisor padrão</div>
@@ -306,8 +258,6 @@ const Dividers = () => {
           </div>
         </section>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Dividers;
