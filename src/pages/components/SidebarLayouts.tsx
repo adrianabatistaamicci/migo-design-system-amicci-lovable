@@ -17,7 +17,7 @@ const SidebarExample = () => {
   return (
     <div className="w-64 h-screen bg-white border-r border-gray-200">
       <div className="p-4 border-b border-gray-200">
-        <img src="/src/pages/assets/amicci-logo-tag-updates.svg" alt="Amicci" className="h-6" />
+        <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg" alt="Amicci" className="h-6" />
       </div>
       
       <nav className="mt-4">
@@ -124,6 +124,8 @@ const CollapsibleSidebar = () => {
   );
 }`;
 
+  const [isCollapsibleSidebarOpen, setIsCollapsibleSidebarOpen] = useState(true);
+
   return (
     <div className="w-full animate-fade-in">
       <Header title="Sidebar Layouts" description="Barras laterais de navegação responsivas com recursos avançados como ícones, badges, submenus expansíveis e seções de rodapé" type="components" />
@@ -193,44 +195,51 @@ const CollapsibleSidebar = () => {
           <div className="border rounded-lg overflow-hidden shadow-sm">
             <div className="bg-gray-100 w-full h-[500px] overflow-hidden">
               <div className="relative">
-                <div className="fixed top-0 left-0 h-screen bg-white border-r border-gray-200 shadow-sm transition-all duration-300 w-64 md:relative">
+                <div className={`fixed top-0 left-0 h-screen bg-white border-r border-gray-200 shadow-sm transition-all duration-300 ${isCollapsibleSidebarOpen ? 'w-64' : 'w-20'} md:relative`}>
                   <div className="p-4 border-b border-gray-200 flex items-center justify-between">
-                    <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg" alt="Amicci" className="h-6" />
-                    <button className="hidden md:block text-gray-500 hover:text-gray-700">
-                      <ChevronLeft size={20} />
+                    {isCollapsibleSidebarOpen ? (
+                      <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg" alt="Amicci" className="h-6" />
+                    ) : (
+                      <img src="/src/pages/assets/Amicci-Simbolo_Turquesa_Escuro.svg" alt="Amicci" className="h-6 mx-auto" />
+                    )}
+                    <button 
+                      onClick={() => setIsCollapsibleSidebarOpen(!isCollapsibleSidebarOpen)}
+                      className="hidden md:block text-gray-500 hover:text-gray-700"
+                    >
+                      {isCollapsibleSidebarOpen ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
                     </button>
                   </div>
                   
                   <nav className="mt-4">
                     <ul className="space-y-1 px-2">
                       <li>
-                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main">
-                          <Home size={18} className="mr-2" />
-                          <span>Dashboard</span>
+                        <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
+                          <Home size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
+                          {isCollapsibleSidebarOpen && <span>Dashboard</span>}
                         </a>
                       </li>
                       <li>
-                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                          <Mail size={18} className="mr-2" />
-                          <span>Messages</span>
+                        <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
+                          <Mail size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
+                          {isCollapsibleSidebarOpen && <span>Messages</span>}
                         </a>
                       </li>
                       <li>
-                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                          <Users size={18} className="mr-2" />
-                          <span>Team</span>
+                        <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
+                          <Users size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
+                          {isCollapsibleSidebarOpen && <span>Team</span>}
                         </a>
                       </li>
                       <li>
-                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                          <Settings size={18} className="mr-2" />
-                          <span>Settings</span>
+                        <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
+                          <Settings size={18} className={isCollapsibleSidebarOpen ? 'mr-2' : ''} />
+                          {isCollapsibleSidebarOpen && <span>Settings</span>}
                         </a>
                       </li>
                     </ul>
                   </nav>
                 </div>
-                <div className="ml-64 p-6">
+                <div className={`${isCollapsibleSidebarOpen ? 'ml-64' : 'ml-20'} p-6 transition-all duration-300`}>
                   <h1 className="text-xl font-semibold mb-4">Dashboard</h1>
                   <p className="text-gray-600">Main content would go here</p>
                 </div>
