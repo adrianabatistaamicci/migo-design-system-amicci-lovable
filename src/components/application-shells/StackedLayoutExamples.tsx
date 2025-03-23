@@ -1,7 +1,7 @@
 
 import React from 'react';
 import StackedLayout from './StackedLayout';
-import { Bell, Menu, Search, Globe, Rocket, ChevronDown } from 'lucide-react';
+import { Bell, Menu, Search, Globe, Rocket, ChevronDown, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { IconButton } from '@/components/ui/icon-button';
 import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
@@ -166,9 +166,9 @@ export const MarketplaceBuyerExample = () => {
           <div className="flex items-center space-x-4">
             <Button 
               variant="outline-secondary" 
-              className="flex items-center gap-2 relative"
+              className="flex items-center gap-2 relative text-tertiary-main"
             >
-              <img src={amySvg} alt="Amy" className="h-5 w-5" />
+              <Sparkles className="h-5 w-5 text-tertiary-main" />
               <span>Amy</span>
               <div className="absolute -top-1 -right-1 h-4 w-4">
                 <Lottie
