@@ -30,6 +30,21 @@ const Brand = () => {
     document.body.removeChild(link);
   };
 
+  // Tertiary (Amy) color palette data
+  const tertiaryColors = [
+    { name: 'tertiary-50', hex: '#FDF5FA', className: 'bg-tertiary-light' },
+    { name: 'tertiary-100', hex: '#F9E5F4', className: 'bg-tertiary-light' },
+    { name: 'tertiary-200', hex: '#F2CAEB', className: 'bg-tertiary-light' },
+    { name: 'tertiary-300', hex: '#E7A4DD', className: 'bg-tertiary-light' },
+    { name: 'tertiary-400', hex: '#C963BA', className: 'bg-tertiary-light' },
+    { name: 'tertiary-500', hex: '#9B247F', className: 'bg-tertiary-main' },
+    { name: 'tertiary-600', hex: '#841E6C', className: 'bg-tertiary-dark' },
+    { name: 'tertiary-700', hex: '#6D1959', className: 'bg-tertiary-dark' },
+    { name: 'tertiary-800', hex: '#571447', className: 'bg-tertiary-dark' },
+    { name: 'tertiary-900', hex: '#49123C', className: 'bg-tertiary-dark' },
+    { name: 'tertiary-950', hex: '#3E0F32', className: 'bg-tertiary-dark' },
+  ];
+
   return (
     <div className="w-full animate-fade-in">
       <Header 
@@ -136,6 +151,71 @@ const Brand = () => {
               <div className="space-y-6">
                 <h3 className="text-xl font-medium">A IA da Amicci</h3>
                 
+                {/* Tertiary Color Palette Section */}
+                <div className="border rounded-lg p-8 bg-white">
+                  <h4 className="font-medium mb-4">Paleta de cores Tertiary (Amy)</h4>
+                  <p className="text-gray-600 mb-6">A Amy é representada pela paleta de cores tertiary, que consiste em tons de magenta/roxo que transmitem inovação e inteligência.</p>
+                  
+                  <div className="grid grid-cols-1 gap-6">
+                    {/* Main Tertiary Color */}
+                    <div className="p-4 border rounded-lg">
+                      <h5 className="font-medium mb-3">Cor Principal</h5>
+                      <div className="flex items-center gap-4">
+                        <div className="h-20 w-20 rounded-md bg-tertiary-main flex items-center justify-center">
+                          <span className="text-white font-medium">500</span>
+                        </div>
+                        <div>
+                          <p className="font-medium">tertiary-500</p>
+                          <p className="text-sm text-gray-500">#9B247F</p>
+                          <p className="text-sm text-gray-500">var(--tertiary-main)</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* All Tertiary Colors */}
+                    <div className="p-4 border rounded-lg">
+                      <h5 className="font-medium mb-3">Escala Completa</h5>
+                      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        {tertiaryColors.map((color) => (
+                          <div key={color.name} className="flex flex-col items-center">
+                            <div 
+                              className={`h-16 w-16 rounded-md flex items-center justify-center ${color.name.includes('50') || color.name.includes('100') || color.name.includes('200') ? 'text-tertiary-800' : 'text-white'}`}
+                              style={{ backgroundColor: color.hex }}
+                            >
+                              {color.name.split('-')[1]}
+                            </div>
+                            <span className="text-xs mt-1">{color.name}</span>
+                            <span className="text-xs text-gray-500">{color.hex}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Tertiary Color Usage */}
+                    <div className="p-4 border rounded-lg">
+                      <h5 className="font-medium mb-3">Uso em Componentes</h5>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="space-y-2">
+                          <Button className="bg-tertiary-main hover:bg-tertiary-dark">Botão Tertiary</Button>
+                          <p className="text-xs text-gray-500">bg-tertiary-main</p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="p-3 bg-tertiary-light text-tertiary-main rounded-md border border-tertiary-main">
+                            Box com fundo light
+                          </div>
+                          <p className="text-xs text-gray-500">bg-tertiary-light / text-tertiary-main</p>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="p-3 bg-tertiary-main text-white rounded-md">
+                            Box com fundo main
+                          </div>
+                          <p className="text-xs text-gray-500">bg-tertiary-main / text-white</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Images section with download options */}
                 <div className="border rounded-lg p-8 bg-white">
                   <h4 className="font-medium mb-4">Imagens da Amy</h4>
@@ -177,24 +257,27 @@ const Brand = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
                   <div className="border rounded-lg p-8 bg-white">
                     <h4 className="font-medium mb-4">Paleta de cores</h4>
-                    <p className="text-gray-600 mb-4">A Amy é sempre representada com a cor magenta-500 (#D946EF) e suas variações.</p>
+                    <p className="text-gray-600 mb-4">A Amy é sempre representada com a cor tertiary (magenta) e suas variações.</p>
                     <div className="flex gap-4 mt-4">
                       <div className="flex flex-col items-center">
-                        <div className="h-16 w-16 rounded-md bg-magenta-500"></div>
-                        <span className="text-xs mt-1">magenta-500</span>
-                        <span className="text-xs text-gray-500">#D946EF</span>
+                        <div className="h-16 w-16 rounded-md bg-tertiary-main"></div>
+                        <span className="text-xs mt-1">tertiary-500</span>
+                        <span className="text-xs text-gray-500">#9B247F</span>
                       </div>
                       <div className="flex flex-col items-center">
-                        <div className="h-16 w-16 rounded-md bg-magenta-400"></div>
-                        <span className="text-xs mt-1">magenta-400</span>
+                        <div className="h-16 w-16 rounded-md bg-tertiary-400"></div>
+                        <span className="text-xs mt-1">tertiary-400</span>
+                        <span className="text-xs text-gray-500">#C963BA</span>
                       </div>
                       <div className="flex flex-col items-center">
-                        <div className="h-16 w-16 rounded-md bg-magenta-300"></div>
-                        <span className="text-xs mt-1">magenta-300</span>
+                        <div className="h-16 w-16 rounded-md bg-tertiary-300"></div>
+                        <span className="text-xs mt-1">tertiary-300</span>
+                        <span className="text-xs text-gray-500">#E7A4DD</span>
                       </div>
                       <div className="flex flex-col items-center">
-                        <div className="h-16 w-16 rounded-md bg-magenta-100"></div>
-                        <span className="text-xs mt-1">magenta-100</span>
+                        <div className="h-16 w-16 rounded-md bg-tertiary-100"></div>
+                        <span className="text-xs mt-1">tertiary-100</span>
+                        <span className="text-xs text-gray-500">#F9E5F4</span>
                       </div>
                     </div>
                   </div>
@@ -204,11 +287,11 @@ const Brand = () => {
                     <p className="text-gray-600 mb-4">O ícone utilizado é o de "sparkles" para representar sua inteligência e capacidade de gerar insights.</p>
                     <div className="flex gap-8 mt-4">
                       <div className="flex flex-col items-center">
-                        <Sparkles size={48} className="text-magenta-500" />
+                        <Sparkles size={48} className="text-tertiary-main" />
                         <span className="text-xs mt-2">Ícone padrão</span>
                       </div>
                       <div className="flex flex-col items-center">
-                        <div className="h-14 w-14 rounded-full bg-magenta-500 flex items-center justify-center">
+                        <div className="h-14 w-14 rounded-full bg-tertiary-main flex items-center justify-center">
                           <Sparkles size={24} className="text-white" />
                         </div>
                         <span className="text-xs mt-2">Ícone em círculo</span>
@@ -222,7 +305,7 @@ const Brand = () => {
                   <h4 className="font-medium mb-4">Container de Insights</h4>
                   <p className="text-gray-600 mb-6">Exemplo de como a Amy é apresentada na plataforma Amicci, com um container tipo accordion para destacar seus insights.</p>
                   
-                  <Accordion type="single" collapsible className="border border-magenta-200 rounded-lg">
+                  <Accordion type="single" collapsible className="border border-tertiary-200 rounded-lg">
                     <AccordionItem value="item-1" className="border-b-0">
                       <AccordionTrigger className="px-4 py-4 hover:no-underline">
                         <div className="flex items-center gap-4">
@@ -237,7 +320,7 @@ const Brand = () => {
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="font-medium">Insight da Amy</span>
-                            <Sparkles size={16} className="text-magenta-500" />
+                            <Sparkles size={16} className="text-tertiary-main" />
                           </div>
                         </div>
                       </AccordionTrigger>
