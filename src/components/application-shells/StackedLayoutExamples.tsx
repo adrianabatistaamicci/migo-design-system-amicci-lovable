@@ -1,4 +1,3 @@
-
 import React from 'react';
 import StackedLayout from './StackedLayout';
 import { Bell, Menu, Search, Globe, Rocket, ChevronDown, Sparkles } from 'lucide-react';
@@ -169,7 +168,7 @@ export const MarketplaceBuyerExample = () => {
               className="flex items-center gap-2 relative"
             >
               <Sparkles className="h-5 w-5 text-tertiary-main" />
-              <span className="text-primary-main">Amy</span>
+              <span className="text-text-primary">Amy</span>
               <div className="absolute -top-2 -right-2 h-6 w-6">
                 <Lottie
                   animationData={animationData}
