@@ -24,10 +24,8 @@ import Amy004 from '@/pages/assets/Amy 004.png';
 import AmySvg from '@/pages/assets/amy.svg';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { IconButton } from "@/components/ui/icon-button";
-
 const Brand = () => {
   const [activeTab, setActiveTab] = useState('logo');
-  
   const handleDownload = (url: string, filename: string) => {
     const link = document.createElement('a');
     link.href = url;
@@ -36,7 +34,6 @@ const Brand = () => {
     link.click();
     document.body.removeChild(link);
   };
-
   const tertiaryColors = [{
     name: 'tertiary-50',
     hex: '#FDF5FA',
@@ -82,7 +79,6 @@ const Brand = () => {
     hex: '#3E0F32',
     className: 'bg-tertiary-dark'
   }];
-
   const tertiaryPalette = [{
     name: 'main',
     color: 'bg-tertiary-main',
@@ -124,7 +120,6 @@ const Brand = () => {
     hex: 'rgba(155, 36, 127, 0.50)',
     tailwindClass: 'bg-tertiary-outlinedBorder'
   }];
-
   const renderTabContent = () => {
     switch (activeTab) {
       case 'logo':
@@ -218,10 +213,10 @@ const Brand = () => {
               <div className="space-y-6">
                 <div className="mt-0">
                   <h4 className="text-xl font-medium mb-4">Paleta de cores Tertiary (Amy)</h4>
-                  <p className="text-gray-600 mb-4">A Amy é representada pela paleta de cores tertiary, que consiste em tons de magenta/roxo que transmitem inovação e inteligência.</p>
+                  
                   
                   <div className="p-4 border rounded-lg mb-6">
-                    <h5 className="font-medium mb-4">Cores Tertiary</h5>
+                    
                     
                     <div className="space-y-6">
                       <div className="flex items-center gap-4 mb-6 p-4 bg-gray-50 rounded-md">
@@ -238,36 +233,30 @@ const Brand = () => {
                       <div>
                         <h6 className="font-medium mb-3">Escala Completa</h6>
                         <div className="grid grid-cols-11 gap-1 w-full">
-                          {tertiaryColors.map(color => (
-                            <div key={color.name} className="flex flex-col items-center">
-                              <div 
-                                className={`h-16 w-full rounded-md flex items-center justify-center ${color.name.includes('50') || color.name.includes('100') || color.name.includes('200') ? 'text-tertiary-800' : 'text-white'}`} 
-                                style={{ backgroundColor: color.hex }}
-                              >
+                          {tertiaryColors.map(color => <div key={color.name} className="flex flex-col items-center">
+                              <div className={`h-16 w-full rounded-md flex items-center justify-center ${color.name.includes('50') || color.name.includes('100') || color.name.includes('200') ? 'text-tertiary-800' : 'text-white'}`} style={{
+                            backgroundColor: color.hex
+                          }}>
                                 {color.name.split('-')[1]}
                               </div>
                               <span className="text-xs mt-1 truncate w-full text-center">{color.name}</span>
                               <span className="text-xs text-gray-500 truncate w-full text-center">{color.hex}</span>
-                            </div>
-                          ))}
+                            </div>)}
                         </div>
                       </div>
                       
                       <div>
                         <h6 className="font-medium mb-3">Variáveis de Aplicação</h6>
-                        <div className="grid grid-cols-4 md:grid-cols-8 gap-4 w-full">
-                          {tertiaryPalette.map(item => (
-                            <div key={item.name} className="flex flex-col items-center">
-                              <div 
-                                className={`h-16 w-full rounded-md flex items-center justify-center ${item.name === 'light' ? 'text-tertiary-800' : 'text-white'}`} 
-                                style={{ backgroundColor: item.hex }}
-                              >
+                        <div className="grid grid-cols-11 gap-1 w-full">
+                          {tertiaryPalette.map(item => <div key={item.name} className="flex flex-col items-center">
+                              <div className={`h-16 w-full rounded-md flex items-center justify-center ${item.name === 'light' ? 'text-tertiary-800' : 'text-white'}`} style={{
+                            backgroundColor: item.hex
+                          }}>
                                 {item.name}
                               </div>
                               <span className="text-xs mt-1 truncate w-full text-center">tertiary-{item.name}</span>
                               <span className="text-xs text-gray-500 truncate w-full text-center">{item.hex}</span>
-                            </div>
-                          ))}
+                            </div>)}
                         </div>
                       </div>
                     </div>
@@ -358,7 +347,6 @@ const Brand = () => {
         return null;
     }
   };
-
   return <div className="w-full animate-fade-in">
       <Header title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." type="foundations" />
 
@@ -380,5 +368,4 @@ const Brand = () => {
       </div>
     </div>;
 };
-
 export default Brand;
