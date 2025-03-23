@@ -126,7 +126,7 @@ const CollapsibleSidebar = () => {
         type="components"
       />
       
-      <div className="max-w-[1280px] mx-auto px-4">
+      <div className="max-w-[1280px] mx-auto">
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">Overview</h2>
           <p className="text-gray-700 mb-6">
