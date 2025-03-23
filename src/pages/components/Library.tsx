@@ -58,7 +58,7 @@ const LibraryPage: React.FC = () => {
                 <div className="p-4 w-full">
                   <div className="mb-4">
                     <h3 className="text-lg font-medium text-gray-900">{name}</h3>
-                    <Separator className="mt-2" />
+                    <Separator className="mt-2 -mx-4" />
                   </div>
                   <Component {...getDefaultProps(name)} />
                 </div>
@@ -81,7 +81,7 @@ const LibraryPage: React.FC = () => {
               <div className="p-4 w-full">
                 <div className="mb-4">
                   <h3 className="text-lg font-medium text-gray-900">EmptyState</h3>
-                  <Separator className="mt-2" />
+                  <Separator className="mt-2 -mx-4" />
                 </div>
                 <EmptyState />
               </div>
@@ -103,7 +103,7 @@ const LibraryPage: React.FC = () => {
               <div className="p-4 w-full">
                 <div className="mb-4">
                   <h3 className="text-lg font-medium text-gray-900">Header</h3>
-                  <Separator className="mt-2" />
+                  <Separator className="mt-2 -mx-4" />
                 </div>
                 <Header 
                   title="Título de exemplo" 
