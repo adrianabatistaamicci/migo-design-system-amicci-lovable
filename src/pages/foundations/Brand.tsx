@@ -198,7 +198,7 @@ const Brand = () => {
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
                     <div className="border rounded-lg p-8 flex items-center justify-center bg-white">
-                      <img src={AmicciSimbolo} alt="Símbolo Amicci" className="max-w-[250px] h-[117px]" />
+                      <img src={AmicciSimbolo} alt="S��mbolo Amicci" className="max-w-[250px] h-[117px]" />
                     </div>
                     <div className="space-y-4">
                       <h4 className="font-medium">Símbolo</h4>
@@ -341,6 +341,7 @@ const Brand = () => {
                       </div>
                       <div className="px-6 pb-4">
                         <div className="flex items-center gap-3 mb-3">
+                          <Chip size="sm" variant="filled" color="secondary">Novo insight gerado</Chip>
                           <p className="text-gray-500 text-sm">
                             Insight gerado em 13/03/2024 às 13:45
                           </p>
@@ -405,4 +406,3 @@ const Brand = () => {
 };
 
 export default Brand;
-
