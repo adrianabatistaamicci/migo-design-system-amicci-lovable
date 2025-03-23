@@ -62,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({
           />
           
           <Button 
-            variant="outline-secondary" 
+            variant="outline-secondary"
             startIcon={<Github size={18} />}
             asChild
           >
