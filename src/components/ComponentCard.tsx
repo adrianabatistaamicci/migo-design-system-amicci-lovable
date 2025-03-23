@@ -29,7 +29,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
   return <div className={cn("rounded-lg border border-gray-200 bg-white overflow-hidden transition-all duration-250 animate-fade-in shadow-sm w-full flex flex-col", className)}>
       
       
-      <div className=" flex items-center justify-center flex-grow">
+      <div className="p-5 flex items-center justify-center flex-grow">
         <div className="w-full">
           {children}
         </div>
