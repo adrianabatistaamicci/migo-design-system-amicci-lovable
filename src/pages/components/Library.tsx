@@ -48,11 +48,12 @@ const LibraryPage: React.FC = () => {
         
         <div className="mt-8 grid grid-cols-1 gap-6">
           {Object.entries(components).map(([name, Component]) => (
-            <div key={name} className="space-y-3 w-full">
-              <div className="px-4">
-                <h3 className="text-xl font-medium text-gray-900">{name}</h3>
-              </div>
-              <ComponentCard title={name} description="" className="w-full">
+            <div key={name} className="w-full">
+              <ComponentCard 
+                title={name} 
+                description="" 
+                className="w-full"
+              >
                 <div className="p-4 w-full">
                   <Component {...getDefaultProps(name)} />
                 </div>
@@ -61,10 +62,7 @@ const LibraryPage: React.FC = () => {
           ))}
 
           {/* Add EmptyState component card */}
-          <div className="space-y-3 w-full">
-            <div className="px-4">
-              <h3 className="text-xl font-medium text-gray-900">EmptyState</h3>
-            </div>
+          <div className="w-full">
             <ComponentCard 
               title="EmptyState" 
               description="Usado para indicar páginas ou seções que estão em desenvolvimento."
@@ -82,10 +80,7 @@ const LibraryPage: React.FC = () => {
           </div>
           
           {/* Add Header component card */}
-          <div className="space-y-3 w-full">
-            <div className="px-4">
-              <h3 className="text-xl font-medium text-gray-900">Header</h3>
-            </div>
+          <div className="w-full">
             <ComponentCard 
               title="Header" 
               description="Cabeçalho usado para seções principais do design system."
