@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Sidebar, Home, Settings, Users, FileText, Mail, ChevronDown, ChevronRight, ChevronLeft, Menu, X } from 'lucide-react';
 import Header from '@/components/library-components/Header';
@@ -117,12 +118,14 @@ const CollapsibleSidebar = () => {
   );
 };`;
 
-  return <div className="w-full animate-fade-in">
+  return (
+    <div className="w-full animate-fade-in">
       <Header title="Sidebar Layouts" description="Barras laterais de navegação responsivas com recursos avançados como ícones, badges, submenus expansíveis e seções de rodapé" type="components" />
       
       <div className="max-w-[1280px] mx-auto">
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-6">Basic Sidebar</h2>
+          <ComponentCard title="Basic Sidebar Example">
             <AspectRatio ratio={4 / 3} className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden">
               <div className="flex h-full">
                 <div className="w-64 h-full bg-white border-r border-gray-200">
@@ -202,7 +205,8 @@ const CollapsibleSidebar = () => {
           </ul>
         </section>
       </div>
-    </div>;
+    </div>
+  );
 };
 
 export default SidebarLayouts;
