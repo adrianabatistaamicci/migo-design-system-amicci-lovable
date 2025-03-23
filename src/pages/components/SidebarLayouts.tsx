@@ -122,7 +122,7 @@ const CollapsibleSidebar = () => {
     <div className="w-full animate-fade-in">
       <Header 
         title="Sidebar Layouts"
-        description="Sidebar navigation patterns for your application"
+        description="Para criar menus laterais responsivos com recursos como ícones e emblemas, submenus expansíveis e seções de rodapé"
         type="components"
       />
       
@@ -132,6 +132,7 @@ const CollapsibleSidebar = () => {
           <p className="text-gray-700 mb-6">
             Sidebar layouts provide vertical navigation for applications, allowing users to move between different sections. 
             They're commonly used in dashboards, admin panels, and multi-page applications.
+            Para criar menus laterais responsivos com recursos como ícones e emblemas, submenus expansíveis e seções de rodapé.
           </p>
         </section>
 
