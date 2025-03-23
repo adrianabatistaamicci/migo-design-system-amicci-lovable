@@ -1,10 +1,9 @@
-
-import React, { useState } from 'react';
+import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
-import Header from '@/components/library-components/Header';
+import HeaderLibrary from '@/components/library-components/HeaderLibrary';
 
 const RadioPage = () => {
   const [selectedOption, setSelectedOption] = useState("option-one");
@@ -12,7 +11,7 @@ const RadioPage = () => {
   return (
     <div className="w-full animate-slide-in">
       <div className="mb-12">
-        <Header 
+        <HeaderLibrary 
           title="Radio"
           description="Radio buttons allow users to select a single option from a list of mutually exclusive options."
           type="components"

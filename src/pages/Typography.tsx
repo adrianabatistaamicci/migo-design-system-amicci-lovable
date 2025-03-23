@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
 import { TailwindTabs } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
 import CodeBlock from '@/components/CodeBlock';
@@ -7,7 +8,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from '@/components/ui/badge';
 import { Copy, Check } from 'lucide-react';
 import { Chip } from '@/components/ui/chip';
-import Header from '@/components/library-components/Header';
+import HeaderLibrary from '@/components/library-components/HeaderLibrary';
 
 const Typography = () => {
   const [copied, setCopied] = useState<string | null>(null);
@@ -302,7 +303,7 @@ const Typography = () => {
 
   return (
     <div className="w-full animate-fade-in">
-      <Header 
+      <HeaderLibrary 
         title="Typography" 
         description="Estilos de texto e tokens de tipografia utilizados na aplicação"
         type="foundations"

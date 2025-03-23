@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
 import { TailwindTabs } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { tokenToPixels, pixelsToToken, getSpacingClass } from '@/utils/spacingUtils';
 import { cn } from '@/lib/utils';
 import { Chip } from '@/components/ui/chip';
 import ComponentCard from '@/components/ComponentCard';
-import Header from '@/components/library-components/Header';
+import HeaderLibrary from '@/components/library-components/HeaderLibrary';
 import CodeBlock from '@/components/CodeBlock';
 
 const SpacingPage = () => {
@@ -13,7 +14,7 @@ const SpacingPage = () => {
   
   return (
     <div className="w-full animate-fade-in">
-      <Header 
+      <HeaderLibrary 
         title="Spacing" 
         description="Nosso sistema de espaçamento fornece tamanhos consistentes que ajudam a criar ritmo visual e hierarquia." 
         type="foundations" 
@@ -306,3 +307,4 @@ function FlexContainer({ children, spacing = 4 }) {
 };
 
 export default SpacingPage;
+

@@ -1,16 +1,15 @@
-
-import React, { useState } from 'react';
+import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { Mail, Bell, MessageSquare, User } from 'lucide-react';
-import Header from '@/components/library-components/Header';
+import HeaderLibrary from '@/components/library-components/HeaderLibrary';
 
 const BadgePage = () => {
   return (
     <div className="w-full animate-slide-in">
       <div className="mb-12">
-        <Header 
+        <HeaderLibrary 
           title="Badge"
           description="Badges are small status descriptors for UI elements that display counts, statuses, or notifications."
           type="components"
