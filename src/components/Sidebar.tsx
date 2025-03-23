@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
@@ -227,9 +226,13 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
         {item.title && (
           <div className="mb-2">
             <div className={cn(
-              "flex items-center w-full py-2 px-3 rounded-md text-sm font-medium text-primary uppercase text-xs"
+              "flex items-center w-full py-2 px-3 rounded-md text-sm font-medium uppercase text-xs",
+              active ? "text-primary" : "text-primary/70"
             )}>
-              {item.icon && <item.icon size={20} className="text-primary-main mr-2" />}
+              {item.icon && <item.icon size={20} className={cn(
+                "mr-2", 
+                active ? "text-primary" : "text-primary/70"
+              )} />}
               <span>{item.title}</span>
             </div>
             
@@ -291,7 +294,6 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
           </Collapsible>
         )}
 
-        {/* If there's no title, just render children directly */}
         {!item.title && (
           <div className="mt-1">
             {item.items.map((child, index) => (
@@ -303,7 +305,6 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
     );
   }
   
-  // Leaf item
   return (
     <Link
       to={item.href || '#'}
