@@ -5,7 +5,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { TailwindTabs } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
-import { Sparkles, CircleUser } from "lucide-react";
+import { Sparkles, CircleUser, Wand2, Brain, Stars, Zap, Bot } from "lucide-react";
 import Header from '@/components/library-components/Header';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -37,93 +37,97 @@ const Brand = () => {
     document.body.removeChild(link);
   };
 
-  const tertiaryColors = [{
-    name: 'tertiary-50',
-    hex: '#FDF5FA',
-    className: 'bg-tertiary-light'
-  }, {
-    name: 'tertiary-100',
-    hex: '#F9E5F4',
-    className: 'bg-tertiary-light'
-  }, {
-    name: 'tertiary-200',
-    hex: '#F2CAEB',
-    className: 'bg-tertiary-light'
-  }, {
-    name: 'tertiary-300',
-    hex: '#E7A4DD',
-    className: 'bg-tertiary-light'
-  }, {
-    name: 'tertiary-400',
-    hex: '#C963BA',
-    className: 'bg-tertiary-light'
-  }, {
-    name: 'tertiary-500',
-    hex: '#9B247F',
-    className: 'bg-tertiary-main'
-  }, {
-    name: 'tertiary-600',
-    hex: '#841E6C',
-    className: 'bg-tertiary-dark'
-  }, {
-    name: 'tertiary-700',
-    hex: '#6D1959',
-    className: 'bg-tertiary-dark'
-  }, {
-    name: 'tertiary-800',
-    hex: '#571447',
-    className: 'bg-tertiary-dark'
-  }, {
-    name: 'tertiary-900',
-    hex: '#49123C',
-    className: 'bg-tertiary-dark'
-  }, {
-    name: 'tertiary-950',
-    hex: '#3E0F32',
-    className: 'bg-tertiary-dark'
-  }];
+  const tertiaryColors = [
+    {
+      name: 'tertiary-50',
+      hex: '#FDF5FA',
+      className: 'bg-tertiary-light'
+    }, {
+      name: 'tertiary-100',
+      hex: '#F9E5F4',
+      className: 'bg-tertiary-light'
+    }, {
+      name: 'tertiary-200',
+      hex: '#F2CAEB',
+      className: 'bg-tertiary-light'
+    }, {
+      name: 'tertiary-300',
+      hex: '#E7A4DD',
+      className: 'bg-tertiary-light'
+    }, {
+      name: 'tertiary-400',
+      hex: '#C963BA',
+      className: 'bg-tertiary-light'
+    }, {
+      name: 'tertiary-500',
+      hex: '#9B247F',
+      className: 'bg-tertiary-main'
+    }, {
+      name: 'tertiary-600',
+      hex: '#841E6C',
+      className: 'bg-tertiary-dark'
+    }, {
+      name: 'tertiary-700',
+      hex: '#6D1959',
+      className: 'bg-tertiary-dark'
+    }, {
+      name: 'tertiary-800',
+      hex: '#571447',
+      className: 'bg-tertiary-dark'
+    }, {
+      name: 'tertiary-900',
+      hex: '#49123C',
+      className: 'bg-tertiary-dark'
+    }, {
+      name: 'tertiary-950',
+      hex: '#3E0F32',
+      className: 'bg-tertiary-dark'
+    }
+  ];
 
-  const tertiaryPalette = [{
-    name: 'main',
-    color: 'bg-tertiary-main',
-    hex: '#9B247F',
-    tailwindClass: 'bg-tertiary-main'
-  }, {
-    name: 'light',
-    color: 'bg-tertiary-light',
-    hex: '#F9E5F4',
-    tailwindClass: 'bg-tertiary-light'
-  }, {
-    name: 'dark',
-    color: 'bg-tertiary-dark',
-    hex: '#6D1959',
-    tailwindClass: 'bg-tertiary-dark'
-  }, {
-    name: 'hover',
-    color: 'bg-tertiary-hover',
-    hex: 'rgba(155, 36, 127, 0.04)',
-    tailwindClass: 'bg-tertiary-hover'
-  }, {
-    name: 'selected',
-    color: 'bg-tertiary-selected',
-    hex: 'rgba(155, 36, 127, 0.08)',
-    tailwindClass: 'bg-tertiary-selected'
-  }, {
-    name: 'focus',
-    color: 'bg-tertiary-focus',
-    hex: 'rgba(155, 36, 127, 0.12)',
-    tailwindClass: 'bg-tertiary-focus'
-  }, {
-    name: 'focusVisible',
-    color: 'bg-tertiary-focusVisible',
-    hex: 'rgba(155, 36, 127, 0.30)',
-    tailwindClass: 'bg-tertiary-focusVisible'
-  }, {
-    name: 'outlinedBorder',
-    color: 'bg-tertiary-outlinedBorder',
-    hex: 'rgba(155, 36, 127, 0.50)',
-    tailwindClass: 'bg-tertiary-outlinedBorder'
-  }];
+  const tertiaryPalette = [
+    {
+      name: 'main',
+      color: 'bg-tertiary-main',
+      hex: '#9B247F',
+      tailwindClass: 'bg-tertiary-main'
+    }, {
+      name: 'light',
+      color: 'bg-tertiary-light',
+      hex: '#F9E5F4',
+      tailwindClass: 'bg-tertiary-light'
+    }, {
+      name: 'dark',
+      color: 'bg-tertiary-dark',
+      hex: '#6D1959',
+      tailwindClass: 'bg-tertiary-dark'
+    }, {
+      name: 'hover',
+      color: 'bg-tertiary-hover',
+      hex: 'rgba(155, 36, 127, 0.04)',
+      tailwindClass: 'bg-tertiary-hover'
+    }, {
+      name: 'selected',
+      color: 'bg-tertiary-selected',
+      hex: 'rgba(155, 36, 127, 0.08)',
+      tailwindClass: 'bg-tertiary-selected'
+    }, {
+      name: 'focus',
+      color: 'bg-tertiary-focus',
+      hex: 'rgba(155, 36, 127, 0.12)',
+      tailwindClass: 'bg-tertiary-focus'
+    }, {
+      name: 'focusVisible',
+      color: 'bg-tertiary-focusVisible',
+      hex: 'rgba(155, 36, 127, 0.30)',
+      tailwindClass: 'bg-tertiary-focusVisible'
+    }, {
+      name: 'outlinedBorder',
+      color: 'bg-tertiary-outlinedBorder',
+      hex: 'rgba(155, 36, 127, 0.50)',
+      tailwindClass: 'bg-tertiary-outlinedBorder'
+    }
+  ];
 
   const renderTabContent = () => {
     switch (activeTab) {
@@ -214,131 +218,204 @@ const Brand = () => {
           </div>;
       case 'amy':
         return <div className="space-y-10">
-            <ComponentCard title="Amy" description="A inteligência artificial da Amicci que ajuda os clientes no fluxo de planejamento, projeto e performance comercial da plataforma.">
-              <div className="space-y-6">
-                <div className="mt-0">
-                  <h4 className="text-xl font-medium mb-4">Paleta de cores Tertiary (Amy)</h4>
-                  
-                  <div className="p-4 border rounded-lg mb-6">
-                    <div className="space-y-6">
-                      <div>
-                        <h6 className="font-medium mb-3">Escala Completa</h6>
-                        <div className="grid grid-cols-11 gap-1 w-full">
-                          {tertiaryColors.map(color => (
-                            <div key={color.name} className="flex flex-col items-center">
-                              <div 
-                                className={`h-16 w-full rounded-md flex items-center justify-center ${color.name.includes('50') || color.name.includes('100') || color.name.includes('200') ? 'text-tertiary-800' : 'text-white'}`} 
-                                style={{ backgroundColor: color.hex }}
-                              >
-                                {color.name.split('-')[1]}
-                              </div>
-                              <span className="text-xs mt-1 truncate w-full text-center">{color.name}</span>
-                              <span className="text-xs text-gray-500 truncate w-full text-center">{color.hex}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <h6 className="font-medium mb-3">Variáveis de Aplicação</h6>
-                        <div className="grid grid-cols-8 gap-1 w-full">
-                          {tertiaryPalette.map(item => (
-                            <div key={item.name} className="flex flex-col items-center">
-                              <div 
-                                className={`h-16 w-full rounded-md flex items-center justify-center ${item.name === 'light' ? 'text-tertiary-800' : 'text-white'}`} 
-                                style={{ backgroundColor: item.hex }}
-                              >
-                                {item.name}
-                              </div>
-                              <span className="text-xs mt-1 truncate w-full text-center">tertiary-{item.name}</span>
-                              <span className="text-xs text-gray-500 truncate w-full text-center">{item.hex}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
+            <div className="bg-gradient-to-b from-tertiary-50 to-tertiary-100 pt-10 pb-16 px-8 rounded-xl shadow-md relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-tertiary-200 rounded-full opacity-20 -mr-20 -mt-20"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-tertiary-300 rounded-full opacity-20 -ml-16 -mb-16"></div>
+              
+              <div className="flex flex-col md:flex-row gap-8 items-center mb-10 relative z-10">
+                <div className="w-40 h-40 rounded-full bg-white shadow-lg p-2 flex-shrink-0">
+                  <img src={Amy004} alt="Amy" className="w-full h-full object-cover rounded-full" />
+                </div>
+                <div className="text-center md:text-left">
+                  <div className="flex items-center gap-2 mb-2 justify-center md:justify-start">
+                    <h1 className="text-3xl font-bold text-tertiary-800">Amy</h1>
+                    <Sparkles className="h-7 w-7 text-tertiary-500" />
                   </div>
-                  
-                  <h4 className="text-xl font-medium">Imagens da Amy</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="flex flex-col items-center gap-2">
-                      <img src={Amy001} alt="Amy, a IA da Amicci" className="w-[150px] h-auto object-contain rounded-md" />
-                      <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amy 001.png', 'amy-image-1.png')}>
-                        Download PNG
-                      </Button>
-                    </div>
-                    <div className="flex flex-col items-center gap-2">
-                      <img src={Amy002} alt="Amy, a IA da Amicci em outra pose" className="w-[150px] h-auto object-contain rounded-md" />
-                      <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amy 002.png', 'amy-image-2.png')}>
-                        Download PNG
-                      </Button>
-                    </div>
-                    <div className="flex flex-col items-center gap-2">
-                      <img src={Amy004} alt="Amy, avatar em formato de perfil" className="w-[150px] h-auto object-contain rounded-md" />
-                      <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amy 004.png', 'amy-avatar.png')}>
-                        Download PNG
-                      </Button>
-                    </div>
-                  </div>
+                  <p className="text-tertiary-700 text-lg max-w-xl">
+                    A inteligência artificial da Amicci que potencializa o planejamento, projeto e performance comercial da plataforma.
+                  </p>
+                </div>
+              </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="p-4 border rounded-lg">
-                      <h5 className="font-medium mb-4">Ícone</h5>
-                      <div className="flex gap-8 items-center">
-                        <div className="flex flex-col items-center">
-                          <Sparkles size={48} className="text-tertiary-main" />
-                          <span className="text-xs mt-2">Ícone padrão</span>
-                        </div>
-                        
-                        <div className="flex flex-col items-center">
-                          <div className="h-14 w-14 rounded-full bg-tertiary-light flex items-center justify-center">
-                            <Sparkles size={24} className="text-tertiary-main" />
-                          </div>
-                          <span className="text-xs mt-2">Ícone com círculo tertiary-light</span>
-                        </div>
-                        <div className="flex flex-col items-center">
-                          <img src={AmySvg} alt="Avatar da Amy" className="w-14 h-14" />
-                          <span className="text-xs mt-2">Amy SVG</span>
-                        </div>
-                      </div>
-                    </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-md flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-full bg-tertiary-100 flex items-center justify-center mb-4">
+                    <Brain className="h-6 w-6 text-tertiary-600" />
                   </div>
-                  
-                  <div className="p-4 border rounded-lg">
-                    <h5 className="font-medium mb-4">Container de Insights</h5>
+                  <h3 className="font-semibold text-lg text-tertiary-900 mb-2">Inteligente</h3>
+                  <p className="text-tertiary-700 text-center">Processa dados complexos para oferecer insights valiosos em tempo real.</p>
+                </div>
+                
+                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-md flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-full bg-tertiary-100 flex items-center justify-center mb-4">
+                    <Wand2 className="h-6 w-6 text-tertiary-600" />
+                  </div>
+                  <h3 className="font-semibold text-lg text-tertiary-900 mb-2">Intuitiva</h3>
+                  <p className="text-tertiary-700 text-center">Interface natural e conversacional que simplifica interações complexas.</p>
+                </div>
+                
+                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-md flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-full bg-tertiary-100 flex items-center justify-center mb-4">
+                    <Zap className="h-6 w-6 text-tertiary-600" />
+                  </div>
+                  <h3 className="font-semibold text-lg text-tertiary-900 mb-2">Ágil</h3>
+                  <p className="text-tertiary-700 text-center">Respostas rápidas que aceleram a tomada de decisões e processos.</p>
+                </div>
+              </div>
+            </div>
+              
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-xl shadow-md overflow-hidden">
+                <div className="bg-tertiary-600 text-white py-4 px-6">
+                  <h3 className="text-xl font-semibold">Paleta de Cores Amy</h3>
+                </div>
+                <div className="p-6">
+                  <div className="grid grid-cols-5 gap-2 mb-6">
+                    {tertiaryColors.slice(0, 5).map(color => (
+                      <div key={color.name} 
+                          className="aspect-square rounded-md flex items-center justify-center"
+                          style={{ backgroundColor: color.hex }}>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="grid grid-cols-5 gap-2 mb-6">
+                    {tertiaryColors.slice(5, 10).map(color => (
+                      <div key={color.name} 
+                          className="aspect-square rounded-md flex items-center justify-center"
+                          style={{ backgroundColor: color.hex }}>
+                      </div>
+                    ))}
+                  </div>
+                  <Button 
+                    className="bg-tertiary-600 hover:bg-tertiary-700 text-white w-full"
+                    onClick={() => document.getElementById('color-details')?.scrollIntoView({ behavior: 'smooth' })}>
+                    Ver detalhes completos
+                  </Button>
+                </div>
+              </div>
+              
+              <div className="bg-white rounded-xl shadow-md overflow-hidden">
+                <div className="bg-tertiary-600 text-white py-4 px-6">
+                  <h3 className="text-xl font-semibold">Exemplos de Uso</h3>
+                </div>
+                <div className="p-6">
+                  <div className="space-y-4">
                     <Accordion type="single" collapsible className="border border-tertiary-200 rounded-lg">
                       <AccordionItem value="item-1" className="border-b-0">
-                        <AccordionTrigger className="px-4 py-4 hover:no-underline">
-                          <div className="flex items-center gap-4">
-                            <div className="flex-shrink-0">
-                              <div className="w-10 h-10 rounded-full overflow-hidden">
-                                <img src={Amy004} alt="Avatar da Amy" className="w-full h-full object-cover" />
-                              </div>
-                            </div>
+                        <AccordionTrigger className="px-4 py-3 hover:no-underline">
+                          <div className="flex items-center gap-3">
+                            <Avatar className="h-8 w-8 border-2 border-tertiary-200">
+                              <AvatarImage src={Amy004} alt="Amy" />
+                            </Avatar>
                             <div className="flex items-center gap-2">
                               <span className="font-medium">Insight da Amy</span>
-                              <Sparkles size={16} className="text-tertiary-main" />
+                              <Sparkles size={16} className="text-tertiary-500" />
                             </div>
                           </div>
                         </AccordionTrigger>
                         <AccordionContent className="px-4 pb-4">
-                          <div className="ml-14">
-                            <div className="bg-gray-100 text-gray-800 px-3 py-1 rounded-md text-sm inline-block mb-3">
-                              Novo insight gerado
+                          <div className="ml-11">
+                            <div className="bg-tertiary-50 text-tertiary-800 px-3 py-1 rounded-md text-sm inline-block mb-3">
+                              Análise de desempenho
                             </div>
-                            <p className="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+                            <p className="text-gray-700">Suas vendas aumentaram 18% na última semana. A campanha de marketing digital está gerando um ROI de 3.2x o investimento inicial.</p>
                           </div>
                         </AccordionContent>
                       </AccordionItem>
                     </Accordion>
                     
-                    <div className="mt-8">
-                      
+                    <div className="flex items-center p-4 bg-tertiary-50 rounded-lg gap-3">
+                      <div className="w-9 h-9 rounded-full bg-tertiary-100 flex items-center justify-center flex-shrink-0">
+                        <Bot size={18} className="text-tertiary-600" />
+                      </div>
+                      <p className="text-sm text-tertiary-800">
+                        <span className="font-medium">Amy:</span> Posso ajudar a analisar esses dados para você.
+                      </p>
+                    </div>
+                    
+                    <div className="flex gap-2">
+                      <Button variant="outline" className="flex-1 border-tertiary-200 text-tertiary-700 hover:bg-tertiary-50">
+                        <Stars className="mr-2 h-4 w-4" /> Sugerir ações
+                      </Button>
+                      <Button className="flex-1 bg-tertiary-600 hover:bg-tertiary-700 text-white">
+                        <Wand2 className="mr-2 h-4 w-4" /> Gerar análise
+                      </Button>
                     </div>
                   </div>
                 </div>
               </div>
-            </ComponentCard>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="flex flex-col items-center bg-white rounded-xl shadow-md p-6 overflow-hidden">
+                <img src={Amy001} alt="Amy, a IA da Amicci" className="w-40 h-auto object-contain mb-4" />
+                <Button 
+                  className="w-full border border-tertiary-200 bg-white text-tertiary-800 hover:bg-tertiary-50"
+                  onClick={() => handleDownload('/src/pages/assets/Amy 001.png', 'amy-image-1.png')}>
+                  Download PNG
+                </Button>
+              </div>
+              <div className="flex flex-col items-center bg-white rounded-xl shadow-md p-6 overflow-hidden">
+                <img src={Amy002} alt="Amy, a IA da Amicci em outra pose" className="w-40 h-auto object-contain mb-4" />
+                <Button 
+                  className="w-full border border-tertiary-200 bg-white text-tertiary-800 hover:bg-tertiary-50"
+                  onClick={() => handleDownload('/src/pages/assets/Amy 002.png', 'amy-image-2.png')}>
+                  Download PNG
+                </Button>
+              </div>
+              <div className="flex flex-col items-center bg-white rounded-xl shadow-md p-6 overflow-hidden">
+                <img src={Amy004} alt="Amy, avatar em formato de perfil" className="w-40 h-auto object-contain mb-4" />
+                <Button 
+                  className="w-full border border-tertiary-200 bg-white text-tertiary-800 hover:bg-tertiary-50"
+                  onClick={() => handleDownload('/src/pages/assets/Amy 004.png', 'amy-avatar.png')}>
+                  Download PNG
+                </Button>
+              </div>
+            </div>
+            
+            <div id="color-details" className="p-8 bg-white rounded-xl shadow-md">
+              <h3 className="text-2xl font-bold text-tertiary-800 mb-6">Detalhes da Paleta de Cores</h3>
+              
+              <div className="p-4 border border-tertiary-100 rounded-lg mb-6">
+                <div className="space-y-6">
+                  <div>
+                    <h6 className="font-medium mb-3">Escala Completa</h6>
+                    <div className="grid grid-cols-11 gap-1 w-full">
+                      {tertiaryColors.map(color => (
+                        <div key={color.name} className="flex flex-col items-center">
+                          <div 
+                            className={`h-16 w-full rounded-md flex items-center justify-center ${color.name.includes('50') || color.name.includes('100') || color.name.includes('200') ? 'text-tertiary-800' : 'text-white'}`} 
+                            style={{ backgroundColor: color.hex }}
+                          >
+                            {color.name.split('-')[1]}
+                          </div>
+                          <span className="text-xs mt-1 truncate w-full text-center">{color.name}</span>
+                          <span className="text-xs text-gray-500 truncate w-full text-center">{color.hex}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h6 className="font-medium mb-3">Variáveis de Aplicação</h6>
+                    <div className="grid grid-cols-4 gap-4 w-full">
+                      {tertiaryPalette.map(item => (
+                        <div key={item.name} className="flex flex-col">
+                          <div 
+                            className={`h-16 w-full rounded-md flex items-center justify-center ${item.name === 'light' ? 'text-tertiary-800' : 'text-white'}`} 
+                            style={{ backgroundColor: item.hex }}
+                          >
+                            {item.name}
+                          </div>
+                          <span className="text-xs mt-1 truncate w-full">tertiary-{item.name}</span>
+                          <span className="text-xs text-gray-500 truncate w-full">{item.hex}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>;
       default:
         return null;
