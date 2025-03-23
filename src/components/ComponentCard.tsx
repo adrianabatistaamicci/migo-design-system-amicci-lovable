@@ -27,10 +27,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
     }, 2000);
   };
   return <div className={cn("rounded-lg border border-gray-200 bg-white overflow-hidden transition-all duration-250 animate-fade-in shadow-sm w-full flex flex-col", className)}>
-      <div className="p-4 border-b border-gray-200">
-        <h3 className="text-lg font-medium text-gray-800 mb-1">{title}</h3>
-        {description && <p className="text-gray-600 text-sm">{description}</p>}
-      </div>
+      
       
       <div className="p-5 flex items-center justify-center flex-grow">
         <div className="w-full">

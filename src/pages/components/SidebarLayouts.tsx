@@ -4,7 +4,6 @@ import Header from '@/components/library-components/Header';
 import ComponentCard from '@/components/ComponentCard';
 import CodeBlock from '@/components/CodeBlock';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-
 const SidebarLayouts = () => {
   const sidebarCode = `// Basic Sidebar Component Example
 import React from 'react';
@@ -53,7 +52,6 @@ const SidebarExample = () => {
 };
 
 export default SidebarExample;`;
-
   const collapsibleSidebarCode = `// Collapsible Sidebar Component Example
 import React, { useState } from 'react';
 import { Home, Mail, Settings, Users, Menu, X, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -116,33 +114,16 @@ const CollapsibleSidebar = () => {
     </div>
   );
 };`;
-
-  return (
-    <div className="w-full animate-fade-in">
-      <Header 
-        title="Sidebar Layouts"
-        description="Os layouts de barra lateral oferecem uma navegação vertical intuitiva que permite aos usuários transitarem facilmente entre diferentes seções da aplicação. Amplamente utilizados em dashboards, painéis administrativos e aplicações complexas, eles organizam o conteúdo de forma clara e acessível. Explore nossas opções para criar menus laterais responsivos com recursos avançados como ícones informativos, emblemas de notificação, submenus expansíveis e seções de rodapé personalizáveis."
-        type="components"
-      />
+  return <div className="w-full animate-fade-in">
+      <Header title="Sidebar Layouts" description="Os layouts de barra lateral oferecem uma navegação vertical intuitiva que permite aos usuários transitarem facilmente entre diferentes seções da aplicação. Amplamente utilizados em dashboards, painéis administrativos e aplicações complexas, eles organizam o conteúdo de forma clara e acessível. Explore nossas opções para criar menus laterais responsivos com recursos avançados como ícones informativos, emblemas de notificação, submenus expansíveis e seções de rodapé personalizáveis." type="components" />
       
       <div className="max-w-[1280px] mx-auto">
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4">Overview</h2>
-          <p className="text-gray-700 mb-6">
-            Os layouts de barra lateral oferecem uma navegação vertical intuitiva que permite aos usuários transitarem facilmente entre diferentes seções da aplicação.
-            Amplamente utilizados em dashboards, painéis administrativos e aplicações complexas, eles organizam o conteúdo de forma clara e acessível.
-            Explore nossas opções para criar menus laterais responsivos com recursos avançados como ícones informativos, emblemas de notificação, submenus expansíveis e seções de rodapé personalizáveis.
-          </p>
-        </section>
+        
 
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-6">Basic Sidebar</h2>
-          <ComponentCard 
-            title="Basic Sidebar" 
-            description="A standard sidebar with navigation links and icons."
-            code={sidebarCode}
-          >
-            <AspectRatio ratio={4/3} className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden">
+          <ComponentCard title="Basic Sidebar" description="A standard sidebar with navigation links and icons." code={sidebarCode}>
+            <AspectRatio ratio={4 / 3} className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden">
               <div className="flex h-full">
                 <div className="w-64 h-full bg-white border-r border-gray-200">
                   <div className="p-4 border-b border-gray-200">
@@ -195,11 +176,7 @@ const CollapsibleSidebar = () => {
           <p className="text-gray-700 mb-6">
             A collapsible sidebar can be expanded or collapsed to save screen space while still providing navigation.
           </p>
-          <CodeBlock 
-            code={collapsibleSidebarCode}
-            language="jsx"
-            title="Collapsible Sidebar Example"
-          />
+          <CodeBlock code={collapsibleSidebarCode} language="jsx" title="Collapsible Sidebar Example" />
         </section>
 
         <section className="mb-12">
@@ -225,8 +202,6 @@ const CollapsibleSidebar = () => {
           </ul>
         </section>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default SidebarLayouts;
