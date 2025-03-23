@@ -196,16 +196,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
           <SidebarSection key={sectionIndex} item={section} />
         ))}
       </div>
-      
-      <div className="p-3 border-t border-gray-200 mt-auto">
-        <div className="flex items-center justify-between">
-          <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-            <Bell size={18} className="mr-2 text-gray-500" />
-            <span>Notifications</span>
-          </a>
-          <Badge variant="dot" color="error" className="ml-1" />
-        </div>
-      </div>
     </aside>
   );
 };
