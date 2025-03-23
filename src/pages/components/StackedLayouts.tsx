@@ -148,12 +148,6 @@ const BrandedNavCompactHeaderWithReusable = () => (
             icon={<Bell size={18} />}
             aria-label="Ver notificações"
           />
-          <ProfileButton 
-            userName="Maria Silva"
-            companyName="Empresa Ltda."
-            showMenuIcon={true}
-            menuIcon={<Menu className="h-6 w-6 text-white" />}
-          />
         </div>
       </>
     }
@@ -185,12 +179,6 @@ const BrandedNavWithWhiteHeaderWithReusable = () => (
             variant="outline-secondary" 
             icon={<Bell size={18} />}
             aria-label="Ver notificações"
-          />
-          <ProfileButton 
-            userName="Maria Silva"
-            companyName="Empresa Ltda."
-            showMenuIcon={true}
-            menuIcon={<Menu className="h-6 w-6 text-white" />}
           />
         </div>
       </>
