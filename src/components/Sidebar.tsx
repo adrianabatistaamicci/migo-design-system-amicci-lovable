@@ -200,7 +200,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
             className="flex items-center gap-2 w-full"
             onClick={() => item.href ? null : setExpanded(!expanded)}
           >
-            {item.icon && <item.icon size={18} className="text-primary-main" />}
+            {item.icon && <item.icon size={20} className="text-primary-main" />}
             {item.href ? (
               <Link 
                 to={item.href} 
@@ -248,7 +248,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
         level > 0 && "pl-8",
       )}
     >
-      {item.icon && <item.icon size={18} className="mr-2 text-primary-main" />}
+      {item.icon && <item.icon size={20} className="mr-2 text-primary-main" />}
       {item.title}
     </Link>
   );
