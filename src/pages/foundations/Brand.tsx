@@ -25,8 +25,6 @@ import AmySvg from '@/pages/assets/amy.svg';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { IconButton } from "@/components/ui/icon-button";
 import { Chip } from "@/components/ui/chip";
-import { Badge } from "@/components/ui/badge";
-
 const Brand = () => {
   const [activeTab, setActiveTab] = useState('logo');
   const handleDownload = (url: string, filename: string) => {
@@ -37,7 +35,6 @@ const Brand = () => {
     link.click();
     document.body.removeChild(link);
   };
-  
   const tertiaryColors = [{
     name: 'tertiary-50',
     hex: '#FDF5FA',
@@ -124,7 +121,6 @@ const Brand = () => {
     hex: 'rgba(155, 36, 127, 0.50)',
     tailwindClass: 'bg-tertiary-outlinedBorder'
   }];
-
   const renderTabContent = () => {
     switch (activeTab) {
       case 'logo':
@@ -312,22 +308,17 @@ const Brand = () => {
                               </div>
                               <Sparkles size={20} className="text-tertiary-main" />
                             </div>
-                            <div className="flex items-center gap-3">
-                              <Chip size="sm" variant="default">Novo insight gerado</Chip>
-                              <div className="max-w-xl overflow-hidden text-ellipsis whitespace-nowrap text-gray-600 text-sm">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
-                              </div>
-                            </div>
+                            <Button variant="outline-secondary" size="sm" className="ml-auto mr-4" startIcon={<RefreshCw size={16} />}>
+                              Gerar novo insight
+                            </Button>
                           </div>
                         </AccordionTrigger>
                         <AccordionContent className="px-6 pb-4">
-                          <div className="flex items-center justify-between mb-3">
+                          <div className="flex items-center gap-3 mb-3">
                             <p className="text-gray-500 text-sm">
                               Insight gerado em 13/03/2024 às 13:45
                             </p>
-                            <Button variant="outline-secondary" size="sm" startIcon={<RefreshCw size={16} />}>
-                              Gerar novo insight
-                            </Button>
+                            <Chip size="sm">Novo insight gerado</Chip>
                           </div>
                           <div>
                             <h4 className="font-medium text-base mb-2">Recomendações</h4>
@@ -366,7 +357,6 @@ const Brand = () => {
         return null;
     }
   };
-  
   return <div className="w-full animate-fade-in">
       <Header title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." type="foundations" />
 
@@ -388,5 +378,4 @@ const Brand = () => {
       </div>
     </div>;
 };
-
 export default Brand;
