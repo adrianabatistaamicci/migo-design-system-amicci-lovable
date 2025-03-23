@@ -25,8 +25,10 @@ import AmySvg from '@/pages/assets/amy.svg';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { IconButton } from "@/components/ui/icon-button";
 import { Chip } from "@/components/ui/chip";
+
 const Brand = () => {
   const [activeTab, setActiveTab] = useState('logo');
+  
   const handleDownload = (url: string, filename: string) => {
     const link = document.createElement('a');
     link.href = url;
@@ -35,6 +37,7 @@ const Brand = () => {
     link.click();
     document.body.removeChild(link);
   };
+
   const tertiaryColors = [{
     name: 'tertiary-50',
     hex: '#FDF5FA',
@@ -80,6 +83,7 @@ const Brand = () => {
     hex: '#3E0F32',
     className: 'bg-tertiary-dark'
   }];
+
   const tertiaryPalette = [{
     name: 'main',
     color: 'bg-tertiary-main',
@@ -121,6 +125,7 @@ const Brand = () => {
     hex: 'rgba(155, 36, 127, 0.50)',
     tailwindClass: 'bg-tertiary-outlinedBorder'
   }];
+
   const renderTabContent = () => {
     switch (activeTab) {
       case 'logo':
@@ -298,7 +303,7 @@ const Brand = () => {
                   
                   <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="insight-1" className="border-0">
-                      <div className="bg-magenta-50 rounded outline outline-1 outline-offset-[-1px] outline-magenta-300">
+                      <div className="bg-magenta-50">
                         <AccordionTrigger className="px-6 py-4 hover:no-underline">
                           <div className="flex items-center justify-between w-full">
                             <div className="flex items-center gap-2">
@@ -308,7 +313,13 @@ const Brand = () => {
                               </div>
                               <Sparkles size={20} className="text-tertiary-main" />
                             </div>
-                            <Button variant="outline-secondary" size="sm" className="ml-auto mr-4" startIcon={<RefreshCw size={16} />}>
+                            <div className="hidden data-[state=closed]:flex data-[state=open]:hidden items-center gap-2">
+                              <p className="text-gray-700 text-sm line-clamp-1">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...
+                              </p>
+                              <Chip size="sm">Novo insight gerado</Chip>
+                            </div>
+                            <Button variant="outline-secondary" size="sm" className="ml-auto mr-4 data-[state=closed]:hidden data-[state=open]:flex" startIcon={<RefreshCw size={16} />}>
                               Gerar novo insight
                             </Button>
                           </div>
@@ -318,7 +329,6 @@ const Brand = () => {
                             <p className="text-gray-500 text-sm">
                               Insight gerado em 13/03/2024 às 13:45
                             </p>
-                            <Chip size="sm">Novo insight gerado</Chip>
                           </div>
                           <div>
                             <h4 className="font-medium text-base mb-2">Recomendações</h4>
@@ -357,6 +367,7 @@ const Brand = () => {
         return null;
     }
   };
+
   return <div className="w-full animate-fade-in">
       <Header title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." type="foundations" />
 
@@ -378,4 +389,5 @@ const Brand = () => {
       </div>
     </div>;
 };
+
 export default Brand;
