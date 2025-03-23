@@ -5,7 +5,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { TailwindTabs } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
-import { Sparkles, CircleUser, ChevronDown, RefreshCw } from "lucide-react";
+import { Sparkles, CircleUser, ChevronDown, RefreshCw, ThumbsUp, ThumbsDown } from "lucide-react";
 import Header from '@/components/library-components/Header';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -27,6 +27,7 @@ import { IconButton } from "@/components/ui/icon-button";
 import { Chip } from "@/components/ui/chip";
 
 const Brand = () => {
+  
   const [activeTab, setActiveTab] = useState('logo');
   const handleDownload = (url: string, filename: string) => {
     const link = document.createElement('a');
@@ -338,6 +339,33 @@ const Brand = () => {
                               <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
                               <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</li>
                             </ul>
+                          </div>
+                          
+                          <Separator className="my-4" />
+                          
+                          <div className="flex items-center justify-between text-sm text-gray-500">
+                            <p>Os insights da Amy são gerados por inteligência artificial e podem conter erros.</p>
+                            <div className="flex items-center gap-2">
+                              <span>Este insight foi útil?</span>
+                              <div className="flex gap-2">
+                                <Button
+                                  variant="text-secondary"
+                                  size="sm"
+                                  className="flex items-center gap-1"
+                                  startIcon={<ThumbsUp size={16} />}
+                                >
+                                  Sim
+                                </Button>
+                                <Button
+                                  variant="text-secondary"
+                                  size="sm"
+                                  className="flex items-center gap-1"
+                                  startIcon={<ThumbsDown size={16} />}
+                                >
+                                  Não
+                                </Button>
+                              </div>
+                            </div>
                           </div>
                         </AccordionContent>
                       </div>
