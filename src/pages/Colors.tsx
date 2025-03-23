@@ -653,169 +653,135 @@ const baseColorsData = [{
   }]
 }];
 
-const paletteData = [{
-  name: 'Text',
-  description: 'Gray',
-  variants: [{
+const paletteData = [
+  {
     name: 'primary',
-    colorClass: 'text-text-primary',
-    baseColor: 'gray-900',
-    textColor: 'text-white',
-    hexValue: '#212323'
-  }, {
+    description: 'amicci',
+    variants: [
+      { name: 'main', colorClass: 'bg-primary-main', hexValue: '#00A696', baseColor: 'Amicci-500' },
+      { name: 'light', colorClass: 'bg-primary-light', hexValue: '#C5F9F5', baseColor: 'Amicci-100' },
+      { name: 'dark', colorClass: 'bg-primary-dark', hexValue: '#00655D', baseColor: 'Amicci-700' },
+      { name: 'hover', colorClass: 'bg-primary-hover', hexValue: 'rgba(0, 166, 150, 0.04)', baseColor: 'Amicci-500', opacity: '4%' },
+      { name: 'selected', colorClass: 'bg-primary-selected', hexValue: 'rgba(0, 166, 150, 0.08)', baseColor: 'Amicci-500', opacity: '8%' },
+      { name: 'focus', colorClass: 'bg-primary-focus', hexValue: 'rgba(0, 166, 150, 0.12)', baseColor: 'Amicci-500', opacity: '12%' },
+      { name: 'focusVisible', colorClass: 'bg-primary-focusVisible', hexValue: 'rgba(0, 166, 150, 0.30)', baseColor: 'Amicci-500', opacity: '30%' },
+      { name: 'outlinedBorder', colorClass: 'bg-primary-outlinedBorder', hexValue: 'rgba(0, 166, 150, 0.50)', baseColor: 'Amicci-500', opacity: '50%' },
+      { name: 'contrastText', colorClass: 'text-white', hexValue: '#FFFFFF', baseColor: 'White' }
+    ]
+  },
+  {
     name: 'secondary',
-    colorClass: 'text-text-secondary',
-    baseColor: 'gray-500',
-    textColor: 'text-white',
-    hexValue: '#808586'
-  }, {
-    name: 'disabled',
-    colorClass: 'text-text-disabled',
-    baseColor: 'gray-400',
-    textColor: 'text-white',
-    hexValue: '#AFB9BA'
-  }, {
-    name: 'hover',
-    colorClass: 'bg-gray-900/[0.04]',
-    baseColor: 'gray-900',
-    textColor: 'text-black',
-    opacity: '4%',
-    hexValue: '#2123230A'
-  }, {
-    name: 'selected',
-    colorClass: 'bg-gray-900/[0.08]',
-    baseColor: 'gray-900',
-    textColor: 'text-black',
-    opacity: '8%',
-    hexValue: '#21232314'
-  }, {
-    name: 'focus',
-    colorClass: 'bg-gray-900/[0.12]',
-    baseColor: 'gray-900',
-    textColor: 'text-black',
-    opacity: '12%',
-    hexValue: '#2123231F'
-  }, {
-    name: 'focusVisible',
-    colorClass: 'bg-gray-900/[0.3]',
-    baseColor: 'gray-900',
-    textColor: 'text-black',
-    opacity: '30%',
-    hexValue: '#2123234D'
-  }, {
-    name: 'contrastText',
-    colorClass: 'bg-white',
-    baseColor: 'white',
-    textColor: 'text-black',
-    hexValue: '#FFFFFF'
-  }]
-}, {
-  name: 'Primary',
-  description: 'amicci',
-  variants: [{
-    name: 'main',
-    colorClass: 'bg-primary-main',
-    baseColor: 'amicci-500',
-    textColor: 'text-primary-contrast',
-    opacity: '100%',
-    hexValue: '#10C2C0'
-  }, {
-    name: 'dark',
-    colorClass: 'bg-primary-dark',
-    baseColor: 'amicci-700',
-    textColor: 'text-primary-contrast',
-    opacity: '100%',
-    hexValue: '#0C8482'
-  }, {
-    name: 'light',
-    colorClass: 'bg-primary-light',
-    baseColor: 'amicci-100',
-    textColor: 'text-black',
-    opacity: '100%',
-    hexValue: '#E3FAF9'
-  }, {
-    name: 'contrast',
-    colorClass: 'bg-primary-contrast',
-    baseColor: 'common-white-main',
-    textColor: 'text-primary-main',
-    opacity: '100%',
-    hexValue: '#FFFFFF'
-  }, {
-    name: 'hover',
-    colorClass: 'bg-primary-hover',
-    baseColor: 'amicci-500',
-    textColor: 'text-primary-contrast',
-    opacity: '4%',
-    hexValue: '#10C2C00A'
-  }, {
-    name: 'selected',
-    colorClass: 'bg-primary-selected',
-    baseColor: 'amicci-500',
-    textColor: 'text-primary-contrast',
-    opacity: '8%',
-    hexValue: '#10C2C014'
-  }, {
-    name: 'focus',
-    colorClass: 'bg-primary-focus',
-    baseColor: 'amicci-500',
-    textColor: 'text-black',
-    opacity: '12%',
-    hexValue: '#10C2C01F'
-  }, {
-    name: 'focusVisible',
-    colorClass: 'bg-primary-focusVisible',
-    baseColor: 'amicci-500',
-    textColor: 'text-black',
-    opacity: '30%',
-    hexValue: '#10C2C04D'
-  }, {
-    name: 'outlinedBorder',
-    colorClass: 'bg-primary-outlinedBorder',
-    baseColor: 'amicci-500',
-    textColor: 'text-black',
-    opacity: '50%',
-    hexValue: '#10C2C080'
-  }]
-}, {
-  name: 'Secondary',
-  description: 'AmicciDark',
-  variants: [{
-    name: 'main',
-    colorClass: 'bg-secondary-main',
-    baseColor: 'amicciDark-500',
-    textColor: 'text-secondary-contrast',
-    opacity: '100%',
-    hexValue: '#14818A'
-  }, {
-    name: 'dark',
-    colorClass: 'bg-secondary-dark',
-    baseColor: 'amicciDark-700',
-    textColor: 'text-secondary-contrast',
-    opacity: '100%',
-    hexValue: '#06454A'
-  }, {
-    name: 'light',
-    colorClass: 'bg-secondary-light',
-    baseColor: 'amicciDark-100',
-    textColor: 'text-black',
-    opacity: '100%',
-    hexValue: '#C7E8E9'
-  }, {
-    name: 'dark2',
-    colorClass: 'bg-amicciDark-800',
-    baseColor: 'amicciDark-800',
-    textColor: 'text-white',
-    opacity: '100%',
-    hexValue: '#043A3E'
-  }, {
-    name: 'contrast',
-    colorClass: 'bg-secondary-contrast',
-    baseColor: 'common-white-main',
-    textColor: 'text-secondary-main',
-    opacity: '100%',
-    hexValue: '#FFFFFF'
-  }]
-}];
+    description: 'amicciDark',
+    variants: [
+      { name: 'main', colorClass: 'bg-secondary-main', hexValue: '#008FB7', baseColor: 'AmicciDark-500' },
+      { name: 'light', colorClass: 'bg-secondary-light', hexValue: '#C0E3EB', baseColor: 'AmicciDark-100' },
+      { name: 'dark', colorClass: 'bg-secondary-dark', hexValue: '#005974', baseColor: 'AmicciDark-700' },
+      { name: 'dark2', colorClass: 'bg-secondary-dark2', hexValue: '#004258', baseColor: 'AmicciDark-800' },
+      { name: 'hover', colorClass: 'bg-secondary-hover', hexValue: 'rgba(0, 143, 183, 0.04)', baseColor: 'AmicciDark-500', opacity: '4%' },
+      { name: 'selected', colorClass: 'bg-secondary-selected', hexValue: 'rgba(0, 143, 183, 0.08)', baseColor: 'AmicciDark-500', opacity: '8%' },
+      { name: 'focus', colorClass: 'bg-secondary-focus', hexValue: 'rgba(0, 143, 183, 0.12)', baseColor: 'AmicciDark-500', opacity: '12%' },
+      { name: 'focusVisible', colorClass: 'bg-secondary-focusVisible', hexValue: 'rgba(0, 143, 183, 0.30)', baseColor: 'AmicciDark-500', opacity: '30%' },
+      { name: 'outlinedBorder', colorClass: 'bg-secondary-outlinedBorder', hexValue: 'rgba(0, 143, 183, 0.50)', baseColor: 'AmicciDark-500', opacity: '50%' },
+      { name: 'contrastText', colorClass: 'text-white', hexValue: '#FFFFFF', baseColor: 'White' }
+    ]
+  },
+  {
+    name: 'tertiary',
+    description: 'magenta',
+    variants: [
+      { name: 'main', colorClass: 'bg-tertiary-main', hexValue: '#D60270', baseColor: 'Magenta-500' },
+      { name: 'light', colorClass: 'bg-tertiary-light', hexValue: '#F5C6DC', baseColor: 'Magenta-100' },
+      { name: 'dark', colorClass: 'bg-tertiary-dark', hexValue: '#880144', baseColor: 'Magenta-700' },
+      { name: 'hover', colorClass: 'bg-tertiary-hover', hexValue: 'rgba(214, 2, 112, 0.04)', baseColor: 'Magenta-500', opacity: '4%' },
+      { name: 'selected', colorClass: 'bg-tertiary-selected', hexValue: 'rgba(214, 2, 112, 0.08)', baseColor: 'Magenta-500', opacity: '8%' },
+      { name: 'focus', colorClass: 'bg-tertiary-focus', hexValue: 'rgba(214, 2, 112, 0.12)', baseColor: 'Magenta-500', opacity: '12%' },
+      { name: 'focusVisible', colorClass: 'bg-tertiary-focusVisible', hexValue: 'rgba(214, 2, 112, 0.30)', baseColor: 'Magenta-500', opacity: '30%' },
+      { name: 'outlinedBorder', colorClass: 'bg-tertiary-outlinedBorder', hexValue: 'rgba(214, 2, 112, 0.50)', baseColor: 'Magenta-500', opacity: '50%' },
+      { name: 'contrastText', colorClass: 'text-white', hexValue: '#FFFFFF', baseColor: 'White' }
+    ]
+  },
+  {
+    name: 'text',
+    description: 'gray',
+    variants: [
+      { name: 'primary', colorClass: 'text-gray-900', hexValue: '#111827', baseColor: 'Gray-900' },
+      { name: 'secondary', colorClass: 'text-gray-500', hexValue: '#6B7280', baseColor: 'Gray-500' },
+      { name: 'disabled', colorClass: 'text-gray-400', hexValue: '#9CA3AF', baseColor: 'Gray-400' },
+      { name: 'hover', colorClass: 'hover:bg-gray-50', hexValue: 'rgba(17, 24, 39, 0.04)', baseColor: 'Gray-900', opacity: '4%' },
+      { name: 'selected', colorClass: 'bg-gray-100', hexValue: 'rgba(17, 24, 39, 0.08)', baseColor: 'Gray-900', opacity: '8%' },
+      { name: 'focus', colorClass: 'focus:bg-gray-200', hexValue: 'rgba(17, 24, 39, 0.12)', baseColor: 'Gray-900', opacity: '12%' },
+      { name: 'focusVisible', colorClass: 'focus-visible:ring-gray-300', hexValue: 'rgba(17, 24, 39, 0.30)', baseColor: 'Gray-900', opacity: '30%' },
+      { name: 'contrastText', colorClass: 'text-white', hexValue: '#FFFFFF', baseColor: 'White' }
+    ]
+  },
+  {
+    name: 'error',
+    description: 'red',
+    variants: [
+      { name: 'main', colorClass: 'bg-error-main', hexValue: '#DC2626', baseColor: 'Red-600' },
+      { name: 'light', colorClass: 'bg-error-light', hexValue: '#FEE2E2', baseColor: 'Red-100' },
+      { name: 'dark', colorClass: 'bg-error-dark', hexValue: '#7F1D1D', baseColor: 'Red-900' },
+      { name: 'hover', colorClass: 'bg-error-hover', hexValue: 'rgba(220, 38, 38, 0.04)', baseColor: 'Red-600', opacity: '4%' },
+      { name: 'selected', colorClass: 'bg-error-selected', hexValue: 'rgba(220, 38, 38, 0.08)', baseColor: 'Red-600', opacity: '8%' },
+      { name: 'focusVisible', colorClass: 'bg-error-focusVisible', hexValue: 'rgba(220, 38, 38, 0.30)', baseColor: 'Red-600', opacity: '30%' },
+      { name: 'outlinedBorder', colorClass: 'border-error-outlinedBorder', hexValue: 'rgba(220, 38, 38, 0.50)', baseColor: 'Red-600', opacity: '50%' },
+      { name: 'contrastText', colorClass: 'text-white', hexValue: '#FFFFFF', baseColor: 'White' }
+    ]
+  },
+  {
+    name: 'success',
+    description: 'green',
+    variants: [
+      { name: 'main', colorClass: 'bg-success-main', hexValue: '#10B981', baseColor: 'Green-500' },
+      { name: 'light', colorClass: 'bg-success-light', hexValue: '#D1FAE5', baseColor: 'Green-100' },
+      { name: 'dark', colorClass: 'bg-success-dark', hexValue: '#047857', baseColor: 'Green-700' },
+      { name: 'hover', colorClass: 'bg-success-hover', hexValue: 'rgba(16, 185, 129, 0.04)', baseColor: 'Green-500', opacity: '4%' },
+      { name: 'selected', colorClass: 'bg-success-selected', hexValue: 'rgba(16, 185, 129, 0.08)', baseColor: 'Green-500', opacity: '8%' },
+      { name: 'focusVisible', colorClass: 'bg-success-focusVisible', hexValue: 'rgba(16, 185, 129, 0.30)', baseColor: 'Green-500', opacity: '30%' },
+      { name: 'outlinedBorder', colorClass: 'border-success-outlinedBorder', hexValue: 'rgba(16, 185, 129, 0.50)', baseColor: 'Green-500', opacity: '50%' },
+      { name: 'contrastText', colorClass: 'text-white', hexValue: '#FFFFFF', baseColor: 'White' }
+    ]
+  },
+  {
+    name: 'warning',
+    description: 'orange',
+    variants: [
+      { name: 'main', colorClass: 'bg-warning-main', hexValue: '#F59E0B', baseColor: 'Orange-400' },
+      { name: 'light', colorClass: 'bg-warning-light', hexValue: '#FEF3C7', baseColor: 'Orange-100' },
+      { name: 'dark', colorClass: 'bg-warning-dark', hexValue: '#D97706', baseColor: 'Orange-600' },
+      { name: 'hover', colorClass: 'bg-warning-hover', hexValue: 'rgba(217, 119, 6, 0.04)', baseColor: 'Orange-600', opacity: '4%' },
+      { name: 'selected', colorClass: 'bg-warning-selected', hexValue: 'rgba(217, 119, 6, 0.08)', baseColor: 'Orange-600', opacity: '8%' },
+      { name: 'focusVisible', colorClass: 'bg-warning-focusVisible', hexValue: 'rgba(217, 119, 6, 0.30)', baseColor: 'Orange-600', opacity: '30%' },
+      { name: 'outlinedBorder', colorClass: 'border-warning-outlinedBorder', hexValue: 'rgba(217, 119, 6, 0.50)', baseColor: 'Orange-600', opacity: '50%' },
+      { name: 'contrastText', colorClass: 'text-white', hexValue: '#FFFFFF', baseColor: 'White' }
+    ]
+  },
+  {
+    name: 'info',
+    description: 'blue',
+    variants: [
+      { name: 'main', colorClass: 'bg-info-main', hexValue: '#0284C7', baseColor: 'LightBlue-600' },
+      { name: 'light', colorClass: 'bg-info-light', hexValue: '#E0F2FE', baseColor: 'LightBlue-100' },
+      { name: 'dark', colorClass: 'bg-info-dark', hexValue: '#0C4A6E', baseColor: 'LightBlue-900' },
+      { name: 'hover', colorClass: 'bg-info-hover', hexValue: 'rgba(2, 132, 199, 0.04)', baseColor: 'LightBlue-700', opacity: '4%' },
+      { name: 'selected', colorClass: 'bg-info-selected', hexValue: 'rgba(2, 132, 199, 0.08)', baseColor: 'LightBlue-700', opacity: '8%' },
+      { name: 'focusVisible', colorClass: 'bg-info-focusVisible', hexValue: 'rgba(2, 132, 199, 0.30)', baseColor: 'LightBlue-700', opacity: '30%' },
+      { name: 'outlinedBorder', colorClass: 'border-info-outlinedBorder', hexValue: 'rgba(2, 132, 199, 0.50)', baseColor: 'LightBlue-700', opacity: '50%' },
+      { name: 'contrastText', colorClass: 'text-white', hexValue: '#FFFFFF', baseColor: 'White' }
+    ]
+  },
+  {
+    name: 'action',
+    description: 'gray',
+    variants: [
+      { name: 'active', colorClass: 'bg-action-active', hexValue: '#6B7280', baseColor: 'Gray-500' },
+      { name: 'hover', colorClass: 'bg-action-hover', hexValue: '#F3F4F6', baseColor: 'Gray-100' },
+      { name: 'selected', colorClass: 'bg-action-selected', hexValue: '#6B7280', baseColor: 'Gray-500' },
+      { name: 'focus', colorClass: 'bg-action-focus', hexValue: '#9CA3AF', baseColor: 'Gray-400' },
+      { name: 'disabled', colorClass: 'bg-action-disabled', hexValue: '#9CA3AF', baseColor: 'Gray-400' },
+      { name: 'disabledBackground', colorClass: 'bg-action-disabledBackground', hexValue: '#D1D5DB', baseColor: 'Gray-300' },
+      { name: 'contrastText', colorClass: 'text-white', hexValue: '#FFFFFF', baseColor: 'White' }
+    ]
 
 const Colors = () => {
   const [simulationType, setSimulationType] = useState('');
