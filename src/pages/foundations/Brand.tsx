@@ -268,7 +268,7 @@ const Brand = () => {
 
                   <Card className="p-6 md:col-span-3 shadow-none border">
                     <h3 className="text-xl font-medium mb-4">Ícones</h3>
-                    <div className="space-y-8l">
+                    <div className="space-y-8">
                       <div className="flex flex-col items-center">
                         <Sparkles size={40} className="text-tertiary-main mb-2" />
                         <span className="text-sm">Ícone Amy</span>
