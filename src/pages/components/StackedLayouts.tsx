@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import { Link } from 'react-router-dom';
@@ -667,4 +668,45 @@ export const InstitutionalExample = () => (
   </StackedLayout>
 );`;
 
-const LayoutComponent = ({
+const LayoutComponent = ({ title, component, code }) => {
+  const [showCode, setShowCode] = useState(false);
+  
+  return (
+    <div className="space-y-3">
+      <div className="flex justify-between items-center px-4">
+        <h3 className="text-xl font-medium text-gray-900">{title}</h3>
+        <button
+          type="button"
+          onClick={() => setShowCode(!showCode)}
+          className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
+          {showCode ? (
+            <>
+              <CheckCheck className="mr-1.5 h-4 w-4 text-gray-400" />
+              Esconder código
+            </>
+          ) : (
+            <>
+              <Code className="mr-1.5 h-4 w-4 text-gray-400" />
+              Ver código
+            </>
+          )}
+        </button>
+      </div>
+      
+      <div className="border rounded-lg overflow-hidden shadow-sm">
+        <div className="bg-gray-100 w-full">
+          {component}
+        </div>
+        
+        {showCode && (
+          <div className="border-t border-gray-200">
+            <CodeBlock code={code} language="jsx" showCopyButton={true} />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default StackedLayouts;
