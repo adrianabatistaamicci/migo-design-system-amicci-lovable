@@ -25,10 +25,8 @@ import AmySvg from '@/pages/assets/amy.svg';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { IconButton } from "@/components/ui/icon-button";
 import { Chip } from "@/components/ui/chip";
-
 const Brand = () => {
   const [activeTab, setActiveTab] = useState('logo');
-  
   const handleDownload = (url: string, filename: string) => {
     const link = document.createElement('a');
     link.href = url;
@@ -37,7 +35,6 @@ const Brand = () => {
     link.click();
     document.body.removeChild(link);
   };
-
   const tertiaryColors = [{
     name: 'tertiary-50',
     hex: '#FDF5FA',
@@ -83,7 +80,6 @@ const Brand = () => {
     hex: '#3E0F32',
     className: 'bg-tertiary-dark'
   }];
-
   const tertiaryPalette = [{
     name: 'main',
     color: 'bg-tertiary-main',
@@ -125,7 +121,6 @@ const Brand = () => {
     hex: 'rgba(155, 36, 127, 0.50)',
     tailwindClass: 'bg-tertiary-outlinedBorder'
   }];
-
   const renderTabContent = () => {
     switch (activeTab) {
       case 'logo':
@@ -278,7 +273,7 @@ const Brand = () => {
                       <div className="flex flex-col items-center">
                         <Sparkles size={40} className="text-tertiary-main mb-2" />
                         <span className="text-sm">Ícone Amy</span>
-                        <span className="text-xs text-gray-500 mt-1">Token: tertiary-main</span>
+                        <span className="text-xs text-gray-500 mt-1">sparkles</span>
                       </div>
                       
                       <div className="flex flex-col items-center">
@@ -286,7 +281,7 @@ const Brand = () => {
                           <Sparkles size={24} className="text-tertiary-main" />
                         </div>
                         <span className="text-sm mt-2">Ícone com círculo</span>
-                        <span className="text-xs text-gray-500 mt-1">Token: bg-tertiary-light, text-tertiary-main</span>
+                        <span className="text-xs text-gray-500 mt-1">bg-tertiary-light, text-tertiary-main</span>
                       </div>
                       
                       <div className="flex flex-col items-center">
@@ -295,7 +290,7 @@ const Brand = () => {
                           <AvatarFallback>AM</AvatarFallback>
                         </Avatar>
                         <span className="text-sm mt-2">Avatar Amy</span>
-                        <span className="text-xs text-gray-500 mt-1">Token: component.avatar, amy.avatar</span>
+                        <span className="text-xs text-gray-500 mt-1">amy.avatar</span>
                       </div>
                     </div>
                   </Card>
@@ -385,7 +380,6 @@ const Brand = () => {
         return null;
     }
   };
-
   return <div className="w-full animate-fade-in">
       <Header title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." type="foundations" />
 
@@ -407,5 +401,4 @@ const Brand = () => {
       </div>
     </div>;
 };
-
 export default Brand;
