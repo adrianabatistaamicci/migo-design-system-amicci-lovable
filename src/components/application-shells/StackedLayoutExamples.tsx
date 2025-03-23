@@ -111,7 +111,7 @@ export const MarketplaceBuyerExample = () => {
             <Button variant="outline-secondary" className="flex items-center">
               <Sparkles className="h-6 w-6 text-tertiary-main mr-1" />
               <span className="text-text-primary mr-0">Amy</span>
-              <div className="h-12 w-8 flex items-center justify-center">
+              <div className="h-12 w-12 flex items-center justify-center">
                 <Lottie animationData={animationData} loop={true} autoplay={true} style={{
                   height: '100%',
                   width: '100%'
