@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Sidebar, Home, Settings, Users, FileText, Mail, ChevronDown, ChevronRight } from 'lucide-react';
+import { Sidebar, Home, Settings, Users, FileText, Mail, ChevronDown, ChevronRight, ChevronLeft, Menu, X } from 'lucide-react';
 import Header from '@/components/library-components/Header';
 import ComponentCard from '@/components/ComponentCard';
 import CodeBlock from '@/components/CodeBlock';
@@ -57,7 +57,7 @@ export default SidebarExample;`;
 
   const collapsibleSidebarCode = `// Collapsible Sidebar Component Example
 import React, { useState } from 'react';
-import { Home, Mail, Settings, Users, Menu, X } from 'lucide-react';
+import { Home, Mail, Settings, Users, Menu, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const CollapsibleSidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -126,7 +126,7 @@ const CollapsibleSidebar = () => {
         type="components"
       />
       
-      <div className="max-w-4xl mx-auto px-4">
+      <div className="max-w-[1280px] mx-auto px-4">
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">Overview</h2>
           <p className="text-gray-700 mb-6">
