@@ -1,10 +1,10 @@
 
-import React from 'react';
-import { Sidebar, Home, Settings, Users, FileText, Mail, ChevronDown, ChevronRight, ChevronLeft, Menu, X } from 'lucide-react';
+import React, { useState } from 'react';
+import { Sidebar, Home, Settings, Users, FileText, Mail, ChevronDown, ChevronRight, ChevronLeft, Menu, X, Code, Copy, CheckCheck } from 'lucide-react';
 import Header from '@/components/library-components/Header';
-import ComponentCard from '@/components/ComponentCard';
 import CodeBlock from '@/components/CodeBlock';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 const SidebarLayouts = () => {
   const sidebarCode = `// Basic Sidebar Component Example
@@ -120,58 +120,68 @@ const CollapsibleSidebar = () => {
 
   return (
     <div className="w-full animate-fade-in">
-      <Header title="Sidebar Layouts" description="Barras laterais de navegação responsivas com recursos avançados como ícones, badges, submenus expansíveis e seções de rodapé" type="components" />
+      <Header 
+        title="Sidebar Layouts" 
+        description="Barras laterais de navegação responsivas com recursos avançados como ícones, badges, submenus expansíveis e seções de rodapé" 
+        type="components" 
+      />
       
       <div className="max-w-[1280px] mx-auto">
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-6">Basic Sidebar</h2>
-          <ComponentCard title="Basic Sidebar Example">
-            <AspectRatio ratio={4 / 3} className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden">
-              <div className="flex h-full">
-                <div className="w-64 h-full bg-white border-r border-gray-200">
-                  <div className="p-4 border-b border-gray-200">
-                    <h2 className="text-lg font-medium">App Name</h2>
-                  </div>
-                  
-                  <nav className="mt-4">
-                    <ul className="space-y-1 px-2">
-                      <li>
-                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main">
-                          <Home size={18} className="mr-2" />
-                          Dashboard
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                          <Mail size={18} className="mr-2" />
-                          Messages
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                          <Users size={18} className="mr-2" />
-                          Team
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                          <div className="flex items-center">
-                            <Settings size={18} className="mr-2" />
-                            Settings
-                          </div>
-                          <ChevronRight size={16} />
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
+          
+          <div className="space-y-3 w-full">
+            <div className="px-4">
+              <h3 className="text-xl font-medium text-gray-900">Basic Sidebar Example</h3>
+            </div>
+            
+            <div className="w-full">
+              <div className="w-64 h-[500px] bg-white border-r border-gray-200">
+                <div className="p-4 border-b border-gray-200">
+                  <h2 className="text-lg font-medium">App Name</h2>
                 </div>
-                <div className="flex-1 p-6 bg-gray-50">
-                  <h1 className="text-xl font-semibold mb-4">Dashboard</h1>
-                  <p className="text-gray-600">Main content would go here</p>
-                </div>
+                
+                <nav className="mt-4">
+                  <ul className="space-y-1 px-2">
+                    <li>
+                      <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main">
+                        <Home size={18} className="mr-2" />
+                        Dashboard
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                        <Mail size={18} className="mr-2" />
+                        Messages
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                        <Users size={18} className="mr-2" />
+                        Team
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                        <div className="flex items-center">
+                          <Settings size={18} className="mr-2" />
+                          Settings
+                        </div>
+                        <ChevronRight size={16} />
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
               </div>
-            </AspectRatio>
-          </ComponentCard>
+              
+              <div className="border-t border-gray-200 px-4 py-3 flex justify-between items-center bg-gray-50">
+                <Button variant="ghost" size="sm" className="flex items-center gap-1 text-sm">
+                  <Code size={16} />
+                  <span>Show code</span>
+                </Button>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section className="mb-12">
