@@ -613,220 +613,99 @@ const Colors = () => {
         )}
 
         {activeTab === 'accessibility' && (
-          <div className="space-y-8 py-6">
-            <ComponentCard
-              title="Simulação de daltonismo"
-              description="Visualize como as pessoas com diferentes tipos de daltonismo veem as cores"
-            >
-              <div className="space-y-6">
-                <div className="flex flex-col space-y-2">
-                  <div className="text-sm font-medium mb-2">Selecione um tipo de daltonismo para simular:</div>
-                  <ToggleGroup type="single" value={simulationType} onValueChange={setSimulationType} className="justify-start flex-wrap">
-                    <ToggleGroupItem value="protanopia" aria-label="Protanopia" className="gap-2 data-[state=on]:bg-primary-main data-[state=on]:text-white">
-                      <div className="w-3 h-3 rounded-full bg-red-500 filter opacity-50"></div>
-                      Protanopia
-                      <span className="text-xs text-gray-500">(perda de vermelho)</span>
-                    </ToggleGroupItem>
-                    <ToggleGroupItem value="deuteranopia" aria-label="Deuteranopia" className="gap-2 data-[state=on]:bg-primary-main data-[state=on]:text-white">
-                      <div className="w-3 h-3 rounded-full bg-green-500 filter opacity-50"></div>
-                      Deuteranopia
-                      <span className="text-xs text-gray-500">(perda de verde)</span>
-                    </ToggleGroupItem>
-                    <ToggleGroupItem value="tritanopia" aria-label="Tritanopia" className="gap-2 data-[state=on]:bg-primary-main data-[state=on]:text-white">
-                      <div className="w-3 h-3 rounded-full bg-blue-500 filter opacity-50"></div>
-                      Tritanopia
-                      <span className="text-xs text-gray-500">(perda de azul)</span>
-                    </ToggleGroupItem>
-                    <ToggleGroupItem value="achromatopsia" aria-label="Achromatopsia" className="gap-2 data-[state=on]:bg-primary-main data-[state=on]:text-white">
-                      <div className="w-3 h-3 rounded-full bg-gray-500"></div>
-                      Achromatopsia
-                      <span className="text-xs text-gray-500">(sem cores)</span>
-                    </ToggleGroupItem>
-                  </ToggleGroup>
-                </div>
-
-                {simulationType && (
-                  <div className="flex items-center gap-2">
-                    <Badge variant="outline" className="gap-1.5">
-                      <Eye className="w-3.5 h-3.5" />
-                      Simulando: {simulationType}
-                    </Badge>
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      onClick={() => setSimulationType('')}
-                      className="h-7 px-2 text-xs"
-                    >
-                      Remover simulação
-                    </Button>
-                  </div>
-                )}
-
-                <div className="border rounded-md p-4 bg-gray-50">
-                  <div className="text-sm font-medium mb-4">Amostra de cores primárias com simulação:</div>
-                  <div className="space-y-4">
-                    <div className="grid grid-cols-10 gap-2 h-12">
-                      {baseColorsData[0].weights.map((weight) => (
-                        <ColorSwatch 
-                          key={weight.weight} 
-                          color={weight.colorClass}
-                          weight={weight.weight}
-                          hexValue={weight.hexValue}
-                          simulationType={simulationType}
-                        />
-                      ))}
+          <ComponentCard
+            title="Acessibilidade de Cores"
+            description="Garantindo que nosso sistema de cores seja acessível a todos."
+          >
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Contraste</h3>
+                <p className="text-gray-600 mb-4">
+                  Todas as combinações de cores de texto e fundo atendem aos requisitos de contraste WCAG 2.1 AA:
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                  <div className="border p-4 rounded-lg space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Info className="h-5 w-5 text-info-main" />
+                      <h4 className="font-medium">Texto normal</h4>
                     </div>
-                    <div className="grid grid-cols-10 gap-2 h-12">
-                      {baseColorsData[1].weights.map((weight) => (
-                        <ColorSwatch 
-                          key={weight.weight} 
-                          color={weight.colorClass}
-                          weight={weight.weight}
-                          hexValue={weight.hexValue}
-                          simulationType={simulationType}
-                        />
-                      ))}
-                    </div>
-                    <div className="grid grid-cols-10 gap-2 h-12">
-                      {baseColorsData[3].weights.map((weight) => (
-                        <ColorSwatch 
-                          key={weight.weight} 
-                          color={weight.colorClass}
-                          weight={weight.weight}
-                          hexValue={weight.hexValue}
-                          simulationType={simulationType}
-                        />
-                      ))}
+                    <p className="text-sm text-gray-600">Contraste mínimo de 4.5:1</p>
+                    <div className="p-3 bg-primary-main rounded">
+                      <p className="text-white text-sm">Exemplo de texto com contraste adequado</p>
                     </div>
                   </div>
-                </div>
-
-                <div className="border rounded-md p-4">
-                  <div className="text-sm font-medium mb-4">Amostra de elementos da interface:</div>
-                  <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
-                    <div className="space-y-4">
-                      <div className="flex gap-2">
-                        <Button variant="default">Botão primário</Button>
-                        <Button variant="outline">Botão outline</Button>
-                        <Button variant="secondary">Secundário</Button>
-                      </div>
-                      <div className="flex gap-2">
-                        <Badge>Badge padrão</Badge>
-                        <Badge variant="outline">Badge outline</Badge>
-                        <Badge variant="secondary">Badge secundária</Badge>
-                      </div>
-                      <div className="p-4 border rounded-md bg-card">
-                        <div className="text-lg font-semibold">Texto de título</div>
-                        <div className="text-sm text-muted-foreground">
-                          Este é um exemplo de texto secundário que tem contraste reduzido
-                        </div>
-                        <Separator className="my-2" />
-                        <div className="flex justify-between">
-                          <div className="text-xs">Detalhes</div>
-                          <div className="text-xs font-medium">Valor</div>
-                        </div>
-                      </div>
+                  
+                  <div className="border p-4 rounded-lg space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Info className="h-5 w-5 text-info-main" />
+                      <h4 className="font-medium">Texto grande (18pt ou 14pt bold)</h4>
                     </div>
-                    <div className="p-4 border rounded-md space-y-4">
-                      <div className="flex items-center gap-4">
-                        <Avatar>
-                          <AvatarFallback>AM</AvatarFallback>
-                        </Avatar>
-                        <div>
-                          <div className="font-medium">Amicci Medical</div>
-                          <div className="text-sm text-muted-foreground">amicci@example.com</div>
-                        </div>
-                      </div>
-                      <Separator />
-                      <div className="grid gap-2">
-                        <div className="flex justify-between text-sm">
-                          <span>Status:</span>
-                          <Badge variant="outline" className="bg-success-light text-success-dark">Ativo</Badge>
-                        </div>
-                        <div className="flex justify-between text-sm">
-                          <span>Plano:</span>
-                          <Badge variant="outline" className="bg-info-light text-info-dark">Premium</Badge>
-                        </div>
-                        <div className="flex justify-between text-sm">
-                          <span>Alerta:</span>
-                          <Badge variant="outline" className="bg-warning-light text-warning-dark">Pendente</Badge>
-                        </div>
-                      </div>
+                    <p className="text-sm text-gray-600">Contraste mínimo de 3:1</p>
+                    <div className="p-3 bg-amicci-300 rounded">
+                      <p className="text-gray-800 text-xl font-bold">Texto grande</p>
+                    </div>
+                  </div>
+                  
+                  <div className="border p-4 rounded-lg space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Info className="h-5 w-5 text-info-main" />
+                      <h4 className="font-medium">Componentes de interface e gráficos</h4>
+                    </div>
+                    <p className="text-sm text-gray-600">Contraste mínimo de 3:1</p>
+                    <div className="p-3 rounded flex justify-center">
+                      <Button>Botão de exemplo</Button>
                     </div>
                   </div>
                 </div>
               </div>
-            </ComponentCard>
-
-            <ComponentCard
-              title="Guias de acessibilidade WCAG"
-              description="Certificações de contraste e recomendações para uso acessível das cores"
-            >
-              <div className="space-y-6">
-                <div className="grid gap-4 md:grid-cols-2">
-                  <div className="p-4 border rounded-md space-y-4">
-                    <div className="flex items-start gap-2">
-                      <AlertCircle className="w-5 h-5 text-warning-main mt-0.5" />
-                      <div>
-                        <h4 className="font-medium">Níveis de contraste WCAG</h4>
-                        <p className="text-sm text-muted-foreground">
-                          WCAG define dois níveis de contraste: AA (mínimo) e AAA (aprimorado)
-                        </p>
-                      </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Não Dependa Apenas da Cor</h3>
+                <p className="text-gray-600 mb-4">
+                  Para garantir que as informações sejam acessíveis a pessoas com deficiência visual ou daltonismo, 
+                  não usamos apenas cor para transmitir informações importantes:
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                  <div className="border p-4 rounded-lg space-y-2">
+                    <div className="flex items-center gap-2 text-primary-main">
+                      <Check className="h-5 w-5" />
+                      <h4 className="font-medium">Combinação com elementos visuais</h4>
                     </div>
-                    <div className="space-y-2 text-sm">
-                      <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
-                        <span>AA texto normal (4.5:1)</span>
-                        <Badge variant="outline" className="bg-success-light text-success-dark">Recomendado</Badge>
-                      </div>
-                      <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
-                        <span>AA texto grande (3:1)</span>
-                        <Badge variant="outline" className="bg-success-light text-success-dark">Mínimo</Badge>
-                      </div>
-                      <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
-                        <span>AAA texto normal (7:1)</span>
-                        <Badge variant="outline" className="bg-info-light text-info-dark">Melhor prática</Badge>
-                      </div>
-                      <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
-                        <span>AAA texto grande (4.5:1)</span>
-                        <Badge variant="outline" className="bg-info-light text-info-dark">Aprimorado</Badge>
-                      </div>
+                    <p className="text-sm text-gray-600">Combinamos cores com ícones, textos e padrões</p>
+                    <div className="p-3 bg-gray-100 rounded flex items-center gap-2">
+                      <AlertCircle className="h-5 w-5 text-error-main" />
+                      <span className="text-error-main">Erro no formulário</span>
                     </div>
                   </div>
-
-                  <div className="p-4 border rounded-md space-y-4">
-                    <div className="flex items-start gap-2">
-                      <Info className="w-5 h-5 text-info-main mt-0.5" />
-                      <div>
-                        <h4 className="font-medium">Não use apenas cor para transmitir informação</h4>
-                        <p className="text-sm text-muted-foreground">
-                          Sempre combine cores com textos, ícones ou padrões para garantir a acessibilidade
-                        </p>
-                      </div>
+                  
+                  <div className="border p-4 rounded-lg space-y-2">
+                    <div className="flex items-center gap-2 text-primary-main">
+                      <Check className="h-5 w-5" />
+                      <h4 className="font-medium">Uso de padrões e texturas</h4>
                     </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="flex items-center gap-2 p-3 bg-error-light rounded text-sm">
-                        <div className="w-3 h-3 rounded-full bg-error-main"></div>
-                        <span className="text-error-dark font-medium">Erro</span>
-                      </div>
-                      <div className="flex items-center gap-2 p-3 bg-success-light rounded text-sm">
-                        <div className="w-3 h-3 rounded-full bg-success-main"></div>
-                        <span className="text-success-dark font-medium">Sucesso</span>
-                      </div>
-                      <div className="flex items-center gap-2 p-3 bg-warning-light rounded text-sm">
-                        <div className="w-3 h-3 rounded-full bg-warning-main"></div>
-                        <span className="text-warning-dark font-medium">Aviso</span>
-                      </div>
-                      <div className="flex items-center gap-2 p-3 bg-info-light rounded text-sm">
-                        <div className="w-3 h-3 rounded-full bg-info-main"></div>
-                        <span className="text-info-dark font-medium">Informação</span>
-                      </div>
+                    <p className="text-sm text-gray-600">Utilizamos padrões diferentes para distinguir áreas</p>
+                    <div className="p-3 bg-gray-100 rounded border-l-4 border-warning-main">
+                      <p className="text-warning-dark">Aviso com borda e fundo diferenciado</p>
+                    </div>
+                  </div>
+                  
+                  <div className="border p-4 rounded-lg space-y-2">
+                    <div className="flex items-center gap-2 text-primary-main">
+                      <Check className="h-5 w-5" />
+                      <h4 className="font-medium">Testado para daltonismo</h4>
+                    </div>
+                    <p className="text-sm text-gray-600">Nossas combinações são testadas para diferentes tipos de daltonismo</p>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="h-12 bg-success-main rounded"></div>
+                      <div className="h-12 bg-error-main rounded"></div>
                     </div>
                   </div>
                 </div>
               </div>
-            </ComponentCard>
-          </div>
+            </div>
+          </ComponentCard>
         )}
       </TailwindTabs>
     </div>
