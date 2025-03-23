@@ -305,17 +305,17 @@ const Brand = () => {
                     <div className="bg-magenta-50 rounded-lg border border-magenta-200">
                       <div className="px-6 py-4">
                         <div className="flex items-center w-full">
-                          <div className="flex items-center gap-1 mr-4">
+                          <div className="flex items-center gap-1 mr-2">
                             <img src={AmySvg} alt="Avatar da Amy" className="w-9 h-9 rounded-full" />
                             <div className="inline-flex flex-col justify-start items-start ml-2">
                               <div className="text-text-primary text-sm font-medium font-['Roboto'] leading-snug tracking-tight">Insight da Amy</div>
                             </div>
                             <Sparkles size={20} className="text-tertiary-main ml-1" />
-                            <Chip size="sm" className="ml-1">Novo insight gerado</Chip>
+                            <Chip size="sm" className="ml-0.5">Novo insight gerado</Chip>
                           </div>
-                          <div className="flex items-center flex-1 min-w-0">
-                            <p className="text-gray-700 text-sm truncate flex-1">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...
+                          <div className="flex-1 flex items-center min-w-0 ml-2">
+                            <p className="text-gray-700 text-sm whitespace-nowrap overflow-hidden text-ellipsis flex-1">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                             </p>
                             <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 ml-2 flex-shrink-0" />
                           </div>
@@ -405,3 +405,4 @@ const Brand = () => {
 };
 
 export default Brand;
+
