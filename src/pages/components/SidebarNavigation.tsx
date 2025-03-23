@@ -41,7 +41,7 @@ const SidebarExample = () => {
                 className={cn(
                   "flex items-center py-2 px-3 rounded-md",
                   isOpen ? "" : "justify-center",
-                  "text-primary-main font-semibold hover:bg-gray-100"
+                  "text-primary font-semibold hover:bg-gray-100"
                 )}
               >
                 <Home size={20} className={isOpen ? "mr-3" : ""} />
@@ -139,7 +139,7 @@ const SidebarExample = () => {
                 className={\`
                   flex items-center py-2 px-3 rounded-md
                   \${isOpen ? "" : "justify-center"}
-                  text-primary-main font-semibold hover:bg-gray-100
+                  text-primary font-semibold hover:bg-gray-100
                 \`}
               >
                 <Home size={20} className={isOpen ? "mr-3" : ""} />
