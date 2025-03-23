@@ -41,7 +41,7 @@ const SidebarExample = () => {
                 className={cn(
                   "flex items-center py-2 px-3 rounded-md",
                   isOpen ? "" : "justify-center",
-                  "text-primary-main font-semibold hover:bg-gray-100"
+                  "text-primary-main hover:bg-gray-100"
                 )}
               >
                 <Home size={20} className={isOpen ? "mr-3" : ""} />
@@ -60,7 +60,7 @@ const SidebarExample = () => {
                 <Mail size={20} className={isOpen ? "mr-3" : ""} />
                 {isOpen && <span>Messages</span>}
                 {isOpen && (
-                  <Chip variant="default" color="primary" size="sm" className="ml-2">New</Chip>
+                  <Chip variant="filled" color="primary" size="sm" className="ml-2">New</Chip>
                 )}
               </a>
             </li>
@@ -139,7 +139,7 @@ const SidebarExample = () => {
                 className={\`
                   flex items-center py-2 px-3 rounded-md
                   \${isOpen ? "" : "justify-center"}
-                  text-primary-main font-semibold hover:bg-gray-100
+                  text-primary-main hover:bg-gray-100
                 \`}
               >
                 <Home size={20} className={isOpen ? "mr-3" : ""} />
@@ -158,7 +158,7 @@ const SidebarExample = () => {
                 <Mail size={20} className={isOpen ? "mr-3" : ""} />
                 {isOpen && <span>Messages</span>}
                 {isOpen && (
-                  <Chip variant="default" color="primary" size="sm" className="ml-2">New</Chip>
+                  <Chip variant="filled" color="primary" size="sm" className="ml-2">New</Chip>
                 )}
               </a>
             </li>
