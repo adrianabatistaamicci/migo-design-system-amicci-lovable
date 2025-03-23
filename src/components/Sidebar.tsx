@@ -223,13 +223,13 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
   // Main section headers (level 0) should not be collapsible
   if (level === 0) {
     return (
-      <div className="mb-2">
+      <div className="mb-6">
         {item.title && (
           <div className="mb-2">
             <div className={cn(
               "flex items-center w-full py-2 px-3 rounded-md text-sm font-medium text-primary uppercase text-xs"
             )}>
-              {item.icon && <item.icon size={20} className="text-primary-main mr-2" />}
+              {item.icon && <item.icon size={20} className="text-primary mr-2" />}
               <span>{item.title}</span>
             </div>
             

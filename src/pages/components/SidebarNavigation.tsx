@@ -130,67 +130,50 @@ const SidebarExample = () => {
           </button>
         </div>
 
-        {/* Links de navegação */}
+        {/* Links de navegação - Note o espaço maior entre grupos com mb-6 */}
         <nav className="p-2">
-          <ul className="space-y-1">
-            <li>
-              <a 
-                href="#" 
-                className={\`
-                  flex items-center py-2 px-3 rounded-md
-                  \${isOpen ? "" : "justify-center"}
-                  text-primary-main hover:bg-gray-100
-                \`}
-              >
-                <Home size={20} className={isOpen ? "mr-3" : ""} />
-                {isOpen && <span>Dashboard</span>}
-              </a>
-            </li>
-            <li>
-              <a 
-                href="#" 
-                className={\`
-                  flex items-center py-2 px-3 rounded-md
-                  \${isOpen ? "" : "justify-center"}
-                  text-gray-700 hover:bg-gray-100
-                \`}
-              >
-                <Mail size={20} className={isOpen ? "mr-3" : ""} />
-                {isOpen && <span>Messages</span>}
-                {isOpen && (
+          <div className="mb-6">
+            <div className="uppercase text-xs font-medium text-primary px-3 py-2">Painel</div>
+            <ul className="space-y-1">
+              <li>
+                <a href="#" className="flex items-center py-2 px-3 rounded-md text-primary-main hover:bg-gray-100">
+                  <Home size={20} className="mr-3" />
+                  <span>Dashboard</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="mb-6">
+            <div className="uppercase text-xs font-medium text-primary px-3 py-2">Comunicação</div>
+            <ul className="space-y-1">
+              <li>
+                <a href="#" className="flex items-center py-2 px-3 rounded-md text-gray-700 hover:bg-gray-100">
+                  <Mail size={20} className="mr-3" />
+                  <span>Messages</span>
                   <Chip variant="filled" color="primary" size="sm" className="ml-2">New</Chip>
-                )}
-              </a>
-            </li>
-            <li>
-              <a 
-                href="#" 
-                className={\`
-                  flex items-center py-2 px-3 rounded-md
-                  \${isOpen ? "" : "justify-center"}
-                  text-gray-700 hover:bg-gray-100
-                \`}
-              >
-                <Users size={20} className={isOpen ? "mr-3" : ""} />
-                {isOpen && <span>Team</span>}
-              </a>
-            </li>
-            <li>
-              <a 
-                href="#" 
-                className={\`
-                  flex items-center justify-between py-2 px-3 rounded-md
-                  \${isOpen ? "" : "justify-center"}
-                  text-gray-700 hover:bg-gray-100
-                \`}
-              >
-                <div className="flex items-center">
-                  <Settings size={20} className={isOpen ? "mr-3" : ""} />
-                  {isOpen && <span>Settings</span>}
-                </div>
-              </a>
-            </li>
-          </ul>
+                </a>
+              </li>
+              <li>
+                <a href="#" className="flex items-center py-2 px-3 rounded-md text-gray-700 hover:bg-gray-100">
+                  <Users size={20} className="mr-3" />
+                  <span>Team</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div className="uppercase text-xs font-medium text-primary px-3 py-2">Ajustes</div>
+            <ul className="space-y-1">
+              <li>
+                <a href="#" className="flex items-center py-2 px-3 rounded-md text-gray-700 hover:bg-gray-100">
+                  <Settings size={20} className="mr-3" />
+                  <span>Settings</span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </nav>
       </div>
     </div>
