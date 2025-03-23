@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -22,10 +21,8 @@ import AmicciTagUpdates from '@/pages/assets/amicci-logo-tag-updates.svg';
 import Amy001 from '@/pages/assets/Amy 001.png';
 import Amy002 from '@/pages/assets/Amy 002.png';
 import Amy004 from '@/pages/assets/Amy 004.png';
-
 const Brand = () => {
   const [activeTab, setActiveTab] = useState('logo');
-  
   const handleDownload = (url: string, filename: string) => {
     const link = document.createElement('a');
     link.href = url;
@@ -81,24 +78,53 @@ const Brand = () => {
     hex: '#3E0F32',
     className: 'bg-tertiary-dark'
   }];
-  
+
   // Tertiary palette variations data
-  const tertiaryPalette = [
-    { name: 'main', color: 'bg-tertiary-main', hex: '#9B247F', tailwindClass: 'bg-tertiary-main' },
-    { name: 'light', color: 'bg-tertiary-light', hex: '#F9E5F4', tailwindClass: 'bg-tertiary-light' },
-    { name: 'dark', color: 'bg-tertiary-dark', hex: '#6D1959', tailwindClass: 'bg-tertiary-dark' },
-    { name: 'hover', color: 'bg-tertiary-hover', hex: 'rgba(155, 36, 127, 0.04)', tailwindClass: 'bg-tertiary-hover' },
-    { name: 'selected', color: 'bg-tertiary-selected', hex: 'rgba(155, 36, 127, 0.08)', tailwindClass: 'bg-tertiary-selected' },
-    { name: 'focus', color: 'bg-tertiary-focus', hex: 'rgba(155, 36, 127, 0.12)', tailwindClass: 'bg-tertiary-focus' },
-    { name: 'focusVisible', color: 'bg-tertiary-focusVisible', hex: 'rgba(155, 36, 127, 0.30)', tailwindClass: 'bg-tertiary-focusVisible' },
-    { name: 'outlinedBorder', color: 'bg-tertiary-outlinedBorder', hex: 'rgba(155, 36, 127, 0.50)', tailwindClass: 'bg-tertiary-outlinedBorder' },
-  ];
-  
+  const tertiaryPalette = [{
+    name: 'main',
+    color: 'bg-tertiary-main',
+    hex: '#9B247F',
+    tailwindClass: 'bg-tertiary-main'
+  }, {
+    name: 'light',
+    color: 'bg-tertiary-light',
+    hex: '#F9E5F4',
+    tailwindClass: 'bg-tertiary-light'
+  }, {
+    name: 'dark',
+    color: 'bg-tertiary-dark',
+    hex: '#6D1959',
+    tailwindClass: 'bg-tertiary-dark'
+  }, {
+    name: 'hover',
+    color: 'bg-tertiary-hover',
+    hex: 'rgba(155, 36, 127, 0.04)',
+    tailwindClass: 'bg-tertiary-hover'
+  }, {
+    name: 'selected',
+    color: 'bg-tertiary-selected',
+    hex: 'rgba(155, 36, 127, 0.08)',
+    tailwindClass: 'bg-tertiary-selected'
+  }, {
+    name: 'focus',
+    color: 'bg-tertiary-focus',
+    hex: 'rgba(155, 36, 127, 0.12)',
+    tailwindClass: 'bg-tertiary-focus'
+  }, {
+    name: 'focusVisible',
+    color: 'bg-tertiary-focusVisible',
+    hex: 'rgba(155, 36, 127, 0.30)',
+    tailwindClass: 'bg-tertiary-focusVisible'
+  }, {
+    name: 'outlinedBorder',
+    color: 'bg-tertiary-outlinedBorder',
+    hex: 'rgba(155, 36, 127, 0.50)',
+    tailwindClass: 'bg-tertiary-outlinedBorder'
+  }];
   const renderTabContent = () => {
     switch (activeTab) {
       case 'logo':
-        return (
-          <div className="space-y-10">
+        return <div className="space-y-10">
             <ComponentCard title="Logo Amicci" description="Nossa marca representa nossa identidade e valores fundamentais." className="mb-6">
               <div className="space-y-10">
                 <div className="space-y-6">
@@ -141,11 +167,9 @@ const Brand = () => {
                 </div>
               </div>
             </ComponentCard>
-          </div>
-        );
+          </div>;
       case 'variants':
-        return (
-          <div className="space-y-10">
+        return <div className="space-y-10">
             <ComponentCard title="Variações do Logo" description="Diferentes aplicações da nossa marca para contextos específicos.">
               <div className="space-y-10">
                 <div className="space-y-6">
@@ -183,11 +207,9 @@ const Brand = () => {
                 </div>
               </div>
             </ComponentCard>
-          </div>
-        );
+          </div>;
       case 'amy':
-        return (
-          <div className="space-y-10">
+        return <div className="space-y-10">
             <ComponentCard title="Amy" description="A inteligência artificial da Amicci que ajuda os clientes no fluxo de planejamento, projeto e performance comercial da plataforma.">
               <div className="space-y-8">
                 <div className="mt-0">
@@ -197,36 +219,30 @@ const Brand = () => {
                   <div className="p-4 border rounded-lg">
                     <h5 className="font-medium mb-3">Escala Completa</h5>
                     <div className="grid grid-cols-11 gap-1 w-full">
-                      {tertiaryColors.map(color => (
-                        <div key={color.name} className="flex flex-col items-center">
-                          <div 
-                            className={`h-16 w-full rounded-md flex items-center justify-center ${color.name.includes('50') || color.name.includes('100') || color.name.includes('200') ? 'text-tertiary-800' : 'text-white'}`} 
-                            style={{ backgroundColor: color.hex }}
-                          >
+                      {tertiaryColors.map(color => <div key={color.name} className="flex flex-col items-center">
+                          <div className={`h-16 w-full rounded-md flex items-center justify-center ${color.name.includes('50') || color.name.includes('100') || color.name.includes('200') ? 'text-tertiary-800' : 'text-white'}`} style={{
+                        backgroundColor: color.hex
+                      }}>
                             {color.name.split('-')[1]}
                           </div>
                           <span className="text-xs mt-1 truncate w-full text-center">{color.name}</span>
                           <span className="text-xs text-gray-500 truncate w-full text-center">{color.hex}</span>
-                        </div>
-                      ))}
+                        </div>)}
                     </div>
                   </div>
                   
                   <div className="p-4 border rounded-lg mt-6">
                     <h5 className="font-medium mb-3">Paleta Tertiary</h5>
                     <div className="grid grid-cols-4 md:grid-cols-8 gap-4 w-full">
-                      {tertiaryPalette.map(item => (
-                        <div key={item.name} className="flex flex-col items-center">
-                          <div 
-                            className={`h-16 w-full rounded-md flex items-center justify-center ${item.name === 'light' ? 'text-tertiary-800' : 'text-white'}`}
-                            style={{ backgroundColor: item.hex }}
-                          >
+                      {tertiaryPalette.map(item => <div key={item.name} className="flex flex-col items-center">
+                          <div className={`h-16 w-full rounded-md flex items-center justify-center ${item.name === 'light' ? 'text-tertiary-800' : 'text-white'}`} style={{
+                        backgroundColor: item.hex
+                      }}>
                             {item.name}
                           </div>
                           <span className="text-xs mt-1 truncate w-full text-center">tertiary-{item.name}</span>
                           <span className="text-xs text-gray-500 truncate w-full text-center">{item.hex}</span>
-                        </div>
-                      ))}
+                        </div>)}
                     </div>
                   </div>
                 </div>
@@ -362,40 +378,35 @@ const Brand = () => {
                   </Accordion>
                   
                   <div className="mt-8">
-                    <img src={Amy002} alt="Exemplo completo do container de insights da Amy" className="w-full h-auto object-contain border rounded-lg" />
+                    
                   </div>
                 </div>
               </div>
             </ComponentCard>
-          </div>
-        );
+          </div>;
       default:
         return null;
     }
   };
-  
-  return (
-    <div className="w-full animate-fade-in">
+  return <div className="w-full animate-fade-in">
       <Header title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." type="foundations" />
 
       <div className="mt-8">
-        <TailwindTabs
-          tabs={[
-            { name: 'Logo Amicci', value: 'logo' },
-            { name: 'Variações', value: 'variants' },
-            { name: 'Amy AI', value: 'amy' },
-          ]}
-          defaultValue="logo"
-          variant="pillsGray"
-          onChange={(value) => setActiveTab(value)}
-        />
+        <TailwindTabs tabs={[{
+        name: 'Logo Amicci',
+        value: 'logo'
+      }, {
+        name: 'Variações',
+        value: 'variants'
+      }, {
+        name: 'Amy AI',
+        value: 'amy'
+      }]} defaultValue="logo" variant="pillsGray" onChange={value => setActiveTab(value)} />
         
         <div className="mt-6">
           {renderTabContent()}
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Brand;
