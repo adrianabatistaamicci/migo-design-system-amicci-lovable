@@ -1,4 +1,3 @@
-
 import React from 'react';
 import StackedLayout from './StackedLayout';
 import { Bell, Menu, Search, Globe, Rocket, ChevronDown } from 'lucide-react';
@@ -7,6 +6,7 @@ import { IconButton } from '@/components/ui/icon-button';
 import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
 import amicciLogoDark from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg';
 import { ProfileButton } from '@/components/ui/profile-button';
+import defaultLogo from '@/pages/assets/client-logo.svg';
 
 export const LightBorderExample = () => {
   return (
@@ -170,12 +170,13 @@ export const MarketplaceBuyerExample = () => {
               <Bell className="h-6 w-6" aria-hidden="true" />
             </button>
             <ProfileButton 
-              userName="João Costa"
-              companyName="Empresa ABC"
+              logoSrc={defaultLogo}
+              companyName=""
+              userName=""
               showClientLogo={true}
-              avatarText="JC"
-              showMenuIcon={true}
-              menuIcon={<Menu className="h-6 w-6" />}
+              showAvatar={true}
+              showMenuIcon={false}
+              avatarText="AA"
             />
           </div>
         </>
