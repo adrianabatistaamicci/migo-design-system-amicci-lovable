@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import { Link } from 'react-router-dom';
@@ -65,15 +64,15 @@ const StackedLayouts = () => {
 
       {activeTab === 'marketplace' && <div className="space-y-12 mt-10">
           <LayoutComponent 
-            title="Marketplace Seller Navigation" 
-            component={<MarketplaceExample />} 
-            code={marketplaceExampleCode}
-          />
-          
-          <LayoutComponent 
             title="Marketplace Buyer Navigation" 
             component={<MarketplaceBuyerExample />} 
             code={marketplaceBuyerExampleCode}
+          />
+          
+          <LayoutComponent 
+            title="Marketplace Seller Navigation" 
+            component={<MarketplaceExample />} 
+            code={marketplaceExampleCode}
           />
         </div>}
 
