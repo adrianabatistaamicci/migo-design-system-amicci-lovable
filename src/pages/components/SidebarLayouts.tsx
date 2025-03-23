@@ -130,8 +130,8 @@ const CollapsibleSidebar = () => {
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">Overview</h2>
           <p className="text-gray-700 mb-6">
-            Sidebar layouts provide vertical navigation for applications, allowing users to move between different sections. 
-            They're commonly used in dashboards, admin panels, and multi-page applications.
+            Os layouts de barra lateral fornecem navegação vertical para aplicações, permitindo que os usuários se movam entre diferentes seções.
+            Eles são comumente usados em dashboards, painéis administrativos e aplicações com múltiplas páginas.
             Para criar menus laterais responsivos com recursos como ícones e emblemas, submenus expansíveis e seções de rodapé.
           </p>
         </section>
