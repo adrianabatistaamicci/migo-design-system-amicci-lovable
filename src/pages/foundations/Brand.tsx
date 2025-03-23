@@ -24,10 +24,8 @@ import Amy004 from '@/pages/assets/Amy 004.png';
 import AmySvg from '@/pages/assets/amy.svg';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { IconButton } from "@/components/ui/icon-button";
-
 const Brand = () => {
   const [activeTab, setActiveTab] = useState('logo');
-  
   const handleDownload = (url: string, filename: string) => {
     const link = document.createElement('a');
     link.href = url;
@@ -36,104 +34,96 @@ const Brand = () => {
     link.click();
     document.body.removeChild(link);
   };
-
-  const tertiaryColors = [
-    {
-      name: 'tertiary-50',
-      hex: '#FDF5FA',
-      className: 'bg-tertiary-light'
-    }, {
-      name: 'tertiary-100',
-      hex: '#F9E5F4',
-      className: 'bg-tertiary-light'
-    }, {
-      name: 'tertiary-200',
-      hex: '#F2CAEB',
-      className: 'bg-tertiary-light'
-    }, {
-      name: 'tertiary-300',
-      hex: '#E7A4DD',
-      className: 'bg-tertiary-light'
-    }, {
-      name: 'tertiary-400',
-      hex: '#C963BA',
-      className: 'bg-tertiary-light'
-    }, {
-      name: 'tertiary-500',
-      hex: '#9B247F',
-      className: 'bg-tertiary-main'
-    }, {
-      name: 'tertiary-600',
-      hex: '#841E6C',
-      className: 'bg-tertiary-dark'
-    }, {
-      name: 'tertiary-700',
-      hex: '#6D1959',
-      className: 'bg-tertiary-dark'
-    }, {
-      name: 'tertiary-800',
-      hex: '#571447',
-      className: 'bg-tertiary-dark'
-    }, {
-      name: 'tertiary-900',
-      hex: '#49123C',
-      className: 'bg-tertiary-dark'
-    }, {
-      name: 'tertiary-950',
-      hex: '#3E0F32',
-      className: 'bg-tertiary-dark'
-    }
-  ];
-
-  const tertiaryPalette = [
-    {
-      name: 'main',
-      color: 'bg-tertiary-main',
-      hex: '#9B247F',
-      tailwindClass: 'bg-tertiary-main'
-    }, {
-      name: 'light',
-      color: 'bg-tertiary-light',
-      hex: '#F9E5F4',
-      tailwindClass: 'bg-tertiary-light'
-    }, {
-      name: 'dark',
-      color: 'bg-tertiary-dark',
-      hex: '#6D1959',
-      tailwindClass: 'bg-tertiary-dark'
-    }, {
-      name: 'hover',
-      color: 'bg-tertiary-hover',
-      hex: 'rgba(155, 36, 127, 0.04)',
-      tailwindClass: 'bg-tertiary-hover'
-    }, {
-      name: 'selected',
-      color: 'bg-tertiary-selected',
-      hex: 'rgba(155, 36, 127, 0.08)',
-      tailwindClass: 'bg-tertiary-selected'
-    }, {
-      name: 'focus',
-      color: 'bg-tertiary-focus',
-      hex: 'rgba(155, 36, 127, 0.12)',
-      tailwindClass: 'bg-tertiary-focus'
-    }, {
-      name: 'focusVisible',
-      color: 'bg-tertiary-focusVisible',
-      hex: 'rgba(155, 36, 127, 0.30)',
-      tailwindClass: 'bg-tertiary-focusVisible'
-    }, {
-      name: 'outlinedBorder',
-      color: 'bg-tertiary-outlinedBorder',
-      hex: 'rgba(155, 36, 127, 0.50)',
-      tailwindClass: 'bg-tertiary-outlinedBorder'
-    }
-  ];
-
+  const tertiaryColors = [{
+    name: 'tertiary-50',
+    hex: '#FDF5FA',
+    className: 'bg-tertiary-light'
+  }, {
+    name: 'tertiary-100',
+    hex: '#F9E5F4',
+    className: 'bg-tertiary-light'
+  }, {
+    name: 'tertiary-200',
+    hex: '#F2CAEB',
+    className: 'bg-tertiary-light'
+  }, {
+    name: 'tertiary-300',
+    hex: '#E7A4DD',
+    className: 'bg-tertiary-light'
+  }, {
+    name: 'tertiary-400',
+    hex: '#C963BA',
+    className: 'bg-tertiary-light'
+  }, {
+    name: 'tertiary-500',
+    hex: '#9B247F',
+    className: 'bg-tertiary-main'
+  }, {
+    name: 'tertiary-600',
+    hex: '#841E6C',
+    className: 'bg-tertiary-dark'
+  }, {
+    name: 'tertiary-700',
+    hex: '#6D1959',
+    className: 'bg-tertiary-dark'
+  }, {
+    name: 'tertiary-800',
+    hex: '#571447',
+    className: 'bg-tertiary-dark'
+  }, {
+    name: 'tertiary-900',
+    hex: '#49123C',
+    className: 'bg-tertiary-dark'
+  }, {
+    name: 'tertiary-950',
+    hex: '#3E0F32',
+    className: 'bg-tertiary-dark'
+  }];
+  const tertiaryPalette = [{
+    name: 'main',
+    color: 'bg-tertiary-main',
+    hex: '#9B247F',
+    tailwindClass: 'bg-tertiary-main'
+  }, {
+    name: 'light',
+    color: 'bg-tertiary-light',
+    hex: '#F9E5F4',
+    tailwindClass: 'bg-tertiary-light'
+  }, {
+    name: 'dark',
+    color: 'bg-tertiary-dark',
+    hex: '#6D1959',
+    tailwindClass: 'bg-tertiary-dark'
+  }, {
+    name: 'hover',
+    color: 'bg-tertiary-hover',
+    hex: 'rgba(155, 36, 127, 0.04)',
+    tailwindClass: 'bg-tertiary-hover'
+  }, {
+    name: 'selected',
+    color: 'bg-tertiary-selected',
+    hex: 'rgba(155, 36, 127, 0.08)',
+    tailwindClass: 'bg-tertiary-selected'
+  }, {
+    name: 'focus',
+    color: 'bg-tertiary-focus',
+    hex: 'rgba(155, 36, 127, 0.12)',
+    tailwindClass: 'bg-tertiary-focus'
+  }, {
+    name: 'focusVisible',
+    color: 'bg-tertiary-focusVisible',
+    hex: 'rgba(155, 36, 127, 0.30)',
+    tailwindClass: 'bg-tertiary-focusVisible'
+  }, {
+    name: 'outlinedBorder',
+    color: 'bg-tertiary-outlinedBorder',
+    hex: 'rgba(155, 36, 127, 0.50)',
+    tailwindClass: 'bg-tertiary-outlinedBorder'
+  }];
   const renderTabContent = () => {
     switch (activeTab) {
       case 'logo':
-        return (
-          <div className="space-y-10">
+        return <div className="space-y-10">
             <ComponentCard title="Logo Amicci" description="Nossa marca representa nossa identidade e valores fundamentais." className="mb-6">
               <div className="space-y-10">
                 <div className="space-y-6">
@@ -176,11 +166,9 @@ const Brand = () => {
                 </div>
               </div>
             </ComponentCard>
-          </div>
-        );
+          </div>;
       case 'variants':
-        return (
-          <div className="space-y-10">
+        return <div className="space-y-10">
             <ComponentCard title="Variações do Logo" description="Diferentes aplicações da nossa marca para contextos específicos.">
               <div className="space-y-10">
                 <div className="space-y-6">
@@ -218,8 +206,7 @@ const Brand = () => {
                 </div>
               </div>
             </ComponentCard>
-          </div>
-        );
+          </div>;
       case 'amy':
         return <div className="space-y-8">
             <ComponentCard title="Amy" description="A inteligência artificial da Amicci que ajuda os clientes no fluxo de planejamento, projeto e performance comercial da plataforma." className="mb-6">
@@ -257,7 +244,7 @@ const Brand = () => {
                 <div className="grid grid-cols-1 md:grid-cols-10 gap-6">
                   <Card className="p-6 md:col-span-7 shadow-none border">
                     <h3 className="text-xl font-medium mb-4">Imagens da Amy</h3>
-                    <div className="grid grid-cols-3 gap-4">
+                    <div className="grid grid-cols-3 gap-4l">
                       <div className="flex flex-col items-center gap-4">
                         <div className="border rounded-lg p-4 w-full h-48 flex items-center justify-center bg-white">
                           <img src={Amy001} alt="Amy, a IA da Amicci" className="max-h-full object-contain" />
@@ -342,7 +329,6 @@ const Brand = () => {
         return null;
     }
   };
-
   return <div className="w-full animate-fade-in">
       <Header title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." type="foundations" />
 
@@ -364,5 +350,4 @@ const Brand = () => {
       </div>
     </div>;
 };
-
 export default Brand;
