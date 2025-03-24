@@ -14,7 +14,7 @@ const buttonVariants = cva(
         default: "bg-primary-main text-primary-contrast hover:bg-primary-dark",
         secondary: "bg-white text-gray-800 border border-gray-300 hover:bg-gray-50",
         error: "bg-error-main text-error-contrast hover:bg-error-dark",
-        warning: "bg-warning-main text-white hover:bg-warning-dark",
+        warning: "bg-warning-main text-white hover:bg-warning-dark", // Fixed text color to white
         info: "bg-info-main text-info-contrast hover:bg-info-dark",
         success: "bg-success-main text-success-contrast hover:bg-success-dark",
         

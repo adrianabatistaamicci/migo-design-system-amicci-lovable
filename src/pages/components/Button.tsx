@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Button } from '@/components/ui/button';
@@ -107,9 +106,9 @@ const ButtonPage = () => {
         {activeTab === 'variants' && (
           <div className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Solid Buttons */}
+              {/* Contained Buttons */}
               <ComponentCard
-                title="Solid Buttons"
+                title="Contained Buttons"
                 description="Botões com cores sólidas para ações primárias."
                 code={`<Button>Default</Button>
 <Button variant="error">Error</Button>
@@ -249,7 +248,7 @@ const ButtonPage = () => {
               >
                 <div className="space-y-4">
                   <div className="p-4 border rounded-md">
-                    <h3 className="font-medium mb-2">Botões Sólidos</h3>
+                    <h3 className="font-medium mb-2">Botões Contained</h3>
                     <p className="text-sm text-gray-600">Use para ações primárias que precisam de destaque. O fundo sólido chama atenção para as ações mais importantes em uma página.</p>
                   </div>
                   
@@ -270,7 +269,7 @@ const ButtonPage = () => {
               code={`// Exemplo de importação e uso de diferentes variantes de botões
 import { Button } from "@/components/ui/button";
 
-// Botões sólidos
+// Botões contained
 <Button>Default</Button>
 <Button variant="error">Error</Button>
 <Button variant="warning">Warning</Button>
@@ -303,57 +302,6 @@ import { Button } from "@/components/ui/button";
         )}
         
         {activeTab === 'api' && (
-            <div className="border border-mui-border rounded-lg overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow className="bg-mui-sidebar">
-                    <TableHead className="w-1/4">Prop</TableHead>
-                    <TableHead className="w-1/4">Type</TableHead>
-                    <TableHead className="w-1/4">Default</TableHead>
-                    <TableHead className="w-1/4">Description</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell className="font-mono text-mui-text-primary">variant</TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">
-                      "default" | "destructive" | "outline" | "secondary" | "ghost" | "link"
-                    </TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">"default"</TableCell>
-                    <TableCell className="text-mui-text-secondary">The visual style of the button</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-mono text-mui-text-primary">size</TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">
-                      "default" | "sm" | "lg" | "icon"
-                    </TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">"default"</TableCell>
-                    <TableCell className="text-mui-text-secondary">The size of the button</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-mono text-mui-text-primary">asChild</TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">boolean</TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">false</TableCell>
-                    <TableCell className="text-mui-text-secondary">
-                      When true, the component will render as its child
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-mono text-mui-text-primary">disabled</TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">boolean</TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">false</TableCell>
-                    <TableCell className="text-mui-text-secondary">
-                      When true, prevents user interaction
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
+          <div className="border border-mui-border rounded-lg overflow-x-auto">
+           
 
-export default ButtonPage;
