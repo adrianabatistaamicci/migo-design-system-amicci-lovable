@@ -3,6 +3,7 @@ import React from 'react';
 import Header from '@/components/library-components/Header';
 import EmptyState from '@/components/library-components/EmptyState';
 import { Separator } from '@/components/ui/separator';
+import CodeBlock from '@/components/CodeBlock';
 
 const TechnicalGovernance = () => {
   const coreTeam = [
@@ -60,6 +61,97 @@ const TechnicalGovernance = () => {
       <div className="mt-6 space-y-8">
         <section>
           <div className="space-y-8">
+            <div>
+              <h3 className="text-xl font-medium mb-3">Utilizando em Projetos Lovable</h3>
+              <p className="text-gray-700 mb-3">
+                Siga estas etapas para integrar o Migo Design System em seus projetos Lovable:
+              </p>
+              
+              <div className="bg-white border border-gray-200 rounded-lg shadow-sm divide-y">
+                <div className="p-4">
+                  <h4 className="font-medium text-lg mb-3">1. Instalar o pacote NPM</h4>
+                  <p className="text-gray-700 mb-2">
+                    Adicione o pacote ao seu projeto Lovable utilizando o comando:
+                  </p>
+                  <CodeBlock 
+                    code="npm install @amicci/migo-design-system" 
+                    language="bash"
+                    title="Terminal"
+                  />
+                </div>
+                
+                <div className="p-4">
+                  <h4 className="font-medium text-lg mb-3">2. Configurar o Tailwind CSS</h4>
+                  <p className="text-gray-700 mb-2">
+                    Atualize o arquivo <code className="bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm">tailwind.config.js</code> para incluir os componentes do Design System:
+                  </p>
+                  <CodeBlock 
+                    code={`module.exports = {
+  content: [
+    // ... configurações existentes
+    "./node_modules/@amicci/migo-design-system/**/*.{js,ts,jsx,tsx}",
+  ],
+  // ... resto da configuração
+}`} 
+                    language="javascript"
+                    title="tailwind.config.js"
+                  />
+                </div>
+                
+                <div className="p-4">
+                  <h4 className="font-medium text-lg mb-3">3. Importar componentes</h4>
+                  <p className="text-gray-700 mb-2">
+                    Importe os componentes diretamente em seus arquivos React:
+                  </p>
+                  <CodeBlock 
+                    code={`import { Button, Card, Input } from '@amicci/migo-design-system';
+
+function MeuComponente() {
+  return (
+    <Card>
+      <h2>Exemplo de uso</h2>
+      <Input placeholder="Digite aqui" />
+      <Button>Enviar</Button>
+    </Card>
+  );
+}`} 
+                    language="jsx"
+                    title="MeuComponente.tsx"
+                  />
+                </div>
+                
+                <div className="p-4">
+                  <h4 className="font-medium text-lg mb-3">4. Remixar projeto modelo (opcional)</h4>
+                  <p className="text-gray-700 mb-2">
+                    Para iniciar rapidamente com um template pré-configurado:
+                  </p>
+                  <ol className="list-decimal list-inside space-y-2 ml-1">
+                    <li className="text-gray-700">Abra o projeto na Lovable</li>
+                    <li className="text-gray-700">Clique no nome do projeto no topo da interface</li>
+                    <li className="text-gray-700">Selecione "Remix" para criar uma cópia do projeto</li>
+                    <li className="text-gray-700">Personalize o projeto conforme necessário</li>
+                  </ol>
+                </div>
+                
+                <div className="p-4">
+                  <h4 className="font-medium text-lg mb-3">5. Versão específica (recomendado)</h4>
+                  <p className="text-gray-700 mb-2">
+                    Para garantir consistência, instale uma versão específica:
+                  </p>
+                  <CodeBlock 
+                    code="npm install @amicci/migo-design-system@0.1.0" 
+                    language="bash"
+                    title="Terminal" 
+                  />
+                  <p className="text-gray-700 mt-2 text-sm">
+                    Consulte a seção de versionamento para entender a política de compatibilidade.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <Separator />
+            
             <div>
               <h3 className="text-xl font-medium mb-3">Atualização do Pacote</h3>
               <p className="text-gray-700 mb-3">
@@ -152,4 +244,3 @@ const TechnicalGovernance = () => {
 };
 
 export default TechnicalGovernance;
-
