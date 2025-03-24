@@ -4,6 +4,7 @@ import Header from '@/components/library-components/Header';
 import ComponentCard from '@/components/ComponentCard';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Card, CardContent } from '@/components/ui/card';
 
 const Skeletons = () => {
   return (
@@ -24,32 +25,38 @@ const Skeletons = () => {
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-lg font-medium">Carregamento de Card</h3>
-                <div className="flex items-center space-x-4">
-                  <div className="space-y-2">
+                <Card className="p-4">
+                  <div className="flex items-center space-x-4">
                     <Skeleton className="h-12 w-12 rounded-full" />
-                    <Skeleton className="h-4 w-[250px]" />
-                    <Skeleton className="h-4 w-[200px]" />
+                    <div className="space-y-2">
+                      <Skeleton className="h-4 w-[250px]" />
+                      <Skeleton className="h-4 w-[200px]" />
+                    </div>
                   </div>
-                </div>
+                </Card>
               </div>
               
               <div className="space-y-2">
                 <h3 className="text-lg font-medium">Carregamento de Tabela</h3>
-                <div className="space-y-2">
-                  <Skeleton className="h-8 w-full" />
-                  <Skeleton className="h-8 w-full" />
-                  <Skeleton className="h-8 w-full" />
-                  <Skeleton className="h-8 w-full" />
-                </div>
+                <Card className="p-4">
+                  <div className="space-y-2">
+                    <Skeleton className="h-8 w-full" />
+                    <Skeleton className="h-8 w-full" />
+                    <Skeleton className="h-8 w-full" />
+                    <Skeleton className="h-8 w-full" />
+                  </div>
+                </Card>
               </div>
               
               <div className="space-y-2">
                 <h3 className="text-lg font-medium">Carregamento de Card com Imagem</h3>
-                <div className="flex flex-col space-y-3">
-                  <Skeleton className="h-[200px] w-full rounded-xl" />
-                  <Skeleton className="h-4 w-[250px]" />
-                  <Skeleton className="h-4 w-[200px]" />
-                </div>
+                <Card className="p-4">
+                  <div className="flex flex-col space-y-3">
+                    <Skeleton className="h-[200px] w-full rounded-xl" />
+                    <Skeleton className="h-4 w-[250px]" />
+                    <Skeleton className="h-4 w-[200px]" />
+                  </div>
+                </Card>
               </div>
             </div>
           </TabsContent>
@@ -72,7 +79,7 @@ export function SkeletonDemo() {
 }
               `}
             >
-              <div className="flex items-center space-x-4 p-4">
+              <div className="flex items-center space-x-4 p-4 border rounded-md">
                 <Skeleton className="h-12 w-12 rounded-full" />
                 <div className="space-y-2">
                   <Skeleton className="h-4 w-[250px]" />
@@ -85,11 +92,13 @@ export function SkeletonDemo() {
 
         <div className="space-y-4">
           <h2 className="text-xl font-semibold">Uso</h2>
-          <p>
-            Use skeletons para mostrar um visual aproximado da interface enquanto o conteúdo real está sendo carregado. 
-            Isso melhora a experiência do usuário ao fornecer uma indicação visual da estrutura que será exibida, 
-            reduzindo a sensação de espera e evitando mudanças bruscas de layout.
-          </p>
+          <Card className="p-4">
+            <p>
+              Use skeletons para mostrar um visual aproximado da interface enquanto o conteúdo real está sendo carregado. 
+              Isso melhora a experiência do usuário ao fornecer uma indicação visual da estrutura que será exibida, 
+              reduzindo a sensação de espera e evitando mudanças bruscas de layout.
+            </p>
+          </Card>
         </div>
         
         <div className="space-y-4">
@@ -114,7 +123,7 @@ function Skeleton({
 export { Skeleton }
             `}
           >
-            <div className="p-4 flex flex-col space-y-3">
+            <div className="p-4 flex flex-col space-y-3 border rounded-md">
               <Skeleton className="h-8 w-full" />
               <Skeleton className="h-8 w-3/4" />
               <Skeleton className="h-8 w-1/2" />
