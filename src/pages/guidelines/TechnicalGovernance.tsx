@@ -147,6 +147,24 @@ function MeuComponente() {
                     Consulte a seção de versionamento para entender a política de compatibilidade.
                   </p>
                 </div>
+                
+                <div className="p-4 bg-green-50">
+                  <h4 className="font-medium text-lg mb-3">6. Componentes Protegidos</h4>
+                  <p className="text-gray-700 mb-2">
+                    Uma grande vantagem do Design System como pacote NPM é que os componentes importados <strong>não podem ser editados diretamente</strong> pelos usuários, o que garante:
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 ml-1">
+                    <li className="text-gray-700">Consistência visual e funcional em todos os projetos</li>
+                    <li className="text-gray-700">Proteção contra modificações acidentais</li>
+                    <li className="text-gray-700">Centralização de atualizações e correções</li>
+                  </ul>
+                  <div className="mt-3 p-3 bg-yellow-50 border border-yellow-200 rounded-md">
+                    <p className="text-sm text-gray-700">
+                      <strong>Nota:</strong> Se precisar personalizar um componente, crie uma versão própria baseada no componente original. 
+                      Não tente modificar os arquivos dentro de <code className="bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm">node_modules</code>.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
             
