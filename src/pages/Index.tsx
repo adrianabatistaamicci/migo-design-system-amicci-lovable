@@ -22,9 +22,19 @@ const Index = () => {
             <h2 className="text-4xl tracking-tight mb-4 text-gray-900 font-medium md:text-6xl">
               Migo, o Design System da Amicci
             </h2>
-            <h6 className="text-lg mb-8 text-gray-900">
+            <h6 className="text-lg mb-6 text-gray-900">
               Um sistema de design Tailwind consistente para criar interfaces de usuário modernas e acessíveis com React.
             </h6>
+            <p className="text-gray-900 italic mb-4 max-w-2xl mx-auto">
+              "Migo, nosso apelido carinhoso para Amigo,<br/>
+              Como Amicci, que traz confiança consigo.<br/>
+              Nas entrelinhas do código e do design,<br/>
+              Um companheiro fiel que seu projeto define.<br/>
+              Construindo pontes entre visão e realidade,<br/>
+              Trazendo para interfaces harmonia e claridade.<br/>
+              Migo, mais que um sistema, um aliado presente,<br/>
+              Para tornar sua experiência digital mais coerente."
+            </p>
           </div>
         </div>
       </section>
