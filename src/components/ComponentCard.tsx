@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Copy, CheckCheck, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 interface ComponentCardProps {
   title: string;
@@ -40,15 +41,15 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
         </div>
       )}
       
-      <div className="p-6 flex items-center justify-center flex-grow">
+      <div className="p-6 flex items-center justify-center">
         <div className="w-full">
           {children}
         </div>
       </div>
       
       {code && (
-        <>
-          <div className="border-t border-gray-200 flex justify-between items-center px-4 py-3 bg-gray-50 mt-auto">
+        <div className="mt-auto">
+          <div className="border-t border-gray-200 flex justify-between items-center px-4 py-3 bg-gray-50">
             <Button 
               variant="ghost" 
               size="sm" 
@@ -85,7 +86,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
               <code>{code}</code>
             </pre>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

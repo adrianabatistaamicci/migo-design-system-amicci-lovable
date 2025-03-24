@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Copy, CheckCheck, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 interface CodeBlockProps {
   code: string;
@@ -29,7 +30,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   };
   
   return (
-    <div className={cn("rounded-lg border border-gray-200 overflow-hidden mb-6", className)}>
+    <div className={cn("rounded-lg border border-gray-200 overflow-hidden", className)}>
       {title && (
         <div className="flex items-center justify-between px-4 py-2 border-b border-gray-200">
           <span className="text-sm font-medium text-gray-700">{title}</span>
@@ -37,43 +38,47 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
         </div>
       )}
       
-      <div className="flex justify-between items-center px-4 py-3 bg-gray-50">
-        <Button 
-          variant="ghost" 
-          size="sm" 
-          onClick={() => setShowCode(!showCode)} 
-          className="text-sm text-gray-600 hover:text-gray-900 flex items-center gap-1"
-        >
-          <ChevronRight 
-            size={16} 
-            className={cn("transition-transform", showCode ? "rotate-90" : "")} 
-          />
-          <span>Show code</span>
-        </Button>
+      <Collapsible 
+        open={showCode} 
+        onOpenChange={setShowCode}
+        className="border-t border-gray-200"
+      >
+        <div className="flex justify-between items-center px-4 py-3 bg-gray-50">
+          <CollapsibleTrigger asChild>
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="text-sm text-gray-600 hover:text-gray-900 flex items-center gap-1"
+            >
+              <ChevronRight 
+                size={16} 
+                className={cn("transition-transform", showCode ? "rotate-90" : "")} 
+              />
+              <span>Show code</span>
+            </Button>
+          </CollapsibleTrigger>
+          
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={copyToClipboard} 
+            className="text-sm text-gray-600 hover:text-gray-900"
+          >
+            {copied ? (
+              <CheckCheck size={16} className="mr-1" />
+            ) : (
+              <Copy size={16} className="mr-1" />
+            )}
+            <span>{copied ? "Copied" : "Copy"}</span>
+          </Button>
+        </div>
         
-        <Button 
-          variant="ghost" 
-          size="sm" 
-          onClick={copyToClipboard} 
-          className="text-sm text-gray-600 hover:text-gray-900"
-        >
-          {copied ? (
-            <CheckCheck size={16} className="mr-1" />
-          ) : (
-            <Copy size={16} className="mr-1" />
-          )}
-          <span>{copied ? "Copied" : "Copy"}</span>
-        </Button>
-      </div>
-      
-      <div className={cn(
-        "transition-all duration-300 overflow-hidden",
-        showCode ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
-      )}>
-        <pre className="p-4 overflow-x-auto font-mono text-sm text-gray-800 bg-white">
-          <code>{code}</code>
-        </pre>
-      </div>
+        <CollapsibleContent className="bg-white">
+          <pre className="p-4 overflow-x-auto font-mono text-sm text-gray-800">
+            <code>{code}</code>
+          </pre>
+        </CollapsibleContent>
+      </Collapsible>
     </div>
   );
 };
