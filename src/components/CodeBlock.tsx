@@ -37,7 +37,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
         </div>
       )}
       
-      <div className="border-t border-gray-200 flex justify-between items-center px-4 py-3 bg-gray-50">
+      <div className="flex justify-between items-center px-4 py-3 bg-gray-50">
         <Button 
           variant="ghost" 
           size="sm" 
