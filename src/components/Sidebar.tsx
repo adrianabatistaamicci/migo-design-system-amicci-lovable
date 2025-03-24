@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
@@ -41,7 +42,13 @@ const sidebarItems: SidebarItem[] = [
       { title: 'Oi, Migo', href: '/' },
       { title: 'Instalação', href: '/installation' },
       { title: 'UI Kit', href: '/ui-kit' },
-      { title: 'Diretrizes', href: '/guidelines' },
+      { 
+        title: 'Diretrizes', 
+        href: '/guidelines',
+        items: [
+          { title: 'Governança Técnica', href: '/guidelines/technical-governance' }
+        ]
+      },
     ]
   },
   {

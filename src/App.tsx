@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,6 +8,7 @@ import MainLayout from "./layouts/MainLayout";
 import Index from "./pages/Index";
 import Installation from "./pages/Installation";
 import Guidelines from "./pages/Guidelines";
+import TechnicalGovernance from "./pages/guidelines/TechnicalGovernance";
 import Components from "./pages/Components";
 import ComponentDetail from "./pages/ComponentDetail";
 import NotFound from "./pages/NotFound";
@@ -92,6 +94,7 @@ const App = () => {
               <Route path="/" element={<Index />} />
               <Route path="/installation" element={<Installation />} />
               <Route path="/guidelines" element={<Guidelines />} />
+              <Route path="/guidelines/technical-governance" element={<TechnicalGovernance />} />
               <Route path="/components" element={<Components />} />
               <Route path="/components/:componentId" element={<ComponentDetail />} />
               <Route path="/components/input" element={<InputPage />} />
