@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Terminal, GitBranch, Package, Code, Server, Database, Download, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -269,19 +268,6 @@ Email: seu-email@amicci.com.br`}
                 design@amicci.com.br
               </a>
             </div>
-          </div>
-          <div className="mt-6">
-            <Button variant="outline-default" className="w-full sm:w-auto">
-              <a 
-                href="https://github.com/amicci/migo-ds/issues/new"
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2"
-              >
-                Relatar problema no GitHub
-                <ExternalLink size={16} />
-              </a>
-            </Button>
           </div>
         </div>
       </section>
