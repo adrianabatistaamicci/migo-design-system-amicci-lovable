@@ -36,17 +36,8 @@ const NavigationSection = () => {
         <Link to="/components/tabs">
           <ComponentPreview 
             title="Tabs" 
-            imageSrc="/lovable-uploads/da13b6eb-0fae-4122-b38c-db8e8f655bd3.png" 
+            imageSrc="/lovable-uploads/009f97d0-9a88-4242-9cd5-9bb0377a6fdb.png" 
             variantCount={4} 
-            preview={
-              <div className="w-full">
-                <TailwindTabs 
-                  tabs={exampleTabs}
-                  variant="pillsGray"
-                  defaultValue="overview"
-                />
-              </div>
-            }
           />
         </Link>
         
