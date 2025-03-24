@@ -58,7 +58,7 @@ export function TailwindTabs({
         );
       case 'pillsGray':
         return (
-          <TabsList className="flex space-x-1 rounded-xl bg-gray-200/70 p-1">
+          <TabsList className="flex flex-wrap space-x-1 rounded-xl bg-gray-200/70 p-1">
             {tabs.map((tab) => (
               <TabsTrigger
                 key={tab.value}
@@ -78,7 +78,7 @@ export function TailwindTabs({
         );
       case 'pillsBrand':
         return (
-          <TabsList className="flex space-x-1 rounded-xl bg-blue-100/50 p-1">
+          <TabsList className="flex flex-wrap space-x-1 rounded-xl bg-blue-100/50 p-1">
             {tabs.map((tab) => (
               <TabsTrigger
                 key={tab.value}
@@ -118,7 +118,7 @@ export function TailwindTabs({
         );
       case 'bar':
         return (
-          <TabsList className="flex border-b border-gray-200">
+          <TabsList className="flex flex-wrap border-b border-gray-200">
             {tabs.map((tab) => (
               <TabsTrigger
                 key={tab.value}
@@ -138,7 +138,7 @@ export function TailwindTabs({
         );
       case 'underlineBadges':
         return (
-          <TabsList className="flex border-b border-gray-200 w-full">
+          <TabsList className="flex flex-wrap border-b border-gray-200 w-full">
             {tabs.map((tab) => (
               <TabsTrigger
                 key={tab.value}

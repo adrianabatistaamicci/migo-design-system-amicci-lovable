@@ -22,7 +22,7 @@ const TechnicalGovernance = () => {
       <Header 
         title="Governança Técnica"
         description="Princípios e processos para manter a qualidade e consistência do código."
-        type="guidelines"
+        type="foundations"
       />
       
       <div className="bg-white rounded-lg p-6 shadow-sm">
