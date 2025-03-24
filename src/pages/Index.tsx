@@ -19,7 +19,7 @@ const Index = () => {
         
         {/* Hero content */}
         <div className="relative z-10 px-4 py-24 md:py-32 max-w-5xl mx-auto text-center">
-          <div className="p-8 rounded-xl bg-gray-900/80 backdrop-blur-sm">
+          <div className="p-8 rounded-xl bg-gray-950/80 backdrop-blur-sm">
             <h2 className="text-4xl tracking-tight mb-4 text-white font-medium md:text-6xl">
               Migo, o Design System da Amicci
             </h2>
