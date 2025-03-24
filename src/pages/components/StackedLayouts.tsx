@@ -16,12 +16,17 @@ import CodeBlock from '@/components/CodeBlock';
 
 const StackedLayouts = () => {
   const [activeTab, setActiveTab] = useState('overview');
-  return <div className="w-full animate-fade-in">
-      <Header title="Stacked Layouts" description="Layouts empilhados (stacked) são uma estrutura comum para aplicações onde o cabeçalho permanece fixo no topo enquanto o conteúdo principal é rolável. Esses layouts proporcionam uma navegação clara e consistente para os usuários." type="components" />
-        
+  return (
+    <div className="w-full animate-fade-in">
+      <Header 
+        title="Stacked Layouts" 
+        description="Layouts empilhados (stacked) são uma estrutura comum para aplicações onde o cabeçalho permanece fixo no topo enquanto o conteúdo principal é rolável. Esses layouts proporcionam uma navegação clara e consistente para os usuários." 
+        type="components" 
+      />
+      
       <TailwindTabs 
         defaultValue="overview" 
-        className="mt-8" 
+        className="mt-6" 
         tabs={[
           { name: 'Visão geral', value: 'overview' },
           { name: 'Uso no marketplace', value: 'marketplace' },
@@ -84,7 +89,8 @@ const StackedLayouts = () => {
             code={institutionalExampleCode}
           />
         </div>}
-    </div>;
+    </div>
+  );
 };
 
 const LightNavBottomBorderWithReusable = () => (

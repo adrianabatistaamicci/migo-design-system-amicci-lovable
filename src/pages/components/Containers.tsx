@@ -17,7 +17,7 @@ const Containers = () => {
       
       <TailwindTabs
         defaultValue="overview"
-        className="mt-8"
+        className="mt-6"
         tabs={[
           { name: 'Visão geral', value: 'overview' },
           { name: 'Exemplos', value: 'examples' }
