@@ -49,7 +49,7 @@ const LayoutSection = () => {
           />
         </Link>
         
-        <Link to="/components/skeleton">
+        <Link to="/components/Skeletons">
           <ComponentPreview 
             title="Skeletons" 
             imageSrc="/lovable-uploads/c23fa7cc-d0c5-4376-8c6a-406bb780b63c.png" 
