@@ -45,18 +45,7 @@ const ElementsSection = () => {
         <Link to="/components/icon-button">
           <ComponentPreview 
             title="Icon Buttons" 
-            preview={
-              <div className="flex items-center justify-center gap-4 w-full h-full">
-                <IconButton 
-                  variant="outline-secondary" 
-                  icon={<Star size={18} />} 
-                />
-                <IconButton 
-                  variant="default" 
-                  icon={<Star size={18} color="white" />} 
-                />
-              </div>
-            }
+            imageSrc="/lovable-uploads/9de72c1e-736c-41bf-940e-857dd3b7e669.png" 
             variantCount={3} 
           />
         </Link>
