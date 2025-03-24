@@ -47,6 +47,61 @@ export const colorUtils = {
   // Determine if a color passes AAA level for large text (4.5:1)
   passesAAALarge: (foreground: string, background: string): boolean => {
     return colorUtils.getContrastRatio(foreground, background) >= 4.5;
+  },
+  
+  // Convert hex color to RGB format string
+  hexToRgb: (hexColor: string): string => {
+    // Remove # if present
+    const hex = hexColor.replace('#', '');
+    
+    // Parse RGB components
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
+    
+    return `rgb(${r}, ${g}, ${b})`;
+  },
+  
+  // Convert hex color to HSL format string
+  hexToHsl: (hexColor: string): string => {
+    // Remove # if present
+    const hex = hexColor.replace('#', '');
+    
+    // Parse RGB components
+    let r = parseInt(hex.substr(0, 2), 16) / 255;
+    let g = parseInt(hex.substr(2, 2), 16) / 255;
+    let b = parseInt(hex.substr(4, 2), 16) / 255;
+    
+    // Find min and max values to calculate saturation and lightness
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    let h = 0, s = 0, l = (max + min) / 2;
+    
+    if (max !== min) {
+      const d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      
+      switch (max) {
+        case r:
+          h = (g - b) / d + (g < b ? 6 : 0);
+          break;
+        case g:
+          h = (b - r) / d + 2;
+          break;
+        case b:
+          h = (r - g) / d + 4;
+          break;
+      }
+      
+      h /= 6;
+    }
+    
+    // Convert to degrees and percentages
+    h = Math.round(h * 360);
+    s = Math.round(s * 100);
+    l = Math.round(l * 100);
+    
+    return `hsl(${h}deg, ${s}%, ${l}%)`;
   }
 };
 
