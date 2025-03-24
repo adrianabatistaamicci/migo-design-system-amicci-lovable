@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -408,7 +409,7 @@ const Brand = () => {
         name: 'Variações',
         value: 'variants'
       }, {
-        name: 'Insight da Amy',
+        name: 'Amy',
         value: 'insight-da-amy'
       }]} defaultValue="logo" variant="pillsGray" onChange={value => setActiveTab(value)} />
         
