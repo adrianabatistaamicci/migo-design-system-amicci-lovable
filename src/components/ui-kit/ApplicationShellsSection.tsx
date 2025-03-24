@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const ApplicationShellsSection = () => {
   return (
     <div>
-      <h2 className="text-xl font-semibold mb-6">Application Shells</h2>
+      <h2 className="text-xl font-normal mb-6">Application Shells</h2>
       
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <Link to="/components/stacked-layouts">

@@ -6,7 +6,7 @@ import ComponentPreview from '@/components/ComponentPreview';
 const DataDisplaySection = () => {
   return (
     <section>
-      <h2 className="text-xl font-semibold mb-6">Data Display</h2>
+      <h2 className="text-xl font-normal mb-6">Data Display</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <Link to="/components/description-lists">
           <ComponentPreview 

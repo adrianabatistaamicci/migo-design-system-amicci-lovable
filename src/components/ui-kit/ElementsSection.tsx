@@ -8,7 +8,7 @@ import { Star } from 'lucide-react';
 const ElementsSection = () => {
   return (
     <section>
-      <h2 className="text-xl font-semibold mb-6">Elements</h2>
+      <h2 className="text-xl font-normal mb-6">Elements</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <Link to="/components/avatar">
           <ComponentPreview 
