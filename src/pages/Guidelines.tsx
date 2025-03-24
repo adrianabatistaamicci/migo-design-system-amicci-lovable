@@ -57,7 +57,7 @@ const Guidelines = () => {
           <EmptyState 
             title="Diretrizes de Acessibilidade em Desenvolvimento" 
             description="Estamos trabalhando nas diretrizes de acessibilidade. Volte em breve para conferir as melhores práticas para criar interfaces acessíveis."
-            icon="accessibility"
+            icon="alert"
           />
         )}
         
