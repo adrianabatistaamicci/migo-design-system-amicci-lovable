@@ -2,16 +2,36 @@
 import React from 'react';
 import { Book, FileText, Layers, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import HeroSection from '../components/library-components/HeroSection';
 
 const Index = () => {
   return <div className="space-y-16">
-      <HeroSection 
-        title="Migo, o Design System da Amicci"
-        subtitle="Um sistema de design consistente para criar interfaces de usuário modernas e acessíveis."
-        description="Migo é a essência da Amicci: um companheiro de confiança para seus projetos digitais. Como um aliado presente, ele trabalha nas entrelinhas do código e design, trazendo harmonia e claridade às suas interfaces, construindo pontes entre sua visão e a realidade."
-        backgroundImage="/lovable-uploads/3f0e12b8-4897-4ca4-aaeb-656250de8c5c.png"
-      />
+      {/* Hero section directly on the page */}
+      <section className="w-full relative overflow-hidden rounded-xl">
+        {/* Background image with overlay gradient */}
+        <div className="absolute inset-0 w-full h-full">
+          <img 
+            src="/lovable-uploads/3f0e12b8-4897-4ca4-aaeb-656250de8c5c.png" 
+            alt="Design fluid background" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+        
+        {/* Hero content */}
+        <div className="relative z-10 px-4 py-24 md:py-32 max-w-5xl mx-auto text-center">
+          <div className="p-8 rounded-xl bg-gray-900/80 backdrop-blur-sm">
+            <h2 className="text-4xl tracking-tight mb-4 text-white font-medium md:text-6xl">
+              Migo, o Design System da Amicci
+            </h2>
+            <h6 className="text-lg mb-6 text-white/90">
+              Um sistema de design consistente para criar interfaces de usuário modernas e acessíveis.
+            </h6>
+            <p className="text-white/80 italic mb-4 max-w-3xl mx-auto">
+              Migo é a essência da Amicci: um companheiro de confiança para seus projetos digitais. Como um aliado presente, ele trabalha nas entrelinhas do código e design, trazendo harmonia e claridade às suas interfaces, construindo pontes entre sua visão e a realidade.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <section>
         <div className="w-full">
