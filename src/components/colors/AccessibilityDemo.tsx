@@ -1,7 +1,6 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Eye, Info, Check, AlertCircle } from 'lucide-react';
-import { Toggle } from '@/components/ui/toggle';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import ColorSwatch from './ColorSwatch';
@@ -11,10 +10,79 @@ interface AccessibilityDemoProps {
   handleSimulation: (type: string) => void;
 }
 
+// Custom toggle switch component from the reference
+const Toggle = ({
+  enabled,
+  onChange,
+  className = "",
+  size = "default"
+}) => {
+  const sizeClasses = {
+    default: "w-11 h-6",
+    sm: "w-9 h-5",
+    lg: "w-14 h-7"
+  };
+  return <button type="button" className={`${enabled ? 'bg-primary-main' : 'bg-gray-200'} relative inline-flex flex-shrink-0 ${sizeClasses[size]} border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-main ${className}`} role="switch" aria-checked={enabled} onClick={() => onChange(!enabled)}>
+      <span className="sr-only">Toggle</span>
+      <span aria-hidden="true" className={`${enabled ? `translate-x-${size === 'sm' ? '4' : size === 'lg' ? '7' : '5'}` : 'translate-x-0'} pointer-events-none ${size === 'sm' ? 'h-4 w-4' : size === 'lg' ? 'h-6 w-6' : 'h-5 w-5'} rounded-full bg-white shadow ring-0 transition ease-in-out duration-200`} />
+    </button>;
+};
+
 const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({ 
   simulationType, 
   handleSimulation 
 }) => {
+  // Individual toggle states for each simulation
+  const [deuteranopiaEnabled, setDeuteranopiaEnabled] = useState(simulationType === 'deuteranopia');
+  const [protanopiaEnabled, setProtanopiaEnabled] = useState(simulationType === 'protanopia');
+  const [tritanopiaEnabled, setTritanopiaEnabled] = useState(simulationType === 'tritanopia');
+  const [achromatopsiaEnabled, setAchromatopsiaEnabled] = useState(simulationType === 'achromatopsia');
+
+  // Update the toggle states and call the parent handler
+  const handleDeuteranopiaToggle = (enabled) => {
+    setDeuteranopiaEnabled(enabled);
+    if (enabled) {
+      handleSimulation('deuteranopia');
+    } else if (simulationType === 'deuteranopia') {
+      handleSimulation('');
+    }
+  };
+
+  const handleProtanopiaToggle = (enabled) => {
+    setProtanopiaEnabled(enabled);
+    if (enabled) {
+      handleSimulation('protanopia');
+    } else if (simulationType === 'protanopia') {
+      handleSimulation('');
+    }
+  };
+
+  const handleTritanopiaToggle = (enabled) => {
+    setTritanopiaEnabled(enabled);
+    if (enabled) {
+      handleSimulation('tritanopia');
+    } else if (simulationType === 'tritanopia') {
+      handleSimulation('');
+    }
+  };
+
+  const handleAchromatopsiaToggle = (enabled) => {
+    setAchromatopsiaEnabled(enabled);
+    if (enabled) {
+      handleSimulation('achromatopsia');
+    } else if (simulationType === 'achromatopsia') {
+      handleSimulation('');
+    }
+  };
+
+  // Update the toggle states when simulationType changes
+  React.useEffect(() => {
+    setDeuteranopiaEnabled(simulationType === 'deuteranopia');
+    setProtanopiaEnabled(simulationType === 'protanopia');
+    setTritanopiaEnabled(simulationType === 'tritanopia');
+    setAchromatopsiaEnabled(simulationType === 'achromatopsia');
+  }, [simulationType]);
+
   return (
     <div className="space-y-8">
       <div>
@@ -114,91 +182,71 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-          <div className="border p-4 rounded-lg">
+          <div className="border p-4 rounded-lg relative">
+            <div className="absolute top-4 right-4">
+              <div className="flex items-center">
+                <Toggle enabled={deuteranopiaEnabled} onChange={handleDeuteranopiaToggle} size="sm" />
+                <span className="ml-3 text-sm font-medium text-gray-900">Simular</span>
+              </div>
+            </div>
             <h4 className="font-medium mb-2">Deuteranopia</h4>
             <p className="text-sm text-gray-600 mb-3">Deficiência de percepção do verde</p>
             <div className="grid grid-cols-4 gap-2">
-              <ColorSwatch color="bg-primary-main" className="h-14" simulationType={simulationType === 'deuteranopia' ? 'deuteranopia' : ''} />
-              <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={simulationType === 'deuteranopia' ? 'deuteranopia' : ''} />
-              <ColorSwatch color="bg-error-main" className="h-14" simulationType={simulationType === 'deuteranopia' ? 'deuteranopia' : ''} />
-              <ColorSwatch color="bg-success-main" className="h-14" simulationType={simulationType === 'deuteranopia' ? 'deuteranopia' : ''} />
-            </div>
-            <div className="flex justify-end mt-2">
-              <Toggle 
-                pressed={simulationType === 'deuteranopia'} 
-                onPressedChange={() => handleSimulation('deuteranopia')} 
-                aria-label="Simular Deuteranopia" 
-                className="gap-2"
-              >
-                <Eye className="h-4 w-4" />
-                <span className="text-xs">Simular Deuteranopia</span>
-              </Toggle>
+              <ColorSwatch color="bg-primary-main" className="h-14" simulationType={deuteranopiaEnabled ? 'deuteranopia' : ''} />
+              <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={deuteranopiaEnabled ? 'deuteranopia' : ''} />
+              <ColorSwatch color="bg-error-main" className="h-14" simulationType={deuteranopiaEnabled ? 'deuteranopia' : ''} />
+              <ColorSwatch color="bg-success-main" className="h-14" simulationType={deuteranopiaEnabled ? 'deuteranopia' : ''} />
             </div>
           </div>
           
-          <div className="border p-4 rounded-lg">
+          <div className="border p-4 rounded-lg relative">
+            <div className="absolute top-4 right-4">
+              <div className="flex items-center">
+                <Toggle enabled={protanopiaEnabled} onChange={handleProtanopiaToggle} size="sm" />
+                <span className="ml-3 text-sm font-medium text-gray-900">Simular</span>
+              </div>
+            </div>
             <h4 className="font-medium mb-2">Protanopia</h4>
             <p className="text-sm text-gray-600 mb-3">Deficiência de percepção do vermelho</p>
             <div className="grid grid-cols-4 gap-2">
-              <ColorSwatch color="bg-primary-main" className="h-14" simulationType={simulationType === 'protanopia' ? 'protanopia' : ''} />
-              <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={simulationType === 'protanopia' ? 'protanopia' : ''} />
-              <ColorSwatch color="bg-error-main" className="h-14" simulationType={simulationType === 'protanopia' ? 'protanopia' : ''} />
-              <ColorSwatch color="bg-success-main" className="h-14" simulationType={simulationType === 'protanopia' ? 'protanopia' : ''} />
-            </div>
-            <div className="flex justify-end mt-2">
-              <Toggle 
-                pressed={simulationType === 'protanopia'} 
-                onPressedChange={() => handleSimulation('protanopia')} 
-                aria-label="Simular Protanopia" 
-                className="gap-2"
-              >
-                <Eye className="h-4 w-4" />
-                <span className="text-xs">Simular Protanopia</span>
-              </Toggle>
+              <ColorSwatch color="bg-primary-main" className="h-14" simulationType={protanopiaEnabled ? 'protanopia' : ''} />
+              <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={protanopiaEnabled ? 'protanopia' : ''} />
+              <ColorSwatch color="bg-error-main" className="h-14" simulationType={protanopiaEnabled ? 'protanopia' : ''} />
+              <ColorSwatch color="bg-success-main" className="h-14" simulationType={protanopiaEnabled ? 'protanopia' : ''} />
             </div>
           </div>
           
-          <div className="border p-4 rounded-lg">
+          <div className="border p-4 rounded-lg relative">
+            <div className="absolute top-4 right-4">
+              <div className="flex items-center">
+                <Toggle enabled={tritanopiaEnabled} onChange={handleTritanopiaToggle} size="sm" />
+                <span className="ml-3 text-sm font-medium text-gray-900">Simular</span>
+              </div>
+            </div>
             <h4 className="font-medium mb-2">Tritanopia</h4>
             <p className="text-sm text-gray-600 mb-3">Deficiência de percepção do azul</p>
             <div className="grid grid-cols-4 gap-2">
-              <ColorSwatch color="bg-primary-main" className="h-14" simulationType={simulationType === 'tritanopia' ? 'tritanopia' : ''} />
-              <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={simulationType === 'tritanopia' ? 'tritanopia' : ''} />
-              <ColorSwatch color="bg-error-main" className="h-14" simulationType={simulationType === 'tritanopia' ? 'tritanopia' : ''} />
-              <ColorSwatch color="bg-success-main" className="h-14" simulationType={simulationType === 'tritanopia' ? 'tritanopia' : ''} />
-            </div>
-            <div className="flex justify-end mt-2">
-              <Toggle 
-                pressed={simulationType === 'tritanopia'} 
-                onPressedChange={() => handleSimulation('tritanopia')} 
-                aria-label="Simular Tritanopia" 
-                className="gap-2"
-              >
-                <Eye className="h-4 w-4" />
-                <span className="text-xs">Simular Tritanopia</span>
-              </Toggle>
+              <ColorSwatch color="bg-primary-main" className="h-14" simulationType={tritanopiaEnabled ? 'tritanopia' : ''} />
+              <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={tritanopiaEnabled ? 'tritanopia' : ''} />
+              <ColorSwatch color="bg-error-main" className="h-14" simulationType={tritanopiaEnabled ? 'tritanopia' : ''} />
+              <ColorSwatch color="bg-success-main" className="h-14" simulationType={tritanopiaEnabled ? 'tritanopia' : ''} />
             </div>
           </div>
           
-          <div className="border p-4 rounded-lg">
+          <div className="border p-4 rounded-lg relative">
+            <div className="absolute top-4 right-4">
+              <div className="flex items-center">
+                <Toggle enabled={achromatopsiaEnabled} onChange={handleAchromatopsiaToggle} size="sm" />
+                <span className="ml-3 text-sm font-medium text-gray-900">Simular</span>
+              </div>
+            </div>
             <h4 className="font-medium mb-2">Acromatopsia</h4>
             <p className="text-sm text-gray-600 mb-3">Ausência completa de percepção de cores</p>
             <div className="grid grid-cols-4 gap-2">
-              <ColorSwatch color="bg-primary-main" className="h-14" simulationType={simulationType === 'achromatopsia' ? 'achromatopsia' : ''} />
-              <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={simulationType === 'achromatopsia' ? 'achromatopsia' : ''} />
-              <ColorSwatch color="bg-error-main" className="h-14" simulationType={simulationType === 'achromatopsia' ? 'achromatopsia' : ''} />
-              <ColorSwatch color="bg-success-main" className="h-14" simulationType={simulationType === 'achromatopsia' ? 'achromatopsia' : ''} />
-            </div>
-            <div className="flex justify-end mt-2">
-              <Toggle 
-                pressed={simulationType === 'achromatopsia'} 
-                onPressedChange={() => handleSimulation('achromatopsia')} 
-                aria-label="Simular Acromatopsia" 
-                className="gap-2"
-              >
-                <Eye className="h-4 w-4" />
-                <span className="text-xs">Simular Acromatopsia</span>
-              </Toggle>
+              <ColorSwatch color="bg-primary-main" className="h-14" simulationType={achromatopsiaEnabled ? 'achromatopsia' : ''} />
+              <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={achromatopsiaEnabled ? 'achromatopsia' : ''} />
+              <ColorSwatch color="bg-error-main" className="h-14" simulationType={achromatopsiaEnabled ? 'achromatopsia' : ''} />
+              <ColorSwatch color="bg-success-main" className="h-14" simulationType={achromatopsiaEnabled ? 'achromatopsia' : ''} />
             </div>
           </div>
         </div>
