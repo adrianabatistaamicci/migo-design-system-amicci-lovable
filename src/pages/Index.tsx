@@ -1,36 +1,16 @@
-
 import React from 'react';
 import { Book, FileText, Layers, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import HeroSection from '../components/library-components/HeroSection';
 
 const Index = () => {
   return <div className="space-y-16">
-      <section className="w-full relative overflow-hidden rounded-xl">
-        {/* Background image with overlay gradient */}
-        <div className="absolute inset-0 w-full h-full">
-          <img 
-            src="/lovable-uploads/8d0c1eec-6410-4732-beb0-a587dc8e896f.png" 
-            alt="Design fluid waves" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/60"></div>
-        </div>
-        
-        {/* Hero content */}
-        <div className="relative z-10 px-4 py-24 md:py-32 max-w-5xl mx-auto text-center">
-          <div className="p-8 rounded-xl text-center">
-            <h2 className="text-4xl tracking-tight mb-4 text-white font-medium md:text-6xl">
-              Migo, o Design System da Amicci
-            </h2>
-            <h6 className="text-lg mb-6 text-white/90">
-              Um sistema de design consistente para criar interfaces de usuário modernas e acessíveis.
-            </h6>
-            <p className="text-white/80 italic mb-4 max-w-3xl mx-auto">
-              Migo é a essência da Amicci: um companheiro de confiança para seus projetos digitais. Como um aliado presente, ele trabalha nas entrelinhas do código e design, trazendo harmonia e claridade às suas interfaces, construindo pontes entre sua visão e a realidade.
-            </p>
-          </div>
-        </div>
-      </section>
+      <HeroSection 
+        title="Migo, o Design System da Amicci"
+        subtitle="Um sistema de design consistente para criar interfaces de usuário modernas e acessíveis."
+        description="Migo é a essência da Amicci: um companheiro de confiança para seus projetos digitais. Como um aliado presente, ele trabalha nas entrelinhas do código e design, trazendo harmonia e claridade às suas interfaces, construindo pontes entre sua visão e a realidade."
+        backgroundImage="/lovable-uploads/4acc3747-8680-4867-80a5-4a8164e3300b.png"
+      />
 
       <section>
         <div className="w-full">
