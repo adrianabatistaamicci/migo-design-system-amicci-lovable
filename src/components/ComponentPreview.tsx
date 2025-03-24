@@ -36,7 +36,7 @@ const ComponentPreview = ({
             onError={handleImageError} 
           />
         ) : imageError ? (
-          <div className="text-sm text-muted-foreground text-center">
+          <div className="text-sm text-white bg-[#000000] w-full h-full flex flex-col items-center justify-center">
             <span>Failed to load image</span>
             <div className="text-xs mt-1">{imageSrc}</div>
           </div>
