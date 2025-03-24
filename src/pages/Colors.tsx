@@ -5,6 +5,7 @@ import ColorOverview from '@/components/colors/ColorOverview';
 import AccessibilityDemo from '@/components/colors/AccessibilityDemo';
 import BaseColorsTable from '@/components/colors/BaseColorsTable';
 import PaletteTable from '@/components/colors/PaletteTable';
+import ColorUsage from '@/components/colors/ColorUsage';
 import Header from '@/components/library-components/Header';
 import { baseColorsData, paletteData } from '@/data/colorsData';
 
@@ -32,7 +33,8 @@ const Colors = () => {
             { name: 'Visão geral', value: 'overview' },
             { name: 'Cores Base', value: 'base-colors' },
             { name: 'Paletas Semânticas', value: 'semantic-palettes' },
-            { name: 'Acessibilidade', value: 'accessibility' }
+            { name: 'Acessibilidade', value: 'accessibility' },
+            { name: 'Uso', value: 'usage' }
           ]}
           variant="pillsGray"
           onChange={value => setActiveTab(value)}
@@ -48,6 +50,7 @@ const Colors = () => {
               handleSimulation={handleSimulation} 
             />
           )}
+          {activeTab === 'usage' && <ColorUsage />}
         </div>
       </div>
     </div>

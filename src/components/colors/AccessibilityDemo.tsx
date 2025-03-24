@@ -4,6 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Check, AlertCircle, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Toggle } from "@/components/ui/toggle";
+import ComponentCard from '@/components/ComponentCard';
 
 export interface AccessibilityDemoProps {
   simulationType: string;
@@ -16,10 +17,10 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
 }) => {
   return (
     <div className="space-y-8">
-      <div>
-        <h2 className="text-xl font-semibold mb-1 text-primary">Acessibilidade de Cores</h2>
-        <p className="text-secondary mb-6">Garantindo que nosso sistema de cores seja acessível a todos.</p>
-        
+      <ComponentCard 
+        title="Acessibilidade de Cores" 
+        description="Garantindo que nosso sistema de cores seja acessível a todos."
+      >
         <div className="space-y-8">
           {/* Contraste Section */}
           <section>
@@ -228,7 +229,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
             </div>
           </section>
         </div>
-      </div>
+      </ComponentCard>
     </div>
   );
 };
