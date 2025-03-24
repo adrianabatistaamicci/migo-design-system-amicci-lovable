@@ -1,9 +1,10 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '@/components/library-components/Header';
 import { TailwindTabs } from '@/components/ui/tabs';
 import ComponentCard from '@/components/ComponentCard';
 import { baseColorsData, paletteData } from '@/data/colorsData';
+import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
 
 // Componentes separados
 import ColorSwatch from '@/components/colors/ColorSwatch';
@@ -15,6 +16,16 @@ import AccessibilityDemo from '@/components/colors/AccessibilityDemo';
 const Colors = () => {
   const [simulationType, setSimulationType] = useState('');
   const [activeTab, setActiveTab] = useState('overview');
+  const [isLoading, setIsLoading] = useState(true);
+  
+  useEffect(() => {
+    // Simulate loading delay
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSimulation = (type: string) => {
     if (simulationType === type) {
@@ -23,6 +34,10 @@ const Colors = () => {
       setSimulationType(type);
     }
   };
+
+  if (isLoading) {
+    return <DocumentationSkeleton />;
+  }
 
   return (
     <div className="w-full animate-fade-in">

@@ -1,16 +1,19 @@
-
 import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import Header from '@/components/library-components/Header';
 import EmptyState from '@/components/library-components/EmptyState';
 import { Separator } from '@/components/ui/separator';
+import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
 
 // Define the type for the module records returned by import.meta.glob
 type ModuleRecord = Record<string, {
   default: React.ComponentType<any>;
 }>;
+
 const LibraryPage: React.FC = () => {
   const [components, setComponents] = useState<Record<string, React.ComponentType<any>>>({});
+  const [isLoading, setIsLoading] = useState(true);
+  
   useEffect(() => {
     // This is a special Vite function that will import all files from a directory
     const libraryComponents = import.meta.glob<{
@@ -24,20 +27,34 @@ const LibraryPage: React.FC = () => {
     for (const path in libraryComponents) {
       const componentName = path.split('/').pop()?.replace('.tsx', '') || '';
       // Skip EmptyState component and Header component as we'll add them manually to prevent duplication
-      // Also skip HeroSection as requested by the user
+      // Also skip HeroSection and other components as requested by the user
       if (componentName && 
           componentName !== 'EmptyState' && 
           componentName !== 'Header' && 
           componentName !== 'ComponentsHeader' && 
           componentName !== 'FoundationsHeader' && 
           componentName !== 'HeroSection' &&
+          componentName !== 'DocumentationSkeleton' &&
           libraryComponents[path].default) {
         formattedComponents[componentName] = libraryComponents[path].default;
       }
     }
     setComponents(formattedComponents);
+    
+    // Simulate loading delay
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+    
+    return () => clearTimeout(timer);
   }, []);
-  return <div className="animate-fade-in w-full max-w-[1280px] mx-auto">
+  
+  if (isLoading) {
+    return <DocumentationSkeleton />;
+  }
+  
+  return (
+    <div className="animate-fade-in w-full max-w-[1280px] mx-auto">
       <div className="w-full mb-12">
         <Header title="Library Components" description="Uma coleção de componentes de UI reutilizáveis projetados para o nossa documentação de design system." type="components" />
         
@@ -105,7 +122,8 @@ const LibraryPage: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
 
 // Helper function to provide default props for each component type
@@ -127,4 +145,5 @@ const getDefaultProps = (componentName: string): Record<string, any> => {
       return {};
   }
 };
+
 export default LibraryPage;

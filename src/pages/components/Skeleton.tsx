@@ -1,11 +1,27 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '@/components/library-components/Header';
 import ComponentCard from '@/components/ComponentCard';
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
+import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
 
-const Skeletons = () => {
+const SkeletonPage = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  
+  useEffect(() => {
+    // Simulate loading delay
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
+  if (isLoading) {
+    return <DocumentationSkeleton />;
+  }
+  
   return (
     <div className="w-full animate-fade-in">
       <Header 
@@ -131,4 +147,4 @@ export { Skeleton }
   );
 };
 
-export default Skeletons;
+export default SkeletonPage;

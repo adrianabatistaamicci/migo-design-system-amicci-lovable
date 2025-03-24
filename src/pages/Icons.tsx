@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Separator } from "@/components/ui/separator";
 import { Chip } from '@/components/ui/chip';
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
@@ -8,9 +8,24 @@ import ComponentCard from '@/components/ComponentCard';
 import Header from '@/components/library-components/Header';
 import { TailwindTabs } from "@/components/ui/tabs";
 import { Home, Settings, Eye, User } from "lucide-react";
+import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
 
 const Icons = () => {
   const [activeTab, setActiveTab] = useState('overview');
+  const [isLoading, setIsLoading] = useState(true);
+  
+  useEffect(() => {
+    // Simulate loading delay
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
+  if (isLoading) {
+    return <DocumentationSkeleton />;
+  }
   
   return (
     <div className="w-full animate-fade-in">

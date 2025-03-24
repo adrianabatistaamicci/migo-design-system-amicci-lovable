@@ -1,9 +1,25 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
+import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
 
 const Guidelines = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  
+  useEffect(() => {
+    // Simulate loading delay
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
+  if (isLoading) {
+    return <DocumentationSkeleton />;
+  }
+
   return (
     <div className="w-full animate-fade-in">
       <Header 
