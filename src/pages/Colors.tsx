@@ -20,8 +20,8 @@ const Colors = () => {
   return (
     <div className="w-full animate-fade-in">
       <Header 
-        title="Colors" 
-        description="Sistema de cores e tokens utilizados na aplicação"
+        title="Sistema de Cores" 
+        description="Nosso sistema de cores é construído com variáveis CSS para suportar temas e personalização."
         type="foundations"
       />
 
@@ -30,7 +30,7 @@ const Colors = () => {
           className=""
           defaultValue="overview" 
           tabs={[
-            { name: 'Paletas', value: 'overview' },
+            { name: 'Visão geral', value: 'overview' },
             { name: 'Uso', value: 'usage' },
             { name: 'Cores Base', value: 'base-colors' },
             { name: 'Paletas Semânticas', value: 'semantic-palettes' },

@@ -1,12 +1,9 @@
 
-import React, { useState } from 'react';
-import { TailwindTabs } from "@/components/ui/tabs";
-import ComponentCard from '@/components/ComponentCard';
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Label } from "@/components/ui/label";
+import React from 'react';
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Card, CardContent } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Check, AlertCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export interface AccessibilityDemoProps {
   simulationType: string;
@@ -18,101 +15,212 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
   handleSimulation 
 }) => {
   return (
-    <div className="space-y-6">
-      <ComponentCard 
-        title="Acessibilidade de Cores" 
-        description="Verifique como suas escolhas de cores afetam a acessibilidade para diferentes tipos de usuários."
-      >
-        <div className="space-y-6">
-          <div>
-            <h3 className="text-xl font-medium mb-3">Simuladores de Deficiência Visual</h3>
-            <p className="text-mui-text-secondary mb-4">
-              Use os simuladores abaixo para verificar como as pessoas com diferentes tipos de deficiência visual percebem suas escolhas de cores.
-            </p>
+    <div className="space-y-8">
+      <div>
+        <h2 className="text-2xl font-semibold mb-1">Acessibilidade de Cores</h2>
+        <p className="text-gray-600 mb-6">Garantindo que nosso sistema de cores seja acessível a todos.</p>
+        
+        <div className="space-y-8">
+          {/* Contraste Section */}
+          <section>
+            <h3 className="text-xl font-medium mb-4">Contraste</h3>
+            <p className="mb-6">Todas as combinações de cores de texto e fundo atendem aos requisitos de contraste WCAG 2.1 AA:</p>
             
-            <div className="grid gap-6 md:grid-cols-2">
-              <div>
-                <RadioGroup 
-                  defaultValue={simulationType}
-                  onValueChange={handleSimulation}
-                  className="space-y-3"
-                >
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="normal" id="normal" />
-                    <Label htmlFor="normal">Visão Normal</Label>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="border rounded-lg p-4 space-y-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 rounded-full flex items-center justify-center bg-blue-50 text-blue-600">
+                    <Check className="w-4 h-4" />
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="protanopia" id="protanopia" />
-                    <Label htmlFor="protanopia">Protanopia (Vermelho-Verde)</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="deuteranopia" id="deuteranopia" />
-                    <Label htmlFor="deuteranopia">Deuteranopia (Verde-Vermelho)</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="tritanopia" id="tritanopia" />
-                    <Label htmlFor="tritanopia">Tritanopia (Azul-Amarelo)</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="achromatopsia" id="achromatopsia" />
-                    <Label htmlFor="achromatopsia">Acromatopsia (Sem Cor)</Label>
-                  </div>
-                </RadioGroup>
+                  <span className="font-medium">Texto normal</span>
+                </div>
+                <p className="text-sm text-gray-600">Contraste mínimo de 4.5:1</p>
+                <div className="bg-teal-500 text-white text-sm p-3 rounded">
+                  Exemplo de texto com contraste adequado
+                </div>
               </div>
               
-              <div>
-                <Card className={`w-full h-full min-h-[200px] overflow-hidden ${
-                  simulationType === 'protanopia' ? 'filter-protanopia' :
-                  simulationType === 'deuteranopia' ? 'filter-deuteranopia' :
-                  simulationType === 'tritanopia' ? 'filter-tritanopia' :
-                  simulationType === 'achromatopsia' ? 'filter-grayscale' : ''
-                }`}>
-                  <CardContent className="p-6">
-                    <div className="space-y-4">
-                      <div className="flex space-x-2">
-                        <div className="w-8 h-8 rounded-full bg-red-500"></div>
-                        <div className="w-8 h-8 rounded-full bg-green-500"></div>
-                        <div className="w-8 h-8 rounded-full bg-blue-500"></div>
-                        <div className="w-8 h-8 rounded-full bg-yellow-500"></div>
-                      </div>
-                      
-                      <Separator />
-                      
-                      <div className="space-y-2">
-                        <p className="text-green-700 bg-green-100 p-2 rounded">Texto em fundo verde claro</p>
-                        <p className="text-blue-700 bg-blue-100 p-2 rounded">Texto em fundo azul claro</p>
-                        <p className="text-white bg-purple-700 p-2 rounded">Texto branco em fundo roxo</p>
-                      </div>
-                      
-                      <div className="flex space-x-2">
-                        <Button variant="default">Primário</Button>
-                        <Button variant="outline">Secundário</Button>
-                        <Button variant="destructive">Alerta</Button>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+              <div className="border rounded-lg p-4 space-y-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 rounded-full flex items-center justify-center bg-blue-50 text-blue-600">
+                    <Check className="w-4 h-4" />
+                  </div>
+                  <span className="font-medium">Texto grande (18pt ou 14pt bold)</span>
+                </div>
+                <p className="text-sm text-gray-600">Contraste mínimo de 3:1</p>
+                <div className="bg-teal-100 text-teal-800 text-lg p-3 rounded font-medium">
+                  Texto grande
+                </div>
+              </div>
+              
+              <div className="border rounded-lg p-4 space-y-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 rounded-full flex items-center justify-center bg-blue-50 text-blue-600">
+                    <Check className="w-4 h-4" />
+                  </div>
+                  <span className="font-medium">Componentes de interface e gráficos</span>
+                </div>
+                <p className="text-sm text-gray-600">Contraste mínimo de 3:1</p>
+                <Button variant="default" className="bg-teal-500 hover:bg-teal-600 text-white">
+                  Botão de exemplo
+                </Button>
               </div>
             </div>
-          </div>
+          </section>
           
-          <Separator />
-          
-          <div>
-            <h3 className="text-xl font-medium mb-3">Diretrizes de Contraste</h3>
-            <p className="text-mui-text-secondary mb-4">
-              Certifique-se de que suas escolhas de cores atendam aos requisitos de contraste do WCAG para garantir a legibilidade.
-            </p>
+          {/* Não Dependa Apenas da Cor */}
+          <section>
+            <h3 className="text-xl font-medium mb-4">Não Dependa Apenas da Cor</h3>
+            <p className="mb-6">Para garantir que as informações sejam acessíveis a pessoas com deficiência visual ou daltonismo, não usamos apenas cor para transmitir informações importantes:</p>
             
-            <ul className="list-disc list-inside space-y-2 ml-4">
-              <li>Texto normal: relação de contraste mínima de 4.5:1</li>
-              <li>Texto grande (18pt ou 14pt bold): relação de contraste mínima de 3:1</li>
-              <li>Componentes de interface e gráficos: relação de contraste mínima de 3:1</li>
-              <li>Texto ou componentes desativados: sem requisitos mínimos</li>
-            </ul>
-          </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="border rounded-lg p-4 space-y-3">
+                <div className="flex items-center gap-2 text-green-600">
+                  <Check className="w-5 h-5" />
+                  <span className="font-medium">Combinação com elementos visuais</span>
+                </div>
+                <p className="text-sm text-gray-600">Combinamos cores com ícones, textos e padrões</p>
+                <div className="flex items-center gap-2 text-red-500 mt-3">
+                  <AlertCircle className="w-5 h-5" />
+                  <span>Erro no formulário</span>
+                </div>
+              </div>
+              
+              <div className="border rounded-lg p-4 space-y-3">
+                <div className="flex items-center gap-2 text-green-600">
+                  <Check className="w-5 h-5" />
+                  <span className="font-medium">Alternativas textuais</span>
+                </div>
+                <p className="text-sm text-gray-600">Oferecemos alternativas textuais para informações baseadas em cores</p>
+                <div className="flex items-center gap-2 mt-3">
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  <span>Status: Ativo</span>
+                </div>
+              </div>
+              
+              <div className="border rounded-lg p-4 space-y-3">
+                <div className="flex items-center gap-2 text-green-600">
+                  <Check className="w-5 h-5" />
+                  <span className="font-medium">Contraste suficiente</span>
+                </div>
+                <p className="text-sm text-gray-600">Mantemos contraste suficiente mesmo em visualizações monocromáticas</p>
+                <div className="flex gap-3 mt-3">
+                  <span className="border border-gray-300 px-3 py-1 rounded text-sm">Normal</span>
+                  <span className="border border-gray-900 px-3 py-1 rounded text-sm">Outline</span>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          {/* Teste de Daltonismo */}
+          <section>
+            <h3 className="text-xl font-medium mb-4">Teste de Daltonismo</h3>
+            <p className="mb-6">Nosso sistema de cores foi testado para os seguintes tipos de daltonismo:</p>
+            
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Deuteranopia */}
+                <div className="border rounded-lg p-4">
+                  <div className="flex justify-between items-center mb-4">
+                    <div>
+                      <h4 className="font-medium">Deuteranopia</h4>
+                      <p className="text-sm text-gray-600">Deficiência de percepção do verde</p>
+                    </div>
+                    <RadioGroup 
+                      value={simulationType === 'deuteranopia' ? 'deuteranopia' : ''} 
+                      onValueChange={() => handleSimulation('deuteranopia')}
+                      className="flex items-center gap-2"
+                    >
+                      <Label htmlFor="deuteranopia-sim" className="text-sm text-gray-600">Simular</Label>
+                      <RadioGroupItem value="deuteranopia" id="deuteranopia-sim" />
+                    </RadioGroup>
+                  </div>
+                  <div className={`grid grid-cols-4 gap-2 ${simulationType === 'deuteranopia' ? 'filter-deuteranopia' : ''}`}>
+                    <div className="h-8 bg-teal-500 rounded"></div>
+                    <div className="h-8 bg-teal-800 rounded"></div>
+                    <div className="h-8 bg-red-500 rounded"></div>
+                    <div className="h-8 bg-green-500 rounded"></div>
+                  </div>
+                </div>
+                
+                {/* Protanopia */}
+                <div className="border rounded-lg p-4">
+                  <div className="flex justify-between items-center mb-4">
+                    <div>
+                      <h4 className="font-medium">Protanopia</h4>
+                      <p className="text-sm text-gray-600">Deficiência de percepção do vermelho</p>
+                    </div>
+                    <RadioGroup 
+                      value={simulationType === 'protanopia' ? 'protanopia' : ''} 
+                      onValueChange={() => handleSimulation('protanopia')}
+                      className="flex items-center gap-2"
+                    >
+                      <Label htmlFor="protanopia-sim" className="text-sm text-gray-600">Simular</Label>
+                      <RadioGroupItem value="protanopia" id="protanopia-sim" />
+                    </RadioGroup>
+                  </div>
+                  <div className={`grid grid-cols-4 gap-2 ${simulationType === 'protanopia' ? 'filter-protanopia' : ''}`}>
+                    <div className="h-8 bg-teal-500 rounded"></div>
+                    <div className="h-8 bg-teal-800 rounded"></div>
+                    <div className="h-8 bg-red-500 rounded"></div>
+                    <div className="h-8 bg-green-500 rounded"></div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Tritanopia */}
+                <div className="border rounded-lg p-4">
+                  <div className="flex justify-between items-center mb-4">
+                    <div>
+                      <h4 className="font-medium">Tritanopia</h4>
+                      <p className="text-sm text-gray-600">Deficiência de percepção do azul</p>
+                    </div>
+                    <RadioGroup 
+                      value={simulationType === 'tritanopia' ? 'tritanopia' : ''} 
+                      onValueChange={() => handleSimulation('tritanopia')}
+                      className="flex items-center gap-2"
+                    >
+                      <Label htmlFor="tritanopia-sim" className="text-sm text-gray-600">Simular</Label>
+                      <RadioGroupItem value="tritanopia" id="tritanopia-sim" />
+                    </RadioGroup>
+                  </div>
+                  <div className={`grid grid-cols-4 gap-2 ${simulationType === 'tritanopia' ? 'filter-tritanopia' : ''}`}>
+                    <div className="h-8 bg-teal-500 rounded"></div>
+                    <div className="h-8 bg-teal-800 rounded"></div>
+                    <div className="h-8 bg-red-500 rounded"></div>
+                    <div className="h-8 bg-green-500 rounded"></div>
+                  </div>
+                </div>
+                
+                {/* Achromatopsia */}
+                <div className="border rounded-lg p-4">
+                  <div className="flex justify-between items-center mb-4">
+                    <div>
+                      <h4 className="font-medium">Acromatopsia</h4>
+                      <p className="text-sm text-gray-600">Ausência completa de percepção de cores</p>
+                    </div>
+                    <RadioGroup 
+                      value={simulationType === 'achromatopsia' ? 'achromatopsia' : ''} 
+                      onValueChange={() => handleSimulation('achromatopsia')}
+                      className="flex items-center gap-2"
+                    >
+                      <Label htmlFor="achromatopsia-sim" className="text-sm text-gray-600">Simular</Label>
+                      <RadioGroupItem value="achromatopsia" id="achromatopsia-sim" />
+                    </RadioGroup>
+                  </div>
+                  <div className={`grid grid-cols-4 gap-2 ${simulationType === 'achromatopsia' ? 'filter-grayscale' : ''}`}>
+                    <div className="h-8 bg-teal-500 rounded"></div>
+                    <div className="h-8 bg-teal-800 rounded"></div>
+                    <div className="h-8 bg-red-500 rounded"></div>
+                    <div className="h-8 bg-green-500 rounded"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
-      </ComponentCard>
+      </div>
     </div>
   );
 };
