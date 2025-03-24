@@ -113,7 +113,13 @@ function Skeleton({
 
 export { Skeleton }
             `}
-          />
+          >
+            <div className="p-4 flex flex-col space-y-3">
+              <Skeleton className="h-8 w-full" />
+              <Skeleton className="h-8 w-3/4" />
+              <Skeleton className="h-8 w-1/2" />
+            </div>
+          </ComponentCard>
         </div>
       </div>
     </div>
