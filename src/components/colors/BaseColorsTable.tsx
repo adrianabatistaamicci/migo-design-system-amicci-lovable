@@ -40,6 +40,7 @@ const BaseColorsTable: React.FC<BaseColorsTableProps> = ({ baseColors }) => {
       <ComponentCard 
         title="Cores Base" 
         description="Estas são as cores fundamentais do nosso sistema, a partir das quais construímos nossas paletas semânticas."
+        className="overflow-hidden rounded-lg"
       >
         <div className="space-y-8">
           {baseColors.map(baseColor => (
@@ -68,7 +69,7 @@ const BaseColorsTable: React.FC<BaseColorsTableProps> = ({ baseColors }) => {
                           {baseColor.name.toLowerCase()}-{weight.weight}
                         </TableCell>
                         <TableCell>
-                          <ColorSwatch color={weight.colorClass} textOverlay={weight.weight} className="h-12" />
+                          <ColorSwatch color={weight.colorClass} textOverlay={weight.weight} className="h-12 rounded-md" />
                         </TableCell>
                         <TableCell className="font-mono">
                           --{baseColor.name.toLowerCase()}-{weight.weight}

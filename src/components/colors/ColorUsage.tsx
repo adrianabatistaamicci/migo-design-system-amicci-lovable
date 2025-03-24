@@ -1,87 +1,100 @@
-import React from 'react';
-import ComponentCard from '@/components/ComponentCard';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 
-const ColorUsage: React.FC = () => {
+import React from 'react';
+import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { AlertCircle, CheckCircle2, Info } from 'lucide-react';
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+import ComponentCard from '@/components/ComponentCard';
+
+const ColorUsage = () => {
   return (
-    <ComponentCard 
-      title="Uso" 
-      description="Orientações para a aplicação correta das cores na interface."
-    >
-      <p className="text-gray-600 mb-6">
-        Diretrizes de uso que asseguram consistência visual e funcional em toda a experiência do usuário.
-      </p>
-      <div className="space-y-6">
-        <div>
-          <h3 className="text-xl font-semibold mb-3">Aplicação em Componentes</h3>
-          <p className="text-gray-600 mb-4">
-            Nossas cores são aplicadas de acordo com as seguintes diretrizes para manter consistência visual em toda a plataforma.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-            <div className="border p-4 rounded-lg">
-              <h4 className="font-medium mb-3">Botões</h4>
-              <div className="flex flex-col space-y-4">
-                <Button>Botão Primário</Button>
-                <Button variant="default">Botão Secundário</Button>
-                <Button variant="outline-secondary">Botão Outline</Button>
-                <Button variant="text-default">Botão Texto</Button>
-              </div>
-            </div>
-            
-            <div className="border p-4 rounded-lg">
-              <h4 className="font-medium mb-3">Badges</h4>
-              <div className="flex flex-wrap gap-3">
-                <Badge>Default</Badge>
-                <Badge variant="secondary">Secondary</Badge>
-                <Badge variant="outline">Outline</Badge>
-                <Badge variant="destructive">Destructive</Badge>
-              </div>
-            </div>
-          </div>
+    <div className="space-y-8">
+      <ComponentCard 
+        title="Uso de Cores" 
+        description="Guia para aplicação consistente das cores do sistema em diferentes contextos."
+        className="overflow-hidden rounded-lg"
+      >
+        <h3 className="text-lg font-medium mb-4">Cores para Botões</h3>
+        <div className="flex flex-wrap gap-4 mb-8">
+          <Button variant="default" className="rounded-md">Botão Primário</Button>
+          <Button variant="error" className="rounded-md">Botão de Erro</Button>
+          <Button variant="outline-secondary" className="rounded-md">Botão Secundário</Button>
+          <Button variant="text-default" className="rounded-md">Botão Texto</Button>
         </div>
         
-        <div>
-          <h3 className="text-xl font-semibold mb-3">Diretrizes de Contraste</h3>
-          <p className="text-gray-600 mb-4">
-            Todas as cores foram testadas para garantir contraste adequado seguindo as diretrizes WCAG 2.1.
-          </p>
+        <h3 className="text-lg font-medium mb-4">Cores para Alertas</h3>
+        <div className="space-y-4 mb-8">
+          <Alert variant="default" className="border-primary-main rounded-md">
+            <Info className="h-4 w-4 text-primary-main" />
+            <AlertTitle>Informação</AlertTitle>
+            <AlertDescription>
+              Este é um alerta de informação usando cores primárias.
+            </AlertDescription>
+          </Alert>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="border p-4 rounded-lg">
-              <h4 className="font-medium mb-2">Combinações Recomendadas</h4>
-              <div className="space-y-2">
-                <div className="p-3 bg-primary-main rounded">
-                  <p className="text-white">Texto em branco sobre fundo primário</p>
-                </div>
-                <div className="p-3 bg-white border border-primary-main rounded">
-                  <p className="text-primary-main">Texto primário sobre fundo branco</p>
-                </div>
-                <div className="p-3 bg-secondary-dark rounded">
-                  <p className="text-white">Texto em branco sobre fundo secundário escuro</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="border p-4 rounded-lg">
-              <h4 className="font-medium mb-2">Combinações a Evitar</h4>
-              <div className="space-y-2">
-                <div className="p-3 bg-amicci-100 rounded">
-                  <p className="text-amicci-200">❌ Contraste insuficiente: cores próximas</p>
-                </div>
-                <div className="p-3 bg-yellow-300 rounded">
-                  <p className="text-white">❌ Combinação que pode dificultar a leitura</p>
-                </div>
-                <div className="p-3 bg-gray-200 rounded">
-                  <p className="text-gray-400">❌ Texto muito claro em fundo claro</p>
-                </div>
-              </div>
-            </div>
+          <Alert variant="destructive" className="rounded-md">
+            <AlertCircle className="h-4 w-4" />
+            <AlertTitle>Erro</AlertTitle>
+            <AlertDescription>
+              Este é um alerta de erro usando cores de erro.
+            </AlertDescription>
+          </Alert>
+          
+          <Alert className="border-success-main rounded-md">
+            <CheckCircle2 className="h-4 w-4 text-success-main" />
+            <AlertTitle className="text-success-main">Sucesso</AlertTitle>
+            <AlertDescription>
+              Este é um alerta de sucesso usando cores de sucesso.
+            </AlertDescription>
+          </Alert>
+        </div>
+      </ComponentCard>
+      
+      <ComponentCard 
+        title="Diretrizes para Uso de Cores" 
+        description="Recomendações para aplicação das cores no sistema de design."
+        className="overflow-hidden rounded-lg"
+      >
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-lg font-medium mb-2">Cores Primárias</h3>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Use Amicci-500 como cor principal para elementos de destaque e ações primárias.</li>
+              <li>Use Blue-600 para links e elementos secundários de navegação.</li>
+              <li>Limit o uso das cores de destaque para manter o equilíbrio visual.</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="text-lg font-medium mb-2">Cores Semânticas</h3>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Verde (success) para mensagens de sucesso, confirmações e ações concluídas.</li>
+              <li>Vermelho (error) para erros, alertas críticos e ações destrutivas.</li>
+              <li>Amarelo (warning) para avisos e alertas não críticos.</li>
+              <li>Azul (info) para mensagens informativas e dicas.</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="text-lg font-medium mb-2">Cores de Fundo</h3>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Use tons neutros (background-default, background-paper) para fundos de página e containers.</li>
+              <li>Aplique cores de fundo mais escuras para áreas de navegação e cabeçalhos.</li>
+              <li>Mantenha alto contraste entre texto e fundo para garantir legibilidade.</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="text-lg font-medium mb-2">Estados e Interações</h3>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Use variações da mesma cor para indicar estados de componentes (hover, active, disabled).</li>
+              <li>Mantenha consistência nos estados visuais em toda a interface.</li>
+              <li>Aplique opacidade para indicar estados desabilitados mantendo a identidade visual.</li>
+            </ul>
           </div>
         </div>
-      </div>
-    </ComponentCard>
+      </ComponentCard>
+    </div>
   );
 };
 
