@@ -3,7 +3,6 @@ import ComponentCard from '@/components/ComponentCard';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { TailwindTabs } from '@/components/ui/tabs';
-
 const TabsPage = () => {
   return <div className="w-full animate-slide-in">
       <div className="mb-12">
@@ -299,5 +298,4 @@ const TabsPage = () => {
       </div>
     </div>;
 };
-
 export default TabsPage;
