@@ -85,12 +85,12 @@ const Components = () => {
             description="Material Design buttons with multiple variants and styles."
             code={`<Button>Primary</Button>
 <Button variant="text-default">Text</Button>
-<Button variant="outline-default">Outlined</Button>`}
+<Button variant="outline-secondary">Outlined</Button>`}
           >
             <div className="flex flex-wrap gap-4">
               <Button>Primary</Button>
               <Button variant="text-default">Text</Button>
-              <Button variant="outline-default">Outlined</Button>
+              <Button variant="outline-secondary">Outlined</Button>
             </div>
           </ComponentCard>
           

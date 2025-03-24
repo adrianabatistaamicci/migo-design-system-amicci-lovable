@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Button } from '@/components/ui/button';
@@ -25,8 +24,8 @@ const ColorUsage: React.FC = () => {
               <h4 className="font-medium mb-3">Botões</h4>
               <div className="flex flex-col space-y-4">
                 <Button>Botão Primário</Button>
-                <Button variant="secondary">Botão Secundário</Button>
-                <Button variant="outline-default">Botão Outline</Button>
+                <Button variant="default">Botão Secundário</Button>
+                <Button variant="outline-secondary">Botão Outline</Button>
                 <Button variant="text-default">Botão Texto</Button>
               </div>
             </div>
