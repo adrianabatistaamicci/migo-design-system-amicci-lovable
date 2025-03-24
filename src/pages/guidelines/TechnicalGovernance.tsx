@@ -58,6 +58,49 @@ const TechnicalGovernance = () => {
         </div>
       </div>
       
+      <div className="mb-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <h2 className="text-2xl font-semibold mb-4">Filosofia de Inovação</h2>
+        <div className="prose prose-blue max-w-none">
+          <p className="text-gray-800 mb-3">
+            Estamos em um momento de transformação no desenvolvimento de software, onde ferramentas de IA estão mudando a forma como criamos interfaces e experiências digitais.
+          </p>
+          <p className="text-gray-800 mb-3">
+            Nossa abordagem para este momento de evolução:
+          </p>
+          <ul className="list-disc pl-6 mb-4 space-y-2">
+            <li className="text-gray-800">
+              <strong>Encoraje a experimentação:</strong> Incentivamos todos os colaboradores a explorarem as possibilidades do Lovable e outras ferramentas de IA.
+            </li>
+            <li className="text-gray-800">
+              <strong>Aprenda através da prática:</strong> Este é um momento de aprendizado coletivo - alguns experimentos terão sucesso, outros não, mas todos trazem valor.
+            </li>
+            <li className="text-gray-800">
+              <strong>Orientação em vez de restrição:</strong> A equipe de UX e o time de Design System atuam como facilitadores e orientadores, não como barreiras à inovação.
+            </li>
+          </ul>
+          
+          <h3 className="text-xl font-medium mb-3">Diretrizes para Desenvolvimento</h3>
+          <div className="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+            <h4 className="font-medium mb-2">Para experimentos e projetos de aprendizado:</h4>
+            <p className="text-gray-700 mb-2">
+              Sinta-se à vontade para explorar, experimentar e testar novas abordagens. Não se preocupe em seguir rigorosamente os padrões do Design System nesta fase.
+            </p>
+          </div>
+          
+          <div className="bg-white p-4 rounded-lg border border-gray-200">
+            <h4 className="font-medium mb-2">Para jornadas e produtos oficiais:</h4>
+            <p className="text-gray-700 mb-2">
+              Qualquer pessoa pode contribuir com ideias, protótipos e experimentos, mas o código que vai para produção deve passar por um processo de revisão que inclui:
+            </p>
+            <ul className="list-disc pl-6 space-y-1">
+              <li className="text-gray-700">Revisão de UX para garantir consistência na experiência</li>
+              <li className="text-gray-700">Alinhamento com Produto para validar prioridades e requisitos</li>
+              <li className="text-gray-700">Revisão técnica da Engenharia para garantir qualidade e manutenibilidade</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
       <div className="mt-6 space-y-8">
         <section>
           <div className="space-y-8">
@@ -262,3 +305,4 @@ function MeuComponente() {
 };
 
 export default TechnicalGovernance;
+
