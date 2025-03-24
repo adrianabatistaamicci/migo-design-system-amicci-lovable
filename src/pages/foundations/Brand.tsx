@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -6,7 +5,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { TailwindTabs } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
-import { Sparkles, CircleUser, ChevronDown, RefreshCw, ThumbsUp, ThumbsDown } from "lucide-react";
+import { Sparkles, CircleUser, ChevronDown, RefreshCw, ThumbsUp, ThumbsDown, Download } from "lucide-react";
 import Header from '@/components/library-components/Header';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -40,88 +39,92 @@ const Brand = () => {
     document.body.removeChild(link);
   };
 
-  const tertiaryColors = [{
-    name: 'tertiary-50',
-    hex: '#FDF5FA',
-    className: 'bg-tertiary-light'
-  }, {
-    name: 'tertiary-100',
-    hex: '#F9E5F4',
-    className: 'bg-tertiary-light'
-  }, {
-    name: 'tertiary-200',
-    hex: '#F2CAEB',
-    className: 'bg-tertiary-light'
-  }, {
-    name: 'tertiary-300',
-    hex: '#E7A4DD',
-    className: 'bg-tertiary-light'
-  }, {
-    name: 'tertiary-400',
-    hex: '#C963BA',
-    className: 'bg-tertiary-light'
-  }, {
-    name: 'tertiary-500',
-    hex: '#9B247F',
-    className: 'bg-tertiary-main'
-  }, {
-    name: 'tertiary-600',
-    hex: '#841E6C',
-    className: 'bg-tertiary-dark'
-  }, {
-    name: 'tertiary-700',
-    hex: '#6D1959',
-    className: 'bg-tertiary-dark'
-  }, {
-    name: 'tertiary-800',
-    hex: '#571447',
-    className: 'bg-tertiary-dark'
-  }, {
-    name: 'tertiary-900',
-    hex: '#49123C',
-    className: 'bg-tertiary-dark'
-  }, {
-    name: 'tertiary-950',
-    hex: '#3E0F32',
-    className: 'bg-tertiary-dark'
-  }];
+  const tertiaryColors = [
+    {
+      name: 'tertiary-50',
+      hex: '#FDF5FA',
+      className: 'bg-tertiary-light'
+    }, {
+      name: 'tertiary-100',
+      hex: '#F9E5F4',
+      className: 'bg-tertiary-light'
+    }, {
+      name: 'tertiary-200',
+      hex: '#F2CAEB',
+      className: 'bg-tertiary-light'
+    }, {
+      name: 'tertiary-300',
+      hex: '#E7A4DD',
+      className: 'bg-tertiary-light'
+    }, {
+      name: 'tertiary-400',
+      hex: '#C963BA',
+      className: 'bg-tertiary-light'
+    }, {
+      name: 'tertiary-500',
+      hex: '#9B247F',
+      className: 'bg-tertiary-main'
+    }, {
+      name: 'tertiary-600',
+      hex: '#841E6C',
+      className: 'bg-tertiary-dark'
+    }, {
+      name: 'tertiary-700',
+      hex: '#6D1959',
+      className: 'bg-tertiary-dark'
+    }, {
+      name: 'tertiary-800',
+      hex: '#571447',
+      className: 'bg-tertiary-dark'
+    }, {
+      name: 'tertiary-900',
+      hex: '#49123C',
+      className: 'bg-tertiary-dark'
+    }, {
+      name: 'tertiary-950',
+      hex: '#3E0F32',
+      className: 'bg-tertiary-dark'
+    }
+  ];
 
-  const tertiaryPalette = [{
-    name: 'main',
-    color: 'bg-tertiary-main',
-    hex: '#9B247F',
-    tailwindClass: 'bg-tertiary-main'
-  }, {
-    name: 'light',
-    color: 'bg-tertiary-light',
-    hex: '#F9E5F4',
-    tailwindClass: 'bg-tertiary-light'
-  }, {
-    name: 'dark',
-    color: 'bg-tertiary-dark',
-    hex: '#6D1959',
-    tailwindClass: 'bg-tertiary-dark'
-  }, {
-    name: 'hover',
-    color: 'bg-tertiary-hover',
-    hex: 'rgba(155, 36, 127, 0.04)',
-    tailwindClass: 'bg-tertiary-hover'
-  }, {
-    name: 'selected',
-    color: 'bg-tertiary-selected',
-    hex: 'rgba(155, 36, 127, 0.08)',
-    tailwindClass: 'bg-tertiary-selected'
-  }, {
-    name: 'focus',
-    color: 'bg-tertiary-focus',
-    hex: 'rgba(155, 36, 127, 0.12)',
-    tailwindClass: 'bg-tertiary-focus'
-  }, {
-    name: 'focusVisible',
-    color: 'bg-tertiary-focusVisible',
-    hex: 'rgba(155, 36, 127, 0.30)',
-    tailwindClass: 'bg-tertiary-focusVisible'
-  }];
+  const tertiaryPalette = [
+    {
+      name: 'main',
+      color: 'bg-tertiary-main',
+      hex: '#9B247F',
+      tailwindClass: 'bg-tertiary-main'
+    }, {
+      name: 'light',
+      color: 'bg-tertiary-light',
+      hex: '#F9E5F4',
+      tailwindClass: 'bg-tertiary-light'
+    }, {
+      name: 'dark',
+      color: 'bg-tertiary-dark',
+      hex: '#6D1959',
+      tailwindClass: 'bg-tertiary-dark'
+    }, {
+      name: 'hover',
+      color: 'bg-tertiary-hover',
+      hex: 'rgba(155, 36, 127, 0.04)',
+      tailwindClass: 'bg-tertiary-hover'
+    }, {
+      name: 'selected',
+      color: 'bg-tertiary-selected',
+      hex: 'rgba(155, 36, 127, 0.08)',
+      tailwindClass: 'bg-tertiary-selected'
+    }, {
+      name: 'focus',
+      color: 'bg-tertiary-focus',
+      hex: 'rgba(155, 36, 127, 0.12)',
+      tailwindClass: 'bg-tertiary-focus'
+    }, {
+      name: 'focusVisible',
+      color: 'bg-tertiary-focusVisible',
+      hex: 'rgba(155, 36, 127, 0.30)',
+      tailwindClass: 'bg-tertiary-focusVisible'
+    }
+  ];
 
   const toggleInsightExpanded = () => {
     setInsightExpanded(!insightExpanded);
@@ -171,13 +174,7 @@ const Brand = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            </ComponentCard>
-          </div>;
-      case 'variants':
-        return <div className="space-y-10">
-            <ComponentCard title="Variações do Logo" description="Diferentes aplicações da nossa marca para contextos específicos.">
-              <div className="space-y-10">
+                
                 <div className="space-y-6">
                   <h3 className="text-xl font-medium">Variações</h3>
                   
@@ -211,12 +208,30 @@ const Brand = () => {
                     </div>
                   </div>
                 </div>
+                
+                <div className="mt-16 bg-primary-light border border-primary-main rounded-lg p-6">
+                  <div className="flex flex-col md:flex-row items-center gap-6">
+                    <div className="flex-shrink-0">
+                      <Download size={48} className="text-primary-main" />
+                    </div>
+                    <div className="flex-grow">
+                      <h3 className="text-xl font-medium mb-2">Manual de Marca</h3>
+                      <p className="text-gray-700 mb-4">Faça o download do manual de diretrizes da marca Amicci para acessar todas as informações detalhadas sobre o uso correto da nossa identidade visual.</p>
+                      <Button 
+                        onClick={() => handleDownload('/src/pages/assets/241122_Amicci_Brandbook_v2Bmenor.pdf', 'Amicci_Brandbook.pdf')}
+                        startIcon={<Download size={16} />}
+                      >
+                        Baixar Manual de Marca
+                      </Button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </ComponentCard>
           </div>;
       case 'insight-da-amy':
         return <div className="space-y-8">
-            <ComponentCard title="Insight da Amy" description="A inteligência artificial da Amicci que ajuda os clientes no fluxo de planejamento, projeto e performance comercial da plataforma." className="mb-6">
+            <ComponentCard title="Amy" description="A inteligência artificial da Amicci que ajuda os clientes no fluxo de planejamento, projeto e performance comercial da plataforma." className="mb-6">
               <div className="space-y-6">
                 <Card className="p-6 shadow-none border">
                   <h3 className="text-xl font-medium mb-3">Paleta terciária</h3>
@@ -306,10 +321,8 @@ const Brand = () => {
                   <h3 className="text-xl font-medium mb-4">Box de insights</h3>
                   
                   <div className="space-y-4">
-                    {/* Only keeping the toggleable insight box, removing the first two boxes */}
                     <div className="bg-magenta-50 rounded-lg border border-magenta-200">
                       {!insightExpanded ? (
-                        // Collapsed state
                         <div className="px-6 py-4">
                           <div className="flex items-center w-full">
                             <div className="flex items-center gap-1 mr-2">
@@ -332,7 +345,6 @@ const Brand = () => {
                           </div>
                         </div>
                       ) : (
-                        // Expanded state
                         <>
                           <div className="px-6 py-4">
                             <div className="flex items-center justify-between w-full">
@@ -405,9 +417,6 @@ const Brand = () => {
         <TailwindTabs tabs={[{
         name: 'Logo Amicci',
         value: 'logo'
-      }, {
-        name: 'Variações',
-        value: 'variants'
       }, {
         name: 'Amy',
         value: 'insight-da-amy'
