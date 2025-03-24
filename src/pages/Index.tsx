@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Book, FileText, Layers, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -47,7 +46,7 @@ const Index = () => {
               <p className="text-sm mb-4 text-text-secondary">
                 Biblioteca de componentes reutilizáveis prontos para uso em seus projetos.
               </p>
-              <Link to="/components" className="text-primary-main hover:text-primary-dark inline-flex items-center">
+              <Link to="/installation" className="text-primary-main hover:text-primary-dark inline-flex items-center">
                 Acessar instalação
                 <svg className="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />

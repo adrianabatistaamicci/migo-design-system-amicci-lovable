@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import Index from "./pages/Index";
+import Installation from "./pages/Installation";
 import Components from "./pages/Components";
 import ComponentDetail from "./pages/ComponentDetail";
 import NotFound from "./pages/NotFound";
@@ -88,6 +89,7 @@ const App = () => {
           <Routes>
             <Route element={<MainLayout />}>
               <Route path="/" element={<Index />} />
+              <Route path="/installation" element={<Installation />} />
               <Route path="/components" element={<Components />} />
               <Route path="/components/:componentId" element={<ComponentDetail />} />
               <Route path="/components/input" element={<InputPage />} />
