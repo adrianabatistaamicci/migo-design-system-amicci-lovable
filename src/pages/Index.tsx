@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Book, FileText, Layers, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -26,7 +27,7 @@ const Index = () => {
               Um sistema de design consistente para criar interfaces de usuário modernas e acessíveis.
             </h6>
             <p className="text-white/80 mb-4 max-w-3xl mx-auto">
-              Migo é a essência da Amicci: um companheiro de confiança para seus projetos digitais. Como um aliado presente, ele trabalha nas entrelinhas do código e design, trazendo harmonia e claridade às suas interfaces, construindo pontes entre sua visão e a realidade.
+              Migo é a essência da Amicci: um amigo de confiança para seus projetos digitais. Ele trabalha nas entrelinhas do código e design, trazendo harmonia e claridade às suas interfaces, construindo pontes entre sua visão e a realidade.
             </p>
           </div>
         </div>
