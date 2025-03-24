@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { TailwindTabs } from "@/components/ui/tabs";
 import ComponentCard from '@/components/ComponentCard';
@@ -14,7 +15,7 @@ const Spacing = () => {
     'space-48', 'space-56', 'space-64'
   ];
 
-  const directions = ['', 'x', 'y', 't', 'r', 'b', 'l'];
+  const directions: Array<'x' | 'y' | 't' | 'r' | 'b' | 'l' | ''> = ['', 'x', 'y', 't', 'r', 'b', 'l'];
 
   return (
     <div className="w-full animate-fade-in">
