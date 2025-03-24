@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Book, FileText, Layers, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -9,7 +10,7 @@ const Index = () => {
         title="Migo, o Design System da Amicci"
         subtitle="Um sistema de design consistente para criar interfaces de usuário modernas e acessíveis."
         description="Migo é a essência da Amicci: um companheiro de confiança para seus projetos digitais. Como um aliado presente, ele trabalha nas entrelinhas do código e design, trazendo harmonia e claridade às suas interfaces, construindo pontes entre sua visão e a realidade."
-        backgroundImage="/lovable-uploads/4acc3747-8680-4867-80a5-4a8164e3300b.png"
+        backgroundImage="/lovable-uploads/3f0e12b8-4897-4ca4-aaeb-656250de8c5c.png"
       />
 
       <section>
