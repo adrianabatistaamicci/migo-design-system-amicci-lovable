@@ -25,12 +25,12 @@ const Skeletons = () => {
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-lg font-medium">Carregamento de Card</h3>
-                <Card className="p-4">
+                <Card className="p-4 border border-border">
                   <div className="flex items-center space-x-4">
-                    <Skeleton className="h-12 w-12 rounded-full" />
+                    <Skeleton className="h-12 w-12 rounded-full bg-gray-200" />
                     <div className="space-y-2">
-                      <Skeleton className="h-4 w-[250px]" />
-                      <Skeleton className="h-4 w-[200px]" />
+                      <Skeleton className="h-4 w-[250px] bg-gray-200" />
+                      <Skeleton className="h-4 w-[200px] bg-gray-200" />
                     </div>
                   </div>
                 </Card>
@@ -38,23 +38,23 @@ const Skeletons = () => {
               
               <div className="space-y-2">
                 <h3 className="text-lg font-medium">Carregamento de Tabela</h3>
-                <Card className="p-4">
-                  <div className="space-y-2">
-                    <Skeleton className="h-8 w-full" />
-                    <Skeleton className="h-8 w-full" />
-                    <Skeleton className="h-8 w-full" />
-                    <Skeleton className="h-8 w-full" />
+                <Card className="p-4 border border-border">
+                  <div className="space-y-3">
+                    <Skeleton className="h-8 w-full bg-gray-200" />
+                    <Skeleton className="h-8 w-full bg-gray-200" />
+                    <Skeleton className="h-8 w-full bg-gray-200" />
+                    <Skeleton className="h-8 w-full bg-gray-200" />
                   </div>
                 </Card>
               </div>
               
               <div className="space-y-2">
                 <h3 className="text-lg font-medium">Carregamento de Card com Imagem</h3>
-                <Card className="p-4">
+                <Card className="p-4 border border-border">
                   <div className="flex flex-col space-y-3">
-                    <Skeleton className="h-[200px] w-full rounded-xl" />
-                    <Skeleton className="h-4 w-[250px]" />
-                    <Skeleton className="h-4 w-[200px]" />
+                    <Skeleton className="h-[200px] w-full rounded-xl bg-gray-200" />
+                    <Skeleton className="h-4 w-[250px] bg-gray-200" />
+                    <Skeleton className="h-4 w-[200px] bg-gray-200" />
                   </div>
                 </Card>
               </div>
@@ -80,10 +80,10 @@ export function SkeletonDemo() {
               `}
             >
               <div className="flex items-center space-x-4 p-4 border rounded-md">
-                <Skeleton className="h-12 w-12 rounded-full" />
+                <Skeleton className="h-12 w-12 rounded-full bg-gray-200" />
                 <div className="space-y-2">
-                  <Skeleton className="h-4 w-[250px]" />
-                  <Skeleton className="h-4 w-[200px]" />
+                  <Skeleton className="h-4 w-[250px] bg-gray-200" />
+                  <Skeleton className="h-4 w-[200px] bg-gray-200" />
                 </div>
               </div>
             </ComponentCard>
@@ -124,9 +124,9 @@ export { Skeleton }
             `}
           >
             <div className="p-4 flex flex-col space-y-3 border rounded-md">
-              <Skeleton className="h-8 w-full" />
-              <Skeleton className="h-8 w-3/4" />
-              <Skeleton className="h-8 w-1/2" />
+              <Skeleton className="h-8 w-full bg-gray-200" />
+              <Skeleton className="h-8 w-3/4 bg-gray-200" />
+              <Skeleton className="h-8 w-1/2 bg-gray-200" />
             </div>
           </ComponentCard>
         </div>
