@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { TailwindTabs } from "@/components/ui/tabs";
 import Header from '@/components/library-components/Header';
@@ -10,6 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import ColorSwatch from '@/components/colors/ColorSwatch';
+import { XCircle, CheckCircle2 } from 'lucide-react';
 
 const Colors = () => {
   const [activeTab, setActiveTab] = useState('overview');
