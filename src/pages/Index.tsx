@@ -9,23 +9,23 @@ const Index = () => {
         {/* Background image with overlay gradient */}
         <div className="absolute inset-0 w-full h-full">
           <img 
-            src="/lovable-uploads/b0d059ca-0b13-480f-9c3f-91a36203dcec.png" 
+            src="/lovable-uploads/8d0c1eec-6410-4732-beb0-a587dc8e896f.png" 
             alt="Design fluid waves" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent mix-blend-overlay"></div>
+          <div className="absolute inset-0 bg-black/60"></div>
         </div>
         
         {/* Hero content */}
-        <div className="relative z-10 px-4 py-16 md:py-24 max-w-5xl mx-auto">
-          <div className="bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-lg text-center">
-            <h2 className="text-4xl tracking-tight mb-4 text-gray-900 font-medium md:text-6xl">
+        <div className="relative z-10 px-4 py-24 md:py-32 max-w-5xl mx-auto text-center">
+          <div className="p-8 rounded-xl text-center">
+            <h2 className="text-4xl tracking-tight mb-4 text-white font-medium md:text-6xl">
               Migo, o Design System da Amicci
             </h2>
-            <h6 className="text-lg mb-6 text-gray-900">
-              Um sistema de design Tailwind consistente para criar interfaces de usuário modernas e acessíveis com React.
+            <h6 className="text-lg mb-6 text-white/90">
+              Um sistema de design consistente para criar interfaces de usuário modernas e acessíveis.
             </h6>
-            <p className="text-gray-900 italic mb-4 max-w-2xl mx-auto">
+            <p className="text-white/80 italic mb-4 max-w-3xl mx-auto">
               Migo é a essência da Amicci: um companheiro de confiança para seus projetos digitais. Como um aliado presente, ele trabalha nas entrelinhas do código e design, trazendo harmonia e claridade às suas interfaces, construindo pontes entre sua visão e a realidade.
             </p>
           </div>
