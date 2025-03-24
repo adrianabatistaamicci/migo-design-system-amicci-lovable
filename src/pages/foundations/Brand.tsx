@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -210,13 +211,12 @@ const Brand = () => {
                 </div>
                 
                 <div className="mt-16 bg-primary-light border border-primary-main rounded-lg p-6">
-                  <div className="flex flex-col md:flex-row items-center gap-6">
-                    <div className="flex-shrink-0">
-                      <Download size={48} className="text-primary-main" />
-                    </div>
+                  <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                     <div className="flex-grow">
                       <h3 className="text-xl font-medium mb-2">Manual de Marca</h3>
                       <p className="text-gray-700 mb-4">Faça o download do manual de diretrizes da marca Amicci para acessar todas as informações detalhadas sobre o uso correto da nossa identidade visual.</p>
+                    </div>
+                    <div className="flex-shrink-0">
                       <Button 
                         onClick={() => handleDownload('/src/pages/assets/241122_Amicci_Brandbook_v2Bmenor.pdf', 'Amicci_Brandbook.pdf')}
                         startIcon={<Download size={16} />}
