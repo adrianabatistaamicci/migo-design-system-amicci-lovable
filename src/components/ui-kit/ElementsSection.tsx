@@ -2,6 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ComponentPreview from '@/components/ComponentPreview';
+import { IconButton } from '@/components/ui/icon-button';
+import { Star } from 'lucide-react';
 
 const ElementsSection = () => {
   return (
@@ -43,7 +45,18 @@ const ElementsSection = () => {
         <Link to="/components/icon-button">
           <ComponentPreview 
             title="Icon Buttons" 
-            imageSrc="/lovable-uploads/81e3a3d8-4e26-429a-b9e8-e4e84a0ffb53.png" 
+            preview={
+              <div className="flex items-center justify-center gap-4 w-full h-full">
+                <IconButton 
+                  variant="outline-secondary" 
+                  icon={<Star size={18} />} 
+                />
+                <IconButton 
+                  variant="default" 
+                  icon={<Star size={18} color="white" />} 
+                />
+              </div>
+            }
             variantCount={3} 
           />
         </Link>
