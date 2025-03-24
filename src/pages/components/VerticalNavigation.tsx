@@ -32,7 +32,7 @@ const VerticalNavigationExample = () => {
           <span>Home</span>
         </a>
 
-        {/* Dashboard Menu - The entire item is clickable */}
+        {/* Dashboard Menu - The entire item is clickable to toggle the submenu */}
         <div className="relative">
           <div 
             onClick={() => toggleMenu('dashboard')} 
@@ -64,7 +64,7 @@ const VerticalNavigationExample = () => {
           </div>
         </div>
 
-        {/* Settings Menu - The entire item is clickable */}
+        {/* Settings Menu - The entire item is clickable to toggle the submenu */}
         <div className="relative">
           <div 
             onClick={() => toggleMenu('settings')} 
@@ -96,6 +96,7 @@ const VerticalNavigationExample = () => {
           </div>
         </div>
 
+        {/* Regular menu items */}
         <a 
           href="#" 
           className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100"
@@ -175,7 +176,7 @@ const VerticalNavigation = () => {
           </div>
         </div>
 
-        {/* Settings Menu - The entire item is clickable */}
+        {/* Some parent items might only serve as category headers */}
         <div className="relative">
           <div 
             onClick={() => toggleMenu('settings')} 

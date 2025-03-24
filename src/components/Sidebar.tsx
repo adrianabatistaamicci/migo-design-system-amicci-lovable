@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
@@ -29,6 +28,7 @@ interface SidebarItem {
     color?: string;
     variant?: string;
   };
+  isToggleOnly?: boolean;
 }
 
 interface SidebarProps {
@@ -44,7 +44,7 @@ export const sidebarItems: SidebarItem[] = [
       { title: 'UI Kit', href: '/ui-kit' },
       { 
         title: 'Diretrizes', 
-        href: '/guidelines',
+        isToggleOnly: true,
         items: [
           { title: 'Governança Lovable', href: '/guidelines/technical-governance' }
         ]
@@ -260,17 +260,19 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
               level === 0 ? "font-medium text-primary uppercase text-xs" : "text-foreground",
               active && !item.href ? "text-primary-main" : "",
               level === 1 ? "" : level > 1 ? `pl-${level + 1}` : "",
-              item.href ? "hover:bg-gray-100 cursor-pointer" : ""
+              "hover:bg-gray-100 cursor-pointer"
             )}>
               <div className="flex items-center gap-2">
                 {item.icon && <item.icon size={20} className="text-primary-main" />}
-                {item.href ? (
+                {item.href && !item.isToggleOnly ? (
                   <Link 
                     to={item.href} 
                     className={cn(
                       "w-full",
                       location.pathname === item.href ? "text-primary-main font-medium" : ""
                     )}
+                    onClick={(e) => {
+                    }}
                   >
                     {item.title}
                   </Link>
