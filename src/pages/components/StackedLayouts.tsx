@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Bell, ChevronDown, Search, Menu, User, Code, Copy, CheckCheck, Rocket, Globe } from 'lucide-react';
+import { ShoppingCart, Bell, ChevronDown, Search, Menu, User, ChevronRight, Copy, CheckCheck, Rocket, Globe } from 'lucide-react';
 import amicciLogo from '@/pages/assets/Amicci-Simbolo_Turquesa_Escuro.svg';
 import amicciLogoDark from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg';
 import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
@@ -707,29 +707,41 @@ const LayoutComponent = ({
           {component}
         </div>
         
-        <div className="border-t border-gray-200 px-4 py-3 flex justify-between items-center bg-gray-50">
-          <Button variant="ghost" size="sm" onClick={() => setShowCode(!showCode)} className="flex items-center gap-1 text-sm">
-            <Code size={16} />
-            <span>{showCode ? 'Hide code' : 'Show code'}</span>
+        <div className="border-t border-gray-200 flex justify-between items-center px-4 py-3 bg-gray-50">
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={() => setShowCode(!showCode)} 
+            className="text-sm text-gray-600 hover:text-gray-900 flex items-center gap-1"
+          >
+            <ChevronRight 
+              size={16} 
+              className={cn("transition-transform", showCode ? "rotate-90" : "")} 
+            />
+            <span>Show code</span>
           </Button>
           
-          <Button variant="ghost" size="sm" onClick={copyToClipboard} className="flex items-center gap-1 text-sm">
-            {copied ? <>
-                <CheckCheck size={16} />
-                <span>Copied</span>
-              </> : <>
-                <Copy size={16} />
-                <span>Copy</span>
-              </>}
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={copyToClipboard} 
+            className="text-sm text-gray-600 hover:text-gray-900"
+          >
+            {copied ? (
+              <CheckCheck size={16} className="mr-1" />
+            ) : (
+              <Copy size={16} className="mr-1" />
+            )}
+            <span>{copied ? "Copied" : "Copy"}</span>
           </Button>
         </div>
         
         <div className={cn(
-          "border-t bg-gray-50 overflow-x-auto transition-all duration-300 w-full",
-          showCode ? "h-auto max-h-[400px] p-4" : "h-0 p-0 opacity-0"
+          "transition-all duration-300 overflow-hidden",
+          showCode ? "max-h-[400px] opacity-100 p-4 border-t border-gray-200 bg-white" : "max-h-0 opacity-0 p-0"
         )}>
           {showCode && (
-            <pre className="text-sm w-full">
+            <pre className="font-mono text-sm text-gray-800 w-full overflow-x-auto">
               <code>{code}</code>
             </pre>
           )}
