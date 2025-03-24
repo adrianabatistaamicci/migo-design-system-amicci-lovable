@@ -217,7 +217,7 @@ const AdvancedSidebar = () => {
               {openMenus.analytics ? <ChevronDown size={16} className="text-gray-400" /> : <ChevronRight size={16} className="text-gray-400" />}
             </CollapsibleTrigger>
             <CollapsibleContent>
-              <div className="ml-6 mt-1 space-y-1">
+              <div className="ml-8 mt-1 space-y-1">
                 <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                   Overview
                 </a>
@@ -253,7 +253,7 @@ const AdvancedSidebar = () => {
               {openMenus.messages ? <ChevronDown size={16} className="text-gray-400" /> : <ChevronRight size={16} className="text-gray-400" />}
             </CollapsibleTrigger>
             <CollapsibleContent>
-              <div className="ml-6 mt-1 space-y-1">
+              <div className="ml-8 mt-1 space-y-1">
                 <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                   <span>Inbox</span>
                   <Badge className="bg-primary-main text-white px-1.5 rounded-full text-xs">14</Badge>
@@ -291,7 +291,7 @@ const AdvancedSidebar = () => {
               {openMenus.products ? <ChevronDown size={16} className="text-gray-400" /> : <ChevronRight size={16} className="text-gray-400" />}
             </CollapsibleTrigger>
             <CollapsibleContent>
-              <div className="ml-6 mt-1 space-y-1">
+              <div className="ml-8 mt-1 space-y-1">
                 <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                   All Products
                 </a>
@@ -520,7 +520,7 @@ const AdvancedSidebar = () => {
                           {openMenus.analytics ? <ChevronDown size={16} className="text-gray-400" /> : <ChevronRight size={16} className="text-gray-400" />}
                         </CollapsibleTrigger>
                         <CollapsibleContent>
-                          <div className="ml-6 mt-1 space-y-1">
+                          <div className="ml-8 mt-1 space-y-1">
                             <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                               Overview
                             </a>
@@ -556,7 +556,7 @@ const AdvancedSidebar = () => {
                           {openMenus.messages ? <ChevronDown size={16} className="text-gray-400" /> : <ChevronRight size={16} className="text-gray-400" />}
                         </CollapsibleTrigger>
                         <CollapsibleContent>
-                          <div className="ml-6 mt-1 space-y-1">
+                          <div className="ml-8 mt-1 space-y-1">
                             <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                               <span>Inbox</span>
                               <Badge className="bg-primary-main text-white px-1.5 rounded-full text-xs">14</Badge>
@@ -594,7 +594,7 @@ const AdvancedSidebar = () => {
                           {openMenus.products ? <ChevronDown size={16} className="text-gray-400" /> : <ChevronRight size={16} className="text-gray-400" />}
                         </CollapsibleTrigger>
                         <CollapsibleContent>
-                          <div className="ml-6 mt-1 space-y-1">
+                          <div className="ml-8 mt-1 space-y-1">
                             <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                               All Products
                             </a>
@@ -618,92 +618,4 @@ const AdvancedSidebar = () => {
                   
                   {/* Footer Actions */}
                   <div className="px-3 py-3 border-t border-gray-200 mt-auto bg-white">
-                    <div className="flex items-center justify-between">
-                      <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                        <Settings size={18} className="mr-2 text-gray-500" />
-                        <span>Settings</span>
-                      </a>
-                      
-                      <a href="#" className="flex items-center justify-center w-8 h-8 rounded-md text-gray-700 hover:bg-gray-100 relative">
-                        <Bell size={18} className="text-gray-500" />
-                        <div className="w-2 h-2 bg-primary-main rounded-full absolute top-1.5 right-1.5"></div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex-1 p-6 bg-white">
-                  <h1 className="text-xl font-semibold mb-4">Dashboard</h1>
-                  <p className="text-gray-600">Main content would go here</p>
-                </div>
-              </div>
-            </div>
-            
-            <LayoutComponentFooter code={advancedSidebarCode} />
-          </div>
-        </section>
-
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">Melhores Práticas</h2>
-          <ul className="list-disc pl-6 space-y-3 text-gray-700">
-            <li>Organize os itens de navegação em ordem lógica, com os itens mais importantes no topo.</li>
-            <li>Use ícones junto com texto para melhorar o reconhecimento e a capacidade de escaneamento.</li>
-            <li>Considere o comportamento responsivo - recolha ou oculte a barra lateral em telas menores.</li>
-            <li>Agrupe itens de navegação relacionados para uma melhor arquitetura de informação.</li>
-            <li>Use cabeçalhos de grupo para categorizar seções da barra lateral.</li>
-            <li>Implemente badges apenas para contagens ou notificações que realmente importam.</li>
-            <li>O espaçamento padrão entre cabeçalhos de grupos no sidebar é de 16px (mt-4).</li>
-            <li>Mantenha o espaçamento de 8px (mb-2) após os cabeçalhos de grupo para garantir legibilidade.</li>
-            <li>Use texto cinza para ícones inativos e coloração primária para itens ativos ou destacados.</li>
-          </ul>
-        </section>
-      </div>
-    </div>
-  );
-};
-
-const LayoutComponentFooter = ({
-  code
-}) => {
-  const [showCode, setShowCode] = useState(false);
-  const [copied, setCopied] = useState(false);
-  
-  const copyToClipboard = () => {
-    if (code) {
-      navigator.clipboard.writeText(code);
-      setCopied(true);
-      setTimeout(() => {
-        setCopied(false);
-      }, 2000);
-    }
-  };
-  
-  return (
-    <div className="border-t border-gray-200 px-4 py-3 flex justify-between items-center bg-gray-50">
-      <Button variant="ghost" size="sm" onClick={() => setShowCode(!showCode)} className="flex items-center gap-1 text-sm">
-        <Code size={16} />
-        <span>{showCode ? 'Hide code' : 'Show code'}</span>
-      </Button>
-      
-      <Button variant="ghost" size="sm" onClick={copyToClipboard} className="flex items-center gap-1 text-sm">
-        {copied ? <>
-            <CheckCheck size={16} />
-            <span>Copied</span>
-          </> : <>
-            <Copy size={16} />
-            <span>Copy</span>
-          </>}
-      </Button>
-      
-      {showCode && (
-        <div className="border-t bg-gray-50 p-4 overflow-x-auto max-h-[400px] mt-3 w-full absolute left-0">
-          <pre className="text-sm">
-            <code>{code}</code>
-          </pre>
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default SidebarLayouts;
-
+                    <div className="flex items-center justify

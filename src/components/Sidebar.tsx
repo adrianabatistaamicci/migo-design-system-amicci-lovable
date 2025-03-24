@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
@@ -258,7 +259,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
               "flex items-center justify-between w-full py-2 px-3 rounded-md text-sm",
               level === 0 ? "font-medium text-primary uppercase text-xs" : "text-foreground",
               active && !item.href ? "text-primary-main" : "",
-              level > 0 && "pl-8",
+              level > 0 && `pl-${Math.min(level + 2, 8)}`,
               item.href ? "hover:bg-gray-100 cursor-pointer" : ""
             )}>
               <div className="flex items-center gap-2">
@@ -286,7 +287,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
             </CollapsibleTrigger>
             
             <CollapsibleContent className="mt-1">
-              <div className={cn(level === 0 ? "pl-3" : "")}>
+              <div className={cn("ml-4")}>
                 {item.items.map((child, index) => (
                   <SidebarSection key={index} item={child} level={level + 1} />
                 ))}
@@ -314,7 +315,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
         location.pathname === item.href 
           ? "bg-primary-hover text-primary-main font-medium" 
           : "text-gray-700 hover:bg-gray-100",
-        level > 0 && "pl-8",
+        level > 0 && `ml-${Math.min(level * 2, 6)}`,
       )}
     >
       <div className="flex items-center">
@@ -330,3 +331,4 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
 };
 
 export default Sidebar;
+
