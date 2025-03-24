@@ -4,7 +4,6 @@ import { Label } from "@/components/ui/label";
 import { Check, AlertCircle, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Toggle } from "@/components/ui/toggle";
-import ComponentCard from '@/components/ComponentCard';
 
 export interface AccessibilityDemoProps {
   simulationType: string;
@@ -17,10 +16,10 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
 }) => {
   return (
     <div className="space-y-8">
-      <ComponentCard
-        title="Acessibilidade de Cores"
-        description="Garantindo que nosso sistema de cores seja acessível a todos."
-      >
+      <div>
+        <h2 className="text-xl font-semibold mb-1 text-primary">Acessibilidade de Cores</h2>
+        <p className="text-secondary mb-6">Garantindo que nosso sistema de cores seja acessível a todos.</p>
+        
         <div className="space-y-8">
           {/* Contraste Section */}
           <section>
@@ -112,123 +111,124 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
               </div>
             </div>
           </section>
-        </div>
-      </ComponentCard>
-      
-      <ComponentCard
-        title="Teste de Daltonismo"
-        description="Nosso sistema de cores foi testado para os seguintes tipos de daltonismo:"
-      >
-        <div className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Deuteranopia */}
-            <div className="border rounded-lg p-4">
-              <div className="flex justify-between items-center mb-4">
-                <div>
-                  <h4 className="font-medium">Deuteranopia</h4>
-                  <p className="text-sm text-secondary">Deficiência de percepção do verde</p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Label htmlFor="deuteranopia-sim" className="text-sm text-secondary">Simular</Label>
-                  <Toggle
-                    id="deuteranopia-sim"
-                    variant="primary"
-                    size="sm"
-                    pressed={simulationType === 'deuteranopia'}
-                    onPressedChange={() => handleSimulation('deuteranopia')}
-                  />
-                </div>
-              </div>
-              <div className={`grid grid-cols-4 gap-2 ${simulationType === 'deuteranopia' ? 'filter-deuteranopia' : ''}`}>
-                <div className="h-16 bg-cyan-500 rounded"></div>
-                <div className="h-16 bg-teal-800 rounded"></div>
-                <div className="h-16 bg-red-500 rounded"></div>
-                <div className="h-16 bg-green-500 rounded"></div>
-              </div>
-            </div>
-            
-            {/* Protanopia */}
-            <div className="border rounded-lg p-4">
-              <div className="flex justify-between items-center mb-4">
-                <div>
-                  <h4 className="font-medium">Protanopia</h4>
-                  <p className="text-sm text-secondary">Deficiência de percepção do vermelho</p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Label htmlFor="protanopia-sim" className="text-sm text-secondary">Simular</Label>
-                  <Toggle
-                    id="protanopia-sim"
-                    variant="primary"
-                    size="sm"
-                    pressed={simulationType === 'protanopia'}
-                    onPressedChange={() => handleSimulation('protanopia')}
-                  />
-                </div>
-              </div>
-              <div className={`grid grid-cols-4 gap-2 ${simulationType === 'protanopia' ? 'filter-protanopia' : ''}`}>
-                <div className="h-16 bg-cyan-500 rounded"></div>
-                <div className="h-16 bg-teal-800 rounded"></div>
-                <div className="h-16 bg-red-500 rounded"></div>
-                <div className="h-16 bg-green-500 rounded"></div>
-              </div>
-            </div>
-          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Tritanopia */}
-            <div className="border rounded-lg p-4">
-              <div className="flex justify-between items-center mb-4">
-                <div>
-                  <h4 className="font-medium">Tritanopia</h4>
-                  <p className="text-sm text-secondary">Deficiência de percepção do azul</p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Label htmlFor="tritanopia-sim" className="text-sm text-secondary">Simular</Label>
-                  <Toggle
-                    id="tritanopia-sim"
-                    variant="primary"
-                    size="sm"
-                    pressed={simulationType === 'tritanopia'}
-                    onPressedChange={() => handleSimulation('tritanopia')}
-                  />
-                </div>
-              </div>
-              <div className={`grid grid-cols-4 gap-2 ${simulationType === 'tritanopia' ? 'filter-tritanopia' : ''}`}>
-                <div className="h-16 bg-cyan-500 rounded"></div>
-                <div className="h-16 bg-teal-800 rounded"></div>
-                <div className="h-16 bg-red-500 rounded"></div>
-                <div className="h-16 bg-green-500 rounded"></div>
-              </div>
-            </div>
+          {/* Teste de Daltonismo */}
+          <section>
+            <h3 className="text-lg font-medium mb-4 text-primary">Teste de Daltonismo</h3>
+            <p className="mb-6">Nosso sistema de cores foi testado para os seguintes tipos de daltonismo:</p>
             
-            {/* Achromatopsia */}
-            <div className="border rounded-lg p-4">
-              <div className="flex justify-between items-center mb-4">
-                <div>
-                  <h4 className="font-medium">Acromatopsia</h4>
-                  <p className="text-sm text-secondary">Ausência completa de percepção de cores</p>
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Deuteranopia */}
+                <div className="border rounded-lg p-4">
+                  <div className="flex justify-between items-center mb-4">
+                    <div>
+                      <h4 className="font-medium">Deuteranopia</h4>
+                      <p className="text-sm text-secondary">Deficiência de percepção do verde</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Label htmlFor="deuteranopia-sim" className="text-sm text-secondary">Simular</Label>
+                      <Toggle
+                        id="deuteranopia-sim"
+                        variant="primary"
+                        size="sm"
+                        pressed={simulationType === 'deuteranopia'}
+                        onPressedChange={() => handleSimulation('deuteranopia')}
+                      />
+                    </div>
+                  </div>
+                  <div className={`grid grid-cols-4 gap-2 ${simulationType === 'deuteranopia' ? 'filter-deuteranopia' : ''}`}>
+                    <div className="h-16 bg-cyan-500 rounded"></div>
+                    <div className="h-16 bg-teal-800 rounded"></div>
+                    <div className="h-16 bg-red-500 rounded"></div>
+                    <div className="h-16 bg-green-500 rounded"></div>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Label htmlFor="achromatopsia-sim" className="text-sm text-secondary">Simular</Label>
-                  <Toggle
-                    id="achromatopsia-sim"
-                    variant="primary"
-                    size="sm"
-                    pressed={simulationType === 'achromatopsia'}
-                    onPressedChange={() => handleSimulation('achromatopsia')}
-                  />
+                
+                {/* Protanopia */}
+                <div className="border rounded-lg p-4">
+                  <div className="flex justify-between items-center mb-4">
+                    <div>
+                      <h4 className="font-medium">Protanopia</h4>
+                      <p className="text-sm text-secondary">Deficiência de percepção do vermelho</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Label htmlFor="protanopia-sim" className="text-sm text-secondary">Simular</Label>
+                      <Toggle
+                        id="protanopia-sim"
+                        variant="primary"
+                        size="sm"
+                        pressed={simulationType === 'protanopia'}
+                        onPressedChange={() => handleSimulation('protanopia')}
+                      />
+                    </div>
+                  </div>
+                  <div className={`grid grid-cols-4 gap-2 ${simulationType === 'protanopia' ? 'filter-protanopia' : ''}`}>
+                    <div className="h-16 bg-cyan-500 rounded"></div>
+                    <div className="h-16 bg-teal-800 rounded"></div>
+                    <div className="h-16 bg-red-500 rounded"></div>
+                    <div className="h-16 bg-green-500 rounded"></div>
+                  </div>
                 </div>
               </div>
-              <div className={`grid grid-cols-4 gap-2 ${simulationType === 'achromatopsia' ? 'filter-grayscale' : ''}`}>
-                <div className="h-16 bg-cyan-500 rounded"></div>
-                <div className="h-16 bg-teal-800 rounded"></div>
-                <div className="h-16 bg-red-500 rounded"></div>
-                <div className="h-16 bg-green-500 rounded"></div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Tritanopia */}
+                <div className="border rounded-lg p-4">
+                  <div className="flex justify-between items-center mb-4">
+                    <div>
+                      <h4 className="font-medium">Tritanopia</h4>
+                      <p className="text-sm text-secondary">Deficiência de percepção do azul</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Label htmlFor="tritanopia-sim" className="text-sm text-secondary">Simular</Label>
+                      <Toggle
+                        id="tritanopia-sim"
+                        variant="primary"
+                        size="sm"
+                        pressed={simulationType === 'tritanopia'}
+                        onPressedChange={() => handleSimulation('tritanopia')}
+                      />
+                    </div>
+                  </div>
+                  <div className={`grid grid-cols-4 gap-2 ${simulationType === 'tritanopia' ? 'filter-tritanopia' : ''}`}>
+                    <div className="h-16 bg-cyan-500 rounded"></div>
+                    <div className="h-16 bg-teal-800 rounded"></div>
+                    <div className="h-16 bg-red-500 rounded"></div>
+                    <div className="h-16 bg-green-500 rounded"></div>
+                  </div>
+                </div>
+                
+                {/* Achromatopsia */}
+                <div className="border rounded-lg p-4">
+                  <div className="flex justify-between items-center mb-4">
+                    <div>
+                      <h4 className="font-medium">Acromatopsia</h4>
+                      <p className="text-sm text-secondary">Ausência completa de percepção de cores</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Label htmlFor="achromatopsia-sim" className="text-sm text-secondary">Simular</Label>
+                      <Toggle
+                        id="achromatopsia-sim"
+                        variant="primary"
+                        size="sm"
+                        pressed={simulationType === 'achromatopsia'}
+                        onPressedChange={() => handleSimulation('achromatopsia')}
+                      />
+                    </div>
+                  </div>
+                  <div className={`grid grid-cols-4 gap-2 ${simulationType === 'achromatopsia' ? 'filter-grayscale' : ''}`}>
+                    <div className="h-16 bg-cyan-500 rounded"></div>
+                    <div className="h-16 bg-teal-800 rounded"></div>
+                    <div className="h-16 bg-red-500 rounded"></div>
+                    <div className="h-16 bg-green-500 rounded"></div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          </section>
         </div>
-      </ComponentCard>
+      </div>
     </div>
   );
 };

@@ -1,69 +1,91 @@
 
-import React, { useState } from 'react';
+import React from 'react';
+import { Copy } from 'lucide-react';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { colorUtils } from '@/utils/colorUtils';
-import ComponentCard from '@/components/ComponentCard';
-import { BaseColor } from '@/data/colorsData';
+import ColorSwatch from './ColorSwatch';
+
+interface Weight {
+  weight: string;
+  colorClass: string;
+  hexValue: string;
+}
+
+interface BaseColor {
+  name: string;
+  weights: Weight[];
+}
 
 interface BaseColorsTableProps {
-  baseColors: BaseColor[]
+  baseColors: BaseColor[];
 }
 
 const BaseColorsTable: React.FC<BaseColorsTableProps> = ({ baseColors }) => {
-  const [showColorValues, setShowColorValues] = useState<{[key: string]: boolean}>({});
-  
-  const toggleColorValues = (colorKey: string) => {
-    setShowColorValues(prev => ({
-      ...prev,
-      [colorKey]: !prev[colorKey]
-    }));
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
   };
-  
+
+  const renderCopyButton = (text: string) => (
+    <button 
+      onClick={() => copyToClipboard(text)} 
+      className="ml-2 text-gray-400 hover:text-gray-600 transition-colors"
+    >
+      <Copy size={14} />
+    </button>
+  );
+
   return (
     <div className="space-y-8">
-      {baseColors.map((colorGroup) => (
-        <ComponentCard 
-          key={colorGroup.name}
-          title={colorGroup.name.charAt(0).toUpperCase() + colorGroup.name.slice(1)}
-          description={`Escala completa de ${colorGroup.name} para uso em toda a interface`}
-        >
-          <div className="flex justify-end mb-2">
-            <button
-              onClick={() => toggleColorValues(colorGroup.name)}
-              className="text-sm text-gray-500 hover:text-gray-700 underline"
-            >
-              {showColorValues[colorGroup.name] ? 'Esconder valores' : 'Mostrar valores'}
-            </button>
-          </div>
-          
-          <div className="grid grid-cols-1 gap-2">
-            {colorGroup.weights.map((colorItem) => {
-              // Check if color is light to determine text color
-              const isLightColor = colorUtils.getLuminance(colorItem.hexValue) > 0.55;
-              const textColorClass = isLightColor ? 'text-gray-900' : 'text-white';
-              
-              return (
-                <div 
-                  key={colorItem.weight}
-                  className="rounded-md overflow-hidden"
-                >
-                  <div 
-                    className={`p-4 flex justify-between items-center ${textColorClass}`}
-                    style={{ backgroundColor: colorItem.hexValue }}
-                  >
-                    <span className="font-medium">{colorItem.weight}</span>
-                    {showColorValues[colorGroup.name] && (
-                      <div className="text-sm">
-                        <div>{colorItem.hexValue}</div>
-                        <div>{colorUtils.hexToRgb(colorItem.hexValue)}</div>
-                        <div>{colorUtils.hexToHsl(colorItem.hexValue)}</div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </ComponentCard>
+      {baseColors.map(baseColor => (
+        <div key={baseColor.name} className="space-y-2">
+          <h3 className="text-xl font-semibold">{baseColor.name}</h3>
+          <Table className="border rounded-lg overflow-hidden">
+            <TableHeader>
+              <TableRow>
+                <TableHead>Variação</TableHead>
+                <TableHead>Amostra</TableHead>
+                <TableHead>Token CSS</TableHead>
+                <TableHead>Hexadecimal</TableHead>
+                <TableHead>RGB</TableHead>
+                <TableHead>HSL</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {baseColor.weights.map(weight => {
+                const hexValue = weight.hexValue;
+                const rgbValue = colorUtils.hexToRgb(hexValue);
+                const hslValue = colorUtils.hexToHsl(hexValue);
+                
+                return (
+                  <TableRow key={`${baseColor.name}-${weight.weight}`}>
+                    <TableCell className="font-mono bg-inherit">
+                      {baseColor.name.toLowerCase()}-{weight.weight}
+                    </TableCell>
+                    <TableCell>
+                      <ColorSwatch color={weight.colorClass} textOverlay={weight.weight} className="h-12" />
+                    </TableCell>
+                    <TableCell className="font-mono">
+                      --{baseColor.name.toLowerCase()}-{weight.weight}
+                      {renderCopyButton(`--${baseColor.name.toLowerCase()}-${weight.weight}`)}
+                    </TableCell>
+                    <TableCell className="font-mono">
+                      {hexValue}
+                      {renderCopyButton(hexValue)}
+                    </TableCell>
+                    <TableCell className="font-mono">
+                      {rgbValue}
+                      {renderCopyButton(rgbValue)}
+                    </TableCell>
+                    <TableCell className="font-mono">
+                      {hslValue}
+                      {renderCopyButton(hslValue)}
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </div>
       ))}
     </div>
   );

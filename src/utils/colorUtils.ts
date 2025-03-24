@@ -4,10 +4,6 @@
 export const colorUtils = {
   // Calculate color luminance (for determining if text should be light or dark)
   getLuminance: (hexColor: string): number => {
-    if (!hexColor || typeof hexColor !== 'string') {
-      return 0;
-    }
-    
     // Remove # if present
     const hex = hexColor.replace('#', '');
     
@@ -55,10 +51,6 @@ export const colorUtils = {
   
   // Convert hex color to RGB format string
   hexToRgb: (hexColor: string): string => {
-    if (!hexColor || typeof hexColor !== 'string') {
-      return 'rgb(0, 0, 0)';
-    }
-    
     // Remove # if present
     const hex = hexColor.replace('#', '');
     
@@ -72,10 +64,6 @@ export const colorUtils = {
   
   // Convert hex color to HSL format string
   hexToHsl: (hexColor: string): string => {
-    if (!hexColor || typeof hexColor !== 'string') {
-      return 'hsl(0deg, 0%, 0%)';
-    }
-    
     // Remove # if present
     const hex = hexColor.replace('#', '');
     
