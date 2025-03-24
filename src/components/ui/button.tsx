@@ -14,7 +14,7 @@ const buttonVariants = cva(
         default: "bg-primary-main text-primary-contrast hover:bg-primary-dark",
         secondary: "bg-white text-gray-800 border border-gray-300 hover:bg-gray-50",
         error: "bg-error-main text-error-contrast hover:bg-error-dark",
-        warning: "bg-warning-main text-warning-contrast hover:bg-warning-dark",
+        warning: "bg-warning-main text-white hover:bg-warning-dark",
         info: "bg-info-main text-info-contrast hover:bg-info-dark",
         success: "bg-success-main text-success-contrast hover:bg-success-dark",
         
@@ -27,12 +27,12 @@ const buttonVariants = cva(
         "outline-success": "border border-success-outlinedBorder bg-transparent text-success-main hover:bg-success-hover/10 active:bg-success-hover/20",
         
         // Text variants (equivalent to MUI text buttons)
-        "text-default": "bg-transparent text-primary-main hover:bg-primary-hover/10 active:bg-primary-hover/20",
-        "text-secondary": "bg-transparent text-mui-text-primary hover:bg-gray-100/10 active:bg-gray-100/20",
-        "text-error": "bg-transparent text-error-main hover:bg-error-hover/10 active:bg-error-hover/20",
-        "text-warning": "bg-transparent text-warning-main hover:bg-warning-hover/10 active:bg-warning-hover/20",
-        "text-info": "bg-transparent text-info-main hover:bg-info-hover/10 active:bg-info-hover/20",
-        "text-success": "bg-transparent text-success-main hover:bg-success-hover/10 active:bg-success-hover/20",
+        "text-default": "bg-transparent text-primary-main hover:bg-gray-50 active:bg-primary-hover/20",
+        "text-secondary": "bg-transparent text-mui-text-primary hover:bg-gray-50 active:bg-gray-100/20",
+        "text-error": "bg-transparent text-error-main hover:bg-gray-50 active:bg-error-hover/20",
+        "text-warning": "bg-transparent text-warning-main hover:bg-gray-50 active:bg-warning-hover/20",
+        "text-info": "bg-transparent text-info-main hover:bg-gray-50 active:bg-info-hover/20",
+        "text-success": "bg-transparent text-success-main hover:bg-gray-50 active:bg-success-hover/20",
         
         // Legacy variants (maintaining for compatibility)
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
