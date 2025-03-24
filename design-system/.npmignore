@@ -1,0 +1,31 @@
+
+# Source
+/src
+
+# Config files
+tsconfig.json
+.eslintrc.json
+.prettierrc
+copy-components.js
+
+# Development
+/node_modules
+*.log
+.gitignore
+
+# Tests
+/tests
+/coverage
+jest.config.js
+
+# Editor directories and files
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Misc
+.DS_Store
