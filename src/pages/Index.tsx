@@ -7,14 +7,14 @@ const Index = () => {
   return <div className="space-y-16">
       {/* Hero section directly on the page */}
       <section className="w-full relative overflow-hidden rounded-xl">
-        {/* Background image with overlay gradient */}
+        {/* Background image without overlay gradient */}
         <div className="absolute inset-0 w-full h-full">
           <img 
             src="/lovable-uploads/3f0e12b8-4897-4ca4-aaeb-656250de8c5c.png" 
             alt="Design fluid background" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/60"></div>
+          {/* Dark overlay removed */}
         </div>
         
         {/* Hero content */}
