@@ -60,7 +60,7 @@ const Index = () => {
               </div>
               <h6 className="text-base mb-2 text-text-primary font-medium">Diretrizes</h6>
               <p className="text-sm mb-4 text-text-secondary">
-                Boas práticas para acessibilidade, responsividade e experiência do usuário.
+                Boas pr��ticas para acessibilidade, responsividade e experiência do usuário.
               </p>
               <Link to="/guidelines/accessibility" className="text-primary-main hover:text-primary-dark inline-flex items-center">
                 Ler diretrizes

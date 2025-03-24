@@ -12,6 +12,7 @@ const Installation = () => {
         title="Instalação do Migo"
         description="Guia completo para desenvolvedores e prestadores de serviço sobre como instalar e utilizar o Migo Design System."
         type="components"
+        hideChip={true}
       />
 
       <section className="space-y-6">
