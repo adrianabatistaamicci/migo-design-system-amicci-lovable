@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Button } from '@/components/ui/button';
@@ -303,5 +304,62 @@ import { Button } from "@/components/ui/button";
         
         {activeTab === 'api' && (
           <div className="border border-mui-border rounded-lg overflow-x-auto">
-           
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[180px]">Prop</TableHead>
+                  <TableHead className="w-[150px]">Type</TableHead>
+                  <TableHead className="w-[150px]">Default</TableHead>
+                  <TableHead>Description</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell className="font-medium">variant</TableCell>
+                  <TableCell className="font-mono text-xs">
+                    "default" | "secondary" | "error" | "warning" | "info" | "success" | "outline-default" | "outline-secondary" | "outline-error" | "outline-warning" | "outline-info" | "outline-success" | "text-default" | "text-secondary" | "text-error" | "text-warning" | "text-info" | "text-success" | "destructive" | "outline" | "ghost" | "link"
+                  </TableCell>
+                  <TableCell>"default"</TableCell>
+                  <TableCell>Controls the visual style of the button.</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">size</TableCell>
+                  <TableCell className="font-mono text-xs">"default" | "sm" | "lg" | "icon"</TableCell>
+                  <TableCell>"default"</TableCell>
+                  <TableCell>Controls the size of the button.</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">asChild</TableCell>
+                  <TableCell className="font-mono text-xs">boolean</TableCell>
+                  <TableCell>false</TableCell>
+                  <TableCell>Whether to render as a child element instead of a button.</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">isLoading</TableCell>
+                  <TableCell className="font-mono text-xs">boolean</TableCell>
+                  <TableCell>false</TableCell>
+                  <TableCell>Controls whether the button shows a loading spinner.</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">startIcon</TableCell>
+                  <TableCell className="font-mono text-xs">ReactNode</TableCell>
+                  <TableCell>undefined</TableCell>
+                  <TableCell>Icon to display at the start of the button.</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">endIcon</TableCell>
+                  <TableCell className="font-mono text-xs">ReactNode</TableCell>
+                  <TableCell>undefined</TableCell>
+                  <TableCell>Icon to display at the end of the button.</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </div>
+        )}
+        </div>
+      </div>
+    </div>
+  );
+};
 
+export default ButtonPage;
