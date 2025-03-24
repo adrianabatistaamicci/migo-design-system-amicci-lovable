@@ -202,9 +202,9 @@ const Icons = () => {
                     <div className="flex items-start space-x-6 mb-2">
                       <div className="flex flex-col items-center">
                         <Button 
-                          variant="outline-default"
+                          variant="outline-secondary"
                           className="mb-2"
-                          startIcon={<AlertCircle size={16} />}
+                          startIcon={<AlertCircle size={16} className="text-info-main" />}
                         >
                           Reportar problema
                         </Button>
@@ -213,9 +213,9 @@ const Icons = () => {
                       
                       <div className="flex flex-col items-center">
                         <Button 
-                          variant="outline-default"
-                          className="mb-2"
-                          startIcon={<AlertCircle size={16} />}
+                          variant="outline-secondary"
+                          className="mb-2 w-10 p-0"
+                          startIcon={<AlertCircle size={16} className="text-info-main" />}
                         />
                         <span className="text-sm text-red-500 font-medium">Apenas se o significado for óbvio</span>
                       </div>
