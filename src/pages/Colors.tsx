@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { TailwindTabs } from "@/components/ui/tabs";
 import ColorOverview from '@/components/colors/ColorOverview';
-import ColorUsage from '@/components/colors/ColorUsage';
 import AccessibilityDemo from '@/components/colors/AccessibilityDemo';
 import BaseColorsTable from '@/components/colors/BaseColorsTable';
 import PaletteTable from '@/components/colors/PaletteTable';
@@ -31,7 +30,6 @@ const Colors = () => {
           defaultValue="overview" 
           tabs={[
             { name: 'Visão geral', value: 'overview' },
-            { name: 'Uso', value: 'usage' },
             { name: 'Cores Base', value: 'base-colors' },
             { name: 'Paletas Semânticas', value: 'semantic-palettes' },
             { name: 'Acessibilidade', value: 'accessibility' }
@@ -42,7 +40,6 @@ const Colors = () => {
         
         <div className="mt-6 w-full">
           {activeTab === 'overview' && <ColorOverview />}
-          {activeTab === 'usage' && <ColorUsage />}
           {activeTab === 'base-colors' && <BaseColorsTable baseColors={baseColorsData} />}
           {activeTab === 'semantic-palettes' && <PaletteTable palettes={paletteData} />}
           {activeTab === 'accessibility' && (
