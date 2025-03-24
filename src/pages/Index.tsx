@@ -12,7 +12,7 @@ const Index = () => {
           <img 
             src="/lovable-uploads/3f0e12b8-4897-4ca4-aaeb-656250de8c5c.png" 
             alt="Design fluid background" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
           {/* Dark overlay removed */}
         </div>
@@ -26,7 +26,7 @@ const Index = () => {
             <h6 className="text-lg mb-6 text-white/90">
               Um sistema de design consistente para criar interfaces de usuário modernas e acessíveis.
             </h6>
-            <p className="text-white/80 italic mb-4 max-w-3xl mx-auto">
+            <p className="text-white/80 mb-4 max-w-3xl mx-auto">
               Migo é a essência da Amicci: um companheiro de confiança para seus projetos digitais. Como um aliado presente, ele trabalha nas entrelinhas do código e design, trazendo harmonia e claridade às suas interfaces, construindo pontes entre sua visão e a realidade.
             </p>
           </div>
