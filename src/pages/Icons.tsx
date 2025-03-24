@@ -6,6 +6,7 @@ import {
   User,
   Eye,
   Package,
+  AlertCircle
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -154,49 +155,87 @@ const Icons = () => {
           {activeTab === 'acessibilidade' && (
             <div className="space-y-6">
               <Card className="p-6">
-                <h2 className="text-xl font-semibold mb-4">Diretrizes de Acessibilidade para Ícones</h2>
+                <h2 className="text-xl font-semibold mb-4">Acessibilidade</h2>
                 <p className="text-gray-600 mb-6">
-                  Os ícones devem ser projetados e utilizados de forma a garantir a acessibilidade e a usabilidade para todos os usuários.
-                  Siga estas diretrizes para criar ícones que sejam claros, concisos e fáceis de entender.
+                  Garantir que os ícones sejam acessíveis para todos os usuários é fundamental para uma boa experiência de usuário.
                 </p>
 
-                <Separator className="my-6" />
+                <div className="space-y-8">
+                  <div className="rounded-lg border p-6">
+                    <h3 className="text-lg font-medium mb-3">Texto Alternativo</h3>
+                    <p className="text-gray-600 mb-4">Sempre forneça texto alternativo para ícones para garantir que leitores de tela possam interpretar corretamente:</p>
+                    
+                    <CodeBlock 
+                      code={`<img src="icon.svg" alt="Descrição clara da função do ícone">`} 
+                      language="html"
+                    />
+                  </div>
 
-                <Accordion type="single" collapsible className="w-full">
-                  <AccordionItem value="item-1">
-                    <AccordionTrigger className="text-lg font-medium">Uso de aria-label</AccordionTrigger>
-                    <AccordionContent className="text-gray-600">
-                      <p className="mb-2">Quando usar ícones sem texto, sempre forneça um aria-label descritivo para leitores de tela:</p>
-                      <CodeBlock 
-                        code={`<Button aria-label="Buscar">\n  <Search className="h-4 w-4" />\n</Button>`} 
-                        language="jsx"
-                      />
-                    </AccordionContent>
-                  </AccordionItem>
-                  
-                  <AccordionItem value="item-2">
-                    <AccordionTrigger className="text-lg font-medium">Tamanho e contraste</AccordionTrigger>
-                    <AccordionContent className="text-gray-600">
-                      <p>Garanta que seus ícones tenham:</p>
-                      <ul className="list-disc pl-5 space-y-2 mt-2">
-                        <li>Tamanho mínimo de 24x24 pixels para interação em dispositivos touchscreen</li>
-                        <li>Contraste suficiente (mínimo 3:1) com o fundo</li>
-                        <li>Consistência de espaçamento e tamanho em toda a interface</li>
-                      </ul>
-                    </AccordionContent>
-                  </AccordionItem>
-                  
-                  <AccordionItem value="item-3">
-                    <AccordionTrigger className="text-lg font-medium">Ícones com texto</AccordionTrigger>
-                    <AccordionContent className="text-gray-600">
-                      <p className="mb-2">Para melhor acessibilidade, combine ícones com texto sempre que possível:</p>
-                      <CodeBlock 
-                        code={`<Button>\n  <Save className="h-4 w-4 mr-2" />\n  Salvar\n</Button>`} 
-                        language="jsx"
-                      />
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
+                  <div className="rounded-lg border p-6">
+                    <h3 className="text-lg font-medium mb-3">Contraste</h3>
+                    <p className="text-gray-600 mb-4">Garanta que haja contraste suficiente entre o ícone e o fundo:</p>
+                    
+                    <div className="flex items-start space-x-6 mb-2">
+                      <div className="flex flex-col items-center">
+                        <div className="bg-green-100 p-4 rounded-md flex items-center justify-center mb-2">
+                          <User className="text-green-700 h-6 w-6" />
+                        </div>
+                        <span className="text-sm text-green-700 font-medium">Bom contraste</span>
+                      </div>
+                      
+                      <div className="flex flex-col items-center">
+                        <div className="bg-gray-200 p-4 rounded-md flex items-center justify-center mb-2">
+                          <User className="text-gray-400 h-6 w-6" />
+                        </div>
+                        <span className="text-sm text-red-500 font-medium">Contraste insuficiente</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="rounded-lg border p-6">
+                    <h3 className="text-lg font-medium mb-3">Nunca Use Apenas Ícones</h3>
+                    <p className="text-gray-600 mb-4">Para ações importantes, não confie apenas em ícones. Adicione texto descritivo:</p>
+                    
+                    <div className="flex items-start space-x-6 mb-2">
+                      <div className="flex flex-col items-center">
+                        <Button 
+                          variant="outline-default"
+                          className="mb-2"
+                          startIcon={<AlertCircle size={16} />}
+                        >
+                          Reportar problema
+                        </Button>
+                        <span className="text-sm text-green-700 font-medium">Preferível</span>
+                      </div>
+                      
+                      <div className="flex flex-col items-center">
+                        <Button 
+                          variant="outline-default"
+                          className="mb-2"
+                          startIcon={<AlertCircle size={16} />}
+                        />
+                        <span className="text-sm text-red-500 font-medium">Apenas se o significado for óbvio</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="rounded-lg border p-6">
+                    <h3 className="text-lg font-medium mb-3">Tamanho Adequado</h3>
+                    <p className="text-gray-600 mb-4">Ícones muito pequenos podem ser difíceis de identificar para usuários com deficiência visual:</p>
+                    
+                    <div className="flex items-start space-x-10 mb-2">
+                      <div className="flex flex-col items-center">
+                        <Package className="h-4 w-4 mb-2" />
+                        <span className="text-sm text-red-500 font-medium">Muito pequeno</span>
+                      </div>
+                      
+                      <div className="flex flex-col items-center">
+                        <Package className="h-6 w-6 mb-2" />
+                        <span className="text-sm text-green-700 font-medium">Tamanho mínimo</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </Card>
             </div>
           )}
