@@ -11,7 +11,7 @@ import Header from '@/components/library-components/Header';
 
 const Typography = () => {
   const [copied, setCopied] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState('overview');
+  const [activeTab, setActiveTab] = useState('styles');
   
   const copyToClipboard = (value: string) => {
     navigator.clipboard.writeText(value);
@@ -309,10 +309,9 @@ const Typography = () => {
       />
 
       <TailwindTabs 
-        defaultValue="overview" 
+        defaultValue="styles" 
         className="mt-8"
         tabs={[
-          { name: 'Visão geral', value: 'overview' },
           { name: 'Estilos', value: 'styles' },
           { name: 'Uso', value: 'usage' },
           { name: 'Acessibilidade', value: 'accessibility' }
@@ -321,122 +320,6 @@ const Typography = () => {
         onChange={(value) => setActiveTab(value)}
       />
 
-      {activeTab === 'overview' && (
-        <div className="space-y-6 mt-6">
-          <ComponentCard title="Sistema de Tipografia" description="Nosso sistema de tipografia é baseado na fonte Roboto com variações cuidadosamente definidas.">
-            <p className="text-mui-text-secondary mb-6">
-              A tipografia é organizada em hierarquias claras para criar uma experiência de leitura consistente e agradável.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div className="border rounded-lg p-4">
-                <h3 className="text-lg font-medium mb-2">1. Headings (h1-h6)</h3>
-                <p className="text-mui-text-secondary mb-3">
-                  Títulos e cabeçalhos para organizar o conteúdo:
-                </p>
-                <div className="space-y-3">
-                  <div><span className="text-8xl font-light leading-none">H1</span></div>
-                  <div><span className="text-6xl font-light leading-none">H2</span></div>
-                  <div><span className="text-5xl font-normal leading-none">H3</span></div>
-                  <div><span className="text-4xl font-normal leading-none">H4</span></div>
-                  <div><span className="text-2xl font-normal leading-none">H5</span></div>
-                  <div><span className="text-xl font-medium leading-none">H6</span></div>
-                </div>
-              </div>
-              
-              <div className="border rounded-lg p-4">
-                <h3 className="text-lg font-medium mb-2">2. Texto de corpo e auxiliares</h3>
-                <p className="text-mui-text-secondary mb-3">
-                  Estilos para parágrafos, legendas e decorações:
-                </p>
-                <div className="space-y-4">
-                  <div>
-                    <div className="text-base font-medium leading-none mb-1">Subtitle 1</div>
-                    <div className="text-sm font-medium leading-none mb-2">Subtitle 2</div>
-                  </div>
-                  <div>
-                    <div className="text-base font-normal leading-tight mb-1">Body 1</div>
-                    <div className="text-sm font-normal leading-tight mb-3">Body 2</div>
-                  </div>
-                  <div>
-                    <div className="text-xs font-normal leading-tight mb-1">Caption</div>
-                    <div className="text-xs font-normal uppercase leading-tight tracking-wide">OVERLINE</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="border rounded-lg p-4 mb-6">
-              <h3 className="text-lg font-medium mb-2">Propriedades de texto</h3>
-              <p className="text-mui-text-secondary mb-4">
-                Cada estilo de texto é definido por um conjunto de propriedades:
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="border rounded p-3">
-                  <div className="text-sm font-medium mb-1">Tamanho (Size)</div>
-                  <p className="text-mui-text-secondary text-sm">Varia de <code>text-xs</code> a <code>text-8xl</code></p>
-                </div>
-                
-                <div className="border rounded p-3">
-                  <div className="text-sm font-medium mb-1">Peso (Weight)</div>
-                  <p className="text-mui-text-secondary text-sm">Incluindo <code>font-light</code>, <code>font-normal</code> e <code>font-medium</code></p>
-                </div>
-                
-                <div className="border rounded p-3">
-                  <div className="text-sm font-medium mb-1">Altura da linha</div>
-                  <p className="text-mui-text-secondary text-sm">De <code>leading-tight</code> a <code>leading-loose</code> e valores personalizados</p>
-                </div>
-                
-                <div className="border rounded p-3">
-                  <div className="text-sm font-medium mb-1">Tracking</div>
-                  <p className="text-mui-text-secondary text-sm">Incluindo <code>tracking-tight</code> e <code>tracking-wide</code></p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="font-mono text-sm p-4 bg-mui-sidebar rounded-lg">
-              <p className="text-mui-text-secondary">Fonte primária: <strong>Roboto</strong> (300, 400, 500, 700)</p>
-            </div>
-          </ComponentCard>
-          
-          <Separator />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <ComponentCard title="Como Usar">
-              <p className="text-mui-text-secondary mb-3">
-                Utilize as classes de tipografia em seus componentes:
-              </p>
-              <CodeBlock title="Exemplo de uso" language="jsx" code={`<h1 className="text-8xl font-light leading-[112.03px] font-roboto">
-  Título Principal
-</h1>
-
-<p className="text-base font-normal leading-normal tracking-tight">
-  Este é um parágrafo com estilo body1, usado para textos
-  longos e informativos no corpo da página.
-</p>
-
-<span className="text-xs font-normal leading-loose tracking-wide uppercase">
-  TEXTO DE MARCAÇÃO SUPERIOR
-</span>`} />
-            </ComponentCard>
-            
-            <ComponentCard title="Consistência">
-              <p className="text-mui-text-secondary mb-3">
-                Benefícios de usar o sistema de tipografia:
-              </p>
-              <ul className="list-disc list-inside mt-2 space-y-2 text-mui-text-secondary">
-                <li>Hierarquia visual clara e coerente</li>
-                <li>Legibilidade otimizada para diferentes tamanhos de tela</li>
-                <li>Facilidade de manutenção com tokens padronizados</li>
-                <li>Acessibilidade melhorada com relações de tamanho apropriadas</li>
-                <li>Experiência de usuário consistente em toda a aplicação</li>
-              </ul>
-            </ComponentCard>
-          </div>
-        </div>
-      )}
-        
       {activeTab === 'styles' && (
         <div className="space-y-6 mt-6">
           <ComponentCard title="Estilos de Tipografia" description="Definições completas de cada estilo de texto usado no sistema.">
@@ -697,3 +580,4 @@ const Typography = () => {
 };
 
 export default Typography;
+
