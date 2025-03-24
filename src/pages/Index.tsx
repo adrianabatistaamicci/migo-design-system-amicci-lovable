@@ -1,19 +1,13 @@
-
 import React from 'react';
 import { Book, FileText, Layers, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 const Index = () => {
   return <div className="space-y-16">
       {/* Hero section directly on the page */}
       <section className="w-full relative overflow-hidden rounded-xl">
         {/* Background image without overlay gradient */}
         <div className="absolute inset-0 w-full h-full">
-          <img 
-            src="/lovable-uploads/3f0e12b8-4897-4ca4-aaeb-656250de8c5c.png" 
-            alt="Design fluid background" 
-            className="w-full h-full object-cover object-center"
-          />
+          <img src="/lovable-uploads/3f0e12b8-4897-4ca4-aaeb-656250de8c5c.png" alt="Design fluid background" className="w-full h-full object-cover object-center" />
           {/* Dark overlay removed */}
         </div>
         
@@ -60,9 +54,7 @@ const Index = () => {
                 <Book size={24} />
               </div>
               <h6 className="text-base mb-2 text-text-primary font-medium">Diretrizes</h6>
-              <p className="text-sm mb-4 text-text-secondary">
-                Boas pr��ticas para acessibilidade, responsividade e experiência do usuário.
-              </p>
+              <p className="text-sm mb-4 text-text-secondary">Boas práticas para acessibilidade, responsividade e experiência do usuário.</p>
               <Link to="/guidelines/accessibility" className="text-primary-main hover:text-primary-dark inline-flex items-center">
                 Ler diretrizes
                 <svg className="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
