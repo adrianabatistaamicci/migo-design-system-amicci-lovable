@@ -45,8 +45,7 @@ export const sidebarItems: SidebarItem[] = [
         title: 'Diretrizes', 
         href: '/guidelines',
         items: [
-          { title: 'Governança Lovable', href: '/guidelines/technical-governance' },
-          { title: 'Governança Criativa', href: '/guidelines/creative-governance' }
+          { title: 'Governança Lovable', href: '/guidelines/technical-governance' }
         ]
       },
     ]
