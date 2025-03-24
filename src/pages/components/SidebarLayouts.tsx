@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { 
   Home, 
@@ -618,4 +619,101 @@ const AdvancedSidebar = () => {
                   
                   {/* Footer Actions */}
                   <div className="px-3 py-3 border-t border-gray-200 mt-auto bg-white">
-                    <div className="flex items-center justify
+                    <div className="flex items-center justify-between">
+                      <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                        <Settings size={18} className="mr-2 text-gray-500" />
+                        <span>Settings</span>
+                      </a>
+                      
+                      <a href="#" className="flex items-center justify-center w-8 h-8 rounded-md text-gray-700 hover:bg-gray-100 relative">
+                        <Bell size={18} className="text-gray-500" />
+                        <div className="w-2 h-2 bg-primary-main rounded-full absolute top-1.5 right-1.5"></div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex-1 p-6 bg-white">
+                  <h1 className="text-xl font-semibold mb-4">Dashboard</h1>
+                  <p className="text-gray-600">Main content would go here</p>
+                </div>
+              </div>
+            </div>
+            
+            <LayoutComponentFooter code={advancedSidebarCode} />
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+};
+
+const LayoutComponentFooter = ({ code }) => {
+  const [copied, setCopied] = useState(false);
+
+  const copyCode = () => {
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="p-3 flex justify-end items-center bg-gray-50 border-t border-gray-200">
+      <div className="flex space-x-2">
+        <Button
+          variant="outline"
+          size="sm"
+          className="text-xs h-7"
+          onClick={copyCode}
+        >
+          {copied ? <CheckCheck size={14} className="mr-1" /> : <Copy size={14} className="mr-1" />}
+          {copied ? 'Copied' : 'Copy Code'}
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+          className="text-xs h-7"
+          onClick={() => {
+            const w = window.open('about:blank');
+            if (w) {
+              w.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                  <meta charset="UTF-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                  <script src="https://cdn.tailwindcss.com"></script>
+                  <title>Layout Preview</title>
+                </head>
+                <body>
+                  <div id="root"></div>
+                  <script type="module">
+                    import React from 'https://esm.sh/react@18.2.0';
+                    import ReactDOM from 'https://esm.sh/react-dom@18.2.0';
+                    import { LucideMenu, LucideX, LucideChevronLeft, LucideChevronRight, LucideHome, LucideMail, LucideUsers, LucideSettings } from 'https://esm.sh/lucide-react@0.244.0';
+                    
+                    // Simple components to make the example work
+                    const Chip = ({ children, className }) => (
+                      <span className={\`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium bg-primary-500 text-white \${className || ''}\`}>
+                        {children}
+                      </span>
+                    );
+                    
+                    ${code.replace(/import .+?;/g, '').replace(/export default .+?;/g, '')}
+                    
+                    ReactDOM.render(React.createElement(SidebarExample || CollapsibleSidebar || AdvancedSidebar), document.getElementById('root'));
+                  </script>
+                </body>
+                </html>
+              `);
+            }
+          }}
+        >
+          <Code size={14} className="mr-1" />
+          View Full Screen
+        </Button>
+      </div>
+    </div>
+  );
+};
+
+export default SidebarLayouts;
