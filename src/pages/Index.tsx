@@ -1,8 +1,7 @@
 
 import React from 'react';
-import { ArrowRight, Book, FileText, Layers, Package } from 'lucide-react';
+import { Book, FileText, Layers, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
 
 const Index = () => {
   return <div className="space-y-16">
@@ -19,21 +18,13 @@ const Index = () => {
         
         {/* Hero content */}
         <div className="relative z-10 px-4 py-16 md:py-24 max-w-5xl mx-auto">
-          <div className="bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-lg">
-            <h2 className="text-4xl tracking-tight mb-4 text-text-primary font-medium md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-primary-dark to-primary-light">
+          <div className="bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-lg text-center">
+            <h2 className="text-4xl tracking-tight mb-4 text-gray-900 font-medium md:text-6xl">
               Migo, o Design System da Amicci
             </h2>
-            <h6 className="text-lg mb-8 text-text-secondary">
+            <h6 className="text-lg mb-8 text-gray-900">
               Um sistema de design Tailwind consistente para criar interfaces de usuário modernas e acessíveis com React.
             </h6>
-            <div className="flex flex-wrap gap-4">
-              <Button asChild size="lg" className="shadow-md hover:shadow-lg transition-shadow">
-                <Link to="/components">Explorar Componentes<ArrowRight className="ml-2 h-5 w-5" /></Link>
-              </Button>
-              <Button variant="outline-default" size="lg" asChild className="shadow-sm hover:shadow-md transition-shadow">
-                <Link to="/foundations/colors">Ver Fundamentos<ArrowRight className="ml-2 h-5 w-5" /></Link>
-              </Button>
-            </div>
           </div>
         </div>
       </section>
@@ -54,7 +45,9 @@ const Index = () => {
               </p>
               <Link to="/components" className="text-primary-main hover:text-primary-dark inline-flex items-center">
                 Acessar instalação
-                <ArrowRight className="ml-1 h-4 w-4" />
+                <svg className="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
               </Link>
             </div>
             
@@ -68,7 +61,9 @@ const Index = () => {
               </p>
               <Link to="/guidelines/accessibility" className="text-primary-main hover:text-primary-dark inline-flex items-center">
                 Ler diretrizes
-                <ArrowRight className="ml-1 h-4 w-4" />
+                <svg className="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
               </Link>
             </div>
             
@@ -82,7 +77,9 @@ const Index = () => {
               </p>
               <Link to="/foundations/colors" className="text-primary-main hover:text-primary-dark inline-flex items-center">
                 Explorar kit
-                <ArrowRight className="ml-1 h-4 w-4" />
+                <svg className="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
               </Link>
             </div>
             
@@ -96,7 +93,9 @@ const Index = () => {
               </p>
               <Link to="/resources/figma-library" className="text-primary-main hover:text-primary-dark inline-flex items-center">
                 Acessar recursos
-                <ArrowRight className="ml-1 h-4 w-4" />
+                <svg className="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
               </Link>
             </div>
           </div>
