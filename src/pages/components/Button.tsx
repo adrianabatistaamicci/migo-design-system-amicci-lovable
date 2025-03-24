@@ -115,8 +115,7 @@ const ButtonPage = () => {
 <Button variant="error">Error</Button>
 <Button variant="warning">Warning</Button>
 <Button variant="info">Info</Button>
-<Button variant="success">Success</Button>
-<Button variant="secondary">Secondary</Button>`}
+<Button variant="success">Success</Button>`}
               >
                 <div className="grid grid-cols-3 gap-4">
                   <div className="flex flex-col items-center gap-2">
@@ -143,11 +142,6 @@ const ButtonPage = () => {
                     <Button variant="success" className="w-full bg-success-main text-success-contrast hover:bg-success-dark" size="sm">Label</Button>
                     <Button variant="success" className="w-full bg-success-main text-success-contrast hover:bg-success-dark">Label</Button>
                     <Button variant="success" className="w-full bg-success-main text-success-contrast hover:bg-success-dark" size="lg">Label</Button>
-                  </div>
-                  <div className="flex flex-col items-center gap-2">
-                    <Button variant="secondary" className="w-full" size="sm">Label</Button>
-                    <Button variant="secondary" className="w-full">Label</Button>
-                    <Button variant="secondary" className="w-full" size="lg">Label</Button>
                   </div>
                 </div>
               </ComponentCard>
