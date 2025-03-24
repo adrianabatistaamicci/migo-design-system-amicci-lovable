@@ -1,241 +1,205 @@
-
 import React, { useState } from 'react';
 import { TailwindTabs } from "@/components/ui/tabs";
 import Header from '@/components/library-components/Header';
 import ComponentCard from '@/components/ComponentCard';
 import {
-  User,
-  Settings,
-  Eye,
-  Copy,
+  ArrowDown,
+  ArrowUp,
   CheckCircle2,
+  ChevronDown,
+  ChevronUp,
+  Copy,
+  Github,
+  Mail,
+  MessageSquare,
+  Plus,
+  Trash2,
+  User,
   XCircle,
+  Youtube,
+  AlertCircle,
+  LucideIcon,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Button } from "@/components/ui/button";
+import { toast } from "@/components/ui/use-toast";
+import { icons } from "@/data/icons";
+import { ModeToggle } from "@/components/ui/mode-toggle";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 const Icons = () => {
-  const [activeTab, setActiveTab] = useState('scale');
+  const [activeTab, setActiveTab] = useState('library');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [copied, setCopied] = useState<string | null>(null);
+
+  const filteredIcons = icons.filter(icon =>
+    icon.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const copyToClipboard = (value: string) => {
+    navigator.clipboard.writeText(value);
+    setCopied(value);
+    toast({
+      title: "Copiado!",
+      description: "Ícone copiado para a área de transferência.",
+    })
+    setTimeout(() => setCopied(null), 2000);
+  };
 
   return (
     <div className="w-full animate-fade-in">
       <Header 
-        title="Ícones" 
-        description="Usamos ícones Lucide como biblioteca oficial"
+        title="Icons" 
+        description="Sistema de ícones utilizado na aplicação"
         type="foundations"
       />
 
       <div className="mt-8">
         <TailwindTabs 
-          defaultValue="scale"
+          defaultValue="library"
           tabs={[
-            { name: 'Escala', value: 'scale' },
-            { name: 'Acessibilidade', value: 'accessibility' }
+            { name: 'Biblioteca', value: 'library' },
+            { name: 'Uso', value: 'usage' },
+            { name: 'Guideline', value: 'guideline' }
           ]}
           variant="pillsGray"
           onChange={value => setActiveTab(value)}
         />
         
         <div className="mt-6">
-          {activeTab === 'scale' && (
+          {activeTab === 'library' && (
             <div className="space-y-6">
-              <ComponentCard title="Lucide Icons" description="Os ícones Lucide são um conjunto moderno e livre de ícones de código aberto projetados para interfaces digitais.">
-                <div className="space-y-4">
-                  <p className="text-gray-600">
-                    Os ícones Lucide são simples, modernos e amigáveis. Eles são fáceis de integrar em projetos React e oferecem alto grau de customização.
-                  </p>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-                    <Card className="flex flex-col items-center text-center p-6">
-                      <CardContent className="pt-6">
-                        <User className="h-10 w-10 mb-4" />
-                        <h3 className="text-lg font-medium mb-2">Simples</h3>
-                        <p className="text-gray-500 text-sm">
-                          Design limpo e minimalista que funciona bem em tamanhos pequenos
-                        </p>
-                      </CardContent>
-                    </Card>
-
-                    <Card className="flex flex-col items-center text-center p-6">
-                      <CardContent className="pt-6">
-                        <Settings className="h-10 w-10 mb-4" />
-                        <h3 className="text-lg font-medium mb-2">Consistente</h3>
-                        <p className="text-gray-500 text-sm">
-                          Estilo uniforme em todos os ícones do sistema
-                        </p>
-                      </CardContent>
-                    </Card>
-
-                    <Card className="flex flex-col items-center text-center p-6">
-                      <CardContent className="pt-6">
-                        <Eye className="h-10 w-10 mb-4" />
-                        <h3 className="text-lg font-medium mb-2">Significativo</h3>
-                        <p className="text-gray-500 text-sm">
-                          Metáforas reconhecíveis que comunicam rapidamente o significado
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                  
-                  <div className="bg-sky-50 border border-sky-100 rounded-lg p-4 flex items-center justify-between mt-6">
-                    <p className="text-gray-600">A biblioteca completa pode ser acessada no site oficial.</p>
-                    <Button 
-                      variant="default" 
-                      className="bg-teal-500 hover:bg-teal-600"
-                      onClick={() => window.open('https://lucide.dev', '_blank')}
-                    >
-                      Acessar Lucide Icons
-                    </Button>
-                  </div>
+              <ComponentCard title="Biblioteca de Ícones" description="Explore a biblioteca completa de ícones disponíveis para uso em sua aplicação.">
+                <div className="mb-4">
+                  <Input
+                    type="text"
+                    placeholder="Pesquisar ícones..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />
                 </div>
-              </ComponentCard>
-
-              <ComponentCard title="Guia de Integração" description="Existem várias maneiras de integrar os ícones Lucide em seu projeto:">
-                <div className="space-y-6">
-                  <div className="border rounded-lg p-4">
-                    <h3 className="text-lg font-medium mb-2">1. Instalação via NPM</h3>
-                    <pre className="bg-gray-50 p-3 rounded font-mono text-sm">npm install lucide-react</pre>
-                  </div>
-
-                  <div className="border rounded-lg p-4">
-                    <h3 className="text-lg font-medium mb-2">2. Importação e Uso</h3>
-                    <pre className="bg-gray-50 p-3 rounded font-mono text-sm">
-{`import { User, Settings } from 'lucide-react';
-
-function MyComponent() {
-  return (
-    <div>
-      <User size={24} />
-      <Settings size={24} color="blue" />
-    </div>
-  );
-}`}
-                    </pre>
-                  </div>
-
-                  <div className="border rounded-lg p-4">
-                    <h3 className="text-lg font-medium mb-2">3. Personalização</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <h4 className="font-medium mb-2">Tamanho</h4>
-                        <div className="flex items-center space-x-4">
-                          <User size={16} />
-                          <User size={24} />
-                          <User size={32} />
-                          <User size={48} />
-                        </div>
-                      </div>
-                      <div>
-                        <h4 className="font-medium mb-2">Cor</h4>
-                        <div className="flex items-center space-x-4">
-                          <User color="#000000" />
-                          <User color="#0EA5E9" />
-                          <User color="#10B981" />
-                          <User color="#EF4444" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </ComponentCard>
-              
-              <ComponentCard title="Recursos Oficiais" description="Links para recursos oficiais e documentação da biblioteca Lucide.">
-                <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>Site Oficial Lucide - Navegue e busque ícones</li>
-                  <li>GitHub Lucide - Repositório oficial</li>
-                  <li>Documentação lucide-react - Guia completo de uso com React</li>
-                </ul>
+                <ScrollArea className="h-[400px] w-full rounded-md border">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Ícone</TableHead>
+                        <TableHead>Nome</TableHead>
+                        <TableHead>Ações</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {filteredIcons.map((icon) => (
+                        <TableRow key={icon.name}>
+                          <TableCell>
+                            <icon.Component className="h-4 w-4" />
+                          </TableCell>
+                          <TableCell>{icon.name}</TableCell>
+                          <TableCell>
+                            <Button variant="outline" size="sm" onClick={() => copyToClipboard(`<${icon.name} className="h-4 w-4"/>`)}>
+                              Copiar
+                            </Button>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </ScrollArea>
               </ComponentCard>
             </div>
           )}
 
-          {activeTab === 'accessibility' && (
+          {activeTab === 'usage' && (
             <div className="space-y-6">
-              <ComponentCard title="Acessibilidade" description="Garantir que os ícones sejam acessíveis para todos os usuários é fundamental para uma boa experiência de usuário.">
-                <div className="space-y-6">
-                  <div className="space-y-4">
-                    <h3 className="text-xl font-medium">Texto Alternativo</h3>
-                    <p className="text-gray-600">
-                      Sempre forneça texto alternativo para ícones para garantir que leitores de tela possam interpretar corretamente:
-                    </p>
-                    
-                    <pre className="bg-gray-50 p-3 rounded font-mono text-sm">
-                      {'<img src="icon.svg" alt="Descrição clara da função do ícone">'}
-                    </pre>
-                  </div>
+              <ComponentCard title="Guia de Uso de Ícones" description="Diretrizes e exemplos práticos para a utilização eficaz dos ícones em sua interface.">
+                <div className="space-y-4">
+                  <p className="text-gray-600">
+                    Os ícones são elementos visuais importantes que ajudam a transmitir informações de forma rápida e intuitiva.
+                    Siga estas diretrizes para garantir que os ícones sejam utilizados de maneira consistente e eficaz em toda a aplicação.
+                  </p>
 
                   <Separator />
 
-                  <div className="space-y-4">
-                    <h3 className="text-xl font-medium">Contraste</h3>
-                    <p className="text-gray-600">
-                      Garanta que haja contraste suficiente entre o ícone e o fundo:
-                    </p>
+                  <Accordion type="single" collapsible>
+                    <AccordionItem value="item-1">
+                      <AccordionTrigger>Tamanho e Espaçamento</AccordionTrigger>
+                      <AccordionContent>
+                        <p className="text-gray-600">
+                          Utilize os ícones em tamanhos consistentes para manter a harmonia visual.
+                          Recomendamos o uso de ícones com 16x16 pixels ou 24x24 pixels, dependendo do contexto.
+                          Certifique-se de que haja espaço suficiente ao redor dos ícones para evitar que pareçam congestionados.
+                        </p>
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-2">
+                      <AccordionTrigger>Cor e Contraste</AccordionTrigger>
+                      <AccordionContent>
+                        <p className="text-gray-600">
+                          Utilize cores que estejam em conformidade com a paleta de cores da aplicação.
+                          Certifique-se de que haja contraste suficiente entre o ícone e o fundo para garantir a legibilidade.
+                          Evite o uso de cores que possam causar confusão ou distrair o usuário.
+                        </p>
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-3">
+                      <AccordionTrigger>Consistência</AccordionTrigger>
+                      <AccordionContent>
+                        <p className="text-gray-600">
+                          Utilize os mesmos ícones para representar as mesmas ações ou conceitos em toda a aplicação.
+                          Isso ajudará os usuários a aprender e lembrar o significado de cada ícone.
+                          Evite o uso de ícones diferentes para representar a mesma coisa, pois isso pode causar confusão.
+                        </p>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+              </ComponentCard>
+            </div>
+          )}
 
-                    <div className="flex space-x-4">
-                      <div className="text-center">
-                        <div className="bg-green-100 p-4 rounded flex justify-center items-center">
-                          <User className="text-green-700" />
-                        </div>
-                        <p className="text-sm mt-2 text-green-700">Bom contraste</p>
-                      </div>
-                      
-                      <div className="text-center">
-                        <div className="bg-gray-200 p-4 rounded flex justify-center items-center">
-                          <User className="text-gray-300" />
-                        </div>
-                        <p className="text-sm mt-2 text-red-500">Contraste insuficiente</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <Separator />
-
-                  <div className="space-y-4">
-                    <h3 className="text-xl font-medium">Nunca Use Apenas Ícones</h3>
-                    <p className="text-gray-600">
-                      Para ações importantes, não confie apenas em ícones. Adicione texto descritivo:
-                    </p>
-                    
-                    <div className="flex space-x-4">
-                      <div className="text-center">
-                        <Button className="flex items-center space-x-2 bg-green-500 hover:bg-green-600">
-                          <CheckCircle2 size={16} />
-                          <span>Salvar alterações</span>
-                        </Button>
-                        <p className="text-sm mt-2 text-green-700">Preferível</p>
-                      </div>
-                      
-                      <div className="text-center">
-                        <Button className="bg-gray-500 hover:bg-gray-600">
-                          <CheckCircle2 size={16} />
-                        </Button>
-                        <p className="text-sm mt-2 text-red-500">Apenas se o significado for óbvio</p>
-                      </div>
-                    </div>
-                  </div>
+          {activeTab === 'guideline' && (
+            <div className="space-y-6">
+              <ComponentCard title="Diretrizes de Ícones" description="Orientações detalhadas para o design e a utilização de ícones acessíveis e eficazes.">
+                <div className="space-y-4">
+                  <p className="text-gray-600">
+                    Os ícones devem ser projetados e utilizados de forma a garantir a acessibilidade e a usabilidade para todos os usuários.
+                    Siga estas diretrizes para criar ícones que sejam claros, concisos e fáceis de entender.
+                  </p>
 
                   <Separator />
 
-                  <div className="space-y-4">
-                    <h3 className="text-xl font-medium">Tamanho Adequado</h3>
-                    <p className="text-gray-600">
-                      Ícones muito pequenos podem ser difíceis de identificar para usuários com deficiência visual:
-                    </p>
-                    
-                    <div className="flex space-x-4">
-                      <div className="text-center">
-                        <Settings size={12} />
-                        <p className="text-sm mt-2 text-red-500">Muito pequeno</p>
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Acessibilidade</CardTitle>
+                      <CardDescription>
+                        Certifique-se de que os ícones sejam acessíveis para usuários com deficiência visual.
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="grid gap-4">
+                      <div className="flex items-center space-x-4">
+                        <Label htmlFor="icon-name">Nome do Ícone</Label>
+                        <Input id="icon-name" defaultValue="ExemploIcon" className="max-w-[150px]" />
                       </div>
-                      
-                      <div className="text-center">
-                        <Settings size={24} />
-                        <p className="text-sm mt-2 text-green-700">Tamanho mínimo</p>
+                      <div className="flex items-center space-x-4">
+                        <Label htmlFor="icon-description">Descrição</Label>
+                        <Textarea id="icon-description" placeholder="Descrição detalhada do ícone" />
                       </div>
-                    </div>
-                  </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Button>Salvar</Button>
+                    </CardFooter>
+                  </Card>
                 </div>
               </ComponentCard>
             </div>
