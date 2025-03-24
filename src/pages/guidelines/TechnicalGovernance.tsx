@@ -5,6 +5,29 @@ import EmptyState from '@/components/library-components/EmptyState';
 import { Separator } from '@/components/ui/separator';
 
 const TechnicalGovernance = () => {
+  const coreTeam = [
+    {
+      name: 'Adriana Batista',
+      role: 'Head UX',
+      email: 'adriana.batista@amicci.com.br'
+    },
+    {
+      name: 'Gabriel Vale',
+      role: 'Tech Lead',
+      email: 'gabriel.vale@amicci.com.br'
+    },
+    {
+      name: 'Pedro Lopes',
+      role: 'Tech Lead',
+      email: 'pedro.lopes@amicci.com.br'
+    },
+    {
+      name: 'Guilherme Gradaschi',
+      role: 'Tech Lead',
+      email: 'guilherme.gradaschi@amicci.com.br'
+    }
+  ];
+
   return (
     <div className="w-full animate-fade-in">
       <Header 
@@ -13,6 +36,26 @@ const TechnicalGovernance = () => {
         type="foundations"
         hideChip={true}
       />
+      
+      <div className="mb-8 bg-gray-50 border border-gray-200 rounded-lg p-6">
+        <h2 className="text-2xl font-semibold mb-4">Design System Core Team</h2>
+        <div className="grid md:grid-cols-2 gap-4">
+          {coreTeam.map((member) => (
+            <div key={member.name} className="bg-white p-4 rounded-lg shadow-sm">
+              <h3 className="text-lg font-medium">{member.name}</h3>
+              <p className="text-gray-600">{member.role}</p>
+              <p className="text-sm text-gray-500">
+                <a 
+                  href={`mailto:${member.email}`} 
+                  className="hover:underline text-blue-600"
+                >
+                  {member.email}
+                </a>
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
       
       <div className="mt-6 space-y-8">
         <section>
@@ -109,3 +152,4 @@ const TechnicalGovernance = () => {
 };
 
 export default TechnicalGovernance;
+
