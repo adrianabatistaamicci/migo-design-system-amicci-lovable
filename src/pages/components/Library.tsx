@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import Header from '@/components/library-components/Header';
@@ -23,7 +24,14 @@ const LibraryPage: React.FC = () => {
     for (const path in libraryComponents) {
       const componentName = path.split('/').pop()?.replace('.tsx', '') || '';
       // Skip EmptyState component and Header component as we'll add them manually to prevent duplication
-      if (componentName && componentName !== 'EmptyState' && componentName !== 'Header' && componentName !== 'ComponentsHeader' && componentName !== 'FoundationsHeader' && libraryComponents[path].default) {
+      // Also skip HeroSection as requested by the user
+      if (componentName && 
+          componentName !== 'EmptyState' && 
+          componentName !== 'Header' && 
+          componentName !== 'ComponentsHeader' && 
+          componentName !== 'FoundationsHeader' && 
+          componentName !== 'HeroSection' &&
+          libraryComponents[path].default) {
         formattedComponents[componentName] = libraryComponents[path].default;
       }
     }
