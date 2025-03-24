@@ -1,13 +1,45 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, Outlet } from 'react-router-dom';
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
 import Search from '@/components/Search';
 import { usePageTransition } from '@/utils/transitionUtils';
 import { cn } from '@/lib/utils';
+import { PageTitleProvider, usePageTitle } from '@/contexts/PageTitleContext';
+import { sidebarItems } from '@/components/Sidebar';
 
-const MainLayout: React.FC = () => {
+const PageTitleUpdater = () => {
+  const location = useLocation();
+  const { setPageTitle } = usePageTitle();
+  
+  // Function to recursively search for the current page in the sidebar items
+  const findPageTitle = (items: any[], pathname: string): string | undefined => {
+    for (const item of items) {
+      if (item.href === pathname) {
+        return item.title;
+      }
+      if (item.items) {
+        const foundTitle = findPageTitle(item.items, pathname);
+        if (foundTitle) return foundTitle;
+      }
+    }
+    return undefined;
+  };
+  
+  useEffect(() => {
+    const title = findPageTitle(sidebarItems, location.pathname);
+    if (title) {
+      setPageTitle(title);
+      // Also update the document title
+      document.title = `Migo Design System | ${title}`;
+    }
+  }, [location.pathname, setPageTitle]);
+  
+  return null;
+};
+
+const MainLayoutContent = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const location = useLocation();
@@ -20,6 +52,7 @@ const MainLayout: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <PageTitleUpdater />
       <Header 
         toggleSidebar={() => setSidebarOpen(!sidebarOpen)} 
         isSidebarOpen={sidebarOpen}
@@ -57,6 +90,14 @@ const MainLayout: React.FC = () => {
       
       <Search isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </div>
+  );
+};
+
+const MainLayout: React.FC = () => {
+  return (
+    <PageTitleProvider>
+      <MainLayoutContent />
+    </PageTitleProvider>
   );
 };
 

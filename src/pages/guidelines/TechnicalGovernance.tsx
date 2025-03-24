@@ -1,10 +1,17 @@
-import React from 'react';
+
+import React, { useEffect } from 'react';
 import Header from '@/components/library-components/Header';
 import EmptyState from '@/components/library-components/EmptyState';
 import { Separator } from '@/components/ui/separator';
 import CodeBlock from '@/components/CodeBlock';
+import { usePageTitle } from '@/contexts/PageTitleContext';
 
 const TechnicalGovernance = () => {
+  const { setPageTitle } = usePageTitle();
+  
+  // This component doesn't set its own title, it relies on the sidebar item title
+  // which is set at the app level
+  
   const coreTeam = [
     {
       name: 'Adriana Batista',
@@ -31,7 +38,6 @@ const TechnicalGovernance = () => {
   return (
     <div className="w-full animate-fade-in">
       <Header 
-        title="Governança Lovable"
         description="Processo de contribuição, manutenção e evolução dos componentes"
         type="foundations"
         hideChip={true}

@@ -1,10 +1,11 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Chip } from '@/components/ui/chip';
 import { cn } from '@/lib/utils';
+import { usePageTitle } from '@/contexts/PageTitleContext';
 
 interface HeaderProps {
-  title: string;
+  title?: string;
   description: string;
   type?: 'foundations' | 'components';
   className?: string;
@@ -12,12 +13,17 @@ interface HeaderProps {
 }
 
 const Header = ({
-  title,
+  title: propTitle,
   description,
   type = 'components',
   className,
   hideChip = false
 }: HeaderProps) => {
+  const { pageTitle } = usePageTitle();
+  
+  // Use the context page title if available, otherwise use the prop title
+  const displayTitle = pageTitle || propTitle;
+
   return (
     <div className={cn("w-full animate-fade-in mb-8", className)}>
       <div className="space-y-2">
@@ -33,7 +39,7 @@ const Header = ({
           </div>
         )}
         <h1 className="text-4xl font-medium tracking-tight text-gray-950">
-          {title}
+          {displayTitle}
         </h1>
         <p className="max-w-none text-gray-700">{description}</p>
       </div>

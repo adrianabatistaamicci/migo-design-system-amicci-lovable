@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
@@ -35,7 +34,7 @@ interface SidebarProps {
   isOpen: boolean;
 }
 
-const sidebarItems: SidebarItem[] = [
+export const sidebarItems: SidebarItem[] = [
   {
     title: 'Introdução',
     items: [
@@ -46,7 +45,8 @@ const sidebarItems: SidebarItem[] = [
         title: 'Diretrizes', 
         href: '/guidelines',
         items: [
-          { title: 'Governança Técnica', href: '/guidelines/technical-governance' }
+          { title: 'Governança Lovable', href: '/guidelines/technical-governance' },
+          { title: 'Governança Criativa', href: '/guidelines/creative-governance' }
         ]
       },
     ]
