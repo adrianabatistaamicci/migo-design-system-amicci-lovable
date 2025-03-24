@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ComponentPreview from '@/components/ComponentPreview';
 import { TailwindTabs } from '@/components/ui/tabs';
@@ -29,7 +30,7 @@ const NavigationSection = () => {
         
         <ComponentPreview 
           title="Tabs" 
-          imageSrc="/lovable-uploads/176919aa-cdc0-47fe-8ab4-b4d6f6fd057e.png" 
+          imageSrc="/lovable-uploads/0f1a299c-2412-4fb5-834f-c75c9e9742cf.png" 
           variantCount={4} 
           preview={
             <div className="w-full">
