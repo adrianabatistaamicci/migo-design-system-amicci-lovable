@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Home, Mail, Settings, Users, ChevronRight, ChevronLeft } from 'lucide-react';
 import EmptyState from '@/components/library-components/EmptyState';

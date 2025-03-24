@@ -20,6 +20,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import CodeBlock from '@/components/CodeBlock';
 
 const Icons = () => {
   const [activeTab, setActiveTab] = useState('escala');
@@ -104,34 +105,37 @@ const Icons = () => {
                   <div>
                     <h3 className="font-medium mb-2">1. Instalação via NPM</h3>
                     <p className="text-sm text-gray-600 mb-2">Instale o pacote lucide-react:</p>
-                    <div className="bg-slate-900 text-white p-3 rounded-md text-sm font-mono mb-4">
-                      npm install lucide-react
-                    </div>
+                    <CodeBlock 
+                      code="npm install lucide-react" 
+                      language="bash"
+                      title="Terminal"
+                    />
                     <p className="text-sm text-gray-600 mb-2">Então importe e use os ícones:</p>
-                    <div className="bg-slate-900 text-white p-3 rounded-md text-sm font-mono">
-                      import &#123; Home &#125; from 'lucide-react';<br />
-                      &lt;Home /&gt;
-                    </div>
+                    <CodeBlock 
+                      code="import { Home } from 'lucide-react';\n<Home />" 
+                      language="jsx"
+                      title="React Component"
+                    />
                   </div>
                   
                   <div>
                     <h3 className="font-medium mb-2">2. Customização</h3>
                     <p className="text-sm text-gray-600 mb-2">Os ícones Lucide são altamente customizáveis:</p>
-                    <div className="bg-slate-900 text-white p-3 rounded-md text-sm font-mono">
-                      &lt;Home size=24 color="blue" strokeWidth=2 /&gt;
-                    </div>
+                    <CodeBlock 
+                      code='<Home size={24} color="blue" strokeWidth={2} />' 
+                      language="jsx"
+                      title="React Component"
+                    />
                   </div>
                   
                   <div>
                     <h3 className="font-medium mb-2">3. Componente Genérico</h3>
                     <p className="text-sm text-gray-600 mb-2">Crie um componente de ícone genérico para uso dinâmico:</p>
-                    <div className="bg-slate-900 text-white p-3 rounded-md text-sm font-mono">
-                      import &#123; icons &#125; from 'lucide-react';<br />
-                      const Icon = (&#123; name, ...props &#125;) =&gt; &#123;<br />
-                      &nbsp;&nbsp;const LucideIcon = icons[name];<br />
-                      &nbsp;&nbsp;return &lt;LucideIcon &#123;...props&#125; /&gt;;<br />
-                      &#125;;
-                    </div>
+                    <CodeBlock 
+                      code={`import { icons } from 'lucide-react';\nconst Icon = ({ name, ...props }) => {\n  const LucideIcon = icons[name];\n  return <LucideIcon {...props} />;\n};`} 
+                      language="jsx"
+                      title="Icon.jsx"
+                    />
                   </div>
                 </div>
               </Card>
@@ -163,11 +167,10 @@ const Icons = () => {
                     <AccordionTrigger className="text-lg font-medium">Uso de aria-label</AccordionTrigger>
                     <AccordionContent className="text-gray-600">
                       <p className="mb-2">Quando usar ícones sem texto, sempre forneça um aria-label descritivo para leitores de tela:</p>
-                      <div className="bg-slate-900 text-white p-3 rounded-md text-sm font-mono">
-                        &lt;Button aria-label="Buscar"&gt;<br />
-                        &nbsp;&nbsp;&lt;Search className="h-4 w-4" /&gt;<br />
-                        &lt;/Button&gt;
-                      </div>
+                      <CodeBlock 
+                        code={`<Button aria-label="Buscar">\n  <Search className="h-4 w-4" />\n</Button>`} 
+                        language="jsx"
+                      />
                     </AccordionContent>
                   </AccordionItem>
                   
@@ -187,12 +190,10 @@ const Icons = () => {
                     <AccordionTrigger className="text-lg font-medium">Ícones com texto</AccordionTrigger>
                     <AccordionContent className="text-gray-600">
                       <p className="mb-2">Para melhor acessibilidade, combine ícones com texto sempre que possível:</p>
-                      <div className="bg-slate-900 text-white p-3 rounded-md text-sm font-mono">
-                        &lt;Button&gt;<br />
-                        &nbsp;&nbsp;&lt;Save className="h-4 w-4 mr-2" /&gt;<br />
-                        &nbsp;&nbsp;Salvar<br />
-                        &lt;/Button&gt;
-                      </div>
+                      <CodeBlock 
+                        code={`<Button>\n  <Save className="h-4 w-4 mr-2" />\n  Salvar\n</Button>`} 
+                        language="jsx"
+                      />
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
