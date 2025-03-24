@@ -19,18 +19,19 @@ const StackedLayouts = () => {
   return <div className="w-full animate-fade-in">
       <Header title="Stacked Layouts" description="Layouts empilhados (stacked) são uma estrutura comum para aplicações onde o cabeçalho permanece fixo no topo enquanto o conteúdo principal é rolável. Esses layouts proporcionam uma navegação clara e consistente para os usuários." type="components" />
         
-      <TailwindTabs defaultValue="overview" className="mt-8" tabs={[{
-      name: 'Visão geral',
-      value: 'overview'
-    }, {
-      name: 'Uso no marketplace',
-      value: 'marketplace'
-    }, {
-      name: 'Uso no site institucional',
-      value: 'institutional'
-    }]} variant="pillsGray" onChange={value => setActiveTab(value)} />
+      <TailwindTabs 
+        defaultValue="overview" 
+        className="mt-8" 
+        tabs={[
+          { name: 'Visão geral', value: 'overview' },
+          { name: 'Uso no marketplace', value: 'marketplace' },
+          { name: 'Uso no site institucional', value: 'institutional' }
+        ]} 
+        variant="pillsGray" 
+        onChange={value => setActiveTab(value)} 
+      />
 
-      {activeTab === 'overview' && <div className="space-y-12 mt-6">
+      {activeTab === 'overview' && <div className="mt-6 space-y-12">
           <LayoutComponent 
             title="Light nav with bottom border" 
             component={<LightNavBottomBorderWithReusable />} 
@@ -62,7 +63,7 @@ const StackedLayouts = () => {
           />
         </div>}
 
-      {activeTab === 'marketplace' && <div className="space-y-12 mt-6">
+      {activeTab === 'marketplace' && <div className="mt-6 space-y-12">
           <LayoutComponent 
             title="Marketplace Buyer Navigation" 
             component={<MarketplaceBuyerExample />} 
@@ -76,7 +77,7 @@ const StackedLayouts = () => {
           />
         </div>}
 
-      {activeTab === 'institutional' && <div className="space-y-12 mt-6">
+      {activeTab === 'institutional' && <div className="mt-6 space-y-12">
           <LayoutComponent 
             title="Institutional Site Navigation" 
             component={<InstitutionalExample />} 
