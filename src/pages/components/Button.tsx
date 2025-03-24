@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Button } from '@/components/ui/button';
@@ -5,6 +6,7 @@ import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@
 import { Mail, ArrowRight, Plus, X } from 'lucide-react';
 import Header from '@/components/library-components/Header';
 import { TailwindTabs } from '@/components/ui/tabs';
+import CodeBlock from '@/components/CodeBlock';
 
 const ButtonPage = () => {
   const [activeTab, setActiveTab] = useState('examples');
@@ -23,6 +25,7 @@ const ButtonPage = () => {
           className="mt-8"
           tabs={[
             { name: 'Exemplos', value: 'examples' },
+            { name: 'Variantes', value: 'variants' },
             { name: 'API', value: 'api' },
             { name: 'Código', value: 'code' }
           ]}
@@ -98,6 +101,204 @@ const ButtonPage = () => {
                   </Button>
                 </div>
               </ComponentCard>
+            </div>
+          )}
+          
+          {activeTab === 'variants' && (
+            <div className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Contained Buttons */}
+                <ComponentCard
+                  title="Contained Buttons"
+                  description="Solid color buttons for primary actions."
+                  code={`<Button>Default</Button>
+<Button variant="error">Error</Button>
+<Button variant="warning">Warning</Button>
+<Button variant="info">Info</Button>
+<Button variant="success">Success</Button>
+<Button variant="secondary">Secondary</Button>`}
+                >
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="flex flex-col items-center gap-2">
+                      <Button className="w-full">Lable</Button>
+                      <Button className="w-full" size="sm">Lable</Button>
+                      <Button className="w-full" size="lg">Lable</Button>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Button variant="error" className="w-full">Lable</Button>
+                      <Button variant="error" className="w-full" size="sm">Lable</Button>
+                      <Button variant="error" className="w-full" size="lg">Lable</Button>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Button variant="warning" className="w-full bg-warning-main text-warning-contrast hover:bg-warning-dark">Lable</Button>
+                      <Button variant="warning" className="w-full bg-warning-main text-warning-contrast hover:bg-warning-dark" size="sm">Lable</Button>
+                      <Button variant="warning" className="w-full bg-warning-main text-warning-contrast hover:bg-warning-dark" size="lg">Lable</Button>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Button variant="info" className="w-full bg-info-main text-info-contrast hover:bg-info-dark">Lable</Button>
+                      <Button variant="info" className="w-full bg-info-main text-info-contrast hover:bg-info-dark" size="sm">Lable</Button>
+                      <Button variant="info" className="w-full bg-info-main text-info-contrast hover:bg-info-dark" size="lg">Lable</Button>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Button variant="success" className="w-full bg-success-main text-success-contrast hover:bg-success-dark">Lable</Button>
+                      <Button variant="success" className="w-full bg-success-main text-success-contrast hover:bg-success-dark" size="sm">Lable</Button>
+                      <Button variant="success" className="w-full bg-success-main text-success-contrast hover:bg-success-dark" size="lg">Lable</Button>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Button variant="secondary" className="w-full">Lable</Button>
+                      <Button variant="secondary" className="w-full" size="sm">Lable</Button>
+                      <Button variant="secondary" className="w-full" size="lg">Lable</Button>
+                    </div>
+                  </div>
+                </ComponentCard>
+
+                {/* Outlined Buttons */}
+                <ComponentCard
+                  title="Outlined Buttons"
+                  description="Buttons with an outline for secondary actions."
+                  code={`<Button variant="outline-default">Default</Button>
+<Button variant="outline-error">Error</Button>
+<Button variant="outline-warning">Warning</Button>
+<Button variant="outline-info">Info</Button>
+<Button variant="outline-success">Success</Button>
+<Button variant="outline-secondary">Secondary</Button>`}
+                >
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="flex flex-col items-center gap-2">
+                      <Button variant="outline-default" className="w-full">Lable</Button>
+                      <Button variant="outline-default" className="w-full" size="sm">Lable</Button>
+                      <Button variant="outline-default" className="w-full" size="lg">Lable</Button>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Button variant="outline-error" className="w-full">Lable</Button>
+                      <Button variant="outline-error" className="w-full" size="sm">Lable</Button>
+                      <Button variant="outline-error" className="w-full" size="lg">Lable</Button>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Button variant="outline-warning" className="w-full">Lable</Button>
+                      <Button variant="outline-warning" className="w-full" size="sm">Lable</Button>
+                      <Button variant="outline-warning" className="w-full" size="lg">Lable</Button>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Button variant="outline-info" className="w-full">Lable</Button>
+                      <Button variant="outline-info" className="w-full" size="sm">Lable</Button>
+                      <Button variant="outline-info" className="w-full" size="lg">Lable</Button>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Button variant="outline-success" className="w-full">Lable</Button>
+                      <Button variant="outline-success" className="w-full" size="sm">Lable</Button>
+                      <Button variant="outline-success" className="w-full" size="lg">Lable</Button>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Button variant="outline-secondary" className="w-full">Lable</Button>
+                      <Button variant="outline-secondary" className="w-full" size="sm">Lable</Button>
+                      <Button variant="outline-secondary" className="w-full" size="lg">Lable</Button>
+                    </div>
+                  </div>
+                </ComponentCard>
+
+                {/* Text Buttons */}
+                <ComponentCard
+                  title="Text Buttons"
+                  description="Buttons without background for subtle actions."
+                  code={`<Button variant="text-default">Default</Button>
+<Button variant="text-error">Error</Button>
+<Button variant="text-warning">Warning</Button>
+<Button variant="text-info">Info</Button>
+<Button variant="text-success">Success</Button>
+<Button variant="text-secondary">Secondary</Button>`}
+                >
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="flex flex-col items-center gap-2">
+                      <Button variant="text-default" className="w-full">Lable</Button>
+                      <Button variant="text-default" className="w-full" size="sm">Lable</Button>
+                      <Button variant="text-default" className="w-full" size="lg">Lable</Button>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Button variant="text-error" className="w-full">Lable</Button>
+                      <Button variant="text-error" className="w-full" size="sm">Lable</Button>
+                      <Button variant="text-error" className="w-full" size="lg">Lable</Button>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Button variant="text-warning" className="w-full">Lable</Button>
+                      <Button variant="text-warning" className="w-full" size="sm">Lable</Button>
+                      <Button variant="text-warning" className="w-full" size="lg">Lable</Button>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Button variant="text-info" className="w-full">Lable</Button>
+                      <Button variant="text-info" className="w-full" size="sm">Lable</Button>
+                      <Button variant="text-info" className="w-full" size="lg">Lable</Button>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Button variant="text-success" className="w-full">Lable</Button>
+                      <Button variant="text-success" className="w-full" size="sm">Lable</Button>
+                      <Button variant="text-success" className="w-full" size="lg">Lable</Button>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                      <Button variant="text-secondary" className="w-full">Lable</Button>
+                      <Button variant="text-secondary" className="w-full" size="sm">Lable</Button>
+                      <Button variant="text-secondary" className="w-full" size="lg">Lable</Button>
+                    </div>
+                  </div>
+                </ComponentCard>
+
+                {/* Usage Guide */}
+                <ComponentCard
+                  title="Button Usage Guide"
+                  description="Best practices for using different button variants."
+                >
+                  <div className="space-y-4">
+                    <div className="p-4 border rounded-md">
+                      <h3 className="font-medium mb-2">Contained Buttons</h3>
+                      <p className="text-sm text-gray-600">Use for primary actions that need emphasis. The solid background draws attention to the most important actions on a page.</p>
+                    </div>
+                    
+                    <div className="p-4 border rounded-md">
+                      <h3 className="font-medium mb-2">Outlined Buttons</h3>
+                      <p className="text-sm text-gray-600">Use for secondary actions. The outline style is less prominent than contained buttons but still clearly visible.</p>
+                    </div>
+                    
+                    <div className="p-4 border rounded-md">
+                      <h3 className="font-medium mb-2">Text Buttons</h3>
+                      <p className="text-sm text-gray-600">Use for low-emphasis actions, especially in contexts where many buttons are needed such as dialog boxes or cards.</p>
+                    </div>
+                  </div>
+                </ComponentCard>
+              </div>
+              
+              <CodeBlock 
+                code={`// Example of importing and using different button variants
+import { Button } from "@/components/ui/button";
+
+// Contained buttons (solid background)
+<Button>Default</Button>
+<Button variant="error">Error</Button>
+<Button variant="warning">Warning</Button>
+<Button variant="info">Info</Button>
+<Button variant="success">Success</Button>
+
+// Outlined buttons
+<Button variant="outline-default">Default</Button>
+<Button variant="outline-error">Error</Button>
+<Button variant="outline-warning">Warning</Button>
+<Button variant="outline-info">Info</Button>
+<Button variant="outline-success">Success</Button>
+
+// Text buttons
+<Button variant="text-default">Default</Button>
+<Button variant="text-error">Error</Button>
+<Button variant="text-warning">Warning</Button>
+<Button variant="text-info">Info</Button>
+<Button variant="text-success">Success</Button>
+
+// Size variants
+<Button size="sm">Small</Button>
+<Button size="default">Default</Button>
+<Button size="lg">Large</Button>`}
+                language="tsx"
+                title="Button Variants Usage"
+                className="mt-8"
+              />
             </div>
           )}
           
