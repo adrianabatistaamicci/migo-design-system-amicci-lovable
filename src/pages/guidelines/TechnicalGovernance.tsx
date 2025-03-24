@@ -45,7 +45,7 @@ const TechnicalGovernance = () => {
         hideChip={true}
       />
       
-      <Tabs defaultValue="overview" className="w-full">
+      <Tabs defaultValue="overview" className="w-full" variant="pillsGray">
         <TabsList className="mb-6">
           <TabsTrigger value="overview">Visão Geral</TabsTrigger>
           <TabsTrigger value="projects">Projetos na Lovable</TabsTrigger>
