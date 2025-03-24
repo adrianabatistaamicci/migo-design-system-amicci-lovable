@@ -13,7 +13,7 @@ const Colors = () => {
   const [simulationType, setSimulationType] = useState('normal');
 
   const handleSimulation = (type: string) => {
-    setSimulationType(type);
+    setSimulationType(type === simulationType ? 'normal' : type);
   };
 
   return (

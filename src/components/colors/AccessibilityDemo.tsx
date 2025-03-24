@@ -1,9 +1,9 @@
 
 import React from 'react';
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Check, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Toggle } from "@/components/ui/toggle";
 
 export interface AccessibilityDemoProps {
   simulationType: string;
@@ -18,7 +18,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
     <div className="space-y-8">
       <div>
         <h2 className="text-2xl font-semibold mb-1">Acessibilidade de Cores</h2>
-        <p className="text-gray-600 mb-6">Garantindo que nosso sistema de cores seja acessível a todos.</p>
+        <p className="text-primary-main mb-6">Garantindo que nosso sistema de cores seja acessível a todos.</p>
         
         <div className="space-y-8">
           {/* Contraste Section */}
@@ -34,7 +34,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   </div>
                   <span className="font-medium">Texto normal</span>
                 </div>
-                <p className="text-sm text-gray-600">Contraste mínimo de 4.5:1</p>
+                <p className="text-sm text-primary-main">Contraste mínimo de 4.5:1</p>
                 <div className="bg-primary-main text-white text-sm p-3 rounded">
                   Exemplo de texto com contraste adequado
                 </div>
@@ -47,7 +47,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   </div>
                   <span className="font-medium">Texto grande (18pt ou 14pt bold)</span>
                 </div>
-                <p className="text-sm text-gray-600">Contraste mínimo de 3:1</p>
+                <p className="text-sm text-primary-main">Contraste mínimo de 3:1</p>
                 <div className="bg-primary-light text-primary-dark text-lg p-3 rounded font-medium">
                   Texto grande
                 </div>
@@ -60,7 +60,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   </div>
                   <span className="font-medium">Componentes de interface e gráficos</span>
                 </div>
-                <p className="text-sm text-gray-600">Contraste mínimo de 3:1</p>
+                <p className="text-sm text-primary-main">Contraste mínimo de 3:1</p>
                 <Button variant="default" className="bg-primary-main hover:bg-primary-dark text-white">
                   Botão de exemplo
                 </Button>
@@ -79,7 +79,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   <Check className="w-5 h-5" />
                   <span className="font-medium">Combinação com elementos visuais</span>
                 </div>
-                <p className="text-sm text-gray-600">Combinamos cores com ícones, textos e padrões</p>
+                <p className="text-sm text-primary-main">Combinamos cores com ícones, textos e padrões</p>
                 <div className="flex items-center gap-2 text-error-main mt-3">
                   <AlertCircle className="w-5 h-5" />
                   <span>Erro no formulário</span>
@@ -91,7 +91,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   <Check className="w-5 h-5" />
                   <span className="font-medium">Alternativas textuais</span>
                 </div>
-                <p className="text-sm text-gray-600">Oferecemos alternativas textuais para informações baseadas em cores</p>
+                <p className="text-sm text-primary-main">Oferecemos alternativas textuais para informações baseadas em cores</p>
                 <div className="flex items-center gap-2 mt-3">
                   <div className="w-3 h-3 rounded-full bg-primary-main"></div>
                   <span>Status: Ativo</span>
@@ -103,7 +103,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   <Check className="w-5 h-5" />
                   <span className="font-medium">Contraste suficiente</span>
                 </div>
-                <p className="text-sm text-gray-600">Mantemos contraste suficiente mesmo em visualizações monocromáticas</p>
+                <p className="text-sm text-primary-main">Mantemos contraste suficiente mesmo em visualizações monocromáticas</p>
                 <div className="flex gap-3 mt-3">
                   <span className="border border-primary-main px-3 py-1 rounded text-sm">Normal</span>
                   <span className="border border-primary-dark px-3 py-1 rounded text-sm">Outline</span>
@@ -124,16 +124,18 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   <div className="flex justify-between items-center mb-4">
                     <div>
                       <h4 className="font-medium">Deuteranopia</h4>
-                      <p className="text-sm text-gray-600">Deficiência de percepção do verde</p>
+                      <p className="text-sm text-primary-main">Deficiência de percepção do verde</p>
                     </div>
-                    <RadioGroup 
-                      value={simulationType === 'deuteranopia' ? 'deuteranopia' : ''} 
-                      onValueChange={() => handleSimulation('deuteranopia')}
-                      className="flex items-center gap-2"
-                    >
+                    <div className="flex items-center gap-2">
                       <Label htmlFor="deuteranopia-sim" className="text-sm text-primary-main">Simular</Label>
-                      <RadioGroupItem value="deuteranopia" id="deuteranopia-sim" />
-                    </RadioGroup>
+                      <Toggle
+                        id="deuteranopia-sim"
+                        variant="primary"
+                        size="sm"
+                        pressed={simulationType === 'deuteranopia'}
+                        onPressedChange={() => handleSimulation(simulationType === 'deuteranopia' ? 'normal' : 'deuteranopia')}
+                      />
+                    </div>
                   </div>
                   <div className={`grid grid-cols-4 gap-2 ${simulationType === 'deuteranopia' ? 'filter-deuteranopia' : ''}`}>
                     <div className="h-8 bg-primary-main rounded"></div>
@@ -148,16 +150,18 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   <div className="flex justify-between items-center mb-4">
                     <div>
                       <h4 className="font-medium">Protanopia</h4>
-                      <p className="text-sm text-gray-600">Deficiência de percepção do vermelho</p>
+                      <p className="text-sm text-primary-main">Deficiência de percepção do vermelho</p>
                     </div>
-                    <RadioGroup 
-                      value={simulationType === 'protanopia' ? 'protanopia' : ''} 
-                      onValueChange={() => handleSimulation('protanopia')}
-                      className="flex items-center gap-2"
-                    >
+                    <div className="flex items-center gap-2">
                       <Label htmlFor="protanopia-sim" className="text-sm text-primary-main">Simular</Label>
-                      <RadioGroupItem value="protanopia" id="protanopia-sim" />
-                    </RadioGroup>
+                      <Toggle
+                        id="protanopia-sim"
+                        variant="primary"
+                        size="sm"
+                        pressed={simulationType === 'protanopia'}
+                        onPressedChange={() => handleSimulation(simulationType === 'protanopia' ? 'normal' : 'protanopia')}
+                      />
+                    </div>
                   </div>
                   <div className={`grid grid-cols-4 gap-2 ${simulationType === 'protanopia' ? 'filter-protanopia' : ''}`}>
                     <div className="h-8 bg-primary-main rounded"></div>
@@ -174,16 +178,18 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   <div className="flex justify-between items-center mb-4">
                     <div>
                       <h4 className="font-medium">Tritanopia</h4>
-                      <p className="text-sm text-gray-600">Deficiência de percepção do azul</p>
+                      <p className="text-sm text-primary-main">Deficiência de percepção do azul</p>
                     </div>
-                    <RadioGroup 
-                      value={simulationType === 'tritanopia' ? 'tritanopia' : ''} 
-                      onValueChange={() => handleSimulation('tritanopia')}
-                      className="flex items-center gap-2"
-                    >
+                    <div className="flex items-center gap-2">
                       <Label htmlFor="tritanopia-sim" className="text-sm text-primary-main">Simular</Label>
-                      <RadioGroupItem value="tritanopia" id="tritanopia-sim" />
-                    </RadioGroup>
+                      <Toggle
+                        id="tritanopia-sim"
+                        variant="primary"
+                        size="sm"
+                        pressed={simulationType === 'tritanopia'}
+                        onPressedChange={() => handleSimulation(simulationType === 'tritanopia' ? 'normal' : 'tritanopia')}
+                      />
+                    </div>
                   </div>
                   <div className={`grid grid-cols-4 gap-2 ${simulationType === 'tritanopia' ? 'filter-tritanopia' : ''}`}>
                     <div className="h-8 bg-primary-main rounded"></div>
@@ -198,16 +204,18 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   <div className="flex justify-between items-center mb-4">
                     <div>
                       <h4 className="font-medium">Acromatopsia</h4>
-                      <p className="text-sm text-gray-600">Ausência completa de percepção de cores</p>
+                      <p className="text-sm text-primary-main">Ausência completa de percepção de cores</p>
                     </div>
-                    <RadioGroup 
-                      value={simulationType === 'achromatopsia' ? 'achromatopsia' : ''} 
-                      onValueChange={() => handleSimulation('achromatopsia')}
-                      className="flex items-center gap-2"
-                    >
+                    <div className="flex items-center gap-2">
                       <Label htmlFor="achromatopsia-sim" className="text-sm text-primary-main">Simular</Label>
-                      <RadioGroupItem value="achromatopsia" id="achromatopsia-sim" />
-                    </RadioGroup>
+                      <Toggle
+                        id="achromatopsia-sim"
+                        variant="primary"
+                        size="sm"
+                        pressed={simulationType === 'achromatopsia'}
+                        onPressedChange={() => handleSimulation(simulationType === 'achromatopsia' ? 'normal' : 'achromatopsia')}
+                      />
+                    </div>
                   </div>
                   <div className={`grid grid-cols-4 gap-2 ${simulationType === 'achromatopsia' ? 'filter-grayscale' : ''}`}>
                     <div className="h-8 bg-primary-main rounded"></div>
