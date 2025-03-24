@@ -192,10 +192,10 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
             <h4 className="font-medium mb-2">Deuteranopia</h4>
             <p className="text-sm text-gray-600 mb-3">Deficiência de percepção do verde</p>
             <div className="grid grid-cols-4 gap-2">
-              <ColorSwatch color="bg-primary-main" className="h-14" simulationType={deuteranopiaEnabled ? 'deuteranopia' : ''} />
-              <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={deuteranopiaEnabled ? 'deuteranopia' : ''} />
-              <ColorSwatch color="bg-error-main" className="h-14" simulationType={deuteranopiaEnabled ? 'deuteranopia' : ''} />
-              <ColorSwatch color="bg-success-main" className="h-14" simulationType={deuteranopiaEnabled ? 'deuteranopia' : ''} />
+              <ColorSwatch color="bg-primary-main" className="h-14" simulationType={deuteranopiaEnabled ? 'deuteranopia' : ''} disableCopy={true} />
+              <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={deuteranopiaEnabled ? 'deuteranopia' : ''} disableCopy={true} />
+              <ColorSwatch color="bg-error-main" className="h-14" simulationType={deuteranopiaEnabled ? 'deuteranopia' : ''} disableCopy={true} />
+              <ColorSwatch color="bg-success-main" className="h-14" simulationType={deuteranopiaEnabled ? 'deuteranopia' : ''} disableCopy={true} />
             </div>
           </div>
           
@@ -209,10 +209,10 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
             <h4 className="font-medium mb-2">Protanopia</h4>
             <p className="text-sm text-gray-600 mb-3">Deficiência de percepção do vermelho</p>
             <div className="grid grid-cols-4 gap-2">
-              <ColorSwatch color="bg-primary-main" className="h-14" simulationType={protanopiaEnabled ? 'protanopia' : ''} />
-              <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={protanopiaEnabled ? 'protanopia' : ''} />
-              <ColorSwatch color="bg-error-main" className="h-14" simulationType={protanopiaEnabled ? 'protanopia' : ''} />
-              <ColorSwatch color="bg-success-main" className="h-14" simulationType={protanopiaEnabled ? 'protanopia' : ''} />
+              <ColorSwatch color="bg-primary-main" className="h-14" simulationType={protanopiaEnabled ? 'protanopia' : ''} disableCopy={true} />
+              <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={protanopiaEnabled ? 'protanopia' : ''} disableCopy={true} />
+              <ColorSwatch color="bg-error-main" className="h-14" simulationType={protanopiaEnabled ? 'protanopia' : ''} disableCopy={true} />
+              <ColorSwatch color="bg-success-main" className="h-14" simulationType={protanopiaEnabled ? 'protanopia' : ''} disableCopy={true} />
             </div>
           </div>
           
@@ -226,10 +226,10 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
             <h4 className="font-medium mb-2">Tritanopia</h4>
             <p className="text-sm text-gray-600 mb-3">Deficiência de percepção do azul</p>
             <div className="grid grid-cols-4 gap-2">
-              <ColorSwatch color="bg-primary-main" className="h-14" simulationType={tritanopiaEnabled ? 'tritanopia' : ''} />
-              <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={tritanopiaEnabled ? 'tritanopia' : ''} />
-              <ColorSwatch color="bg-error-main" className="h-14" simulationType={tritanopiaEnabled ? 'tritanopia' : ''} />
-              <ColorSwatch color="bg-success-main" className="h-14" simulationType={tritanopiaEnabled ? 'tritanopia' : ''} />
+              <ColorSwatch color="bg-primary-main" className="h-14" simulationType={tritanopiaEnabled ? 'tritanopia' : ''} disableCopy={true} />
+              <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={tritanopiaEnabled ? 'tritanopia' : ''} disableCopy={true} />
+              <ColorSwatch color="bg-error-main" className="h-14" simulationType={tritanopiaEnabled ? 'tritanopia' : ''} disableCopy={true} />
+              <ColorSwatch color="bg-success-main" className="h-14" simulationType={tritanopiaEnabled ? 'tritanopia' : ''} disableCopy={true} />
             </div>
           </div>
           
@@ -243,10 +243,10 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
             <h4 className="font-medium mb-2">Acromatopsia</h4>
             <p className="text-sm text-gray-600 mb-3">Ausência completa de percepção de cores</p>
             <div className="grid grid-cols-4 gap-2">
-              <ColorSwatch color="bg-primary-main" className="h-14" simulationType={achromatopsiaEnabled ? 'achromatopsia' : ''} />
-              <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={achromatopsiaEnabled ? 'achromatopsia' : ''} />
-              <ColorSwatch color="bg-error-main" className="h-14" simulationType={achromatopsiaEnabled ? 'achromatopsia' : ''} />
-              <ColorSwatch color="bg-success-main" className="h-14" simulationType={achromatopsiaEnabled ? 'achromatopsia' : ''} />
+              <ColorSwatch color="bg-primary-main" className="h-14" simulationType={achromatopsiaEnabled ? 'achromatopsia' : ''} disableCopy={true} />
+              <ColorSwatch color="bg-secondary-main" className="h-14" simulationType={achromatopsiaEnabled ? 'achromatopsia' : ''} disableCopy={true} />
+              <ColorSwatch color="bg-error-main" className="h-14" simulationType={achromatopsiaEnabled ? 'achromatopsia' : ''} disableCopy={true} />
+              <ColorSwatch color="bg-success-main" className="h-14" simulationType={achromatopsiaEnabled ? 'achromatopsia' : ''} disableCopy={true} />
             </div>
           </div>
         </div>

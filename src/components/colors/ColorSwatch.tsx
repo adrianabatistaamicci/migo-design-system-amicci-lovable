@@ -12,6 +12,7 @@ interface ColorSwatchProps {
   hexValue?: string;
   copyValue?: string;
   simulationType?: string;
+  disableCopy?: boolean;
 }
 
 export const ColorSwatch = ({
@@ -22,7 +23,8 @@ export const ColorSwatch = ({
   weight,
   hexValue,
   copyValue,
-  simulationType = ""
+  simulationType = "",
+  disableCopy = false
 }: ColorSwatchProps) => {
   const [copied, setCopied] = useState(false);
   
@@ -45,6 +47,8 @@ export const ColorSwatch = ({
   };
   
   const handleCopy = () => {
+    if (disableCopy) return;
+    
     const valueToCopy = copyValue || hexValue || color;
     navigator.clipboard.writeText(valueToCopy);
     setCopied(true);
@@ -81,9 +85,11 @@ export const ColorSwatch = ({
       {textOverlay}
       {weight && <span className={`text-xs ${textColor} opacity-75 absolute left-2 top-1`}>{weight}</span>}
       
-      <div className={`absolute right-2 top-2 transition-opacity ${copied ? 'opacity-100' : 'opacity-0 group-hover:opacity-70'}`}>
-        {copied ? <Check className={`w-4 h-4 ${textColor}`} /> : <Copy className={`w-4 h-4 ${textColor}`} />}
-      </div>
+      {!disableCopy && (
+        <div className={`absolute right-2 top-2 transition-opacity ${copied ? 'opacity-100' : 'opacity-0 group-hover:opacity-70'}`}>
+          {copied ? <Check className={`w-4 h-4 ${textColor}`} /> : <Copy className={`w-4 h-4 ${textColor}`} />}
+        </div>
+      )}
     </div>
   );
 };
