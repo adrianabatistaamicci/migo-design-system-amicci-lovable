@@ -69,7 +69,7 @@ const MainLayoutContent = () => {
         >
           <main 
             className={cn(
-              "transition-opacity duration-300 mx-auto px-4 w-full",
+              "transition-opacity duration-300 mx-auto px-6 w-full", // Changed px-4 to px-6 for better alignment
               "max-w-[1280px] py-8", // Standardized max-width and vertical padding
               isTransitioning ? "opacity-0" : "opacity-100",
               !showContent && "hidden"

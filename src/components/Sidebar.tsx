@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
@@ -233,13 +232,13 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
         {item.title && (
           <div className="mb-2">
             <div className={cn(
-              "flex items-center w-full py-2 px-3 rounded-md text-sm font-medium text-primary uppercase text-xs"
+              "flex items-center w-full py-2 px-4 rounded-md text-sm font-medium text-primary uppercase text-xs"
             )}>
               {item.icon && <item.icon size={20} className="text-primary mr-2" />}
               <span>{item.title}</span>
             </div>
             
-            <div className="pl-3">
+            <div className="pl-4">
               {item.items && item.items.map((child, index) => (
                 <SidebarSection key={index} item={child} level={level + 1} />
               ))}
@@ -259,7 +258,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
               "flex items-center justify-between w-full py-2 px-3 rounded-md text-sm",
               level === 0 ? "font-medium text-primary uppercase text-xs" : "text-foreground",
               active && !item.href ? "text-primary-main" : "",
-              level > 0 && `pl-${Math.min(level + 2, 8)}`,
+              level === 1 ? "pl-3" : level > 1 ? `pl-${Math.min(level + 3, 8)}` : "",
               item.href ? "hover:bg-gray-100 cursor-pointer" : ""
             )}>
               <div className="flex items-center gap-2">
@@ -315,7 +314,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
         location.pathname === item.href 
           ? "bg-primary-hover text-primary-main font-medium" 
           : "text-gray-700 hover:bg-gray-100",
-        level > 0 && `ml-${Math.min(level * 2, 6)}`,
+        level === 1 ? "ml-3" : level > 1 ? `ml-${Math.min(level * 2, 6)}` : "",
       )}
     >
       <div className="flex items-center">
