@@ -10,6 +10,7 @@ const Guidelines = () => {
         title="Diretrizes"
         description="Boas práticas para acessibilidade, responsividade e experiência do usuário"
         type="foundations"
+        hideChip={true}
       />
       
       <EmptyState 
