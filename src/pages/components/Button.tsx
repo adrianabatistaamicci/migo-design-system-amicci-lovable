@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Button } from '@/components/ui/button';
@@ -106,7 +105,7 @@ const ButtonPage = () => {
           
           {activeTab === 'variants' && (
             <div className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* Default Button */}
                 <ComponentCard
                   title="Default Button"
@@ -115,7 +114,7 @@ const ButtonPage = () => {
 <Button size="sm">Small</Button>
 <Button size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-start gap-2">
+                  <div className="flex flex-col items-start gap-2 w-fit">
                     <Button size="sm">Label</Button>
                     <Button>Label</Button>
                     <Button size="lg">Label</Button>
@@ -130,7 +129,7 @@ const ButtonPage = () => {
 <Button variant="error" size="sm">Small</Button>
 <Button variant="error" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-start gap-2">
+                  <div className="flex flex-col items-start gap-2 w-fit">
                     <Button variant="error" size="sm">Label</Button>
                     <Button variant="error">Label</Button>
                     <Button variant="error" size="lg">Label</Button>
@@ -145,7 +144,7 @@ const ButtonPage = () => {
 <Button variant="warning" size="sm">Small</Button>
 <Button variant="warning" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-start gap-2">
+                  <div className="flex flex-col items-start gap-2 w-fit">
                     <Button variant="warning" className="bg-warning-main text-white hover:bg-warning-dark" size="sm">Label</Button>
                     <Button variant="warning" className="bg-warning-main text-white hover:bg-warning-dark">Label</Button>
                     <Button variant="warning" className="bg-warning-main text-white hover:bg-warning-dark" size="lg">Label</Button>
@@ -160,7 +159,7 @@ const ButtonPage = () => {
 <Button variant="info" size="sm">Small</Button>
 <Button variant="info" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-start gap-2">
+                  <div className="flex flex-col items-start gap-2 w-fit">
                     <Button variant="info" className="bg-info-main text-info-contrast hover:bg-info-dark" size="sm">Label</Button>
                     <Button variant="info" className="bg-info-main text-info-contrast hover:bg-info-dark">Label</Button>
                     <Button variant="info" className="bg-info-main text-info-contrast hover:bg-info-dark" size="lg">Label</Button>
@@ -175,7 +174,7 @@ const ButtonPage = () => {
 <Button variant="success" size="sm">Small</Button>
 <Button variant="success" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-start gap-2">
+                  <div className="flex flex-col items-start gap-2 w-fit">
                     <Button variant="success" className="bg-success-main text-success-contrast hover:bg-success-dark" size="sm">Label</Button>
                     <Button variant="success" className="bg-success-main text-success-contrast hover:bg-success-dark">Label</Button>
                     <Button variant="success" className="bg-success-main text-success-contrast hover:bg-success-dark" size="lg">Label</Button>
@@ -190,25 +189,10 @@ const ButtonPage = () => {
 <Button variant="secondary" size="sm">Small</Button>
 <Button variant="secondary" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-start gap-2">
+                  <div className="flex flex-col items-start gap-2 w-fit">
                     <Button variant="secondary" size="sm">Label</Button>
                     <Button variant="secondary">Label</Button>
                     <Button variant="secondary" size="lg">Label</Button>
-                  </div>
-                </ComponentCard>
-
-                {/* Outline Default Button */}
-                <ComponentCard
-                  title="Outline Default Button"
-                  description="Botão com contorno para ações secundárias."
-                  code={`<Button variant="outline-default">Default</Button>
-<Button variant="outline-default" size="sm">Small</Button>
-<Button variant="outline-default" size="lg">Large</Button>`}
-                >
-                  <div className="flex flex-col items-start gap-2">
-                    <Button variant="outline-default" size="sm">Label</Button>
-                    <Button variant="outline-default">Label</Button>
-                    <Button variant="outline-default" size="lg">Label</Button>
                   </div>
                 </ComponentCard>
 
@@ -395,7 +379,7 @@ const ButtonPage = () => {
                   <TableRow>
                     <TableCell className="font-medium">variant</TableCell>
                     <TableCell className="font-mono text-xs">
-                      "default" | "secondary" | "error" | "warning" | "info" | "success" | "outline-default" | "outline-secondary" | "outline-error" | "outline-warning" | "outline-info" | "outline-success" | "text-default" | "text-secondary" | "text-error" | "text-warning" | "text-info" | "text-success" | "destructive" | "outline" | "ghost" | "link"
+                      "default" | "secondary" | "error" | "warning" | "info" | "success" | "outline-secondary" | "outline-error" | "outline-warning" | "outline-info" | "outline-success" | "text-default" | "text-secondary" | "text-error" | "text-warning" | "text-info" | "text-success" | "destructive" | "outline" | "ghost" | "link"
                     </TableCell>
                     <TableCell>"default"</TableCell>
                     <TableCell>Controls the visual style of the button.</TableCell>

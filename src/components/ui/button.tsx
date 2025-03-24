@@ -1,4 +1,3 @@
-
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
@@ -10,23 +9,21 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // Contained variants (equivalent to MUI contained buttons)
+        // Contained variants
         default: "bg-primary-main text-primary-contrast hover:bg-primary-dark",
-        secondary: "bg-white text-gray-800 border border-gray-300 hover:bg-gray-50",
         error: "bg-error-main text-error-contrast hover:bg-error-dark",
-        warning: "bg-warning-main text-white hover:bg-warning-dark", // Fixed text color to white
+        warning: "bg-warning-main text-white hover:bg-warning-dark",
         info: "bg-info-main text-info-contrast hover:bg-info-dark",
         success: "bg-success-main text-success-contrast hover:bg-success-dark",
         
-        // Outlined variants (equivalent to MUI contained buttons)
-        "outline-default": "border border-primary-outlinedBorder bg-transparent text-primary-main hover:bg-primary-hover/10 active:bg-primary-hover/20",
+        // Outlined variants
         "outline-secondary": "border border-mui-text-primary/[0.23] bg-transparent text-mui-text-primary hover:bg-gray-100/10 active:bg-gray-100/20",
         "outline-error": "border border-error-outlinedBorder bg-transparent text-error-main hover:bg-error-hover/10 active:bg-error-hover/20",
         "outline-warning": "border border-warning-outlinedBorder bg-transparent text-warning-main hover:bg-warning-hover/10 active:bg-warning-hover/20",
         "outline-info": "border border-info-outlinedBorder bg-transparent text-info-main hover:bg-info-hover/10 active:bg-info-hover/20",
         "outline-success": "border border-success-outlinedBorder bg-transparent text-success-main hover:bg-success-hover/10 active:bg-success-hover/20",
         
-        // Text variants (equivalent to MUI text buttons)
+        // Text variants
         "text-default": "bg-transparent text-primary-main hover:bg-gray-50 active:bg-primary-hover/20",
         "text-secondary": "bg-transparent text-mui-text-primary hover:bg-gray-50 active:bg-gray-100/20",
         "text-error": "bg-transparent text-error-main hover:bg-gray-50 active:bg-error-hover/20",
@@ -34,7 +31,7 @@ const buttonVariants = cva(
         "text-info": "bg-transparent text-info-main hover:bg-gray-50 active:bg-info-hover/20",
         "text-success": "bg-transparent text-success-main hover:bg-gray-50 active:bg-success-hover/20",
         
-        // Legacy variants (maintaining for compatibility)
+        // Legacy variants
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         ghost: "hover:bg-accent hover:text-accent-foreground",
