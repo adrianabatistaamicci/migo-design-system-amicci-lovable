@@ -221,7 +221,7 @@ const Brand = () => {
                         onClick={() => handleDownload('/src/pages/assets/241122_Amicci_Brandbook_v2Bmenor.pdf', 'Amicci_Brandbook.pdf')}
                         startIcon={<Download size={16} />}
                       >
-                        Baixar Manual de Marca
+                        Baixar manual de marca
                       </Button>
                     </div>
                   </div>
@@ -429,3 +429,4 @@ const Brand = () => {
     </div>;
 };
 export default Brand;
+
