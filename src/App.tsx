@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -66,7 +65,7 @@ import SettingsScreensPage from "./pages/components/SettingsScreens";
 import SidebarLayoutsPage from "./pages/components/SidebarLayouts";
 import SidebarNavigationPage from "./pages/components/SidebarNavigation";
 import SignInRegistrationPage from "./pages/components/SignInRegistration";
-import SkeletonsPage from "./pages/components/Skeletons";
+import SkeletonPage from "./pages/components/Skeleton";
 import SliderPage from "./pages/components/Slider";
 import StackedLayoutsPage from "./pages/components/StackedLayouts";
 import StackedListsPage from "./pages/components/StackedLists";
@@ -147,7 +146,7 @@ const App = () => {
               <Route path="/components/list-containers" element={<ListContainersPage />} />
               <Route path="/components/media-objects" element={<MediaObjects />} />
               <Route path="/components/divider" element={<Dividers />} />
-              <Route path="/components/skeleton" element={<SkeletonsPage />} />
+              <Route path="/components/skeleton" element={<SkeletonPage />} />
               <Route path="/components/home-screens" element={<HomeScreensPage />} />
               <Route path="/components/detail-screens" element={<DetailScreens />} />
               <Route path="/components/settings-screens" element={<SettingsScreensPage />} />
