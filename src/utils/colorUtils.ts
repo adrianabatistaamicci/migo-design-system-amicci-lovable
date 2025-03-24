@@ -87,12 +87,11 @@ export const colorUtils = {
     try {
       // Handle RGBA values
       if (hex.startsWith('rgba')) {
-        // For RGBA values, attempt to convert the RGB part to HSL
         const match = hex.match(/rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)/);
         if (match) {
-          const r = parseInt(match[1]) / 255;
-          const g = parseInt(match[2]) / 255;
-          const b = parseInt(match[3]) / 255;
+          let r = parseInt(match[1]) / 255;
+          let g = parseInt(match[2]) / 255;
+          let b = parseInt(match[3]) / 255;
           const a = parseFloat(match[4]);
           
           // Find the min and max values to calculate luminance and saturation

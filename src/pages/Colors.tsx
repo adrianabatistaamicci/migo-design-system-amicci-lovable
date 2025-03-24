@@ -4,7 +4,10 @@ import { TailwindTabs } from "@/components/ui/tabs";
 import ColorOverview from '@/components/colors/ColorOverview';
 import ColorUsage from '@/components/colors/ColorUsage';
 import AccessibilityDemo from '@/components/colors/AccessibilityDemo';
+import BaseColorsTable from '@/components/colors/BaseColorsTable';
+import PaletteTable from '@/components/colors/PaletteTable';
 import Header from '@/components/library-components/Header';
+import { baseColorsData, paletteData } from '@/data/colorsData';
 
 const Colors = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -29,6 +32,8 @@ const Colors = () => {
           tabs={[
             { name: 'Paletas', value: 'overview' },
             { name: 'Uso', value: 'usage' },
+            { name: 'Cores Base', value: 'base-colors' },
+            { name: 'Paletas Semânticas', value: 'semantic-palettes' },
             { name: 'Acessibilidade', value: 'accessibility' }
           ]}
           variant="pillsGray"
@@ -38,6 +43,8 @@ const Colors = () => {
         <div className="mt-6 w-full">
           {activeTab === 'overview' && <ColorOverview />}
           {activeTab === 'usage' && <ColorUsage />}
+          {activeTab === 'base-colors' && <BaseColorsTable baseColors={baseColorsData} />}
+          {activeTab === 'semantic-palettes' && <PaletteTable palettes={paletteData} />}
           {activeTab === 'accessibility' && (
             <AccessibilityDemo 
               simulationType={simulationType} 
