@@ -34,7 +34,7 @@ const ElementsSection = () => {
           />
         </Link>
         
-        <Link to="/components/button">
+        <Link to="/components/buttons">
           <ComponentPreview 
             title="Buttons" 
             imageSrc="/lovable-uploads/be058021-3c4e-45d5-884f-04074c8c2562.png" 
