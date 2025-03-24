@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Book, FileText, Layers, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -26,14 +25,7 @@ const Index = () => {
               Um sistema de design Tailwind consistente para criar interfaces de usuário modernas e acessíveis com React.
             </h6>
             <p className="text-gray-900 italic mb-4 max-w-2xl mx-auto">
-              "Migo, nosso apelido carinhoso para Amigo,<br/>
-              Como Amicci, que traz confiança consigo.<br/>
-              Nas entrelinhas do código e do design,<br/>
-              Um companheiro fiel que seu projeto define.<br/>
-              Construindo pontes entre visão e realidade,<br/>
-              Trazendo para interfaces harmonia e claridade.<br/>
-              Migo, mais que um sistema, um aliado presente,<br/>
-              Para tornar sua experiência digital mais coerente."
+              "Migo, nosso apelido carinhoso para amigo, é a essência da Amicci: um companheiro de confiança para seus projetos digitais. Como um aliado presente, ele trabalha nas entrelinhas do código e design, trazendo harmonia e claridade às suas interfaces, construindo pontes entre sua visão e a realidade."
             </p>
           </div>
         </div>
