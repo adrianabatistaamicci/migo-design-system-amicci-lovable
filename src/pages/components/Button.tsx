@@ -6,7 +6,6 @@ import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@
 import { Mail, ArrowRight, Plus, X } from 'lucide-react';
 import Header from '@/components/library-components/Header';
 import { TailwindTabs } from '@/components/ui/tabs';
-import CodeBlock from '@/components/CodeBlock';
 
 const ButtonPage = () => {
   const [activeTab, setActiveTab] = useState('examples');
@@ -25,27 +24,13 @@ const ButtonPage = () => {
           className="mt-8"
           tabs={[
             { name: 'Exemplos', value: 'examples' },
-            { name: 'Variantes', value: 'variants' },
-            { name: 'API', value: 'api' },
-            { name: 'Código', value: 'code' }
+            { name: 'Variantes', value: 'variants' }
           ]}
           variant="pillsGray"
           onChange={value => setActiveTab(value)}
         />
         
         <div className="mt-6">
-          {activeTab === 'code' && (
-            <div className="mb-12">
-              <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
-                Import
-              </h2>
-              
-              <pre className="bg-mui-sidebar p-4 rounded-md overflow-x-auto text-sm">
-                <code>import {'{ Button }'} from "@/components/ui/button";</code>
-              </pre>
-            </div>
-          )}
-          
           {activeTab === 'examples' && (
             <div className="space-y-8">
               <ComponentCard
@@ -111,11 +96,8 @@ const ButtonPage = () => {
                 <ComponentCard
                   title="Default Button"
                   description="Botão com cor sólida para ações primárias."
-                  code={`<Button>Default</Button>
-<Button size="sm">Small</Button>
-<Button size="lg">Large</Button>`}
                 >
-                  <div className="flex justify-center items-center flex-row gap-2">
+                  <div className="flex justify-center items-center gap-2">
                     <Button size="sm">Label</Button>
                     <Button>Label</Button>
                     <Button size="lg">Label</Button>
@@ -126,11 +108,8 @@ const ButtonPage = () => {
                 <ComponentCard
                   title="Error Button"
                   description="Botão vermelho para ações críticas ou destrutivas."
-                  code={`<Button variant="error">Error</Button>
-<Button variant="error" size="sm">Small</Button>
-<Button variant="error" size="lg">Large</Button>`}
                 >
-                  <div className="flex justify-center items-center flex-row gap-2">
+                  <div className="flex justify-center items-center gap-2">
                     <Button variant="error" size="sm">Label</Button>
                     <Button variant="error">Label</Button>
                     <Button variant="error" size="lg">Label</Button>
@@ -141,11 +120,8 @@ const ButtonPage = () => {
                 <ComponentCard
                   title="Warning Button"
                   description="Botão de alerta para ações que requerem atenção."
-                  code={`<Button variant="warning">Warning</Button>
-<Button variant="warning" size="sm">Small</Button>
-<Button variant="warning" size="lg">Large</Button>`}
                 >
-                  <div className="flex justify-center items-center flex-row gap-2">
+                  <div className="flex justify-center items-center gap-2">
                     <Button variant="warning" className="bg-warning-main text-white hover:bg-warning-dark" size="sm">Label</Button>
                     <Button variant="warning" className="bg-warning-main text-white hover:bg-warning-dark">Label</Button>
                     <Button variant="warning" className="bg-warning-main text-white hover:bg-warning-dark" size="lg">Label</Button>
@@ -156,11 +132,8 @@ const ButtonPage = () => {
                 <ComponentCard
                   title="Info Button"
                   description="Botão informativo para ações neutras."
-                  code={`<Button variant="info">Info</Button>
-<Button variant="info" size="sm">Small</Button>
-<Button variant="info" size="lg">Large</Button>`}
                 >
-                  <div className="flex justify-center items-center flex-row gap-2">
+                  <div className="flex justify-center items-center gap-2">
                     <Button variant="info" className="bg-info-main text-info-contrast hover:bg-info-dark" size="sm">Label</Button>
                     <Button variant="info" className="bg-info-main text-info-contrast hover:bg-info-dark">Label</Button>
                     <Button variant="info" className="bg-info-main text-info-contrast hover:bg-info-dark" size="lg">Label</Button>
@@ -171,11 +144,8 @@ const ButtonPage = () => {
                 <ComponentCard
                   title="Success Button"
                   description="Botão verde para ações de confirmação ou sucesso."
-                  code={`<Button variant="success">Success</Button>
-<Button variant="success" size="sm">Small</Button>
-<Button variant="success" size="lg">Large</Button>`}
                 >
-                  <div className="flex justify-center items-center flex-row gap-2">
+                  <div className="flex justify-center items-center gap-2">
                     <Button variant="success" className="bg-success-main text-success-contrast hover:bg-success-dark" size="sm">Label</Button>
                     <Button variant="success" className="bg-success-main text-success-contrast hover:bg-success-dark">Label</Button>
                     <Button variant="success" className="bg-success-main text-success-contrast hover:bg-success-dark" size="lg">Label</Button>
@@ -186,11 +156,8 @@ const ButtonPage = () => {
                 <ComponentCard
                   title="Secondary Button"
                   description="Botão secundário para ações alternativas."
-                  code={`<Button variant="secondary">Secondary</Button>
-<Button variant="secondary" size="sm">Small</Button>
-<Button variant="secondary" size="lg">Large</Button>`}
                 >
-                  <div className="flex justify-center items-center flex-row gap-2">
+                  <div className="flex justify-center items-center gap-2">
                     <Button variant="secondary" size="sm">Label</Button>
                     <Button variant="secondary">Label</Button>
                     <Button variant="secondary" size="lg">Label</Button>
@@ -201,11 +168,8 @@ const ButtonPage = () => {
                 <ComponentCard
                   title="Outline Error Button"
                   description="Botão com contorno vermelho para ações críticas mais sutis."
-                  code={`<Button variant="outline-error">Error</Button>
-<Button variant="outline-error" size="sm">Small</Button>
-<Button variant="outline-error" size="lg">Large</Button>`}
                 >
-                  <div className="flex justify-center items-center flex-row gap-2">
+                  <div className="flex justify-center items-center gap-2">
                     <Button variant="outline-error" size="sm">Label</Button>
                     <Button variant="outline-error">Label</Button>
                     <Button variant="outline-error" size="lg">Label</Button>
@@ -216,11 +180,8 @@ const ButtonPage = () => {
                 <ComponentCard
                   title="Outline Warning Button"
                   description="Botão com contorno amarelo para alertas sutis."
-                  code={`<Button variant="outline-warning">Warning</Button>
-<Button variant="outline-warning" size="sm">Small</Button>
-<Button variant="outline-warning" size="lg">Large</Button>`}
                 >
-                  <div className="flex justify-center items-center flex-row gap-2">
+                  <div className="flex justify-center items-center gap-2">
                     <Button variant="outline-warning" size="sm">Label</Button>
                     <Button variant="outline-warning">Label</Button>
                     <Button variant="outline-warning" size="lg">Label</Button>
@@ -231,11 +192,8 @@ const ButtonPage = () => {
                 <ComponentCard
                   title="Outline Info Button"
                   description="Botão com contorno azul para ações informativas sutis."
-                  code={`<Button variant="outline-info">Info</Button>
-<Button variant="outline-info" size="sm">Small</Button>
-<Button variant="outline-info" size="lg">Large</Button>`}
                 >
-                  <div className="flex justify-center items-center flex-row gap-2">
+                  <div className="flex justify-center items-center gap-2">
                     <Button variant="outline-info" size="sm">Label</Button>
                     <Button variant="outline-info">Label</Button>
                     <Button variant="outline-info" size="lg">Label</Button>
@@ -246,11 +204,8 @@ const ButtonPage = () => {
                 <ComponentCard
                   title="Outline Success Button"
                   description="Botão com contorno verde para ações de sucesso sutis."
-                  code={`<Button variant="outline-success">Success</Button>
-<Button variant="outline-success" size="sm">Small</Button>
-<Button variant="outline-success" size="lg">Large</Button>`}
                 >
-                  <div className="flex justify-center items-center flex-row gap-2">
+                  <div className="flex justify-center items-center gap-2">
                     <Button variant="outline-success" size="sm">Label</Button>
                     <Button variant="outline-success">Label</Button>
                     <Button variant="outline-success" size="lg">Label</Button>
@@ -261,11 +216,8 @@ const ButtonPage = () => {
                 <ComponentCard
                   title="Outline Secondary Button"
                   description="Botão com contorno cinza para ações secundárias."
-                  code={`<Button variant="outline-secondary">Secondary</Button>
-<Button variant="outline-secondary" size="sm">Small</Button>
-<Button variant="outline-secondary" size="lg">Large</Button>`}
                 >
-                  <div className="flex justify-center items-center flex-row gap-2">
+                  <div className="flex justify-center items-center gap-2">
                     <Button variant="outline-secondary" size="sm">Label</Button>
                     <Button variant="outline-secondary">Label</Button>
                     <Button variant="outline-secondary" size="lg">Label</Button>
@@ -276,11 +228,8 @@ const ButtonPage = () => {
                 <ComponentCard
                   title="Text Default Button"
                   description="Botão de texto sem fundo para ações sutis."
-                  code={`<Button variant="text-default">Default</Button>
-<Button variant="text-default" size="sm">Small</Button>
-<Button variant="text-default" size="lg">Large</Button>`}
                 >
-                  <div className="flex justify-center items-center flex-row gap-2">
+                  <div className="flex justify-center items-center gap-2">
                     <Button variant="text-default" className="hover:bg-gray-50" size="sm">Label</Button>
                     <Button variant="text-default" className="hover:bg-gray-50">Label</Button>
                     <Button variant="text-default" className="hover:bg-gray-50" size="lg">Label</Button>
@@ -291,11 +240,8 @@ const ButtonPage = () => {
                 <ComponentCard
                   title="Text Error Button"
                   description="Botão de texto vermelho para ações críticas discretas."
-                  code={`<Button variant="text-error">Error</Button>
-<Button variant="text-error" size="sm">Small</Button>
-<Button variant="text-error" size="lg">Large</Button>`}
                 >
-                  <div className="flex justify-center items-center flex-row gap-2">
+                  <div className="flex justify-center items-center gap-2">
                     <Button variant="text-error" className="hover:bg-gray-50" size="sm">Label</Button>
                     <Button variant="text-error" className="hover:bg-gray-50">Label</Button>
                     <Button variant="text-error" className="hover:bg-gray-50" size="lg">Label</Button>
@@ -306,11 +252,8 @@ const ButtonPage = () => {
                 <ComponentCard
                   title="Text Warning Button"
                   description="Botão de texto amarelo para alertas discretos."
-                  code={`<Button variant="text-warning">Warning</Button>
-<Button variant="text-warning" size="sm">Small</Button>
-<Button variant="text-warning" size="lg">Large</Button>`}
                 >
-                  <div className="flex justify-center items-center flex-row gap-2">
+                  <div className="flex justify-center items-center gap-2">
                     <Button variant="text-warning" className="hover:bg-gray-50" size="sm">Label</Button>
                     <Button variant="text-warning" className="hover:bg-gray-50">Label</Button>
                     <Button variant="text-warning" className="hover:bg-gray-50" size="lg">Label</Button>
@@ -321,11 +264,8 @@ const ButtonPage = () => {
                 <ComponentCard
                   title="Text Info Button"
                   description="Botão de texto azul para ações informativas discretas."
-                  code={`<Button variant="text-info">Info</Button>
-<Button variant="text-info" size="sm">Small</Button>
-<Button variant="text-info" size="lg">Large</Button>`}
                 >
-                  <div className="flex justify-center items-center flex-row gap-2">
+                  <div className="flex justify-center items-center gap-2">
                     <Button variant="text-info" className="hover:bg-gray-50" size="sm">Label</Button>
                     <Button variant="text-info" className="hover:bg-gray-50">Label</Button>
                     <Button variant="text-info" className="hover:bg-gray-50" size="lg">Label</Button>
@@ -336,11 +276,8 @@ const ButtonPage = () => {
                 <ComponentCard
                   title="Text Success Button"
                   description="Botão de texto verde para ações de sucesso discretas."
-                  code={`<Button variant="text-success">Success</Button>
-<Button variant="text-success" size="sm">Small</Button>
-<Button variant="text-success" size="lg">Large</Button>`}
                 >
-                  <div className="flex justify-center items-center flex-row gap-2">
+                  <div className="flex justify-center items-center gap-2">
                     <Button variant="text-success" className="hover:bg-gray-50" size="sm">Label</Button>
                     <Button variant="text-success" className="hover:bg-gray-50">Label</Button>
                     <Button variant="text-success" className="hover:bg-gray-50" size="lg">Label</Button>
@@ -351,72 +288,74 @@ const ButtonPage = () => {
                 <ComponentCard
                   title="Text Secondary Button"
                   description="Botão de texto cinza para ações secundárias discretas."
-                  code={`<Button variant="text-secondary">Secondary</Button>
-<Button variant="text-secondary" size="sm">Small</Button>
-<Button variant="text-secondary" size="lg">Large</Button>`}
                 >
-                  <div className="flex justify-center items-center flex-row gap-2">
+                  <div className="flex justify-center items-center gap-2">
                     <Button variant="text-secondary" className="hover:bg-gray-50" size="sm">Label</Button>
                     <Button variant="text-secondary" className="hover:bg-gray-50">Label</Button>
                     <Button variant="text-secondary" className="hover:bg-gray-50" size="lg">Label</Button>
                   </div>
                 </ComponentCard>
               </div>
-            </div>
-          )}
-        
-          {activeTab === 'api' && (
-            <div className="border border-mui-border rounded-lg overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="w-[180px]">Prop</TableHead>
-                    <TableHead className="w-[150px]">Type</TableHead>
-                    <TableHead className="w-[150px]">Default</TableHead>
-                    <TableHead>Description</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell className="font-medium">variant</TableCell>
-                    <TableCell className="font-mono text-xs">
-                      "default" | "secondary" | "error" | "warning" | "info" | "success" | "outline-secondary" | "outline-error" | "outline-warning" | "outline-info" | "outline-success" | "text-default" | "text-secondary" | "text-error" | "text-warning" | "text-info" | "text-success" | "destructive" | "outline" | "ghost" | "link"
-                    </TableCell>
-                    <TableCell>"default"</TableCell>
-                    <TableCell>Controls the visual style of the button.</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">size</TableCell>
-                    <TableCell className="font-mono text-xs">"default" | "sm" | "lg" | "icon"</TableCell>
-                    <TableCell>"default"</TableCell>
-                    <TableCell>Controls the size of the button.</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">asChild</TableCell>
-                    <TableCell className="font-mono text-xs">boolean</TableCell>
-                    <TableCell>false</TableCell>
-                    <TableCell>Whether to render as a child element instead of a button.</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">isLoading</TableCell>
-                    <TableCell className="font-mono text-xs">boolean</TableCell>
-                    <TableCell>false</TableCell>
-                    <TableCell>Controls whether the button shows a loading spinner.</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">startIcon</TableCell>
-                    <TableCell className="font-mono text-xs">ReactNode</TableCell>
-                    <TableCell>undefined</TableCell>
-                    <TableCell>Icon to display at the start of the button.</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">endIcon</TableCell>
-                    <TableCell className="font-mono text-xs">ReactNode</TableCell>
-                    <TableCell>undefined</TableCell>
-                    <TableCell>Icon to display at the end of the button.</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
+              
+              {/* API Reference Table */}
+              <div className="mt-12">
+                <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
+                  API Reference
+                </h2>
+                
+                <div className="border border-mui-border rounded-lg overflow-x-auto">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="w-[180px]">Prop</TableHead>
+                        <TableHead className="w-[150px]">Type</TableHead>
+                        <TableHead className="w-[150px]">Default</TableHead>
+                        <TableHead>Description</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      <TableRow>
+                        <TableCell className="font-medium">variant</TableCell>
+                        <TableCell className="font-mono text-xs">
+                          "default" | "secondary" | "error" | "warning" | "info" | "success" | "outline-secondary" | "outline-error" | "outline-warning" | "outline-info" | "outline-success" | "text-default" | "text-secondary" | "text-error" | "text-warning" | "text-info" | "text-success" | "destructive" | "outline" | "ghost" | "link"
+                        </TableCell>
+                        <TableCell>"default"</TableCell>
+                        <TableCell>Controls the visual style of the button.</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">size</TableCell>
+                        <TableCell className="font-mono text-xs">"default" | "sm" | "lg" | "icon"</TableCell>
+                        <TableCell>"default"</TableCell>
+                        <TableCell>Controls the size of the button.</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">asChild</TableCell>
+                        <TableCell className="font-mono text-xs">boolean</TableCell>
+                        <TableCell>false</TableCell>
+                        <TableCell>Whether to render as a child element instead of a button.</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">isLoading</TableCell>
+                        <TableCell className="font-mono text-xs">boolean</TableCell>
+                        <TableCell>false</TableCell>
+                        <TableCell>Controls whether the button shows a loading spinner.</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">startIcon</TableCell>
+                        <TableCell className="font-mono text-xs">ReactNode</TableCell>
+                        <TableCell>undefined</TableCell>
+                        <TableCell>Icon to display at the start of the button.</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">endIcon</TableCell>
+                        <TableCell className="font-mono text-xs">ReactNode</TableCell>
+                        <TableCell>undefined</TableCell>
+                        <TableCell>Icon to display at the end of the button.</TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </div>
+              </div>
             </div>
           )}
         </div>
