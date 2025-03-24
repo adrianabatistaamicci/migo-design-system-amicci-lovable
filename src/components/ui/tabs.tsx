@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
@@ -36,7 +37,7 @@ export const TailwindTabs = ({
     }
     switch (variant) {
       case 'underline':
-        return <div className="border-b border-gray-200 inline-flex">
+        return <div className="border-b border-gray-200 inline-block">
             <nav className="-mb-px flex space-x-8">
               {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium ${selected === tab.value ? 'border-amicci-500 text-amicci-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'}`}>
                   {tab.name}
@@ -56,7 +57,7 @@ export const TailwindTabs = ({
               </button>)}
           </nav>;
       case 'pillsGray':
-        return <nav className="inline-flex rounded-lg bg-gray-100 p-1 mb-6">
+        return <nav className="inline-flex rounded-lg bg-gray-100 p-1">
             {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors duration-200 ${selected === tab.value ? 'bg-white text-amicci-600 shadow-sm' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}>
                 {tab.name}
                 {tab.badge && <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${selected === tab.value ? 'bg-amicci-100 text-amicci-600' : 'bg-gray-100 text-gray-600'}`}>
@@ -121,7 +122,7 @@ export const TailwindTabs = ({
         return null;
     }
   };
-  return <div className={`w-full ${className || ''}`}>{renderTabs()}{children}</div>;
+  return <div className={`inline-flex flex-col ${className || ''}`}>{renderTabs()}{children}</div>;
 };
 
 // Export TailwindTabs as Tabs for compatibility
