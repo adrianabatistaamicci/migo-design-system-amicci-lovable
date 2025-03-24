@@ -43,7 +43,7 @@ const ElementsSection = () => {
         <Link to="/components/icon-button">
           <ComponentPreview 
             title="Icon Buttons" 
-            imageSrc="/lovable-uploads/a6a1bda8-e29f-4806-959e-632f3e0d76c5.png" 
+            imageSrc="/lovable-uploads/81e3a3d8-4e26-429a-b9e8-e4e84a0ffb53.png" 
             variantCount={3} 
           />
         </Link>
