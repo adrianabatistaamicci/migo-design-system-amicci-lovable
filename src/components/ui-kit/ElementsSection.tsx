@@ -45,7 +45,7 @@ const ElementsSection = () => {
         
         <ComponentPreview 
           title="Profile Button" 
-          imageSrc="/lovable-uploads/93eec571-57df-4c3a-9958-cb6930361d88.png" 
+          imageSrc="/lovable-uploads/02ffb0f4-88d3-4e29-b4c6-ffba337a37eb.png" 
           variantCount={2} 
         />
       </div>
