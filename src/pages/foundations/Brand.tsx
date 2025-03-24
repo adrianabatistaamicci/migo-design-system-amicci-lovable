@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -135,7 +134,7 @@ const Brand = () => {
     switch (activeTab) {
       case 'logo':
         return <div className="space-y-10">
-            <ComponentCard title="Logo Amicci" description="Nossa marca representa nossa identidade e valores fundamentais." className="mb-6">
+            <ComponentCard title="Logo Amicci" description="Nossa marca representa nossa identidade e valores fundamentais.">
               <div className="space-y-10">
                 <div className="space-y-6">
                   <h3 className="text-xl font-medium">Versão Principal</h3>
@@ -231,7 +230,7 @@ const Brand = () => {
           </div>;
       case 'insight-da-amy':
         return <div className="space-y-8">
-            <ComponentCard title="Amy" description="A inteligência artificial da Amicci que ajuda os clientes no fluxo de planejamento, projeto e performance comercial da plataforma." className="mb-6">
+            <ComponentCard title="Amy" description="A inteligência artificial da Amicci que ajuda os clientes no fluxo de planejamento, projeto e performance comercial da plataforma.">
               <div className="space-y-6">
                 <Card className="p-6 shadow-none border">
                   <h3 className="text-xl font-medium mb-3">Paleta terciária</h3>
