@@ -115,10 +115,10 @@ const ButtonPage = () => {
 <Button size="sm">Small</Button>
 <Button size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-center gap-2">
-                    <Button className="w-full" size="sm">Label</Button>
-                    <Button className="w-full">Label</Button>
-                    <Button className="w-full" size="lg">Label</Button>
+                  <div className="flex flex-col items-start gap-2">
+                    <Button size="sm">Label</Button>
+                    <Button>Label</Button>
+                    <Button size="lg">Label</Button>
                   </div>
                 </ComponentCard>
 
@@ -130,10 +130,10 @@ const ButtonPage = () => {
 <Button variant="error" size="sm">Small</Button>
 <Button variant="error" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-center gap-2">
-                    <Button variant="error" className="w-full" size="sm">Label</Button>
-                    <Button variant="error" className="w-full">Label</Button>
-                    <Button variant="error" className="w-full" size="lg">Label</Button>
+                  <div className="flex flex-col items-start gap-2">
+                    <Button variant="error" size="sm">Label</Button>
+                    <Button variant="error">Label</Button>
+                    <Button variant="error" size="lg">Label</Button>
                   </div>
                 </ComponentCard>
 
@@ -145,10 +145,10 @@ const ButtonPage = () => {
 <Button variant="warning" size="sm">Small</Button>
 <Button variant="warning" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-center gap-2">
-                    <Button variant="warning" className="w-full bg-warning-main text-white hover:bg-warning-dark" size="sm">Label</Button>
-                    <Button variant="warning" className="w-full bg-warning-main text-white hover:bg-warning-dark">Label</Button>
-                    <Button variant="warning" className="w-full bg-warning-main text-white hover:bg-warning-dark" size="lg">Label</Button>
+                  <div className="flex flex-col items-start gap-2">
+                    <Button variant="warning" className="bg-warning-main text-white hover:bg-warning-dark" size="sm">Label</Button>
+                    <Button variant="warning" className="bg-warning-main text-white hover:bg-warning-dark">Label</Button>
+                    <Button variant="warning" className="bg-warning-main text-white hover:bg-warning-dark" size="lg">Label</Button>
                   </div>
                 </ComponentCard>
 
@@ -160,10 +160,10 @@ const ButtonPage = () => {
 <Button variant="info" size="sm">Small</Button>
 <Button variant="info" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-center gap-2">
-                    <Button variant="info" className="w-full bg-info-main text-info-contrast hover:bg-info-dark" size="sm">Label</Button>
-                    <Button variant="info" className="w-full bg-info-main text-info-contrast hover:bg-info-dark">Label</Button>
-                    <Button variant="info" className="w-full bg-info-main text-info-contrast hover:bg-info-dark" size="lg">Label</Button>
+                  <div className="flex flex-col items-start gap-2">
+                    <Button variant="info" className="bg-info-main text-info-contrast hover:bg-info-dark" size="sm">Label</Button>
+                    <Button variant="info" className="bg-info-main text-info-contrast hover:bg-info-dark">Label</Button>
+                    <Button variant="info" className="bg-info-main text-info-contrast hover:bg-info-dark" size="lg">Label</Button>
                   </div>
                 </ComponentCard>
 
@@ -175,10 +175,10 @@ const ButtonPage = () => {
 <Button variant="success" size="sm">Small</Button>
 <Button variant="success" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-center gap-2">
-                    <Button variant="success" className="w-full bg-success-main text-success-contrast hover:bg-success-dark" size="sm">Label</Button>
-                    <Button variant="success" className="w-full bg-success-main text-success-contrast hover:bg-success-dark">Label</Button>
-                    <Button variant="success" className="w-full bg-success-main text-success-contrast hover:bg-success-dark" size="lg">Label</Button>
+                  <div className="flex flex-col items-start gap-2">
+                    <Button variant="success" className="bg-success-main text-success-contrast hover:bg-success-dark" size="sm">Label</Button>
+                    <Button variant="success" className="bg-success-main text-success-contrast hover:bg-success-dark">Label</Button>
+                    <Button variant="success" className="bg-success-main text-success-contrast hover:bg-success-dark" size="lg">Label</Button>
                   </div>
                 </ComponentCard>
 
@@ -190,10 +190,10 @@ const ButtonPage = () => {
 <Button variant="secondary" size="sm">Small</Button>
 <Button variant="secondary" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-center gap-2">
-                    <Button variant="secondary" className="w-full" size="sm">Label</Button>
-                    <Button variant="secondary" className="w-full">Label</Button>
-                    <Button variant="secondary" className="w-full" size="lg">Label</Button>
+                  <div className="flex flex-col items-start gap-2">
+                    <Button variant="secondary" size="sm">Label</Button>
+                    <Button variant="secondary">Label</Button>
+                    <Button variant="secondary" size="lg">Label</Button>
                   </div>
                 </ComponentCard>
 
@@ -205,10 +205,10 @@ const ButtonPage = () => {
 <Button variant="outline-default" size="sm">Small</Button>
 <Button variant="outline-default" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-center gap-2">
-                    <Button variant="outline-default" className="w-full" size="sm">Label</Button>
-                    <Button variant="outline-default" className="w-full">Label</Button>
-                    <Button variant="outline-default" className="w-full" size="lg">Label</Button>
+                  <div className="flex flex-col items-start gap-2">
+                    <Button variant="outline-default" size="sm">Label</Button>
+                    <Button variant="outline-default">Label</Button>
+                    <Button variant="outline-default" size="lg">Label</Button>
                   </div>
                 </ComponentCard>
 
@@ -220,10 +220,10 @@ const ButtonPage = () => {
 <Button variant="outline-error" size="sm">Small</Button>
 <Button variant="outline-error" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-center gap-2">
-                    <Button variant="outline-error" className="w-full" size="sm">Label</Button>
-                    <Button variant="outline-error" className="w-full">Label</Button>
-                    <Button variant="outline-error" className="w-full" size="lg">Label</Button>
+                  <div className="flex flex-col items-start gap-2">
+                    <Button variant="outline-error" size="sm">Label</Button>
+                    <Button variant="outline-error">Label</Button>
+                    <Button variant="outline-error" size="lg">Label</Button>
                   </div>
                 </ComponentCard>
 
@@ -235,10 +235,10 @@ const ButtonPage = () => {
 <Button variant="outline-warning" size="sm">Small</Button>
 <Button variant="outline-warning" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-center gap-2">
-                    <Button variant="outline-warning" className="w-full" size="sm">Label</Button>
-                    <Button variant="outline-warning" className="w-full">Label</Button>
-                    <Button variant="outline-warning" className="w-full" size="lg">Label</Button>
+                  <div className="flex flex-col items-start gap-2">
+                    <Button variant="outline-warning" size="sm">Label</Button>
+                    <Button variant="outline-warning">Label</Button>
+                    <Button variant="outline-warning" size="lg">Label</Button>
                   </div>
                 </ComponentCard>
 
@@ -250,10 +250,10 @@ const ButtonPage = () => {
 <Button variant="outline-info" size="sm">Small</Button>
 <Button variant="outline-info" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-center gap-2">
-                    <Button variant="outline-info" className="w-full" size="sm">Label</Button>
-                    <Button variant="outline-info" className="w-full">Label</Button>
-                    <Button variant="outline-info" className="w-full" size="lg">Label</Button>
+                  <div className="flex flex-col items-start gap-2">
+                    <Button variant="outline-info" size="sm">Label</Button>
+                    <Button variant="outline-info">Label</Button>
+                    <Button variant="outline-info" size="lg">Label</Button>
                   </div>
                 </ComponentCard>
 
@@ -265,10 +265,10 @@ const ButtonPage = () => {
 <Button variant="outline-success" size="sm">Small</Button>
 <Button variant="outline-success" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-center gap-2">
-                    <Button variant="outline-success" className="w-full" size="sm">Label</Button>
-                    <Button variant="outline-success" className="w-full">Label</Button>
-                    <Button variant="outline-success" className="w-full" size="lg">Label</Button>
+                  <div className="flex flex-col items-start gap-2">
+                    <Button variant="outline-success" size="sm">Label</Button>
+                    <Button variant="outline-success">Label</Button>
+                    <Button variant="outline-success" size="lg">Label</Button>
                   </div>
                 </ComponentCard>
 
@@ -280,10 +280,10 @@ const ButtonPage = () => {
 <Button variant="outline-secondary" size="sm">Small</Button>
 <Button variant="outline-secondary" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-center gap-2">
-                    <Button variant="outline-secondary" className="w-full" size="sm">Label</Button>
-                    <Button variant="outline-secondary" className="w-full">Label</Button>
-                    <Button variant="outline-secondary" className="w-full" size="lg">Label</Button>
+                  <div className="flex flex-col items-start gap-2">
+                    <Button variant="outline-secondary" size="sm">Label</Button>
+                    <Button variant="outline-secondary">Label</Button>
+                    <Button variant="outline-secondary" size="lg">Label</Button>
                   </div>
                 </ComponentCard>
 
@@ -295,10 +295,10 @@ const ButtonPage = () => {
 <Button variant="text-default" size="sm">Small</Button>
 <Button variant="text-default" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-center gap-2">
-                    <Button variant="text-default" className="w-full hover:bg-gray-50" size="sm">Label</Button>
-                    <Button variant="text-default" className="w-full hover:bg-gray-50">Label</Button>
-                    <Button variant="text-default" className="w-full hover:bg-gray-50" size="lg">Label</Button>
+                  <div className="flex flex-col items-start gap-2">
+                    <Button variant="text-default" className="hover:bg-gray-50" size="sm">Label</Button>
+                    <Button variant="text-default" className="hover:bg-gray-50">Label</Button>
+                    <Button variant="text-default" className="hover:bg-gray-50" size="lg">Label</Button>
                   </div>
                 </ComponentCard>
 
@@ -310,10 +310,10 @@ const ButtonPage = () => {
 <Button variant="text-error" size="sm">Small</Button>
 <Button variant="text-error" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-center gap-2">
-                    <Button variant="text-error" className="w-full hover:bg-gray-50" size="sm">Label</Button>
-                    <Button variant="text-error" className="w-full hover:bg-gray-50">Label</Button>
-                    <Button variant="text-error" className="w-full hover:bg-gray-50" size="lg">Label</Button>
+                  <div className="flex flex-col items-start gap-2">
+                    <Button variant="text-error" className="hover:bg-gray-50" size="sm">Label</Button>
+                    <Button variant="text-error" className="hover:bg-gray-50">Label</Button>
+                    <Button variant="text-error" className="hover:bg-gray-50" size="lg">Label</Button>
                   </div>
                 </ComponentCard>
 
@@ -325,10 +325,10 @@ const ButtonPage = () => {
 <Button variant="text-warning" size="sm">Small</Button>
 <Button variant="text-warning" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-center gap-2">
-                    <Button variant="text-warning" className="w-full hover:bg-gray-50" size="sm">Label</Button>
-                    <Button variant="text-warning" className="w-full hover:bg-gray-50">Label</Button>
-                    <Button variant="text-warning" className="w-full hover:bg-gray-50" size="lg">Label</Button>
+                  <div className="flex flex-col items-start gap-2">
+                    <Button variant="text-warning" className="hover:bg-gray-50" size="sm">Label</Button>
+                    <Button variant="text-warning" className="hover:bg-gray-50">Label</Button>
+                    <Button variant="text-warning" className="hover:bg-gray-50" size="lg">Label</Button>
                   </div>
                 </ComponentCard>
 
@@ -340,10 +340,10 @@ const ButtonPage = () => {
 <Button variant="text-info" size="sm">Small</Button>
 <Button variant="text-info" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-center gap-2">
-                    <Button variant="text-info" className="w-full hover:bg-gray-50" size="sm">Label</Button>
-                    <Button variant="text-info" className="w-full hover:bg-gray-50">Label</Button>
-                    <Button variant="text-info" className="w-full hover:bg-gray-50" size="lg">Label</Button>
+                  <div className="flex flex-col items-start gap-2">
+                    <Button variant="text-info" className="hover:bg-gray-50" size="sm">Label</Button>
+                    <Button variant="text-info" className="hover:bg-gray-50">Label</Button>
+                    <Button variant="text-info" className="hover:bg-gray-50" size="lg">Label</Button>
                   </div>
                 </ComponentCard>
 
@@ -355,10 +355,10 @@ const ButtonPage = () => {
 <Button variant="text-success" size="sm">Small</Button>
 <Button variant="text-success" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-center gap-2">
-                    <Button variant="text-success" className="w-full hover:bg-gray-50" size="sm">Label</Button>
-                    <Button variant="text-success" className="w-full hover:bg-gray-50">Label</Button>
-                    <Button variant="text-success" className="w-full hover:bg-gray-50" size="lg">Label</Button>
+                  <div className="flex flex-col items-start gap-2">
+                    <Button variant="text-success" className="hover:bg-gray-50" size="sm">Label</Button>
+                    <Button variant="text-success" className="hover:bg-gray-50">Label</Button>
+                    <Button variant="text-success" className="hover:bg-gray-50" size="lg">Label</Button>
                   </div>
                 </ComponentCard>
 
@@ -370,10 +370,10 @@ const ButtonPage = () => {
 <Button variant="text-secondary" size="sm">Small</Button>
 <Button variant="text-secondary" size="lg">Large</Button>`}
                 >
-                  <div className="flex flex-col items-center gap-2">
-                    <Button variant="text-secondary" className="w-full hover:bg-gray-50" size="sm">Label</Button>
-                    <Button variant="text-secondary" className="w-full hover:bg-gray-50">Label</Button>
-                    <Button variant="text-secondary" className="w-full hover:bg-gray-50" size="lg">Label</Button>
+                  <div className="flex flex-col items-start gap-2">
+                    <Button variant="text-secondary" className="hover:bg-gray-50" size="sm">Label</Button>
+                    <Button variant="text-secondary" className="hover:bg-gray-50">Label</Button>
+                    <Button variant="text-secondary" className="hover:bg-gray-50" size="lg">Label</Button>
                   </div>
                 </ComponentCard>
               </div>
