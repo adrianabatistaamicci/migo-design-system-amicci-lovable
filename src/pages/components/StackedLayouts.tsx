@@ -30,7 +30,7 @@ const StackedLayouts = () => {
       value: 'institutional'
     }]} variant="pillsGray" onChange={value => setActiveTab(value)} />
 
-      {activeTab === 'overview' && <div className="space-y-12 mt-10">
+      {activeTab === 'overview' && <div className="space-y-12 mt-6">
           <LayoutComponent 
             title="Light nav with bottom border" 
             component={<LightNavBottomBorderWithReusable />} 
@@ -62,7 +62,7 @@ const StackedLayouts = () => {
           />
         </div>}
 
-      {activeTab === 'marketplace' && <div className="space-y-12 mt-10">
+      {activeTab === 'marketplace' && <div className="space-y-12 mt-6">
           <LayoutComponent 
             title="Marketplace Buyer Navigation" 
             component={<MarketplaceBuyerExample />} 
@@ -76,7 +76,7 @@ const StackedLayouts = () => {
           />
         </div>}
 
-      {activeTab === 'institutional' && <div className="space-y-12 mt-10">
+      {activeTab === 'institutional' && <div className="space-y-12 mt-6">
           <LayoutComponent 
             title="Institutional Site Navigation" 
             component={<InstitutionalExample />} 

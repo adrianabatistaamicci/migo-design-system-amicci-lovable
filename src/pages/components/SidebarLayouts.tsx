@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   Home, 
@@ -33,6 +32,7 @@ import { Chip } from '@/components/ui/chip';
 import { Button } from '@/components/ui/button';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { cn } from '@/lib/utils';
+import { TailwindTabs } from '@/components/ui/tabs';
 
 const SidebarLayouts = () => {
   const sidebarCode = `// Basic Sidebar Component Example
@@ -349,7 +349,17 @@ const AdvancedSidebar = () => {
     <div className="w-full animate-fade-in">
       <Header title="Sidebar Layouts" description="Barras laterais de navegação responsivas com recursos avançados como ícones, badges, submenus expansíveis e seções de rodapé" type="components" />
       
-      <div className="max-w-[1280px] mx-auto">
+      <TailwindTabs 
+        defaultValue="examples" 
+        className="mt-8"
+        tabs={[
+          { name: 'Exemplos', value: 'examples' },
+          { name: 'Práticas', value: 'practices' }
+        ]}
+        variant="pillsGray"
+      />
+      
+      <div className="mt-6 max-w-[1280px] mx-auto">
         <section className="space-y-3 mb-12">
           <div className="px-4">
             <h3 className="text-xl font-medium text-gray-900">Basic Sidebar</h3>
@@ -696,3 +706,4 @@ const LayoutComponentFooter = ({
 };
 
 export default SidebarLayouts;
+
