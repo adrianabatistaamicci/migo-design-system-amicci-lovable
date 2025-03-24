@@ -4,15 +4,12 @@ import { TailwindTabs } from "@/components/ui/tabs";
 import Header from '@/components/library-components/Header';
 import ComponentCard from '@/components/ComponentCard';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
 import ColorSwatch from '@/components/colors/ColorSwatch';
-import { colorUtils } from '@/utils/colorUtils';
-import BaseColorsTable from '@/components/colors/BaseColorsTable';
-import PaletteTable from '@/components/colors/PaletteTable';
 
 const Colors = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -47,36 +44,6 @@ const Colors = () => {
         { weight: '700', colorClass: 'bg-gray-700', hexValue: '#374151' },
         { weight: '800', colorClass: 'bg-gray-800', hexValue: '#1F2937' },
         { weight: '900', colorClass: 'bg-gray-900', hexValue: '#111827' },
-      ]
-    }
-  ];
-
-  const palettes = [
-    {
-      name: 'Text',
-      description: 'gray',
-      variants: [
-        { name: 'primary', colorClass: 'bg-gray-900', hexValue: '#111827', baseColor: 'Gray-900', textColor: 'white' },
-        { name: 'secondary', colorClass: 'bg-gray-500', hexValue: '#6B7280', baseColor: 'Gray-500', textColor: 'white' },
-        { name: 'disabled', colorClass: 'bg-gray-400', hexValue: '#9CA3AF', baseColor: 'Gray-400', textColor: 'white' },
-        { name: 'hover', colorClass: 'bg-gray-900', hexValue: '#111827', baseColor: 'Gray-900', opacity: '4%', textColor: 'white' },
-        { name: 'selected', colorClass: 'bg-gray-900', hexValue: '#111827', baseColor: 'Gray-900', opacity: '8%', textColor: 'white' },
-        { name: 'focus', colorClass: 'bg-gray-900', hexValue: '#111827', baseColor: 'Gray-900', opacity: '12%', textColor: 'white' },
-        { name: 'focusVisible', colorClass: 'bg-gray-900', hexValue: '#111827', baseColor: 'Gray-900', opacity: '30%', textColor: 'white' },
-      ]
-    },
-    {
-      name: 'Primary',
-      description: 'amicci',
-      variants: [
-        { name: 'main', colorClass: 'bg-amicci-500', hexValue: '#10C2C0', baseColor: 'Amicci-500', textColor: 'white' },
-        { name: 'dark', colorClass: 'bg-amicci-700', hexValue: '#0C8584', baseColor: 'Amicci-700', textColor: 'white' },
-        { name: 'light', colorClass: 'bg-amicci-100', hexValue: '#E3FAF9', baseColor: 'Amicci-100', textColor: 'black' },
-        { name: 'hover', colorClass: 'bg-amicci-400', hexValue: '#51DEDA', baseColor: 'Amicci-400', textColor: 'white' },
-        { name: 'selected', colorClass: 'bg-amicci-700', hexValue: '#0C8584', baseColor: 'Amicci-700', textColor: 'white' },
-        { name: 'focusVisible', colorClass: 'bg-amicci-500', hexValue: '#10C2C0', baseColor: 'Amicci-500', opacity: '30%', textColor: 'white' },
-        { name: 'outlinedBorder', colorClass: 'bg-amicci-500', hexValue: '#10C2C0', baseColor: 'Amicci-500', opacity: '50%', textColor: 'white' },
-        { name: 'contrast', colorClass: 'bg-white', hexValue: '#FFFFFF', baseColor: 'White', textColor: 'black' },
       ]
     }
   ];
@@ -240,7 +207,49 @@ const Colors = () => {
                 Estas cores básicas servem como alicerce para todo o sistema de design, fornecendo consistência visual em toda a aplicação.
               </p>
               
-              <BaseColorsTable baseColors={baseColors} />
+              <div className="space-y-8">
+                {baseColors.map(baseColor => (
+                  <div key={baseColor.name} className="space-y-2">
+                    <h3 className="text-xl font-semibold">{baseColor.name}</h3>
+                    <Table className="border rounded-lg overflow-hidden">
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Variação</TableHead>
+                          <TableHead>Amostra</TableHead>
+                          <TableHead>Token CSS</TableHead>
+                          <TableHead>Hexadecimal</TableHead>
+                          <TableHead>RGB</TableHead>
+                          <TableHead>HSL</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {baseColor.weights.map(weight => (
+                          <TableRow key={`${baseColor.name}-${weight.weight}`}>
+                            <TableCell className="font-mono bg-inherit">
+                              {baseColor.name.toLowerCase()}-{weight.weight}
+                            </TableCell>
+                            <TableCell>
+                              <ColorSwatch color={weight.colorClass} textOverlay={weight.weight} className="h-12" />
+                            </TableCell>
+                            <TableCell className="font-mono">
+                              --{baseColor.name.toLowerCase()}-{weight.weight}
+                            </TableCell>
+                            <TableCell className="font-mono">
+                              {weight.hexValue}
+                            </TableCell>
+                            <TableCell className="font-mono">
+                              rgb(...)
+                            </TableCell>
+                            <TableCell className="font-mono">
+                              hsl(...)
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+                ))}
+              </div>
             </ComponentCard>
           )}
 
@@ -253,136 +262,254 @@ const Colors = () => {
                 Nossas paletas semânticas atribuem significado e função às cores, facilitando o uso consistente em toda a interface.
               </p>
               
-              <PaletteTable palettes={palettes} />
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <h3 className="text-lg font-medium">Como Usar</h3>
+                  <p className="text-gray-600">
+                    Utilize as cores através das classes do Tailwind e tokens CSS:
+                  </p>
+                  
+                  <p className="text-gray-600 mb-4">
+                    Acesse as cores usando as classes utilitárias do Tailwind baseadas na nomenclatura semântica:
+                  </p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="border rounded-lg p-4">
+                      <h4 className="font-medium mb-2 text-sm">bg-primary-main</h4>
+                      <div className="bg-amicci-500 h-10 rounded-md"></div>
+                      <p className="text-xs mt-2 text-gray-500">
+                        Cor primária principal
+                      </p>
+                    </div>
+                    
+                    <div className="border rounded-lg p-4">
+                      <h4 className="font-medium mb-2 text-sm">text-error-main</h4>
+                      <div className="bg-gray-50 h-10 rounded-md flex items-center justify-center text-red-500 font-medium">
+                        Texto na cor de erro
+                      </div>
+                      <p className="text-xs mt-2 text-gray-500">
+                        Texto na cor de erro
+                      </p>
+                    </div>
+                    
+                    <div className="border rounded-lg p-4">
+                      <h4 className="font-medium mb-2 text-sm">border-warning-outlinedBorder</h4>
+                      <div className="border-2 border-amber-500 h-10 rounded-md"></div>
+                      <p className="text-xs mt-2 text-gray-500">
+                        Borda na cor de contorno de aviso
+                      </p>
+                    </div>
+                    
+                    <div className="border rounded-lg p-4">
+                      <h4 className="font-medium mb-2 text-sm">bg-amicci-500</h4>
+                      <div className="bg-amicci-500 h-10 rounded-md"></div>
+                      <p className="text-xs mt-2 text-gray-500">
+                        Cor básica amicci (500)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </ComponentCard>
           )}
 
           {activeTab === 'accessibility' && (
             <ComponentCard 
-              title="Teste de Daltonismo" 
-              description="Nosso sistema de cores foi testado para os seguintes tipos de daltonismo:"
+              title="Acessibilidade de Cores" 
+              description="Garantindo que nosso sistema de cores seja acessível a todos."
             >
               <div className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <Card className="overflow-hidden">
-                    <CardContent className="p-6">
-                      <div className="flex justify-between items-center mb-4">
-                        <h3 className="text-lg font-medium">Deuteranopia</h3>
-                        <div className="flex items-center">
-                          <Label htmlFor="deuteranopia-sim" className="mr-2">Simular</Label>
-                          <RadioGroup 
-                            value={simulationType === 'deuteranopia' ? 'true' : 'false'}
-                            onValueChange={(value) => value === 'true' ? handleSimulation('deuteranopia') : handleSimulation('normal')}
-                            className="flex"
-                          >
-                            <RadioGroupItem value="true" id="deuteranopia-sim" />
-                          </RadioGroup>
-                        </div>
-                      </div>
-                      <p className="text-gray-600 mb-4">Deficiência de percepção do verde</p>
-                      
-                      <div className={`grid grid-cols-4 gap-2 ${simulationType === 'deuteranopia' ? 'filter-deuteranopia' : ''}`}>
-                        {colorSwatches.map((swatch, idx) => (
-                          <ColorSwatch 
-                            key={idx}
-                            color={swatch.color} 
-                            className="h-12"
-                            simulationType={simulationType === 'deuteranopia' ? 'deuteranopia' : ''}
-                          />
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
+                <div>
+                  <h3 className="text-xl font-medium mb-3">Contraste</h3>
+                  <p className="text-gray-600 mb-4">
+                    Todas as combinações de cores de texto e fundo atendem aos requisitos de contraste WCAG 2.1 AA:
+                  </p>
                   
-                  <Card className="overflow-hidden">
-                    <CardContent className="p-6">
-                      <div className="flex justify-between items-center mb-4">
-                        <h3 className="text-lg font-medium">Protanopia</h3>
-                        <div className="flex items-center">
-                          <Label htmlFor="protanopia-sim" className="mr-2">Simular</Label>
-                          <RadioGroup 
-                            value={simulationType === 'protanopia' ? 'true' : 'false'}
-                            onValueChange={(value) => value === 'true' ? handleSimulation('protanopia') : handleSimulation('normal')}
-                            className="flex"
-                          >
-                            <RadioGroupItem value="true" id="protanopia-sim" />
-                          </RadioGroup>
-                        </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="border rounded-lg p-4">
+                      <h4 className="font-medium mb-2">Texto normal</h4>
+                      <p className="text-gray-600 mb-2">Contraste mínimo de 4.5:1</p>
+                      <div className="bg-amicci-600 p-3 rounded-md">
+                        <p className="text-white">Exemplo de texto com contraste adequado</p>
                       </div>
-                      <p className="text-gray-600 mb-4">Deficiência de percepção do vermelho</p>
-                      
-                      <div className={`grid grid-cols-4 gap-2 ${simulationType === 'protanopia' ? 'filter-protanopia' : ''}`}>
-                        {colorSwatches.map((swatch, idx) => (
-                          <ColorSwatch 
-                            key={idx}
-                            color={swatch.color} 
-                            className="h-12"
-                            simulationType={simulationType === 'protanopia' ? 'protanopia' : ''}
-                          />
-                        ))}
+                    </div>
+                    
+                    <div className="border rounded-lg p-4">
+                      <h4 className="font-medium mb-2">Texto grande (18pt ou 14pt bold)</h4>
+                      <p className="text-gray-600 mb-2">Contraste mínimo de 3:1</p>
+                      <div className="bg-amicci-400 p-3 rounded-md">
+                        <p className="text-white text-xl font-bold">Texto grande</p>
                       </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+                    
+                    <div className="border rounded-lg p-4">
+                      <h4 className="font-medium mb-2">Componentes de interface e gráficos</h4>
+                      <p className="text-gray-600 mb-2">Contraste mínimo de 3:1</p>
+                      <div className="p-3 rounded-md">
+                        <Button>Botão de exemplo</Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <Separator />
+                
+                <div>
+                  <h3 className="text-xl font-medium mb-3">Não Dependa Apenas da Cor</h3>
+                  <p className="text-gray-600 mb-4">
+                    Para garantir que as informações sejam acessíveis a pessoas com deficiência visual ou daltonismo, não usamos apenas cor para transmitir informações importantes:
+                  </p>
                   
-                  <Card className="overflow-hidden">
-                    <CardContent className="p-6">
-                      <div className="flex justify-between items-center mb-4">
-                        <h3 className="text-lg font-medium">Tritanopia</h3>
-                        <div className="flex items-center">
-                          <Label htmlFor="tritanopia-sim" className="mr-2">Simular</Label>
-                          <RadioGroup 
-                            value={simulationType === 'tritanopia' ? 'true' : 'false'}
-                            onValueChange={(value) => value === 'true' ? handleSimulation('tritanopia') : handleSimulation('normal')}
-                            className="flex"
-                          >
-                            <RadioGroupItem value="true" id="tritanopia-sim" />
-                          </RadioGroup>
-                        </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="border rounded-lg p-4">
+                      <h4 className="font-medium mb-2">Combinação com elementos visuais</h4>
+                      <p className="text-gray-600 mb-2">Combinamos cores com ícones, textos e padrões</p>
+                      <div className="flex items-center space-x-2 text-red-500">
+                        <XCircle />
+                        <span>Erro no formulário</span>
                       </div>
-                      <p className="text-gray-600 mb-4">Deficiência de percepção do azul</p>
-                      
-                      <div className={`grid grid-cols-4 gap-2 ${simulationType === 'tritanopia' ? 'filter-tritanopia' : ''}`}>
-                        {colorSwatches.map((swatch, idx) => (
-                          <ColorSwatch 
-                            key={idx}
-                            color={swatch.color} 
-                            className="h-12"
-                            simulationType={simulationType === 'tritanopia' ? 'tritanopia' : ''}
-                          />
-                        ))}
+                    </div>
+                    
+                    <div className="border rounded-lg p-4">
+                      <h4 className="font-medium mb-2">Alternativas textuais</h4>
+                      <p className="text-gray-600 mb-2">Oferecemos alternativas textuais para informações baseadas em cores</p>
+                      <div className="flex items-center space-x-2 text-green-500">
+                        <CheckCircle2 />
+                        <span>Status: Ativo</span>
                       </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+                    
+                    <div className="border rounded-lg p-4">
+                      <h4 className="font-medium mb-2">Contraste suficiente</h4>
+                      <p className="text-gray-600 mb-2">Mantemos contraste suficiente mesmo em visualizações monocromáticas</p>
+                      <div className="border border-gray-300 p-2 rounded">
+                        <p className="font-medium">Normal Outline</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <Separator />
+                
+                <div>
+                  <h3 className="text-xl font-medium mb-3">Teste de Daltonismo</h3>
+                  <p className="text-gray-600 mb-4">
+                    Nosso sistema de cores foi testado para os seguintes tipos de daltonismo:
+                  </p>
                   
-                  <Card className="overflow-hidden">
-                    <CardContent className="p-6">
-                      <div className="flex justify-between items-center mb-4">
-                        <h3 className="text-lg font-medium">Acromatopsia</h3>
-                        <div className="flex items-center">
-                          <Label htmlFor="achromatopsia-sim" className="mr-2">Simular</Label>
-                          <RadioGroup 
-                            value={simulationType === 'achromatopsia' ? 'true' : 'false'}
-                            onValueChange={(value) => value === 'true' ? handleSimulation('achromatopsia') : handleSimulation('normal')}
-                            className="flex"
-                          >
-                            <RadioGroupItem value="true" id="achromatopsia-sim" />
-                          </RadioGroup>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <Card className="overflow-hidden">
+                      <CardContent className="p-6">
+                        <div className="flex justify-between items-center mb-4">
+                          <h3 className="text-lg font-medium">Deuteranopia</h3>
+                          <div className="flex items-center">
+                            <Label htmlFor="deuteranopia-sim" className="mr-2">Simular</Label>
+                            <RadioGroup 
+                              value={simulationType === 'deuteranopia' ? 'true' : 'false'}
+                              onValueChange={(value) => value === 'true' ? handleSimulation('deuteranopia') : handleSimulation('normal')}
+                              className="flex"
+                            >
+                              <RadioGroupItem value="true" id="deuteranopia-sim" />
+                            </RadioGroup>
+                          </div>
                         </div>
-                      </div>
-                      <p className="text-gray-600 mb-4">Ausência completa de percepção de cores</p>
-                      
-                      <div className={`grid grid-cols-4 gap-2 ${simulationType === 'achromatopsia' ? 'filter-grayscale' : ''}`}>
-                        {colorSwatches.map((swatch, idx) => (
-                          <ColorSwatch 
-                            key={idx}
-                            color={swatch.color} 
-                            className="h-12"
-                            simulationType={simulationType === 'achromatopsia' ? 'achromatopsia' : ''}
-                          />
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
+                        <p className="text-gray-600 mb-4">Deficiência de percepção do verde</p>
+                        
+                        <div className={`grid grid-cols-4 gap-2 ${simulationType === 'deuteranopia' ? 'filter-deuteranopia' : ''}`}>
+                          {colorSwatches.map((swatch, idx) => (
+                            <div 
+                              key={idx}
+                              className={`${swatch.color} h-12 rounded-md`}
+                            />
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                    
+                    <Card className="overflow-hidden">
+                      <CardContent className="p-6">
+                        <div className="flex justify-between items-center mb-4">
+                          <h3 className="text-lg font-medium">Protanopia</h3>
+                          <div className="flex items-center">
+                            <Label htmlFor="protanopia-sim" className="mr-2">Simular</Label>
+                            <RadioGroup 
+                              value={simulationType === 'protanopia' ? 'true' : 'false'}
+                              onValueChange={(value) => value === 'true' ? handleSimulation('protanopia') : handleSimulation('normal')}
+                              className="flex"
+                            >
+                              <RadioGroupItem value="true" id="protanopia-sim" />
+                            </RadioGroup>
+                          </div>
+                        </div>
+                        <p className="text-gray-600 mb-4">Deficiência de percepção do vermelho</p>
+                        
+                        <div className={`grid grid-cols-4 gap-2 ${simulationType === 'protanopia' ? 'filter-protanopia' : ''}`}>
+                          {colorSwatches.map((swatch, idx) => (
+                            <div 
+                              key={idx}
+                              className={`${swatch.color} h-12 rounded-md`}
+                            />
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                    
+                    <Card className="overflow-hidden">
+                      <CardContent className="p-6">
+                        <div className="flex justify-between items-center mb-4">
+                          <h3 className="text-lg font-medium">Tritanopia</h3>
+                          <div className="flex items-center">
+                            <Label htmlFor="tritanopia-sim" className="mr-2">Simular</Label>
+                            <RadioGroup 
+                              value={simulationType === 'tritanopia' ? 'true' : 'false'}
+                              onValueChange={(value) => value === 'true' ? handleSimulation('tritanopia') : handleSimulation('normal')}
+                              className="flex"
+                            >
+                              <RadioGroupItem value="true" id="tritanopia-sim" />
+                            </RadioGroup>
+                          </div>
+                        </div>
+                        <p className="text-gray-600 mb-4">Deficiência de percepção do azul</p>
+                        
+                        <div className={`grid grid-cols-4 gap-2 ${simulationType === 'tritanopia' ? 'filter-tritanopia' : ''}`}>
+                          {colorSwatches.map((swatch, idx) => (
+                            <div 
+                              key={idx}
+                              className={`${swatch.color} h-12 rounded-md`}
+                            />
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                    
+                    <Card className="overflow-hidden">
+                      <CardContent className="p-6">
+                        <div className="flex justify-between items-center mb-4">
+                          <h3 className="text-lg font-medium">Acromatopsia</h3>
+                          <div className="flex items-center">
+                            <Label htmlFor="achromatopsia-sim" className="mr-2">Simular</Label>
+                            <RadioGroup 
+                              value={simulationType === 'achromatopsia' ? 'true' : 'false'}
+                              onValueChange={(value) => value === 'true' ? handleSimulation('achromatopsia') : handleSimulation('normal')}
+                              className="flex"
+                            >
+                              <RadioGroupItem value="true" id="achromatopsia-sim" />
+                            </RadioGroup>
+                          </div>
+                        </div>
+                        <p className="text-gray-600 mb-4">Ausência completa de percepção de cores</p>
+                        
+                        <div className={`grid grid-cols-4 gap-2 ${simulationType === 'achromatopsia' ? 'filter-grayscale' : ''}`}>
+                          {colorSwatches.map((swatch, idx) => (
+                            <div 
+                              key={idx}
+                              className={`${swatch.color} h-12 rounded-md`}
+                            />
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
                 </div>
               </div>
             </ComponentCard>
