@@ -3,8 +3,7 @@ import React, { useEffect } from 'react';
 import Header from '@/components/library-components/Header';
 import EmptyState from '@/components/library-components/EmptyState';
 import { Separator } from '@/components/ui/separator';
-import { TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import { Tabs } from '@/components/ui/tabs';
+import { TailwindTabs } from '@/components/ui/tabs';
 import CodeBlock from '@/components/CodeBlock';
 import { usePageTitle } from '@/contexts/PageTitleContext';
 
@@ -45,15 +44,19 @@ const TechnicalGovernance = () => {
         hideChip={true}
       />
       
-      <Tabs defaultValue="overview" className="w-full" variant="pillsGray">
-        <TabsList className="mb-6">
-          <TabsTrigger value="overview">Visão Geral</TabsTrigger>
-          <TabsTrigger value="projects">Projetos na Lovable</TabsTrigger>
-          <TabsTrigger value="production">Ambiente de Produção</TabsTrigger>
-          <TabsTrigger value="usage">Utilização</TabsTrigger>
-        </TabsList>
-        
-        <TabsContent value="overview" className="space-y-8">
+      <TailwindTabs 
+        defaultValue="overview" 
+        className="w-auto"
+        tabs={[
+          { name: 'Visão Geral', value: 'overview' },
+          { name: 'Projetos na Lovable', value: 'projects' },
+          { name: 'Ambiente de Produção', value: 'production' },
+          { name: 'Utilização', value: 'usage' }
+        ]}
+        variant="pillsGray"
+      >
+        <div className="mt-6 space-y-8">
+          {/* Overview content */}
           <div className="mb-8 bg-gray-50 border border-gray-200 rounded-lg p-6">
             <h2 className="text-2xl font-semibold mb-4">Design System Core Team</h2>
             <div className="grid md:grid-cols-2 gap-4">
@@ -116,9 +119,10 @@ const TechnicalGovernance = () => {
               </div>
             </div>
           </div>
-        </TabsContent>
+        </div>
         
-        <TabsContent value="projects" className="space-y-8">
+        <div className="space-y-8">
+          {/* Projects content */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
             <h2 className="text-2xl font-semibold mb-4">Projetos na Lovable</h2>
             <div className="prose prose-gray max-w-none">
@@ -185,9 +189,10 @@ const TechnicalGovernance = () => {
               </div>
             </div>
           </div>
-        </TabsContent>
+        </div>
         
-        <TabsContent value="production" className="space-y-8">
+        <div className="space-y-8">
+          {/* Production content */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
             <h2 className="text-2xl font-semibold mb-4">Ambiente de Produção</h2>
             <div className="prose prose-gray max-w-none">
@@ -272,9 +277,10 @@ const TechnicalGovernance = () => {
               </div>
             </div>
           </div>
-        </TabsContent>
+        </div>
         
-        <TabsContent value="usage" className="space-y-8">
+        <div className="space-y-8">
+          {/* Usage content */}
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
             <h3 className="text-xl font-medium mb-3">Utilizando em Projetos Lovable</h3>
             <p className="text-gray-700 mb-3">
@@ -462,8 +468,8 @@ function MeuComponente() {
               </div>
             </div>
           </div>
-        </TabsContent>
-      </Tabs>
+        </div>
+      </TailwindTabs>
       
       <EmptyState 
         title="Mais conteúdo em breve" 

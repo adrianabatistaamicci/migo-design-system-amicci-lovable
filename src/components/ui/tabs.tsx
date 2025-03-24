@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
@@ -47,7 +48,7 @@ export const TailwindTabs = ({
           </div>;
       case 'pills':
         return <nav className="flex space-x-4 inline-flex">
-            {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`rounded-md px-3 py-2 text-sm font-medium ${selected === tab.value ? 'bg-gray-100 text-amicci-600' : 'text-gray-500 hover:text-gray-700'}`}>
+            {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium ${selected === tab.value ? 'bg-gray-100 text-amicci-600' : 'text-gray-500 hover:text-gray-700'}`}>
                 {tab.name}
                 {tab.badge && <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${selected === tab.value ? 'bg-amicci-100 text-amicci-600' : 'bg-gray-100 text-gray-600'}`}>
                     {tab.badge}
@@ -56,7 +57,7 @@ export const TailwindTabs = ({
           </nav>;
       case 'pillsGray':
         return <nav className="inline-flex rounded-lg bg-gray-100 p-1">
-            {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors duration-200 ${selected === tab.value ? 'bg-white text-amicci-600 shadow-sm' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}>
+            {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium transition-colors duration-200 ${selected === tab.value ? 'bg-white text-amicci-600 shadow-sm' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}>
                 {tab.name}
                 {tab.badge && <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${selected === tab.value ? 'bg-amicci-100 text-amicci-600' : 'bg-gray-100 text-gray-600'}`}>
                     {tab.badge}
@@ -65,7 +66,7 @@ export const TailwindTabs = ({
           </nav>;
       case 'pillsBrand':
         return <nav className="inline-flex rounded-lg bg-amicci-50 p-1">
-            {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`rounded-md px-3 py-1.5 text-sm font-medium ${selected === tab.value ? 'bg-amicci-500 text-white shadow' : 'text-amicci-600 hover:text-amicci-700'}`}>
+            {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium ${selected === tab.value ? 'bg-amicci-500 text-white shadow' : 'text-amicci-600 hover:text-amicci-700'}`}>
                 {tab.name}
                 {tab.badge && <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${selected === tab.value ? 'bg-amicci-400 text-white' : 'bg-amicci-100 text-amicci-600'}`}>
                     {tab.badge}
@@ -120,7 +121,28 @@ export const TailwindTabs = ({
         return null;
     }
   };
-  return <div className={`inline-flex flex-col ${className || ''}`}>{renderTabs()}{children}</div>;
+
+  // Improved version that renders children based on selected tab
+  const renderContent = () => {
+    if (!Array.isArray(children)) {
+      return children;
+    }
+    
+    // If children is an array, find the child at the index corresponding to the selected tab
+    const selectedIndex = tabs.findIndex(tab => tab.value === selected);
+    return selectedIndex >= 0 && selectedIndex < children.length 
+      ? children[selectedIndex] 
+      : children; // If can't match by index, show all children
+  };
+
+  return (
+    <div className={cn("w-auto", className)}>
+      {renderTabs()}
+      <div className="mt-6">
+        {renderContent()}
+      </div>
+    </div>
+  );
 };
 
 export const Tabs = TabsPrimitive.Root;
