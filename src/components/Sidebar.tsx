@@ -10,7 +10,8 @@ import {
   LayoutDashboard,
   MessageSquare,
   Bell,
-  Palette
+  Palette,
+  FileText
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
@@ -40,7 +41,7 @@ const sidebarItems: SidebarItem[] = [
       { title: 'Oi, Migo', href: '/' },
       { title: 'Instalação', href: '/installation' },
       { title: 'UI Kit', href: '/ui-kit' },
-      { title: 'Recursos', href: '/resources' },
+      { title: 'Diretrizes', href: '/guidelines' },
     ]
   },
   {
@@ -219,7 +220,6 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
   
   const active = isActive(item.href, item.items);
   
-  // Main section headers (level 0) should not be collapsible
   if (level === 0) {
     return (
       <div className="mb-6">
@@ -243,7 +243,6 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
     );
   }
   
-  // For levels greater than 0, check if the item has sub-items
   if (item.items && item.items.length > 0) {
     return (
       <div className="mb-2">
@@ -290,7 +289,6 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
           </Collapsible>
         )}
 
-        {/* If there's no title, just render children directly */}
         {!item.title && (
           <div className="mt-1">
             {item.items.map((child, index) => (
@@ -302,7 +300,6 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
     );
   }
   
-  // Leaf item
   return (
     <Link
       to={item.href || '#'}

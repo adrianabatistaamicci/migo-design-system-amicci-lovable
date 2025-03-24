@@ -6,76 +6,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import Index from "./pages/Index";
 import Installation from "./pages/Installation";
+import Guidelines from "./pages/Guidelines";
 import Components from "./pages/Components";
 import ComponentDetail from "./pages/ComponentDetail";
 import NotFound from "./pages/NotFound";
 import UIKit from "./pages/UIKit";
-import Colors from "./pages/Colors";
-import Typography from "./pages/Typography";
-import Spacing from "./pages/Spacing";
-import Icons from "./pages/Icons";
-import Brand from "./pages/foundations/Brand";
-import InputPage from "./pages/components/Input";
-import CheckboxPage from "./pages/components/Checkbox";
-import RadioPage from "./pages/components/Radio";
-import SelectPage from "./pages/components/Select";
-import SliderPage from "./pages/components/Slider";
-import SwitchPage from "./pages/components/Switch";
-import AvatarPage from "./pages/components/Avatar";
-import BadgePage from "./pages/components/Badge";
-import ChipPage from "./pages/components/Chip";
-import TabsPage from "./pages/components/Tabs";
-import ProgressPage from "./pages/components/Progress";
-import LibraryPage from "./pages/components/Library";
-import TogglePage from "./pages/components/Toggle";
-import ContainersPage from "./pages/components/Containers";
-import StackedLayoutsPage from "./pages/components/StackedLayouts";
-import SidebarLayoutsPage from "./pages/components/SidebarLayouts";
-import MultiColumnLayoutsPage from "./pages/components/MultiColumnLayouts";
-import PageHeadingsPage from "./pages/components/PageHeadings";
-import CardHeadingsPage from "./pages/components/CardHeadings";
-import SectionHeadingsPage from "./pages/components/SectionHeadings";
-import DescriptionListsPage from "./pages/components/DescriptionLists";
-import StatsPage from "./pages/components/Stats";
-import CalendarsPage from "./pages/components/Calendars";
-import StackedListsPage from "./pages/components/StackedLists";
-import TablesPage from "./pages/components/Tables";
-import GridListsPage from "./pages/components/GridLists";
-import FeedsPage from "./pages/components/Feeds";
-import FormLayoutsPage from "./pages/components/FormLayouts";
-import SignInRegistrationPage from "./pages/components/SignInRegistration";
-import TextareasPage from "./pages/components/Textareas";
-import ActionPanelsPage from "./pages/components/ActionPanels";
-import AlertsToastsPage from "./pages/components/AlertsToasts";
-import EmptyStatesPage from "./pages/components/EmptyStates";
-import NavbarPage from "./pages/components/Navbar";
-import PaginationPage from "./pages/components/Pagination";
-import VerticalNavigationPage from "./pages/components/VerticalNavigation";
-import SidebarNavigationPage from "./pages/components/SidebarNavigation";
-import BreadcrumbsPage from "./pages/components/Breadcrumbs";
-import ProgressSteppersPage from "./pages/components/ProgressSteppers";
-import CommandBarsPage from "./pages/components/CommandBars";
-import ModalDialogsPage from "./pages/components/ModalDialogs";
-import DrawersPage from "./pages/components/Drawers";
-import NotificationToastsPage from "./pages/components/NotificationToasts";
-import DropdownsPage from "./pages/components/Dropdowns";
-import ButtonGroupsPage from "./pages/components/ButtonGroups";
-import AccordionsPage from "./pages/components/Accordions";
-import TooltipsPage from "./pages/components/Tooltips";
-import CardsPage from "./pages/components/Cards";
-import ListContainersPage from "./pages/components/ListContainers";
-import MediaObjectsPage from "./pages/components/MediaObjects";
-import DividersPage from "./pages/components/Dividers";
-import SkeletonsPage from "./pages/components/Skeletons";
-import HomeScreensPage from "./pages/components/HomeScreens";
-import DetailScreensPage from "./pages/components/DetailScreens";
-import SettingsScreensPage from "./pages/components/SettingsScreens";
-import ProjectsScreensPage from "./pages/components/ProjectsScreens";
-import MarketplaceScreensPage from "./pages/components/MarketplaceScreens";
-import FigmaLibraryPage from "./pages/components/FigmaLibrary";
-import FAQPage from "./pages/components/FAQ";
-import ProfileButtonPage from "./pages/components/ProfileButton";
-import IconButtonPage from "./pages/components/IconButton";
 
 const queryClient = new QueryClient();
 
@@ -90,6 +25,7 @@ const App = () => {
             <Route element={<MainLayout />}>
               <Route path="/" element={<Index />} />
               <Route path="/installation" element={<Installation />} />
+              <Route path="/guidelines" element={<Guidelines />} />
               <Route path="/components" element={<Components />} />
               <Route path="/components/:componentId" element={<ComponentDetail />} />
               <Route path="/components/input" element={<InputPage />} />

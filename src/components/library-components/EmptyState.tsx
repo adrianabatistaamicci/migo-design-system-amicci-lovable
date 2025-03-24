@@ -1,12 +1,12 @@
 
 import React from 'react';
-import { AlertCircle, Clock, Construction } from 'lucide-react';
+import { AlertCircle, Clock, Construction, BookText } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export interface EmptyStateProps {
   title?: string;
   description?: string;
-  icon?: 'alert' | 'clock' | 'construction';
+  icon?: 'alert' | 'clock' | 'construction' | 'book';
   className?: string;
 }
 
@@ -24,6 +24,8 @@ const EmptyState: React.FC<EmptyStateProps> = ({
         return <Clock className="h-8 w-8 text-primary-main" />;
       case 'construction':
         return <Construction className="h-8 w-8 text-primary-main" />;
+      case 'book':
+        return <BookText className="h-8 w-8 text-primary-main" />;
       default:
         return <Construction className="h-8 w-8 text-primary-main" />;
     }
