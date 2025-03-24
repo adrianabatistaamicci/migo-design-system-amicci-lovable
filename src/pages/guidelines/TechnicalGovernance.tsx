@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from '@/components/library-components/Header';
 import EmptyState from '@/components/library-components/EmptyState';
@@ -32,7 +31,7 @@ const TechnicalGovernance = () => {
   return (
     <div className="w-full animate-fade-in">
       <Header 
-        title="Governança Técnica"
+        title="Governança Lovable"
         description="Processo de contribuição, manutenção e evolução dos componentes"
         type="foundations"
         hideChip={true}
@@ -305,4 +304,3 @@ function MeuComponente() {
 };
 
 export default TechnicalGovernance;
-
