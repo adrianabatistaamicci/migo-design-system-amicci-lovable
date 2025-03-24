@@ -9,7 +9,7 @@ interface Variant {
   name: string;
   colorClass: string;
   baseColor: string;
-  textColor: string;
+  textColor?: string;  // Make textColor optional
   hexValue: string;
   opacity?: string;
 }
