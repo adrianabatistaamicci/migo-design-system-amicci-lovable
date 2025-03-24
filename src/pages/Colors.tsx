@@ -26,7 +26,7 @@ const Colors = () => {
 
       <div className="mt-8">
         <TailwindTabs 
-          className="w-auto inline-flex"
+          className=""
           defaultValue="overview" 
           tabs={[
             { name: 'Visão geral', value: 'overview' },

@@ -1,195 +1,148 @@
-
 import React, { useState } from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
-import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
-
-export interface TabItem {
+import * as TabsPrimitive from '@radix-ui/react-tabs';
+import { cn } from "@/lib/utils";
+type Tab = {
   name: string;
   value: string;
-}
-
-interface TailwindTabsProps {
-  tabs: TabItem[];
+  badge?: string | number;
+};
+type TailwindTabsProps = {
+  tabs?: Tab[];
   defaultValue?: string;
   onChange?: (value: string) => void;
   variant?: 'underline' | 'pills' | 'pillsGray' | 'pillsBrand' | 'fullWidth' | 'bar' | 'underlineBadges';
+  children?: React.ReactNode;
   className?: string;
-}
-
-export function TailwindTabs({
-  tabs,
+};
+export const TailwindTabs = ({
+  tabs = [],
   defaultValue,
   onChange,
-  variant = 'underline',
-  className,
-}: TailwindTabsProps) {
-  const [activeTab, setActiveTab] = useState(defaultValue || tabs[0]?.value);
-
+  variant = 'pillsGray',
+  children,
+  className
+}: TailwindTabsProps) => {
+  const [selected, setSelected] = useState(defaultValue || (tabs.length > 0 ? tabs[0]?.value : ''));
   const handleTabChange = (value: string) => {
-    setActiveTab(value);
-    if (onChange) {
-      onChange(value);
-    }
+    setSelected(value);
+    onChange?.(value);
   };
 
-  // Render different tab styles based on the variant
   const renderTabs = () => {
+    if (!tabs || tabs.length === 0) {
+      return null;
+    }
     switch (variant) {
-      case 'pills':
-        return (
-          <TabsList className="flex space-x-1 rounded-xl bg-gray-100/50 p-1">
-            {tabs.map((tab) => (
-              <TabsTrigger
-                key={tab.value}
-                value={tab.value}
-                onClick={() => handleTabChange(tab.value)}
-                className={cn(
-                  "inline-flex w-auto items-center justify-center whitespace-nowrap rounded-lg px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-                  activeTab === tab.value
-                    ? "bg-white text-secondary-foreground shadow-sm"
-                    : "text-secondary-foreground/60 hover:text-secondary-foreground hover:bg-white/50"
-                )}
-              >
-                {tab.name}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-        );
-      case 'pillsGray':
-        return (
-          <TabsList className="flex flex-wrap space-x-1 rounded-xl bg-gray-200/70 p-1">
-            {tabs.map((tab) => (
-              <TabsTrigger
-                key={tab.value}
-                value={tab.value}
-                onClick={() => handleTabChange(tab.value)}
-                className={cn(
-                  "inline-flex w-auto items-center justify-center whitespace-nowrap rounded-lg px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-                  activeTab === tab.value
-                    ? "bg-white text-gray-800 shadow-sm"
-                    : "text-gray-600 hover:text-gray-800 hover:bg-white/50"
-                )}
-              >
-                {tab.name}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-        );
-      case 'pillsBrand':
-        return (
-          <TabsList className="flex flex-wrap space-x-1 rounded-xl bg-blue-100/50 p-1">
-            {tabs.map((tab) => (
-              <TabsTrigger
-                key={tab.value}
-                value={tab.value}
-                onClick={() => handleTabChange(tab.value)}
-                className={cn(
-                  "inline-flex w-auto items-center justify-center whitespace-nowrap rounded-lg px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-                  activeTab === tab.value
-                    ? "bg-blue-500 text-white shadow-sm"
-                    : "text-blue-600 hover:text-blue-700 hover:bg-blue-50"
-                )}
-              >
-                {tab.name}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-        );
-      case 'fullWidth':
-        return (
-          <TabsList className="grid w-full grid-cols-3 border-b border-gray-200">
-            {tabs.map((tab) => (
-              <TabsTrigger
-                key={tab.value}
-                value={tab.value}
-                onClick={() => handleTabChange(tab.value)}
-                className={cn(
-                  "flex items-center justify-center py-2.5 text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50",
-                  activeTab === tab.value
-                    ? "border-b-2 border-primary text-primary"
-                    : "text-gray-500 hover:text-gray-700"
-                )}
-              >
-                {tab.name}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-        );
-      case 'bar':
-        return (
-          <TabsList className="flex flex-wrap border-b border-gray-200">
-            {tabs.map((tab) => (
-              <TabsTrigger
-                key={tab.value}
-                value={tab.value}
-                onClick={() => handleTabChange(tab.value)}
-                className={cn(
-                  "inline-flex items-center justify-center whitespace-nowrap px-3 py-2 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-                  activeTab === tab.value
-                    ? "text-primary-main border-b-2 border-primary-main -mb-px"
-                    : "text-gray-500 hover:text-gray-900"
-                )}
-              >
-                {tab.name}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-        );
-      case 'underlineBadges':
-        return (
-          <TabsList className="flex flex-wrap border-b border-gray-200 w-full">
-            {tabs.map((tab) => (
-              <TabsTrigger
-                key={tab.value}
-                value={tab.value}
-                onClick={() => handleTabChange(tab.value)}
-                className={cn(
-                  "inline-flex items-center justify-center whitespace-nowrap px-4 py-2 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 relative",
-                  activeTab === tab.value
-                    ? "text-primary border-b-2 border-primary -mb-px"
-                    : "text-gray-500 hover:text-gray-900"
-                )}
-              >
-                {tab.name}
-                <Badge variant="secondary" className="ml-2 px-1.5 h-5 bg-gray-100 text-gray-600">
-                  {tab.value === 'inbox' ? '5' : tab.value === 'spam' ? '12' : '3'}
-                </Badge>
-              </TabsTrigger>
-            ))}
-          </TabsList>
-        );
       case 'underline':
-      default:
-        return (
-          <TabsList className="inline-flex h-10 items-center justify-center rounded-md bg-transparent p-0 w-auto">
-            {tabs.map((tab) => (
-              <TabsTrigger
-                key={tab.value}
-                value={tab.value}
-                onClick={() => handleTabChange(tab.value)}
-                className={cn(
-                  "inline-flex w-auto items-center justify-center whitespace-nowrap px-4 py-2 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border-b-2 border-transparent",
-                  activeTab === tab.value
-                    ? "text-primary border-b-2 border-primary"
-                    : "text-gray-500 hover:text-gray-900"
-                )}
-              >
+        return <div className="border-b border-gray-200 inline-block">
+            <nav className="-mb-px flex space-x-8">
+              {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium ${selected === tab.value ? 'border-amicci-500 text-amicci-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'}`}>
+                  {tab.name}
+                  {tab.badge && <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${selected === tab.value ? 'bg-amicci-100 text-amicci-600' : 'bg-gray-100 text-gray-600'}`}>
+                      {tab.badge}
+                    </span>}
+                </button>)}
+            </nav>
+          </div>;
+      case 'pills':
+        return <nav className="flex space-x-4 inline-flex">
+            {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`rounded-md px-3 py-2 text-sm font-medium ${selected === tab.value ? 'bg-gray-100 text-amicci-600' : 'text-gray-500 hover:text-gray-700'}`}>
                 {tab.name}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-        );
+                {tab.badge && <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${selected === tab.value ? 'bg-amicci-100 text-amicci-600' : 'bg-gray-100 text-gray-600'}`}>
+                    {tab.badge}
+                  </span>}
+              </button>)}
+          </nav>;
+      case 'pillsGray':
+        return <nav className="inline-flex rounded-lg bg-gray-100 p-1">
+            {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors duration-200 ${selected === tab.value ? 'bg-white text-amicci-600 shadow-sm' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}>
+                {tab.name}
+                {tab.badge && <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${selected === tab.value ? 'bg-amicci-100 text-amicci-600' : 'bg-gray-100 text-gray-600'}`}>
+                    {tab.badge}
+                  </span>}
+              </button>)}
+          </nav>;
+      case 'pillsBrand':
+        return <nav className="inline-flex rounded-lg bg-amicci-50 p-1">
+            {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`rounded-md px-3 py-1.5 text-sm font-medium ${selected === tab.value ? 'bg-amicci-500 text-white shadow' : 'text-amicci-600 hover:text-amicci-700'}`}>
+                {tab.name}
+                {tab.badge && <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${selected === tab.value ? 'bg-amicci-400 text-white' : 'bg-amicci-100 text-amicci-600'}`}>
+                    {tab.badge}
+                  </span>}
+              </button>)}
+          </nav>;
+      case 'fullWidth':
+        return <div>
+            <nav className="flex border-b border-gray-200">
+              {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-center text-sm font-medium ${selected === tab.value ? 'border-amicci-500 text-amicci-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'}`}>
+                  {tab.name}
+                  {tab.badge && <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${selected === tab.value ? 'bg-amicci-100 text-amicci-600' : 'bg-gray-100 text-gray-600'}`}>
+                      {tab.badge}
+                    </span>}
+                </button>)}
+            </nav>
+          </div>;
+      case 'bar':
+        return <div>
+            <div className="sm:hidden">
+              <select className="block w-full rounded-md border-gray-300 focus:border-amicci-500 focus:ring-amicci-500" value={selected} onChange={e => handleTabChange(e.target.value)}>
+                {tabs.map(tab => <option key={tab.value} value={tab.value}>
+                    {tab.name} {tab.badge ? `(${tab.badge})` : ''}
+                  </option>)}
+              </select>
+            </div>
+            <div className="hidden sm:block">
+              <div className="border-b border-gray-200 inline-block">
+                <nav className="-mb-px flex space-x-8">
+                  {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`whitespace-nowrap py-4 px-1 text-sm font-medium ${selected === tab.value ? 'border-b-2 border-amicci-500 text-amicci-600' : 'border-b-2 border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'}`}>
+                      {tab.name}
+                      {tab.badge && <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${selected === tab.value ? 'bg-amicci-100 text-amicci-600' : 'bg-gray-100 text-gray-600'}`}>
+                          {tab.badge}
+                        </span>}
+                    </button>)}
+                </nav>
+              </div>
+            </div>
+          </div>;
+      case 'underlineBadges':
+        return <div className="border-b border-gray-200 inline-block">
+            <nav className="-mb-px flex space-x-8">
+              {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`group inline-flex items-center border-b-2 py-4 px-1 text-sm font-medium ${selected === tab.value ? 'border-amicci-500 text-amicci-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'}`}>
+                  {tab.name}
+                  <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${selected === tab.value ? 'bg-amicci-100 text-amicci-600' : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200'}`}>
+                    {tab.badge || (tab.value === 'inbox' ? '5' : tab.value === 'spam' ? '42' : '3')}
+                  </span>
+                </button>)}
+            </nav>
+          </div>;
+      default:
+        return null;
     }
   };
+  return <div className={`inline-flex flex-col ${className || ''}`}>{renderTabs()}{children}</div>;
+};
 
-  return (
-    <Tabs
-      value={activeTab}
-      className={cn("w-auto", className)}
-      defaultValue={defaultValue || tabs[0]?.value}
-    >
-      {renderTabs()}
-    </Tabs>
-  );
-}
+export const Tabs = TabsPrimitive.Root;
+
+export const TabsRoot = TabsPrimitive.Root;
+export const TabsList = React.forwardRef<React.ElementRef<typeof TabsPrimitive.List>, React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>>(({
+  className,
+  ...props
+}, ref) => <TabsPrimitive.List ref={ref} className={cn("inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground", className)} {...props} />);
+TabsList.displayName = TabsPrimitive.List.displayName;
+export const TabsTrigger = React.forwardRef<React.ElementRef<typeof TabsPrimitive.Trigger>, React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>>(({
+  className,
+  ...props
+}, ref) => <TabsPrimitive.Trigger ref={ref} className={cn("inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-amicci-600 data-[state=active]:shadow-sm", className)} {...props} />);
+TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
+export const TabsContent = React.forwardRef<React.ElementRef<typeof TabsPrimitive.Content>, React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>>(({
+  className,
+  ...props
+}, ref) => <TabsPrimitive.Content ref={ref} className={cn("mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2", className)} {...props} />);
+TabsContent.displayName = TabsPrimitive.Content.displayName;
+
+export { TabsRoot as TabsRadix };
+
+export { Tabs as TabsPrimitive };
+export { TabsPrimitive as TabsRadixPrimitive };
