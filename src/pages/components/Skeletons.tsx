@@ -1,7 +1,9 @@
 
 import React from 'react';
-import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
+import ComponentCard from '@/components/ComponentCard';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const Skeletons = () => {
   return (
@@ -12,11 +14,108 @@ const Skeletons = () => {
         type="components"
       />
       
-      <EmptyState 
-        title="Conteúdo em Desenvolvimento" 
-        description="Os exemplos detalhados de Skeletons estão sendo implementados. Volte em breve para visualizar os componentes." 
-        icon="construction"
-      />
+      <div className="grid gap-8">
+        <Tabs defaultValue="preview" className="w-full">
+          <TabsList>
+            <TabsTrigger value="preview">Exemplos</TabsTrigger>
+            <TabsTrigger value="code">Código</TabsTrigger>
+          </TabsList>
+          <TabsContent value="preview" className="p-4 border rounded-md">
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <h3 className="text-lg font-medium">Carregamento de Card</h3>
+                <div className="flex items-center space-x-4">
+                  <div className="space-y-2">
+                    <Skeleton className="h-12 w-12 rounded-full" />
+                    <Skeleton className="h-4 w-[250px]" />
+                    <Skeleton className="h-4 w-[200px]" />
+                  </div>
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <h3 className="text-lg font-medium">Carregamento de Tabela</h3>
+                <div className="space-y-2">
+                  <Skeleton className="h-8 w-full" />
+                  <Skeleton className="h-8 w-full" />
+                  <Skeleton className="h-8 w-full" />
+                  <Skeleton className="h-8 w-full" />
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <h3 className="text-lg font-medium">Carregamento de Card com Imagem</h3>
+                <div className="flex flex-col space-y-3">
+                  <Skeleton className="h-[200px] w-full rounded-xl" />
+                  <Skeleton className="h-4 w-[250px]" />
+                  <Skeleton className="h-4 w-[200px]" />
+                </div>
+              </div>
+            </div>
+          </TabsContent>
+          <TabsContent value="code">
+            <ComponentCard
+              title="Exemplo de uso"
+              code={`
+import { Skeleton } from "@/components/ui/skeleton"
+
+export function SkeletonDemo() {
+  return (
+    <div className="flex items-center space-x-4">
+      <Skeleton className="h-12 w-12 rounded-full" />
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-[250px]" />
+        <Skeleton className="h-4 w-[200px]" />
+      </div>
+    </div>
+  )
+}
+              `}
+            >
+              <div className="flex items-center space-x-4 p-4">
+                <Skeleton className="h-12 w-12 rounded-full" />
+                <div className="space-y-2">
+                  <Skeleton className="h-4 w-[250px]" />
+                  <Skeleton className="h-4 w-[200px]" />
+                </div>
+              </div>
+            </ComponentCard>
+          </TabsContent>
+        </Tabs>
+
+        <div className="space-y-4">
+          <h2 className="text-xl font-semibold">Uso</h2>
+          <p>
+            Use skeletons para mostrar um visual aproximado da interface enquanto o conteúdo real está sendo carregado. 
+            Isso melhora a experiência do usuário ao fornecer uma indicação visual da estrutura que será exibida, 
+            reduzindo a sensação de espera e evitando mudanças bruscas de layout.
+          </p>
+        </div>
+        
+        <div className="space-y-4">
+          <h2 className="text-xl font-semibold">Implementação</h2>
+          <ComponentCard
+            title="Componente Skeleton"
+            code={`
+import { cn } from "@/lib/utils"
+
+function Skeleton({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div
+      className={cn("animate-pulse rounded-md bg-muted", className)}
+      {...props}
+    />
+  )
+}
+
+export { Skeleton }
+            `}
+          />
+        </div>
+      </div>
     </div>
   );
 };
