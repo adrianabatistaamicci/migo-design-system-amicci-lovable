@@ -308,7 +308,7 @@ const ButtonPage = () => {
                     <TableHeader>
                       <TableRow>
                         <TableHead className="w-[180px]">Prop</TableHead>
-                        <TableHead className="w-[150px]">Type</TableHead>
+                        <TableHead className="w-[250px]">Type</TableHead>
                         <TableHead className="w-[150px]">Default</TableHead>
                         <TableHead>Description</TableHead>
                       </TableRow>
