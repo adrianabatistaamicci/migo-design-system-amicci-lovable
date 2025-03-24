@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Button } from '@/components/ui/button';
@@ -6,20 +5,9 @@ import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@
 import { Mail, ArrowRight, Plus, X } from 'lucide-react';
 import Header from '@/components/library-components/Header';
 import { TailwindTabs } from '@/components/ui/tabs';
-import CodeBlock from '@/components/CodeBlock';
 
 const ButtonPage = () => {
   const [activeTab, setActiveTab] = useState('examples');
-  
-  // Colors for the variants tab
-  const colors = [
-    { name: 'info', hex: '#17a2b8' },
-    { name: 'error', hex: '#dc3545' },
-    { name: 'warning', hex: '#ffc107' },
-    { name: 'primary', hex: '#0d6efd' },
-    { name: 'success', hex: '#28a745' },
-    { name: 'secondary', hex: '#6c757d' },
-  ];
   
   return (
     <div className="w-full animate-slide-in">
@@ -35,7 +23,6 @@ const ButtonPage = () => {
           className="mt-8"
           tabs={[
             { name: 'Exemplos', value: 'examples' },
-            { name: 'Variantes', value: 'variants' },
             { name: 'API', value: 'api' },
             { name: 'Código', value: 'code' }
           ]}
@@ -109,135 +96,6 @@ const ButtonPage = () => {
                   <Button variant="secondary">
                     Next <Plus className="ml-2 h-4 w-4" />
                   </Button>
-                </div>
-              </ComponentCard>
-            </div>
-          )}
-          
-          {activeTab === 'variants' && (
-            <div className="space-y-8">
-              <ComponentCard
-                title="Contained Buttons"
-                description="Botões com preenchimento de cor para ações principais."
-              >
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {colors.map(color => (
-                    <div key={`contained-${color.name}`} className="flex flex-col items-center space-y-2">
-                      <div className="flex justify-center space-x-4">
-                        <Button 
-                          variant={color.name === 'secondary' ? 'secondary' : color.name === 'primary' ? 'default' : color.name}
-                          className="w-28"
-                        >
-                          Lable
-                        </Button>
-                      </div>
-                      <CodeBlock 
-                        code={`<Button variant="${color.name === 'primary' ? 'default' : color.name}">
-  Lable
-</Button>`}
-                        language="jsx"
-                        className="w-full"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </ComponentCard>
-              
-              <ComponentCard
-                title="Outlined Buttons"
-                description="Botões com contorno para ações secundárias."
-              >
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {colors.map(color => (
-                    <div key={`outlined-${color.name}`} className="flex flex-col items-center space-y-2">
-                      <div className="flex justify-center space-x-4">
-                        <Button 
-                          variant={`outline-${color.name === 'primary' ? 'default' : color.name}`}
-                          className="w-28"
-                        >
-                          Lable
-                        </Button>
-                      </div>
-                      <CodeBlock 
-                        code={`<Button variant="outline-${color.name === 'primary' ? 'default' : color.name}">
-  Lable
-</Button>`}
-                        language="jsx"
-                        className="w-full"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </ComponentCard>
-              
-              <ComponentCard
-                title="Text Buttons"
-                description="Botões sem fundo para ações terciárias ou menos proeminentes."
-              >
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {colors.map(color => (
-                    <div key={`text-${color.name}`} className="flex flex-col items-center space-y-2">
-                      <div className="flex justify-center space-x-4">
-                        <Button 
-                          variant={`text-${color.name === 'primary' ? 'default' : color.name}`}
-                          className="w-28"
-                        >
-                          Lable
-                        </Button>
-                      </div>
-                      <CodeBlock 
-                        code={`<Button variant="text-${color.name === 'primary' ? 'default' : color.name}">
-  Lable
-</Button>`}
-                        language="jsx"
-                        className="w-full"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </ComponentCard>
-              
-              <ComponentCard
-                title="Button Sizes"
-                description="Os botões estão disponíveis em diferentes tamanhos para diferentes contextos."
-              >
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="flex flex-col items-center space-y-2">
-                    <div className="flex justify-center space-x-4">
-                      <Button size="lg" className="w-28">Lable</Button>
-                    </div>
-                    <CodeBlock 
-                      code={`<Button size="lg">
-  Lable
-</Button>`}
-                      language="jsx"
-                      className="w-full"
-                    />
-                  </div>
-                  <div className="flex flex-col items-center space-y-2">
-                    <div className="flex justify-center space-x-4">
-                      <Button className="w-28">Lable</Button>
-                    </div>
-                    <CodeBlock 
-                      code={`<Button>
-  Lable
-</Button>`}
-                      language="jsx"
-                      className="w-full"
-                    />
-                  </div>
-                  <div className="flex flex-col items-center space-y-2">
-                    <div className="flex justify-center space-x-4">
-                      <Button size="sm" className="w-28">Lable</Button>
-                    </div>
-                    <CodeBlock 
-                      code={`<Button size="sm">
-  Lable
-</Button>`}
-                      language="jsx"
-                      className="w-full"
-                    />
-                  </div>
                 </div>
               </ComponentCard>
             </div>
