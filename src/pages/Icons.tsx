@@ -22,6 +22,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import CodeBlock from '@/components/CodeBlock';
+import ComponentCard from '@/components/ComponentCard';
 
 const Icons = () => {
   const [activeTab, setActiveTab] = useState('escala');
@@ -64,44 +65,46 @@ const Icons = () => {
         <div className="mt-6">
           {activeTab === 'escala' && (
             <div className="space-y-6">
-              <Card className="p-6">
-                <h2 className="text-xl font-semibold mb-3">Lucide Icons</h2>
-                <p className="mb-4 text-gray-600">Os ícones Lucide são um conjunto moderno e livre de ícones de código aberto projetados para interfaces digitais.</p>
-                
-                <p className="mb-6 text-gray-600">Os ícones Lucide são simples, modernos e amigáveis. Eles são fáceis de integrar em projetos React e oferecem alto grau de customização.</p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
-                  <div className="flex flex-col items-center text-center">
-                    <User className="h-12 w-12 mb-4 text-primary-main" />
-                    <h3 className="font-medium mb-2">Simples</h3>
-                    <p className="text-sm text-gray-600">Design limpo e minimalista que funciona bem em tamanhos pequenos</p>
+              <ComponentCard 
+                title="Lucide Icons"
+                description="Os ícones Lucide são um conjunto moderno e livre de ícones de código aberto projetados para interfaces digitais."
+              >
+                <div className="space-y-4">
+                  <p className="mb-6 text-gray-600">Os ícones Lucide são simples, modernos e amigáveis. Eles são fáceis de integrar em projetos React e oferecem alto grau de customização.</p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
+                    <div className="flex flex-col items-center text-center">
+                      <User className="h-12 w-12 mb-4 text-primary-main" />
+                      <h3 className="font-medium mb-2">Simples</h3>
+                      <p className="text-sm text-gray-600">Design limpo e minimalista que funciona bem em tamanhos pequenos</p>
+                    </div>
+                    
+                    <div className="flex flex-col items-center text-center">
+                      <Package className="h-12 w-12 mb-4 text-primary-main" />
+                      <h3 className="font-medium mb-2">Consistente</h3>
+                      <p className="text-sm text-gray-600">Estilo uniforme em todos os ícones do sistema</p>
+                    </div>
+                    
+                    <div className="flex flex-col items-center text-center">
+                      <Eye className="h-12 w-12 mb-4 text-primary-main" />
+                      <h3 className="font-medium mb-2">Significativo</h3>
+                      <p className="text-sm text-gray-600">Metáforas reconhecíveis que comunicam rapidamente o significado</p>
+                    </div>
                   </div>
                   
-                  <div className="flex flex-col items-center text-center">
-                    <Package className="h-12 w-12 mb-4 text-primary-main" />
-                    <h3 className="font-medium mb-2">Consistente</h3>
-                    <p className="text-sm text-gray-600">Estilo uniforme em todos os ícones do sistema</p>
-                  </div>
-                  
-                  <div className="flex flex-col items-center text-center">
-                    <Eye className="h-12 w-12 mb-4 text-primary-main" />
-                    <h3 className="font-medium mb-2">Significativo</h3>
-                    <p className="text-sm text-gray-600">Metáforas reconhecíveis que comunicam rapidamente o significado</p>
+                  <div className="bg-slate-50 p-4 rounded-md flex justify-between items-center mt-8">
+                    <p className="text-sm">A biblioteca completa pode ser acessada no site oficial.</p>
+                    <Button variant="default" className="bg-primary-main hover:bg-primary-dark">
+                      Acessar Lucide Icons
+                    </Button>
                   </div>
                 </div>
-                
-                <div className="bg-slate-50 p-4 rounded-md flex justify-between items-center mt-8">
-                  <p className="text-sm">A biblioteca completa pode ser acessada no site oficial.</p>
-                  <Button variant="default" className="bg-primary-main hover:bg-primary-dark">
-                    Acessar Lucide Icons
-                  </Button>
-                </div>
-              </Card>
+              </ComponentCard>
               
-              <Card className="p-6">
-                <h2 className="text-xl font-semibold mb-4">Guia de Integração</h2>
-                <p className="mb-6 text-gray-600">Existem várias maneiras de integrar os ícones Lucide em seu projeto:</p>
-                
+              <ComponentCard 
+                title="Guia de Integração"
+                description="Existem várias maneiras de integrar os ícones Lucide em seu projeto."
+              >
                 <div className="space-y-6">
                   <div>
                     <h3 className="font-medium mb-2">1. Instalação via NPM</h3>
@@ -139,27 +142,27 @@ const Icons = () => {
                     />
                   </div>
                 </div>
-              </Card>
+              </ComponentCard>
               
-              <Card className="p-6">
-                <h2 className="text-xl font-semibold mb-4">Recursos Oficiais</h2>
+              <ComponentCard 
+                title="Recursos Oficiais"
+                description="Links úteis para a documentação oficial e recursos do Lucide Icons."
+              >
                 <ul className="list-disc pl-5 space-y-3 text-gray-600">
                   <li>Site Oficial Lucide - Navegue e busque ícones</li>
                   <li>GitHub Lucide - Repositório oficial</li>
                   <li>Documentação lucide-react - Guia completo de uso com React</li>
                 </ul>
-              </Card>
+              </ComponentCard>
             </div>
           )}
 
           {activeTab === 'acessibilidade' && (
             <div className="space-y-6">
-              <Card className="p-6">
-                <h2 className="text-xl font-semibold mb-4">Acessibilidade</h2>
-                <p className="text-gray-600 mb-6">
-                  Garantir que os ícones sejam acessíveis para todos os usuários é fundamental para uma boa experiência de usuário.
-                </p>
-
+              <ComponentCard 
+                title="Acessibilidade" 
+                description="Garantir que os ícones sejam acessíveis para todos os usuários é fundamental para uma boa experiência de usuário."
+              >
                 <div className="space-y-8">
                   <div className="rounded-lg border p-6">
                     <h3 className="text-lg font-medium mb-3">Texto Alternativo</h3>
@@ -236,7 +239,7 @@ const Icons = () => {
                     </div>
                   </div>
                 </div>
-              </Card>
+              </ComponentCard>
             </div>
           )}
         </div>
