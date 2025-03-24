@@ -2,16 +2,16 @@
 import React from 'react';
 import { Copy } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { colorUtils } from '@/utils/colorUtils';
 import ColorSwatch from './ColorSwatch';
-import ComponentCard from '@/components/ComponentCard';
 
 interface Variant {
   name: string;
   colorClass: string;
+  hexValue?: string;
   baseColor: string;
-  textColor?: string;  // Make textColor optional
-  hexValue: string;
   opacity?: string;
+  textColor?: string;
 }
 
 interface Palette {
@@ -38,63 +38,114 @@ const PaletteTable: React.FC<PaletteTableProps> = ({ palettes }) => {
     </button>
   );
 
+  const getWCAGStatus = (hexColor: string) => {
+    try {
+      const contrastWithWhite = colorUtils.getContrastRatio(hexColor, '#FFFFFF');
+      const contrastWithBlack = colorUtils.getContrastRatio(hexColor, '#000000');
+      const bestContrast = Math.max(contrastWithWhite, contrastWithBlack);
+      const contrastColor = contrastWithWhite > contrastWithBlack ? 'branco' : 'preto';
+      
+      return {
+        ratio: bestContrast.toFixed(1),
+        passesAA: bestContrast >= 4.5,
+        passesAAA: bestContrast >= 7,
+        bestContrastWith: contrastColor
+      };
+    } catch (e) {
+      return {
+        ratio: 'N/A',
+        passesAA: false,
+        passesAAA: false,
+        bestContrastWith: 'N/A'
+      };
+    }
+  };
+
+  const formatColorValue = (value?: string): string => {
+    if (!value) return '';
+    
+    if (value.startsWith('#')) return value;
+    
+    if (value.startsWith('rgba')) {
+      const matches = value.match(/rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)/);
+      if (matches) {
+        const [_, r, g, b, a] = matches;
+        if (a === '1') {
+          return `#${parseInt(r).toString(16).padStart(2, '0')}${parseInt(g).toString(16).padStart(2, '0')}${parseInt(b).toString(16).padStart(2, '0')}`;
+        }
+        return `rgba(${r},${g},${b},${a})`;
+      }
+    }
+    
+    return value;
+  };
+
   return (
-    <div className="space-y-10">
-      {palettes.map((palette, index) => (
-        <ComponentCard 
-          key={palette.name} 
-          title={palette.name} 
-          description={palette.description}
-          className="overflow-hidden rounded-lg"
-        >
-          <Table className="border rounded-lg overflow-hidden">
+    <div className="space-y-8">
+      {palettes.map(palette => (
+        <div key={palette.name} className="space-y-4">
+          <div className="flex items-center gap-3">
+            <h3 className="text-xl font-bold">{palette.name}</h3>
+            <span className="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full">
+              base-color-{palette.description.toLowerCase()}
+            </span>
+          </div>
+          
+          <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Variante</TableHead>
+                <TableHead>Variação</TableHead>
                 <TableHead>Amostra</TableHead>
                 <TableHead>Token CSS</TableHead>
-                <TableHead>Cor Base</TableHead>
-                <TableHead>Hexadecimal</TableHead>
-                {palette.variants.some(v => v.opacity) && (
-                  <TableHead>Opacidade</TableHead>
-                )}
+                <TableHead>Base Color</TableHead>
+                <TableHead>Opacidade</TableHead>
+                <TableHead>Análise WCAG</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {palette.variants.map((variant) => (
-                <TableRow key={`${palette.name}-${variant.name}`}>
-                  <TableCell className="font-mono">
-                    {variant.name}
-                  </TableCell>
-                  <TableCell>
-                    <ColorSwatch 
-                      color={variant.colorClass} 
-                      hexValue={variant.hexValue} 
-                      className="h-12 rounded-md" 
-                    />
-                  </TableCell>
-                  <TableCell className="font-mono">
-                    --{variant.name.toLowerCase().replace(/\./g, '-')}
-                    {renderCopyButton(`--${variant.name.toLowerCase().replace(/\./g, '-')}`)}
-                  </TableCell>
-                  <TableCell className="font-mono">
-                    {variant.baseColor}
-                    {renderCopyButton(variant.baseColor)}
-                  </TableCell>
-                  <TableCell className="font-mono">
-                    {variant.hexValue}
-                    {renderCopyButton(variant.hexValue)}
-                  </TableCell>
-                  {palette.variants.some(v => v.opacity) && (
-                    <TableCell className="font-mono">
-                      {variant.opacity || '100%'}
+              {palette.variants.map(variant => {
+                const colorValue = formatColorValue(variant.hexValue);
+                const wcagInfo = variant.hexValue ? getWCAGStatus(variant.hexValue) : null;
+                
+                return (
+                  <TableRow key={`${palette.name}-${variant.name}`}>
+                    <TableCell className="font-mono">{`${palette.name.toLowerCase()}-${variant.name}`}</TableCell>
+                    <TableCell>
+                      <ColorSwatch 
+                        color={variant.colorClass} 
+                        hexValue={variant.hexValue} 
+                        copyValue={colorValue} 
+                        textOverlay={colorValue} 
+                        className="h-12" 
+                      />
                     </TableCell>
-                  )}
-                </TableRow>
-              ))}
+                    <TableCell className="font-mono">
+                      <code>{`--${palette.name.toLowerCase()}-${variant.name}`}</code>
+                      {renderCopyButton(`--${palette.name.toLowerCase()}-${variant.name}`)}
+                    </TableCell>
+                    <TableCell>{variant.baseColor}</TableCell>
+                    <TableCell>{variant.opacity || '100%'}</TableCell>
+                    {wcagInfo && (
+                      <TableCell>
+                        <div className="space-y-1 text-xs">
+                          <div>
+                            <span className="font-medium">Contraste:</span> {wcagInfo.ratio}:1 (com {wcagInfo.bestContrastWith})
+                          </div>
+                          <div className={`${wcagInfo.passesAA ? "text-success-main" : "text-error-main"} font-medium`}>
+                            WCAG AA: {wcagInfo.passesAA ? '✓' : '✗'}
+                          </div>
+                          <div className={`${wcagInfo.passesAAA ? "text-success-main" : "text-error-main"} font-medium`}>
+                            WCAG AAA: {wcagInfo.passesAAA ? '✓' : '✗'}
+                          </div>
+                        </div>
+                      </TableCell>
+                    )}
+                  </TableRow>
+                );
+              })}
             </TableBody>
           </Table>
-        </ComponentCard>
+        </div>
       ))}
     </div>
   );

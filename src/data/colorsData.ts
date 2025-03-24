@@ -556,7 +556,7 @@ export interface PaletteItem {
     hexValue?: string;
     baseColor: string;
     opacity?: string;
-    textColor?: string; // Make this optional to match the Variant interface
+    textColor?: string;
   }>;
 }
 

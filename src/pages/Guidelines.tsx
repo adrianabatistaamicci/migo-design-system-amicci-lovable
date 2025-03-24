@@ -22,10 +22,6 @@ const Guidelines = () => {
     navigate('/guidelines/technical-governance');
   };
   
-  const handleGoToUXGuidelines = () => {
-    navigate('/guidelines/ux-guidelines');
-  };
-  
   if (isLoading) {
     return <DocumentationSkeleton />;
   }
@@ -50,16 +46,6 @@ const Guidelines = () => {
               <h3 className="text-lg font-medium mb-2">Governança Lovable</h3>
               <p className="text-gray-600">
                 Processo de contribuição, manutenção e evolução dos componentes através da plataforma Lovable.
-              </p>
-            </button>
-            
-            <button
-              onClick={handleGoToUXGuidelines}
-              className="flex flex-col p-5 bg-gray-50 hover:bg-gray-100 transition-colors border border-gray-200 rounded-lg text-left"
-            >
-              <h3 className="text-lg font-medium mb-2">Diretrizes de UX</h3>
-              <p className="text-gray-600">
-                Melhores práticas para design de experiência do usuário e fluxos de interação.
               </p>
             </button>
             

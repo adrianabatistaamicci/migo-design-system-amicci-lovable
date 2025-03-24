@@ -30,6 +30,7 @@ export const TailwindTabs = ({
     onChange?.(value);
   };
 
+  // Render different tab styles based on variant
   const renderTabs = () => {
     if (!tabs || tabs.length === 0) {
       return null;
@@ -40,7 +41,7 @@ export const TailwindTabs = ({
             <nav className="-mb-px flex space-x-8">
               {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium ${selected === tab.value ? 'border-amicci-500 text-amicci-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'}`}>
                   {tab.name}
-                  {tab.badge && <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${selected === tab.value ? 'bg-amicci-100 text-amicci-600' : 'bg-gray-100 text-gray-600'}`}>
+                  {tab.badge && <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${selected === tab.value ? 'bg-amicci-100 text-amicci-600' : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200'}`}>
                       {tab.badge}
                     </span>}
                 </button>)}
@@ -48,7 +49,7 @@ export const TailwindTabs = ({
           </div>;
       case 'pills':
         return <nav className="flex space-x-4 inline-flex">
-            {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium ${selected === tab.value ? 'bg-gray-100 text-amicci-600' : 'text-gray-500 hover:text-gray-700'}`}>
+            {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`rounded-md px-3 py-2 text-sm font-medium ${selected === tab.value ? 'bg-gray-100 text-amicci-600' : 'text-gray-500 hover:text-gray-700'}`}>
                 {tab.name}
                 {tab.badge && <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${selected === tab.value ? 'bg-amicci-100 text-amicci-600' : 'bg-gray-100 text-gray-600'}`}>
                     {tab.badge}
@@ -57,7 +58,7 @@ export const TailwindTabs = ({
           </nav>;
       case 'pillsGray':
         return <nav className="inline-flex rounded-lg bg-gray-100 p-1">
-            {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium transition-colors duration-200 ${selected === tab.value ? 'bg-white text-amicci-600 shadow-sm' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}>
+            {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors duration-200 ${selected === tab.value ? 'bg-white text-amicci-600 shadow-sm' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}>
                 {tab.name}
                 {tab.badge && <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${selected === tab.value ? 'bg-amicci-100 text-amicci-600' : 'bg-gray-100 text-gray-600'}`}>
                     {tab.badge}
@@ -66,7 +67,7 @@ export const TailwindTabs = ({
           </nav>;
       case 'pillsBrand':
         return <nav className="inline-flex rounded-lg bg-amicci-50 p-1">
-            {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium ${selected === tab.value ? 'bg-amicci-500 text-white shadow' : 'text-amicci-600 hover:text-amicci-700'}`}>
+            {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`rounded-md px-3 py-1.5 text-sm font-medium ${selected === tab.value ? 'bg-amicci-500 text-white shadow' : 'text-amicci-600 hover:text-amicci-700'}`}>
                 {tab.name}
                 {tab.badge && <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${selected === tab.value ? 'bg-amicci-400 text-white' : 'bg-amicci-100 text-amicci-600'}`}>
                     {tab.badge}
@@ -121,32 +122,13 @@ export const TailwindTabs = ({
         return null;
     }
   };
-
-  // Improved version that renders children based on selected tab
-  const renderContent = () => {
-    if (!Array.isArray(children)) {
-      return children;
-    }
-    
-    // If children is an array, find the child at the index corresponding to the selected tab
-    const selectedIndex = tabs.findIndex(tab => tab.value === selected);
-    return selectedIndex >= 0 && selectedIndex < children.length 
-      ? children[selectedIndex] 
-      : children; // If can't match by index, show all children
-  };
-
-  return (
-    <div className={cn("w-auto", className)}>
-      {renderTabs()}
-      <div className="mt-6">
-        {renderContent()}
-      </div>
-    </div>
-  );
+  return <div className={`inline-flex flex-col ${className || ''}`}>{renderTabs()}{children}</div>;
 };
 
+// Export TailwindTabs as Tabs for compatibility
 export const Tabs = TabsPrimitive.Root;
 
+// Export Radix UI Tabs Components
 export const TabsRoot = TabsPrimitive.Root;
 export const TabsList = React.forwardRef<React.ElementRef<typeof TabsPrimitive.List>, React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>>(({
   className,
@@ -164,7 +146,9 @@ export const TabsContent = React.forwardRef<React.ElementRef<typeof TabsPrimitiv
 }, ref) => <TabsPrimitive.Content ref={ref} className={cn("mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2", className)} {...props} />);
 TabsContent.displayName = TabsPrimitive.Content.displayName;
 
+// For backwards compatibility with pages using the Radix UI Tabs component directly
 export { TabsRoot as TabsRadix };
 
+// Also export as primary Tabs component for new code
 export { Tabs as TabsPrimitive };
 export { TabsPrimitive as TabsRadixPrimitive };

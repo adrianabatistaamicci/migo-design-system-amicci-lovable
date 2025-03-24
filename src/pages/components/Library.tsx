@@ -1,10 +1,10 @@
-
 import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import Header from '@/components/library-components/Header';
 import EmptyState from '@/components/library-components/EmptyState';
 import { Separator } from '@/components/ui/separator';
 import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
+import { TailwindTabs } from '@/components/ui/tabs';
 
 // Define the type for the module records returned by import.meta.glob
 type ModuleRecord = Record<string, {
@@ -14,6 +14,7 @@ type ModuleRecord = Record<string, {
 const LibraryPage: React.FC = () => {
   const [components, setComponents] = useState<Record<string, React.ComponentType<any>>>({});
   const [isLoading, setIsLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState('components');
   
   useEffect(() => {
     // This is a special Vite function that will import all files from a directory
@@ -58,6 +59,17 @@ const LibraryPage: React.FC = () => {
     <div className="animate-fade-in w-full max-w-[1280px] mx-auto">
       <div className="w-full mb-12">
         <Header title="Library Components" description="Uma coleção de componentes de UI reutilizáveis projetados para o nossa documentação de design system." type="components" />
+        
+        <TailwindTabs
+          defaultValue="components"
+          className="mt-8"
+          tabs={[
+            { name: 'Componentes', value: 'components' },
+            { name: 'Uso', value: 'usage' }
+          ]}
+          variant="pillsGray"
+          onChange={value => setActiveTab(value)}
+        />
         
         <div className="mt-6 grid grid-cols-1 gap-6">
           {/* Add ComponentCard component card */}
