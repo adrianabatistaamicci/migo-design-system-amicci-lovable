@@ -68,8 +68,26 @@ const TechnicalGovernance = () => {
               </p>
               
               <div className="bg-white border border-gray-200 rounded-lg shadow-sm divide-y">
+                <div className="p-4 bg-green-50">
+                  <h4 className="font-medium text-lg mb-3">1. Componentes Protegidos</h4>
+                  <p className="text-gray-700 mb-2">
+                    Uma grande vantagem do Design System como pacote NPM é que os componentes importados <strong>não podem ser editados diretamente</strong> pelos usuários, o que garante:
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 ml-1">
+                    <li className="text-gray-700">Consistência visual e funcional em todos os projetos</li>
+                    <li className="text-gray-700">Proteção contra modificações acidentais</li>
+                    <li className="text-gray-700">Centralização de atualizações e correções</li>
+                  </ul>
+                  <div className="mt-3 p-3 bg-yellow-50 border border-yellow-200 rounded-md">
+                    <p className="text-sm text-gray-700">
+                      <strong>Nota:</strong> Se precisar personalizar um componente, crie uma versão própria baseada no componente original. 
+                      Não tente modificar os arquivos dentro de <code className="bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm">node_modules</code>.
+                    </p>
+                  </div>
+                </div>
+                
                 <div className="p-4">
-                  <h4 className="font-medium text-lg mb-3">1. Instalar o pacote NPM</h4>
+                  <h4 className="font-medium text-lg mb-3">2. Instalar o pacote NPM</h4>
                   <p className="text-gray-700 mb-2">
                     Adicione o pacote ao seu projeto Lovable utilizando o comando:
                   </p>
@@ -81,7 +99,7 @@ const TechnicalGovernance = () => {
                 </div>
                 
                 <div className="p-4">
-                  <h4 className="font-medium text-lg mb-3">2. Configurar o Tailwind CSS</h4>
+                  <h4 className="font-medium text-lg mb-3">3. Configurar o Tailwind CSS</h4>
                   <p className="text-gray-700 mb-2">
                     Atualize o arquivo <code className="bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm">tailwind.config.js</code> para incluir os componentes do Design System:
                   </p>
@@ -99,7 +117,7 @@ const TechnicalGovernance = () => {
                 </div>
                 
                 <div className="p-4">
-                  <h4 className="font-medium text-lg mb-3">3. Importar componentes</h4>
+                  <h4 className="font-medium text-lg mb-3">4. Importar componentes</h4>
                   <p className="text-gray-700 mb-2">
                     Importe os componentes diretamente em seus arquivos React:
                   </p>
@@ -121,7 +139,7 @@ function MeuComponente() {
                 </div>
                 
                 <div className="p-4">
-                  <h4 className="font-medium text-lg mb-3">4. Remixar projeto modelo (opcional)</h4>
+                  <h4 className="font-medium text-lg mb-3">5. Remixar projeto modelo (opcional)</h4>
                   <p className="text-gray-700 mb-2">
                     Para iniciar rapidamente com um template pré-configurado:
                   </p>
@@ -134,7 +152,7 @@ function MeuComponente() {
                 </div>
                 
                 <div className="p-4">
-                  <h4 className="font-medium text-lg mb-3">5. Versão específica (recomendado)</h4>
+                  <h4 className="font-medium text-lg mb-3">6. Versão específica (recomendado)</h4>
                   <p className="text-gray-700 mb-2">
                     Para garantir consistência, instale uma versão específica:
                   </p>
@@ -146,24 +164,6 @@ function MeuComponente() {
                   <p className="text-gray-700 mt-2 text-sm">
                     Consulte a seção de versionamento para entender a política de compatibilidade.
                   </p>
-                </div>
-                
-                <div className="p-4 bg-green-50">
-                  <h4 className="font-medium text-lg mb-3">6. Componentes Protegidos</h4>
-                  <p className="text-gray-700 mb-2">
-                    Uma grande vantagem do Design System como pacote NPM é que os componentes importados <strong>não podem ser editados diretamente</strong> pelos usuários, o que garante:
-                  </p>
-                  <ul className="list-disc list-inside space-y-2 ml-1">
-                    <li className="text-gray-700">Consistência visual e funcional em todos os projetos</li>
-                    <li className="text-gray-700">Proteção contra modificações acidentais</li>
-                    <li className="text-gray-700">Centralização de atualizações e correções</li>
-                  </ul>
-                  <div className="mt-3 p-3 bg-yellow-50 border border-yellow-200 rounded-md">
-                    <p className="text-sm text-gray-700">
-                      <strong>Nota:</strong> Se precisar personalizar um componente, crie uma versão própria baseada no componente original. 
-                      Não tente modificar os arquivos dentro de <code className="bg-gray-100 px-1.5 py-0.5 rounded font-mono text-sm">node_modules</code>.
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
