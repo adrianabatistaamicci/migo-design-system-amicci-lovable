@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import Header from '@/components/library-components/Header';
@@ -12,12 +11,10 @@ import ColorSwatch from '@/components/colors/ColorSwatch';
 type ModuleRecord = Record<string, {
   default: React.ComponentType<any>;
 }>;
-
 const LibraryPage: React.FC = () => {
   const [components, setComponents] = useState<Record<string, React.ComponentType<any>>>({});
   const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('components');
-  
   useEffect(() => {
     // This is a special Vite function that will import all files from a directory
     const libraryComponents = import.meta.glob<{
@@ -32,64 +29,45 @@ const LibraryPage: React.FC = () => {
       const componentName = path.split('/').pop()?.replace('.tsx', '') || '';
       // Skip EmptyState component and Header component as we'll add them manually to prevent duplication
       // Also skip HeroSection and other components as requested by the user
-      if (componentName && 
-          componentName !== 'EmptyState' && 
-          componentName !== 'Header' && 
-          componentName !== 'ComponentsHeader' && 
-          componentName !== 'FoundationsHeader' && 
-          componentName !== 'HeroSection' &&
-          componentName !== 'DocumentationSkeleton' &&
-          libraryComponents[path].default) {
+      if (componentName && componentName !== 'EmptyState' && componentName !== 'Header' && componentName !== 'ComponentsHeader' && componentName !== 'FoundationsHeader' && componentName !== 'HeroSection' && componentName !== 'DocumentationSkeleton' && libraryComponents[path].default) {
         formattedComponents[componentName] = libraryComponents[path].default;
       }
     }
     setComponents(formattedComponents);
-    
+
     // Simulate loading delay
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1000);
-    
     return () => clearTimeout(timer);
   }, []);
-  
   if (isLoading) {
     return <DocumentationSkeleton />;
   }
-  
-  return (
-    <div className="animate-fade-in w-full max-w-[1280px] mx-auto">
+  return <div className="animate-fade-in w-full max-w-[1280px] mx-auto">
       <div className="w-full mb-12">
         <Header title="Library Components" description="Uma coleção de componentes de UI reutilizáveis projetados para o nossa documentação de design system." type="components" />
         
-        <TailwindTabs
-          defaultValue="components"
-          className="mt-8"
-          tabs={[
-            { name: 'Componentes', value: 'components' },
-            { name: 'Uso', value: 'usage' }
-          ]}
-          variant="pillsGray"
-          onChange={value => setActiveTab(value)}
-        />
+        <TailwindTabs defaultValue="components" className="mt-8" tabs={[{
+        name: 'Componentes',
+        value: 'components'
+      }, {
+        name: 'Uso',
+        value: 'usage'
+      }]} variant="pillsGray" onChange={value => setActiveTab(value)} />
         
         <div className="mt-6 grid grid-cols-1 gap-6">
           {/* ColorSwatch component card */}
           <div className="w-full">
-            <ComponentCard 
-              title="ColorSwatch" 
-              description="Componente para exibir amostras de cores com opção de cópia" 
-              code={`<ColorSwatch 
+            <ComponentCard title="ColorSwatch" description="Componente para exibir amostras de cores com opção de cópia" code={`<ColorSwatch 
   color="bg-primary-main" 
   textOverlay="#10C2C0" 
   className="h-12" 
-/>`} 
-              className="w-full"
-            >
+/>`} className="w-full">
               <div className="p-4 w-full">
-                <h3 className="text-lg font-medium text-gray-900 mb-4">ColorSwatch</h3>
+                
                 <div className="-mx-4">
-                  <Separator className="mb-6" />
+                  
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   <div className="space-y-2">
@@ -176,8 +154,7 @@ const LibraryPage: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
 
 // Helper function to provide default props for each component type
@@ -199,5 +176,4 @@ const getDefaultProps = (componentName: string): Record<string, any> => {
       return {};
   }
 };
-
 export default LibraryPage;
