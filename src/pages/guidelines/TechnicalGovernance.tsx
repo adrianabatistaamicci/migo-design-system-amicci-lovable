@@ -140,7 +140,7 @@ const TechnicalGovernance = () => {
                     <h3 className="text-xl font-semibold mb-4">3. Configurar o Tailwind CSS</h3>
                     <p className="mb-4">Atualize o arquivo <code>tailwind.config.js</code> para incluir os componentes do Design System:</p>
                     <div className="bg-gray-800 text-white p-4 rounded font-mono text-sm mb-2">
-                      <pre>javascript<br/>// tailwind.config.js<br/>module.exports = {<br/>  content: [<br/>    // ... outros caminhos<br/>    "./node_modules/@amicci/migo-design-system/**/*.{js,ts,jsx,tsx}"<br/>  ],<br/>  // ... resto da configuração<br/>}</pre>
+                      <pre>javascript<br/>// tailwind.config.js<br/>module.exports = {'{'}<br/>  content: [<br/>    // ... outros caminhos<br/>    "./node_modules/@amicci/migo-design-system/**/*.{'{'}'js,ts,jsx,tsx{'}'}"<br/>  ],<br/>  // ... resto da configuração<br/>{'}'}</pre>
                     </div>
                   </div>
                   
@@ -148,7 +148,7 @@ const TechnicalGovernance = () => {
                     <h3 className="text-xl font-semibold mb-4">4. Importar componentes</h3>
                     <p className="mb-4">Importe os componentes diretamente em seus arquivos React:</p>
                     <div className="bg-gray-800 text-white p-4 rounded font-mono text-sm mb-2">
-                      <pre>tsx<br/>import {"{ Button, Card, TextField }"} from "@amicci/migo-design-system";<br/><br/>function MeuComponente() {<br/>  return (<br/>    <Card><br/>      <TextField label="Nome" /><br/>      <Button variant="primary">Enviar</Button><br/>    </Card><br/>  );<br/>}</pre>
+                      <pre>tsx<br/>import {'{ Button, Card, TextField }'} from "@amicci/migo-design-system";<br/><br/>function MeuComponente() {'{'}<br/>  return (<br/>    {'<Card>'}<br/>      {'<TextField label="Nome" />'}<br/>      {'<Button variant="primary">Enviar</Button>'}<br/>    {'</Card>'}<br/>  );<br/>{'}'}</pre>
                     </div>
                   </div>
                   
