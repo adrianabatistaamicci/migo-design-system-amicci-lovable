@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Label } from "@/components/ui/label";
 import { Check, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -14,6 +14,22 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
   simulationType, 
   handleSimulation 
 }) => {
+  // Define filters for each type of color blindness
+  const filters = {
+    deuteranopia: "grayscale(0) sepia(0.8) hue-rotate(90deg)",
+    protanopia: "grayscale(0) sepia(0.6) hue-rotate(320deg)",
+    tritanopia: "grayscale(0) sepia(0.8) hue-rotate(180deg)",
+    achromatopsia: "grayscale(1)"
+  };
+
+  // Apply the filter style to the elements
+  const getFilterStyle = (type: string) => {
+    if (simulationType === type) {
+      return { filter: filters[type as keyof typeof filters] };
+    }
+    return {};
+  };
+
   return (
     <div className="space-y-8">
       <div>
@@ -133,11 +149,11 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                         variant="primary"
                         size="sm"
                         pressed={simulationType === 'deuteranopia'}
-                        onPressedChange={() => handleSimulation(simulationType === 'deuteranopia' ? 'normal' : 'deuteranopia')}
+                        onPressedChange={() => handleSimulation('deuteranopia')}
                       />
                     </div>
                   </div>
-                  <div className={`grid grid-cols-4 gap-2 ${simulationType === 'deuteranopia' ? 'filter-deuteranopia' : ''}`}>
+                  <div className="grid grid-cols-4 gap-2" style={getFilterStyle('deuteranopia')}>
                     <div className="h-8 bg-primary-main rounded"></div>
                     <div className="h-8 bg-primary-dark rounded"></div>
                     <div className="h-8 bg-error-main rounded"></div>
@@ -159,11 +175,11 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                         variant="primary"
                         size="sm"
                         pressed={simulationType === 'protanopia'}
-                        onPressedChange={() => handleSimulation(simulationType === 'protanopia' ? 'normal' : 'protanopia')}
+                        onPressedChange={() => handleSimulation('protanopia')}
                       />
                     </div>
                   </div>
-                  <div className={`grid grid-cols-4 gap-2 ${simulationType === 'protanopia' ? 'filter-protanopia' : ''}`}>
+                  <div className="grid grid-cols-4 gap-2" style={getFilterStyle('protanopia')}>
                     <div className="h-8 bg-primary-main rounded"></div>
                     <div className="h-8 bg-primary-dark rounded"></div>
                     <div className="h-8 bg-error-main rounded"></div>
@@ -187,11 +203,11 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                         variant="primary"
                         size="sm"
                         pressed={simulationType === 'tritanopia'}
-                        onPressedChange={() => handleSimulation(simulationType === 'tritanopia' ? 'normal' : 'tritanopia')}
+                        onPressedChange={() => handleSimulation('tritanopia')}
                       />
                     </div>
                   </div>
-                  <div className={`grid grid-cols-4 gap-2 ${simulationType === 'tritanopia' ? 'filter-tritanopia' : ''}`}>
+                  <div className="grid grid-cols-4 gap-2" style={getFilterStyle('tritanopia')}>
                     <div className="h-8 bg-primary-main rounded"></div>
                     <div className="h-8 bg-primary-dark rounded"></div>
                     <div className="h-8 bg-error-main rounded"></div>
@@ -213,11 +229,11 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                         variant="primary"
                         size="sm"
                         pressed={simulationType === 'achromatopsia'}
-                        onPressedChange={() => handleSimulation(simulationType === 'achromatopsia' ? 'normal' : 'achromatopsia')}
+                        onPressedChange={() => handleSimulation('achromatopsia')}
                       />
                     </div>
                   </div>
-                  <div className={`grid grid-cols-4 gap-2 ${simulationType === 'achromatopsia' ? 'filter-grayscale' : ''}`}>
+                  <div className="grid grid-cols-4 gap-2" style={getFilterStyle('achromatopsia')}>
                     <div className="h-8 bg-primary-main rounded"></div>
                     <div className="h-8 bg-primary-dark rounded"></div>
                     <div className="h-8 bg-error-main rounded"></div>

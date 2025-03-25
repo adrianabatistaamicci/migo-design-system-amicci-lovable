@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Installation from "./pages/Installation";
 import Guidelines from "./pages/Guidelines";
 import TechnicalGovernance from "./pages/guidelines/TechnicalGovernance";
+import UXGuidelines from "./pages/guidelines/UXGuidelines";
 import Components from "./pages/Components";
 import ComponentDetail from "./pages/ComponentDetail";
 import NotFound from "./pages/NotFound";
@@ -94,6 +95,7 @@ const App = () => {
               <Route path="/installation" element={<Installation />} />
               <Route path="/guidelines" element={<Guidelines />} />
               <Route path="/guidelines/technical-governance" element={<TechnicalGovernance />} />
+              <Route path="/guidelines/ux-guidelines" element={<UXGuidelines />} />
               <Route path="/components" element={<Components />} />
               <Route path="/components/:componentId" element={<ComponentDetail />} />
               <Route path="/components/input" element={<InputPage />} />

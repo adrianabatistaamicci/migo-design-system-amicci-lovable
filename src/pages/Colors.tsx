@@ -34,7 +34,6 @@ const Colors = () => {
             { name: 'Paletas Semânticas', value: 'semantic-palettes' },
             { name: 'Acessibilidade', value: 'accessibility' }
           ]}
-          variant="pillsGray"
           onChange={value => setActiveTab(value)}
         />
         
