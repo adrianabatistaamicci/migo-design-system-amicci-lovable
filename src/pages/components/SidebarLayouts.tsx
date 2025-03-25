@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   Home, 
@@ -238,7 +237,9 @@ const AdvancedSidebar = () => {
               <Users size={18} className="mr-2 text-gray-500" />
               <span>User Activity</span>
             </div>
-            <Badge className="bg-primary-main text-white px-1.5 rounded-full text-xs">8</Badge>
+            <Badge badgeContent={8}>
+              <span className="sr-only">8 new activities</span>
+            </Badge>
           </a>
         </div>
         
@@ -257,7 +258,9 @@ const AdvancedSidebar = () => {
               <div className="ml-8 mt-1 space-y-1">
                 <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                   <span>Inbox</span>
-                  <Badge className="bg-primary-main text-white px-1.5 rounded-full text-xs">14</Badge>
+                  <Badge badgeContent={14}>
+                    <span className="sr-only">14 unread messages</span>
+                  </Badge>
                 </a>
                 <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                   Sent
@@ -332,7 +335,6 @@ const AdvancedSidebar = () => {
   );
 };`;
 
-// Define the LayoutComponentFooter component
 const LayoutComponentFooter = ({ code, onFullscreen }) => (
   <div className="p-3 border-t flex justify-between items-center bg-gray-50">
     <div className="flex space-x-2">
@@ -362,7 +364,6 @@ const LayoutComponentFooter = ({ code, onFullscreen }) => (
 );
 
 const SidebarLayouts = () => {
-  // Move all state declarations inside the component
   const [isCollapsibleSidebarOpen, setIsCollapsibleSidebarOpen] = useState(true);
   const [openMenus, setOpenMenus] = useState({
     analytics: true,
@@ -371,7 +372,6 @@ const SidebarLayouts = () => {
   });
   const [fullscreenComponent, setFullscreenComponent] = useState(null);
 
-  // Function to handle toggling menus
   const toggleMenu = (menu) => {
     setOpenMenus(prev => ({
       ...prev,
@@ -379,17 +379,14 @@ const SidebarLayouts = () => {
     }));
   };
 
-  // Function to handle fullscreen component selection
   const openFullscreen = (componentName) => {
     setFullscreenComponent(componentName);
   };
 
-  // Function to close fullscreen component
   const closeFullscreen = () => {
     setFullscreenComponent(null);
   };
 
-  // Render fullscreen component when selected
   const renderFullscreenComponent = () => {
     if (!fullscreenComponent) return null;
 
@@ -553,7 +550,9 @@ const SidebarLayouts = () => {
                       <Users size={18} className="mr-2 text-gray-500" />
                       <span>User Activity</span>
                     </div>
-                    <Badge className="bg-primary-main text-white px-1.5 rounded-full text-xs">8</Badge>
+                    <Badge badgeContent={8}>
+                      <span className="sr-only">8 new activities</span>
+                    </Badge>
                   </a>
                 </div>
                 
@@ -572,7 +571,9 @@ const SidebarLayouts = () => {
                       <div className="ml-8 mt-1 space-y-1">
                         <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                           <span>Inbox</span>
-                          <Badge className="bg-primary-main text-white px-1.5 rounded-full text-xs">14</Badge>
+                          <Badge badgeContent={14}>
+                            <span className="sr-only">14 unread messages</span>
+                          </Badge>
                         </a>
                         <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                           Sent
@@ -867,7 +868,9 @@ const SidebarLayouts = () => {
                           <Users size={18} className="mr-2 text-gray-500" />
                           <span>User Activity</span>
                         </div>
-                        <Badge className="bg-primary-main text-white px-1.5 rounded-full text-xs">8</Badge>
+                        <Badge badgeContent={8}>
+                          <span className="sr-only">8 new activities</span>
+                        </Badge>
                       </a>
                     </div>
                     
@@ -886,7 +889,9 @@ const SidebarLayouts = () => {
                           <div className="ml-8 mt-1 space-y-1">
                             <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                               <span>Inbox</span>
-                              <Badge className="bg-primary-main text-white px-1.5 rounded-full text-xs">14</Badge>
+                              <Badge badgeContent={14}>
+                                <span className="sr-only">14 unread messages</span>
+                              </Badge>
                             </a>
                             <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                               Sent
