@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
@@ -46,7 +47,8 @@ export const sidebarItems: SidebarItem[] = [
         title: 'Diretrizes', 
         isToggleOnly: true,
         items: [
-          { title: 'Governança Lovable', href: '/guidelines/technical-governance' }
+          { title: 'Governança Lovable', href: '/guidelines/technical-governance' },
+          { title: 'Diretrizes de UX', href: '/guidelines/ux-guidelines' }
         ]
       },
     ]
