@@ -26,7 +26,6 @@ const Colors = () => {
 
       <div className="mt-8">
         <TailwindTabs 
-          className=""
           defaultValue="overview" 
           tabs={[
             { name: 'Visão geral', value: 'overview' },
@@ -35,6 +34,7 @@ const Colors = () => {
             { name: 'Acessibilidade', value: 'accessibility' }
           ]}
           onChange={value => setActiveTab(value)}
+          variant="pillsGray"
         />
         
         <div className="mt-6 w-full">
