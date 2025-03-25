@@ -28,6 +28,7 @@ const Colors = () => {
         <TailwindTabs 
           className=""
           defaultValue="overview" 
+          variant="pillsGray"
           tabs={[
             { name: 'Visão geral', value: 'overview' },
             { name: 'Cores Base', value: 'base-colors' },
