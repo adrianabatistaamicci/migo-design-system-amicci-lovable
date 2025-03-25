@@ -40,7 +40,7 @@ const BaseColorsTable: React.FC<BaseColorsTableProps> = ({ baseColors }) => {
       {baseColors.map(baseColor => (
         <ComponentCard 
           key={baseColor.name}
-          title={`Cores ${baseColor.name}`} 
+          title={baseColor.name} 
           description={`Conjunto completo de variações para ${baseColor.name}`}
         >
           <div className="space-y-2">
