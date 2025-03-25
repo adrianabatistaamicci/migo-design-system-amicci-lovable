@@ -34,7 +34,7 @@ const TechnicalGovernance = () => {
             <div className="space-y-8">
               <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
                 <h2 className="text-2xl font-semibold mb-6">Design System Core Team</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
                     <h3 className="font-medium text-lg">Adriana Batista</h3>
                     <p className="text-gray-600">Head UX</p>
