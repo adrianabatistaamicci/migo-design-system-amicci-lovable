@@ -2,15 +2,15 @@
 import React from 'react';
 import PaletteTable from './PaletteTable';
 import { TailwindTabs } from '@/components/ui/tabs';
-import { colorsData } from '@/data/colorsData';
+import { paletteData } from '@/data/colorsData';
 
 const ColorPalettes: React.FC = () => {
-  const primaryPalettes = colorsData.filter(palette => 
-    ['Primary', 'Secondary', 'Neutral'].includes(palette.name)
+  const primaryPalettes = paletteData.filter(palette => 
+    ['primary', 'secondary', 'tertiary'].includes(palette.name.toLowerCase())
   );
   
-  const feedbackPalettes = colorsData.filter(palette => 
-    ['Success', 'Info', 'Warning', 'Error'].includes(palette.name)
+  const feedbackPalettes = paletteData.filter(palette => 
+    ['success', 'info', 'warning', 'error'].includes(palette.name.toLowerCase())
   );
   
   const semanticTabs = [
