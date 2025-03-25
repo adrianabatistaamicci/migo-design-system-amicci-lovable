@@ -6,6 +6,7 @@ import AccessibilityDemo from '@/components/colors/AccessibilityDemo';
 import BaseColorsTable from '@/components/colors/BaseColorsTable';
 import PaletteTable from '@/components/colors/PaletteTable';
 import Header from '@/components/library-components/Header';
+import ComponentCard from '@/components/ComponentCard';
 import { baseColorsData, paletteData } from '@/data/colorsData';
 
 const Colors = () => {
@@ -40,8 +41,16 @@ const Colors = () => {
         
         <div className="mt-6 w-full">
           {activeTab === 'overview' && <ColorOverview />}
-          {activeTab === 'base-colors' && <BaseColorsTable baseColors={baseColorsData} />}
-          {activeTab === 'semantic-palettes' && <PaletteTable palettes={paletteData} />}
+          {activeTab === 'base-colors' && (
+            <ComponentCard title="Cores Base" description="Conjunto fundamental de cores que serve como base para todo o sistema.">
+              <BaseColorsTable baseColors={baseColorsData} />
+            </ComponentCard>
+          )}
+          {activeTab === 'semantic-palettes' && (
+            <ComponentCard title="Paletas Semânticas" description="Conjuntos de variações de cores com significados específicos para feedback e estados.">
+              <PaletteTable palettes={paletteData} />
+            </ComponentCard>
+          )}
           {activeTab === 'accessibility' && (
             <AccessibilityDemo 
               simulationType={simulationType} 
