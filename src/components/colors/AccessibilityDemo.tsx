@@ -1,24 +1,20 @@
-
 import React from 'react';
 import { Label } from "@/components/ui/label";
 import { Check, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Toggle } from "@/components/ui/toggle";
-
 export interface AccessibilityDemoProps {
   simulationType: string;
   handleSimulation: (type: string) => void;
 }
-
-const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({ 
-  simulationType, 
-  handleSimulation 
+const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
+  simulationType,
+  handleSimulation
 }) => {
-  return (
-    <div className="space-y-8">
+  return <div className="space-y-8">
       <div>
-        <h2 className="text-2xl font-semibold mb-1">Acessibilidade de Cores</h2>
-        <p className="text-primary-main mb-6">Garantindo que nosso sistema de cores seja acessível a todos.</p>
+        
+        
         
         <div className="space-y-8">
           {/* Contraste Section */}
@@ -128,13 +124,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                     </div>
                     <div className="flex items-center gap-2">
                       <Label htmlFor="deuteranopia-sim" className="text-sm text-primary-main">Simular</Label>
-                      <Toggle
-                        id="deuteranopia-sim"
-                        variant="primary"
-                        size="sm"
-                        pressed={simulationType === 'deuteranopia'}
-                        onPressedChange={() => handleSimulation(simulationType === 'deuteranopia' ? 'normal' : 'deuteranopia')}
-                      />
+                      <Toggle id="deuteranopia-sim" variant="primary" size="sm" pressed={simulationType === 'deuteranopia'} onPressedChange={() => handleSimulation(simulationType === 'deuteranopia' ? 'normal' : 'deuteranopia')} />
                     </div>
                   </div>
                   <div className={`grid grid-cols-4 gap-2 ${simulationType === 'deuteranopia' ? 'filter-deuteranopia' : ''}`}>
@@ -154,13 +144,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                     </div>
                     <div className="flex items-center gap-2">
                       <Label htmlFor="protanopia-sim" className="text-sm text-primary-main">Simular</Label>
-                      <Toggle
-                        id="protanopia-sim"
-                        variant="primary"
-                        size="sm"
-                        pressed={simulationType === 'protanopia'}
-                        onPressedChange={() => handleSimulation(simulationType === 'protanopia' ? 'normal' : 'protanopia')}
-                      />
+                      <Toggle id="protanopia-sim" variant="primary" size="sm" pressed={simulationType === 'protanopia'} onPressedChange={() => handleSimulation(simulationType === 'protanopia' ? 'normal' : 'protanopia')} />
                     </div>
                   </div>
                   <div className={`grid grid-cols-4 gap-2 ${simulationType === 'protanopia' ? 'filter-protanopia' : ''}`}>
@@ -182,13 +166,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                     </div>
                     <div className="flex items-center gap-2">
                       <Label htmlFor="tritanopia-sim" className="text-sm text-primary-main">Simular</Label>
-                      <Toggle
-                        id="tritanopia-sim"
-                        variant="primary"
-                        size="sm"
-                        pressed={simulationType === 'tritanopia'}
-                        onPressedChange={() => handleSimulation(simulationType === 'tritanopia' ? 'normal' : 'tritanopia')}
-                      />
+                      <Toggle id="tritanopia-sim" variant="primary" size="sm" pressed={simulationType === 'tritanopia'} onPressedChange={() => handleSimulation(simulationType === 'tritanopia' ? 'normal' : 'tritanopia')} />
                     </div>
                   </div>
                   <div className={`grid grid-cols-4 gap-2 ${simulationType === 'tritanopia' ? 'filter-tritanopia' : ''}`}>
@@ -208,13 +186,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                     </div>
                     <div className="flex items-center gap-2">
                       <Label htmlFor="achromatopsia-sim" className="text-sm text-primary-main">Simular</Label>
-                      <Toggle
-                        id="achromatopsia-sim"
-                        variant="primary"
-                        size="sm"
-                        pressed={simulationType === 'achromatopsia'}
-                        onPressedChange={() => handleSimulation(simulationType === 'achromatopsia' ? 'normal' : 'achromatopsia')}
-                      />
+                      <Toggle id="achromatopsia-sim" variant="primary" size="sm" pressed={simulationType === 'achromatopsia'} onPressedChange={() => handleSimulation(simulationType === 'achromatopsia' ? 'normal' : 'achromatopsia')} />
                     </div>
                   </div>
                   <div className={`grid grid-cols-4 gap-2 ${simulationType === 'achromatopsia' ? 'filter-grayscale' : ''}`}>
@@ -229,8 +201,6 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
           </section>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default AccessibilityDemo;
