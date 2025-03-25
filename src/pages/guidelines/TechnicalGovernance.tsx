@@ -21,6 +21,7 @@ const TechnicalGovernance = () => {
             defaultValue="visao-geral" 
             tabs={[
               { name: 'Visão geral', value: 'visao-geral' },
+              { name: 'Projetos', value: 'projetos' },
               { name: 'Processo de contribuição', value: 'contribuicao' },
               { name: 'Versionamento', value: 'versionamento' },
               { name: 'Componentes novos', value: 'novos' }
@@ -102,6 +103,142 @@ const TechnicalGovernance = () => {
                     <li>Alinhamento com Produto para validar prioridades e requisitos</li>
                     <li>Revisão técnica da Engenharia para garantir qualidade e manutenibilidade</li>
                   </ul>
+                </div>
+              </div>
+            </div>
+          )}
+          
+          {activeTab === 'projetos' && (
+            <div className="space-y-8">
+              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <h2 className="text-2xl font-semibold mb-6">Utilizando em Projetos Lovable</h2>
+                <p className="mb-4">Siga estas etapas para integrar o Migo Design System em seus projetos Lovable:</p>
+                
+                <div className="space-y-8 mt-6">
+                  <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
+                    <h3 className="text-xl font-semibold mb-4">1. Componentes Protegidos</h3>
+                    <p className="mb-4">Uma grande vantagem do Design System como pacote NPM é que os componentes importados <strong>não podem ser editados diretamente</strong> pelos usuários, o que garante:</p>
+                    <ul className="list-disc pl-6 space-y-2 mb-4">
+                      <li>Consistência visual e funcional em todos os projetos</li>
+                      <li>Proteção contra modificações acidentais</li>
+                      <li>Centralização de atualizações e correções</li>
+                    </ul>
+                    <div className="bg-gray-50 p-4 rounded border border-gray-200">
+                      <p className="text-sm text-gray-700"><strong>Nota:</strong> Se precisar personalizar um componente, crie uma versão própria baseada no componente original. Não tente modificar os arquivos dentro do <code>node_modules</code>.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
+                    <h3 className="text-xl font-semibold mb-4">2. Instalar o pacote NPM</h3>
+                    <p className="mb-4">Adicione o pacote ao seu projeto Lovable utilizando o comando:</p>
+                    <div className="bg-gray-800 text-white p-4 rounded font-mono text-sm mb-2">
+                      <pre>bash<br/>npm install @amicci/migo-design-system</pre>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
+                    <h3 className="text-xl font-semibold mb-4">3. Configurar o Tailwind CSS</h3>
+                    <p className="mb-4">Atualize o arquivo <code>tailwind.config.js</code> para incluir os componentes do Design System:</p>
+                    <div className="bg-gray-800 text-white p-4 rounded font-mono text-sm mb-2">
+                      <pre>javascript<br/>// tailwind.config.js<br/>module.exports = {<br/>  content: [<br/>    // ... outros caminhos<br/>    "./node_modules/@amicci/migo-design-system/**/*.{js,ts,jsx,tsx}"<br/>  ],<br/>  // ... resto da configuração<br/>}</pre>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
+                    <h3 className="text-xl font-semibold mb-4">4. Importar componentes</h3>
+                    <p className="mb-4">Importe os componentes diretamente em seus arquivos React:</p>
+                    <div className="bg-gray-800 text-white p-4 rounded font-mono text-sm mb-2">
+                      <pre>tsx<br/>import {"{ Button, Card, TextField }"} from "@amicci/migo-design-system";<br/><br/>function MeuComponente() {<br/>  return (<br/>    <Card><br/>      <TextField label="Nome" /><br/>      <Button variant="primary">Enviar</Button><br/>    </Card><br/>  );<br/>}</pre>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
+                    <h3 className="text-xl font-semibold mb-4">5. Remixar projeto modelo (opcional)</h3>
+                    <p className="mb-4">Para iniciar rapidamente com um template pré-configurado:</p>
+                    <ol className="list-decimal pl-6 space-y-2 mb-4">
+                      <li>Abra o projeto na Lovable</li>
+                      <li>Clique no nome do projeto no topo da interface</li>
+                      <li>Selecione "Remix" para criar uma cópia do projeto</li>
+                      <li>Personalize o projeto conforme necessário</li>
+                    </ol>
+                  </div>
+                  
+                  <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
+                    <h3 className="text-xl font-semibold mb-4">6. Versão específica (recomendado)</h3>
+                    <p className="mb-4">Para garantir consistência, instale uma versão específica:</p>
+                    <div className="bg-gray-800 text-white p-4 rounded font-mono text-sm mb-2">
+                      <pre>bash<br/>npm install @amicci/migo-design-system@1.2.3</pre>
+                    </div>
+                    <p className="mt-4 text-sm text-gray-700">Consulte a seção de versionamento para entender a política de compatibilidade.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <h2 className="text-2xl font-semibold mb-6">Atualização do Pacote</h2>
+                <p className="mb-4">O pacote NPM <code>@amicci/migo-design-system</code> não é atualizado automaticamente quando os componentes são modificados no projeto principal.</p>
+                
+                <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100 mt-4">
+                  <h3 className="text-xl font-semibold mb-4">Processo de atualização:</h3>
+                  <ol className="list-decimal pl-6 space-y-2">
+                    <li>Executar script <code>copy-components.js</code> para copiar as versões atualizadas</li>
+                    <li>Atualizar a versão no <code>package.json</code> seguindo Semantic Versioning</li>
+                    <li>Reconstruir o pacote com <code>npm run build</code></li>
+                    <li>Publicar a nova versão no registro NPM interno</li>
+                  </ol>
+                </div>
+              </div>
+              
+              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <h2 className="text-2xl font-semibold mb-6">Versionamento</h2>
+                <p className="mb-4">O Migo Design System segue a política de Semantic Versioning (SemVer) para manter uma evolução previsível e compatível.</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                  <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
+                    <h3 className="font-medium text-lg mb-2">Major (x.0.0)</h3>
+                    <p className="text-gray-600 mb-3">Mudanças incompatíveis com versões anteriores.</p>
+                    <p className="text-gray-700 text-sm">Requer adaptações nos projetos que usam o design system.</p>
+                  </div>
+                  
+                  <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
+                    <h3 className="font-medium text-lg mb-2">Minor (0.x.0)</h3>
+                    <p className="text-gray-600 mb-3">Adição de funcionalidades mantendo compatibilidade.</p>
+                    <p className="text-gray-700 text-sm">Seguro para atualizar.</p>
+                  </div>
+                  
+                  <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
+                    <h3 className="font-medium text-lg mb-2">Patch (0.0.x)</h3>
+                    <p className="text-gray-600 mb-3">Correções de bugs mantendo compatibilidade.</p>
+                    <p className="text-gray-700 text-sm">Atualizações recomendadas e seguras.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <h2 className="text-2xl font-semibold mb-6">Padrões de Desenvolvimento</h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
+                    <h3 className="text-xl font-semibold mb-4">Requisitos Técnicos</h3>
+                    <ul className="list-disc pl-6 space-y-2">
+                      <li>Componentes devem ser desenvolvidos em TypeScript</li>
+                      <li>Props devem ser documentadas com JSDoc</li>
+                      <li>Testes unitários são obrigatórios</li>
+                      <li>Componentes devem seguir padrões de acessibilidade (WCAG 2.1 AA)</li>
+                      <li>Todos os componentes devem ser totalmente responsivos</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
+                    <h3 className="text-xl font-semibold mb-4">Convenções de Código</h3>
+                    <ul className="list-disc pl-6 space-y-2">
+                      <li>Seguir padrões de nomenclatura estabelecidos</li>
+                      <li>Utilizar arquitetura de componentes definida</li>
+                      <li>Favorecer composição sobre herança</li>
+                      <li>Evitar dependências externas desnecessárias</li>
+                      <li>Manter tamanho dos arquivos gerenciável (até 250 linhas)</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
