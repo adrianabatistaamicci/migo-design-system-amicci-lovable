@@ -503,8 +503,6 @@ const SidebarLayouts = () => {
         );
         break;
       case 'advanced':
-        // The advanced sidebar component is too complex to recreate here in full screen
-        // In a real application, you would refactor this to a shared component
         component = (
           <div className="flex h-screen">
             <div className="w-72 h-full bg-white border-r border-gray-200 overflow-y-auto flex flex-col">
@@ -523,16 +521,115 @@ const SidebarLayouts = () => {
               </div>
               
               <div className="flex-1 overflow-y-auto">
-                {/* Advanced sidebar content - abbreviated for fullscreen view */}
+                {/* Group 1: Analytics */}
                 <div className="px-3 py-2">
-                  <h3 className="text-xs uppercase font-semibold text-gray-500 mb-2 px-3">Menu Groups</h3>
-                  <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                    <Users size={18} className="mr-2 text-gray-500" />
-                    <span>Menu Item</span>
+                  <h3 className="text-xs uppercase font-semibold text-gray-500 mb-2 px-3">Analytics</h3>
+                  <Collapsible open={openMenus.analytics} onOpenChange={() => toggleMenu('analytics')}>
+                    <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
+                      <div className="flex items-center">
+                        <CreditCard size={18} className="mr-2 text-gray-500" />
+                        <span>Financial</span>
+                      </div>
+                      {openMenus.analytics ? <ChevronDown size={16} className="text-gray-400" /> : <ChevronRight size={16} className="text-gray-400" />}
+                    </CollapsibleTrigger>
+                    <CollapsibleContent>
+                      <div className="ml-8 mt-1 space-y-1">
+                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                          Overview
+                        </a>
+                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                          Transactions
+                        </a>
+                        <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                          <span>Reports</span>
+                          <Chip variant="default" color="primary" size="sm">New</Chip>
+                        </a>
+                      </div>
+                    </CollapsibleContent>
+                  </Collapsible>
+                  
+                  <a href="#" className="flex items-center justify-between px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                    <div className="flex items-center">
+                      <Users size={18} className="mr-2 text-gray-500" />
+                      <span>User Activity</span>
+                    </div>
+                    <Badge className="bg-primary-main text-white px-1.5 rounded-full text-xs">8</Badge>
+                  </a>
+                </div>
+                
+                {/* Group 2: Messages */}
+                <div className="px-3 py-2 mt-4">
+                  <h3 className="text-xs uppercase font-semibold text-gray-500 mb-2 px-3">Communication</h3>
+                  <Collapsible open={openMenus.messages} onOpenChange={() => toggleMenu('messages')}>
+                    <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
+                      <div className="flex items-center">
+                        <MessageSquare size={18} className="mr-2 text-gray-500" />
+                        <span>Messages</span>
+                      </div>
+                      {openMenus.messages ? <ChevronDown size={16} className="text-gray-400" /> : <ChevronRight size={16} className="text-gray-400" />}
+                    </CollapsibleTrigger>
+                    <CollapsibleContent>
+                      <div className="ml-8 mt-1 space-y-1">
+                        <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                          <span>Inbox</span>
+                          <Badge className="bg-primary-main text-white px-1.5 rounded-full text-xs">14</Badge>
+                        </a>
+                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                          Sent
+                        </a>
+                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                          Trash
+                        </a>
+                      </div>
+                    </CollapsibleContent>
+                  </Collapsible>
+                  
+                  <a href="#" className="flex items-center px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                    <Mail size={18} className="mr-2 text-gray-500" />
+                    <span>Email</span>
+                  </a>
+                  
+                  <a href="#" className="flex items-center px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                    <Calendar size={18} className="mr-2 text-gray-500" />
+                    <span>Calendar</span>
+                  </a>
+                </div>
+                
+                {/* Group 3: Products */}
+                <div className="px-3 py-2 mt-4">
+                  <h3 className="text-xs uppercase font-semibold text-gray-500 mb-2 px-3">Inventory</h3>
+                  <Collapsible open={openMenus.products} onOpenChange={() => toggleMenu('products')}>
+                    <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm text-left rounded-md hover:bg-gray-100">
+                      <div className="flex items-center">
+                        <Store size={18} className="mr-2 text-gray-500" />
+                        <span>Products</span>
+                      </div>
+                      {openMenus.products ? <ChevronDown size={16} className="text-gray-400" /> : <ChevronRight size={16} className="text-gray-400" />}
+                    </CollapsibleTrigger>
+                    <CollapsibleContent>
+                      <div className="ml-8 mt-1 space-y-1">
+                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                          All Products
+                        </a>
+                        <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                          <span>Categories</span>
+                          <div className="w-2 h-2 bg-primary-main rounded-full"></div>
+                        </a>
+                        <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                          Inventory
+                        </a>
+                      </div>
+                    </CollapsibleContent>
+                  </Collapsible>
+                  
+                  <a href="#" className="flex items-center px-3 py-2 mt-1 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                    <Package size={18} className="mr-2 text-gray-500" />
+                    <span>Orders</span>
                   </a>
                 </div>
               </div>
               
+              {/* Footer Actions */}
               <div className="px-3 py-3 border-t border-gray-200 mt-auto bg-white">
                 <div className="flex items-center justify-between">
                   <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
