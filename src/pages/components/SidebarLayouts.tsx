@@ -361,221 +361,221 @@ const LayoutComponentFooter = ({ code, onFullscreen }) => (
   </div>
 );
 
-const [isCollapsibleSidebarOpen, setIsCollapsibleSidebarOpen] = useState(true);
-const [openMenus, setOpenMenus] = useState({
-  analytics: true,
-  messages: true,
-  products: false,
-});
+const SidebarLayouts = () => {
+  // Move all state declarations inside the component
+  const [isCollapsibleSidebarOpen, setIsCollapsibleSidebarOpen] = useState(true);
+  const [openMenus, setOpenMenus] = useState({
+    analytics: true,
+    messages: true,
+    products: false,
+  });
+  const [fullscreenComponent, setFullscreenComponent] = useState(null);
 
-const toggleMenu = (menu) => {
-  setOpenMenus(prev => ({
-    ...prev,
-    [menu]: !prev[menu]
-  }));
-};
+  // Function to handle toggling menus
+  const toggleMenu = (menu) => {
+    setOpenMenus(prev => ({
+      ...prev,
+      [menu]: !prev[menu]
+    }));
+  };
 
-// Add state for fullscreen components
-const [fullscreenComponent, setFullscreenComponent] = useState(null);
+  // Function to handle fullscreen component selection
+  const openFullscreen = (componentName) => {
+    setFullscreenComponent(componentName);
+  };
 
-// Function to handle fullscreen component selection
-const openFullscreen = (componentName) => {
-  setFullscreenComponent(componentName);
-};
+  // Function to close fullscreen component
+  const closeFullscreen = () => {
+    setFullscreenComponent(null);
+  };
 
-// Function to close fullscreen component
-const closeFullscreen = () => {
-  setFullscreenComponent(null);
-};
+  // Render fullscreen component when selected
+  const renderFullscreenComponent = () => {
+    if (!fullscreenComponent) return null;
 
-// Render fullscreen component when selected
-const renderFullscreenComponent = () => {
-  if (!fullscreenComponent) return null;
-
-  let component = null;
-  
-  switch (fullscreenComponent) {
-    case 'basic':
-      component = (
-        <div className="flex h-screen">
-          <div className="w-64 h-full bg-white border-r border-gray-200">
-            <div className="p-4 border-b border-gray-200">
-              <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg" alt="Amicci" className="h-6" />
+    let component = null;
+    
+    switch (fullscreenComponent) {
+      case 'basic':
+        component = (
+          <div className="flex h-screen">
+            <div className="w-64 h-full bg-white border-r border-gray-200">
+              <div className="p-4 border-b border-gray-200">
+                <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg" alt="Amicci" className="h-6" />
+              </div>
+              
+              <nav className="mt-4">
+                <ul className="space-y-1 px-2">
+                  <li>
+                    <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main font-medium">
+                      <Home size={18} className="mr-2 text-primary-main" />
+                      Dashboard
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                      <Mail size={18} className="mr-2 text-gray-500" />
+                      Messages
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                      <Users size={18} className="mr-2 text-gray-500" />
+                      Team
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                      <div className="flex items-center">
+                        <Settings size={18} className="mr-2 text-gray-500" />
+                        Settings
+                      </div>
+                      <ChevronRight size={16} className="text-gray-400" />
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
-            
-            <nav className="mt-4">
-              <ul className="space-y-1 px-2">
-                <li>
-                  <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main font-medium">
-                    <Home size={18} className="mr-2 text-primary-main" />
-                    Dashboard
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                    <Mail size={18} className="mr-2 text-gray-500" />
-                    Messages
-                  </a>
-                </li>
-                <li>
+            <div className="flex-1 p-6 bg-white">
+              <h1 className="text-xl font-semibold mb-4">Dashboard</h1>
+              <p className="text-gray-600">Main content would go here</p>
+            </div>
+          </div>
+        );
+        break;
+      case 'collapsible':
+        component = (
+          <div className="flex h-screen relative">
+            <div className={`h-full bg-white border-r border-gray-200 shadow-sm transition-all duration-300 ${isCollapsibleSidebarOpen ? 'w-64' : 'w-20'}`}>
+              <div className="p-4 border-b border-gray-200 flex items-center justify-between">
+                {isCollapsibleSidebarOpen ? (
+                  <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg" alt="Amicci" className="h-6" />
+                ) : (
+                  <img src="/src/pages/assets/Amicci-Simbolo_Turquesa_Escuro.svg" alt="Amicci" className="h-6 mx-auto" />
+                )}
+                <button 
+                  onClick={() => setIsCollapsibleSidebarOpen(!isCollapsibleSidebarOpen)}
+                  className="text-gray-500 hover:text-gray-700"
+                >
+                  {isCollapsibleSidebarOpen ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
+                </button>
+              </div>
+              
+              <nav className="mt-4">
+                <ul className="space-y-1 px-2">
+                  <li>
+                    <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main font-medium ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
+                      <Home size={18} className={isCollapsibleSidebarOpen ? 'mr-2 text-primary-main' : 'text-primary-main'} />
+                      {isCollapsibleSidebarOpen && <span>Dashboard</span>}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
+                      <Mail size={18} className={isCollapsibleSidebarOpen ? 'mr-2 text-gray-500' : 'text-gray-500'} />
+                      {isCollapsibleSidebarOpen && <span>Messages</span>}
+                      {isCollapsibleSidebarOpen && (
+                        <Chip variant="default" color="primary" size="sm" className="ml-2">New</Chip>
+                      )}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
+                      <Users size={18} className={isCollapsibleSidebarOpen ? 'mr-2 text-gray-500' : 'text-gray-500'} />
+                      {isCollapsibleSidebarOpen && <span>Team</span>}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className={`flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
+                      <div className="flex items-center">
+                        <Settings size={18} className={isCollapsibleSidebarOpen ? 'mr-2 text-gray-500' : 'text-gray-500'} />
+                        {isCollapsibleSidebarOpen && <span>Settings</span>}
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div className="flex-1 p-6 bg-white">
+              <h1 className="text-xl font-semibold mb-4">Dashboard</h1>
+              <p className="text-gray-600">Main content would go here</p>
+            </div>
+          </div>
+        );
+        break;
+      case 'advanced':
+        // The advanced sidebar component is too complex to recreate here in full screen
+        // In a real application, you would refactor this to a shared component
+        component = (
+          <div className="flex h-screen">
+            <div className="w-72 h-full bg-white border-r border-gray-200 overflow-y-auto flex flex-col">
+              <div className="p-4 border-b border-gray-200 flex items-center space-x-3">
+                <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg" alt="Amicci" className="h-6" />
+                <Chip variant="default" color="primary">v1.2.0</Chip>
+              </div>
+              
+              <div className="p-3">
+                <div className="mb-2 px-3 py-2 bg-primary-hover rounded-md">
+                  <div className="flex items-center">
+                    <LayoutDashboard size={18} className="mr-2 text-primary-main" />
+                    <span className="text-sm font-medium text-primary-main">Dashboard</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="flex-1 overflow-y-auto">
+                {/* Advanced sidebar content - abbreviated for fullscreen view */}
+                <div className="px-3 py-2">
+                  <h3 className="text-xs uppercase font-semibold text-gray-500 mb-2 px-3">Menu Groups</h3>
                   <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
                     <Users size={18} className="mr-2 text-gray-500" />
-                    Team
+                    <span>Menu Item</span>
                   </a>
-                </li>
-                <li>
-                  <a href="#" className="flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                    <div className="flex items-center">
-                      <Settings size={18} className="mr-2 text-gray-500" />
-                      Settings
-                    </div>
-                    <ChevronRight size={16} className="text-gray-400" />
+                </div>
+              </div>
+              
+              <div className="px-3 py-3 border-t border-gray-200 mt-auto bg-white">
+                <div className="flex items-center justify-between">
+                  <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
+                    <Settings size={18} className="mr-2 text-gray-500" />
+                    <span>Settings</span>
                   </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <div className="flex-1 p-6 bg-white">
-            <h1 className="text-xl font-semibold mb-4">Dashboard</h1>
-            <p className="text-gray-600">Main content would go here</p>
-          </div>
-        </div>
-      );
-      break;
-    case 'collapsible':
-      component = (
-        <div className="flex h-screen relative">
-          <div className={`h-full bg-white border-r border-gray-200 shadow-sm transition-all duration-300 ${isCollapsibleSidebarOpen ? 'w-64' : 'w-20'}`}>
-            <div className="p-4 border-b border-gray-200 flex items-center justify-between">
-              {isCollapsibleSidebarOpen ? (
-                <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg" alt="Amicci" className="h-6" />
-              ) : (
-                <img src="/src/pages/assets/Amicci-Simbolo_Turquesa_Escuro.svg" alt="Amicci" className="h-6 mx-auto" />
-              )}
-              <button 
-                onClick={() => setIsCollapsibleSidebarOpen(!isCollapsibleSidebarOpen)}
-                className="text-gray-500 hover:text-gray-700"
-              >
-                {isCollapsibleSidebarOpen ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
-              </button>
-            </div>
-            
-            <nav className="mt-4">
-              <ul className="space-y-1 px-2">
-                <li>
-                  <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md bg-primary-hover text-primary-main font-medium ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
-                    <Home size={18} className={isCollapsibleSidebarOpen ? 'mr-2 text-primary-main' : 'text-primary-main'} />
-                    {isCollapsibleSidebarOpen && <span>Dashboard</span>}
+                  
+                  <a href="#" className="flex items-center justify-center w-8 h-8 rounded-md text-gray-700 hover:bg-gray-100 relative">
+                    <Bell size={18} className="text-gray-500" />
+                    <div className="w-2 h-2 bg-primary-main rounded-full absolute top-1.5 right-1.5"></div>
                   </a>
-                </li>
-                <li>
-                  <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
-                    <Mail size={18} className={isCollapsibleSidebarOpen ? 'mr-2 text-gray-500' : 'text-gray-500'} />
-                    {isCollapsibleSidebarOpen && <span>Messages</span>}
-                    {isCollapsibleSidebarOpen && (
-                      <Chip variant="default" color="primary" size="sm" className="ml-2">New</Chip>
-                    )}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className={`flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
-                    <Users size={18} className={isCollapsibleSidebarOpen ? 'mr-2 text-gray-500' : 'text-gray-500'} />
-                    {isCollapsibleSidebarOpen && <span>Team</span>}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className={`flex items-center justify-between px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100 ${!isCollapsibleSidebarOpen && 'justify-center'}`}>
-                    <div className="flex items-center">
-                      <Settings size={18} className={isCollapsibleSidebarOpen ? 'mr-2 text-gray-500' : 'text-gray-500'} />
-                      {isCollapsibleSidebarOpen && <span>Settings</span>}
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <div className="flex-1 p-6 bg-white">
-            <h1 className="text-xl font-semibold mb-4">Dashboard</h1>
-            <p className="text-gray-600">Main content would go here</p>
-          </div>
-        </div>
-      );
-      break;
-    case 'advanced':
-      // The advanced sidebar component is too complex to recreate here in full screen
-      // In a real application, you would refactor this to a shared component
-      component = (
-        <div className="flex h-screen">
-          <div className="w-72 h-full bg-white border-r border-gray-200 overflow-y-auto flex flex-col">
-            <div className="p-4 border-b border-gray-200 flex items-center space-x-3">
-              <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg" alt="Amicci" className="h-6" />
-              <Chip variant="default" color="primary">v1.2.0</Chip>
-            </div>
-            
-            <div className="p-3">
-              <div className="mb-2 px-3 py-2 bg-primary-hover rounded-md">
-                <div className="flex items-center">
-                  <LayoutDashboard size={18} className="mr-2 text-primary-main" />
-                  <span className="text-sm font-medium text-primary-main">Dashboard</span>
                 </div>
               </div>
             </div>
-            
-            <div className="flex-1 overflow-y-auto">
-              {/* Advanced sidebar content - abbreviated for fullscreen view */}
-              <div className="px-3 py-2">
-                <h3 className="text-xs uppercase font-semibold text-gray-500 mb-2 px-3">Menu Groups</h3>
-                <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                  <Users size={18} className="mr-2 text-gray-500" />
-                  <span>Menu Item</span>
-                </a>
-              </div>
-            </div>
-            
-            <div className="px-3 py-3 border-t border-gray-200 mt-auto bg-white">
-              <div className="flex items-center justify-between">
-                <a href="#" className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100">
-                  <Settings size={18} className="mr-2 text-gray-500" />
-                  <span>Settings</span>
-                </a>
-                
-                <a href="#" className="flex items-center justify-center w-8 h-8 rounded-md text-gray-700 hover:bg-gray-100 relative">
-                  <Bell size={18} className="text-gray-500" />
-                  <div className="w-2 h-2 bg-primary-main rounded-full absolute top-1.5 right-1.5"></div>
-                </a>
-              </div>
+            <div className="flex-1 p-6 bg-white">
+              <h1 className="text-xl font-semibold mb-4">Dashboard</h1>
+              <p className="text-gray-600">Main content would go here</p>
             </div>
           </div>
-          <div className="flex-1 p-6 bg-white">
-            <h1 className="text-xl font-semibold mb-4">Dashboard</h1>
-            <p className="text-gray-600">Main content would go here</p>
-          </div>
+        );
+        break;
+      default:
+        component = <div>No component selected</div>;
+    }
+
+    return (
+      <div className="fixed inset-0 bg-white z-50 flex flex-col">
+        <div className="p-4 flex justify-between items-center border-b">
+          <h2 className="text-xl font-semibold">Full Screen Preview</h2>
+          <IconButton 
+            variant="outline-secondary" 
+            icon={<X size={18} />} 
+            onClick={closeFullscreen}
+            aria-label="Close full screen"
+          />
         </div>
-      );
-      break;
-    default:
-      component = <div>No component selected</div>;
-  }
-
-  return (
-    <div className="fixed inset-0 bg-white z-50 flex flex-col">
-      <div className="p-4 flex justify-between items-center border-b">
-        <h2 className="text-xl font-semibold">Full Screen Preview</h2>
-        <IconButton 
-          variant="outline-secondary" 
-          icon={<X size={18} />} 
-          onClick={closeFullscreen}
-          aria-label="Close full screen"
-        />
+        <div className="flex-1 overflow-auto">
+          {component}
+        </div>
       </div>
-      <div className="flex-1 overflow-auto">
-        {component}
-      </div>
-    </div>
-  );
-};
+    );
+  };
 
-const SidebarLayouts = () => {
   return (
     <div className="w-full animate-fade-in">
       <Header title="Sidebar Layouts" description="Barras laterais de navegação responsivas com recursos avançados como ícones, badges, submenus expansíveis e seções de rodapé" type="components" />
