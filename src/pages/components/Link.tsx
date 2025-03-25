@@ -7,24 +7,25 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const LinkPage = () => {
   return (
-    <div className="container max-w-4xl py-10">
+    <div className="container max-w-[1280px] w-full py-10">
       <Header 
         title="Link" 
         description="Um componente de link para navegação entre páginas ou para recursos externos."
         type="components"
       />
       
-      <Tabs defaultValue="overview" className="mt-8">
+      <Tabs defaultValue="overview" className="mt-8 w-full">
         <TabsList className="inline-flex w-auto rounded-lg bg-gray-100 p-1">
           <TabsTrigger value="overview">Visão Geral</TabsTrigger>
           <TabsTrigger value="usage">Uso</TabsTrigger>
         </TabsList>
         
-        <TabsContent value="overview" className="space-y-6 mt-6">
+        <TabsContent value="overview" className="space-y-6 mt-6 w-full">
           <ComponentCard 
             title="Link Padrão" 
             description="Link de texto padrão com cor primary-dark (Amicci-700)"
             code={`<Link href="/components">Acessar componentes</Link>`}
+            className="w-full"
           >
             <div className="flex flex-col space-y-4 items-start p-4 w-full">
               <Link href="/components">Acessar componentes</Link>
@@ -35,6 +36,7 @@ const LinkPage = () => {
             title="Link com Sublinhado" 
             description="Variante de link com sublinhado para destaque visual"
             code={`<Link href="/components" variant="underlined">Componentes sublinhado</Link>`}
+            className="w-full"
           >
             <div className="flex flex-col space-y-4 items-start p-4 w-full">
               <Link href="/components" variant="underlined">Componentes sublinhado</Link>
@@ -45,6 +47,7 @@ const LinkPage = () => {
             title="Link Externo" 
             description="Link para recursos externos com ícone indicativo"
             code={`<Link href="https://lovable.dev" external>Site Lovable</Link>`}
+            className="w-full"
           >
             <div className="flex flex-col space-y-4 items-start p-4 w-full">
               <Link href="https://lovable.dev" external>Site Lovable</Link>
@@ -57,6 +60,7 @@ const LinkPage = () => {
             code={`<Link href="/components" size="sm">Link pequeno</Link>
 <Link href="/components">Link padrão</Link>
 <Link href="/components" size="lg">Link grande</Link>`}
+            className="w-full"
           >
             <div className="flex flex-col space-y-4 items-start p-4 w-full">
               <Link href="/components" size="sm">Link pequeno</Link>
@@ -66,7 +70,7 @@ const LinkPage = () => {
           </ComponentCard>
         </TabsContent>
         
-        <TabsContent value="usage" className="space-y-6 mt-6">
+        <TabsContent value="usage" className="space-y-6 mt-6 w-full">
           <div className="prose max-w-none w-full">
             <h2>Importação</h2>
             <pre className="bg-gray-100 p-4 rounded-md overflow-x-auto w-full">
