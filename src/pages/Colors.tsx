@@ -52,10 +52,12 @@ const Colors = () => {
             </ComponentCard>
           )}
           {activeTab === 'accessibility' && (
-            <AccessibilityDemo 
-              simulationType={simulationType} 
-              handleSimulation={handleSimulation} 
-            />
+            <ComponentCard title="Acessibilidade de Cores" description="Garantindo que nosso sistema de cores seja acessível a todos os usuários, independente de condições visuais.">
+              <AccessibilityDemo 
+                simulationType={simulationType} 
+                handleSimulation={handleSimulation} 
+              />
+            </ComponentCard>
           )}
         </div>
       </div>
