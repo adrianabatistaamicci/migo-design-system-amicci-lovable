@@ -121,13 +121,13 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                     color="primary" 
                     className="w-fit"
                   >
-                    Chip outlined primary
+                    Chip
                   </Chip>
                   <Button 
                     variant="outline-secondary" 
                     className="w-fit"
                   >
-                    Button outline secondary
+                    Botão
                   </Button>
                 </div>
               </div>
