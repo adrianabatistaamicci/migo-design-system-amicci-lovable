@@ -30,7 +30,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   </div>
                   <span className="font-medium">Texto normal</span>
                 </div>
-                <p className="text-sm text-secondary-main">Contraste mínimo de 4.5:1</p>
+                <p className="text-sm text-primary-main">Contraste mínimo de 4.5:1</p>
                 <div className="bg-primary-main text-white text-sm p-3 rounded">
                   Exemplo de texto com contraste adequado
                 </div>
@@ -43,7 +43,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   </div>
                   <span className="font-medium">Texto grande (18pt ou 14pt bold)</span>
                 </div>
-                <p className="text-sm text-secondary-main">Contraste mínimo de 3:1</p>
+                <p className="text-sm text-primary-main">Contraste mínimo de 3:1</p>
                 <div className="bg-primary-light text-primary-dark text-lg p-3 rounded font-medium">
                   Texto grande
                 </div>
@@ -56,7 +56,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   </div>
                   <span className="font-medium">Componentes de interface e gráficos</span>
                 </div>
-                <p className="text-sm text-secondary-main">Contraste mínimo de 3:1</p>
+                <p className="text-sm text-primary-main">Contraste mínimo de 3:1</p>
                 <Button variant="default" className="bg-primary-main hover:bg-primary-dark text-white">
                   Botão de exemplo
                 </Button>
@@ -75,7 +75,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   <Check className="w-5 h-5" />
                   <span className="font-medium">Combinação com elementos visuais</span>
                 </div>
-                <p className="text-sm text-secondary-main">Combinamos cores com ícones, textos e padrões</p>
+                <p className="text-sm text-primary-main">Combinamos cores com ícones, textos e padrões</p>
                 <div className="flex items-center gap-2 text-error-main mt-3">
                   <AlertCircle className="w-5 h-5" />
                   <span>Erro no formulário</span>
@@ -87,7 +87,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   <Check className="w-5 h-5" />
                   <span className="font-medium">Alternativas textuais</span>
                 </div>
-                <p className="text-sm text-secondary-main">Oferecemos alternativas textuais para informações baseadas em cores</p>
+                <p className="text-sm text-primary-main">Oferecemos alternativas textuais para informações baseadas em cores</p>
                 <div className="flex items-center gap-2 mt-3">
                   <div className="w-3 h-3 rounded-full bg-primary-main"></div>
                   <span>Status: Ativo</span>
@@ -99,7 +99,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   <Check className="w-5 h-5" />
                   <span className="font-medium">Contraste suficiente</span>
                 </div>
-                <p className="text-sm text-secondary-main">Mantemos contraste suficiente mesmo em visualizações monocromáticas</p>
+                <p className="text-sm text-primary-main">Mantemos contraste suficiente mesmo em visualizações monocromáticas</p>
                 <div className="flex gap-3 mt-3">
                   <span className="border border-primary-main px-3 py-1 rounded text-sm">Normal</span>
                   <span className="border border-primary-dark px-3 py-1 rounded text-sm">Outline</span>
@@ -130,13 +130,11 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                     />
                   </div>
                 </div>
-                <div className={simulationType === 'deuteranopia' ? 'filter-deuteranopia' : ''}>
-                  <div className="grid grid-cols-4 gap-2">
-                    <div className="h-12 bg-primary-main rounded"></div>
-                    <div className="h-12 bg-primary-dark rounded"></div>
-                    <div className="h-12 bg-error-main rounded"></div>
-                    <div className="h-12 bg-success-main rounded"></div>
-                  </div>
+                <div className={`grid grid-cols-4 gap-2 ${simulationType === 'deuteranopia' ? 'filter-deuteranopia' : ''}`}>
+                  <div className="h-12 bg-primary-main rounded"></div>
+                  <div className="h-12 bg-primary-dark rounded"></div>
+                  <div className="h-12 bg-error-main rounded"></div>
+                  <div className="h-12 bg-success-main rounded"></div>
                 </div>
               </div>
               
@@ -156,13 +154,11 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                     />
                   </div>
                 </div>
-                <div className={simulationType === 'protanopia' ? 'filter-protanopia' : ''}>
-                  <div className="grid grid-cols-4 gap-2">
-                    <div className="h-12 bg-primary-main rounded"></div>
-                    <div className="h-12 bg-primary-dark rounded"></div>
-                    <div className="h-12 bg-error-main rounded"></div>
-                    <div className="h-12 bg-success-main rounded"></div>
-                  </div>
+                <div className={`grid grid-cols-4 gap-2 ${simulationType === 'protanopia' ? 'filter-protanopia' : ''}`}>
+                  <div className="h-12 bg-primary-main rounded"></div>
+                  <div className="h-12 bg-primary-dark rounded"></div>
+                  <div className="h-12 bg-error-main rounded"></div>
+                  <div className="h-12 bg-success-main rounded"></div>
                 </div>
               </div>
               
@@ -182,13 +178,11 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                     />
                   </div>
                 </div>
-                <div className={simulationType === 'tritanopia' ? 'filter-tritanopia' : ''}>
-                  <div className="grid grid-cols-4 gap-2">
-                    <div className="h-12 bg-primary-main rounded"></div>
-                    <div className="h-12 bg-primary-dark rounded"></div>
-                    <div className="h-12 bg-error-main rounded"></div>
-                    <div className="h-12 bg-success-main rounded"></div>
-                  </div>
+                <div className={`grid grid-cols-4 gap-2 ${simulationType === 'tritanopia' ? 'filter-tritanopia' : ''}`}>
+                  <div className="h-12 bg-primary-main rounded"></div>
+                  <div className="h-12 bg-primary-dark rounded"></div>
+                  <div className="h-12 bg-error-main rounded"></div>
+                  <div className="h-12 bg-success-main rounded"></div>
                 </div>
               </div>
               
@@ -208,13 +202,11 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                     />
                   </div>
                 </div>
-                <div className={simulationType === 'achromatopsia' ? 'filter-grayscale' : ''}>
-                  <div className="grid grid-cols-4 gap-2">
-                    <div className="h-12 bg-primary-main rounded"></div>
-                    <div className="h-12 bg-primary-dark rounded"></div>
-                    <div className="h-12 bg-error-main rounded"></div>
-                    <div className="h-12 bg-success-main rounded"></div>
-                  </div>
+                <div className={`grid grid-cols-4 gap-2 ${simulationType === 'achromatopsia' ? 'filter-grayscale' : ''}`}>
+                  <div className="h-12 bg-primary-main rounded"></div>
+                  <div className="h-12 bg-primary-dark rounded"></div>
+                  <div className="h-12 bg-error-main rounded"></div>
+                  <div className="h-12 bg-success-main rounded"></div>
                 </div>
               </div>
             </div>
