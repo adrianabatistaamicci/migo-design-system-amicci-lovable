@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Header from '@/components/library-components/Header';
 import EmptyState from '@/components/library-components/EmptyState';
@@ -48,7 +47,7 @@ const TechnicalGovernance = () => {
       
       <Tabs defaultValue="overview" className="w-full">
         <div className="inline-block mb-6">
-          <TabsList className="w-auto" variant="pillsGray">
+          <TabsList className="w-auto">
             <TabsTrigger value="overview">Visão Geral</TabsTrigger>
             <TabsTrigger value="projects">Projetos na Lovable</TabsTrigger>
             <TabsTrigger value="production">Ambiente de Produção</TabsTrigger>
