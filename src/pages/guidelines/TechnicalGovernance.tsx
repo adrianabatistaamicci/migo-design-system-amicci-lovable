@@ -58,6 +58,12 @@ const TechnicalGovernance = () => {
                     <p className="text-gray-600">Tech Lead</p>
                     <a href="mailto:guilherme.gradaschi@amicci.com.br" className="text-primary-main hover:underline">guilherme.gradaschi@amicci.com.br</a>
                   </div>
+                  
+                  <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
+                    <h3 className="font-medium text-lg">Victor Azevedo</h3>
+                    <p className="text-gray-600">Tech Lead</p>
+                    <a href="mailto:victor.azevedo@amicci.com.br" className="text-primary-main hover:underline">victor.azevedo@amicci.com.br</a>
+                  </div>
                 </div>
               </div>
               
@@ -88,10 +94,10 @@ const TechnicalGovernance = () => {
                   <p>Sinta-se à vontade para explorar, experimentar e testar novas abordagens. Não se preocupe em seguir rigorosamente os padrões do Design System nesta fase.</p>
                 </div>
                 
-                <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
-                  <h4 className="font-medium text-lg mb-2">Para jornadas e produtos oficiais:</h4>
-                  <p className="mb-3">Qualquer pessoa pode contribuir com ideias, protótipos e experimentos, mas o código que vai para produção deve passar por um processo de revisão que inclui:</p>
-                  <ul className="list-disc pl-6 space-y-2">
+                <div className="bg-primary-100 p-5 rounded-md shadow-sm border border-primary-200">
+                  <h4 className="font-medium text-lg mb-2 text-primary-700">Para jornadas e produtos oficiais:</h4>
+                  <p className="mb-3 text-primary-800">Qualquer pessoa pode contribuir com ideias, protótipos e experimentos, mas o código que vai para produção deve passar por um processo de revisão que inclui:</p>
+                  <ul className="list-disc pl-6 space-y-2 text-primary-800">
                     <li>Revisão de UX para garantir consistência na experiência</li>
                     <li>Alinhamento com Produto para validar prioridades e requisitos</li>
                     <li>Revisão técnica da Engenharia para garantir qualidade e manutenibilidade</li>
