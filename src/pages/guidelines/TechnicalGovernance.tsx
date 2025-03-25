@@ -4,7 +4,7 @@ import { TailwindTabs } from "@/components/ui/tabs";
 import Header from '@/components/library-components/Header';
 
 const TechnicalGovernance = () => {
-  const [activeTab, setActiveTab] = useState('contribuicao');
+  const [activeTab, setActiveTab] = useState('visao-geral');
 
   return (
     <div className="w-full animate-fade-in">
@@ -18,8 +18,9 @@ const TechnicalGovernance = () => {
       <div className="mt-8">
         <div className="w-fit">
           <TailwindTabs 
-            defaultValue="contribuicao" 
+            defaultValue="visao-geral" 
             tabs={[
+              { name: 'Visão geral', value: 'visao-geral' },
               { name: 'Processo de contribuição', value: 'contribuicao' },
               { name: 'Versionamento', value: 'versionamento' },
               { name: 'Componentes novos', value: 'novos' }
@@ -29,6 +30,77 @@ const TechnicalGovernance = () => {
         </div>
         
         <div className="mt-8">
+          {activeTab === 'visao-geral' && (
+            <div className="space-y-8">
+              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <h2 className="text-2xl font-semibold mb-6">Design System Core Team</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
+                    <h3 className="font-medium text-lg">Adriana Batista</h3>
+                    <p className="text-gray-600">Head UX</p>
+                    <a href="mailto:adriana.batista@amicci.com.br" className="text-primary-main hover:underline">adriana.batista@amicci.com.br</a>
+                  </div>
+                  
+                  <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
+                    <h3 className="font-medium text-lg">Gabriel Vale</h3>
+                    <p className="text-gray-600">Tech Lead</p>
+                    <a href="mailto:gabriel.vale@amicci.com.br" className="text-primary-main hover:underline">gabriel.vale@amicci.com.br</a>
+                  </div>
+                  
+                  <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
+                    <h3 className="font-medium text-lg">Pedro Lopes</h3>
+                    <p className="text-gray-600">Tech Lead</p>
+                    <a href="mailto:pedro.lopes@amicci.com.br" className="text-primary-main hover:underline">pedro.lopes@amicci.com.br</a>
+                  </div>
+                  
+                  <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
+                    <h3 className="font-medium text-lg">Guilherme Gradaschi</h3>
+                    <p className="text-gray-600">Tech Lead</p>
+                    <a href="mailto:guilherme.gradaschi@amicci.com.br" className="text-primary-main hover:underline">guilherme.gradaschi@amicci.com.br</a>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-primary-50 p-6 rounded-lg border border-primary-100">
+                <h2 className="text-2xl font-semibold mb-4">Filosofia de Inovação</h2>
+                <p className="mb-4">
+                  Estamos em um momento de transformação no desenvolvimento de software, onde ferramentas de IA estão mudando a forma como criamos interfaces e experiências digitais.
+                </p>
+                
+                <p className="mb-4">Nossa abordagem para este momento de evolução:</p>
+                
+                <ul className="list-disc pl-6 space-y-2 mb-6">
+                  <li>
+                    <strong>Encoraje a experimentação:</strong> Incentivamos todos os colaboradores a explorarem as possibilidades do Lovable e outras ferramentas de IA.
+                  </li>
+                  <li>
+                    <strong>Aprenda através da prática:</strong> Este é um momento de aprendizado coletivo - alguns experimentos terão sucesso, outros não, mas todos trazem valor.
+                  </li>
+                  <li>
+                    <strong>Orientação em vez de restrição:</strong> A equipe de UX e o time de Design System atuam como facilitadores e orientadores, não como barreiras à inovação.
+                  </li>
+                </ul>
+                
+                <h3 className="text-xl font-semibold mb-4">Diretrizes para Desenvolvimento</h3>
+                
+                <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100 mb-4">
+                  <h4 className="font-medium text-lg mb-2">Para experimentos e projetos de aprendizado:</h4>
+                  <p>Sinta-se à vontade para explorar, experimentar e testar novas abordagens. Não se preocupe em seguir rigorosamente os padrões do Design System nesta fase.</p>
+                </div>
+                
+                <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
+                  <h4 className="font-medium text-lg mb-2">Para jornadas e produtos oficiais:</h4>
+                  <p className="mb-3">Qualquer pessoa pode contribuir com ideias, protótipos e experimentos, mas o código que vai para produção deve passar por um processo de revisão que inclui:</p>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li>Revisão de UX para garantir consistência na experiência</li>
+                    <li>Alinhamento com Produto para validar prioridades e requisitos</li>
+                    <li>Revisão técnica da Engenharia para garantir qualidade e manutenibilidade</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
+          
           {activeTab === 'contribuicao' && (
             <div className="prose max-w-none">
               <h2>Processo de contribuição</h2>
