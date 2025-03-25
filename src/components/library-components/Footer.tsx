@@ -19,9 +19,9 @@ const Footer = ({
 }: FooterProps) => {
   return (
     <footer className="py-6 border-t border-border mt-12">
-      <div className="container flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 text-sm text-muted-foreground">
+      <div className="container flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 text-sm text-secondary">
         <div className="flex items-center gap-1">
-          Feito com <Heart className="h-4 w-4 text-red-500 fill-red-500" /> pelo time de UX e Engenharia da Amicci
+          Feito com <Heart className="h-4 w-4 text-primary-main fill-primary-main" /> pelo time de UX e Engenharia da Amicci
         </div>
         
         <div className="flex items-center gap-4">
