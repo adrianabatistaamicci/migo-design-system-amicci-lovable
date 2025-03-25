@@ -95,6 +95,7 @@ export const sidebarItems: SidebarItem[] = [
           { title: 'Icon Button', href: '/components/icon-button' },
           { title: 'Button Groups', href: '/components/button-groups' },
           { title: 'Profile Button', href: '/components/profile-button' },
+          { title: 'Link', href: '/components/link' },
           { title: 'Accordions', href: '/components/accordion' },
           { title: 'Tooltips', href: '/components/tooltips' },
         ]
