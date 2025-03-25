@@ -137,7 +137,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                       <p className="text-sm font-normal text-primary-main">Deficiência de percepção do verde</p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium text-gray-900">Simular</span>
+                      <span className="ml-3 text-sm font-medium text-gray-900">Simular</span>
                       <Switch
                         id="deuteranopia-sim"
                         checked={simulationType === 'deuteranopia'}
@@ -161,7 +161,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                       <p className="text-sm font-normal text-primary-main">Deficiência de percepção do vermelho</p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium text-gray-900">Simular</span>
+                      <span className="ml-3 text-sm font-medium text-gray-900">Simular</span>
                       <Switch
                         id="protanopia-sim"
                         checked={simulationType === 'protanopia'}
@@ -187,7 +187,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                       <p className="text-sm font-normal text-primary-main">Deficiência de percepção do azul</p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium text-gray-900">Simular</span>
+                      <span className="ml-3 text-sm font-medium text-gray-900">Simular</span>
                       <Switch
                         id="tritanopia-sim"
                         checked={simulationType === 'tritanopia'}
@@ -211,7 +211,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                       <p className="text-sm font-normal text-primary-main">Ausência completa de percepção de cores</p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium text-gray-900">Simular</span>
+                      <span className="ml-3 text-sm font-medium text-gray-900">Simular</span>
                       <Switch
                         id="achromatopsia-sim"
                         checked={simulationType === 'achromatopsia'}
