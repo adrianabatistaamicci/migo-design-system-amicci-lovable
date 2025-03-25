@@ -25,7 +25,7 @@ const Header = ({
   const displayTitle = pageTitle || propTitle;
 
   return (
-    <div className={cn("w-full animate-fade-in mb-8", className)}>
+    <div className={cn("w-full animate-fade-in", className)}>
       <div className="space-y-2">
         {!hideChip && (
           <div className="flex items-center gap-2 text-sm font-medium mb-2">
