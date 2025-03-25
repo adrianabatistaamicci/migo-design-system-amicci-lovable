@@ -82,7 +82,7 @@ export const ColorSwatch = ({
         } : {})
       }}
     >
-      {textOverlay}
+      <span className={`${textColor}`}>{textOverlay}</span>
       {weight && <span className={`text-xs ${textColor} opacity-75 absolute left-2 top-1`}>{weight}</span>}
       
       {!disableCopy && (
