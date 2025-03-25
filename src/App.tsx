@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -54,6 +55,7 @@ import HomeScreensPage from "./pages/components/HomeScreens";
 import IconButtonPage from "./pages/components/IconButton";
 import InputPage from "./pages/components/Input";
 import LibraryPage from "./pages/components/Library";
+import LinkPage from "./pages/components/Link";
 import ListContainersPage from "./pages/components/ListContainers";
 import NavbarPage from "./pages/components/Navbar";
 import ProfileButtonPage from "./pages/components/ProfileButton";
@@ -160,6 +162,7 @@ const App = () => {
               <Route path="/resources/faq" element={<FAQPage />} />
               <Route path="/components/profile-button" element={<ProfileButtonPage />} />
               <Route path="/components/icon-button" element={<IconButtonPage />} />
+              <Route path="/components/link" element={<LinkPage />} />
               <Route path="/colors" element={<Colors />} />
               <Route path="/foundations/colors" element={<Colors />} />
               <Route path="/typography" element={<Typography />} />

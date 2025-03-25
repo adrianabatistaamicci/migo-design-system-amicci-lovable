@@ -42,6 +42,14 @@ const ElementsSection = () => {
           />
         </Link>
         
+        <Link to="/components/link">
+          <ComponentPreview 
+            title="Links" 
+            imageSrc="/lovable-uploads/93eec571-57df-4c3a-9958-cb6930361d88.png" 
+            variantCount={4} 
+          />
+        </Link>
+        
         <Link to="/components/icon-button">
           <ComponentPreview 
             title="Icon Buttons" 

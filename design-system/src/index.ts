@@ -21,6 +21,7 @@ export * from './components/ui/icon-button';
 export * from './components/ui/input';
 export * from './components/ui/input-otp';
 export * from './components/ui/label';
+export * from './components/ui/link';
 export * from './components/ui/navigation-menu';
 export * from './components/ui/pagination';
 export * from './components/ui/popover';
