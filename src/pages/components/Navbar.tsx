@@ -1,8 +1,7 @@
-
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
-import { Menu, Bell, ChevronDown, Search, User, ShoppingCart, Rocket, Globe } from 'lucide-react';
+import { Menu, Bell, ChevronDown, Search, User, ShoppingCart, Rocket, Globe, Heart, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -22,6 +21,7 @@ const Navbar = () => {
       <div className="space-y-12 mt-10">
         <LayoutComponent title="Navbar Institucional" component={<InstitutionalNav />} />
         <LayoutComponent title="Navbar Marketplace" component={<MarketplaceNav />} />
+        <LayoutComponent title="Navbar Buyer" component={<BuyerNav />} />
       </div>
     </div>
   );
@@ -138,6 +138,61 @@ const InstitutionalNav = () => {
               <Button variant="outline" className="p-2">
                 <Globe className="h-5 w-5" />
               </Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  );
+};
+
+const BuyerNav = () => {
+  return (
+    <div className="min-h-[160px] w-full bg-white">
+      <nav className="bg-white border-b border-gray-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-[88px] items-center justify-between">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
+              </div>
+              <div className="hidden md:ml-6 md:flex md:space-x-6">
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-text-primary">Home</a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">
+                  Categorias
+                  <ChevronDown className="ml-1 h-4 w-4 inline" />
+                </a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Ofertas</a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Pedidos</a>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
+                <span className="sr-only">Buscar produtos</span>
+                <Search className="h-6 w-6" aria-hidden="true" />
+              </button>
+              <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
+                <span className="sr-only">Lista de desejos</span>
+                <Heart className="h-6 w-6" aria-hidden="true" />
+              </button>
+              <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
+                <span className="sr-only">Mensagens</span>
+                <MessageSquare className="h-6 w-6" aria-hidden="true" />
+                <span className="absolute top-0 right-0 h-4 w-4 rounded-full bg-red-500 text-xs text-white flex items-center justify-center">2</span>
+              </button>
+              <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
+                <span className="sr-only">Carrinho de compras</span>
+                <ShoppingCart className="h-6 w-6" aria-hidden="true" />
+                <span className="absolute top-0 right-0 h-4 w-4 rounded-full bg-amicci-500 text-xs text-white flex items-center justify-center">3</span>
+              </button>
+              <ProfileButton 
+                userName="Carlos Oliveira"
+                companyName="Conta Pessoal"
+                showClientLogo={false}
+                avatarText="CO"
+                showMenuIcon={true}
+                menuIcon={<Menu className="h-6 w-6" />}
+              />
             </div>
           </div>
         </div>
