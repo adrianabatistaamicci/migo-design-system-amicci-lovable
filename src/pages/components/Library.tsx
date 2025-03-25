@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import Header from '@/components/library-components/Header';
@@ -5,6 +6,7 @@ import EmptyState from '@/components/library-components/EmptyState';
 import { Separator } from '@/components/ui/separator';
 import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
 import { TailwindTabs } from '@/components/ui/tabs';
+import ColorSwatch from '@/components/colors/ColorSwatch';
 
 // Define the type for the module records returned by import.meta.glob
 type ModuleRecord = Record<string, {
@@ -72,6 +74,45 @@ const LibraryPage: React.FC = () => {
         />
         
         <div className="mt-6 grid grid-cols-1 gap-6">
+          {/* ColorSwatch component card */}
+          <div className="w-full">
+            <ComponentCard 
+              title="ColorSwatch" 
+              description="Componente para exibir amostras de cores com opção de cópia" 
+              code={`<ColorSwatch 
+  color="bg-primary-main" 
+  textOverlay="#10C2C0" 
+  className="h-12" 
+/>`} 
+              className="w-full"
+            >
+              <div className="p-4 w-full">
+                <h3 className="text-lg font-medium text-gray-900 mb-4">ColorSwatch</h3>
+                <div className="-mx-4">
+                  <Separator className="mb-6" />
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="space-y-2">
+                    <p className="text-sm text-gray-500">Cor Primária</p>
+                    <ColorSwatch color="bg-primary-main" textOverlay="#10C2C0" className="h-12" />
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-sm text-gray-500">Cor Secundária</p>
+                    <ColorSwatch color="bg-secondary-main" textOverlay="#14818A" className="h-12" />
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-sm text-gray-500">Cor de Erro</p>
+                    <ColorSwatch color="bg-error-main" textOverlay="#F04438" className="h-12" />
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-sm text-gray-500">Cor de Sucesso</p>
+                    <ColorSwatch color="bg-success-main" textOverlay="#12B76A" className="h-12" />
+                  </div>
+                </div>
+              </div>
+            </ComponentCard>
+          </div>
+
           {/* Add ComponentCard component card */}
           <div className="w-full">
             <ComponentCard title="ComponentCard" description="Card para exibir exemplos de componentes com código" code={`<ComponentCard 
