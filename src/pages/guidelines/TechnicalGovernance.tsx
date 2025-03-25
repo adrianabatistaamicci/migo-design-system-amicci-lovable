@@ -21,7 +21,7 @@ const TechnicalGovernance = () => {
             defaultValue="visao-geral" 
             tabs={[
               { name: 'Visão geral', value: 'visao-geral' },
-              { name: 'Projetos', value: 'projetos' },
+              { name: 'Projetos Lovable', value: 'projetos' },
               { name: 'Processo de contribuição', value: 'contribuicao' },
               { name: 'Versionamento', value: 'versionamento' },
               { name: 'Componentes novos', value: 'novos' }
