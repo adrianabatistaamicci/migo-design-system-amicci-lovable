@@ -2,13 +2,14 @@
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
-import { Menu, Bell, ChevronDown, Search, User, ShoppingCart, Rocket, Globe } from 'lucide-react';
+import { Menu, Bell, ChevronDown, Search, User, ShoppingCart, Rocket, Globe, Heart, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
 import amicciLogoDark from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg';
 import { ProfileButton } from '@/components/ui/profile-button';
+import { IconButton } from '@/components/ui/icon-button';
 
 const Navbar = () => {
   return (
@@ -22,6 +23,7 @@ const Navbar = () => {
       <div className="space-y-12 mt-10">
         <LayoutComponent title="Navbar Institucional" component={<InstitutionalNav />} />
         <LayoutComponent title="Navbar Marketplace" component={<MarketplaceNav />} />
+        <LayoutComponent title="Navbar Marketplace Buyer" component={<MarketplaceBuyerNav />} />
       </div>
     </div>
   );
@@ -42,6 +44,76 @@ const LayoutComponent = ({
           {component}
         </div>
       </div>
+    </div>
+  );
+};
+
+const MarketplaceBuyerNav = () => {
+  return (
+    <div className="min-h-[160px] w-full bg-white">
+      <nav className="bg-white border-b border-gray-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-[88px] items-center justify-between">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
+              </div>
+              <div className="hidden md:ml-6 md:flex md:space-x-6">
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-text-primary">Início</a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">
+                  Categorias
+                  <ChevronDown className="ml-1 h-4 w-4 inline" />
+                </a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Fornecedores</a>
+                <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">
+                  Meus pedidos
+                  <ChevronDown className="ml-1 h-4 w-4 inline" />
+                </a>
+              </div>
+            </div>
+            <div className="flex items-center space-x-3">
+              <div className="relative hidden sm:block">
+                <div className="flex items-center border border-gray-300 rounded-lg px-3 py-2 bg-white">
+                  <Search className="h-4 w-4 text-gray-400 mr-2" />
+                  <input className="outline-none text-sm" placeholder="Buscar produtos..." />
+                </div>
+              </div>
+              <IconButton 
+                variant="text-secondary" 
+                size="sm" 
+                icon={<Heart className="h-5 w-5" />} 
+                aria-label="Favoritos" 
+              />
+              <IconButton 
+                variant="text-secondary" 
+                size="sm" 
+                icon={<MessageSquare className="h-5 w-5" />} 
+                aria-label="Mensagens" 
+              />
+              <IconButton 
+                variant="text-secondary" 
+                size="sm" 
+                icon={<ShoppingCart className="h-5 w-5" />} 
+                aria-label="Carrinho" 
+              />
+              <IconButton 
+                variant="text-secondary" 
+                size="sm" 
+                icon={<Bell className="h-5 w-5" />} 
+                aria-label="Notificações" 
+              />
+              <ProfileButton 
+                userName="Carlos Silva"
+                companyName="Empresa ABC"
+                showClientLogo={false}
+                avatarText="CS"
+                showMenuIcon={true}
+                menuIcon={<Menu className="h-5 w-5" />}
+              />
+            </div>
+          </div>
+        </div>
+      </nav>
     </div>
   );
 };
