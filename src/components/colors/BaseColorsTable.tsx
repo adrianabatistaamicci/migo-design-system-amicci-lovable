@@ -4,7 +4,6 @@ import { Copy } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { colorUtils } from '@/utils/colorUtils';
 import ColorSwatch from './ColorSwatch';
-import ComponentCard from '@/components/ComponentCard';
 
 interface Weight {
   weight: string;
@@ -38,12 +37,8 @@ const BaseColorsTable: React.FC<BaseColorsTableProps> = ({ baseColors }) => {
   return (
     <div className="space-y-8">
       {baseColors.map(baseColor => (
-        <ComponentCard 
-          key={baseColor.name} 
-          title={baseColor.name}
-          description="Cores básicas do sistema"
-          className="mt-6"
-        >
+        <div key={baseColor.name} className="space-y-2">
+          <h3 className="text-xl font-semibold">{baseColor.name}</h3>
           <Table className="border rounded-lg overflow-hidden">
             <TableHeader>
               <TableRow>
@@ -90,7 +85,7 @@ const BaseColorsTable: React.FC<BaseColorsTableProps> = ({ baseColors }) => {
               })}
             </TableBody>
           </Table>
-        </ComponentCard>
+        </div>
       ))}
     </div>
   );

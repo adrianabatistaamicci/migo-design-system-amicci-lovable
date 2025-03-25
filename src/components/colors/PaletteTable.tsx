@@ -4,7 +4,6 @@ import { Copy } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { colorUtils } from '@/utils/colorUtils';
 import ColorSwatch from './ColorSwatch';
-import ComponentCard from '@/components/ComponentCard';
 
 interface Variant {
   name: string;
@@ -84,12 +83,14 @@ const PaletteTable: React.FC<PaletteTableProps> = ({ palettes }) => {
   return (
     <div className="space-y-8">
       {palettes.map(palette => (
-        <ComponentCard 
-          key={palette.name} 
-          title={palette.name}
-          description={`Base: ${palette.description}`}
-          className="mt-6"
-        >
+        <div key={palette.name} className="space-y-4">
+          <div className="flex items-center gap-3">
+            <h3 className="text-xl font-bold">{palette.name}</h3>
+            <span className="bg-gray-200 text-gray-800 text-xs px-3 py-1 rounded-full">
+              base-color-{palette.description.toLowerCase()}
+            </span>
+          </div>
+          
           <Table>
             <TableHeader>
               <TableRow>
@@ -144,7 +145,7 @@ const PaletteTable: React.FC<PaletteTableProps> = ({ palettes }) => {
               })}
             </TableBody>
           </Table>
-        </ComponentCard>
+        </div>
       ))}
     </div>
   );
