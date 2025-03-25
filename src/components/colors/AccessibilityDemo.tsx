@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { Label } from "@/components/ui/label";
 import { Check, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Toggle } from "@/components/ui/toggle";
+import { Switch } from "@/components/ui/switch";
 import ComponentCard from '@/components/ComponentCard';
+import { colorBlindnessFilters } from '@/utils/colorUtils';
 
 export interface AccessibilityDemoProps {
   simulationType: string;
@@ -15,18 +16,10 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
   simulationType, 
   handleSimulation 
 }) => {
-  // Define filters for each type of color blindness
-  const filters = {
-    deuteranopia: "grayscale(0) sepia(0.8) hue-rotate(90deg)",
-    protanopia: "grayscale(0) sepia(0.6) hue-rotate(320deg)",
-    tritanopia: "grayscale(0) sepia(0.8) hue-rotate(180deg)",
-    achromatopsia: "grayscale(1)"
-  };
-
   // Apply the filter style to the elements
   const getFilterStyle = (type: string) => {
     if (simulationType === type) {
-      return { filter: filters[type as keyof typeof filters] };
+      return { filter: colorBlindnessFilters[type as keyof typeof colorBlindnessFilters] };
     }
     return {};
   };
@@ -140,17 +133,15 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                 <div className="border rounded-lg p-4">
                   <div className="flex justify-between items-center mb-4">
                     <div>
-                      <h4 className="font-medium">Deuteranopia</h4>
-                      <p className="text-sm text-primary-main">Deficiência de percepção do verde</p>
+                      <h4 className="text-base font-medium text-primary-main">Deuteranopia</h4>
+                      <p className="text-sm font-normal text-primary-main">Deficiência de percepção do verde</p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Label htmlFor="deuteranopia-sim" className="text-sm text-primary-main">Simular</Label>
-                      <Toggle
+                      <span className="text-sm font-medium text-gray-900">Simular</span>
+                      <Switch
                         id="deuteranopia-sim"
-                        variant="primary"
-                        size="sm"
-                        pressed={simulationType === 'deuteranopia'}
-                        onPressedChange={() => handleSimulation('deuteranopia')}
+                        checked={simulationType === 'deuteranopia'}
+                        onCheckedChange={() => handleSimulation('deuteranopia')}
                       />
                     </div>
                   </div>
@@ -166,17 +157,15 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                 <div className="border rounded-lg p-4">
                   <div className="flex justify-between items-center mb-4">
                     <div>
-                      <h4 className="font-medium">Protanopia</h4>
-                      <p className="text-sm text-primary-main">Deficiência de percepção do vermelho</p>
+                      <h4 className="text-base font-medium text-primary-main">Protanopia</h4>
+                      <p className="text-sm font-normal text-primary-main">Deficiência de percepção do vermelho</p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Label htmlFor="protanopia-sim" className="text-sm text-primary-main">Simular</Label>
-                      <Toggle
+                      <span className="text-sm font-medium text-gray-900">Simular</span>
+                      <Switch
                         id="protanopia-sim"
-                        variant="primary"
-                        size="sm"
-                        pressed={simulationType === 'protanopia'}
-                        onPressedChange={() => handleSimulation('protanopia')}
+                        checked={simulationType === 'protanopia'}
+                        onCheckedChange={() => handleSimulation('protanopia')}
                       />
                     </div>
                   </div>
@@ -194,17 +183,15 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                 <div className="border rounded-lg p-4">
                   <div className="flex justify-between items-center mb-4">
                     <div>
-                      <h4 className="font-medium">Tritanopia</h4>
-                      <p className="text-sm text-primary-main">Deficiência de percepção do azul</p>
+                      <h4 className="text-base font-medium text-primary-main">Tritanopia</h4>
+                      <p className="text-sm font-normal text-primary-main">Deficiência de percepção do azul</p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Label htmlFor="tritanopia-sim" className="text-sm text-primary-main">Simular</Label>
-                      <Toggle
+                      <span className="text-sm font-medium text-gray-900">Simular</span>
+                      <Switch
                         id="tritanopia-sim"
-                        variant="primary"
-                        size="sm"
-                        pressed={simulationType === 'tritanopia'}
-                        onPressedChange={() => handleSimulation('tritanopia')}
+                        checked={simulationType === 'tritanopia'}
+                        onCheckedChange={() => handleSimulation('tritanopia')}
                       />
                     </div>
                   </div>
@@ -220,17 +207,15 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                 <div className="border rounded-lg p-4">
                   <div className="flex justify-between items-center mb-4">
                     <div>
-                      <h4 className="font-medium">Acromatopsia</h4>
-                      <p className="text-sm text-primary-main">Ausência completa de percepção de cores</p>
+                      <h4 className="text-base font-medium text-primary-main">Acromatopsia</h4>
+                      <p className="text-sm font-normal text-primary-main">Ausência completa de percepção de cores</p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Label htmlFor="achromatopsia-sim" className="text-sm text-primary-main">Simular</Label>
-                      <Toggle
+                      <span className="text-sm font-medium text-gray-900">Simular</span>
+                      <Switch
                         id="achromatopsia-sim"
-                        variant="primary"
-                        size="sm"
-                        pressed={simulationType === 'achromatopsia'}
-                        onPressedChange={() => handleSimulation('achromatopsia')}
+                        checked={simulationType === 'achromatopsia'}
+                        onCheckedChange={() => handleSimulation('achromatopsia')}
                       />
                     </div>
                   </div>
