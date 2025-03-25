@@ -4,6 +4,7 @@ import { useLocation, Outlet } from 'react-router-dom';
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
 import Search from '@/components/Search';
+import Footer from '@/components/library-components/Footer';
 import { usePageTransition } from '@/utils/transitionUtils';
 import { cn } from '@/lib/utils';
 import { PageTitleProvider, usePageTitle } from '@/contexts/PageTitleContext';
@@ -77,6 +78,8 @@ const MainLayoutContent = () => {
           >
             <Outlet />
           </main>
+          
+          <Footer />
         </div>
       </div>
       

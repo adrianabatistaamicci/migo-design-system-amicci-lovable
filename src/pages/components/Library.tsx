@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import Header from '@/components/library-components/Header';
 import EmptyState from '@/components/library-components/EmptyState';
+import Footer from '@/components/library-components/Footer';
 import { Separator } from '@/components/ui/separator';
 import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
 import { TailwindTabs } from '@/components/ui/tabs';
@@ -107,6 +108,18 @@ const LibraryPage: React.FC = () => {
                     <p>Example content inside a ComponentCard</p>
                   </div>
                 </ComponentCard>
+              </div>
+            </ComponentCard>
+          </div>
+
+          {/* Footer component card */}
+          <div className="w-full">
+            <ComponentCard title="Footer" description="Rodapé para exibir créditos e links de governança" code={`<Footer 
+  additionalText="© 2024 Amicci" 
+  governanceUrl="/guidelines/technical-governance" 
+/>`} className="w-full">
+              <div className="p-4 w-full">
+                <Footer additionalText="© 2024 Amicci" />
               </div>
             </ComponentCard>
           </div>
