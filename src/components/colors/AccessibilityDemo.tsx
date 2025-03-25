@@ -4,6 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Check, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
+import { Chip } from "@/components/ui/chip";
 import ComponentCard from '@/components/ComponentCard';
 import { colorBlindnessFilters } from '@/utils/colorUtils';
 
@@ -27,7 +28,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
   return (
     <div className="space-y-8">
       <ComponentCard
-        title="Acessibilidade de Cores"
+        title="Acessibilidade de cores"
         description="Garantindo que nosso sistema de cores seja acessível a todos"
       >
         <div className="space-y-8">
@@ -80,13 +81,13 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
           
           {/* Não Dependa Apenas da Cor */}
           <section>
-            <h3 className="text-xl font-medium mb-4">Não Dependa Apenas da Cor</h3>
+            <h3 className="text-xl font-medium mb-4">Não dependa apenas da cor</h3>
             <p className="mb-6">Para garantir que as informações sejam acessíveis a pessoas com deficiência visual ou daltonismo, não usamos apenas cor para transmitir informações importantes:</p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="border rounded-lg p-4 space-y-3">
-                <div className="flex items-center gap-2 text-primary-main">
-                  <Check className="w-5 h-5" />
+                <div className="flex items-center gap-2 text-text-primary">
+                  <Check className="w-5 h-5 text-primary-main" />
                   <span className="font-medium">Combinação com elementos visuais</span>
                 </div>
                 <p className="text-sm text-text-primary">Combinamos cores com ícones, textos e padrões</p>
@@ -97,26 +98,32 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
               </div>
               
               <div className="border rounded-lg p-4 space-y-3">
-                <div className="flex items-center gap-2 text-primary-main">
-                  <Check className="w-5 h-5" />
+                <div className="flex items-center gap-2 text-text-primary">
+                  <Check className="w-5 h-5 text-primary-main" />
                   <span className="font-medium">Alternativas textuais</span>
                 </div>
                 <p className="text-sm text-text-primary">Oferecemos alternativas textuais para informações baseadas em cores</p>
-                <div className="flex items-center gap-2 mt-3">
-                  <div className="w-3 h-3 rounded-full bg-primary-main"></div>
-                  <span>Status: Ativo</span>
+                <div className="flex flex-col gap-3 mt-3">
+                  <Chip 
+                    variant="outlined" 
+                    color="primary" 
+                    icon={<Check className="w-3 h-3" />}
+                  >
+                    Chip outlined primary
+                  </Chip>
                 </div>
               </div>
               
               <div className="border rounded-lg p-4 space-y-3">
-                <div className="flex items-center gap-2 text-primary-main">
-                  <Check className="w-5 h-5" />
+                <div className="flex items-center gap-2 text-text-primary">
+                  <Check className="w-5 h-5 text-primary-main" />
                   <span className="font-medium">Contraste suficiente</span>
                 </div>
                 <p className="text-sm text-text-primary">Mantemos contraste suficiente mesmo em visualizações monocromáticas</p>
                 <div className="flex gap-3 mt-3">
-                  <span className="border border-primary-main px-3 py-1 rounded text-sm">Normal</span>
-                  <span className="border border-primary-dark px-3 py-1 rounded text-sm">Outline</span>
+                  <Button variant="outline-secondary">
+                    Button outline secondary
+                  </Button>
                 </div>
               </div>
             </div>
@@ -124,7 +131,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
           
           {/* Teste de Daltonismo */}
           <section>
-            <h3 className="text-xl font-medium mb-4">Teste de Daltonismo</h3>
+            <h3 className="text-xl font-medium mb-4">Teste de daltonismo</h3>
             <p className="mb-6">Nosso sistema de cores foi testado para os seguintes tipos de daltonismo:</p>
             
             <div className="space-y-6">
