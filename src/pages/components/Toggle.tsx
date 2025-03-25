@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import CodeBlock from '@/components/CodeBlock';
@@ -21,16 +22,17 @@ const Toggle = ({
       <span aria-hidden="true" className={`${enabled ? `translate-x-${size === 'sm' ? '4' : size === 'lg' ? '7' : '5'}` : 'translate-x-0'} pointer-events-none ${size === 'sm' ? 'h-4 w-4' : size === 'lg' ? 'h-6 w-6' : 'h-5 w-5'} rounded-full bg-white shadow ring-0 transition ease-in-out duration-200`} />
     </button>;
 };
+
 const TogglePage = () => {
   const [simpleEnabled, setSimpleEnabled] = useState(false);
   const [shortEnabled, setShortEnabled] = useState(false);
   const [iconEnabled, setIconEnabled] = useState(false);
   const [descriptionEnabled, setDescriptionEnabled] = useState(false);
   const [rightLabelEnabled, setRightLabelEnabled] = useState(false);
+  const [simulateEnabled, setSimulateEnabled] = useState(false);
+  
   return <div className="w-full animate-fade-in">
       <Header title="Toggle" description="Toggle components allow users to switch between two states and are commonly used for 'on/off' functionality." type="components" />
-
-      
 
       <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
         {/* Simple toggle */}
@@ -57,6 +59,21 @@ const TogglePage = () => {
           <div className="flex items-center gap-2">
             {iconEnabled && <X size={16} className="text-gray-500" />}
             <Toggle enabled={iconEnabled} onChange={setIconEnabled} />
+          </div>
+        </ComponentCard>
+
+        {/* Simulate toggle - the new example */}
+        <ComponentCard title="Simulate toggle" description="A toggle with 'Simular' label before the toggle." code={`const [enabled, setEnabled] = useState(false)
+
+<div className="flex items-center">
+  <span className="mr-3 text-sm font-medium text-gray-900">Simular</span>
+  <Toggle enabled={enabled} onChange={setEnabled} />
+  {enabled && <span className="ml-2 text-sm text-green-500">(Ativado)</span>}
+</div>`}>
+          <div className="flex items-center">
+            <span className="mr-3 text-sm font-medium text-gray-900">Simular</span>
+            <Toggle enabled={simulateEnabled} onChange={setSimulateEnabled} />
+            {simulateEnabled && <span className="ml-2 text-sm text-green-500">(Ativado)</span>}
           </div>
         </ComponentCard>
 
@@ -96,4 +113,5 @@ const TogglePage = () => {
       </div>
     </div>;
 };
+
 export default TogglePage;
