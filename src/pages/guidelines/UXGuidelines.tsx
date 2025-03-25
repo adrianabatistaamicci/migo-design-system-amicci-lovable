@@ -16,7 +16,7 @@ const UXGuidelines = () => {
       <EmptyState 
         title="Diretrizes de UX em Desenvolvimento" 
         description="Estamos trabalhando na documentação de nossas melhores práticas de UX. Em breve, você encontrará diretrizes abrangentes sobre design de interação, fluxos de usuário e padrões de interface."
-        icon="book"
+        icon="figma"
       />
     </div>
   );
