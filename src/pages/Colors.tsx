@@ -26,7 +26,6 @@ const Colors = () => {
 
       <div className="mt-8">
         <TailwindTabs 
-          className=""
           defaultValue="overview" 
           tabs={[
             { name: 'Visão geral', value: 'overview' },
