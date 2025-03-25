@@ -115,7 +115,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   <span className="font-medium">Contraste suficiente</span>
                 </div>
                 <p className="text-sm text-text-primary">Mantemos contraste suficiente mesmo em visualizações monocromáticas</p>
-                <div className="flex flex-col gap-3 mt-3">
+                <div className="flex flex-row items-center gap-4 mt-3">
                   <Chip 
                     variant="outlined" 
                     color="primary" 
@@ -125,7 +125,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   </Chip>
                   <Button 
                     variant="outline-secondary" 
-                    className="w-fit mt-2"
+                    className="w-fit"
                   >
                     Button outline secondary
                   </Button>
