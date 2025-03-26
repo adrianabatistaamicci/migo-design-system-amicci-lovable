@@ -448,8 +448,7 @@ export const BrandNavWithOverlap = () => (
             <ProfileButton 
               userName="Maria Silva"
               companyName="Empresa Ltda."
-              showMenuIcon={true}
-              menuIcon={<Menu className="h-6 w-6 text-white" />}
+              showMenuIcon={false}
             />
           </div>
         </div>
@@ -476,63 +475,55 @@ export const BrandNavWithOverlap = () => (
 const marketplaceExampleCode = `import React from 'react';
 import { StackedLayout } from '@/components/application-shells/StackedLayout';
 import { IconButton } from '@/components/ui/icon-button';
-import { Bell, ShoppingCart, Search, ChevronDown } from 'lucide-react';
+import { Bell, HelpCircle, Rocket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ProfileButton } from '@/components/ui/profile-button';
 import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
 
 export const MarketplaceExample = () => (
   <StackedLayout
-    variant="marketplace"
+    variant="light-border"
+    mainClassName="bg-white"
+    headerClassName="bg-white"
     navigationContent={
       <>
-        <div className="flex items-center flex-1 lg:w-0">
+        <div className="flex items-center">
           <div className="flex-shrink-0">
             <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
           </div>
-          <div className="hidden sm:ml-6 sm:flex sm:space-x-4">
-            <a href="#" className="text-sm font-medium text-gray-900">Store</a>
-            <a href="#" className="text-sm font-medium text-gray-500 hover:text-gray-900">Categories</a>
-            <a href="#" className="text-sm font-medium text-gray-500 hover:text-gray-900">Deals</a>
-            <a href="#" className="text-sm font-medium text-gray-500 hover:text-gray-900">New</a>
+          <div className="hidden md:ml-6 md:flex md:space-x-6">
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-text-primary">Minha vitrine</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">
+              Oportunidades
+              <ChevronDown className="ml-1 h-4 w-4 inline" />
+            </a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Meus projetos</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">
+              Produtos lançados
+              <ChevronDown className="ml-1 h-4 w-4 inline" />
+            </a>
           </div>
         </div>
-        
-        <div className="flex-1 flex items-center justify-center max-w-md mx-auto">
-          <div className="w-full">
-            <div className="relative text-gray-500 focus-within:text-gray-900">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <Search className="h-4 w-4" aria-hidden="true" />
-              </div>
-              <input
-                id="search"
-                className="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:border-primary-main focus:text-gray-900 focus:outline-none focus:ring-1 focus:ring-primary-main"
-                placeholder="Search products..."
-                type="search"
-              />
-            </div>
-          </div>
-        </div>
-        
-        <div className="flex items-center justify-end gap-4">
-          <a href="#" className="hidden sm:flex items-center text-sm font-medium text-gray-700 hover:text-gray-900">
-            Help
-            <ChevronDown className="ml-1 h-4 w-4" aria-hidden="true" />
-          </a>
+        <div className="flex items-center space-x-4">
+          <Button variant="default" className="bg-amicci-500 hover:bg-amicci-600 flex items-center gap-2">
+            <Rocket className="h-4 w-4" />
+            Impulsionar negócios
+          </Button>
           
-          <IconButton 
-            variant="outline-secondary" 
-            icon={<Bell size={18} />} 
-            aria-label="Ver notificações"
-          />
+          <IconButton variant="outline-secondary" icon={<HelpCircle size={18} />} aria-label="Ajuda" />
+          <IconButton variant="outline-secondary" icon={<Bell size={18} />} aria-label="Ver notificações" />
           
-          <IconButton 
-            variant="outline-secondary" 
-            icon={<ShoppingCart size={18} />} 
-            aria-label="Ver carrinho"
+          <ProfileButton 
+            userName="Amanda Silva"
+            companyName="Empresa XYZ"
+            showClientLogo={false}
+            avatarText="AS"
+            showMenuIcon={false}
           />
         </div>
       </>
     }
+    headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Minha vitrine</h1>}
   >
     <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
   </StackedLayout>
@@ -541,56 +532,50 @@ export const MarketplaceExample = () => (
 const institutionalExampleCode = `import React from 'react';
 import { StackedLayout } from '@/components/application-shells/StackedLayout';
 import { IconButton } from '@/components/ui/icon-button';
-import { ChevronDown, Menu, Globe } from 'lucide-react';
+import { ChevronDown, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
 
 export const InstitutionalExample = () => (
   <StackedLayout
-    variant="institutional"
+    variant="light-border"
+    mainClassName="bg-white"
+    headerClassName="bg-white"
     navigationContent={
       <>
-        <div className="flex items-center flex-1">
+        <div className="flex items-center">
           <div className="flex-shrink-0">
             <img className="h-8 w-auto" src={amicciLogoLight} alt="Amicci" />
           </div>
-          <div className="hidden sm:ml-6 sm:flex sm:space-x-4">
-            <a href="#" className="text-sm font-medium text-gray-900">Home</a>
-            <div className="relative inline-block text-left group">
-              <button className="flex items-center text-sm font-medium text-gray-500 hover:text-gray-900">
-                Products
-                <ChevronDown className="ml-1 h-4 w-4" aria-hidden="true" />
-              </button>
-            </div>
-            <div className="relative inline-block text-left group">
-              <button className="flex items-center text-sm font-medium text-gray-500 hover:text-gray-900">
-                Solutions
-                <ChevronDown className="ml-1 h-4 w-4" aria-hidden="true" />
-              </button>
-            </div>
-            <a href="#" className="text-sm font-medium text-gray-500 hover:text-gray-900">Pricing</a>
-            <a href="#" className="text-sm font-medium text-gray-500 hover:text-gray-900">Resources</a>
+          <div className="hidden md:ml-6 md:flex md:space-x-6">
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">
+              Home
+              <ChevronDown className="ml-1 h-4 w-4 inline" />
+            </a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">
+              Plataforma
+              <ChevronDown className="ml-1 h-4 w-4 inline" />
+            </a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Sobre</a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">
+              Conteúdos
+              <ChevronDown className="ml-1 h-4 w-4 inline" />
+            </a>
+            <a href="#" className="text-base font-medium leading-7 tracking-tight font-roboto text-gray-500 hover:text-gray-700">Suporte</a>
           </div>
         </div>
-        
-        <div className="flex items-center justify-end space-x-3">
-          <div className="hidden md:flex items-center gap-2">
-            <div className="flex items-center gap-1 text-gray-500">
-              <Globe size={16} />
-              <span className="text-sm">EN</span>
-              <ChevronDown size={16} />
-            </div>
-            <a href="#" className="text-sm text-gray-500 hover:text-gray-900">Sign in</a>
-            <Button size="sm">Get started</Button>
+        <div className="flex items-center space-x-4">
+          <div className="flex items-center">
+            <Button variant="outline" className="rounded-l-md rounded-r-none border-r-0">
+              Login
+            </Button>
+            <Button variant="outline" className="rounded-l-none rounded-r-md">
+              <ChevronDown className="h-4 w-4" />
+            </Button>
           </div>
+          <Button className="bg-amicci-500 hover:bg-amicci-600">Falar com especialista</Button>
           
-          <div className="md:hidden">
-            <IconButton 
-              variant="outline-secondary" 
-              icon={<Menu size={20} />} 
-              aria-label="Menu"
-            />
-          </div>
+          <IconButton variant="outline-secondary" icon={<Globe size={18} />} aria-label="Idioma" />
         </div>
       </>
     }
@@ -624,9 +609,13 @@ export const InstitutionalExample = () => (
 const marketplaceBuyerExampleCode = `import React from 'react';
 import { StackedLayout } from '@/components/application-shells/StackedLayout';
 import { IconButton } from '@/components/ui/icon-button';
-import { Bell, Search, ChevronDown, Menu } from 'lucide-react';
+import { Bell, ChevronDown, HelpCircle, Sparkles } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { ProfileButton } from '@/components/ui/profile-button';
 import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
+import defaultLogo from '@/pages/assets/client-logo.svg';
+import Lottie from 'lottie-react';
+import animationData from '@/pages/assets/lottie-dot.json';
 
 export const MarketplaceBuyerExample = () => (
   <StackedLayout
@@ -653,102 +642,32 @@ export const MarketplaceBuyerExample = () => (
           </div>
         </div>
         <div className="flex items-center space-x-4">
-          <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
-            <span className="sr-only">Ajuda</span>
-            <Search className="h-6 w-6" aria-hidden="true" />
-          </button>
-          <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
-            <span className="sr-only">Ver notificações</span>
-            <Bell className="h-6 w-6" aria-hidden="true" />
-          </button>
+          <Button variant="outline-secondary" className="flex items-center">
+            <Sparkles className="h-6 w-6 text-tertiary-main mr-1" />
+            <span className="text-text-primary mr-0">Amy</span>
+            <div className="h-12 w-8 flex items-center justify-center">
+              <Lottie animationData={animationData} loop={true} autoplay={true} style={{
+                height: '100%',
+                width: '100%'
+              }} />
+            </div>
+          </Button>
+          
+          <IconButton variant="outline-secondary" icon={<HelpCircle size={18} />} aria-label="Ajuda" />
+          <IconButton variant="outline-secondary" icon={<Bell size={18} />} aria-label="Ver notificações" />
+          
           <ProfileButton 
-            userName="João Costa"
-            companyName="Empresa ABC"
+            logoSrc={defaultLogo}
+            companyName=""
+            userName=""
             showClientLogo={true}
-            avatarText="JC"
-            showMenuIcon={true}
-            menuIcon={<Menu className="h-6 w-6" />}
+            showAvatar={true}
+            showMenuIcon={false}
+            avatarText="AA"
           />
         </div>
       </>
     }
     headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Meus Projetos</h1>}
   >
-    <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
-  </StackedLayout>
-);`;
-
-const LayoutComponent = ({
-  title,
-  component,
-  code
-}) => {
-  const [showCode, setShowCode] = useState(false);
-  const [copied, setCopied] = useState(false);
-  
-  const copyToClipboard = () => {
-    if (code) {
-      navigator.clipboard.writeText(code);
-      setCopied(true);
-      setTimeout(() => {
-        setCopied(false);
-      }, 2000);
-    }
-  };
-  
-  return (
-    <div className="space-y-3 w-full">
-      <div className="px-4">
-        <h3 className="text-xl font-medium text-gray-900">{title}</h3>
-      </div>
-      
-      <div className="border rounded-lg overflow-hidden shadow-sm w-full">
-        <div className="bg-gray-100 w-full h-[500px] overflow-hidden">
-          {component}
-        </div>
-        
-        <div className="border-t border-gray-200 flex justify-between items-center px-4 py-3 bg-gray-50">
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            onClick={() => setShowCode(!showCode)} 
-            className="text-sm text-gray-600 hover:text-gray-900 flex items-center gap-1"
-          >
-            <ChevronRight 
-              size={16} 
-              className={cn("transition-transform", showCode ? "rotate-90" : "")} 
-            />
-            <span>Show code</span>
-          </Button>
-          
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            onClick={copyToClipboard} 
-            className="text-sm text-gray-600 hover:text-gray-900"
-          >
-            {copied ? (
-              <CheckCheck size={16} className="mr-1" />
-            ) : (
-              <Copy size={16} className="mr-1" />
-            )}
-            <span>{copied ? "Copied" : "Copy"}</span>
-          </Button>
-        </div>
-        
-        <div className={cn(
-          "transition-all duration-300 overflow-hidden",
-          showCode ? "max-h-[400px] opacity-100 p-4 border-t border-gray-200 bg-white" : "max-h-0 opacity-0 p-0"
-        )}>
-          {showCode && (
-            <pre className="font-mono text-sm text-gray-800 w-full overflow-x-auto">
-              <code>{code}</code>
-            </pre>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default StackedLayouts;
+    <div className="h-96 rounded-lg border-4 border-dashed border

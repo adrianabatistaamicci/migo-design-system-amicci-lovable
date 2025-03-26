@@ -118,8 +118,7 @@ const StackedLayout = ({
                   <ProfileButton 
                     userName="Maria Silva"
                     companyName="Empresa Ltda."
-                    showMenuIcon={true}
-                    menuIcon={<Menu className="h-6 w-6 text-white" />}
+                    showMenuIcon={false}
                   />
                 </div>
               </>
@@ -165,8 +164,7 @@ const StackedLayout = ({
                   <ProfileButton 
                     userName="Maria Silva"
                     companyName="Empresa Ltda."
-                    showMenuIcon={true}
-                    menuIcon={<Menu className={cn("h-6 w-6", darkHeader ? "text-white" : "")} />}
+                    showMenuIcon={false}
                   />
                   <div className="ml-2 -mr-2 flex items-center md:hidden">
                     <button type="button" className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none">
