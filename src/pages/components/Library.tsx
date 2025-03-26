@@ -32,7 +32,7 @@ const LibraryPage: React.FC = () => {
       const componentName = path.split('/').pop()?.replace('.tsx', '') || '';
       // Skip EmptyState component and Header component as we'll add them manually to prevent duplication
       // Also skip HeroSection and other components as requested by the user
-      if (componentName && componentName !== 'EmptyState' && componentName !== 'Header' && componentName !== 'ComponentsHeader' && componentName !== 'FoundationsHeader' && componentName !== 'HeroSection' && componentName !== 'DocumentationSkeleton' && libraryComponents[path].default) {
+      if (componentName && componentName !== 'EmptyState' && componentName !== 'Header' && componentName !== 'ComponentsHeader' && componentName !== 'FoundationsHeader' && componentName !== 'HeroSection' && componentName !== 'DocumentationSkeleton' && componentName !== 'Footer' && libraryComponents[path].default) {
         formattedComponents[componentName] = libraryComponents[path].default;
       }
     }
@@ -143,9 +143,6 @@ const LibraryPage: React.FC = () => {
 />`} className="w-full">
               <div className="p-4 w-full">
                 
-                <div className="-mx-4">
-                  
-                </div>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   <div className="space-y-2">
                     <p className="text-sm text-gray-500">Cor Primária</p>
