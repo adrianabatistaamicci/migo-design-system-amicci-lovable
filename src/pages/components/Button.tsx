@@ -6,6 +6,7 @@ import { Mail, ArrowRight, Plus, X } from 'lucide-react';
 import Header from '@/components/library-components/Header';
 import { TailwindTabs } from '@/components/ui/tabs';
 import CodeBlock from '@/components/CodeBlock';
+
 const ButtonPage = () => {
   const [activeTab, setActiveTab] = useState('examples');
   return <div className="w-full animate-slide-in">
@@ -25,10 +26,7 @@ const ButtonPage = () => {
               <ComponentCard title="Button Variants" description="Different visual styles for buttons." code={`<Button>Default</Button>\n<Button variant="secondary">Secondary</Button>\n<Button variant="outline">Outline</Button>\n<Button variant="ghost">Ghost</Button>\n<Button variant="link">Link</Button>\n<Button variant="destructive">Destructive</Button>`}>
                 <div className="flex flex-wrap gap-4">
                   <Button>Default</Button>
-                  
-                  <Button variant="outline">Outline</Button>
-                  
-                  
+                  <Button variant="outline-secondary">Secondary</Button>
                   <Button variant="destructive">Destructive</Button>
                 </div>
               </ComponentCard>
@@ -285,4 +283,5 @@ const ButtonPage = () => {
       </div>
     </div>;
 };
+
 export default ButtonPage;
