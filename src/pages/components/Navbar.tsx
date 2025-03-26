@@ -1,3 +1,4 @@
+
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
@@ -26,8 +27,8 @@ const Navbar = () => {
       
       <div className="space-y-12 mt-10">
         <LayoutComponent title="Navbar Institucional" component={<InstitutionalNav />} />
-        <LayoutComponent title="Navbar Marketplace" component={<MarketplaceNav />} />
         <LayoutComponent title="Navbar Buyer" component={<BuyerNav />} />
+        <LayoutComponent title="Navbar Seller" component={<SellerNav />} />
       </div>
     </div>
   );
@@ -52,7 +53,7 @@ const LayoutComponent = ({
   );
 };
 
-const MarketplaceNav = () => {
+const SellerNav = () => {
   return (
     <div className="min-h-[160px] w-full bg-white">
       <nav className="bg-white border-b border-gray-200">
