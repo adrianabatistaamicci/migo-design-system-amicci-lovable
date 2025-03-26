@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Copy, CheckCheck, ChevronRight } from 'lucide-react';
+import { Copy, CheckCheck, Maximize2, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
@@ -11,6 +11,8 @@ interface CodeBlockProps {
   title?: string;
   className?: string;
   showCopy?: boolean;
+  showFullscreen?: boolean;
+  onFullscreen?: () => void;
 }
 
 const CodeBlock: React.FC<CodeBlockProps> = ({
@@ -18,7 +20,9 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   language = 'jsx',
   title,
   className,
-  showCopy = true
+  showCopy = true,
+  showFullscreen = false,
+  onFullscreen
 }) => {
   const [copied, setCopied] = useState(false);
   const [showCode, setShowCode] = useState(false);
@@ -39,21 +43,34 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
             <span className="text-sm font-medium text-gray-600">{title}</span>
           )}
         </div>
-        {showCopy && (
-          <Button
-            variant="ghost"
-            size="sm"
-            className="h-8 px-2 text-gray-500"
-            onClick={copyToClipboard}
-          >
-            {copied ? (
-              <CheckCheck className="h-4 w-4 text-green-500" />
-            ) : (
-              <Copy className="h-4 w-4" />
-            )}
-            <span className="ml-2 text-xs">{copied ? 'Copiado!' : 'Copiar'}</span>
-          </Button>
-        )}
+        <div className="flex space-x-2">
+          {showCopy && (
+            <Button
+              variant="ghost"
+              size="sm"
+              className="h-8 px-2 text-gray-500"
+              onClick={copyToClipboard}
+            >
+              {copied ? (
+                <CheckCheck className="h-4 w-4 text-green-500" />
+              ) : (
+                <Copy className="h-4 w-4" />
+              )}
+              <span className="ml-2 text-xs">{copied ? 'Copiado!' : 'Copiar'}</span>
+            </Button>
+          )}
+          {showFullscreen && onFullscreen && (
+            <Button
+              variant="ghost"
+              size="sm"
+              className="h-8 px-2 text-gray-500"
+              onClick={onFullscreen}
+            >
+              <Maximize2 className="h-4 w-4" />
+              <span className="ml-2 text-xs">Tela cheia</span>
+            </Button>
+          )}
+        </div>
       </div>
       <Collapsible
         open={showCode}
