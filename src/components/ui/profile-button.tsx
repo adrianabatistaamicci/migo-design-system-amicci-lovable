@@ -70,7 +70,7 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(({
                 {avatarSrc ? <img src={avatarSrc} alt={avatarAlt} className="h-full w-full rounded-full object-cover" /> : userInitials}
               </div>
             
-              {showUserInfo && <div className="flex flex-col items-start text-left ml-3">
+              {showUserInfo && <div className="flex flex-col items-start text-left ml-35">
                   {userName && userName.trim() !== "" && <span className="text-base font-medium text-gray-900 leading-tight">{displayUserName}</span>}
                   {companyName && companyName.trim() !== "" && <span className="text-sm text-gray-500 leading-tight">{displayCompanyName}</span>}
                 </div>}
