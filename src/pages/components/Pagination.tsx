@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import ComponentCard from '@/components/ComponentCard';
@@ -675,3 +676,210 @@ const PaginationPage = () => {
         <ChevronRight className="h-4 w-4" />
       </Button>
     </div>
+  </CardFooter>
+</Card>`}
+                >
+                  <div className="w-full">
+                    <Card className="w-full">
+                      <CardContent className="p-6">
+                        <p>Conteúdo do card...</p>
+                      </CardContent>
+                      <CardFooter className="flex items-center justify-between border-t p-4">
+                        <div className="text-sm text-gray-500">
+                          Mostrando <strong>1</strong> a <strong>10</strong> de <strong>100</strong> resultados
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="h-8 w-8 p-0"
+                            disabled
+                          >
+                            <ChevronLeft className="h-4 w-4" />
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="h-8 w-8 p-0"
+                          >
+                            <ChevronRight className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </CardFooter>
+                    </Card>
+                  </div>
+                </ComponentCard>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {activeTab === 'api' && (
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-2xl font-medium text-gray-900 mb-4">API Reference</h2>
+              
+              <p className="text-gray-700 mb-6">
+                Aqui está a documentação dos componentes de paginação e suas props.
+              </p>
+              
+              <h3 className="text-lg font-medium text-gray-900 mb-3">Pagination</h3>
+              <CodeBlock
+                code={`import { 
+  Pagination, 
+  PaginationContent, 
+  PaginationEllipsis, 
+  PaginationItem, 
+  PaginationLink, 
+  PaginationNext, 
+  PaginationPrevious 
+} from "@/components/ui/pagination"`}
+                language="tsx"
+              />
+              
+              <div className="mt-6 border rounded-md">
+                <div className="px-4 py-3 border-b">
+                  <h4 className="font-medium">Componentes</h4>
+                </div>
+                <div className="divide-y">
+                  <div className="px-4 py-3">
+                    <h5 className="font-medium mb-2">Pagination</h5>
+                    <p className="text-sm text-gray-700">
+                      Container raiz para todos os componentes de paginação.
+                    </p>
+                  </div>
+                  <div className="px-4 py-3">
+                    <h5 className="font-medium mb-2">PaginationContent</h5>
+                    <p className="text-sm text-gray-700">
+                      Container para os itens de paginação.
+                    </p>
+                  </div>
+                  <div className="px-4 py-3">
+                    <h5 className="font-medium mb-2">PaginationItem</h5>
+                    <p className="text-sm text-gray-700">
+                      Wrapper para cada item individual de paginação.
+                    </p>
+                  </div>
+                  <div className="px-4 py-3">
+                    <h5 className="font-medium mb-2">PaginationLink</h5>
+                    <p className="text-sm text-gray-700">
+                      O link para uma página específica.
+                    </p>
+                    <div className="mt-2">
+                      <h6 className="text-xs font-medium mb-1">Props</h6>
+                      <ul className="text-xs text-gray-700 space-y-1 list-disc list-inside">
+                        <li><code>isActive?: boolean</code> - Define se este é o link da página atual</li>
+                        <li><code>size?: 'default' | 'sm' | 'lg' | 'icon'</code> - Tamanho do link</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="px-4 py-3">
+                    <h5 className="font-medium mb-2">PaginationPrevious</h5>
+                    <p className="text-sm text-gray-700">
+                      Link para a página anterior.
+                    </p>
+                  </div>
+                  <div className="px-4 py-3">
+                    <h5 className="font-medium mb-2">PaginationNext</h5>
+                    <p className="text-sm text-gray-700">
+                      Link para a próxima página.
+                    </p>
+                  </div>
+                  <div className="px-4 py-3">
+                    <h5 className="font-medium mb-2">PaginationEllipsis</h5>
+                    <p className="text-sm text-gray-700">
+                      Representa uma série de páginas omitidas.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <h3 className="text-lg font-medium text-gray-900 mt-8 mb-3">Exemplo de uso com React Router</h3>
+              <CodeBlock
+                code={`import { Link, useSearchParams } from 'react-router-dom';
+import { 
+  Pagination, 
+  PaginationContent, 
+  PaginationEllipsis, 
+  PaginationItem, 
+  PaginationLink, 
+  PaginationNext, 
+  PaginationPrevious 
+} from "@/components/ui/pagination";
+
+const PaginationExample = () => {
+  const [searchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get('page')) || 1;
+  const totalPages = 10;
+  
+  // Função para gerar href com o parâmetro de página
+  const getPageHref = (page: number) => {
+    return \`?page=\${page}\`;
+  };
+  
+  return (
+    <Pagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious 
+            as={Link} 
+            to={getPageHref(Math.max(1, currentPage - 1))} 
+          />
+        </PaginationItem>
+        
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+          // Mostrar apenas páginas próximas à atual e primeira/última
+          if (
+            page === 1 ||
+            page === totalPages ||
+            (page >= currentPage - 1 && page <= currentPage + 1)
+          ) {
+            return (
+              <PaginationItem key={page}>
+                <PaginationLink 
+                  as={Link} 
+                  to={getPageHref(page)} 
+                  isActive={page === currentPage}
+                >
+                  {page}
+                </PaginationLink>
+              </PaginationItem>
+            );
+          }
+          
+          // Adicionar elipses apenas uma vez entre intervalos
+          if (
+            (page === 2 && currentPage > 3) ||
+            (page === totalPages - 1 && currentPage < totalPages - 2)
+          ) {
+            return (
+              <PaginationItem key={page}>
+                <PaginationEllipsis />
+              </PaginationItem>
+            );
+          }
+          
+          return null;
+        })}
+        
+        <PaginationItem>
+          <PaginationNext 
+            as={Link} 
+            to={getPageHref(Math.min(totalPages, currentPage + 1))} 
+          />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
+  );
+};`}
+                language="tsx"
+              />
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default PaginationPage;
