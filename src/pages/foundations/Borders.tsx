@@ -5,6 +5,7 @@ import ComponentCard from '@/components/ComponentCard';
 import Header from '@/components/library-components/Header';
 import CodeBlock from '@/components/CodeBlock';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Separator } from '@/components/ui/separator';
 
 const Borders = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -36,7 +37,7 @@ const Borders = () => {
         type="foundations"
       />
 
-      <div className="">
+      <div className="space-y-8">
         <TailwindTabs 
           defaultValue="overview"
           tabs={[
@@ -48,259 +49,309 @@ const Borders = () => {
           onChange={value => setActiveTab(value)}
         />
         
-        <div className="mt-6">
+        <div className="space-y-12">
           {activeTab === 'overview' && (
-            <div className="space-y-6">
-              <ComponentCard title="Visão Geral do Sistema de Bordas" description="Explore os tipos de bordas disponíveis e suas características.">
+            <div className="space-y-10">
+              <div>
+                <h2 className="text-2xl font-semibold text-mui-text-primary mb-4">Raio de Borda (Border Radius)</h2>
                 <p className="text-mui-text-secondary mb-6">
-                  Nosso sistema de bordas é projetado para proporcionar consistência e harmonia visual em toda a aplicação.
+                  O raio de borda é aplicado para suavizar as bordas dos elementos, proporcionando uma aparência mais moderna e amigável à interface.
                 </p>
                 
-                <div className="bg-gray-50 border rounded-lg p-6 mb-6">
-                  <h3 className="text-lg font-medium mb-3">Princípios do Sistema de Bordas</h3>
-                  <p className="mb-4">
-                    O sistema de bordas segue princípios importantes para garantir consistência e acessibilidade:
-                  </p>
-                  <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                    <li><strong>Consistência visual:</strong> Utilizamos um conjunto padronizado de estilos de borda para criar familiaridade.</li>
-                    <li><strong>Semântica:</strong> Cada tipo de borda comunica uma função ou estado específico da interface.</li>
-                    <li><strong>Hierarquia visual:</strong> A espessura e o estilo das bordas ajudam a estabelecer hierarquia entre elementos.</li>
-                    <li><strong>Acessibilidade:</strong> As bordas devem ter contraste suficiente para garantir visibilidade para todos os usuários.</li>
-                    <li><strong>Escalabilidade:</strong> O sistema de bordas se adapta facilmente a diferentes densidades de pixel e fatores de escala.</li>
-                  </ul>
-                </div>
-                
-                <h3 className="text-xl font-medium mb-3">Raio de Borda (Border Radius)</h3>
-                <p className="text-mui-text-secondary mb-4">
-                  Use estas classes de borda para adicionar cantos arredondados aos elementos da interface.
-                </p>
-                
-                <div className="grid grid-cols-1 gap-4 mt-6 mb-8">
-                  {borderRadii.map(radius => (
-                    <div key={radius.name} className="flex items-center border rounded-lg p-4">
-                      <div className="flex-shrink-0 w-48">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-6">
+                  {borderRadii.map((radius) => (
+                    <div key={radius.name} className="flex flex-col">
+                      <div className={`${radius.name} border-2 border-primary-main bg-primary-light/20 h-24 w-full flex items-center justify-center mb-2`}>
+                        <span className="font-mono text-sm text-mui-text-secondary">{radius.name}</span>
+                      </div>
+                      <div className="flex justify-between mt-1">
                         <span className="text-sm font-medium">{radius.name}</span>
-                      </div>
-                      
-                      <div className="flex-grow mx-4">
-                        <div className="flex items-center">
-                          <div className={`bg-primary-light h-12 w-full ${radius.name} border border-primary-main`}>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="flex-shrink-0 w-24 text-right">
-                        <span className="text-sm font-mono">{radius.value}</span>
+                        <span className="text-sm font-mono text-mui-text-secondary">{radius.value}</span>
                       </div>
                     </div>
                   ))}
                 </div>
-                
-                <h3 className="text-xl font-medium mb-3">Espessura de Borda (Border Width)</h3>
-                <p className="text-mui-text-secondary mb-4">
-                  Controle a espessura das bordas dos elementos com estas classes.
+              </div>
+              
+              <Separator />
+              
+              <div>
+                <h2 className="text-2xl font-semibold text-mui-text-primary mb-4">Espessura de Borda (Border Width)</h2>
+                <p className="text-mui-text-secondary mb-6">
+                  A espessura da borda controla a intensidade com que os contornos se manifestam nos elementos.
                 </p>
                 
-                <div className="grid grid-cols-1 gap-4 mt-6">
-                  {borderWidths.map(width => (
-                    <div key={width.name} className="flex items-center border rounded-lg p-4">
-                      <div className="flex-shrink-0 w-48">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-6">
+                  {borderWidths.map((width) => (
+                    <div key={width.name} className="flex flex-col">
+                      <div className={`rounded-lg ${width.name} border-secondary-main bg-secondary-light/20 h-24 w-full flex items-center justify-center mb-2`}>
+                        <span className="font-mono text-sm text-mui-text-secondary">{width.name}</span>
+                      </div>
+                      <div className="flex justify-between mt-1">
                         <span className="text-sm font-medium">{width.name}</span>
-                      </div>
-                      
-                      <div className="flex-grow mx-4">
-                        <div className="flex items-center">
-                          <div className={`bg-tertiary-light/20 h-12 w-full rounded-md ${width.name} border-tertiary-main`}>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="flex-shrink-0 w-24 text-right">
-                        <span className="text-sm font-mono">{width.value}</span>
+                        <span className="text-sm font-mono text-mui-text-secondary">{width.value}</span>
                       </div>
                     </div>
                   ))}
                 </div>
-                
-                <p className="text-sm text-gray-600 mt-4">
-                  O sistema de bordas é projetado para criar uma escala visual harmônica, 
-                  com variações de tamanho, raio e estilo para fornecer ritmo e hierarquia em layouts.
+              </div>
+              
+              <Separator />
+              
+              <div>
+                <h2 className="text-2xl font-semibold text-mui-text-primary mb-4">Estilos de Borda (Border Style)</h2>
+                <p className="text-mui-text-secondary mb-6">
+                  Os estilos de borda definem a aparência visual das linhas que contornam os elementos.
                 </p>
-              </ComponentCard>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-6">
+                  {[
+                    { name: 'border-solid', desc: 'Linha sólida (padrão)' },
+                    { name: 'border-dashed', desc: 'Linha tracejada' },
+                    { name: 'border-dotted', desc: 'Linha pontilhada' }
+                  ].map((style) => (
+                    <div key={style.name} className="flex flex-col">
+                      <div className={`rounded-lg border-2 ${style.name} border-tertiary-main bg-tertiary-light/20 h-24 w-full flex items-center justify-center mb-2`}>
+                        <span className="font-mono text-sm text-mui-text-secondary">{style.name}</span>
+                      </div>
+                      <div className="mt-1">
+                        <span className="text-sm font-medium">{style.name}</span>
+                        <p className="text-sm text-mui-text-secondary">{style.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <Separator />
+              
+              <div>
+                <h2 className="text-2xl font-semibold text-mui-text-primary mb-4">Cores de Borda (Border Color)</h2>
+                <p className="text-mui-text-secondary mb-6">
+                  As cores das bordas devem ser escolhidas de acordo com seu significado e função.
+                </p>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-6">
+                  {[
+                    { name: 'border-primary-main', color: 'primary-main', desc: 'Primária' },
+                    { name: 'border-secondary-main', color: 'secondary-main', desc: 'Secundária' },
+                    { name: 'border-tertiary-main', color: 'tertiary-main', desc: 'Terciária' },
+                    { name: 'border-error-main', color: 'error-main', desc: 'Erro' },
+                    { name: 'border-warning-main', color: 'warning-main', desc: 'Alerta' },
+                    { name: 'border-success-main', color: 'success-main', desc: 'Sucesso' },
+                    { name: 'border-info-main', color: 'info-main', desc: 'Informação' },
+                    { name: 'border-gray-400', color: 'gray-400', desc: 'Cinza (neutro)' }
+                  ].map((color) => (
+                    <div key={color.name} className="flex flex-col">
+                      <div className={`rounded-lg border-2 border-${color.color} h-24 w-full flex items-center justify-center mb-2`}>
+                        <span className="font-mono text-sm text-mui-text-secondary">{color.name}</span>
+                      </div>
+                      <div className="mt-1">
+                        <span className="text-sm font-medium">{color.desc}</span>
+                        <p className="text-sm text-mui-text-secondary">{color.name}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           )}
 
           {activeTab === 'usage' && (
-            <div className="space-y-6">
-              <ComponentCard title="Aplicação Prática das Bordas" description="Exemplos de como usar os diferentes tipos de bordas.">
+            <div className="space-y-10">
+              <div>
+                <h2 className="text-2xl font-semibold text-mui-text-primary mb-4">Aplicação Específica de Border Radius</h2>
                 <p className="text-mui-text-secondary mb-6">
-                  Utilize os diferentes estilos de borda para definir contornos, separações e agrupamentos de elementos de forma consistente.
+                  O raio de borda pode ser aplicado em lados específicos para criar designs flexíveis.
                 </p>
                 
-                <div className="space-y-8">
-                  <div>
-                    <h3 className="text-xl font-medium mb-3">Aplicação Específica de Border Radius</h3>
-                    <p className="text-mui-text-secondary mb-3">
-                      Aplique border-radius em lados específicos para criar designs flexíveis.
-                    </p>
-                    
-                    <div className="space-y-4 mt-6">
-                      {[
-                        { name: 'rounded-t-lg', desc: 'Borda superior', side: 't' },
-                        { name: 'rounded-r-lg', desc: 'Borda direita', side: 'r' },
-                        { name: 'rounded-b-lg', desc: 'Borda inferior', side: 'b' },
-                        { name: 'rounded-l-lg', desc: 'Borda esquerda', side: 'l' }
-                      ].map(radius => (
-                        <div key={radius.name} className="border rounded-lg p-4">
-                          <div className="flex items-center gap-4">
-                            <div className="w-32 text-sm">{radius.name}</div>
-                            <div className="flex-grow">
-                              <div className="bg-gray-100 rounded p-4">
-                                <div className={`bg-secondary-light border-2 border-secondary-main ${radius.name} w-full h-16 flex items-center justify-center`}>
-                                  <span className="text-sm">{radius.desc}</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-medium mb-3">Estilos de Borda (Border Style)</h3>
-                    <p className="text-mui-text-secondary mb-3">
-                      Use estas classes para controlar o estilo visual das bordas.
-                    </p>
-                    
-                    <div className="space-y-4 mt-6">
-                      {[
-                        { name: 'border-solid', desc: 'Linha sólida (padrão)' },
-                        { name: 'border-dashed', desc: 'Linha tracejada' },
-                        { name: 'border-dotted', desc: 'Linha pontilhada' }
-                      ].map(style => (
-                        <div key={style.name} className="border rounded-lg p-4">
-                          <div className="flex items-center gap-4">
-                            <div className="w-32 text-sm">{style.name}</div>
-                            <div className="flex-grow">
-                              <div className={`bg-success-light/20 h-16 w-full rounded-md border-2 ${style.name} border-success-main flex items-center justify-center`}>
-                                <span className="text-sm">{style.desc}</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-medium mb-3">Aplicação Específica de Border Width</h3>
-                    <p className="text-mui-text-secondary mb-3">
-                      Controle a espessura de lados específicos da borda para criar efeitos visuais.
-                    </p>
-                    
-                    <div className="space-y-4 mt-6">
-                      {[
-                        { name: 'border-t-4', desc: 'Borda superior' },
-                        { name: 'border-r-4', desc: 'Borda direita' },
-                        { name: 'border-b-4', desc: 'Borda inferior' },
-                        { name: 'border-l-4', desc: 'Borda esquerda' }
-                      ].map(width => (
-                        <div key={width.name} className="border rounded-lg p-4">
-                          <div className="flex items-center gap-4">
-                            <div className="w-32 text-sm">{width.name}</div>
-                            <div className="flex-grow">
-                              <div className={`bg-info-light/20 h-16 w-full rounded-md ${width.name} border-info-main flex items-center justify-center`}>
-                                <span className="text-sm">{width.desc}</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </ComponentCard>
-              
-              <ComponentCard title="Cores de Borda" description="Utilize as cores semânticas para bordas alinhadas com o tom da mensagem.">
-                <p className="text-mui-text-secondary mb-4">
-                  As cores das bordas devem ser escolhidas de acordo com seu significado e função.
-                </p>
-                
-                <div className="space-y-4 mt-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-6">
                   {[
-                    { name: 'border-primary-main', desc: 'Primária' },
-                    { name: 'border-secondary-main', desc: 'Secundária' },
-                    { name: 'border-tertiary-main', desc: 'Terciária' },
-                    { name: 'border-error-main', desc: 'Erro' },
-                    { name: 'border-warning-main', desc: 'Alerta' },
-                    { name: 'border-success-main', desc: 'Sucesso' },
-                    { name: 'border-info-main', desc: 'Informação' },
-                    { name: 'border-gray-400', desc: 'Cinza (neutro)' }
-                  ].map(color => (
-                    <div key={color.name} className="border rounded-lg p-4">
-                      <div className="flex items-center gap-4">
-                        <div className="w-40 text-sm">{color.name}</div>
-                        <div className="flex-grow">
-                          <div className={`h-16 w-full rounded-md border-2 ${color.name} flex items-center justify-center`}>
-                            <span className="text-sm">{color.desc}</span>
-                          </div>
+                    { name: 'rounded-t-lg', desc: 'Borda superior', side: 't' },
+                    { name: 'rounded-r-lg', desc: 'Borda direita', side: 'r' },
+                    { name: 'rounded-b-lg', desc: 'Borda inferior', side: 'b' },
+                    { name: 'rounded-l-lg', desc: 'Borda esquerda', side: 'l' },
+                    { name: 'rounded-tl-lg', desc: 'Canto superior esquerdo', side: 'tl' },
+                    { name: 'rounded-tr-lg', desc: 'Canto superior direito', side: 'tr' },
+                    { name: 'rounded-bl-lg', desc: 'Canto inferior esquerdo', side: 'bl' },
+                    { name: 'rounded-br-lg', desc: 'Canto inferior direito', side: 'br' }
+                  ].map((radius) => (
+                    <div key={radius.name} className="flex flex-col p-4 border rounded-lg">
+                      <div className="flex gap-4 items-center">
+                        <div className="w-5/12">
+                          <span className="text-sm font-mono">{radius.name}</span>
+                          <p className="text-sm text-mui-text-secondary mt-1">{radius.desc}</p>
+                        </div>
+                        <div className="w-7/12">
+                          <div className={`bg-primary-light/20 border-2 border-primary-main ${radius.name} h-16 w-full`}></div>
                         </div>
                       </div>
                     </div>
                   ))}
                 </div>
-              </ComponentCard>
+              </div>
+              
+              <Separator />
+              
+              <div>
+                <h2 className="text-2xl font-semibold text-mui-text-primary mb-4">Aplicação Específica de Border Width</h2>
+                <p className="text-mui-text-secondary mb-6">
+                  Controle a espessura de lados específicos da borda para criar efeitos visuais.
+                </p>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-6">
+                  {[
+                    { name: 'border-t-2', desc: 'Borda superior' },
+                    { name: 'border-r-2', desc: 'Borda direita' },
+                    { name: 'border-b-2', desc: 'Borda inferior' },
+                    { name: 'border-l-2', desc: 'Borda esquerda' }
+                  ].map((width) => (
+                    <div key={width.name} className="flex flex-col p-4 border rounded-lg">
+                      <div className="flex gap-4 items-center">
+                        <div className="w-5/12">
+                          <span className="text-sm font-mono">{width.name}</span>
+                          <p className="text-sm text-mui-text-secondary mt-1">{width.desc}</p>
+                        </div>
+                        <div className="w-7/12">
+                          <div className={`bg-secondary-light/20 ${width.name} border-secondary-main rounded-lg h-16 w-full`}></div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <Separator />
+              
+              <div>
+                <h2 className="text-2xl font-semibold text-mui-text-primary mb-4">Exemplos de Aplicação</h2>
+                <p className="text-mui-text-secondary mb-6">
+                  Exemplos de como combinar diferentes propriedades de borda para criar elementos coesos.
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                  <div className="p-5 border-2 border-primary-main rounded-lg">
+                    <h3 className="font-medium text-lg mb-2 pb-2 border-b border-primary-light">Card com borda primária</h3>
+                    <p className="text-sm text-mui-text-secondary">
+                      Um exemplo de card com borda completa, utilizando cores primárias.
+                    </p>
+                  </div>
+                  
+                  <div className="p-5 border-l-4 border-info-main bg-info-light/10 rounded-r-lg">
+                    <h3 className="font-medium text-lg mb-2">Bloco de informação</h3>
+                    <p className="text-sm text-mui-text-secondary">
+                      Utilização de borda lateral para indicar um bloco de informação.
+                    </p>
+                  </div>
+                  
+                  <div className="p-5 border border-dashed border-warning-main rounded-md bg-warning-light/10">
+                    <h3 className="font-medium text-lg mb-2">Alerta com borda tracejada</h3>
+                    <p className="text-sm text-mui-text-secondary">
+                      Borda tracejada para chamar atenção para um alerta ou aviso.
+                    </p>
+                  </div>
+                  
+                  <div className="p-5 border-t-0 border-r-2 border-b-2 border-l-2 border-success-main rounded-b-lg bg-success-light/10">
+                    <h3 className="font-medium text-lg mb-2">Card sem borda superior</h3>
+                    <p className="text-sm text-mui-text-secondary">
+                      Exemplo de card sem borda superior, útil para conectar elementos.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
 
           {activeTab === 'utilities' && (
-            <div className="space-y-6">
-              <ComponentCard title="Utilitários de Bordas" description="Classes utilitárias para aplicar bordas de forma consistente.">
+            <div className="space-y-10">
+              <div>
+                <h2 className="text-2xl font-semibold text-mui-text-primary mb-4">Utilitários de Bordas no Tailwind</h2>
                 <p className="text-mui-text-secondary mb-6">
-                  Nossas classes utilitárias de bordas permitem que você defina bordas de forma rápida e consistente em toda a aplicação.
+                  O Tailwind CSS fornece um conjunto abrangente de classes utilitárias para aplicar bordas de maneira consistente.
                 </p>
                 
-                <div className="space-y-8">
-                  <div>
-                    <h3 className="text-xl font-medium mb-3">Boas Práticas de Uso</h3>
-                    <div className="space-y-4">
-                      <div className="border border-gray-200 p-4 rounded-lg">
-                        <h4 className="text-base font-medium text-mui-text-primary mb-2">Consistência</h4>
-                        <p className="text-sm text-mui-text-secondary">
-                          Mantenha a consistência no uso de bordas em toda a aplicação. Evite misturar muitos estilos diferentes sem propósito.
-                        </p>
-                      </div>
-                      
-                      <div className="border border-gray-200 p-4 rounded-lg">
-                        <h4 className="text-base font-medium text-mui-text-primary mb-2">Semântica</h4>
-                        <p className="text-sm text-mui-text-secondary">
-                          Use cores com significado. Por exemplo, bordas vermelhas para erros e bordas verdes para sucesso.
-                        </p>
-                      </div>
-                      
-                      <div className="border border-gray-200 p-4 rounded-lg">
-                        <h4 className="text-base font-medium text-mui-text-primary mb-2">Contraste</h4>
-                        <p className="text-sm text-mui-text-secondary">
-                          Assegure-se de que há contraste suficiente entre a borda e o fundo para garantir a visibilidade.
-                        </p>
-                      </div>
-                      
-                      <div className="border border-gray-200 p-4 rounded-lg">
-                        <h4 className="text-base font-medium text-mui-text-primary mb-2">Responsividade</h4>
-                        <p className="text-sm text-mui-text-secondary">
-                          Considere ajustar a espessura da borda em diferentes tamanhos de tela para manter a proporção visual.
-                        </p>
-                      </div>
-                    </div>
+                <div className="mt-6 space-y-6">
+                  <h3 className="text-xl font-medium mb-3">Referência de API</h3>
+                  <Table className="border rounded-lg overflow-hidden">
+                    <TableHeader>
+                      <TableRow className="bg-mui-sidebar">
+                        <TableHead className="w-1/4">Propriedade</TableHead>
+                        <TableHead className="w-1/4">Prefixo de Classe</TableHead>
+                        <TableHead className="w-2/4">Descrição</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      <TableRow>
+                        <TableCell className="font-mono">border-radius</TableCell>
+                        <TableCell className="font-mono">rounded-*</TableCell>
+                        <TableCell>Define o raio dos cantos do elemento, criando cantos arredondados.</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-mono">border-width</TableCell>
+                        <TableCell className="font-mono">border-*</TableCell>
+                        <TableCell>Define a espessura da borda ao redor do elemento.</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-mono">border-style</TableCell>
+                        <TableCell className="font-mono">border-solid, border-dashed, border-dotted</TableCell>
+                        <TableCell>Define o estilo da linha da borda.</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-mono">border-color</TableCell>
+                        <TableCell className="font-mono">border-{"{color}"}</TableCell>
+                        <TableCell>Define a cor da borda do elemento.</TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </div>
+              </div>
+              
+              <Separator />
+              
+              <div>
+                <h2 className="text-2xl font-semibold text-mui-text-primary mb-4">Boas Práticas de Uso</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                  <div className="border border-gray-200 p-4 rounded-lg">
+                    <h4 className="text-base font-medium text-mui-text-primary mb-2">Consistência</h4>
+                    <p className="text-sm text-mui-text-secondary">
+                      Mantenha a consistência no uso de bordas em toda a aplicação. Evite misturar muitos estilos diferentes sem propósito.
+                    </p>
                   </div>
-
-                  <div>
-                    <h3 className="text-xl font-medium mb-3">Exemplos de Código</h3>
-                    
-                    <CodeBlock 
-                      language="jsx"
-                      code={`// Exemplo de componente com diferentes bordas
+                  
+                  <div className="border border-gray-200 p-4 rounded-lg">
+                    <h4 className="text-base font-medium text-mui-text-primary mb-2">Semântica</h4>
+                    <p className="text-sm text-mui-text-secondary">
+                      Use cores com significado. Por exemplo, bordas vermelhas para erros e bordas verdes para sucesso.
+                    </p>
+                  </div>
+                  
+                  <div className="border border-gray-200 p-4 rounded-lg">
+                    <h4 className="text-base font-medium text-mui-text-primary mb-2">Contraste</h4>
+                    <p className="text-sm text-mui-text-secondary">
+                      Assegure-se de que há contraste suficiente entre a borda e o fundo para garantir a visibilidade.
+                    </p>
+                  </div>
+                  
+                  <div className="border border-gray-200 p-4 rounded-lg">
+                    <h4 className="text-base font-medium text-mui-text-primary mb-2">Responsividade</h4>
+                    <p className="text-sm text-mui-text-secondary">
+                      Considere ajustar a espessura da borda em diferentes tamanhos de tela para manter a proporção visual.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <Separator />
+              
+              <div>
+                <h2 className="text-2xl font-semibold text-mui-text-primary mb-4">Exemplos de Código</h2>
+                <p className="text-mui-text-secondary mb-6">
+                  Exemplos práticos de implementação de bordas com Tailwind CSS.
+                </p>
+                
+                <CodeBlock 
+                  language="jsx"
+                  code={`// Exemplo de componente com diferentes bordas
 <div className="border-2 border-primary-main rounded-lg p-4">
   <h3 className="border-b border-primary-light pb-2">Título do Card</h3>
   <p className="mt-2">Conteúdo do card com borda primária.</p>
@@ -313,73 +364,8 @@ const Borders = () => {
 <div className="border-l-4 border-info-main pl-4">
   <p>Bloco de informação com borda à esquerda.</p>
 </div>`}
-                    />
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-medium mb-3">Referência de API</h3>
-                    
-                    <Table className="border rounded-lg overflow-hidden">
-                      <TableHeader>
-                        <TableRow className="bg-mui-sidebar">
-                          <TableHead className="w-1/4">Propriedade</TableHead>
-                          <TableHead className="w-3/4">Descrição</TableHead>
-                        </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                        <TableRow>
-                          <TableCell className="font-mono">border-radius</TableCell>
-                          <TableCell>Define o raio dos cantos do elemento, criando cantos arredondados.</TableCell>
-                        </TableRow>
-                        <TableRow>
-                          <TableCell className="font-mono">border-width</TableCell>
-                          <TableCell>Define a espessura da borda ao redor do elemento.</TableCell>
-                        </TableRow>
-                        <TableRow>
-                          <TableCell className="font-mono">border-style</TableCell>
-                          <TableCell>Define o estilo da linha da borda (sólida, tracejada, pontilhada).</TableCell>
-                        </TableRow>
-                        <TableRow>
-                          <TableCell className="font-mono">border-color</TableCell>
-                          <TableCell>Define a cor da borda do elemento.</TableCell>
-                        </TableRow>
-                      </TableBody>
-                    </Table>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-medium mb-3">Utilitários de Borda</h3>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                      <div className="border rounded-lg p-4">
-                        <h4 className="text-sm font-medium mb-2">Utilitários de Border Radius</h4>
-                        <ul className="space-y-2 text-sm">
-                          {borderRadii.map(radius => (
-                            <li key={radius.name}>
-                              <code className="bg-gray-100 px-1 py-0.5 rounded">{radius.name}</code> - {radius.value}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      
-                      <div className="border rounded-lg p-4">
-                        <h4 className="text-sm font-medium mb-2">Utilitários de Border Width</h4>
-                        <ul className="space-y-2 text-sm">
-                          {borderWidths.map(width => (
-                            <li key={width.name}>
-                              <code className="bg-gray-100 px-1 py-0.5 rounded">{width.name}</code> - {width.value}
-                            </li>
-                          ))}
-                          <li><code className="bg-gray-100 px-1 py-0.5 rounded">border-t-{'{width}'}</code> - Borda superior</li>
-                          <li><code className="bg-gray-100 px-1 py-0.5 rounded">border-r-{'{width}'}</code> - Borda direita</li>
-                          <li><code className="bg-gray-100 px-1 py-0.5 rounded">border-b-{'{width}'}</code> - Borda inferior</li>
-                          <li><code className="bg-gray-100 px-1 py-0.5 rounded">border-l-{'{width}'}</code> - Borda esquerda</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </ComponentCard>
+                />
+              </div>
             </div>
           )}
         </div>
