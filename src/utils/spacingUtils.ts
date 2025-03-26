@@ -64,5 +64,15 @@ export const getSpacingClass = (
   const prefix = type === 'margin' ? 'm' : type === 'padding' ? 'p' : 'gap';
   const directionSuffix = direction ? `-${direction}` : '';
   
-  return `${prefix}${directionSuffix}-${size}`;
+  const sizeValue = typeof size === 'string' && size.startsWith('space-') 
+    ? size.split('-')[1] 
+    : size;
+  
+  return `${prefix}${directionSuffix}-${sizeValue}`;
+};
+
+// Get a specific spacing value in pixels for styling
+export const getSpacingValue = (token: string): string => {
+  const pixels = tokenToPixels(token);
+  return `${pixels}px`;
 };
