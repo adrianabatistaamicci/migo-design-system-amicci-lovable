@@ -3,11 +3,13 @@ import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 import { cn } from "@/lib/utils";
+
 type Tab = {
   name: string;
   value: string;
   badge?: string | number;
 };
+
 type TailwindTabsProps = {
   tabs?: Tab[];
   defaultValue?: string;
@@ -16,11 +18,12 @@ type TailwindTabsProps = {
   children?: React.ReactNode;
   className?: string;
 };
+
 export const TailwindTabs = ({
   tabs = [],
   defaultValue,
   onChange,
-  variant = 'pillsGray',
+  variant = 'pills',  // Mudado de 'pillsGray' para 'pills'
   children,
   className
 }: TailwindTabsProps) => {
