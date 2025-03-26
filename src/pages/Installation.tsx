@@ -1,4 +1,11 @@
 
+/**
+ * @protected
+ * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
+ * Não deve ser alterado diretamente pelo assistente AI.
+ * Apenas atualizações de componentes devem ser refletidas.
+ */
+
 import React from 'react';
 import { Terminal, GitBranch, Package, Code, Server, Database, Download, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
