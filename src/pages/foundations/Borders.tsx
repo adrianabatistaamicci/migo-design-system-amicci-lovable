@@ -1,332 +1,416 @@
 
-import React, { useState, useEffect } from 'react';
-import { Separator } from '@/components/ui/separator';
-import { TailwindTabs } from '@/components/ui/tabs';
+import React from 'react';
 import Header from '@/components/library-components/Header';
-import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
-import CodeBlock from '@/components/CodeBlock';
-import { Copy, CheckCheck } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+import ComponentCard from '@/components/ComponentCard';
+import { TailwindTabs } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import ColorSwatch from '@/components/colors/ColorSwatch';
+import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 
-interface BorderRadiusSampleProps {
-  size: string;
-  value: string;
-  className?: string;
-}
-
-const BorderRadiusSample: React.FC<BorderRadiusSampleProps> = ({ size, value, className }) => {
-  const [copied, setCopied] = useState(false);
-  
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(`rounded-${size}`);
-    setCopied(true);
-    setTimeout(() => {
-      setCopied(false);
-    }, 2000);
-  };
-  
-  return (
-    <div className="flex items-center justify-between py-4 border-b border-gray-200 dark:border-gray-800">
-      <div className="flex items-center gap-4">
-        <div 
-          className={cn(
-            "w-16 h-16 bg-gray-300 dark:bg-gray-700",
-            size === "0" ? "rounded-none" : 
-            size === "050" ? "rounded-sm" : 
-            size === "100" ? "rounded" : 
-            size === "150" ? "rounded-md" : 
-            size === "200" ? "rounded-lg" : 
-            size === "300" ? "rounded-xl" : 
-            size === "400" ? "rounded-2xl" : 
-            size === "500" ? "rounded-3xl" : 
-            size === "750" ? "rounded-[30px]" : 
-            size === "full" ? "rounded-full" : "",
-            className
-          )} 
-        />
-        <div 
-          className="bg-amber-700/90 text-amber-50 px-3 py-2 rounded cursor-pointer flex items-center gap-2"
-          onClick={copyToClipboard}
-        >
-          <span>--p-border-radius-{size}</span>
-          <button className="text-amber-50/80 hover:text-amber-50">
-            {copied ? <CheckCheck size={16} /> : <Copy size={16} />}
-          </button>
-        </div>
-      </div>
-      <div className="text-right font-mono">
-        {
-          size === "0" ? "0px" : 
-          size === "050" ? "2px" : 
-          size === "100" ? "4px" : 
-          size === "150" ? "6px" : 
-          size === "200" ? "8px" : 
-          size === "300" ? "12px" : 
-          size === "400" ? "16px" : 
-          size === "500" ? "20px" : 
-          size === "750" ? "30px" : 
-          size === "full" ? "9999px" : ""
-        }
-      </div>
-    </div>
-  );
-};
-
-interface BorderWidthSampleProps {
-  size: string;
-  value: string;
-  className?: string;
-}
-
-const BorderWidthSample: React.FC<BorderWidthSampleProps> = ({ size, value, className }) => {
-  const [copied, setCopied] = useState(false);
-  
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(`border-${size}`);
-    setCopied(true);
-    setTimeout(() => {
-      setCopied(false);
-    }, 2000);
-  };
-  
-  return (
-    <div className="flex items-center justify-between py-4 border-b border-gray-200 dark:border-gray-800">
-      <div className="flex items-center gap-4">
-        <div className="w-64 flex items-center">
-          <div 
-            className={cn(
-              "w-full h-px bg-gray-800 dark:bg-gray-200",
-              size === "0" ? "h-0" : 
-              size === "0165" ? "h-[0.66px]" : 
-              size === "025" ? "h-[1px]" : 
-              size === "050" ? "h-[2px]" : 
-              size === "100" ? "h-[4px]" : "",
-              className
-            )} 
-          />
-        </div>
-        <div 
-          className="bg-amber-700/90 text-amber-50 px-3 py-2 rounded cursor-pointer flex items-center gap-2"
-          onClick={copyToClipboard}
-        >
-          <span>--p-border-width-{size}</span>
-          <button className="text-amber-50/80 hover:text-amber-50">
-            {copied ? <CheckCheck size={16} /> : <Copy size={16} />}
-          </button>
-        </div>
-      </div>
-      <div className="text-right font-mono">
-        {
-          size === "0" ? "0px" : 
-          size === "0165" ? "0.66px" : 
-          size === "025" ? "1px" : 
-          size === "050" ? "2px" : 
-          size === "100" ? "4px" : ""
-        }
-      </div>
-    </div>
-  );
-};
-
-const BordersPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('radius');
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading delay
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const radiusSizes = [
-    { size: "0", value: "0px" },
-    { size: "050", value: "2px" },
-    { size: "100", value: "4px" },
-    { size: "150", value: "6px" },
-    { size: "200", value: "8px" },
-    { size: "300", value: "12px" },
-    { size: "400", value: "16px" },
-    { size: "500", value: "20px" },
-    { size: "750", value: "30px" },
-    { size: "full", value: "9999px" },
-  ];
-
-  const widthSizes = [
-    { size: "0", value: "0px" },
-    { size: "0165", value: "0.66px" },
-    { size: "025", value: "1px" },
-    { size: "050", value: "2px" },
-    { size: "100", value: "4px" },
-  ];
-
-  if (isLoading) {
-    return <DocumentationSkeleton />;
-  }
-
+const Borders = () => {
   return (
     <div className="w-full animate-fade-in">
       <Header 
-        title="Borders" 
-        description="Sistema de bordas para o design system, incluindo border-radius e border-width."
-        type="foundations" 
+        title="Bordas" 
+        description="Sistema de bordas para definir a aparência e espessura das bordas dos elementos."
+        type="foundations"
       />
-
-      <div className="mt-8">
-        <TailwindTabs 
-          defaultValue="radius" 
-          className="mt-6" 
-          tabs={[
-            { name: 'Border Radius', value: 'radius' },
-            { name: 'Border Width', value: 'width' },
-            { name: 'Uso', value: 'usage' }
-          ]} 
-          variant="pillsGray" 
-          onChange={value => setActiveTab(value)} 
-        />
-
-        <div className="mt-6">
-          {activeTab === 'radius' && (
-            <div className="space-y-6">
-              <div>
-                <h2 className="text-2xl font-medium mb-4">Border Radius</h2>
-                <p className="text-gray-700 dark:text-gray-300 mb-6">
-                  Utilize estas variáveis para aplicar border-radius consistentes em toda a interface. 
-                  Os valores seguem uma escala definida para manter a consistência visual.
-                </p>
-
-                <div className="mt-8 bg-black p-6 rounded-lg text-white">
-                  {radiusSizes.map((item) => (
-                    <BorderRadiusSample 
-                      key={item.size} 
-                      size={item.size} 
-                      value={item.value} 
-                    />
-                  ))}
+      
+      <div className="mt-8 space-y-12">
+        <section>
+          <h2 className="text-2xl font-medium text-mui-text-primary mb-4">Raio de Borda (Border Radius)</h2>
+          <p className="text-mui-text-secondary mb-6">
+            Use estas classes de borda para adicionar cantos arredondados aos elementos da interface.
+          </p>
+          
+          <ComponentCard
+            title="Border Radius"
+            description="Exemplos de aplicação dos diferentes tamanhos de raio de borda."
+          >
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="space-y-2">
+                <div className="h-16 w-full rounded-none border-2 border-primary-main flex items-center justify-center">
+                  <span className="text-sm font-medium">rounded-none</span>
                 </div>
-
-                <div className="mt-8">
-                  <h3 className="text-xl font-medium mb-4">Como usar border radius no código</h3>
-                  <div className="space-y-4">
-                    <CodeBlock 
-                      code={`// Utilizando classes do Tailwind para border-radius
-<div className="rounded-none">Border Radius: 0px</div>
-<div className="rounded-sm">Border Radius: 2px</div>
-<div className="rounded">Border Radius: 4px</div>
-<div className="rounded-md">Border Radius: 6px</div>
-<div className="rounded-lg">Border Radius: 8px</div>
-<div className="rounded-xl">Border Radius: 12px</div>
-<div className="rounded-2xl">Border Radius: 16px</div>
-<div className="rounded-3xl">Border Radius: 20px</div>
-<div className="rounded-[30px]">Border Radius: 30px</div>
-<div className="rounded-full">Border Radius: 9999px</div>`} 
-                      language="jsx" 
-                      title="Exemplos de uso no React com Tailwind" 
-                    />
-                  </div>
+                <p className="text-xs text-center text-mui-text-secondary">0px</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full rounded-sm border-2 border-primary-main flex items-center justify-center">
+                  <span className="text-sm font-medium">rounded-sm</span>
                 </div>
+                <p className="text-xs text-center text-mui-text-secondary">0.125rem (2px)</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full rounded border-2 border-primary-main flex items-center justify-center">
+                  <span className="text-sm font-medium">rounded</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">0.25rem (4px)</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full rounded-md border-2 border-primary-main flex items-center justify-center">
+                  <span className="text-sm font-medium">rounded-md</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">0.375rem (6px)</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full rounded-lg border-2 border-primary-main flex items-center justify-center">
+                  <span className="text-sm font-medium">rounded-lg</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">0.5rem (8px)</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full rounded-xl border-2 border-primary-main flex items-center justify-center">
+                  <span className="text-sm font-medium">rounded-xl</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">0.75rem (12px)</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full rounded-2xl border-2 border-primary-main flex items-center justify-center">
+                  <span className="text-sm font-medium">rounded-2xl</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">1rem (16px)</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full rounded-full border-2 border-primary-main flex items-center justify-center">
+                  <span className="text-sm font-medium">rounded-full</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">9999px</p>
               </div>
             </div>
-          )}
-
-          {activeTab === 'width' && (
-            <div className="space-y-6">
-              <div>
-                <h2 className="text-2xl font-medium mb-4">Border Width</h2>
-                <p className="text-gray-700 dark:text-gray-300 mb-6">
-                  Utilize estas variáveis para aplicar border-width consistentes em toda a interface.
-                  Os valores são otimizados para diversos contextos de uso, desde bordas sutis até mais pronunciadas.
-                </p>
-
-                <div className="mt-8 bg-black p-6 rounded-lg text-white">
-                  {widthSizes.map((item) => (
-                    <BorderWidthSample 
-                      key={item.size} 
-                      size={item.size} 
-                      value={item.value} 
-                    />
-                  ))}
+          </ComponentCard>
+          
+          <ComponentCard
+            title="Aplicação Específica"
+            description="Aplicação de border-radius em lados específicos do elemento."
+            className="mt-8"
+          >
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+              <div className="space-y-2">
+                <div className="h-16 w-full rounded-t-lg border-2 border-secondary-main flex items-center justify-center">
+                  <span className="text-sm font-medium">rounded-t-lg</span>
                 </div>
-
-                <div className="mt-8">
-                  <h3 className="text-xl font-medium mb-4">Como usar border width no código</h3>
-                  <div className="space-y-4">
-                    <CodeBlock 
-                      code={`// Utilizando classes do Tailwind para border-width
-<div className="border-0">Border Width: 0px</div>
-<div className="border-[0.66px]">Border Width: 0.66px</div>
-<div className="border">Border Width: 1px</div>
-<div className="border-2">Border Width: 2px</div>
-<div className="border-4">Border Width: 4px</div>`} 
-                      language="jsx" 
-                      title="Exemplos de uso no React com Tailwind" 
-                    />
-                  </div>
+                <p className="text-xs text-center text-mui-text-secondary">Borda superior</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full rounded-r-lg border-2 border-secondary-main flex items-center justify-center">
+                  <span className="text-sm font-medium">rounded-r-lg</span>
                 </div>
+                <p className="text-xs text-center text-mui-text-secondary">Borda direita</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full rounded-b-lg border-2 border-secondary-main flex items-center justify-center">
+                  <span className="text-sm font-medium">rounded-b-lg</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">Borda inferior</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full rounded-l-lg border-2 border-secondary-main flex items-center justify-center">
+                  <span className="text-sm font-medium">rounded-l-lg</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">Borda esquerda</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full rounded-tl-lg border-2 border-secondary-main flex items-center justify-center">
+                  <span className="text-sm font-medium">rounded-tl-lg</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">Canto superior esquerdo</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full rounded-br-lg border-2 border-secondary-main flex items-center justify-center">
+                  <span className="text-sm font-medium">rounded-br-lg</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">Canto inferior direito</p>
               </div>
             </div>
-          )}
-
-          {activeTab === 'usage' && (
-            <div className="space-y-6">
-              <div>
-                <h2 className="text-2xl font-medium mb-4">Diretrizes de Uso</h2>
-                <p className="text-gray-700 dark:text-gray-300 mb-6">
-                  As bordas são elementos importantes para criar hierarquia visual, separar conteúdos e indicar interatividade. 
-                  Aqui estão algumas diretrizes para utilizar bordas de forma eficaz em seu design.
-                </p>
-
-                <div className="mt-4 space-y-6">
-                  <div>
-                    <h3 className="text-lg font-medium mb-2">Quando usar border radius</h3>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
-                      <li>Use <code className="text-sm bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">rounded-sm</code> (2px) ou <code className="text-sm bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">rounded</code> (4px) para elementos pequenos como tags, badges e inputs</li>
-                      <li>Use <code className="text-sm bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">rounded-md</code> (6px) ou <code className="text-sm bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">rounded-lg</code> (8px) para cards, botões e elementos de UI de tamanho médio</li>
-                      <li>Use <code className="text-sm bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">rounded-xl</code> (12px) ou <code className="text-sm bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">rounded-2xl</code> (16px) para modais, painéis e elementos maiores</li>
-                      <li>Use <code className="text-sm bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">rounded-full</code> para avatares, indicadores de status e elementos circulares</li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h3 className="text-lg font-medium mb-2">Quando usar border width</h3>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
-                      <li>Use <code className="text-sm bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">border</code> (1px) para a maioria dos casos, como divisórias, inputs e cards</li>
-                      <li>Use <code className="text-sm bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">border-2</code> (2px) para elementos que precisam de ênfase, como estados focused ou selecionados</li>
-                      <li>Use <code className="text-sm bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">border-[0.66px]</code> para bordas sutis em interfaces densas</li>
-                      <li>Use <code className="text-sm bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">border-4</code> (4px) para ênfase visual forte, como destacar conteúdo importante</li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h3 className="text-lg font-medium mb-2">Combinando border radius e width</h3>
-                    <p className="text-gray-700 dark:text-gray-300 mb-4">
-                      Para criar uma experiência visual coesa, combine os valores de border radius e width seguindo estas diretrizes:
-                    </p>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
-                      <li>Elementos pequenos: border-width menor + border-radius menor</li>
-                      <li>Elementos médios: border-width médio + border-radius médio</li>
-                      <li>Elementos grandes: considere border-width maior + border-radius maior</li>
-                    </ul>
-                    
-                    <div className="mt-6 p-6 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                      <h4 className="text-md font-medium mb-4">Exemplo de componente com bordas:</h4>
-                      <div className="p-4 border-2 border-primary-main rounded-lg bg-white dark:bg-gray-900">
-                        <p className="text-gray-700 dark:text-gray-300">
-                          Este card utiliza <code className="text-sm bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">border-2</code> com <code className="text-sm bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">rounded-lg</code> para criar um componente visualmente coeso.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+          </ComponentCard>
+        </section>
+        
+        <section>
+          <h2 className="text-2xl font-medium text-mui-text-primary mb-4">Espessura de Borda (Border Width)</h2>
+          <p className="text-mui-text-secondary mb-6">
+            Use estas classes para controlar a espessura das bordas nos elementos.
+          </p>
+          
+          <ComponentCard
+            title="Border Width"
+            description="Exemplos de aplicação das diferentes espessuras de borda."
+          >
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+              <div className="space-y-2">
+                <div className="h-16 w-full border-0 border-tertiary-main rounded-md flex items-center justify-center bg-tertiary-light/20">
+                  <span className="text-sm font-medium">border-0</span>
                 </div>
+                <p className="text-xs text-center text-mui-text-secondary">0px</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full border border-tertiary-main rounded-md flex items-center justify-center">
+                  <span className="text-sm font-medium">border</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">1px</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full border-2 border-tertiary-main rounded-md flex items-center justify-center">
+                  <span className="text-sm font-medium">border-2</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">2px</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full border-4 border-tertiary-main rounded-md flex items-center justify-center">
+                  <span className="text-sm font-medium">border-4</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">4px</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full border-8 border-tertiary-main rounded-md flex items-center justify-center">
+                  <span className="text-sm font-medium">border-8</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">8px</p>
               </div>
             </div>
-          )}
-        </div>
+          </ComponentCard>
+          
+          <ComponentCard
+            title="Aplicação Específica de Espessura"
+            description="Aplicação de border-width em lados específicos do elemento."
+            className="mt-8"
+          >
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="space-y-2">
+                <div className="h-16 w-full border-t-4 border-info-main rounded-md flex items-center justify-center">
+                  <span className="text-sm font-medium">border-t-4</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">Borda superior</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full border-r-4 border-info-main rounded-md flex items-center justify-center">
+                  <span className="text-sm font-medium">border-r-4</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">Borda direita</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full border-b-4 border-info-main rounded-md flex items-center justify-center">
+                  <span className="text-sm font-medium">border-b-4</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">Borda inferior</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full border-l-4 border-info-main rounded-md flex items-center justify-center">
+                  <span className="text-sm font-medium">border-l-4</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">Borda esquerda</p>
+              </div>
+            </div>
+          </ComponentCard>
+        </section>
+        
+        <section>
+          <h2 className="text-2xl font-medium text-mui-text-primary mb-4">Estilos de Borda (Border Style)</h2>
+          <p className="text-mui-text-secondary mb-6">
+            Use estas classes para controlar o estilo visual das bordas.
+          </p>
+          
+          <ComponentCard
+            title="Border Style"
+            description="Exemplos de aplicação dos diferentes estilos de borda."
+          >
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+              <div className="space-y-2">
+                <div className="h-16 w-full border-2 border-solid border-success-main rounded-md flex items-center justify-center">
+                  <span className="text-sm font-medium">border-solid</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">Linha sólida (padrão)</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full border-2 border-dashed border-success-main rounded-md flex items-center justify-center">
+                  <span className="text-sm font-medium">border-dashed</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">Linha tracejada</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full border-2 border-dotted border-success-main rounded-md flex items-center justify-center">
+                  <span className="text-sm font-medium">border-dotted</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">Linha pontilhada</p>
+              </div>
+            </div>
+          </ComponentCard>
+        </section>
+        
+        <section>
+          <h2 className="text-2xl font-medium text-mui-text-primary mb-4">Cores de Borda</h2>
+          <p className="text-mui-text-secondary mb-6">
+            Utilize as cores semânticas para bordas alinhadas com o tom da mensagem.
+          </p>
+          
+          <ComponentCard
+            title="Border Colors"
+            description="Exemplos de aplicação das diferentes cores de borda."
+          >
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="space-y-2">
+                <div className="h-16 w-full border-2 border-primary-main rounded-md flex items-center justify-center">
+                  <span className="text-sm font-medium">border-primary-main</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">Primária</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full border-2 border-secondary-main rounded-md flex items-center justify-center">
+                  <span className="text-sm font-medium">border-secondary-main</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">Secundária</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full border-2 border-tertiary-main rounded-md flex items-center justify-center">
+                  <span className="text-sm font-medium">border-tertiary-main</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">Terciária</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full border-2 border-error-main rounded-md flex items-center justify-center">
+                  <span className="text-sm font-medium">border-error-main</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">Erro</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full border-2 border-warning-main rounded-md flex items-center justify-center">
+                  <span className="text-sm font-medium">border-warning-main</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">Alerta</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full border-2 border-success-main rounded-md flex items-center justify-center">
+                  <span className="text-sm font-medium">border-success-main</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">Sucesso</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full border-2 border-info-main rounded-md flex items-center justify-center">
+                  <span className="text-sm font-medium">border-info-main</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">Informação</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="h-16 w-full border-2 border-gray-400 rounded-md flex items-center justify-center">
+                  <span className="text-sm font-medium">border-gray-400</span>
+                </div>
+                <p className="text-xs text-center text-mui-text-secondary">Cinza (neutro)</p>
+              </div>
+            </div>
+          </ComponentCard>
+        </section>
+        
+        <section>
+          <h2 className="text-2xl font-medium text-mui-text-primary mb-4">Boas Práticas de Uso</h2>
+          <div className="space-y-4">
+            <div className="border border-gray-200 p-4 rounded-lg">
+              <h3 className="text-base font-medium text-mui-text-primary mb-2">Consistência</h3>
+              <p className="text-sm text-mui-text-secondary">
+                Mantenha a consistência no uso de bordas em toda a aplicação. Evite misturar muitos estilos diferentes sem propósito.
+              </p>
+            </div>
+            
+            <div className="border border-gray-200 p-4 rounded-lg">
+              <h3 className="text-base font-medium text-mui-text-primary mb-2">Semântica</h3>
+              <p className="text-sm text-mui-text-secondary">
+                Use cores com significado. Por exemplo, bordas vermelhas para erros e bordas verdes para sucesso.
+              </p>
+            </div>
+            
+            <div className="border border-gray-200 p-4 rounded-lg">
+              <h3 className="text-base font-medium text-mui-text-primary mb-2">Contraste</h3>
+              <p className="text-sm text-mui-text-secondary">
+                Assegure-se de que há contraste suficiente entre a borda e o fundo para garantir a visibilidade.
+              </p>
+            </div>
+            
+            <div className="border border-gray-200 p-4 rounded-lg">
+              <h3 className="text-base font-medium text-mui-text-primary mb-2">Responsividade</h3>
+              <p className="text-sm text-mui-text-secondary">
+                Considere ajustar a espessura da borda em diferentes tamanhos de tela para manter a proporção visual.
+              </p>
+            </div>
+          </div>
+        </section>
+        
+        <section>
+          <h2 className="text-2xl font-medium text-mui-text-primary mb-4">Exemplos de Código</h2>
+          
+          <div className="bg-mui-sidebar p-4 rounded-md mb-8">
+            <pre className="text-sm overflow-auto">
+              <code>{`// Exemplo de componente com diferentes bordas
+<div className="border-2 border-primary-main rounded-lg p-4">
+  <h3 className="border-b border-primary-light pb-2">Título do Card</h3>
+  <p className="mt-2">Conteúdo do card com borda primária.</p>
+</div>
+
+<div className="border border-dashed border-warning-main rounded-md p-4">
+  <p>Alerta com borda tracejada.</p>
+</div>
+
+<div className="border-l-4 border-info-main pl-4">
+  <p>Bloco de informação com borda à esquerda.</p>
+</div>`}</code>
+            </pre>
+          </div>
+          
+          <Table className="border rounded-lg overflow-hidden">
+            <TableHeader>
+              <TableRow className="bg-mui-sidebar">
+                <TableHead className="w-1/4">Propriedade</TableHead>
+                <TableHead className="w-3/4">Descrição</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              <TableRow>
+                <TableCell className="font-mono">border-radius</TableCell>
+                <TableCell>Define o raio dos cantos do elemento, criando cantos arredondados.</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-mono">border-width</TableCell>
+                <TableCell>Define a espessura da borda ao redor do elemento.</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-mono">border-style</TableCell>
+                <TableCell>Define o estilo da linha da borda (sólida, tracejada, pontilhada).</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-mono">border-color</TableCell>
+                <TableCell>Define a cor da borda do elemento.</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </section>
       </div>
     </div>
   );
 };
 
-export default BordersPage;
+export default Borders;
