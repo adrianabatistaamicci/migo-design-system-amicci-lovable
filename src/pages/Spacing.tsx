@@ -46,6 +46,20 @@ const Spacing = () => {
                   Nosso sistema de espaçamento é baseado em uma escala consistente para garantir harmonia visual e usabilidade em toda a aplicação.
                 </p>
                 
+                <div className="bg-gray-50 border rounded-lg p-6 mb-6">
+                  <h3 className="text-lg font-medium mb-3">Escala de 4px: Fundamento Técnico</h3>
+                  <p className="mb-4">
+                    Nosso design system utiliza uma escala baseada em múltiplos de 4 pixels por razões técnicas e visuais importantes:
+                  </p>
+                  <ul className="list-disc pl-6 space-y-2 text-gray-700">
+                    <li><strong>Precisão em displays:</strong> Alinha-se com a maioria das telas modernas, resultando em renderização mais nítida sem artefatos de antialiasing.</li>
+                    <li><strong>Cálculos eficientes:</strong> Facilita divisões e multiplicações para desenvolvedores e designers, acelerando a implementação.</li>
+                    <li><strong>Compatibilidade com grids:</strong> Trabalha harmoniosamente com sistemas de grid de 8px e 12px comuns em frameworks CSS.</li>
+                    <li><strong>Escalabilidade:</strong> Adapta-se facilmente a diferentes densidades de pixel e fatores de escala em diferentes dispositivos.</li>
+                    <li><strong>Consistência visual:</strong> Cria ritmo e proporção harmônica em toda a interface, melhorando a experiência do usuário.</li>
+                  </ul>
+                </div>
+                
                 <div className="grid grid-cols-1 gap-4 mt-6 mb-8">
                   {spacings.map(space => {
                     const pixelValue = tokenToPixels(space);
