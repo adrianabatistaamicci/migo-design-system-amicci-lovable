@@ -4,6 +4,7 @@ import Header from '@/components/library-components/Header';
 import { TailwindTabs } from '@/components/ui/tabs';
 import CodeBlock from '@/components/CodeBlock';
 import { ChevronRight, Home, Folder, FileText, Circle, MoreHorizontal } from 'lucide-react';
+import ComponentCard from '@/components/ComponentCard';
 
 const Breadcrumbs = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -194,7 +195,11 @@ li role="presentation" aria-hidden="true" className="flex items-center"`}
           <div className="space-y-10">
             <div>
               <h2 className="text-xl font-medium mb-4">Exemplo Básico</h2>
-              <div className="border rounded-lg p-6 bg-white">
+              <ComponentCard 
+                title="Breadcrumb Básico" 
+                description="Um breadcrumb simples com links e separadores"
+                code={basicExample}
+              >
                 <nav className="flex" aria-label="Breadcrumb">
                   <ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-600">
                     <li className="inline-flex items-center">
@@ -220,7 +225,7 @@ li role="presentation" aria-hidden="true" className="flex items-center"`}
                     </li>
                   </ol>
                 </nav>
-              </div>
+              </ComponentCard>
               <CodeBlock 
                 code={basicExample} 
                 language="tsx" 
@@ -230,7 +235,11 @@ li role="presentation" aria-hidden="true" className="flex items-center"`}
             
             <div>
               <h2 className="text-xl font-medium mb-4">Com Ícones</h2>
-              <div className="border rounded-lg p-6 bg-white">
+              <ComponentCard 
+                title="Breadcrumb com Ícones" 
+                description="Breadcrumb com ícones para cada item"
+                code={withIconsExample}
+              >
                 <nav className="flex" aria-label="Breadcrumb">
                   <ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-600">
                     <li className="inline-flex items-center gap-1.5">
@@ -259,7 +268,7 @@ li role="presentation" aria-hidden="true" className="flex items-center"`}
                     </li>
                   </ol>
                 </nav>
-              </div>
+              </ComponentCard>
               <CodeBlock 
                 code={withIconsExample} 
                 language="tsx" 
@@ -269,7 +278,11 @@ li role="presentation" aria-hidden="true" className="flex items-center"`}
             
             <div>
               <h2 className="text-xl font-medium mb-4">Com Elipses (Colapsado)</h2>
-              <div className="border rounded-lg p-6 bg-white">
+              <ComponentCard 
+                title="Breadcrumb Colapsado" 
+                description="Breadcrumb com elipses para caminhos longos"
+                code={collapsibleExample}
+              >
                 <nav className="flex" aria-label="Breadcrumb">
                   <ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-600">
                     <li className="inline-flex items-center">
@@ -304,7 +317,7 @@ li role="presentation" aria-hidden="true" className="flex items-center"`}
                     </li>
                   </ol>
                 </nav>
-              </div>
+              </ComponentCard>
               <CodeBlock 
                 code={collapsibleExample} 
                 language="tsx" 
@@ -317,7 +330,38 @@ li role="presentation" aria-hidden="true" className="flex items-center"`}
               <p className="text-gray-700 mb-4">
                 Você pode customizar a aparência dos breadcrumbs usando diferentes classes do Tailwind:
               </p>
-              <div className="border rounded-lg p-6 bg-white">
+              <ComponentCard 
+                title="Breadcrumb Customizado" 
+                description="Versão personalizada com fundo cinza e ícones circulares"
+                code={`// Breadcrumb customizado com classes Tailwind
+<nav className="flex" aria-label="Breadcrumb">
+  <ol className="flex flex-wrap items-center p-2 rounded-lg bg-gray-100">
+    <li className="inline-flex items-center">
+      <a href="#" className="text-blue-600 hover:text-blue-800 inline-flex items-center">
+        <Circle className="h-3 w-3 mr-1" />
+        Início
+      </a>
+    </li>
+    <li role="presentation" aria-hidden="true" className="flex items-center text-gray-400">
+      <ChevronRight className="h-3.5 w-3.5" />
+    </li>
+    <li className="inline-flex items-center">
+      <a href="#" className="text-blue-600 hover:text-blue-800 inline-flex items-center">
+        <Circle className="h-3 w-3 mr-1" />
+        Componentes
+      </a>
+    </li>
+    <li role="presentation" aria-hidden="true" className="flex items-center text-gray-400">
+      <ChevronRight className="h-3.5 w-3.5" />
+    </li>
+    <li className="inline-flex items-center">
+      <span role="link" aria-disabled="true" aria-current="page" className="font-bold">
+        Breadcrumb
+      </span>
+    </li>
+  </ol>
+</nav>`}
+              >
                 <nav className="flex" aria-label="Breadcrumb">
                   <ol className="flex flex-wrap items-center p-2 rounded-lg bg-gray-100">
                     <li className="inline-flex items-center">
@@ -345,7 +389,7 @@ li role="presentation" aria-hidden="true" className="flex items-center"`}
                     </li>
                   </ol>
                 </nav>
-              </div>
+              </ComponentCard>
               <CodeBlock 
                 code={`// Breadcrumb customizado com classes Tailwind
 <nav className="flex" aria-label="Breadcrumb">
