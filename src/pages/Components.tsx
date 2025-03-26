@@ -97,14 +97,14 @@ const Components = () => {
           <ComponentCard 
             title="Input Component" 
             description="Text fields with Material Design styling."
-            code={`<Input variant="outlined" placeholder="Outlined" />
-<Input variant="filled" placeholder="Filled" />
-<Input variant="standard" placeholder="Standard" />`}
+            code={`<Input placeholder="Default" className="mb-3" />
+<Input placeholder="Filled" className="mb-3 bg-gray-100" />
+<Input placeholder="Standard" />`}
           >
             <div className="flex flex-col gap-4">
-              <Input variant="outlined" placeholder="Outlined" />
-              <Input variant="filled" placeholder="Filled" />
-              <Input variant="standard" placeholder="Standard" />
+              <Input placeholder="Default" className="mb-3" />
+              <Input placeholder="Filled" className="mb-3 bg-gray-100" />
+              <Input placeholder="Standard" />
             </div>
           </ComponentCard>
         </div>
