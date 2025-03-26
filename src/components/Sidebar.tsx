@@ -59,6 +59,7 @@ export const sidebarItems: SidebarItem[] = [
       { title: 'Colors', href: '/foundations/colors' },
       { title: 'Typography', href: '/foundations/typography' },
       { title: 'Spacing', href: '/foundations/spacing' },
+      { title: 'Borders', href: '/foundations/borders' },
       { title: 'Icons', href: '/foundations/icons' },
       { title: 'Brand', href: '/foundations/brand' },
     ]

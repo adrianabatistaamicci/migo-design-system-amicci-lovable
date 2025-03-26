@@ -81,6 +81,7 @@ import Typography from "./pages/Typography";
 import Spacing from "./pages/Spacing";
 import Icons from "./pages/Icons";
 import Brand from "./pages/foundations/Brand";
+import Borders from "./pages/foundations/Borders";
 
 const queryClient = new QueryClient();
 
@@ -169,6 +170,7 @@ const App = () => {
               <Route path="/foundations/typography" element={<Typography />} />
               <Route path="/spacing" element={<Spacing />} />
               <Route path="/foundations/spacing" element={<Spacing />} />
+              <Route path="/foundations/borders" element={<Borders />} />
               <Route path="/icons" element={<Icons />} />
               <Route path="/foundations/icons" element={<Icons />} />
               <Route path="/foundations/brand" element={<Brand />} />
