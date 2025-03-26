@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import Header from '@/components/library-components/Header';
@@ -9,6 +10,7 @@ import { TailwindTabs } from '@/components/ui/tabs';
 import ColorSwatch from '@/components/colors/ColorSwatch';
 import CodeBlock from '@/components/CodeBlock';
 
+// Define the type for the module records returned by import.meta.glob
 type ModuleRecord = Record<string, {
   default: React.ComponentType<any>;
 }>;
@@ -17,21 +19,26 @@ const LibraryPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('components');
   useEffect(() => {
+    // This is a special Vite function that will import all files from a directory
     const libraryComponents = import.meta.glob<{
       default: React.ComponentType<any>;
     }>('/src/components/library-components/*.tsx', {
       eager: true
     }) as ModuleRecord;
 
+    // Convert the import.meta.glob result to our expected format
     const formattedComponents: Record<string, React.ComponentType<any>> = {};
     for (const path in libraryComponents) {
       const componentName = path.split('/').pop()?.replace('.tsx', '') || '';
+      // Skip EmptyState component and Header component as we'll add them manually to prevent duplication
+      // Also skip HeroSection and other components as requested by the user
       if (componentName && componentName !== 'EmptyState' && componentName !== 'Header' && componentName !== 'ComponentsHeader' && componentName !== 'FoundationsHeader' && componentName !== 'HeroSection' && componentName !== 'DocumentationSkeleton' && componentName !== 'Footer' && libraryComponents[path].default) {
         formattedComponents[componentName] = libraryComponents[path].default;
       }
     }
     setComponents(formattedComponents);
 
+    // Simulate loading delay
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1000);
@@ -53,6 +60,7 @@ const LibraryPage: React.FC = () => {
       }]} variant="pillsGray" onChange={value => setActiveTab(value)} />
         
         <div className="mt-6 grid grid-cols-1 gap-6">
+          {/* Header component card */}
           <div className="w-full">
             <ComponentCard title="Header" description="Cabeçalho usado para seções principais do design system." code={`<Header 
   title="Título de exemplo" 
@@ -66,6 +74,7 @@ const LibraryPage: React.FC = () => {
             </ComponentCard>
           </div>
           
+          {/* EmptyState component card */}
           <div className="w-full">
             <ComponentCard title="EmptyState" description="Usado para indicar páginas ou seções que estão em desenvolvimento." code={`<EmptyState 
   title="Conteúdo em Desenvolvimento" 
@@ -93,6 +102,7 @@ const LibraryPage: React.FC = () => {
               </ComponentCard>
             </div>)}
 
+          {/* Footer component card - Mantendo apenas esta instância do Footer */}
           <div className="w-full">
             <ComponentCard title="Footer" description="Rodapé para exibir créditos e links de governança" code={`<Footer 
   additionalText="© 2024 Amicci" 
@@ -104,6 +114,7 @@ const LibraryPage: React.FC = () => {
             </ComponentCard>
           </div>
 
+          {/* Add ComponentCard component card */}
           <div className="w-full">
             <ComponentCard title="ComponentCard" description="Card para exibir exemplos de componentes com código" code={`<ComponentCard 
   title="Example Component" 
@@ -123,6 +134,7 @@ const LibraryPage: React.FC = () => {
             </ComponentCard>
           </div>
 
+          {/* ColorSwatch component card */}
           <div className="w-full">
             <ComponentCard title="ColorSwatch" description="Componente para exibir amostras de cores com opção de cópia" code={`<ColorSwatch 
   color="bg-primary-main" 
@@ -153,6 +165,7 @@ const LibraryPage: React.FC = () => {
             </ComponentCard>
           </div>
 
+          {/* CodeBlock component card */}
           <div className="w-full">
             <ComponentCard title="CodeBlock" description="Componente para exibir blocos de código com formatação e função de cópia" code={`<CodeBlock 
   code="import { Button } from '@/components/ui/button';" 
@@ -160,11 +173,7 @@ const LibraryPage: React.FC = () => {
   title="Exemplo de importação" 
 />`} className="w-full">
               <div className="p-4 w-full">
-                <CodeBlock 
-                  code="import { Button } from '@/components/ui/button';" 
-                  language="tsx" 
-                  title="Exemplo de importação" 
-                />
+                <CodeBlock code="import { Button } from '@/components/ui/button';" language="tsx" title="Exemplo de importação" />
               </div>
             </ComponentCard>
           </div>
@@ -173,6 +182,7 @@ const LibraryPage: React.FC = () => {
     </div>;
 };
 
+// Helper function to provide default props for each component type
 const getDefaultProps = (componentName: string): Record<string, any> => {
   switch (componentName) {
     case 'Header':

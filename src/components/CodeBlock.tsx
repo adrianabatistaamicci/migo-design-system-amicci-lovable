@@ -1,8 +1,9 @@
 
 import React, { useState } from 'react';
-import { Copy, ChevronDown, ChevronUp } from 'lucide-react';
+import { Copy, CheckCheck, Maximize2, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 interface CodeBlockProps {
   code: string;
@@ -10,17 +11,21 @@ interface CodeBlockProps {
   title?: string;
   className?: string;
   showCopy?: boolean;
+  showFullscreen?: boolean;
+  onFullscreen?: () => void;
 }
 
 const CodeBlock: React.FC<CodeBlockProps> = ({
   code,
-  language = 'tsx',
+  language = 'jsx',
   title,
   className,
-  showCopy = true
+  showCopy = true,
+  showFullscreen = false,
+  onFullscreen
 }) => {
   const [copied, setCopied] = useState(false);
-  const [showCode, setShowCode] = useState(true);
+  const [showCode, setShowCode] = useState(false);
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(code);
@@ -31,37 +36,67 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   };
 
   return (
-    <div className={cn("rounded-lg border border-gray-200 overflow-hidden", className)}>
-      {title && (
-        <div className="flex items-center justify-between border-b border-gray-200 bg-gray-50 px-4 py-3">
-          <h3 className="text-sm font-medium text-gray-600">{title}</h3>
+    <div className={cn("relative rounded-md overflow-hidden border border-gray-200", className)}>
+      <div className="flex items-center justify-between bg-gray-50 px-4 py-2 border-b border-gray-200">
+        <div className="flex items-center">
+          {title && (
+            <span className="text-sm font-medium text-gray-600">{title}</span>
+          )}
+        </div>
+        <div className="flex space-x-2">
           {showCopy && (
             <Button
               variant="ghost"
               size="sm"
-              className="h-8 px-2 text-gray-500 hover:bg-transparent"
+              className="h-8 px-2 text-gray-500"
               onClick={copyToClipboard}
             >
-              <Copy className="h-4 w-4 mr-2" />
-              <span className="text-xs">{copied ? 'Copiado' : 'Copiar'}</span>
+              {copied ? (
+                <CheckCheck className="h-4 w-4 text-green-500" />
+              ) : (
+                <Copy className="h-4 w-4" />
+              )}
+              <span className="ml-2 text-xs">{copied ? 'Copiado!' : 'Copiar'}</span>
+            </Button>
+          )}
+          {showFullscreen && onFullscreen && (
+            <Button
+              variant="ghost"
+              size="sm"
+              className="h-8 px-2 text-gray-500"
+              onClick={onFullscreen}
+            >
+              <Maximize2 className="h-4 w-4" />
+              <span className="ml-2 text-xs">Tela cheia</span>
             </Button>
           )}
         </div>
-      )}
-      
-      <div className="bg-gray-900 text-gray-50">
-        <pre className="p-4 overflow-x-auto">
-          <code className={`language-${language}`}>{code}</code>
-        </pre>
       </div>
-      
-      <button 
-        className="w-full flex items-center justify-between px-4 py-2 text-xs text-gray-500 bg-gray-50 border-t border-gray-200 hover:bg-gray-100"
-        onClick={() => setShowCode(!showCode)}
+      <Collapsible
+        open={showCode}
+        onOpenChange={setShowCode}
+        className="bg-gray-50"
       >
-        <span>{showCode ? 'Ocultar código' : 'Mostrar código'}</span>
-        {showCode ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-      </button>
+        <CollapsibleTrigger asChild>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="flex w-full items-center justify-between px-4 py-2 text-xs text-gray-500 hover:bg-gray-100"
+          >
+            <span>{showCode ? 'Ocultar código' : 'Mostrar código'}</span>
+            <ChevronRight
+              className={`h-4 w-4 transition-transform ${
+                showCode ? 'rotate-90' : ''
+              }`}
+            />
+          </Button>
+        </CollapsibleTrigger>
+        <CollapsibleContent>
+          <pre className="overflow-x-auto bg-gray-900 p-4 text-sm text-gray-50">
+            <code className={`language-${language}`}>{code}</code>
+          </pre>
+        </CollapsibleContent>
+      </Collapsible>
     </div>
   );
 };
