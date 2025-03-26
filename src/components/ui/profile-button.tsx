@@ -1,8 +1,10 @@
+
 import React from 'react';
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { Menu } from "lucide-react";
 import defaultLogo from '@/pages/assets/client-logo.svg';
+
 const profileButtonVariants = cva("inline-flex items-center rounded-full border border-[rgba(33,35,35,0.23)] bg-white shrink-0 transition-all duration-200 ease-in-out hover:bg-gray-50 hover:border-gray-300", {
   variants: {
     size: {
@@ -13,6 +15,7 @@ const profileButtonVariants = cva("inline-flex items-center rounded-full border 
     size: "default"
   }
 });
+
 export interface ProfileButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof profileButtonVariants> {
   userName: string;
   companyName: string;
@@ -28,6 +31,7 @@ export interface ProfileButtonProps extends React.ButtonHTMLAttributes<HTMLButto
   menuIcon?: React.ReactNode;
   maxTextLength?: number;
 }
+
 const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(({
   className,
   size,
@@ -56,6 +60,7 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(({
   const displayUserName = truncateText(userName, maxTextLength);
   const displayCompanyName = truncateText(companyName, maxTextLength);
   const showUserInfo = (userName || companyName) && (userName.trim() !== "" || companyName.trim() !== "");
+
   return <button className={cn(profileButtonVariants({
     size,
     className
@@ -70,7 +75,7 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(({
                 {avatarSrc ? <img src={avatarSrc} alt={avatarAlt} className="h-full w-full rounded-full object-cover" /> : userInitials}
               </div>
             
-              {showUserInfo && <div className="flex flex-col items-start text-left ml-35">
+              {showUserInfo && <div className="flex flex-col items-start text-left mx-15">
                   {userName && userName.trim() !== "" && <span className="text-base font-medium text-gray-900 leading-tight">{displayUserName}</span>}
                   {companyName && companyName.trim() !== "" && <span className="text-sm text-gray-500 leading-tight">{displayCompanyName}</span>}
                 </div>}
@@ -84,5 +89,7 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(({
         </div>
       </button>;
 });
+
 ProfileButton.displayName = "ProfileButton";
+
 export { ProfileButton, profileButtonVariants };
