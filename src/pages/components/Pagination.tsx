@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import ComponentCard from '@/components/ComponentCard';
-import { TailwindTabs } from '@/components/ui/tabs';
 import { 
   Pagination, 
   PaginationContent, 
@@ -16,9 +15,11 @@ import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import CodeBlock from '@/components/CodeBlock';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
+import { TailwindTabs } from '@/components/ui/tabs';
 
 const PaginationPage = () => {
-  const [activeTab, setActiveTab] = useState('overview');
+  const [activeTab, setActiveTab] = useState('visaoGeral');
   
   return (
     <div className="w-full animate-fade-in">
@@ -29,11 +30,11 @@ const PaginationPage = () => {
       />
       
       <TailwindTabs
-        defaultValue="overview"
+        defaultValue="visaoGeral"
         className="mt-6"
         tabs={[
-          { name: 'Visão geral', value: 'overview' },
-          { name: 'Exemplos', value: 'examples' },
+          { name: 'Visão geral', value: 'visaoGeral' },
+          { name: 'Exemplos', value: 'exemplos' },
           { name: 'API', value: 'api' }
         ]}
         variant="pillsGray"
@@ -41,7 +42,7 @@ const PaginationPage = () => {
       />
       
       <div className="mt-6">
-        {activeTab === 'overview' && (
+        {activeTab === 'visaoGeral' && (
           <div className="space-y-6">
             <p className="text-gray-700">
               Componentes de paginação são usados para dividir grandes conjuntos de dados em partes menores e mais gerenciáveis, permitindo que os usuários naveguem entre páginas de conteúdo.
@@ -84,7 +85,7 @@ const PaginationPage = () => {
                         <PaginationLink href="#">1</PaginationLink>
                       </PaginationItem>
                       <PaginationItem>
-                        <PaginationLink href="#">2</PaginationLink>
+                        <PaginationLink href="#" isActive>2</PaginationLink>
                       </PaginationItem>
                       <PaginationItem>
                         <PaginationLink href="#">3</PaginationLink>
@@ -149,39 +150,34 @@ const PaginationPage = () => {
           </div>
         )}
         
-        {activeTab === 'examples' && (
+        {activeTab === 'exemplos' && (
           <div className="space-y-8">
-            <h2 className="text-2xl font-medium text-gray-900 mb-4">Exemplos do Tailwind UI</h2>
+            <h2 className="text-2xl font-medium text-gray-900 mb-4">Exemplos de Variantes</h2>
             
             {/* Card footer with page buttons - Tailwind UI original */}
-            <div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">Card Footer com Botões de Página</h3>
-              <p className="text-gray-700 mb-4">
-                Uma variante de paginação incorporada em um rodapé de card, ideal para tabelas ou listas de dados.
-              </p>
-              
-              <ComponentCard 
-                title="Card Footer com Botões de Página (Tailwind UI)"
-                code={`<div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+            <ComponentCard 
+              title="Card Footer com Botões de Página" 
+              description="Uma variante de paginação incorporada em um rodapé de card, ideal para tabelas ou listas de dados."
+              code={`<div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
   <div className="flex flex-1 justify-between sm:hidden">
     <a
       href="#"
       className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
     >
-      Previous
+      Anterior
     </a>
     <a
       href="#"
       className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
     >
-      Next
+      Próximo
     </a>
   </div>
   <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
     <div>
       <p className="text-sm text-gray-700">
-        Showing <span className="font-medium">1</span> to <span className="font-medium">10</span> of{' '}
-        <span className="font-medium">97</span> results
+        Mostrando <span className="font-medium">1</span> a <span className="font-medium">10</span> de{' '}
+        <span className="font-medium">97</span> resultados
       </p>
     </div>
     <div>
@@ -190,13 +186,13 @@ const PaginationPage = () => {
           href="#"
           className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
         >
-          <span className="sr-only">Previous</span>
+          <span className="sr-only">Anterior</span>
           <ChevronLeft className="h-5 w-5" aria-hidden="true" />
         </a>
         <a
           href="#"
           aria-current="page"
-          className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="relative z-10 inline-flex items-center bg-amicci-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amicci-600"
         >
           1
         </a>
@@ -237,123 +233,117 @@ const PaginationPage = () => {
           href="#"
           className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
         >
-          <span className="sr-only">Next</span>
+          <span className="sr-only">Próximo</span>
           <ChevronRight className="h-5 w-5" aria-hidden="true" />
         </a>
       </nav>
     </div>
   </div>
 </div>`}
-              >
-                <div className="w-full">
-                  <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
-                    <div className="flex flex-1 justify-between sm:hidden">
-                      <a
-                        href="#"
-                        className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                      >
-                        Previous
-                      </a>
-                      <a
-                        href="#"
-                        className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                      >
-                        Next
-                      </a>
+            >
+              <div className="w-full">
+                <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+                  <div className="flex flex-1 justify-between sm:hidden">
+                    <a
+                      href="#"
+                      className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                    >
+                      Anterior
+                    </a>
+                    <a
+                      href="#"
+                      className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                    >
+                      Próximo
+                    </a>
+                  </div>
+                  <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-sm text-gray-700">
+                        Mostrando <span className="font-medium">1</span> a <span className="font-medium">10</span> de{' '}
+                        <span className="font-medium">97</span> resultados
+                      </p>
                     </div>
-                    <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
-                      <div>
-                        <p className="text-sm text-gray-700">
-                          Showing <span className="font-medium">1</span> to <span className="font-medium">10</span> of{' '}
-                          <span className="font-medium">97</span> results
-                        </p>
-                      </div>
-                      <div>
-                        <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
-                          <a
-                            href="#"
-                            className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                          >
-                            <span className="sr-only">Previous</span>
-                            <ChevronLeft className="h-5 w-5" aria-hidden="true" />
-                          </a>
-                          <a
-                            href="#"
-                            aria-current="page"
-                            className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                          >
-                            1
-                          </a>
-                          <a
-                            href="#"
-                            className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                          >
-                            2
-                          </a>
-                          <a
-                            href="#"
-                            className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
-                          >
-                            3
-                          </a>
-                          <span className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">
-                            ...
-                          </span>
-                          <a
-                            href="#"
-                            className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
-                          >
-                            8
-                          </a>
-                          <a
-                            href="#"
-                            className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                          >
-                            9
-                          </a>
-                          <a
-                            href="#"
-                            className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                          >
-                            10
-                          </a>
-                          <a
-                            href="#"
-                            className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                          >
-                            <span className="sr-only">Next</span>
-                            <ChevronRight className="h-5 w-5" aria-hidden="true" />
-                          </a>
-                        </nav>
-                      </div>
+                    <div>
+                      <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+                        <a
+                          href="#"
+                          className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                        >
+                          <span className="sr-only">Anterior</span>
+                          <ChevronLeft className="h-5 w-5" aria-hidden="true" />
+                        </a>
+                        <a
+                          href="#"
+                          aria-current="page"
+                          className="relative z-10 inline-flex items-center bg-amicci-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amicci-600"
+                        >
+                          1
+                        </a>
+                        <a
+                          href="#"
+                          className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                        >
+                          2
+                        </a>
+                        <a
+                          href="#"
+                          className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
+                        >
+                          3
+                        </a>
+                        <span className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">
+                          ...
+                        </span>
+                        <a
+                          href="#"
+                          className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
+                        >
+                          8
+                        </a>
+                        <a
+                          href="#"
+                          className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                        >
+                          9
+                        </a>
+                        <a
+                          href="#"
+                          className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                        >
+                          10
+                        </a>
+                        <a
+                          href="#"
+                          className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                        >
+                          <span className="sr-only">Próximo</span>
+                          <ChevronRight className="h-5 w-5" aria-hidden="true" />
+                        </a>
+                      </nav>
                     </div>
                   </div>
                 </div>
-              </ComponentCard>
-            </div>
+              </div>
+            </ComponentCard>
             
             {/* Centered page numbers - Tailwind UI original */}
-            <div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">Números de Página Centralizados</h3>
-              <p className="text-gray-700 mb-4">
-                Uma variante com números de página centralizados, ideal para interfaces limpas.
-              </p>
-              
-              <ComponentCard 
-                title="Números de Página Centralizados (Tailwind UI)"
-                code={`<div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+            <ComponentCard 
+              title="Números de Página Centralizados" 
+              description="Uma variante com números de página centralizados, ideal para interfaces limpas."
+              code={`<div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
   <div className="flex flex-1 justify-between sm:hidden">
     <a
       href="#"
       className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
     >
-      Previous
+      Anterior
     </a>
     <a
       href="#"
       className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
     >
-      Next
+      Próximo
     </a>
   </div>
   <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-center">
@@ -363,13 +353,13 @@ const PaginationPage = () => {
           href="#"
           className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
         >
-          <span className="sr-only">Previous</span>
+          <span className="sr-only">Anterior</span>
           <ChevronLeft className="h-5 w-5" aria-hidden="true" />
         </a>
         <a
           href="#"
           aria-current="page"
-          className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="relative z-10 inline-flex items-center bg-amicci-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amicci-600"
         >
           1
         </a>
@@ -410,112 +400,106 @@ const PaginationPage = () => {
           href="#"
           className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
         >
-          <span className="sr-only">Next</span>
+          <span className="sr-only">Próximo</span>
           <ChevronRight className="h-5 w-5" aria-hidden="true" />
         </a>
       </nav>
     </div>
   </div>
 </div>`}
-              >
-                <div className="w-full">
-                  <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
-                    <div className="flex flex-1 justify-between sm:hidden">
-                      <a
-                        href="#"
-                        className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                      >
-                        Previous
-                      </a>
-                      <a
-                        href="#"
-                        className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                      >
-                        Next
-                      </a>
-                    </div>
-                    <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-center">
-                      <div>
-                        <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
-                          <a
-                            href="#"
-                            className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                          >
-                            <span className="sr-only">Previous</span>
-                            <ChevronLeft className="h-5 w-5" aria-hidden="true" />
-                          </a>
-                          <a
-                            href="#"
-                            aria-current="page"
-                            className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                          >
-                            1
-                          </a>
-                          <a
-                            href="#"
-                            className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                          >
-                            2
-                          </a>
-                          <a
-                            href="#"
-                            className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
-                          >
-                            3
-                          </a>
-                          <span className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">
-                            ...
-                          </span>
-                          <a
-                            href="#"
-                            className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
-                          >
-                            8
-                          </a>
-                          <a
-                            href="#"
-                            className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                          >
-                            9
-                          </a>
-                          <a
-                            href="#"
-                            className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                          >
-                            10
-                          </a>
-                          <a
-                            href="#"
-                            className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                          >
-                            <span className="sr-only">Next</span>
-                            <ChevronRight className="h-5 w-5" aria-hidden="true" />
-                          </a>
-                        </nav>
-                      </div>
+            >
+              <div className="w-full">
+                <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+                  <div className="flex flex-1 justify-between sm:hidden">
+                    <a
+                      href="#"
+                      className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                    >
+                      Anterior
+                    </a>
+                    <a
+                      href="#"
+                      className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                    >
+                      Próximo
+                    </a>
+                  </div>
+                  <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-center">
+                    <div>
+                      <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+                        <a
+                          href="#"
+                          className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                        >
+                          <span className="sr-only">Anterior</span>
+                          <ChevronLeft className="h-5 w-5" aria-hidden="true" />
+                        </a>
+                        <a
+                          href="#"
+                          aria-current="page"
+                          className="relative z-10 inline-flex items-center bg-amicci-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amicci-600"
+                        >
+                          1
+                        </a>
+                        <a
+                          href="#"
+                          className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                        >
+                          2
+                        </a>
+                        <a
+                          href="#"
+                          className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
+                        >
+                          3
+                        </a>
+                        <span className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">
+                          ...
+                        </span>
+                        <a
+                          href="#"
+                          className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
+                        >
+                          8
+                        </a>
+                        <a
+                          href="#"
+                          className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                        >
+                          9
+                        </a>
+                        <a
+                          href="#"
+                          className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                        >
+                          10
+                        </a>
+                        <a
+                          href="#"
+                          className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                        >
+                          <span className="sr-only">Próximo</span>
+                          <ChevronRight className="h-5 w-5" aria-hidden="true" />
+                        </a>
+                      </nav>
                     </div>
                   </div>
                 </div>
-              </ComponentCard>
-            </div>
+              </div>
+            </ComponentCard>
             
             {/* Simple card footer - Tailwind UI original */}
-            <div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">Rodapé de Card Simples</h3>
-              <p className="text-gray-700 mb-4">
-                Uma versão minimalista para rodapés de cards que economiza espaço.
-              </p>
-              
-              <ComponentCard 
-                title="Rodapé de Card Simples (Tailwind UI)"
-                code={`<nav className="flex items-center justify-between border-t border-gray-200 px-4 sm:px-0">
+            <ComponentCard 
+              title="Rodapé de Card Simples" 
+              description="Uma versão minimalista para rodapés de cards que economiza espaço."
+              code={`<nav className="flex items-center justify-between border-t border-gray-200 px-4 sm:px-0">
   <div className="-mt-px flex w-0 flex-1">
     <a
       href="#"
       className="inline-flex items-center border-t-2 border-transparent pr-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
     >
       <ChevronLeft className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" />
-      Previous
+      Anterior
     </a>
   </div>
   <div className="hidden md:-mt-px md:flex">
@@ -527,7 +511,7 @@ const PaginationPage = () => {
     </a>
     <a
       href="#"
-      className="inline-flex items-center border-t-2 border-indigo-500 px-4 pt-4 text-sm font-medium text-indigo-600"
+      className="inline-flex items-center border-t-2 border-amicci-500 px-4 pt-4 text-sm font-medium text-amicci-600"
       aria-current="page"
     >
       2
@@ -565,93 +549,83 @@ const PaginationPage = () => {
       href="#"
       className="inline-flex items-center border-t-2 border-transparent pl-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
     >
-      Next
+      Próximo
       <ChevronRight className="ml-3 h-5 w-5 text-gray-400" aria-hidden="true" />
     </a>
   </div>
 </nav>`}
-              >
-                <div className="w-full">
-                  <nav className="flex items-center justify-between border-t border-gray-200 px-4 sm:px-0">
-                    <div className="-mt-px flex w-0 flex-1">
-                      <a
-                        href="#"
-                        className="inline-flex items-center border-t-2 border-transparent pr-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                      >
-                        <ChevronLeft className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" />
-                        Previous
-                      </a>
-                    </div>
-                    <div className="hidden md:-mt-px md:flex">
-                      <a
-                        href="#"
-                        className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                      >
-                        1
-                      </a>
-                      <a
-                        href="#"
-                        className="inline-flex items-center border-t-2 border-indigo-500 px-4 pt-4 text-sm font-medium text-indigo-600"
-                        aria-current="page"
-                      >
-                        2
-                      </a>
-                      <a
-                        href="#"
-                        className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                      >
-                        3
-                      </a>
-                      <span className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500">
-                        ...
-                      </span>
-                      <a
-                        href="#"
-                        className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                      >
-                        8
-                      </a>
-                      <a
-                        href="#"
-                        className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                      >
-                        9
-                      </a>
-                      <a
-                        href="#"
-                        className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                      >
-                        10
-                      </a>
-                    </div>
-                    <div className="-mt-px flex w-0 flex-1 justify-end">
-                      <a
-                        href="#"
-                        className="inline-flex items-center border-t-2 border-transparent pl-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                      >
-                        Next
-                        <ChevronRight className="ml-3 h-5 w-5 text-gray-400" aria-hidden="true" />
-                      </a>
-                    </div>
-                  </nav>
-                </div>
-              </ComponentCard>
-            </div>
+            >
+              <div className="w-full">
+                <nav className="flex items-center justify-between border-t border-gray-200 px-4 sm:px-0">
+                  <div className="-mt-px flex w-0 flex-1">
+                    <a
+                      href="#"
+                      className="inline-flex items-center border-t-2 border-transparent pr-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                    >
+                      <ChevronLeft className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" />
+                      Anterior
+                    </a>
+                  </div>
+                  <div className="hidden md:-mt-px md:flex">
+                    <a
+                      href="#"
+                      className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                    >
+                      1
+                    </a>
+                    <a
+                      href="#"
+                      className="inline-flex items-center border-t-2 border-amicci-500 px-4 pt-4 text-sm font-medium text-amicci-600"
+                      aria-current="page"
+                    >
+                      2
+                    </a>
+                    <a
+                      href="#"
+                      className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                    >
+                      3
+                    </a>
+                    <span className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500">
+                      ...
+                    </span>
+                    <a
+                      href="#"
+                      className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                    >
+                      8
+                    </a>
+                    <a
+                      href="#"
+                      className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                    >
+                      9
+                    </a>
+                    <a
+                      href="#"
+                      className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                    >
+                      10
+                    </a>
+                  </div>
+                  <div className="-mt-px flex w-0 flex-1 justify-end">
+                    <a
+                      href="#"
+                      className="inline-flex items-center border-t-2 border-transparent pl-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                    >
+                      Próximo
+                      <ChevronRight className="ml-3 h-5 w-5 text-gray-400" aria-hidden="true" />
+                    </a>
+                  </div>
+                </nav>
+              </div>
+            </ComponentCard>
             
-            {/* Manter os exemplos de variantes existentes */}
-            <div>
-              <h2 className="text-2xl font-medium text-gray-900 mb-4">Exemplos de variantes</h2>
-              
-              {/* Card footer with page buttons */}
-              <div>
-                <h3 className="text-lg font-medium text-gray-900 mb-2">Card Footer com Botões de Página</h3>
-                <p className="text-gray-700 mb-4">
-                  Uma variante de paginação incorporada em um rodapé de card, ideal para tabelas ou listas de dados.
-                </p>
-                
-                <ComponentCard 
-                  title="Card Footer com Botões de Página"
-                  code={`<Card className="w-full">
+            {/* Card footer with shadcn-ui components */}
+            <ComponentCard 
+              title="Card Footer com Componentes shadcn/ui" 
+              description="Uma variante de paginação incorporada em um rodapé de card usando os componentes do shadcn/ui."
+              code={`<Card className="w-full">
   <CardContent className="p-6">
     <p>Conteúdo do card...</p>
   </CardContent>
@@ -661,7 +635,7 @@ const PaginationPage = () => {
     </div>
     <div className="flex items-center space-x-2">
       <Button
-        variant="outline-secondary"
+        variant="outline"
         size="sm"
         className="h-8 w-8 p-0"
         disabled
@@ -669,7 +643,7 @@ const PaginationPage = () => {
         <ChevronLeft className="h-4 w-4" />
       </Button>
       <Button
-        variant="outline-secondary"
+        variant="outline"
         size="sm"
         className="h-8 w-8 p-0"
       >
@@ -678,39 +652,37 @@ const PaginationPage = () => {
     </div>
   </CardFooter>
 </Card>`}
-                >
-                  <div className="w-full">
-                    <Card className="w-full">
-                      <CardContent className="p-6">
-                        <p>Conteúdo do card...</p>
-                      </CardContent>
-                      <CardFooter className="flex items-center justify-between border-t p-4">
-                        <div className="text-sm text-gray-500">
-                          Mostrando <strong>1</strong> a <strong>10</strong> de <strong>100</strong> resultados
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="h-8 w-8 p-0"
-                            disabled
-                          >
-                            <ChevronLeft className="h-4 w-4" />
-                          </Button>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="h-8 w-8 p-0"
-                          >
-                            <ChevronRight className="h-4 w-4" />
-                          </Button>
-                        </div>
-                      </CardFooter>
-                    </Card>
-                  </div>
-                </ComponentCard>
+            >
+              <div className="w-full">
+                <Card className="w-full">
+                  <CardContent className="p-6">
+                    <p>Conteúdo do card...</p>
+                  </CardContent>
+                  <CardFooter className="flex items-center justify-between border-t p-4">
+                    <div className="text-sm text-gray-500">
+                      Mostrando <strong>1</strong> a <strong>10</strong> de <strong>100</strong> resultados
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="h-8 w-8 p-0"
+                        disabled
+                      >
+                        <ChevronLeft className="h-4 w-4" />
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="h-8 w-8 p-0"
+                      >
+                        <ChevronRight className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </CardFooter>
+                </Card>
               </div>
-            </div>
+            </ComponentCard>
           </div>
         )}
         
@@ -723,7 +695,7 @@ const PaginationPage = () => {
                 Aqui está a documentação dos componentes de paginação e suas props.
               </p>
               
-              <h3 className="text-lg font-medium text-gray-900 mb-3">Pagination</h3>
+              <h3 className="text-lg font-medium text-gray-900 mb-3">Importação</h3>
               <CodeBlock
                 code={`import { 
   Pagination, 
