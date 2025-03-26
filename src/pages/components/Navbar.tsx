@@ -14,6 +14,7 @@ import amySvg from '@/pages/assets/amy.svg';
 import Lottie from 'lottie-react';
 import animationData from '@/pages/assets/lottie-dot.json';
 import { IconButton } from '@/components/ui/icon-button';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const Navbar = () => {
   return (
@@ -80,8 +81,29 @@ const MarketplaceNav = () => {
                 <Rocket className="h-4 w-4" />
                 Impulsionar negócios
               </Button>
-              <IconButton variant="outline-secondary" icon={<HelpCircle size={18} />} aria-label="Ajuda" />
-              <IconButton variant="outline-secondary" icon={<Bell size={18} />} aria-label="Ver notificações" />
+              
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <IconButton variant="outline-secondary" icon={<HelpCircle size={18} />} aria-label="Ajuda" />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    Ajuda
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+              
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <IconButton variant="outline-secondary" icon={<Bell size={18} />} aria-label="Ver notificações" />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    Notificações
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+              
               <ProfileButton 
                 userName="Amanda Silva"
                 companyName="Empresa XYZ"
@@ -178,8 +200,29 @@ const BuyerNav = () => {
                   }} />
                 </div>
               </Button>
-              <IconButton variant="outline-secondary" icon={<HelpCircle size={18} />} aria-label="Ajuda" />
-              <IconButton variant="outline-secondary" icon={<Bell size={18} />} aria-label="Ver notificações" />
+              
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <IconButton variant="outline-secondary" icon={<HelpCircle size={18} />} aria-label="Ajuda" />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    Ajuda
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+              
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <IconButton variant="outline-secondary" icon={<Bell size={18} />} aria-label="Ver notificações" />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    Notificações
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+              
               <ProfileButton 
                 logoSrc={defaultLogo}
                 companyName=""
