@@ -1,4 +1,3 @@
-
 import React, { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, Bell } from 'lucide-react';
@@ -99,7 +98,7 @@ const StackedLayout = ({
   // Renderiza o layout específico para overlap
   if (variant === 'dark-overlap') {
     return (
-      <div className="min-h-screen w-full">
+      <div className="min-h-screen w-full flex flex-col">
         <div className={cn("bg-amicciDark-900 pb-32", classes.wrapperClass)}>
           <nav className={cn("mx-auto flex max-w-7xl items-center justify-between p-4 h-[88px] lg:px-8", navClassName)}>
             {navigationContent ? navigationContent : (
@@ -128,9 +127,9 @@ const StackedLayout = ({
           </nav>
         </div>
 
-        <main className={cn("-mt-32", classes.mainClass, mainClassName)}>
-          <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
-            <div className="rounded-lg bg-white p-6 shadow">
+        <main className={cn("-mt-32 flex-1", classes.mainClass, mainClassName)}>
+          <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8 flex flex-col min-h-[calc(100vh-88px)]">
+            <div className="rounded-lg bg-white p-6 shadow flex-1">
               {children}
             </div>
           </div>
@@ -140,7 +139,7 @@ const StackedLayout = ({
   }
 
   return (
-    <div className="min-h-screen w-full">
+    <div className="min-h-screen w-full flex flex-col">
       <nav className={cn(classes.navBg, navClassName)}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-[88px] items-center justify-between">
@@ -190,9 +189,9 @@ const StackedLayout = ({
         </header>
       )}
 
-      <main className={cn(classes.mainBg, mainClassName)}>
-        <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-          <div className="px-4 py-6 sm:px-0">
+      <main className={cn(classes.mainBg, "flex-1", mainClassName)}>
+        <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8 flex flex-col min-h-[calc(100vh-88px-72px)]">
+          <div className="px-4 py-6 sm:px-0 flex-1">
             {children}
           </div>
         </div>

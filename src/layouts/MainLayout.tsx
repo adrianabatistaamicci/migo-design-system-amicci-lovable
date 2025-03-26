@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLocation, Outlet } from 'react-router-dom';
 import Header from '@/components/Header';
@@ -14,7 +13,6 @@ const PageTitleUpdater = () => {
   const location = useLocation();
   const { setPageTitle } = usePageTitle();
   
-  // Function to recursively search for the current page in the sidebar items
   const findPageTitle = (items: any[], pathname: string): string | undefined => {
     for (const item of items) {
       if (item.href === pathname) {
@@ -32,7 +30,6 @@ const PageTitleUpdater = () => {
     const title = findPageTitle(sidebarItems, location.pathname);
     if (title) {
       setPageTitle(title);
-      // Also update the document title
       document.title = `Migo Design System | ${title}`;
     }
   }, [location.pathname, setPageTitle]);
@@ -46,7 +43,6 @@ const MainLayoutContent = () => {
   const location = useLocation();
   const { isTransitioning, showContent } = usePageTransition();
 
-  // Close sidebar when route changes (mobile only)
   React.useEffect(() => {
     setSidebarOpen(false);
   }, [location.pathname]);
@@ -59,31 +55,32 @@ const MainLayoutContent = () => {
         isSidebarOpen={sidebarOpen}
       />
       
-      <div className="flex-1 flex">
-        <Sidebar isOpen={sidebarOpen} />
-        
-        <div 
-          className={cn(
-            "flex-1 transition-all duration-300 ease-elastic",
-            "md:ml-64" // Offset for sidebar on desktop
-          )}
-        >
-          <main 
+      <div className="flex-1 flex flex-col">
+        <div className="flex flex-1">
+          <Sidebar isOpen={sidebarOpen} />
+          
+          <div 
             className={cn(
-              "transition-opacity duration-300 mx-auto px-6 w-full",
-              "max-w-[1280px] py-8", // Standardized max-width and vertical padding
-              isTransitioning ? "opacity-0" : "opacity-100",
-              !showContent && "hidden"
+              "flex-1 transition-all duration-300 ease-elastic flex flex-col min-h-[calc(100vh-88px)]",
+              "md:ml-64"
             )}
           >
-            <Outlet />
-          </main>
-          
-          <Footer />
+            <main 
+              className={cn(
+                "transition-opacity duration-300 mx-auto px-6 w-full flex-1",
+                "max-w-[1280px] py-8",
+                isTransitioning ? "opacity-0" : "opacity-100",
+                !showContent && "hidden"
+              )}
+            >
+              <Outlet />
+            </main>
+            
+            <Footer />
+          </div>
         </div>
       </div>
       
-      {/* Overlay for mobile sidebar */}
       {sidebarOpen && (
         <div 
           className="md:hidden fixed inset-0 bg-black/20 z-20"
