@@ -1,4 +1,3 @@
-
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
@@ -157,7 +156,17 @@ const InstitutionalNav = () => {
                 </Button>
               </div>
               <Button className="bg-amicci-500 hover:bg-amicci-600">Falar com especialista</Button>
-              <IconButton variant="outline-secondary" icon={<Globe size={18} />} aria-label="Idioma" />
+              
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <IconButton variant="outline-secondary" icon={<Globe size={18} />} aria-label="Idioma" />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    Idioma
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </div>
           </div>
         </div>
