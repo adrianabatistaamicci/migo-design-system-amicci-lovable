@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Mail, Search, Eye, EyeOff } from 'lucide-react';
 import ComponentCard from '@/components/ComponentCard';
@@ -112,55 +111,55 @@ const InputPage = () => {
     </button>
   }
 />`}
-          >
-            <div className="flex flex-col gap-4 max-w-sm">
-              <Input
-                startAdornment={<Mail className="h-4 w-4" />}
-                label="Email"
-                placeholder="johndoe@example.com"
-              />
-              
-              <Input
-                label="Search"
-                placeholder="Search..."
-                startAdornment={<Search className="h-4 w-4" />}
-              />
-              
-              <Input
-                label="Password"
-                type={showPassword ? "text" : "password"}
-                value={passwordValue}
-                onChange={(e) => setPasswordValue(e.target.value)}
-                endAdornment={
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="cursor-pointer opacity-70 hover:opacity-100"
-                  >
-                    {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                  </button>
-                }
-              />
-            </div>
-          </ComponentCard>
-          
-          <ComponentCard 
-            title="Disabled Input" 
-            description="Inputs can be disabled to prevent interaction."
-            code={`<Input disabled label="Disabled Input" value="Can't touch this" />`}
-          >
-            <div className="flex flex-col gap-4 max-w-sm">
-              <Input disabled label="Disabled Input" value="Can't touch this" />
-            </div>
-          </ComponentCard>
-          
-          <ComponentCard 
-            title="Full Width Input" 
-            description="Inputs can expand to fill their container."
-            code={`<Input fullWidth label="Full Width" placeholder="This input takes up the full width" />`}
-          >
-            <Input fullWidth label="Full Width" placeholder="This input takes up the full width" />
-          </ComponentCard>
+        >
+          <div className="flex flex-col gap-4 max-w-sm">
+            <Input
+              startAdornment={<Mail className="h-4 w-4" />}
+              label="Email"
+              placeholder="johndoe@example.com"
+            />
+            
+            <Input
+              label="Search"
+              placeholder="Search..."
+              startAdornment={<Search className="h-4 w-4" />}
+            />
+            
+            <Input
+              label="Password"
+              type={showPassword ? "text" : "password"}
+              value={passwordValue}
+              onChange={(e) => setPasswordValue(e.target.value)}
+              endAdornment={
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="cursor-pointer opacity-70 hover:opacity-100"
+                >
+                  {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                </button>
+              }
+            />
+          </div>
+        </ComponentCard>
+        
+        <ComponentCard 
+          title="Disabled Input" 
+          description="Inputs can be disabled to prevent interaction."
+          code={`<Input disabled label="Disabled Input" value="Can't touch this" />`}
+        >
+          <div className="flex flex-col gap-4 max-w-sm">
+            <Input disabled label="Disabled Input" value="Can't touch this" />
+          </div>
+        </ComponentCard>
+        
+        <ComponentCard 
+          title="Full Width Input" 
+          description="Inputs can expand to fill their container."
+          code={`<Input fullWidth label="Full Width" placeholder="This input takes up the full width" />`}
+        >
+          <Input fullWidth label="Full Width" placeholder="This input takes up the full width" />
+        </ComponentCard>
         </div>
         
         <div className="mt-12">

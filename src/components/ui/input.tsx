@@ -51,7 +51,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           fullWidth && "w-full"
         )}>
           {startAdornment && (
-            <div className="absolute left-3 flex items-center pointer-events-none text-text-secondary">
+            <div className="absolute left-3 flex items-center pointer-events-none text-text-secondary z-10">
               {startAdornment}
             </div>
           )}
@@ -81,7 +81,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           />
           
           {endAdornment && (
-            <div className="absolute right-3 flex items-center pointer-events-none text-text-secondary">
+            <div className="absolute right-3 flex items-center text-text-secondary z-10">
               {endAdornment}
             </div>
           )}
