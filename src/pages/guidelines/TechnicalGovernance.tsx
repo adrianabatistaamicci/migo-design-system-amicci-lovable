@@ -1,4 +1,3 @@
-
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -9,35 +8,27 @@
 import React, { useState } from 'react';
 import { TailwindTabs } from "@/components/ui/tabs";
 import Header from '@/components/library-components/Header';
-
 const TechnicalGovernance = () => {
   const [activeTab, setActiveTab] = useState('visao-geral');
+  return <div className="w-full animate-fade-in">
+      <Header title="Governança Lovable" description="Processo de contribuição, manutenção e evolução dos componentes através da plataforma Lovable." type="foundations" hideChip={true} />
 
-  return (
-    <div className="w-full animate-fade-in">
-      <Header 
-        title="Governança Lovable" 
-        description="Processo de contribuição, manutenção e evolução dos componentes através da plataforma Lovable."
-        type="foundations"
-        hideChip={true}
-      />
-
-      <div className="mt-8">
+      <div className="">
         <div className="w-fit">
-          <TailwindTabs 
-            defaultValue="visao-geral" 
-            tabs={[
-              { name: 'Visão geral', value: 'visao-geral' },
-              { name: 'Projetos Lovable', value: 'projetos' },
-              { name: 'Ambiente de produção', value: 'ambiente-producao' }
-            ]}
-            onChange={value => setActiveTab(value)}
-          />
+          <TailwindTabs defaultValue="visao-geral" tabs={[{
+          name: 'Visão geral',
+          value: 'visao-geral'
+        }, {
+          name: 'Projetos Lovable',
+          value: 'projetos'
+        }, {
+          name: 'Ambiente de produção',
+          value: 'ambiente-producao'
+        }]} onChange={value => setActiveTab(value)} />
         </div>
         
         <div className="mt-8">
-          {activeTab === 'visao-geral' && (
-            <div className="space-y-8">
+          {activeTab === 'visao-geral' && <div className="space-y-8">
               <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
                 <h2 className="text-2xl font-semibold mb-6">Design System Core Team</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -110,11 +101,9 @@ const TechnicalGovernance = () => {
                   </ul>
                 </div>
               </div>
-            </div>
-          )}
+            </div>}
           
-          {activeTab === 'projetos' && (
-            <div className="space-y-8">
+          {activeTab === 'projetos' && <div className="space-y-8">
               <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
                 <h2 className="text-2xl font-semibold mb-6">Utilizando em Projetos Lovable</h2>
                 <p className="mb-4">Siga estas etapas para integrar o Migo Design System em seus projetos Lovable:</p>
@@ -137,7 +126,7 @@ const TechnicalGovernance = () => {
                     <h3 className="text-xl font-semibold mb-4">2. Instalar o pacote NPM</h3>
                     <p className="mb-4">Adicione o pacote ao seu projeto Lovable utilizando o comando:</p>
                     <div className="bg-gray-800 text-white p-4 rounded font-mono text-sm mb-2">
-                      <pre>bash<br/>npm install @amicci/migo-design-system</pre>
+                      <pre>bash<br />npm install @amicci/migo-design-system</pre>
                     </div>
                   </div>
                   
@@ -145,7 +134,7 @@ const TechnicalGovernance = () => {
                     <h3 className="text-xl font-semibold mb-4">3. Configurar o Tailwind CSS</h3>
                     <p className="mb-4">Atualize o arquivo <code>tailwind.config.js</code> para incluir os componentes do Design System:</p>
                     <div className="bg-gray-800 text-white p-4 rounded font-mono text-sm mb-2">
-                      <pre>javascript<br/>// tailwind.config.js<br/>module.exports = {'{'}<br/>  content: [<br/>    // ... outros caminhos<br/>    "./node_modules/@amicci/migo-design-system/**/*.{'{'}'js,ts,jsx,tsx{'}'}"<br/>  ],<br/>  // ... resto da configuração<br/>{'}'}</pre>
+                      <pre>javascript<br />// tailwind.config.js<br />module.exports = {'{'}<br />  content: [<br />    // ... outros caminhos<br />    "./node_modules/@amicci/migo-design-system/**/*.{'{'}'js,ts,jsx,tsx{'}'}"<br />  ],<br />  // ... resto da configuração<br />{'}'}</pre>
                     </div>
                   </div>
                   
@@ -153,7 +142,7 @@ const TechnicalGovernance = () => {
                     <h3 className="text-xl font-semibold mb-4">4. Importar componentes</h3>
                     <p className="mb-4">Importe os componentes diretamente em seus arquivos React:</p>
                     <div className="bg-gray-800 text-white p-4 rounded font-mono text-sm mb-2">
-                      <pre>tsx<br/>import {'{ Button, Card, TextField }'} from "@amicci/migo-design-system";<br/><br/>function MeuComponente() {'{'}<br/>  return (<br/>    {'<Card>'}<br/>      {'<TextField label="Nome" />'}<br/>      {'<Button variant="primary">Enviar</Button>'}<br/>    {'</Card>'}<br/>  );<br/>{'}'}</pre>
+                      <pre>tsx<br />import {'{ Button, Card, TextField }'} from "@amicci/migo-design-system";<br /><br />function MeuComponente() {'{'}<br />  return (<br />    {'<Card>'}<br />      {'<TextField label="Nome" />'}<br />      {'<Button variant="primary">Enviar</Button>'}<br />    {'</Card>'}<br />  );<br />{'}'}</pre>
                     </div>
                   </div>
                   
@@ -172,7 +161,7 @@ const TechnicalGovernance = () => {
                     <h3 className="text-xl font-semibold mb-4">6. Versão específica (recomendado)</h3>
                     <p className="mb-4">Para garantir consistência, instale uma versão específica:</p>
                     <div className="bg-gray-800 text-white p-4 rounded font-mono text-sm mb-2">
-                      <pre>bash<br/>npm install @amicci/migo-design-system@1.2.3</pre>
+                      <pre>bash<br />npm install @amicci/migo-design-system@1.2.3</pre>
                     </div>
                     <p className="mt-4 text-sm text-gray-700">Consulte a seção de versionamento para entender a política de compatibilidade.</p>
                   </div>
@@ -246,11 +235,9 @@ const TechnicalGovernance = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          )}
+            </div>}
           
-          {activeTab === 'ambiente-producao' && (
-            <div className="space-y-8">
+          {activeTab === 'ambiente-producao' && <div className="space-y-8">
               <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
                 <h2 className="text-2xl font-semibold mb-6">Ambiente de Produção</h2>
                 <p className="mb-6">
@@ -327,12 +314,9 @@ const TechnicalGovernance = () => {
                   </p>
                 </div>
               </div>
-            </div>
-          )}
+            </div>}
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default TechnicalGovernance;
