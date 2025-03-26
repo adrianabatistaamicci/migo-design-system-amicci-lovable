@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -12,27 +13,41 @@ import { tokenToPixels } from '@/utils/spacingUtils';
 import Header from '@/components/library-components/Header';
 import CodeBlock from '@/components/CodeBlock';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+
 const Spacing = () => {
   const [activeTab, setActiveTab] = useState('overview');
-  const spacings = ['space-0', 'space-1', 'space-2', 'space-3', 'space-4', 'space-5', 'space-6', 'space-8', 'space-10', 'space-12', 'space-16', 'space-20', 'space-24', 'space-32', 'space-40', 'space-48', 'space-56', 'space-64'];
-  const directions: Array<'x' | 'y' | 't' | 'r' | 'b' | 'l' | ''> = ['', 'x', 'y', 't', 'r', 'b', 'l'];
-  return <div className="w-full animate-fade-in">
-      <Header title="Spacing" description="Sistema de espaçamento padronizado para criar interfaces consistentes" type="foundations" />
+  
+  const spacings = [
+    'space-0', 'space-1', 'space-2', 'space-3', 'space-4', 'space-5', 'space-6', 'space-8',
+    'space-10', 'space-12', 'space-16', 'space-20', 'space-24', 'space-32', 'space-40',
+    'space-48', 'space-56', 'space-64'
+  ];
 
-      <div className="">
-        <TailwindTabs defaultValue="overview" tabs={[{
-        name: 'Visão Geral',
-        value: 'overview'
-      }, {
-        name: 'Aplicação',
-        value: 'usage'
-      }, {
-        name: 'Utilitários',
-        value: 'utilities'
-      }]} variant="pillsGray" onChange={value => setActiveTab(value)} />
+  const directions: Array<'x' | 'y' | 't' | 'r' | 'b' | 'l' | ''> = ['', 'x', 'y', 't', 'r', 'b', 'l'];
+
+  return (
+    <div className="w-full animate-fade-in">
+      <Header 
+        title="Spacing" 
+        description="Sistema de espaçamento padronizado para criar interfaces consistentes" 
+        type="foundations"
+      />
+
+      <div className="mt-8">
+        <TailwindTabs 
+          defaultValue="overview"
+          tabs={[
+            { name: 'Visão Geral', value: 'overview' },
+            { name: 'Aplicação', value: 'usage' },
+            { name: 'Utilitários', value: 'utilities' }
+          ]}
+          variant="pillsGray"
+          onChange={value => setActiveTab(value)}
+        />
         
         <div className="mt-6">
-          {activeTab === 'overview' && <div className="space-y-6">
+          {activeTab === 'overview' && (
+            <div className="space-y-6">
               <ComponentCard title="Visão Geral do Sistema de Espaçamento" description="Explore os tokens de espaçamento disponíveis e suas representações em pixels.">
                 <p className="text-mui-text-secondary mb-6">
                   Nosso sistema de espaçamento é baseado em uma escala consistente para garantir harmonia visual e usabilidade em toda a aplicação.
@@ -54,8 +69,9 @@ const Spacing = () => {
                 
                 <div className="grid grid-cols-1 gap-4 mt-6 mb-8">
                   {spacings.map(space => {
-                const pixelValue = tokenToPixels(space);
-                return <div key={space} className="flex items-center border rounded-lg p-4">
+                    const pixelValue = tokenToPixels(space);
+                    return (
+                      <div key={space} className="flex items-center border rounded-lg p-4">
                         <div className="flex-shrink-0 w-48">
                           <span className="text-sm font-medium">{space}</span>
                         </div>
@@ -63,9 +79,10 @@ const Spacing = () => {
                         <div className="flex-grow mx-4">
                           <div className="flex items-center">
                             <div className="bg-gray-200 h-4 rounded-full">
-                              <div className="bg-primary-main h-4 rounded-full" style={{
-                          width: `${Math.max(pixelValue * 2, 16)}px`
-                        }} />
+                              <div 
+                                className="bg-primary-main h-4 rounded-full" 
+                                style={{ width: `${Math.max(pixelValue * 2, 16)}px` }}
+                              />
                             </div>
                           </div>
                         </div>
@@ -73,8 +90,9 @@ const Spacing = () => {
                         <div className="flex-shrink-0 w-16 text-right">
                           <span className="text-sm font-mono">{pixelValue}px</span>
                         </div>
-                      </div>;
-              })}
+                      </div>
+                    );
+                  })}
                 </div>
                 
                 <p className="text-sm text-gray-600 mt-4">
@@ -82,9 +100,11 @@ const Spacing = () => {
                   aumentando progressivamente de tamanho para fornecer ritmo e hierarquia em layouts.
                 </p>
               </ComponentCard>
-            </div>}
+            </div>
+          )}
 
-          {activeTab === 'usage' && <div className="space-y-6">
+          {activeTab === 'usage' && (
+            <div className="space-y-6">
               <ComponentCard title="Aplicação Prática do Espaçamento" description="Exemplos de como usar os tokens de espaçamento em diferentes contextos.">
                 <p className="text-mui-text-secondary mb-6">
                   Utilize os tokens de espaçamento para definir margens, preenchimentos e gaps entre elementos de forma consistente.
@@ -99,15 +119,17 @@ const Spacing = () => {
                     
                     <div className="space-y-4 mt-6">
                       {['space-4', 'space-8', 'space-12', 'space-16'].map(space => {
-                    const pixelValue = tokenToPixels(space);
-                    return <div key={space} className="border rounded-lg p-4">
+                        const pixelValue = tokenToPixels(space);
+                        return (
+                          <div key={space} className="border rounded-lg p-4">
                             <div className="flex items-center gap-4">
                               <div className="w-32 text-sm">{space} ({pixelValue}px)</div>
                               <div className="flex-grow">
                                 <div className="bg-gray-100 rounded">
-                                  <div className="bg-primary-light border border-primary-main rounded w-full" style={{
-                              padding: `${pixelValue}px`
-                            }}>
+                                  <div 
+                                    className="bg-primary-light border border-primary-main rounded w-full"
+                                    style={{ padding: `${pixelValue}px` }}
+                                  >
                                     <div className="bg-white border border-gray-300 rounded p-2 text-center text-sm">
                                       Conteúdo com padding {pixelValue}px
                                     </div>
@@ -115,8 +137,9 @@ const Spacing = () => {
                                 </div>
                               </div>
                             </div>
-                          </div>;
-                  })}
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
 
@@ -127,26 +150,36 @@ const Spacing = () => {
                     </p>
                     
                     {['space-2', 'space-4', 'space-8', 'space-16'].map(space => {
-                  const pixelValue = tokenToPixels(space);
-                  return <div key={space} className="border rounded-lg p-4 mb-4">
+                      const pixelValue = tokenToPixels(space);
+                      return (
+                        <div key={space} className="border rounded-lg p-4 mb-4">
                           <div className="flex items-center mb-2">
                             <span className="text-sm font-medium">{space} ({pixelValue}px)</span>
                           </div>
-                          <div className="flex bg-gray-50 p-4 rounded" style={{
-                      gap: `${pixelValue}px`
-                    }}>
-                            {[1, 2, 3, 4].map(item => <div key={item} className="bg-primary-light border border-primary-main rounded-md flex items-center justify-center w-12 h-12">
+                          <div 
+                            className="flex bg-gray-50 p-4 rounded"
+                            style={{ gap: `${pixelValue}px` }}
+                          >
+                            {[1, 2, 3, 4].map(item => (
+                              <div 
+                                key={item} 
+                                className="bg-primary-light border border-primary-main rounded-md flex items-center justify-center w-12 h-12"
+                              >
                                 <span>{item}</span>
-                              </div>)}
+                              </div>
+                            ))}
                           </div>
-                        </div>;
-                })}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </ComponentCard>
-            </div>}
+            </div>
+          )}
 
-          {activeTab === 'utilities' && <div className="space-y-6">
+          {activeTab === 'utilities' && (
+            <div className="space-y-6">
               <ComponentCard title="Utilitários de Espaçamento" description="Explore as classes utilitárias para aplicar espaçamento de forma rápida e eficiente.">
                 <p className="text-mui-text-secondary mb-6">
                   Nossas classes utilitárias de espaçamento permitem que você defina margens, preenchimentos e gaps de forma consistente em toda a aplicação.
@@ -172,9 +205,10 @@ const Spacing = () => {
                         </TableHeader>
                         <TableBody>
                           {spacings.map(space => {
-                        const pixelValue = tokenToPixels(space);
-                        const spaceValue = space.split('-')[1];
-                        return <TableRow key={space}>
+                            const pixelValue = tokenToPixels(space);
+                            const spaceValue = space.split('-')[1];
+                            return (
+                              <TableRow key={space}>
                                 <TableCell>{space}</TableCell>
                                 <TableCell>{pixelValue}px</TableCell>
                                 <TableCell>
@@ -185,14 +219,16 @@ const Spacing = () => {
                                 <TableCell>
                                   <div className="flex items-center">
                                     <div className="bg-gray-300 h-4 rounded-full flex-grow">
-                                      <div className="bg-primary-main h-4 rounded-full" style={{
-                                  width: `${Math.max(pixelValue, 4)}px`
-                                }} />
+                                      <div 
+                                        className="bg-primary-main h-4 rounded-full" 
+                                        style={{ width: `${Math.max(pixelValue, 4)}px` }}
+                                      />
                                     </div>
                                   </div>
                                 </TableCell>
-                              </TableRow>;
-                      })}
+                              </TableRow>
+                            );
+                          })}
                         </TableBody>
                       </Table>
                     </div>
@@ -220,19 +256,25 @@ const Spacing = () => {
                       
                       <div className="border rounded-lg p-4">
                         <h4 className="text-sm font-medium mb-2">Exemplo de Uso</h4>
-                        <CodeBlock language="jsx" code={`<div className="mt-4 mb-8 px-6">
+                        <CodeBlock 
+                          language="jsx"
+                          code={`<div className="mt-4 mb-8 px-6">
   {/* Margin top: 16px, Margin bottom: 32px, 
      Padding horizontal: 24px */}
   <p>Conteúdo com espaçamento</p>
-</div>`} />
+</div>`}
+                        />
                       </div>
                     </div>
                   </div>
                 </div>
               </ComponentCard>
-            </div>}
+            </div>
+          )}
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default Spacing;

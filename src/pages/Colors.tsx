@@ -32,7 +32,7 @@ const Colors = () => {
         type="foundations"
       />
 
-      <div className="mt-6">
+      <div className="mt-8">
         <TailwindTabs 
           className=""
           defaultValue="overview" 
