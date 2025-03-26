@@ -57,6 +57,7 @@ const ProfileButtonPage = () => {
                 userName="Fernanda Rodrigues"
                 companyName="Creative Design"
                 showClientLogo={false}
+                showMenuIcon={false}
               />
             </div>
           } 
@@ -74,6 +75,7 @@ const ProfileButtonPage = () => {
                     companyName="Empresa XYZ"
                     showClientLogo={false}
                     avatarText="AS"
+                    showMenuIcon={false}
                   />
                 </div>
               </div>
