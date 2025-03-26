@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import Header from '@/components/library-components/Header';
@@ -7,6 +8,7 @@ import { Separator } from '@/components/ui/separator';
 import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
 import { TailwindTabs } from '@/components/ui/tabs';
 import ColorSwatch from '@/components/colors/ColorSwatch';
+import CodeBlock from '@/components/CodeBlock';
 
 // Define the type for the module records returned by import.meta.glob
 type ModuleRecord = Record<string, {
@@ -58,6 +60,23 @@ const LibraryPage: React.FC = () => {
       }]} variant="pillsGray" onChange={value => setActiveTab(value)} />
         
         <div className="mt-6 grid grid-cols-1 gap-6">
+          {/* CodeBlock component card */}
+          <div className="w-full">
+            <ComponentCard title="CodeBlock" description="Componente para exibir blocos de código com formatação e função de cópia" code={`<CodeBlock 
+  code="import { Button } from '@/components/ui/button';" 
+  language="tsx" 
+  title="Exemplo de importação" 
+/>`} className="w-full">
+              <div className="p-4 w-full">
+                <CodeBlock 
+                  code="import { Button } from '@/components/ui/button';" 
+                  language="tsx" 
+                  title="Exemplo de importação" 
+                />
+              </div>
+            </ComponentCard>
+          </div>
+
           {/* ColorSwatch component card */}
           <div className="w-full">
             <ComponentCard title="ColorSwatch" description="Componente para exibir amostras de cores com opção de cópia" code={`<ColorSwatch 
