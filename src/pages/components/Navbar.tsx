@@ -135,9 +135,7 @@ const InstitutionalNav = () => {
                 </Button>
               </div>
               <Button className="bg-amicci-500 hover:bg-amicci-600">Falar com especialista</Button>
-              <Button variant="outline" className="p-2">
-                <Globe className="h-5 w-5" />
-              </Button>
+              <IconButton variant="outline-secondary" icon={<Globe size={18} />} aria-label="Idioma" />
             </div>
           </div>
         </div>
