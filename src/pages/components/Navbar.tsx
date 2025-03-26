@@ -2,13 +2,18 @@
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
-import { Menu, Bell, ChevronDown, Search, User, ShoppingCart, Rocket, Globe, Heart, MessageSquare } from 'lucide-react';
+import { Menu, Bell, ChevronDown, Search, User, ShoppingCart, Rocket, Globe, Heart, MessageSquare, HelpCircle, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import amicciLogoLight from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
 import amicciLogoDark from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg';
 import { ProfileButton } from '@/components/ui/profile-button';
+import defaultLogo from '@/pages/assets/client-logo.svg';
+import amySvg from '@/pages/assets/amy.svg';
+import Lottie from 'lottie-react';
+import animationData from '@/pages/assets/lottie-dot.json';
+import { IconButton } from '@/components/ui/icon-button';
 
 const Navbar = () => {
   return (
@@ -75,14 +80,8 @@ const MarketplaceNav = () => {
                 <Rocket className="h-4 w-4" />
                 Impulsionar negócios
               </Button>
-              <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
-                <span className="sr-only">Ajuda</span>
-                <Search className="h-6 w-6" aria-hidden="true" />
-              </button>
-              <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
-                <span className="sr-only">Ver notificações</span>
-                <Bell className="h-6 w-6" aria-hidden="true" />
-              </button>
+              <IconButton variant="outline-secondary" icon={<HelpCircle size={18} />} aria-label="Ajuda" />
+              <IconButton variant="outline-secondary" icon={<Bell size={18} />} aria-label="Ver notificações" />
               <ProfileButton 
                 userName="Amanda Silva"
                 companyName="Empresa XYZ"
@@ -171,22 +170,26 @@ const BuyerNav = () => {
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
-                <span className="sr-only">Buscar</span>
-                <Search className="h-6 w-6" aria-hidden="true" />
-              </button>
-              <button type="button" className="relative rounded-full bg-white p-1 text-gray-950 hover:text-gray-700">
-                <span className="sr-only">Ver notificações</span>
-                <Bell className="h-6 w-6" aria-hidden="true" />
-              </button>
+              <Button variant="outline-secondary" className="flex items-center">
+                <Sparkles className="h-6 w-6 text-tertiary-main mr-1" />
+                <span className="text-text-primary mr-0">Amy</span>
+                <div className="h-12 w-8 flex items-center justify-center">
+                  <Lottie animationData={animationData} loop={true} autoplay={true} style={{
+                    height: '100%',
+                    width: '100%'
+                  }} />
+                </div>
+              </Button>
+              <IconButton variant="outline-secondary" icon={<HelpCircle size={18} />} aria-label="Ajuda" />
+              <IconButton variant="outline-secondary" icon={<Bell size={18} />} aria-label="Ver notificações" />
               <ProfileButton 
-                userName="AA"
-                companyName="ClientLogo"
+                logoSrc={defaultLogo}
+                companyName=""
+                userName=""
                 showClientLogo={true}
+                showAvatar={true}
+                showMenuIcon={false}
                 avatarText="AA"
-                showMenuIcon={true}
-                logoText="ClientLogo"
-                menuIcon={<Menu className="h-6 w-6" />}
               />
             </div>
           </div>
