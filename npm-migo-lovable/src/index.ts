@@ -32,11 +32,25 @@ export * from './components/ui/resizable';
 export * from './components/ui/scroll-area';
 export * from './components/ui/separator';
 export * from './components/ui/sheet';
+export * from './components/ui/skeleton';
+export * from './components/ui/switch';
+export * from './components/ui/table';
+export * from './components/ui/tabs';
+export * from './components/ui/textarea';
+export * from './components/ui/toggle';
+export * from './components/ui/toggle-group';
+export * from './components/ui/tooltip';
 
 // Componentes personalizados
 export * from './components/CodeBlock';
 export * from './components/ComponentCard';
 export * from './components/ComponentPreview';
+
+// Componentes de biblioteca
+export { default as Footer } from './components/library-components/Footer';
+export { default as Header } from './components/library-components/Header';
+export { default as HeroSection } from './components/library-components/HeroSection';
+export { default as EmptyState } from './components/library-components/EmptyState';
 
 // Utilitários
 export * from './lib/utils';

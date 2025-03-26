@@ -33,7 +33,23 @@ function App() {
 
 ## Componentes
 
-O Migo Design System inclui componentes baseados no Shadcn UI, mas adaptados para o contexto da Amicci.
+O Migo Design System inclui uma ampla variedade de componentes:
+
+### Componentes Básicos
+- Button, Input, Card, etc.
+- Componentes de formulário como Checkbox, Radio, Select
+- Componentes de navegação e layout
+
+### Componentes de Biblioteca
+- Footer - Rodapé padronizado 
+- Header - Cabeçalho com suporte a títulos e descrições
+- HeroSection - Seção destacada para páginas iniciais
+- EmptyState - Estado vazio padronizado
+
+### Utilitários
+- CodeBlock - Para exibição de código formatado
+- ComponentCard - Card para exibição de componentes com preview
+- ComponentPreview - Preview de componentes
 
 ## Configuração do Tailwind CSS
 
