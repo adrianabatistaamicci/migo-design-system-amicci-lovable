@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import Header from '@/components/library-components/Header';
@@ -48,7 +47,7 @@ const LibraryPage: React.FC = () => {
     return <DocumentationSkeleton />;
   }
   return <div className="animate-fade-in w-full max-w-[1280px] mx-auto">
-      <div className="w-full mb-12">
+      <div className="w-full mb-6">
         <Header title="Library Components" description="Uma coleção de componentes de UI reutilizáveis projetados para o nossa documentação de design system." type="components" />
         
         <TailwindTabs defaultValue="components" className="mt-8" tabs={[{
@@ -68,11 +67,7 @@ const LibraryPage: React.FC = () => {
   title="Exemplo de importação" 
 />`} className="w-full">
               <div className="p-4 w-full">
-                <CodeBlock 
-                  code="import { Button } from '@/components/ui/button';" 
-                  language="tsx" 
-                  title="Exemplo de importação" 
-                />
+                <CodeBlock code="import { Button } from '@/components/ui/button';" language="tsx" title="Exemplo de importação" />
               </div>
             </ComponentCard>
           </div>
