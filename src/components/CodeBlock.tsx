@@ -10,13 +10,15 @@ interface CodeBlockProps {
   language?: string;
   title?: string;
   className?: string;
+  showCopy?: boolean;
 }
 
 const CodeBlock: React.FC<CodeBlockProps> = ({
   code,
   language = 'jsx',
   title,
-  className
+  className,
+  showCopy = true
 }) => {
   const [copied, setCopied] = useState(false);
   const [showCode, setShowCode] = useState(false);
@@ -58,19 +60,21 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
             </Button>
           </CollapsibleTrigger>
           
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            onClick={copyToClipboard} 
-            className="text-sm text-gray-600 hover:text-gray-900"
-          >
-            {copied ? (
-              <CheckCheck size={16} className="mr-1" />
-            ) : (
-              <Copy size={16} className="mr-1" />
-            )}
-            <span>{copied ? "Copied" : "Copy"}</span>
-          </Button>
+          {showCopy && (
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={copyToClipboard} 
+              className="text-sm text-gray-600 hover:text-gray-900"
+            >
+              {copied ? (
+                <CheckCheck size={16} className="mr-1" />
+              ) : (
+                <Copy size={16} className="mr-1" />
+              )}
+              <span>{copied ? "Copied" : "Copy"}</span>
+            </Button>
+          )}
         </div>
         
         <CollapsibleContent className="bg-white">

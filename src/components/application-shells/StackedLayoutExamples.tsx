@@ -1,4 +1,3 @@
-
 import React from 'react';
 import StackedLayout from './StackedLayout';
 import { Link } from 'react-router-dom';
@@ -282,7 +281,7 @@ export const InstitutionalExample = () => {
                 <Button size="lg">Get started</Button>
               </div>
               <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                <Button variant="outline-default" size="lg">Live demo</Button>
+                <Button variant="outline" size="lg">Live demo</Button>
               </div>
             </div>
           </div>
