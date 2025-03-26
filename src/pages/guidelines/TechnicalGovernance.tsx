@@ -299,23 +299,23 @@ const TechnicalGovernance = () => {
                   Para jornadas e produtos oficiais, o código que vai para produção deve passar por um processo estruturado de revisão:
                 </p>
                 
-                <div className="bg-blue-50 p-5 rounded-md border border-blue-200 mb-4">
-                  <h3 className="font-medium text-lg mb-2 text-blue-700">Revisão de UX</h3>
-                  <p className="text-blue-800">
+                <div className="bg-primary-50 p-5 rounded-md border border-primary-100 mb-4">
+                  <h3 className="font-medium text-lg mb-2 text-primary-700">Revisão de UX</h3>
+                  <p className="text-primary-800">
                     O time de UX avalia a implementação para garantir que a experiência do usuário seja consistente, acessível e alinhada com as diretrizes de design da empresa.
                   </p>
                 </div>
                 
-                <div className="bg-green-50 p-5 rounded-md border border-green-200 mb-4">
-                  <h3 className="font-medium text-lg mb-2 text-green-700">Alinhamento com Produto</h3>
-                  <p className="text-green-800">
+                <div className="bg-primary-50 p-5 rounded-md border border-primary-100 mb-4">
+                  <h3 className="font-medium text-lg mb-2 text-primary-700">Alinhamento com Produto</h3>
+                  <p className="text-primary-800">
                     O time de Produto verifica se a implementação atende aos requisitos de negócio, prioridades estratégicas e expectativas dos usuários.
                   </p>
                 </div>
                 
-                <div className="bg-purple-50 p-5 rounded-md border border-purple-200">
-                  <h3 className="font-medium text-lg mb-2 text-purple-700">Revisão Técnica</h3>
-                  <p className="text-purple-800">
+                <div className="bg-primary-50 p-5 rounded-md border border-primary-100">
+                  <h3 className="font-medium text-lg mb-2 text-primary-700">Revisão Técnica</h3>
+                  <p className="text-primary-800">
                     O time de Engenharia realiza uma análise técnica rigorosa para garantir qualidade, segurança, performance e manutenibilidade do código.
                   </p>
                 </div>
