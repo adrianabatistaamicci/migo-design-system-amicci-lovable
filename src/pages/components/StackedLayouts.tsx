@@ -670,4 +670,20 @@ export const MarketplaceBuyerExample = () => (
     }
     headerContent={<h1 className="text-3xl font-medium tracking-tight text-gray-900">Meus Projetos</h1>}
   >
-    <div className="h-96 rounded-lg border-4 border-dashed border
+    <div className="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
+  </StackedLayout>
+);`;
+
+const LayoutComponent = ({ title, component, code }) => (
+  <div className="flex flex-col gap-6">
+    <h2 className="text-2xl font-medium tracking-tight">{title}</h2>
+    <div className="border border-gray-200 rounded-lg overflow-hidden">
+      <div className="h-[500px] overflow-auto border-b border-gray-200">
+        {component}
+      </div>
+      <CodeBlock code={code} language="jsx" showCopy={true} />
+    </div>
+  </div>
+);
+
+export default StackedLayouts;
