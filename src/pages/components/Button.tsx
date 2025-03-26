@@ -23,11 +23,12 @@ const ButtonPage = () => {
         
         <div className="mt-6">
           {activeTab === 'examples' && <div className="space-y-8">
-              <ComponentCard title="Button Variants" description="Different visual styles for buttons." code={`<Button>Default</Button>\n<Button variant="secondary">Secondary</Button>\n<Button variant="outline">Outline</Button>\n<Button variant="ghost">Ghost</Button>\n<Button variant="link">Link</Button>\n<Button variant="error">Destructive</Button>`}>
+              <ComponentCard title="Button Variants" description="Different visual styles for buttons." code={`<Button>Default</Button>\n<Button variant="outline-secondary">Secondary</Button>\n<Button variant="error">Destructive</Button>\n<Button variant="outline-error">Destructive Secondary</Button>`}>
                 <div className="flex flex-wrap gap-4">
                   <Button>Default</Button>
                   <Button variant="outline-secondary">Secondary</Button>
                   <Button variant="error">Destructive</Button>
+                  <Button variant="outline-error">Destructive Secondary</Button>
                 </div>
               </ComponentCard>
               
