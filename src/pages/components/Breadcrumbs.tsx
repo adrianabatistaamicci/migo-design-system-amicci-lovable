@@ -3,125 +3,107 @@ import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import { TailwindTabs } from '@/components/ui/tabs';
 import CodeBlock from '@/components/CodeBlock';
-import { 
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-  BreadcrumbEllipsis
-} from '@/components/ui/breadcrumb';
-import { Home, ChevronRight, Circle, Folder, FileText } from 'lucide-react';
+import { ChevronRight, Home, Folder, FileText, Circle, MoreHorizontal } from 'lucide-react';
 
 const Breadcrumbs = () => {
   const [activeTab, setActiveTab] = useState('overview');
   
-  const basicExample = `import {
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
+  const basicExample = `// Implementação básica com Tailwind CSS puro
+<nav className="flex" aria-label="Breadcrumb">
+  <ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-600">
+    <li className="inline-flex items-center">
+      <a href="#" className="hover:text-gray-900 transition-colors">
+        Home
+      </a>
+    </li>
+    <li role="presentation" aria-hidden="true" className="flex items-center">
+      <ChevronRight className="h-3.5 w-3.5" />
+    </li>
+    <li className="inline-flex items-center">
+      <a href="#" className="hover:text-gray-900 transition-colors">
+        Components
+      </a>
+    </li>
+    <li role="presentation" aria-hidden="true" className="flex items-center">
+      <ChevronRight className="h-3.5 w-3.5" />
+    </li>
+    <li className="inline-flex items-center">
+      <span role="link" aria-disabled="true" aria-current="page" className="font-normal text-gray-900">
+        Breadcrumb
+      </span>
+    </li>
+  </ol>
+</nav>`;
 
-export function BreadcrumbDemo() {
-  return (
-    <Breadcrumb>
-      <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/components">Components</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-        </BreadcrumbItem>
-      </BreadcrumbList>
-    </Breadcrumb>
-  )
-}`;
+  const withIconsExample = `// Implementação com ícones usando Tailwind CSS puro
+import { Home, ChevronRight, Folder, FileText } from "lucide-react"
 
-  const withIconsExample = `import { Home, ChevronRight, Folder, FileText } from "lucide-react"
-import {
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
+<nav className="flex" aria-label="Breadcrumb">
+  <ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-600">
+    <li className="inline-flex items-center gap-1.5">
+      <a href="#" className="inline-flex items-center hover:text-gray-900 transition-colors">
+        <Home className="h-4 w-4 mr-1" />
+        Home
+      </a>
+    </li>
+    <li role="presentation" aria-hidden="true" className="flex items-center">
+      <ChevronRight className="h-3.5 w-3.5" />
+    </li>
+    <li className="inline-flex items-center gap-1.5">
+      <a href="#" className="inline-flex items-center hover:text-gray-900 transition-colors">
+        <Folder className="h-4 w-4 mr-1" />
+        Components
+      </a>
+    </li>
+    <li role="presentation" aria-hidden="true" className="flex items-center">
+      <ChevronRight className="h-3.5 w-3.5" />
+    </li>
+    <li className="inline-flex items-center gap-1.5">
+      <span role="link" aria-disabled="true" aria-current="page" className="inline-flex items-center font-normal text-gray-900">
+        <FileText className="h-4 w-4 mr-1" />
+        Breadcrumb
+      </span>
+    </li>
+  </ol>
+</nav>`;
 
-export function BreadcrumbWithIconsDemo() {
-  return (
-    <Breadcrumb>
-      <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/">
-            <Home className="h-4 w-4 mr-1" />
-            Home
-          </BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator>
-          <ChevronRight className="h-4 w-4" />
-        </BreadcrumbSeparator>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/components">
-            <Folder className="h-4 w-4 mr-1" />
-            Components
-          </BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator>
-          <ChevronRight className="h-4 w-4" />
-        </BreadcrumbSeparator>
-        <BreadcrumbItem>
-          <BreadcrumbPage>
-            <FileText className="h-4 w-4 mr-1" />
-            Breadcrumb
-          </BreadcrumbPage>
-        </BreadcrumbItem>
-      </BreadcrumbList>
-    </Breadcrumb>
-  )
-}`;
+  const collapsibleExample = `// Implementação com elipses (colapsável) usando Tailwind CSS puro
+import { ChevronRight, MoreHorizontal } from "lucide-react"
 
-  const collapsibleExample = `import {
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-  BreadcrumbEllipsis
-} from "@/components/ui/breadcrumb"
-
-export function BreadcrumbCollapsibleDemo() {
-  return (
-    <Breadcrumb>
-      <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbEllipsis />
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/components/breadcrumb/folder">Folder</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-        </BreadcrumbItem>
-      </BreadcrumbList>
-    </Breadcrumb>
-  )
-}`;
+<nav className="flex" aria-label="Breadcrumb">
+  <ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-600">
+    <li className="inline-flex items-center">
+      <a href="#" className="hover:text-gray-900 transition-colors">
+        Home
+      </a>
+    </li>
+    <li role="presentation" aria-hidden="true" className="flex items-center">
+      <ChevronRight className="h-3.5 w-3.5" />
+    </li>
+    <li className="inline-flex items-center">
+      <span role="presentation" aria-hidden="true" className="flex h-9 w-9 items-center justify-center">
+        <MoreHorizontal className="h-4 w-4" />
+        <span className="sr-only">More</span>
+      </span>
+    </li>
+    <li role="presentation" aria-hidden="true" className="flex items-center">
+      <ChevronRight className="h-3.5 w-3.5" />
+    </li>
+    <li className="inline-flex items-center">
+      <a href="#" className="hover:text-gray-900 transition-colors">
+        Folder
+      </a>
+    </li>
+    <li role="presentation" aria-hidden="true" className="flex items-center">
+      <ChevronRight className="h-3.5 w-3.5" />
+    </li>
+    <li className="inline-flex items-center">
+      <span role="link" aria-disabled="true" aria-current="page" className="font-normal text-gray-900">
+        Breadcrumb
+      </span>
+    </li>
+  </ol>
+</nav>`;
 
   return (
     <div className="w-full animate-fade-in">
@@ -154,35 +136,42 @@ export function BreadcrumbCollapsibleDemo() {
             </div>
             
             <div>
-              <h2 className="text-xl font-medium mb-4">Anatomia do Componente</h2>
+              <h2 className="text-xl font-medium mb-4">Anatomia do Componente com Tailwind</h2>
               <p className="text-gray-700 mb-4">
-                O componente Breadcrumb é composto por vários subcomponentes:
+                Uma implementação de breadcrumb com Tailwind CSS tipicamente contém:
               </p>
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                <li><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">Breadcrumb</code> - Contêiner principal do componente</li>
-                <li><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">BreadcrumbList</code> - Lista ordenada que contém os itens do breadcrumb</li>
-                <li><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">BreadcrumbItem</code> - Item individual dentro da lista</li>
-                <li><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">BreadcrumbLink</code> - Link para navegar para um nível específico</li>
-                <li><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">BreadcrumbPage</code> - Representa a página atual (último item, não clicável)</li>
-                <li><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">BreadcrumbSeparator</code> - Separador visual entre itens</li>
-                <li><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">BreadcrumbEllipsis</code> - Indicador de itens colapsados/omitidos</li>
+                <li><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">nav</code> - Elemento semântico para navegação</li>
+                <li><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">ol</code> - Lista ordenada que contém os itens do breadcrumb</li>
+                <li><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">li</code> - Itens de lista para cada segmento do caminho</li>
+                <li><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">a</code> - Links para navegar para níveis anteriores</li>
+                <li><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">span</code> - Elemento para a página atual (não clicável)</li>
+                <li><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">ChevronRight</code> ou outro ícone - Separador visual entre itens</li>
               </ul>
             </div>
             
             <div>
-              <h2 className="text-xl font-medium mb-4">Importação</h2>
+              <h2 className="text-xl font-medium mb-4">Classes Tailwind Comuns</h2>
               <CodeBlock 
-                code={`import {
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-  BreadcrumbEllipsis
-} from "@/components/ui/breadcrumb"`} 
+                code={`// Classes para o container principal
+nav className="flex" aria-label="Breadcrumb"
+
+// Classes para a lista
+ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-600"
+
+// Classes para itens de lista
+li className="inline-flex items-center gap-1.5"
+
+// Classes para links
+a className="hover:text-gray-900 transition-colors"
+
+// Classes para página atual
+span className="font-normal text-gray-900"
+
+// Classes para separadores
+li role="presentation" aria-hidden="true" className="flex items-center"`} 
                 language="typescript" 
-                title="Importação"
+                title="Classes Tailwind Comuns"
               />
             </div>
             
@@ -194,7 +183,8 @@ export function BreadcrumbCollapsibleDemo() {
                 <li>Ordene os itens do breadcrumb do menos específico (home) para o mais específico (página atual)</li>
                 <li>Torne todos os itens clicáveis, exceto o item atual (último item)</li>
                 <li>Use separadores consistentes entre os itens para melhor legibilidade</li>
-                <li>Para caminhos muito profundos, considere usar o componente BreadcrumbEllipsis para colapsar itens intermediários</li>
+                <li>Adicione atributos de acessibilidade (<code>aria-*</code>) para melhorar a experiência de leitores de tela</li>
+                <li>Para caminhos muito profundos, considere implementar um formato colapsado com elipses</li>
               </ul>
             </div>
           </div>
@@ -205,21 +195,31 @@ export function BreadcrumbCollapsibleDemo() {
             <div>
               <h2 className="text-xl font-medium mb-4">Exemplo Básico</h2>
               <div className="border rounded-lg p-6 bg-white">
-                <Breadcrumb>
-                  <BreadcrumbList>
-                    <BreadcrumbItem>
-                      <BreadcrumbLink href="#">Home</BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator />
-                    <BreadcrumbItem>
-                      <BreadcrumbLink href="#">Components</BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator />
-                    <BreadcrumbItem>
-                      <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-                    </BreadcrumbItem>
-                  </BreadcrumbList>
-                </Breadcrumb>
+                <nav className="flex" aria-label="Breadcrumb">
+                  <ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-600">
+                    <li className="inline-flex items-center">
+                      <a href="#" className="hover:text-gray-900 transition-colors">
+                        Home
+                      </a>
+                    </li>
+                    <li role="presentation" aria-hidden="true" className="flex items-center">
+                      <ChevronRight className="h-3.5 w-3.5" />
+                    </li>
+                    <li className="inline-flex items-center">
+                      <a href="#" className="hover:text-gray-900 transition-colors">
+                        Components
+                      </a>
+                    </li>
+                    <li role="presentation" aria-hidden="true" className="flex items-center">
+                      <ChevronRight className="h-3.5 w-3.5" />
+                    </li>
+                    <li className="inline-flex items-center">
+                      <span role="link" aria-disabled="true" aria-current="page" className="font-normal text-gray-900">
+                        Breadcrumb
+                      </span>
+                    </li>
+                  </ol>
+                </nav>
               </div>
               <CodeBlock 
                 code={basicExample} 
@@ -231,34 +231,34 @@ export function BreadcrumbCollapsibleDemo() {
             <div>
               <h2 className="text-xl font-medium mb-4">Com Ícones</h2>
               <div className="border rounded-lg p-6 bg-white">
-                <Breadcrumb>
-                  <BreadcrumbList>
-                    <BreadcrumbItem>
-                      <BreadcrumbLink href="#">
+                <nav className="flex" aria-label="Breadcrumb">
+                  <ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-600">
+                    <li className="inline-flex items-center gap-1.5">
+                      <a href="#" className="inline-flex items-center hover:text-gray-900 transition-colors">
                         <Home className="h-4 w-4 mr-1" />
                         Home
-                      </BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator>
-                      <ChevronRight className="h-4 w-4" />
-                    </BreadcrumbSeparator>
-                    <BreadcrumbItem>
-                      <BreadcrumbLink href="#">
+                      </a>
+                    </li>
+                    <li role="presentation" aria-hidden="true" className="flex items-center">
+                      <ChevronRight className="h-3.5 w-3.5" />
+                    </li>
+                    <li className="inline-flex items-center gap-1.5">
+                      <a href="#" className="inline-flex items-center hover:text-gray-900 transition-colors">
                         <Folder className="h-4 w-4 mr-1" />
                         Components
-                      </BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator>
-                      <ChevronRight className="h-4 w-4" />
-                    </BreadcrumbSeparator>
-                    <BreadcrumbItem>
-                      <BreadcrumbPage>
+                      </a>
+                    </li>
+                    <li role="presentation" aria-hidden="true" className="flex items-center">
+                      <ChevronRight className="h-3.5 w-3.5" />
+                    </li>
+                    <li className="inline-flex items-center gap-1.5">
+                      <span role="link" aria-disabled="true" aria-current="page" className="inline-flex items-center font-normal text-gray-900">
                         <FileText className="h-4 w-4 mr-1" />
                         Breadcrumb
-                      </BreadcrumbPage>
-                    </BreadcrumbItem>
-                  </BreadcrumbList>
-                </Breadcrumb>
+                      </span>
+                    </li>
+                  </ol>
+                </nav>
               </div>
               <CodeBlock 
                 code={withIconsExample} 
@@ -270,25 +270,40 @@ export function BreadcrumbCollapsibleDemo() {
             <div>
               <h2 className="text-xl font-medium mb-4">Com Elipses (Colapsado)</h2>
               <div className="border rounded-lg p-6 bg-white">
-                <Breadcrumb>
-                  <BreadcrumbList>
-                    <BreadcrumbItem>
-                      <BreadcrumbLink href="#">Home</BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator />
-                    <BreadcrumbItem>
-                      <BreadcrumbEllipsis />
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator />
-                    <BreadcrumbItem>
-                      <BreadcrumbLink href="#">Folder</BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator />
-                    <BreadcrumbItem>
-                      <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-                    </BreadcrumbItem>
-                  </BreadcrumbList>
-                </Breadcrumb>
+                <nav className="flex" aria-label="Breadcrumb">
+                  <ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-600">
+                    <li className="inline-flex items-center">
+                      <a href="#" className="hover:text-gray-900 transition-colors">
+                        Home
+                      </a>
+                    </li>
+                    <li role="presentation" aria-hidden="true" className="flex items-center">
+                      <ChevronRight className="h-3.5 w-3.5" />
+                    </li>
+                    <li className="inline-flex items-center">
+                      <span role="presentation" aria-hidden="true" className="flex h-9 w-9 items-center justify-center">
+                        <MoreHorizontal className="h-4 w-4" />
+                        <span className="sr-only">More</span>
+                      </span>
+                    </li>
+                    <li role="presentation" aria-hidden="true" className="flex items-center">
+                      <ChevronRight className="h-3.5 w-3.5" />
+                    </li>
+                    <li className="inline-flex items-center">
+                      <a href="#" className="hover:text-gray-900 transition-colors">
+                        Folder
+                      </a>
+                    </li>
+                    <li role="presentation" aria-hidden="true" className="flex items-center">
+                      <ChevronRight className="h-3.5 w-3.5" />
+                    </li>
+                    <li className="inline-flex items-center">
+                      <span role="link" aria-disabled="true" aria-current="page" className="font-normal text-gray-900">
+                        Breadcrumb
+                      </span>
+                    </li>
+                  </ol>
+                </nav>
               </div>
               <CodeBlock 
                 code={collapsibleExample} 
@@ -300,53 +315,66 @@ export function BreadcrumbCollapsibleDemo() {
             <div>
               <h2 className="text-xl font-medium mb-4">Customização</h2>
               <p className="text-gray-700 mb-4">
-                Você pode customizar a aparência dos breadcrumbs usando classes do Tailwind:
+                Você pode customizar a aparência dos breadcrumbs usando diferentes classes do Tailwind:
               </p>
               <div className="border rounded-lg p-6 bg-white">
-                <Breadcrumb>
-                  <BreadcrumbList className="bg-gray-100 p-2 rounded-lg">
-                    <BreadcrumbItem>
-                      <BreadcrumbLink href="#" className="text-blue-600 hover:text-blue-800">
+                <nav className="flex" aria-label="Breadcrumb">
+                  <ol className="flex flex-wrap items-center p-2 rounded-lg bg-gray-100">
+                    <li className="inline-flex items-center">
+                      <a href="#" className="text-blue-600 hover:text-blue-800 inline-flex items-center">
                         <Circle className="h-3 w-3 mr-1" />
                         Início
-                      </BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator className="text-gray-400" />
-                    <BreadcrumbItem>
-                      <BreadcrumbLink href="#" className="text-blue-600 hover:text-blue-800">
+                      </a>
+                    </li>
+                    <li role="presentation" aria-hidden="true" className="flex items-center text-gray-400">
+                      <ChevronRight className="h-3.5 w-3.5" />
+                    </li>
+                    <li className="inline-flex items-center">
+                      <a href="#" className="text-blue-600 hover:text-blue-800 inline-flex items-center">
                         <Circle className="h-3 w-3 mr-1" />
                         Componentes
-                      </BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator className="text-gray-400" />
-                    <BreadcrumbItem>
-                      <BreadcrumbPage className="font-bold">Breadcrumb</BreadcrumbPage>
-                    </BreadcrumbItem>
-                  </BreadcrumbList>
-                </Breadcrumb>
+                      </a>
+                    </li>
+                    <li role="presentation" aria-hidden="true" className="flex items-center text-gray-400">
+                      <ChevronRight className="h-3.5 w-3.5" />
+                    </li>
+                    <li className="inline-flex items-center">
+                      <span role="link" aria-disabled="true" aria-current="page" className="font-bold">
+                        Breadcrumb
+                      </span>
+                    </li>
+                  </ol>
+                </nav>
               </div>
               <CodeBlock 
-                code={`<Breadcrumb>
-  <BreadcrumbList className="bg-gray-100 p-2 rounded-lg">
-    <BreadcrumbItem>
-      <BreadcrumbLink href="#" className="text-blue-600 hover:text-blue-800">
+                code={`// Breadcrumb customizado com classes Tailwind
+<nav className="flex" aria-label="Breadcrumb">
+  <ol className="flex flex-wrap items-center p-2 rounded-lg bg-gray-100">
+    <li className="inline-flex items-center">
+      <a href="#" className="text-blue-600 hover:text-blue-800 inline-flex items-center">
         <Circle className="h-3 w-3 mr-1" />
         Início
-      </BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbSeparator className="text-gray-400" />
-    <BreadcrumbItem>
-      <BreadcrumbLink href="#" className="text-blue-600 hover:text-blue-800">
+      </a>
+    </li>
+    <li role="presentation" aria-hidden="true" className="flex items-center text-gray-400">
+      <ChevronRight className="h-3.5 w-3.5" />
+    </li>
+    <li className="inline-flex items-center">
+      <a href="#" className="text-blue-600 hover:text-blue-800 inline-flex items-center">
         <Circle className="h-3 w-3 mr-1" />
         Componentes
-      </BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbSeparator className="text-gray-400" />
-    <BreadcrumbItem>
-      <BreadcrumbPage className="font-bold">Breadcrumb</BreadcrumbPage>
-    </BreadcrumbItem>
-  </BreadcrumbList>
-</Breadcrumb>`} 
+      </a>
+    </li>
+    <li role="presentation" aria-hidden="true" className="flex items-center text-gray-400">
+      <ChevronRight className="h-3.5 w-3.5" />
+    </li>
+    <li className="inline-flex items-center">
+      <span role="link" aria-disabled="true" aria-current="page" className="font-bold">
+        Breadcrumb
+      </span>
+    </li>
+  </ol>
+</nav>`} 
                 language="tsx" 
                 title="Customização com Tailwind"
               />
