@@ -1,4 +1,3 @@
-
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
@@ -109,8 +108,7 @@ const SellerNav = () => {
                 companyName="Empresa XYZ"
                 showClientLogo={false}
                 avatarText="AS"
-                showMenuIcon={true}
-                menuIcon={<Menu className="h-6 w-6" />}
+                showMenuIcon={false}
               />
             </div>
           </div>
