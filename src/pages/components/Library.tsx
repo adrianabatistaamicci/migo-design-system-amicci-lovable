@@ -102,7 +102,7 @@ const LibraryPage: React.FC = () => {
               </ComponentCard>
             </div>)}
 
-          {/* Footer component card */}
+          {/* Footer component card - Mantendo apenas esta instância do Footer */}
           <div className="w-full">
             <ComponentCard title="Footer" description="Rodapé para exibir créditos e links de governança" code={`<Footer 
   additionalText="© 2024 Amicci" 
