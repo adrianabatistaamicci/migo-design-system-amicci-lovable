@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Chip } from '@/components/ui/chip';
@@ -161,8 +162,14 @@ export const TailwindTabs = ({
                     </span>
                   </div>
                   
-                  {tab.chip && (
-                    <div className="mb-1">
+                  <div className="flex items-center justify-between">
+                    {tab.secondaryText && (
+                      <span className="text-xs text-gray-500">
+                        {tab.secondaryText}
+                      </span>
+                    )}
+                    
+                    {tab.chip && (
                       <Chip 
                         size="sm" 
                         variant={selected === tab.value ? "filled" : "default"} 
@@ -170,14 +177,8 @@ export const TailwindTabs = ({
                       >
                         {tab.chip}
                       </Chip>
-                    </div>
-                  )}
-                  
-                  {tab.secondaryText && (
-                    <span className="text-xs text-gray-500 mt-1">
-                      {tab.secondaryText}
-                    </span>
-                  )}
+                    )}
+                  </div>
                 </div>
               </button>
             ))}
