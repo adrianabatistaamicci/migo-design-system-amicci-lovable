@@ -5,14 +5,9 @@ import { Badge } from '@/components/ui/badge';
 import { TailwindTabs } from '@/components/ui/tabs';
 import Header from '@/components/library-components/Header';
 import { Folder, Users, Calendar, FileText } from 'lucide-react';
-
 const TabsPage = () => {
   return <div className="w-full animate-slide-in">
-      <Header
-        title="Tabs"
-        description="Tabs organize content into multiple sections and allow users to navigate between them."
-        type="components"
-      />
+      <Header title="Tabs" description="Tabs organize content into multiple sections and allow users to navigate between them." type="components" />
       
       <div className="mb-12">
         <div className="mb-12">
@@ -224,10 +219,7 @@ const TabsPage = () => {
             </div>
           </ComponentCard>
 
-          <ComponentCard 
-            title="Project Tabs on Gray" 
-            description="Rich tabs with icons, chips, and secondary text, designed for project navigation with a gray theme."
-            code={`<TailwindTabs
+          <ComponentCard title="Project Tabs on Gray" description="Rich tabs with icons, chips, and secondary text, designed for project navigation with a gray theme." code={`<TailwindTabs
   tabs={[
     { 
       name: 'Projects',
@@ -259,48 +251,34 @@ const TabsPage = () => {
     }
   ]}
   variant="projectTabs"
-/>`}
-          >
+/>`}>
             <div className="w-full mx-auto">
-              <TailwindTabs
-                tabs={[
-                  { 
-                    name: 'Projects',
-                    value: 'projects',
-                    icon: <Folder className="h-5 w-5" />,
-                    chip: "12 active",
-                    secondaryText: "Manage your projects"
-                  },
-                  { 
-                    name: 'Team',
-                    value: 'team',
-                    icon: <Users className="h-5 w-5" />,
-                    chip: "8 members",
-                    secondaryText: "Manage your team"
-                  },
-                  { 
-                    name: 'Calendar',
-                    value: 'calendar',
-                    icon: <Calendar className="h-5 w-5" />,
-                    chip: "3 events",
-                    secondaryText: "View upcoming events"
-                  },
-                  { 
-                    name: 'Documents',
-                    value: 'documents',
-                    icon: <FileText className="h-5 w-5" />,
-                    chip: "24 files",
-                    secondaryText: "Manage your files"
-                  }
-                ]}
-                variant="projectTabs"
-              />
-              <div className="p-4 border border-gray-200 rounded-md mt-3">
-                <h3 className="text-lg font-medium mb-2">Projects</h3>
-                <p className="text-sm text-gray-500">
-                  View and manage your active projects.
-                </p>
-              </div>
+              <TailwindTabs tabs={[{
+              name: 'Projects',
+              value: 'projects',
+              icon: <Folder className="h-5 w-5" />,
+              chip: "12 active",
+              secondaryText: "Manage your projects"
+            }, {
+              name: 'Team',
+              value: 'team',
+              icon: <Users className="h-5 w-5" />,
+              chip: "8 members",
+              secondaryText: "Manage your team"
+            }, {
+              name: 'Calendar',
+              value: 'calendar',
+              icon: <Calendar className="h-5 w-5" />,
+              chip: "3 events",
+              secondaryText: "View upcoming events"
+            }, {
+              name: 'Documents',
+              value: 'documents',
+              icon: <FileText className="h-5 w-5" />,
+              chip: "24 files",
+              secondaryText: "Manage your files"
+            }]} variant="projectTabs" />
+              
             </div>
           </ComponentCard>
           
