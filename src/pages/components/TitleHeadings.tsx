@@ -19,7 +19,7 @@ const TitleHeadings = () => {
       
       <div className="space-y-6">
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-semibold">Exemplos de Title Headings</h2>
+          <div className="h-8"></div>
           <Button 
             variant="outline" 
             onClick={() => setShowBackButton(!showBackButton)}
@@ -29,8 +29,6 @@ const TitleHeadings = () => {
         </div>
 
         <div className="rounded-lg border p-6 space-y-6">
-          <h3 className="text-lg font-medium mb-4">Title Heading com Botão de Voltar</h3>
-          
           <div className="flex gap-3">
             {/* Botão de voltar quadrado em um box separado */}
             {showBackButton && (
@@ -51,29 +49,6 @@ const TitleHeadings = () => {
               </div>
             </div>
           </div>
-        </div>
-        
-        <div className="rounded-lg border p-6">
-          <h3 className="text-lg font-medium mb-4">Como utilizar</h3>
-          <p className="text-gray-700 mb-4">
-            Os Title Headings são componentes essenciais para definir a hierarquia visual de sua página. 
-            Eles podem incluir elementos adicionais como botões de navegação, breadcrumbs e links de ação.
-          </p>
-          
-          <h4 className="font-medium mt-4 mb-2">Características principais:</h4>
-          <ul className="list-disc pl-6 space-y-1 text-gray-700">
-            <li>Design limpo e minimalista que se adapta a diferentes contextos</li>
-            <li>Botão de voltar opcional para melhorar a navegação</li>
-            <li>Suporte para breadcrumbs para navegação hierárquica</li>
-            <li>Altamente personalizável para diferentes necessidades de interface</li>
-          </ul>
-          
-          <h4 className="font-medium mt-4 mb-2">Variações:</h4>
-          <ul className="list-disc pl-6 space-y-1 text-gray-700">
-            <li>Com ou sem breadcrumbs</li>
-            <li>Com ou sem botão de voltar</li>
-            <li>Estilo simples ou com sombra e cantos arredondados</li>
-          </ul>
         </div>
       </div>
     </div>
