@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Chip } from '@/components/ui/chip';
@@ -192,7 +191,7 @@ export const TailwindTabs = ({
                     
                     {tab.chipStatus ? 
                       <div className="ml-auto">
-                        {renderCustomChip(tab.chipStatus)}
+                        {renderChipForStatus(tab.chipStatus)}
                       </div>
                       : tab.chip && <Chip size="sm" variant={selected === tab.value ? "filled" : "default"} color={selected === tab.value ? "primary" : "default"} className="ml-auto">
                         {tab.chip}
