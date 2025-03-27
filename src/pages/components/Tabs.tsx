@@ -249,7 +249,7 @@ const TabsPage = () => {
       value: 'production',
       icon: <FileText className="h-5 w-5" />,
       secondaryText: "Prazo 03/05/2024",
-      chipStatus: "Não iniciado"
+      chipStatus: "Em breve"
     }
   ]}
   variant="projectTabs"
@@ -280,7 +280,7 @@ const TabsPage = () => {
                   value: 'production',
                   icon: <FileText className="h-5 w-5" />,
                   secondaryText: "Prazo 03/05/2024",
-                  chipStatus: "Não iniciado"
+                  chipStatus: "Em breve"
                 }]} 
                 variant="projectTabs"
                 className="w-full" 
