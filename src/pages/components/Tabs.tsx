@@ -225,8 +225,8 @@ const TabsPage = () => {
           </ComponentCard>
 
           <ComponentCard 
-            title="Project Tabs" 
-            description="Rich tabs with icons, chips, and secondary text, designed for project navigation."
+            title="Project Tabs on Gray" 
+            description="Rich tabs with icons, chips, and secondary text, designed for project navigation with a gray theme."
             code={`<TailwindTabs
   tabs={[
     { 
