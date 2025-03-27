@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Chip } from '@/components/ui/chip';
@@ -184,7 +185,7 @@ export const TailwindTabs = ({
                     </span>
                   </div>
                   
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mt-5">
                     {tab.secondaryText && <span className="text-xs text-gray-500">
                         {tab.secondaryText}
                       </span>}
