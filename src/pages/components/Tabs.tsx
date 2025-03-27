@@ -227,29 +227,29 @@ const TabsPage = () => {
       name: 'Especificação',
       value: 'specification',
       icon: <Folder className="h-5 w-5" />,
-      chip: "12 active",
-      secondaryText: "Prazo 03/05/2024"
+      secondaryText: "Prazo 03/05/2024",
+      chipStatus: "Concluído"
     },
     { 
       name: 'Fornecedor',
       value: 'supplier',
       icon: <Users className="h-5 w-5" />,
-      chip: "8 members",
-      secondaryText: "Prazo 03/05/2024"
+      secondaryText: "Prazo 03/05/2024",
+      chipStatus: "Em andamento"
     },
     { 
       name: 'Embalagem',
       value: 'packaging',
       icon: <Calendar className="h-5 w-5" />,
-      chip: "3 events",
-      secondaryText: "Prazo 03/05/2024"
+      secondaryText: "Prazo 03/05/2024",
+      chipStatus: "Não iniciado"
     },
     { 
       name: 'Produção',
       value: 'production',
       icon: <FileText className="h-5 w-5" />,
-      chip: "24 files",
-      secondaryText: "Prazo 03/05/2024"
+      secondaryText: "Prazo 03/05/2024",
+      chipStatus: "Não iniciado"
     }
   ]}
   variant="projectTabs"
@@ -259,26 +259,26 @@ const TabsPage = () => {
               name: 'Especificação',
               value: 'specification',
               icon: <Folder className="h-5 w-5" />,
-              chip: "12 active",
-              secondaryText: "Prazo 03/05/2024"
+              secondaryText: "Prazo 03/05/2024",
+              chipStatus: "Concluído"
             }, {
               name: 'Fornecedor',
               value: 'supplier',
               icon: <Users className="h-5 w-5" />,
-              chip: "8 members",
-              secondaryText: "Prazo 03/05/2024"
+              secondaryText: "Prazo 03/05/2024",
+              chipStatus: "Em andamento"
             }, {
               name: 'Embalagem',
               value: 'packaging',
               icon: <Calendar className="h-5 w-5" />,
-              chip: "3 events",
-              secondaryText: "Prazo 03/05/2024"
+              secondaryText: "Prazo 03/05/2024",
+              chipStatus: "Não iniciado"
             }, {
               name: 'Produção',
               value: 'production',
               icon: <FileText className="h-5 w-5" />,
-              chip: "24 files",
-              secondaryText: "Prazo 03/05/2024"
+              secondaryText: "Prazo 03/05/2024",
+              chipStatus: "Não iniciado"
             }]} variant="projectTabs" />
               
             </div>
@@ -323,9 +323,9 @@ const TabsPage = () => {
                 <TableBody>
                   <TableRow>
                     <TableCell className="font-mono text-mui-text-primary">tabs</TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">Array&lt;{'{name: string, value: string, badge?: string, icon?: ReactNode, chip?: string, secondaryText?: string}'}&gt;</TableCell>
+                    <TableCell className="font-mono text-mui-text-secondary">Array&lt;{'{name: string, value: string, badge?: string, icon?: ReactNode, chip?: string, secondaryText?: string, chipStatus?: "Concluído" | "Em andamento" | "Não iniciado"}'}&gt;</TableCell>
                     <TableCell className="font-mono text-mui-text-secondary">required</TableCell>
-                    <TableCell className="text-mui-text-secondary">Array of tab items with name, value, optional badge, icon, chip and secondaryText properties</TableCell>
+                    <TableCell className="text-mui-text-secondary">Array of tab items with name, value, optional badge, icon, chip, chipStatus and secondaryText properties</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell className="font-mono text-mui-text-primary">defaultValue</TableCell>

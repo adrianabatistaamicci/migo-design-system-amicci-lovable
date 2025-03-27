@@ -11,6 +11,7 @@ type Tab = {
   icon?: React.ReactNode;
   chip?: string;
   secondaryText?: string;
+  chipStatus?: 'Concluído' | 'Em andamento' | 'Não iniciado';
 };
 
 type TailwindTabsProps = {
@@ -35,6 +36,45 @@ export const TailwindTabs = ({
   const handleTabChange = (value: string) => {
     setSelected(value);
     onChange?.(value);
+  };
+
+  const renderCustomChip = (status?: string) => {
+    if (!status) return null;
+    
+    switch (status) {
+      case 'Concluído':
+        return (
+          <div data-status="Concluído" className="inline-flex flex-col justify-start items-start gap-2.5">
+            <div data-color="Success" data-size="Small" data-state="Enabled" data-variant="Filled" className="self-stretch px-1 py-[3px] bg-success-light rounded-[100px] inline-flex justify-start items-center overflow-hidden">
+              <div className="px-1.5 inline-flex flex-col justify-start items-start">
+                <div>{status}</div>
+              </div>
+            </div>
+          </div>
+        );
+      case 'Em andamento':
+        return (
+          <div data-status="Em andamento" className="inline-flex flex-col justify-start items-start gap-2.5">
+            <div data-color="Warning" data-size="Small" data-state="Enabled" data-variant="Filled" className="self-stretch px-1 py-[3px] bg-warning-light rounded-[100px] inline-flex justify-start items-center overflow-hidden">
+              <div className="px-1.5 inline-flex flex-col justify-start items-start">
+                <div>{status}</div>
+              </div>
+            </div>
+          </div>
+        );
+      case 'Não iniciado':
+        return (
+          <div data-status="Não iniciado" className="inline-flex flex-col justify-start items-start gap-2.5">
+            <div data-color="Default" data-size="Small" data-state="Enabled" data-variant="Filled" className="self-stretch px-1 py-[3px] bg-components-chip-defaultHoverFill bg-opacity-10 rounded-[100px] inline-flex justify-start items-center overflow-hidden">
+              <div className="px-1.5 inline-flex flex-col justify-start items-start">
+                <div>{status}</div>
+              </div>
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
   };
 
   const renderTabs = () => {
@@ -141,7 +181,11 @@ export const TailwindTabs = ({
                         {tab.secondaryText}
                       </span>}
                     
-                    {tab.chip && <Chip size="sm" variant={selected === tab.value ? "filled" : "default"} color={selected === tab.value ? "primary" : "default"} className="ml-auto">
+                    {tab.chipStatus ? 
+                      <div className="ml-auto">
+                        {renderCustomChip(tab.chipStatus)}
+                      </div>
+                      : tab.chip && <Chip size="sm" variant={selected === tab.value ? "filled" : "default"} color={selected === tab.value ? "primary" : "default"} className="ml-auto">
                         {tab.chip}
                       </Chip>}
                   </div>
