@@ -5,7 +5,7 @@ import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@
 import { Badge } from '@/components/ui/badge';
 import { TailwindTabs } from '@/components/ui/tabs';
 import Header from '@/components/library-components/Header';
-import { Folder, Users, Calendar, FileText } from 'lucide-react';
+import { Folder, Users, Calendar, FileText, Rocket, Factory, Settings, PenTool } from 'lucide-react';
 
 const TabsPage = () => {
   return <div className="w-full animate-slide-in">
@@ -226,28 +226,28 @@ const TabsPage = () => {
     { 
       name: 'Especificação',
       value: 'specification',
-      icon: <Folder className="h-5 w-5" />,
+      icon: <Settings className="h-5 w-5" />,
       secondaryText: "Prazo 03/05/2024",
       chipStatus: "Concluído"
     },
     { 
       name: 'Fornecedor',
       value: 'supplier',
-      icon: <Users className="h-5 w-5" />,
+      icon: <Factory className="h-5 w-5" />,
       secondaryText: "Prazo 03/05/2024",
       chipStatus: "Em andamento"
     },
     { 
       name: 'Embalagem',
       value: 'packaging',
-      icon: <Calendar className="h-5 w-5" />,
+      icon: <PenTool className="h-5 w-5" />,
       secondaryText: "Prazo 03/05/2024",
       chipStatus: "Não iniciado"
     },
     { 
       name: 'Produção',
       value: 'production',
-      icon: <FileText className="h-5 w-5" />,
+      icon: <Rocket className="h-5 w-5" />,
       secondaryText: "Prazo 03/05/2024",
       chipStatus: "Em breve"
     }
@@ -260,25 +260,25 @@ const TabsPage = () => {
                 tabs={[{
                   name: 'Especificação',
                   value: 'specification',
-                  icon: <Folder className="h-5 w-5" />,
+                  icon: <Settings className="h-5 w-5" />,
                   secondaryText: "Prazo 03/05/2024",
                   chipStatus: "Concluído"
                 }, {
                   name: 'Fornecedor',
                   value: 'supplier',
-                  icon: <Users className="h-5 w-5" />,
+                  icon: <Factory className="h-5 w-5" />,
                   secondaryText: "Prazo 03/05/2024",
                   chipStatus: "Em andamento"
                 }, {
                   name: 'Embalagem',
                   value: 'packaging',
-                  icon: <Calendar className="h-5 w-5" />,
+                  icon: <PenTool className="h-5 w-5" />,
                   secondaryText: "Prazo 03/05/2024",
                   chipStatus: "Não iniciado"
                 }, {
                   name: 'Produção',
                   value: 'production',
-                  icon: <FileText className="h-5 w-5" />,
+                  icon: <Rocket className="h-5 w-5" />,
                   secondaryText: "Prazo 03/05/2024",
                   chipStatus: "Em breve"
                 }]} 
