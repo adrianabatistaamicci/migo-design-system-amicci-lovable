@@ -9,6 +9,7 @@ const UIKitHeader = () => {
       description="Uma visão geral dos principais componentes do nosso Design System"
       type="components"
       hideChip={true}
+      className="mb-6"
     />
   );
 };

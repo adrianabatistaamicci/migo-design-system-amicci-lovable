@@ -16,6 +16,7 @@ const RadioPage = () => {
           title="Radio"
           description="Radio buttons allow users to select a single option from a list of mutually exclusive options."
           type="components"
+          className="mb-6"
         />
         
         <div className="mb-12">

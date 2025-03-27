@@ -16,6 +16,7 @@ const CheckboxPage = () => {
           title="Checkbox"
           description="Checkboxes allow users to select one or more items from a set and can be used to turn an option on or off."
           type="components"
+          className="mb-6"
         />
         
         <div className="mb-12">

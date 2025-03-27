@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Chip } from '@/components/ui/chip';
@@ -20,6 +21,7 @@ const ChipPage = () => {
           title="Chip"
           description="Chips are compact elements that represent an input, attribute, or action."
           type="components"
+          className="mb-6"
         />
         
         <div className="mb-12">

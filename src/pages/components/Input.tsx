@@ -17,6 +17,7 @@ const InputPage = () => {
           title="Input"
           description="Input components allow users to enter text into a UI. They typically appear in forms and dialogs."
           type="components"
+          className="mb-6"
         />
         
         <div className="mb-12">

@@ -232,6 +232,7 @@ const VerticalNavigation = () => {
         title="Vertical Navigation"
         description="Componentes de navegação vertical para menus laterais e painéis de navegação"
         type="components"
+        className="mb-6"
       />
       
       <div className="max-w-[1280px] mx-auto">

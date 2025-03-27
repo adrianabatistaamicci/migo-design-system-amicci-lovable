@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import CodeBlock from '@/components/CodeBlock';
@@ -32,7 +31,12 @@ const TogglePage = () => {
   const [simulateEnabled, setSimulateEnabled] = useState(false);
   
   return <div className="w-full animate-fade-in">
-      <Header title="Toggle" description="Toggle components allow users to switch between two states and are commonly used for 'on/off' functionality." type="components" />
+      <Header 
+        title="Toggle" 
+        description="Toggle components allow users to switch between two states and are commonly used for 'on/off' functionality." 
+        type="components"
+        className="mb-6"
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
         {/* Simple toggle */}

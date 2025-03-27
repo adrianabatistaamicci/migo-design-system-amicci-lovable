@@ -1,48 +1,32 @@
 import React, { useState } from 'react';
-import Header from '@/components/library-components/Header';
 import ComponentCard from '@/components/ComponentCard';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination';
+import { cn } from '@/lib/utils';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
-import { Badge } from '@/components/ui/badge';
-import { 
-  Pagination, 
-  PaginationContent, 
-  PaginationEllipsis, 
-  PaginationItem, 
-  PaginationLink, 
-  PaginationNext, 
-  PaginationPrevious 
-} from '@/components/ui/pagination';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import CodeBlock from '@/components/CodeBlock';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import Header from '@/components/library-components/Header';
 
 const PaginationPage = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState("10");
+  
   return (
     <div className="w-full animate-slide-in">
-      <Header
-        title="Pagination"
-        description="Interface de navegação para dividir conteúdo em páginas separadas."
-        type="components"
-      />
-      
       <div className="mb-12">
+        <Header 
+          title="Pagination"
+          description="Pagination components allow users to navigate through pages of content."
+          type="components"
+          className="mb-6"
+        />
+        
         <div className="mb-12">
           <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
             Import
           </h2>
           
           <pre className="bg-mui-sidebar p-4 rounded-md overflow-x-auto text-sm">
-            <code>
-              import {'{ Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious }'} from "@/components/ui/pagination";
-            </code>
+            <code>import {'{ Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious }'} from "@/components/ui/pagination";</code>
           </pre>
         </div>
         
