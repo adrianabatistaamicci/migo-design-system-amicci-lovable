@@ -136,7 +136,7 @@ const PaginationPage = () => {
           <ComponentCard 
             title="Paginação com Select de Itens por Página" 
             description="Paginação com seletor para controlar o número de itens exibidos por página."
-            code={`<div className="flex flex-col sm:flex-row items-center justify-between w-full gap-4">
+            code={`<div className="flex flex-col sm:flex-row items-center justify-end w-full gap-4">
   <div className="flex items-center gap-2">
     <label htmlFor="linhas-por-pagina" className="text-sm text-gray-700">
       Linhas por página:
@@ -169,7 +169,7 @@ const PaginationPage = () => {
 </div>`}
           >
             <div className="flex items-center justify-center p-6 w-full">
-              <div className="flex flex-col sm:flex-row items-center justify-between w-full gap-4">
+              <div className="flex flex-col sm:flex-row items-center justify-end w-full gap-4">
                 <div className="flex items-center gap-2">
                   <label htmlFor="linhas-por-pagina" className="text-sm text-gray-700">
                     Linhas por página:
@@ -240,7 +240,7 @@ const PaginationPage = () => {
         <a
           href="#"
           aria-current="page"
-          className="relative z-10 inline-flex items-center bg-amicci-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amicci-600"
+          className="relative z-10 inline-flex items-center bg-primary-main px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-main"
         >
           1
         </a>
@@ -324,7 +324,7 @@ const PaginationPage = () => {
                       <a
                         href="#"
                         aria-current="page"
-                        className="relative z-10 inline-flex items-center bg-amicci-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amicci-600"
+                        className="relative z-10 inline-flex items-center bg-primary-main px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-main"
                       >
                         1
                       </a>
@@ -406,7 +406,7 @@ const PaginationPage = () => {
         <a
           href="#"
           aria-current="page"
-          className="relative z-10 inline-flex items-center bg-amicci-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amicci-600"
+          className="relative z-10 inline-flex items-center bg-primary-main px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-main"
         >
           1
         </a>
@@ -484,7 +484,7 @@ const PaginationPage = () => {
                       <a
                         href="#"
                         aria-current="page"
-                        className="relative z-10 inline-flex items-center bg-amicci-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amicci-600"
+                        className="relative z-10 inline-flex items-center bg-primary-main px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-main"
                       >
                         1
                       </a>
