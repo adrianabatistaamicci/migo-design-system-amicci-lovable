@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Chip } from '@/components/ui/chip';
@@ -37,7 +36,6 @@ export const TailwindTabs = ({
     onChange?.(value);
   };
 
-  // Render different tab styles based on variant
   const renderTabs = () => {
     if (!tabs || tabs.length === 0) {
       return null;
@@ -191,10 +189,8 @@ export const TailwindTabs = ({
   return <div className={`inline-flex flex-col ${className || ''}`}>{renderTabs()}{children}</div>;
 };
 
-// Export TailwindTabs as Tabs for compatibility
 export const Tabs = TabsPrimitive.Root;
 
-// Export Radix UI Tabs Components
 export const TabsRoot = TabsPrimitive.Root;
 export const TabsList = React.forwardRef<React.ElementRef<typeof TabsPrimitive.List>, React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>>(({
   className,
@@ -212,9 +208,7 @@ export const TabsContent = React.forwardRef<React.ElementRef<typeof TabsPrimitiv
 }, ref) => <TabsPrimitive.Content ref={ref} className={cn("mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2", className)} {...props} />);
 TabsContent.displayName = TabsPrimitive.Content.displayName;
 
-// For backwards compatibility with pages using the Radix UI Tabs component directly
 export { TabsRoot as TabsRadix };
 
-// Also export as primary Tabs component for new code
 export { Tabs as TabsPrimitive };
 export { TabsPrimitive as TabsRadixPrimitive };
