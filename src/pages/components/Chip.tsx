@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Chip } from '@/components/ui/chip';
@@ -359,14 +360,80 @@ const handleDelete = (chipToDelete) => {
   <Chip disabled>Disabled</Chip>
   <Chip disabled variant="filled" color="primary">Disabled</Chip>
   <Chip disabled variant="outlined" color="secondary">Disabled</Chip>
-  <Chip disabled onDelete={() => {}}&gt;Disabled</Chip>
+  <Chip disabled onDelete={() => {}}>Disabled</Chip>
+</div>
+
+<div className="mt-4 space-y-4">
+  <h3 className="text-sm font-medium text-gray-700">Disabled Filled Variants</h3>
+  <div className="flex flex-wrap gap-2">
+    <Chip disabled variant="filled" color="primary">Primary</Chip>
+    <Chip disabled variant="filled" color="secondary">Secondary</Chip>
+    <Chip disabled variant="filled" color="success">Success</Chip>
+    <Chip disabled variant="filled" color="error">Error</Chip>
+    <Chip disabled variant="filled" color="warning">Warning</Chip>
+    <Chip disabled variant="filled" color="info">Info</Chip>
+  </div>
+
+  <h3 className="text-sm font-medium text-gray-700">Disabled Filled Light Variants</h3>
+  <div className="flex flex-wrap gap-2">
+    <Chip disabled variant="filledlight" color="primary">Primary</Chip>
+    <Chip disabled variant="filledlight" color="secondary">Secondary</Chip>
+    <Chip disabled variant="filledlight" color="success">Success</Chip>
+    <Chip disabled variant="filledlight" color="error">Error</Chip>
+    <Chip disabled variant="filledlight" color="warning">Warning</Chip>
+    <Chip disabled variant="filledlight" color="info">Info</Chip>
+  </div>
+
+  <h3 className="text-sm font-medium text-gray-700">Disabled Outlined Variants</h3>
+  <div className="flex flex-wrap gap-2">
+    <Chip disabled variant="outlined" color="primary">Primary</Chip>
+    <Chip disabled variant="outlined" color="secondary">Secondary</Chip>
+    <Chip disabled variant="outlined" color="success">Success</Chip>
+    <Chip disabled variant="outlined" color="error">Error</Chip>
+    <Chip disabled variant="outlined" color="warning">Warning</Chip>
+    <Chip disabled variant="outlined" color="info">Info</Chip>
+  </div>
 </div>`}
           >
-            <div className="flex flex-wrap gap-2 p-6">
-              <Chip disabled>Disabled</Chip>
-              <Chip disabled variant="filled" color="primary">Disabled</Chip>
-              <Chip disabled variant="outlined" color="secondary">Disabled</Chip>
-              <Chip disabled onDelete={() => {}}>Disabled</Chip>
+            <div className="p-6">
+              <div className="flex flex-wrap gap-2">
+                <Chip disabled>Disabled</Chip>
+                <Chip disabled variant="filled" color="primary">Disabled</Chip>
+                <Chip disabled variant="outlined" color="secondary">Disabled</Chip>
+                <Chip disabled onDelete={() => {}}>Disabled</Chip>
+              </div>
+              
+              <div className="mt-4 space-y-4">
+                <h3 className="text-sm font-medium text-gray-700">Disabled Filled Variants</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Chip disabled variant="filled" color="primary">Primary</Chip>
+                  <Chip disabled variant="filled" color="secondary">Secondary</Chip>
+                  <Chip disabled variant="filled" color="success">Success</Chip>
+                  <Chip disabled variant="filled" color="error">Error</Chip>
+                  <Chip disabled variant="filled" color="warning">Warning</Chip>
+                  <Chip disabled variant="filled" color="info">Info</Chip>
+                </div>
+                
+                <h3 className="text-sm font-medium text-gray-700">Disabled Filled Light Variants</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Chip disabled variant="filledlight" color="primary">Primary</Chip>
+                  <Chip disabled variant="filledlight" color="secondary">Secondary</Chip>
+                  <Chip disabled variant="filledlight" color="success">Success</Chip>
+                  <Chip disabled variant="filledlight" color="error">Error</Chip>
+                  <Chip disabled variant="filledlight" color="warning">Warning</Chip>
+                  <Chip disabled variant="filledlight" color="info">Info</Chip>
+                </div>
+                
+                <h3 className="text-sm font-medium text-gray-700">Disabled Outlined Variants</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Chip disabled variant="outlined" color="primary">Primary</Chip>
+                  <Chip disabled variant="outlined" color="secondary">Secondary</Chip>
+                  <Chip disabled variant="outlined" color="success">Success</Chip>
+                  <Chip disabled variant="outlined" color="error">Error</Chip>
+                  <Chip disabled variant="outlined" color="warning">Warning</Chip>
+                  <Chip disabled variant="outlined" color="info">Info</Chip>
+                </div>
+              </div>
             </div>
           </ComponentCard>
         </div>

@@ -1,4 +1,3 @@
-
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { X } from "lucide-react"
@@ -61,7 +60,6 @@ const chipVariants = cva(
         color: "warning",
         class: "bg-warning-main text-warning-contrast",
       },
-      // Add the new filledlight variant compound variants
       {
         variant: "filledlight",
         color: "primary",
@@ -131,7 +129,6 @@ const chipVariants = cva(
   }
 )
 
-// Define the color type to avoid conflicts
 type ChipColor = "default" | "primary" | "secondary" | "success" | "error" | "info" | "warning";
 
 export interface ChipProps
@@ -163,7 +160,7 @@ function Chip({
       className={cn(
         chipVariants({ variant, size, color, className }),
         clickable && !disabled && "cursor-pointer hover:opacity-90 active:opacity-70",
-        disabled && "opacity-50 pointer-events-none",
+        disabled && "opacity-50 pointer-events-none cursor-default",
         (icon || avatar) && "pl-2",
         "gap-1"
       )} 
