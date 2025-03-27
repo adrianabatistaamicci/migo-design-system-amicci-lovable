@@ -17,6 +17,13 @@ import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import CodeBlock from '@/components/CodeBlock';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const PaginationPage = () => {
   return (
@@ -132,6 +139,76 @@ const PaginationPage = () => {
                   </PaginationItem>
                 </PaginationContent>
               </Pagination>
+            </div>
+          </ComponentCard>
+          
+          <ComponentCard 
+            title="Paginação com Select de Itens por Página" 
+            description="Paginação com seletor para controlar o número de itens exibidos por página."
+            code={`<div className="flex flex-col sm:flex-row items-center justify-between w-full gap-4">
+  <div className="flex items-center gap-2">
+    <label htmlFor="linhas-por-pagina" className="text-sm text-gray-700">
+      Linhas por página:
+    </label>
+    <Select defaultValue="20">
+      <SelectTrigger id="linhas-por-pagina" className="w-[70px] h-9">
+        <SelectValue placeholder="20" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="10">10</SelectItem>
+        <SelectItem value="20">20</SelectItem>
+        <SelectItem value="50">50</SelectItem>
+        <SelectItem value="100">100</SelectItem>
+      </SelectContent>
+    </Select>
+  </div>
+  
+  <div className="text-sm text-gray-700">
+    1-5 of 13
+  </div>
+  
+  <div className="flex items-center gap-2">
+    <Button variant="outline" size="icon" className="h-10 w-10" disabled>
+      <ChevronLeft className="h-4 w-4" />
+    </Button>
+    <Button variant="outline" size="icon" className="h-10 w-10">
+      <ChevronRight className="h-4 w-4" />
+    </Button>
+  </div>
+</div>`}
+          >
+            <div className="flex items-center justify-center p-6 w-full">
+              <div className="flex flex-col sm:flex-row items-center justify-between w-full gap-4">
+                <div className="flex items-center gap-2">
+                  <label htmlFor="linhas-por-pagina" className="text-sm text-gray-700">
+                    Linhas por página:
+                  </label>
+                  <Select defaultValue="20">
+                    <SelectTrigger id="linhas-por-pagina" className="w-[70px] h-9">
+                      <SelectValue placeholder="20" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="10">10</SelectItem>
+                      <SelectItem value="20">20</SelectItem>
+                      <SelectItem value="50">50</SelectItem>
+                      <SelectItem value="100">100</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                
+                <div className="text-sm text-gray-700">
+                  1-5 of 13
+                </div>
+                
+                <div className="flex items-center gap-2">
+                  <Button variant="outline" size="icon" className="h-10 w-10" disabled>
+                    <ChevronLeft className="h-4 w-4" />
+                  </Button>
+                  <Button variant="outline" size="icon" className="h-10 w-10">
+                    <ChevronRight className="h-4 w-4" />
+                  </Button>
+                </div>
+              </div>
             </div>
           </ComponentCard>
           
