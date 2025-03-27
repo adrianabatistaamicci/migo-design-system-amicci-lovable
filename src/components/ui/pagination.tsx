@@ -53,7 +53,7 @@ const PaginationLink = ({
         variant: isActive ? "outline" : "ghost",
         size,
       }),
-      isActive && "bg-amicci-50 text-amicci-600 border-amicci-200 hover:bg-amicci-100 hover:text-amicci-700",
+      isActive && "bg-primary-50 text-primary-600 border-primary-200 hover:bg-primary-100 hover:text-primary-700",
       className
     )}
     {...props}
