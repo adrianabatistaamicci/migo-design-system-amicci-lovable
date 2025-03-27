@@ -4,6 +4,7 @@ import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@
 import { Badge } from '@/components/ui/badge';
 import { TailwindTabs } from '@/components/ui/tabs';
 import Header from '@/components/library-components/Header';
+import { Folder, Users, Calendar, FileText } from 'lucide-react';
 
 const TabsPage = () => {
   return <div className="w-full animate-slide-in">
@@ -222,6 +223,86 @@ const TabsPage = () => {
               </div>
             </div>
           </ComponentCard>
+
+          <ComponentCard 
+            title="Project Tabs" 
+            description="Rich tabs with icons, chips, and secondary text, designed for project navigation."
+            code={`<TailwindTabs
+  tabs={[
+    { 
+      name: 'Projects',
+      value: 'projects',
+      icon: <Folder className="h-5 w-5" />,
+      chip: "12 active",
+      secondaryText: "Manage your projects"
+    },
+    { 
+      name: 'Team',
+      value: 'team',
+      icon: <Users className="h-5 w-5" />,
+      chip: "8 members",
+      secondaryText: "Manage your team"
+    },
+    { 
+      name: 'Calendar',
+      value: 'calendar',
+      icon: <Calendar className="h-5 w-5" />,
+      chip: "3 events",
+      secondaryText: "View upcoming events"
+    },
+    { 
+      name: 'Documents',
+      value: 'documents',
+      icon: <FileText className="h-5 w-5" />,
+      chip: "24 files",
+      secondaryText: "Manage your files"
+    }
+  ]}
+  variant="projectTabs"
+/>`}
+          >
+            <div className="w-full mx-auto">
+              <TailwindTabs
+                tabs={[
+                  { 
+                    name: 'Projects',
+                    value: 'projects',
+                    icon: <Folder className="h-5 w-5" />,
+                    chip: "12 active",
+                    secondaryText: "Manage your projects"
+                  },
+                  { 
+                    name: 'Team',
+                    value: 'team',
+                    icon: <Users className="h-5 w-5" />,
+                    chip: "8 members",
+                    secondaryText: "Manage your team"
+                  },
+                  { 
+                    name: 'Calendar',
+                    value: 'calendar',
+                    icon: <Calendar className="h-5 w-5" />,
+                    chip: "3 events",
+                    secondaryText: "View upcoming events"
+                  },
+                  { 
+                    name: 'Documents',
+                    value: 'documents',
+                    icon: <FileText className="h-5 w-5" />,
+                    chip: "24 files",
+                    secondaryText: "Manage your files"
+                  }
+                ]}
+                variant="projectTabs"
+              />
+              <div className="p-4 border border-gray-200 rounded-md mt-3">
+                <h3 className="text-lg font-medium mb-2">Projects</h3>
+                <p className="text-sm text-gray-500">
+                  View and manage your active projects.
+                </p>
+              </div>
+            </div>
+          </ComponentCard>
           
           <div className="mt-12">
             <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
@@ -262,9 +343,9 @@ const TabsPage = () => {
                 <TableBody>
                   <TableRow>
                     <TableCell className="font-mono text-mui-text-primary">tabs</TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">Array&lt;{'{name: string, value: string}'}&gt;</TableCell>
+                    <TableCell className="font-mono text-mui-text-secondary">Array&lt;{'{name: string, value: string, badge?: string, icon?: ReactNode, chip?: string, secondaryText?: string}'}&gt;</TableCell>
                     <TableCell className="font-mono text-mui-text-secondary">required</TableCell>
-                    <TableCell className="text-mui-text-secondary">Array of tab items with name and value properties</TableCell>
+                    <TableCell className="text-mui-text-secondary">Array of tab items with name, value, optional badge, icon, chip and secondaryText properties</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell className="font-mono text-mui-text-primary">defaultValue</TableCell>
@@ -280,7 +361,7 @@ const TabsPage = () => {
                   </TableRow>
                   <TableRow>
                     <TableCell className="font-mono text-mui-text-primary">variant</TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">"underline" | "pills" | "pillsGray" | "pillsBrand" | "fullWidth" | "bar" | "underlineBadges"</TableCell>
+                    <TableCell className="font-mono text-mui-text-secondary">"underline" | "pills" | "pillsGray" | "pillsBrand" | "fullWidth" | "bar" | "underlineBadges" | "projectTabs"</TableCell>
                     <TableCell className="font-mono text-mui-text-secondary">"underline"</TableCell>
                     <TableCell className="text-mui-text-secondary">Visual style variant of the tabs</TableCell>
                   </TableRow>
