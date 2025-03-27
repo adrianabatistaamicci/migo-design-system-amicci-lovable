@@ -76,9 +76,7 @@ export default TitleHeading;`;
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="rounded-lg border p-6">
+          
           <CodeBlock 
             code={codeExample}
             language="jsx"
