@@ -59,14 +59,12 @@ export default TitleHeading;`;
 
         <div className="rounded-lg border p-6 space-y-6">
           <div className="flex gap-3">
-            {/* Botão de voltar quadrado em um box separado */}
             {showBackButton && (
               <div className="h-14 w-14 bg-white rounded-lg shadow-sm flex items-center justify-center">
                 <ArrowLeft className="h-6 w-6 text-gray-500" />
               </div>
             )}
             
-            {/* Box com o título e breadcrumbs */}
             <div className="flex-1 bg-white rounded-lg shadow-sm">
               <div className="flex items-center p-4 h-14">
                 <h1 className="text-2xl font-medium">Meus projetos</h1>
@@ -80,12 +78,14 @@ export default TitleHeading;`;
           </div>
         </div>
 
-        <CodeBlock 
-          code={codeExample}
-          language="jsx"
-          title="Implementação do Title Heading"
-          showCopy={true}
-        />
+        <div className="rounded-lg border p-6">
+          <CodeBlock 
+            code={codeExample}
+            language="jsx"
+            title="Implementação do Title Heading"
+            showCopy={true}
+          />
+        </div>
       </div>
     </div>
   );
