@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { ArrowLeft, ChevronRight } from 'lucide-react';
 import Header from '@/components/library-components/Header';
 import { Button } from '@/components/ui/button';
-import { IconButton } from '@/components/ui/icon-button';
 import { cn } from '@/lib/utils';
 
 const TitleHeadings = () => {
@@ -35,14 +34,14 @@ const TitleHeadings = () => {
           <div className="flex gap-3">
             {/* Botão de voltar quadrado em um box separado */}
             {showBackButton && (
-              <div className="w-14 h-14 bg-white rounded-lg shadow-sm flex items-center justify-center">
+              <div className="h-14 w-14 bg-white rounded-lg shadow-sm flex items-center justify-center">
                 <ArrowLeft className="h-6 w-6 text-gray-500" />
               </div>
             )}
             
             {/* Box com o título e breadcrumbs */}
             <div className="flex-1 bg-white rounded-lg shadow-sm">
-              <div className="flex items-center p-4">
+              <div className="flex items-center p-4 h-14">
                 <h1 className="text-2xl font-medium">Meus projetos</h1>
                 <div className="ml-auto flex items-center text-gray-500 text-sm">
                   <span>Dashboard</span>
