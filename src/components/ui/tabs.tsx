@@ -120,7 +120,7 @@ export const TailwindTabs = ({
             </nav>
           </div>;
       case 'projectTabs':
-        return <nav className="w-full flex space-x-4 justify-between">
+        return <nav className="w-full space-x-4 justify-between">
             {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`rounded-md border p-6 transition-colors ${selected === tab.value ? 'bg-gray-50 border-gray-300 shadow-sm' : 'bg-white border-gray-200 hover:bg-gray-50'}`}>
                 <div className="flex flex-col">
                   <div className="flex items-center mb-1justify-between">
