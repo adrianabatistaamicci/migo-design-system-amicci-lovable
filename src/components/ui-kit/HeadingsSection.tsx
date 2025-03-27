@@ -19,8 +19,8 @@ const HeadingsSection = () => {
         <Link to="/components/title-headings">
           <ComponentPreview 
             title="Title Headings" 
-            imageSrc="/lovable-uploads/5ae2c9b9-8171-41af-a6c2-2002cc7425f5.png" 
-            variantCount={1} 
+            imageSrc="/lovable-uploads/a0b9776c-7b4b-46b0-ac98-a5f9762be611.png" 
+            variantCount={2} 
           />
         </Link>
         
