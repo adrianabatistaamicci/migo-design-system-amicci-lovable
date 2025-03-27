@@ -57,21 +57,23 @@ export default TitleHeading;`;
           </Button>
         </div>
 
-        <div className="rounded-lg border p-6 space-y-6">
-          <div className="flex gap-3">
-            {showBackButton && (
-              <div className="h-14 w-14 bg-white rounded-lg shadow-sm flex items-center justify-center">
-                <ArrowLeft className="h-6 w-6 text-gray-500" />
-              </div>
-            )}
-            
-            <div className="flex-1 bg-white rounded-lg shadow-sm">
-              <div className="flex items-center p-4 h-14">
-                <h1 className="text-2xl font-medium">Meus projetos</h1>
-                <div className="ml-auto flex items-center text-gray-500 text-sm">
-                  <span>Dashboard</span>
-                  <ChevronRight className="h-4 w-4 mx-1" />
-                  <span className="font-medium text-gray-700">Meus projetos</span>
+        <div className="rounded-lg border overflow-hidden">
+          <div className="p-6">
+            <div className="flex gap-3">
+              {showBackButton && (
+                <div className="h-14 w-14 bg-white rounded-lg shadow-sm flex items-center justify-center">
+                  <ArrowLeft className="h-6 w-6 text-gray-500" />
+                </div>
+              )}
+              
+              <div className="flex-1 bg-white rounded-lg shadow-sm">
+                <div className="flex items-center p-4 h-14">
+                  <h1 className="text-2xl font-medium">Meus projetos</h1>
+                  <div className="ml-auto flex items-center text-gray-500 text-sm">
+                    <span>Dashboard</span>
+                    <ChevronRight className="h-4 w-4 mx-1" />
+                    <span className="font-medium text-gray-700">Meus projetos</span>
+                  </div>
                 </div>
               </div>
             </div>
