@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Chip } from '@/components/ui/chip';
@@ -59,12 +58,14 @@ const ChipPage = () => {
             code={`<div className="flex flex-wrap gap-2">
   <Chip variant="default">Default</Chip>
   <Chip variant="filled">Filled</Chip>
+  <Chip variant="filledlight">Filled Light</Chip>
   <Chip variant="outlined">Outlined</Chip>
 </div>`}
           >
             <div className="flex flex-wrap gap-2 p-6">
               <Chip variant="default">Default</Chip>
               <Chip variant="filled">Filled</Chip>
+              <Chip variant="filledlight">Filled Light</Chip>
               <Chip variant="outlined">Outlined</Chip>
             </div>
           </ComponentCard>
@@ -80,6 +81,15 @@ const ChipPage = () => {
     <Chip variant="filled" color="error">Error</Chip>
     <Chip variant="filled" color="warning">Warning</Chip>
     <Chip variant="filled" color="info">Info</Chip>
+  </div>
+  
+  <div className="flex flex-wrap gap-2">
+    <Chip variant="filledlight" color="primary">Primary</Chip>
+    <Chip variant="filledlight" color="secondary">Secondary</Chip>
+    <Chip variant="filledlight" color="success">Success</Chip>
+    <Chip variant="filledlight" color="error">Error</Chip>
+    <Chip variant="filledlight" color="warning">Warning</Chip>
+    <Chip variant="filledlight" color="info">Info</Chip>
   </div>
   
   <div className="flex flex-wrap gap-2">
@@ -100,6 +110,15 @@ const ChipPage = () => {
                 <Chip variant="filled" color="error">Error</Chip>
                 <Chip variant="filled" color="warning">Warning</Chip>
                 <Chip variant="filled" color="info">Info</Chip>
+              </div>
+              
+              <div className="flex flex-wrap gap-2">
+                <Chip variant="filledlight" color="primary">Primary</Chip>
+                <Chip variant="filledlight" color="secondary">Secondary</Chip>
+                <Chip variant="filledlight" color="success">Success</Chip>
+                <Chip variant="filledlight" color="error">Error</Chip>
+                <Chip variant="filledlight" color="warning">Warning</Chip>
+                <Chip variant="filledlight" color="info">Info</Chip>
               </div>
               
               <div className="flex flex-wrap gap-2">
@@ -370,7 +389,7 @@ const handleDelete = (chipToDelete) => {
               <TableBody>
                 <TableRow>
                   <TableCell className="font-mono text-mui-text-primary">variant</TableCell>
-                  <TableCell className="font-mono text-mui-text-secondary">"default" | "filled" | "outlined"</TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">"default" | "filled" | "filledlight" | "outlined"</TableCell>
                   <TableCell className="font-mono text-mui-text-secondary">"default"</TableCell>
                   <TableCell className="text-mui-text-secondary">The visual style of the chip.</TableCell>
                 </TableRow>

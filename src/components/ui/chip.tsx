@@ -12,6 +12,7 @@ const chipVariants = cva(
       variant: {
         default: "bg-background-subtle text-text-primary border border-border-default",
         filled: "bg-primary-main text-primary-contrast",
+        filledlight: "bg-primary-light text-primary-dark",
         outlined: "bg-transparent border border-primary-main text-primary-main",
       },
       size: {
@@ -59,6 +60,37 @@ const chipVariants = cva(
         variant: "filled",
         color: "warning",
         class: "bg-warning-main text-warning-contrast",
+      },
+      // Add the new filledlight variant compound variants
+      {
+        variant: "filledlight",
+        color: "primary",
+        class: "bg-primary-light text-primary-dark",
+      },
+      {
+        variant: "filledlight",
+        color: "secondary",
+        class: "bg-secondary-light text-secondary-dark",
+      },
+      {
+        variant: "filledlight",
+        color: "success",
+        class: "bg-success-light text-success-dark",
+      },
+      {
+        variant: "filledlight",
+        color: "error",
+        class: "bg-error-light text-error-dark",
+      },
+      {
+        variant: "filledlight",
+        color: "info",
+        class: "bg-info-light text-info-dark",
+      },
+      {
+        variant: "filledlight",
+        color: "warning",
+        class: "bg-warning-light text-warning-dark",
       },
       {
         variant: "outlined",
