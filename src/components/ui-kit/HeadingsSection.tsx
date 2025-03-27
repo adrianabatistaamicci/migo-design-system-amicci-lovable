@@ -16,6 +16,14 @@ const HeadingsSection = () => {
           />
         </Link>
         
+        <Link to="/components/title-headings">
+          <ComponentPreview 
+            title="Title Headings" 
+            imageSrc="/lovable-uploads/5ae2c9b9-8171-41af-a6c2-2002cc7425f5.png" 
+            variantCount={1} 
+          />
+        </Link>
+        
         <Link to="/components/card-headings">
           <ComponentPreview 
             title="Card Headings" 

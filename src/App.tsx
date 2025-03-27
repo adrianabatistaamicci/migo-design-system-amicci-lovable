@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -81,6 +80,7 @@ import Typography from "./pages/Typography";
 import Spacing from "./pages/Spacing";
 import Icons from "./pages/Icons";
 import Brand from "./pages/foundations/Brand";
+import TitleHeadings from "./pages/components/TitleHeadings";
 
 const queryClient = new QueryClient();
 
@@ -119,6 +119,7 @@ const App = () => {
               <Route path="/components/sidebar-layouts" element={<SidebarLayoutsPage />} />
               <Route path="/components/multi-column-layouts" element={<MultiColumnLayouts />} />
               <Route path="/components/page-headings" element={<PageHeadings />} />
+              <Route path="/components/title-headings" element={<TitleHeadings />} />
               <Route path="/components/card-headings" element={<CardHeadings />} />
               <Route path="/components/section-headings" element={<SectionHeadingsPage />} />
               <Route path="/components/description-lists" element={<DescriptionLists />} />

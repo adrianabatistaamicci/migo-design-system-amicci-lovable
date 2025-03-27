@@ -80,6 +80,7 @@ export const sidebarItems: SidebarItem[] = [
         title: 'Headings',
         items: [
           { title: 'Page Headings', href: '/components/page-headings' },
+          { title: 'Title Headings', href: '/components/title-headings' },
           { title: 'Card Headings', href: '/components/card-headings' },
           { title: 'Section Headings', href: '/components/section-headings' },
         ]
