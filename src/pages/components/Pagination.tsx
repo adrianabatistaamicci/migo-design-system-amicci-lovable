@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import ComponentCard from '@/components/ComponentCard';
@@ -28,21 +27,13 @@ import {
 const PaginationPage = () => {
   return (
     <div className="w-full animate-slide-in">
+      <Header
+        title="Pagination"
+        description="Interface de navegação para dividir conteúdo em páginas separadas."
+        type="components"
+      />
+      
       <div className="mb-12">
-        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mui-primary/10 text-mui-primary">
-            Component
-          </span>
-        </div>
-        
-        <h1 className="text-4xl font-medium text-mui-text-primary mb-4">
-          Pagination
-        </h1>
-        
-        <p className="text-xl text-mui-text-secondary mb-8">
-          Interface de navegação para dividir conteúdo em páginas separadas.
-        </p>
-        
         <div className="mb-12">
           <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
             Import

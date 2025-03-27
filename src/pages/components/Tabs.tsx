@@ -1,26 +1,19 @@
-
 import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { TailwindTabs } from '@/components/ui/tabs';
+import Header from '@/components/library-components/Header';
+
 const TabsPage = () => {
   return <div className="w-full animate-slide-in">
+      <Header
+        title="Tabs"
+        description="Tabs organize content into multiple sections and allow users to navigate between them."
+        type="components"
+      />
+      
       <div className="mb-12">
-        <div className="flex items-center gap-2 text-sm text-mui-primary font-medium mb-2">
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mui-primary/10 text-mui-primary">
-            Component
-          </span>
-        </div>
-        
-        <h1 className="text-4xl font-medium text-mui-text-primary mb-4">
-          Tabs
-        </h1>
-        
-        <p className="text-xl text-mui-text-secondary mb-8">
-          Tabs organize content into multiple sections and allow users to navigate between them.
-        </p>
-        
         <div className="mb-12">
           <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
             Import
