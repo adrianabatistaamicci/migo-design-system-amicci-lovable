@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -657,4 +658,149 @@ const PaginationPage = () => {
           
           <ComponentCard 
             title="Card Footer com Componentes shadcn/ui" 
-            description="Uma variante de paginação incorpor
+            description="Uma variante de paginação incorporada em um card utilizando componentes shadcn/ui."
+            code={`<Card>
+  <CardContent className="p-6">
+    <p>Conteúdo do card aqui...</p>
+  </CardContent>
+  <CardFooter className="flex justify-between border-t border-gray-200 px-6 py-4">
+    <div className="flex space-x-2">
+      <Button
+        variant="outline"
+        size="sm"
+        className="h-8 px-2"
+      >
+        <ChevronLeft className="h-4 w-4 mr-1" />
+        Anterior
+      </Button>
+      <Button 
+        variant="outline"
+        size="sm"
+        className="h-8 px-2"
+      >
+        Próximo
+        <ChevronRight className="h-4 w-4 ml-1" />
+      </Button>
+    </div>
+  </CardFooter>
+</Card>`}
+          >
+            <Card>
+              <CardContent className="p-6">
+                <p>Conteúdo do card aqui...</p>
+              </CardContent>
+              <CardFooter className="flex justify-between border-t border-gray-200 px-6 py-4">
+                <div className="flex space-x-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="h-8 px-2"
+                  >
+                    <ChevronLeft className="h-4 w-4 mr-1" />
+                    Anterior
+                  </Button>
+                  <Button 
+                    variant="outline"
+                    size="sm"
+                    className="h-8 px-2"
+                  >
+                    Próximo
+                    <ChevronRight className="h-4 w-4 ml-1" />
+                  </Button>
+                </div>
+              </CardFooter>
+            </Card>
+          </ComponentCard>
+          
+          <div className="mt-10">
+            <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
+              Uso com Componentes JavaScript
+            </h2>
+            
+            <p className="mb-4">
+              Para implementar paginação em componentes React interativos, utilize state para controlar a página atual:
+            </p>
+            
+            <CodeBlock
+              title="Exemplo Básico de Paginação com React"
+              code={`import React, { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+const PaginationExample = ({ totalItems, itemsPerPage = 10 }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  
+  const goToNextPage = () => {
+    setCurrentPage((page) => Math.min(page + 1, totalPages));
+  };
+  
+  const goToPreviousPage = () => {
+    setCurrentPage((page) => Math.max(page - 1, 1));
+  };
+  
+  const goToPage = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+  
+  // Calcula os itens que devem ser exibidos na página atual
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
+  
+  return (
+    <div className="mt-4">
+      <div className="text-sm text-gray-700 mb-2">
+        Mostrando {startIndex + 1} a {endIndex} de {totalItems} resultados
+      </div>
+      
+      <div className="flex items-center space-x-2">
+        <Button 
+          variant="outline" 
+          onClick={goToPreviousPage} 
+          disabled={currentPage === 1}
+          size="sm"
+        >
+          <ChevronLeft className="h-4 w-4 mr-1" />
+          Anterior
+        </Button>
+        
+        <div className="flex items-center space-x-1">
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+            <Button
+              key={page}
+              variant={currentPage === page ? "default" : "outline"}
+              size="sm"
+              className="h-8 w-8 p-0"
+              onClick={() => goToPage(page)}
+            >
+              {page}
+            </Button>
+          ))}
+        </div>
+        
+        <Button 
+          variant="outline" 
+          onClick={goToNextPage} 
+          disabled={currentPage === totalPages}
+          size="sm"
+        >
+          Próximo
+          <ChevronRight className="h-4 w-4 ml-1" />
+        </Button>
+      </div>
+    </div>
+  );
+};
+
+export default PaginationExample;`}
+              language="jsx"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PaginationPage;
