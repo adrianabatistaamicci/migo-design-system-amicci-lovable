@@ -131,7 +131,7 @@ export const TailwindTabs = ({
                 <div className="flex flex-col">
                   <div className="flex items-center justify-between mb-1">
                     {tab.icon && <span className="mr-2">{tab.icon}</span>}
-                    <span className={`font-medium text-right ml-auto ${selected === tab.value ? 'text-gray-800' : 'text-gray-700'}`}>
+                    <span className={`font-medium text-right ml-auto ${selected === tab.value ? 'text-amicci-500' : 'text-gray-700'}`}>
                       {tab.name}
                     </span>
                   </div>
