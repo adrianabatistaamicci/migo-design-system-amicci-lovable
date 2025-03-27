@@ -253,34 +253,38 @@ const TabsPage = () => {
     }
   ]}
   variant="projectTabs"
+  className="w-full"
 />`}>
             <div className="w-full mx-auto">
-              <TailwindTabs tabs={[{
-              name: 'Especificação',
-              value: 'specification',
-              icon: <Folder className="h-5 w-5" />,
-              secondaryText: "Prazo 03/05/2024",
-              chipStatus: "Concluído"
-            }, {
-              name: 'Fornecedor',
-              value: 'supplier',
-              icon: <Users className="h-5 w-5" />,
-              secondaryText: "Prazo 03/05/2024",
-              chipStatus: "Em andamento"
-            }, {
-              name: 'Embalagem',
-              value: 'packaging',
-              icon: <Calendar className="h-5 w-5" />,
-              secondaryText: "Prazo 03/05/2024",
-              chipStatus: "Não iniciado"
-            }, {
-              name: 'Produção',
-              value: 'production',
-              icon: <FileText className="h-5 w-5" />,
-              secondaryText: "Prazo 03/05/2024",
-              chipStatus: "Não iniciado"
-            }]} variant="projectTabs" />
-              
+              <TailwindTabs 
+                tabs={[{
+                  name: 'Especificação',
+                  value: 'specification',
+                  icon: <Folder className="h-5 w-5" />,
+                  secondaryText: "Prazo 03/05/2024",
+                  chipStatus: "Concluído"
+                }, {
+                  name: 'Fornecedor',
+                  value: 'supplier',
+                  icon: <Users className="h-5 w-5" />,
+                  secondaryText: "Prazo 03/05/2024",
+                  chipStatus: "Em andamento"
+                }, {
+                  name: 'Embalagem',
+                  value: 'packaging',
+                  icon: <Calendar className="h-5 w-5" />,
+                  secondaryText: "Prazo 03/05/2024",
+                  chipStatus: "Não iniciado"
+                }, {
+                  name: 'Produção',
+                  value: 'production',
+                  icon: <FileText className="h-5 w-5" />,
+                  secondaryText: "Prazo 03/05/2024",
+                  chipStatus: "Não iniciado"
+                }]} 
+                variant="projectTabs"
+                className="w-full" 
+              />
             </div>
           </ComponentCard>
           
