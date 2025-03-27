@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
@@ -223,61 +224,61 @@ const TabsPage = () => {
           <ComponentCard title="Project Tabs on Gray" description="Rich tabs with icons, chips, and secondary text, designed for project navigation with a gray theme and full-width layout." code={`<TailwindTabs
   tabs={[
     { 
-      name: 'Projects',
-      value: 'projects',
+      name: 'Especificação',
+      value: 'specification',
       icon: <Folder className="h-5 w-5" />,
       chip: "12 active",
-      secondaryText: "Manage your projects"
+      secondaryText: "Prazo 03/05/2024"
     },
     { 
-      name: 'Team',
-      value: 'team',
+      name: 'Fornecedor',
+      value: 'supplier',
       icon: <Users className="h-5 w-5" />,
       chip: "8 members",
-      secondaryText: "Manage your team"
+      secondaryText: "Prazo 03/05/2024"
     },
     { 
-      name: 'Calendar',
-      value: 'calendar',
+      name: 'Embalagem',
+      value: 'packaging',
       icon: <Calendar className="h-5 w-5" />,
       chip: "3 events",
-      secondaryText: "View upcoming events"
+      secondaryText: "Prazo 03/05/2024"
     },
     { 
-      name: 'Documents',
-      value: 'documents',
+      name: 'Produção',
+      value: 'production',
       icon: <FileText className="h-5 w-5" />,
       chip: "24 files",
-      secondaryText: "Manage your files"
+      secondaryText: "Prazo 03/05/2024"
     }
   ]}
   variant="projectTabs"
 />`}>
             <div className="w-full mx-auto">
               <TailwindTabs tabs={[{
-              name: 'Projects',
-              value: 'projects',
+              name: 'Especificação',
+              value: 'specification',
               icon: <Folder className="h-5 w-5" />,
               chip: "12 active",
-              secondaryText: "Manage your projects"
+              secondaryText: "Prazo 03/05/2024"
             }, {
-              name: 'Team',
-              value: 'team',
+              name: 'Fornecedor',
+              value: 'supplier',
               icon: <Users className="h-5 w-5" />,
               chip: "8 members",
-              secondaryText: "Manage your team"
+              secondaryText: "Prazo 03/05/2024"
             }, {
-              name: 'Calendar',
-              value: 'calendar',
+              name: 'Embalagem',
+              value: 'packaging',
               icon: <Calendar className="h-5 w-5" />,
               chip: "3 events",
-              secondaryText: "View upcoming events"
+              secondaryText: "Prazo 03/05/2024"
             }, {
-              name: 'Documents',
-              value: 'documents',
+              name: 'Produção',
+              value: 'production',
               icon: <FileText className="h-5 w-5" />,
               chip: "24 files",
-              secondaryText: "Manage your files"
+              secondaryText: "Prazo 03/05/2024"
             }]} variant="projectTabs" />
               
             </div>
