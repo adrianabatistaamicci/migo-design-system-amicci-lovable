@@ -3,6 +3,7 @@ import { Badge } from '@/components/ui/badge';
 import { Chip } from '@/components/ui/chip';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 import { cn } from "@/lib/utils";
+
 type Tab = {
   name: string;
   value: string;
@@ -11,6 +12,7 @@ type Tab = {
   chip?: string;
   secondaryText?: string;
 };
+
 type TailwindTabsProps = {
   tabs?: Tab[];
   defaultValue?: string;
@@ -19,6 +21,7 @@ type TailwindTabsProps = {
   children?: React.ReactNode;
   className?: string;
 };
+
 export const TailwindTabs = ({
   tabs = [],
   defaultValue,
@@ -28,14 +31,17 @@ export const TailwindTabs = ({
   className
 }: TailwindTabsProps) => {
   const [selected, setSelected] = useState(defaultValue || (tabs.length > 0 ? tabs[0]?.value : ''));
+
   const handleTabChange = (value: string) => {
     setSelected(value);
     onChange?.(value);
   };
+
   const renderTabs = () => {
     if (!tabs || tabs.length === 0) {
       return null;
     }
+
     switch (variant) {
       case 'underline':
         return <div className="border-b border-gray-200 inline-block">
@@ -120,12 +126,12 @@ export const TailwindTabs = ({
             </nav>
           </div>;
       case 'projectTabs':
-        return <nav className="w-full space-x-4 justify-between">
+        return <nav className="w-full grid grid-cols-4 gap-4">
             {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`rounded-md border p-6 transition-colors ${selected === tab.value ? 'bg-gray-50 border-gray-300 shadow-sm' : 'bg-white border-gray-200 hover:bg-gray-50'}`}>
                 <div className="flex flex-col">
-                  <div className="flex items-center mb-1justify-between">
+                  <div className="flex items-center justify-between mb-1">
                     {tab.icon && <span className="mr-2">{tab.icon}</span>}
-                    <span className={`font-medium ${selected === tab.value ? 'text-gray-800' : 'text-gray-700'}`}>
+                    <span className={`font-medium text-right ml-auto ${selected === tab.value ? 'text-gray-800' : 'text-gray-700'}`}>
                       {tab.name}
                     </span>
                   </div>
@@ -135,7 +141,7 @@ export const TailwindTabs = ({
                         {tab.secondaryText}
                       </span>}
                     
-                    {tab.chip && <Chip size="sm" variant={selected === tab.value ? "filled" : "default"} color={selected === tab.value ? "primary" : "default"}>
+                    {tab.chip && <Chip size="sm" variant={selected === tab.value ? "filled" : "default"} color={selected === tab.value ? "primary" : "default"} className="ml-auto">
                         {tab.chip}
                       </Chip>}
                   </div>
@@ -146,8 +152,10 @@ export const TailwindTabs = ({
         return null;
     }
   };
+
   return <div className={`inline-flex flex-col ${className || ''}`}>{renderTabs()}{children}</div>;
 };
+
 export const Tabs = TabsPrimitive.Root;
 export const TabsRoot = TabsPrimitive.Root;
 export const TabsList = React.forwardRef<React.ElementRef<typeof TabsPrimitive.List>, React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>>(({

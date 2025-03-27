@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { TailwindTabs } from '@/components/ui/tabs';
 import Header from '@/components/library-components/Header';
 import { Folder, Users, Calendar, FileText } from 'lucide-react';
+
 const TabsPage = () => {
   return <div className="w-full animate-slide-in">
       <Header title="Tabs" description="Tabs organize content into multiple sections and allow users to navigate between them." type="components" />
@@ -219,7 +220,7 @@ const TabsPage = () => {
             </div>
           </ComponentCard>
 
-          <ComponentCard title="Project Tabs on Gray" description="Rich tabs with icons, chips, and secondary text, designed for project navigation with a gray theme." code={`<TailwindTabs
+          <ComponentCard title="Project Tabs on Gray" description="Rich tabs with icons, chips, and secondary text, designed for project navigation with a gray theme and full-width layout." code={`<TailwindTabs
   tabs={[
     { 
       name: 'Projects',
@@ -351,4 +352,5 @@ const TabsPage = () => {
       </div>
     </div>;
 };
+
 export default TabsPage;
