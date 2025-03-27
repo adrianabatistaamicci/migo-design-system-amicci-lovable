@@ -176,7 +176,7 @@ export const TailwindTabs = ({
           </div>;
       case 'projectTabs':
         return <nav className="w-full grid grid-cols-4 gap-4">
-            {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`rounded-md border p-6 transition-colors ${selected === tab.value ? 'bg-gray-50 border-gray-300 shadow-sm' : 'bg-white border-gray-200 hover:bg-gray-50'}`}>
+            {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`rounded-md border p-6 transition-colors ${selected === tab.value ? 'bg-gray-50 border-amicci-500 shadow-sm' : 'bg-white border-gray-200 hover:bg-gray-50'}`}>
                 <div className="flex flex-col">
                   <div className="flex items-center justify-between mb-1">
                     {tab.icon && <span className="mr-2">{tab.icon}</span>}
