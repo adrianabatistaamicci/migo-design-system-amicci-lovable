@@ -3,7 +3,6 @@ import { Badge } from '@/components/ui/badge';
 import { Chip } from '@/components/ui/chip';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 import { cn } from "@/lib/utils";
-
 type Tab = {
   name: string;
   value: string;
@@ -12,7 +11,6 @@ type Tab = {
   chip?: string;
   secondaryText?: string;
 };
-
 type TailwindTabsProps = {
   tabs?: Tab[];
   defaultValue?: string;
@@ -21,7 +19,6 @@ type TailwindTabsProps = {
   children?: React.ReactNode;
   className?: string;
 };
-
 export const TailwindTabs = ({
   tabs = [],
   defaultValue,
@@ -35,7 +32,6 @@ export const TailwindTabs = ({
     setSelected(value);
     onChange?.(value);
   };
-
   const renderTabs = () => {
     if (!tabs || tabs.length === 0) {
       return null;
@@ -63,28 +59,12 @@ export const TailwindTabs = ({
           </nav>;
       case 'pillsGray':
         return <nav className="inline-flex rounded-lg p-1 space-x-1 bg-gray-100">
-            {tabs.map(tab => (
-              <button 
-                key={tab.value} 
-                onClick={() => handleTabChange(tab.value)} 
-                className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
-                  selected === tab.value 
-                    ? 'bg-white text-gray-800 shadow-sm' 
-                    : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50'
-                }`}
-              >
+            {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${selected === tab.value ? 'bg-white text-gray-800 shadow-sm' : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50'}`}>
                 {tab.name}
-                {tab.badge && (
-                  <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${
-                    selected === tab.value 
-                      ? 'bg-gray-200 text-gray-800' 
-                      : 'bg-gray-100 text-gray-600'
-                  }`}>
+                {tab.badge && <span className={`ml-2 rounded-full px-2.5 py-0.5 text-xs font-medium md:inline-block ${selected === tab.value ? 'bg-gray-200 text-gray-800' : 'bg-gray-100 text-gray-600'}`}>
                     {tab.badge}
-                  </span>
-                )}
-              </button>
-            ))}
+                  </span>}
+              </button>)}
           </nav>;
       case 'pillsBrand':
         return <nav className="inline-flex rounded-lg bg-amicci-50 p-1">
@@ -140,20 +120,10 @@ export const TailwindTabs = ({
             </nav>
           </div>;
       case 'projectTabs':
-        return (
-          <nav className="flex space-x-4">
-            {tabs.map(tab => (
-              <button 
-                key={tab.value} 
-                onClick={() => handleTabChange(tab.value)} 
-                className={`rounded-md border p-6 transition-colors ${
-                  selected === tab.value 
-                    ? 'bg-gray-50 border-gray-300 shadow-sm' 
-                    : 'bg-white border-gray-200 hover:bg-gray-50'
-                }`}
-              >
+        return <nav className="flex space-x-4justify-between">
+            {tabs.map(tab => <button key={tab.value} onClick={() => handleTabChange(tab.value)} className={`rounded-md border p-6 transition-colors ${selected === tab.value ? 'bg-gray-50 border-gray-300 shadow-sm' : 'bg-white border-gray-200 hover:bg-gray-50'}`}>
                 <div className="flex flex-col">
-                  <div className="flex items-center mb-1">
+                  <div className="flex items-center mb-1justify-between">
                     {tab.icon && <span className="mr-2">{tab.icon}</span>}
                     <span className={`font-medium ${selected === tab.value ? 'text-gray-800' : 'text-gray-700'}`}>
                       {tab.name}
@@ -161,36 +131,24 @@ export const TailwindTabs = ({
                   </div>
                   
                   <div className="flex items-center justify-between">
-                    {tab.secondaryText && (
-                      <span className="text-xs text-gray-500">
+                    {tab.secondaryText && <span className="text-xs text-gray-500">
                         {tab.secondaryText}
-                      </span>
-                    )}
+                      </span>}
                     
-                    {tab.chip && (
-                      <Chip 
-                        size="sm" 
-                        variant={selected === tab.value ? "filled" : "default"} 
-                        color={selected === tab.value ? "primary" : "default"}
-                      >
+                    {tab.chip && <Chip size="sm" variant={selected === tab.value ? "filled" : "default"} color={selected === tab.value ? "primary" : "default"}>
                         {tab.chip}
-                      </Chip>
-                    )}
+                      </Chip>}
                   </div>
                 </div>
-              </button>
-            ))}
-          </nav>
-        );
+              </button>)}
+          </nav>;
       default:
         return null;
     }
   };
   return <div className={`inline-flex flex-col ${className || ''}`}>{renderTabs()}{children}</div>;
 };
-
 export const Tabs = TabsPrimitive.Root;
-
 export const TabsRoot = TabsPrimitive.Root;
 export const TabsList = React.forwardRef<React.ElementRef<typeof TabsPrimitive.List>, React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>>(({
   className,
@@ -207,8 +165,6 @@ export const TabsContent = React.forwardRef<React.ElementRef<typeof TabsPrimitiv
   ...props
 }, ref) => <TabsPrimitive.Content ref={ref} className={cn("mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2", className)} {...props} />);
 TabsContent.displayName = TabsPrimitive.Content.displayName;
-
 export { TabsRoot as TabsRadix };
-
 export { Tabs as TabsPrimitive };
 export { TabsPrimitive as TabsRadixPrimitive };
