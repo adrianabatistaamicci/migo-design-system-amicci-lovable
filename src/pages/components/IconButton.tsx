@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -7,11 +8,11 @@
 
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
-import ComponentCard from '@/components/ComponentCard';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { IconButton } from '@/components/ui/icon-button';
 import { Heart, Trash, Plus, Edit, Search, Settings, Mail, Check, Save, ArrowRight, X } from 'lucide-react';
 import { TailwindTabs } from '@/components/ui/tabs';
+import CodeBlock from '@/components/CodeBlock';
 
 const IconButtonPage = () => {
   const [activeTab, setActiveTab] = useState('examples');
@@ -35,79 +36,104 @@ const IconButtonPage = () => {
       <div className="mt-6">
         {activeTab === 'examples' && <div className="space-y-8">
           {/* Basic Usage */}
-          <ComponentCard
-            title="Basic Icon Buttons"
-            description="Icon buttons in various variants."
-            code={`<IconButton icon={<Heart size={18} />} />
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Basic Icon Buttons</h3>
+              <div className="flex gap-4">
+                <IconButton icon={<Heart size={18} />} />
+                <IconButton icon={<Trash size={18} />} variant="error" />
+                <IconButton icon={<Plus size={18} />} variant="success" />
+              </div>
+            </div>
+            <CodeBlock
+              code={`<IconButton icon={<Heart size={18} />} />
 <IconButton icon={<Trash size={18} />} variant="error" />
 <IconButton icon={<Plus size={18} />} variant="success" />`}
-          >
-            <div className="flex gap-4">
-              <IconButton icon={<Heart size={18} />} />
-              <IconButton icon={<Trash size={18} />} variant="error" />
-              <IconButton icon={<Plus size={18} />} variant="success" />
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementation of Basic Icon Buttons"
+              showCode={false}
+            />
+          </div>
 
           {/* Outlined Variants */}
-          <ComponentCard
-            title="Outlined Icon Buttons"
-            description="Icon buttons with outlined style."
-            code={`<IconButton icon={<Edit size={18} />} variant="outline-default" />
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Outlined Icon Buttons</h3>
+              <div className="flex gap-4">
+                <IconButton icon={<Edit size={18} />} variant="outline-default" />
+                <IconButton icon={<Search size={18} />} variant="outline-secondary" />
+                <IconButton icon={<Settings size={18} />} variant="outline-error" />
+              </div>
+            </div>
+            <CodeBlock
+              code={`<IconButton icon={<Edit size={18} />} variant="outline-default" />
 <IconButton icon={<Search size={18} />} variant="outline-secondary" />
 <IconButton icon={<Settings size={18} />} variant="outline-error" />`}
-          >
-            <div className="flex gap-4">
-              <IconButton icon={<Edit size={18} />} variant="outline-default" />
-              <IconButton icon={<Search size={18} />} variant="outline-secondary" />
-              <IconButton icon={<Settings size={18} />} variant="outline-error" />
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementation of Outlined Icon Buttons"
+              showCode={false}
+            />
+          </div>
 
           {/* Text Variants */}
-          <ComponentCard
-            title="Text Icon Buttons"
-            description="Icon buttons with text style (minimal background)."
-            code={`<IconButton icon={<Mail size={18} />} variant="text-default" />
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Text Icon Buttons</h3>
+              <div className="flex gap-4">
+                <IconButton icon={<Mail size={18} />} variant="text-default" />
+                <IconButton icon={<Check size={18} />} variant="text-success" />
+                <IconButton icon={<Trash size={18} />} variant="text-error" />
+              </div>
+            </div>
+            <CodeBlock
+              code={`<IconButton icon={<Mail size={18} />} variant="text-default" />
 <IconButton icon={<Check size={18} />} variant="text-success" />
 <IconButton icon={<Trash size={18} />} variant="text-error" />`}
-          >
-            <div className="flex gap-4">
-              <IconButton icon={<Mail size={18} />} variant="text-default" />
-              <IconButton icon={<Check size={18} />} variant="text-success" />
-              <IconButton icon={<Trash size={18} />} variant="text-error" />
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementation of Text Icon Buttons"
+              showCode={false}
+            />
+          </div>
 
           {/* Sizes */}
-          <ComponentCard
-            title="Button Sizes"
-            description="Icon buttons in different sizes."
-            code={`<IconButton icon={<Save size={14} />} size="sm" />
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Button Sizes</h3>
+              <div className="flex items-center gap-4">
+                <IconButton icon={<Save size={14} />} size="sm" />
+                <IconButton icon={<Save size={18} />} />
+                <IconButton icon={<Save size={22} />} size="lg" />
+              </div>
+            </div>
+            <CodeBlock
+              code={`<IconButton icon={<Save size={14} />} size="sm" />
 <IconButton icon={<Save size={18} />} />
 <IconButton icon={<Save size={22} />} size="lg" />`}
-          >
-            <div className="flex items-center gap-4">
-              <IconButton icon={<Save size={14} />} size="sm" />
-              <IconButton icon={<Save size={18} />} />
-              <IconButton icon={<Save size={22} />} size="lg" />
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementation of Icon Button Sizes"
+              showCode={false}
+            />
+          </div>
 
           {/* States */}
-          <ComponentCard
-            title="Button States"
-            description="Icon buttons in different states."
-            code={`<IconButton icon={<ArrowRight size={18} />} />
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Button States</h3>
+              <div className="flex gap-4">
+                <IconButton icon={<ArrowRight size={18} />} />
+                <IconButton icon={<ArrowRight size={18} />} disabled />
+                <IconButton icon={<ArrowRight size={18} />} isLoading />
+              </div>
+            </div>
+            <CodeBlock
+              code={`<IconButton icon={<ArrowRight size={18} />} />
 <IconButton icon={<ArrowRight size={18} />} disabled />
 <IconButton icon={<ArrowRight size={18} />} isLoading />`}
-          >
-            <div className="flex gap-4">
-              <IconButton icon={<ArrowRight size={18} />} />
-              <IconButton icon={<ArrowRight size={18} />} disabled />
-              <IconButton icon={<ArrowRight size={18} />} isLoading />
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementation of Icon Button States"
+              showCode={false}
+            />
+          </div>
         </div>}
         
         {activeTab === 'variants' && <div className="space-y-8">

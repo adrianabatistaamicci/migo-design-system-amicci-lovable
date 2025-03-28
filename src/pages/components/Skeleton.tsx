@@ -12,6 +12,7 @@ import ComponentCard from '@/components/ComponentCard';
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
+import CodeBlock from '@/components/CodeBlock';
 
 const SkeletonPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -40,73 +41,88 @@ const SkeletonPage = () => {
       
       <div className="grid gap-8">
         <div className="w-full">
-          <div className="p-4 border rounded-md w-full">
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <h3 className="text-lg font-medium">Carregamento de Card</h3>
-                <Card className="p-4 border border-border">
-                  <div className="flex items-center space-x-4">
-                    <Skeleton className="h-12 w-12 rounded-full bg-gray-200" />
-                    <div className="space-y-2">
-                      <Skeleton className="h-4 w-[250px] bg-gray-200" />
-                      <Skeleton className="h-4 w-[200px] bg-gray-200" />
-                    </div>
-                  </div>
-                </Card>
-              </div>
-              
-              <div className="space-y-2">
-                <h3 className="text-lg font-medium">Carregamento de Tabela</h3>
-                <Card className="p-4 border border-border">
-                  <div className="space-y-3">
-                    <Skeleton className="h-8 w-full bg-gray-200" />
-                    <Skeleton className="h-8 w-full bg-gray-200" />
-                    <Skeleton className="h-8 w-full bg-gray-200" />
-                    <Skeleton className="h-8 w-full bg-gray-200" />
-                  </div>
-                </Card>
-              </div>
-              
-              <div className="space-y-2">
-                <h3 className="text-lg font-medium">Carregamento de Card com Imagem</h3>
-                <Card className="p-4 border border-border">
-                  <div className="flex flex-col space-y-3">
-                    <Skeleton className="h-[200px] w-full rounded-xl bg-gray-200" />
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Carregamento de Card</h3>
+              <Card className="p-4 border border-border">
+                <div className="flex items-center space-x-4">
+                  <Skeleton className="h-12 w-12 rounded-full bg-gray-200" />
+                  <div className="space-y-2">
                     <Skeleton className="h-4 w-[250px] bg-gray-200" />
                     <Skeleton className="h-4 w-[200px] bg-gray-200" />
                   </div>
-                </Card>
-              </div>
+                </div>
+              </Card>
             </div>
+            
+            <CodeBlock 
+              code={`
+<div className="flex items-center space-x-4">
+  <Skeleton className="h-12 w-12 rounded-full" />
+  <div className="space-y-2">
+    <Skeleton className="h-4 w-[250px]" />
+    <Skeleton className="h-4 w-[200px]" />
+  </div>
+</div>
+              `}
+              language="tsx"
+              title="Implementação do Skeleton para Card"
+              showCode={false}
+            />
           </div>
           
-          <div className="mt-8">
-            <ComponentCard
-              title="Exemplo de uso"
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden mt-8">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Carregamento de Tabela</h3>
+              <Card className="p-4 border border-border">
+                <div className="space-y-3">
+                  <Skeleton className="h-8 w-full bg-gray-200" />
+                  <Skeleton className="h-8 w-full bg-gray-200" />
+                  <Skeleton className="h-8 w-full bg-gray-200" />
+                  <Skeleton className="h-8 w-full bg-gray-200" />
+                </div>
+              </Card>
+            </div>
+            
+            <CodeBlock 
               code={`
-import { Skeleton } from "@/components/ui/skeleton"
-
-export function SkeletonDemo() {
-  return (
-    <div className="flex items-center space-x-4">
-      <Skeleton className="h-12 w-12 rounded-full" />
-      <div className="space-y-2">
-        <Skeleton className="h-4 w-[250px]" />
-        <Skeleton className="h-4 w-[200px]" />
-      </div>
-    </div>
-  )
-}
+<div className="space-y-3">
+  <Skeleton className="h-8 w-full" />
+  <Skeleton className="h-8 w-full" />
+  <Skeleton className="h-8 w-full" />
+  <Skeleton className="h-8 w-full" />
+</div>
               `}
-            >
-              <div className="flex items-center space-x-4 p-4 border rounded-md">
-                <Skeleton className="h-12 w-12 rounded-full bg-gray-200" />
-                <div className="space-y-2">
+              language="tsx"
+              title="Implementação do Skeleton para Tabela"
+              showCode={false}
+            />
+          </div>
+          
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden mt-8">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Carregamento de Card com Imagem</h3>
+              <Card className="p-4 border border-border">
+                <div className="flex flex-col space-y-3">
+                  <Skeleton className="h-[200px] w-full rounded-xl bg-gray-200" />
                   <Skeleton className="h-4 w-[250px] bg-gray-200" />
                   <Skeleton className="h-4 w-[200px] bg-gray-200" />
                 </div>
-              </div>
-            </ComponentCard>
+              </Card>
+            </div>
+            
+            <CodeBlock 
+              code={`
+<div className="flex flex-col space-y-3">
+  <Skeleton className="h-[200px] w-full rounded-xl" />
+  <Skeleton className="h-4 w-[250px]" />
+  <Skeleton className="h-4 w-[200px]" />
+</div>
+              `}
+              language="tsx"
+              title="Implementação do Skeleton para Card com Imagem"
+              showCode={false}
+            />
           </div>
         </div>
 
@@ -123,9 +139,18 @@ export function SkeletonDemo() {
         
         <div className="space-y-4">
           <h2 className="text-xl font-semibold">Implementação</h2>
-          <ComponentCard
-            title="Componente Skeleton"
-            code={`
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Componente Skeleton</h3>
+              <div className="p-4 flex flex-col space-y-3 border rounded-md">
+                <Skeleton className="h-8 w-full bg-gray-200" />
+                <Skeleton className="h-8 w-3/4 bg-gray-200" />
+                <Skeleton className="h-8 w-1/2 bg-gray-200" />
+              </div>
+            </div>
+            
+            <CodeBlock 
+              code={`
 import { cn } from "@/lib/utils"
 
 function Skeleton({
@@ -142,13 +167,11 @@ function Skeleton({
 
 export { Skeleton }
             `}
-          >
-            <div className="p-4 flex flex-col space-y-3 border rounded-md">
-              <Skeleton className="h-8 w-full bg-gray-200" />
-              <Skeleton className="h-8 w-3/4 bg-gray-200" />
-              <Skeleton className="h-8 w-1/2 bg-gray-200" />
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementação do Componente Skeleton"
+              showCode={false}
+            />
+          </div>
         </div>
       </div>
     </div>

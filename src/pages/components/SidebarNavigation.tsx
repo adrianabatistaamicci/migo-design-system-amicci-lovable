@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -103,7 +104,31 @@ const SidebarExample = () => {
   );
 };
 
-const sidebarCode = `import React, { useState } from 'react';
+const SidebarNavigation = () => {
+  return (
+    <div className="w-full animate-fade-in">
+      <Header 
+        title="Sidebar Navigation"
+        description="Componentes de navegação lateral para organizar e facilitar o acesso à diversas áreas de sua aplicação"
+        type="components"
+      />
+      
+      <div className="max-w-[1280px] mx-auto">
+        <section className="mb-10">
+          <h2 className="text-2xl font-semibold mb-6">Barra Lateral Básica</h2>
+          <div className="space-y-4">
+            <p className="text-gray-700">
+              A barra lateral é um componente essencial para aplicações web modernas, 
+              oferecendo uma navegação consistente e acessível.
+            </p>
+            
+            <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+              <div className="p-6">
+                <SidebarExample />
+              </div>
+              
+              <CodeBlock 
+                code={`import React, { useState } from 'react';
 import { Home, Mail, Settings, Users, ChevronRight, ChevronLeft } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Chip } from '@/components/ui/chip';
@@ -179,31 +204,11 @@ const SidebarExample = () => {
       </div>
     </div>
   );
-};`;
-
-const SidebarNavigation = () => {
-  return (
-    <div className="w-full animate-fade-in">
-      <Header 
-        title="Sidebar Navigation"
-        description="Componentes de navegação lateral para organizar e facilitar o acesso à diversas áreas de sua aplicação"
-        type="components"
-      />
-      
-      <div className="max-w-[1280px] mx-auto">
-        <section className="mb-10">
-          <h2 className="text-2xl font-semibold mb-6">Barra Lateral Básica</h2>
-          <div className="space-y-4">
-            <p className="text-gray-700">
-              A barra lateral é um componente essencial para aplicações web modernas, 
-              oferecendo uma navegação consistente e acessível.
-            </p>
-            
-            <SidebarExample />
-            
-            <div className="mt-6">
-              <h3 className="text-lg font-medium mb-3">Implementação</h3>
-              <CodeBlock code={sidebarCode} language="tsx" />
+};`} 
+                language="tsx" 
+                title="Implementação de Barra Lateral" 
+                showCode={false} 
+              />
             </div>
           </div>
         </section>

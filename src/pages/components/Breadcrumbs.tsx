@@ -125,13 +125,9 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
           <h2 className="text-xl font-medium mb-6">Exemplos</h2>
 
           <div className="space-y-8">
-            <div>
-              <h3 className="text-lg font-medium mb-4">Exemplo Básico</h3>
-              <ComponentCard 
-                title="Breadcrumb Básico" 
-                description="Um breadcrumb simples com links e separadores"
-                code={basicExample}
-              >
+            <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+              <div className="p-6">
+                <h3 className="text-lg font-medium mb-4">Exemplo Básico</h3>
                 <nav className="flex" aria-label="Breadcrumb">
                   <ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-600">
                     <li className="inline-flex items-center">
@@ -157,16 +153,18 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
                     </li>
                   </ol>
                 </nav>
-              </ComponentCard>
+              </div>
+              <CodeBlock 
+                code={basicExample} 
+                language="tsx" 
+                title="Implementação de Breadcrumb Básico" 
+                showCode={false} 
+              />
             </div>
             
-            <div>
-              <h3 className="text-lg font-medium mb-4">Com Ícones</h3>
-              <ComponentCard 
-                title="Breadcrumb com Ícones" 
-                description="Breadcrumb com ícones para cada item"
-                code={withIconsExample}
-              >
+            <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+              <div className="p-6">
+                <h3 className="text-lg font-medium mb-4">Com Ícones</h3>
                 <nav className="flex" aria-label="Breadcrumb">
                   <ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-600">
                     <li className="inline-flex items-center gap-1.5">
@@ -195,16 +193,18 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
                     </li>
                   </ol>
                 </nav>
-              </ComponentCard>
+              </div>
+              <CodeBlock 
+                code={withIconsExample} 
+                language="tsx" 
+                title="Implementação de Breadcrumb com Ícones" 
+                showCode={false} 
+              />
             </div>
             
-            <div>
-              <h3 className="text-lg font-medium mb-4">Com Elipses (Colapsado)</h3>
-              <ComponentCard 
-                title="Breadcrumb Colapsado" 
-                description="Breadcrumb com elipses para caminhos longos"
-                code={collapsibleExample}
-              >
+            <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+              <div className="p-6">
+                <h3 className="text-lg font-medium mb-4">Com Elipses (Colapsado)</h3>
                 <nav className="flex" aria-label="Breadcrumb">
                   <ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-600">
                     <li className="inline-flex items-center">
@@ -239,7 +239,13 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
                     </li>
                   </ol>
                 </nav>
-              </ComponentCard>
+              </div>
+              <CodeBlock 
+                code={collapsibleExample} 
+                language="tsx" 
+                title="Implementação de Breadcrumb Colapsado" 
+                showCode={false} 
+              />
             </div>
           </div>
         </section>
@@ -259,8 +265,11 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
             <li><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">ChevronRight</code> ou outro ícone - Separador visual entre itens</li>
           </ul>
 
-          <h3 className="text-lg font-medium mb-4">Classes Tailwind Comuns</h3>
-          <CodeBlock code={`// Classes para o container principal
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Classes Tailwind Comuns</h3>
+            </div>
+            <CodeBlock code={`// Classes para o container principal
 nav className="flex" aria-label="Breadcrumb"
 
 // Classes para a lista
@@ -276,7 +285,8 @@ a className="hover:text-gray-900 transition-colors"
 span className="font-normal text-gray-900"
 
 // Classes para separadores
-li role="presentation" aria-hidden="true" className="flex items-center"`} language="typescript" title="Classes Tailwind Comuns" />
+li role="presentation" aria-hidden="true" className="flex items-center"`} language="typescript" title="Classes Tailwind Comuns" showCode={false} />
+          </div>
         </section>
 
         {/* Melhores Práticas */}
