@@ -1,6 +1,14 @@
 import React from 'react';
 import { Book, FileText, Layers, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
+/**
+ * @protected
+ * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
+ * Não deve ser alterado diretamente pelo assistente AI.
+ * Apenas atualizações de componentes devem ser refletidas.
+ */
+
 const Index = () => {
   return <div className="space-y-16">
       {/* Hero section directly on the page */}
@@ -99,4 +107,5 @@ const Index = () => {
       </section>
     </div>;
 };
+
 export default Index;

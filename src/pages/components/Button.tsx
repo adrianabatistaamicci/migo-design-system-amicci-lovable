@@ -7,6 +7,13 @@ import Header from '@/components/library-components/Header';
 import { TailwindTabs } from '@/components/ui/tabs';
 import CodeBlock from '@/components/CodeBlock';
 
+/**
+ * @protected
+ * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
+ * Não deve ser alterado diretamente pelo assistente AI.
+ * Apenas atualizações de componentes devem ser refletidas.
+ */
+
 const ButtonPage = () => {
   const [activeTab, setActiveTab] = useState('examples');
   return <div className="w-full animate-slide-in">

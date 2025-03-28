@@ -1,3 +1,9 @@
+/**
+ * @protected
+ * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
+ * Não deve ser alterado diretamente pelo assistente AI.
+ * Apenas atualizações de componentes devem ser refletidas.
+ */
 
 import React, { useState } from 'react';
 import { Home, Mail, Settings, Users, ChevronRight, ChevronLeft } from 'lucide-react';
@@ -8,7 +14,6 @@ import { Chip } from '@/components/ui/chip';
 import { cn } from '@/lib/utils';
 import CodeBlock from '@/components/CodeBlock';
 
-// Componente de exemplo básico de Sidebar inspirado na imagem de referência
 const SidebarExample = () => {
   const [isOpen, setIsOpen] = useState(true);
   
@@ -18,7 +23,6 @@ const SidebarExample = () => {
         "h-full transition-all duration-300 ease-in-out bg-white border-r",
         isOpen ? "w-64" : "w-20"
       )}>
-        {/* Cabeçalho da Sidebar */}
         <div className="flex items-center justify-between p-4 border-b">
           {isOpen ? (
             <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg" alt="Amicci" className="h-6" />
@@ -33,7 +37,6 @@ const SidebarExample = () => {
           </button>
         </div>
 
-        {/* Links de navegação */}
         <nav className="p-2">
           <ul className="space-y-1">
             <li>
@@ -100,7 +103,6 @@ const SidebarExample = () => {
   );
 };
 
-// Exemplo de código para implementação da Sidebar
 const sidebarCode = `import React, { useState } from 'react';
 import { Home, Mail, Settings, Users, ChevronRight, ChevronLeft } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -116,7 +118,6 @@ const SidebarExample = () => {
         h-full transition-all duration-300 ease-in-out bg-white border-r
         \${isOpen ? "w-64" : "w-20"}
       \`}>
-        {/* Cabeçalho da Sidebar */}
         <div className="flex items-center justify-between p-4 border-b">
           {isOpen ? (
             <img src="/logo-full.svg" alt="Amicci" className="h-6" />
@@ -131,7 +132,6 @@ const SidebarExample = () => {
           </button>
         </div>
 
-        {/* Links de navegação - Note o espaço maior entre grupos com mb-6 */}
         <nav className="p-2">
           <div className="mb-6">
             <div className="uppercase text-xs font-medium text-primary px-3 py-2">Painel</div>

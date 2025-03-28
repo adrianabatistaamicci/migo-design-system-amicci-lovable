@@ -1,136 +1,121 @@
+/**
+ * @protected
+ * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
+ * Não deve ser alterado diretamente pelo assistente AI.
+ * Apenas atualizações de componentes devem ser refletidas.
+ */
 
 import React from 'react';
-import { Separator } from "@/components/ui/separator";
 import Header from '@/components/library-components/Header';
+import CodeBlock from '@/components/CodeBlock';
 import ComponentCard from '@/components/ComponentCard';
-import { Button } from "@/components/ui/button";
-import { IconButton } from "@/components/ui/icon-button";
-import { Plus, Settings, ArrowLeft, ArrowRight } from "lucide-react";
 
 const Dividers = () => {
-  return <div className="w-full animate-fade-in">
-      <Header title="Dividers" description="Linhas divisórias para separar conteúdo relacionado." type="components" />
+  const basicDividerCode = `// Implementação básica com Tailwind CSS
+<div className="border-b border-gray-200"></div>`;
+
+  const insetDividerCode = `// Implementação com margem interna
+<div className="border-b border-gray-200 mx-4"></div>`;
+
+  const withTextDividerCode = `// Implementação com texto
+<div className="flex items-center">
+  <div className="flex-grow border-t border-gray-200"></div>
+  <span className="mx-4 text-gray-500">Ou</span>
+  <div className="flex-grow border-t border-gray-200"></div>
+</div>`;
+
+  return (
+    <div className="w-full animate-fade-in">
+      <Header 
+        title="Dividers" 
+        description="Linhas horizontais para separar seções de conteúdo." 
+        type="components" 
+      />
       
-      <div className="w-full space-y-6">
+      <div className="mt-8 space-y-10">
+        {/* Exemplos de Dividers */}
         <section>
-          <ComponentCard title="Horizontal Divider" code={`<div className="space-y-4">
-  <div>Conteúdo acima do divisor</div>
-  <Separator />
-  <div>Conteúdo abaixo do divisor</div>
-</div>`}>
-            <div className="space-y-4 py-4">
-              <div>Conteúdo acima do divisor</div>
-              <Separator />
-              <div>Conteúdo abaixo do divisor</div>
+          <h2 className="text-xl font-medium mb-6">Exemplos</h2>
+
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-lg font-medium mb-4">Divisor Básico</h3>
+              <ComponentCard 
+                title="Divisor Simples" 
+                description="Uma linha horizontal simples para separar conteúdo."
+              >
+                <div className="border-b border-gray-200"></div>
+              </ComponentCard>
+              <CodeBlock code={basicDividerCode} language="tsx" title="Código do Divisor Básico" className="mt-4" />
             </div>
-          </ComponentCard>
-        </section>
-        
-        <section>
-          <ComponentCard title="Vertical Divider" code={`<div className="flex h-20 items-center">
-  <div>Conteúdo à esquerda</div>
-  <Separator orientation="vertical" className="mx-4 h-full" />
-  <div>Conteúdo à direita</div>
-</div>`}>
-            <div className="flex h-20 items-center">
-              <div>Conteúdo à esquerda</div>
-              <Separator orientation="vertical" className="mx-4 h-full" />
-              <div>Conteúdo à direita</div>
+            
+            <div>
+              <h3 className="text-lg font-medium mb-4">Divisor Inserido</h3>
+              <ComponentCard 
+                title="Divisor com Margem Interna" 
+                description="Um divisor com margem interna para afastar das bordas."
+              >
+                <div className="border-b border-gray-200 mx-4"></div>
+              </ComponentCard>
+              <CodeBlock code={insetDividerCode} language="tsx" title="Código do Divisor Inserido" className="mt-4" />
             </div>
-          </ComponentCard>
-        </section>
-        
-        <section>
-          <ComponentCard title="Divider com rótulo" code={`<div className="relative flex items-center py-5">
-  <div className="flex-grow border-t border-border"></div>
-  <span className="flex-shrink mx-4 text-gray-500">Rótulo</span>
-  <div className="flex-grow border-t border-border"></div>
-</div>`}>
-            <div className="relative flex items-center py-5">
-              <div className="flex-grow border-t border-border"></div>
-              <span className="flex-shrink mx-4 text-gray-500">Rótulo</span>
-              <div className="flex-grow border-t border-border"></div>
+            
+            <div>
+              <h3 className="text-lg font-medium mb-4">Divisor com Texto</h3>
+              <ComponentCard 
+                title="Divisor com Texto" 
+                description="Um divisor com texto no meio."
+              >
+                <div className="flex items-center">
+                  <div className="flex-grow border-t border-gray-200"></div>
+                  <span className="mx-4 text-gray-500">Ou</span>
+                  <div className="flex-grow border-t border-gray-200"></div>
+                </div>
+              </ComponentCard>
+              <CodeBlock code={withTextDividerCode} language="tsx" title="Código do Divisor com Texto" className="mt-4" />
             </div>
-          </ComponentCard>
-        </section>
-          
-        <section>
-          <ComponentCard title="Divider com ícone" code={`<div className="relative flex items-center py-5">
-  <div className="flex-grow border-t border-border"></div>
-  <div className="flex-shrink mx-3 p-1 bg-white rounded-full border border-border">
-    <Plus size={16} className="text-gray-400" />
-  </div>
-  <div className="flex-grow border-t border-border"></div>
-</div>`}>
-            <div className="relative flex items-center py-5">
-              <div className="flex-grow border-t border-border"></div>
-              <div className="flex-shrink mx-3 p-1 bg-white rounded-full border border-border">
-                <Plus size={16} className="text-gray-400" />
-              </div>
-              <div className="flex-grow border-t border-border"></div>
-            </div>
-          </ComponentCard>
-        </section>
-          
-        <section>
-          <ComponentCard title="Divider com botão" code={`<div className="relative flex items-center py-5">
-  <div className="flex-grow border-t border-border"></div>
-  <Button size="sm" variant="outline-secondary" className="mx-4 flex-shrink-0">
-    <Plus size={16} className="mr-1" />
-    Adicionar
-  </Button>
-  <div className="flex-grow border-t border-border"></div>
-</div>`}>
-            <div className="relative flex items-center py-5">
-              <div className="flex-grow border-t border-border"></div>
-              <Button size="sm" variant="outline-secondary" className="mx-4 flex-shrink-0">
-                <Plus size={16} className="mr-1" />
-                Adicionar
-              </Button>
-              <div className="flex-grow border-t border-border"></div>
-            </div>
-          </ComponentCard>
-        </section>
-        
-        <section>
-          <h2 className="text-xl font-semibold mb-6">API Reference</h2>
-          
-          <div className="border border-mui-border rounded-lg overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-mui-sidebar">
-                  <th className="px-4 py-2 text-left font-medium">Prop</th>
-                  <th className="px-4 py-2 text-left font-medium">Type</th>
-                  <th className="px-4 py-2 text-left font-medium">Default</th>
-                  <th className="px-4 py-2 text-left font-medium">Description</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-mui-border">
-                <tr>
-                  <td className="px-4 py-2 font-mono text-sm">orientation</td>
-                  <td className="px-4 py-2 font-mono text-sm">"horizontal" | "vertical"</td>
-                  <td className="px-4 py-2 font-mono text-sm">"horizontal"</td>
-                  <td className="px-4 py-2 text-sm">Define a orientação do divisor.</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-2 font-mono text-sm">decorative</td>
-                  <td className="px-4 py-2 font-mono text-sm">boolean</td>
-                  <td className="px-4 py-2 font-mono text-sm">true</td>
-                  <td className="px-4 py-2 text-sm">
-                    Quando true, indica que é puramente visual e pode ser ignorado por tecnologias assistivas.
-                  </td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-2 font-mono text-sm">className</td>
-                  <td className="px-4 py-2 font-mono text-sm">string</td>
-                  <td className="px-4 py-2 font-mono text-sm">undefined</td>
-                  <td className="px-4 py-2 text-sm">Classes adicionais para personalizar o separador.</td>
-                </tr>
-              </tbody>
-            </table>
           </div>
         </section>
+
+        {/* Anatomia e Classes Tailwind */}
+        <section>
+          <h2 className="text-xl font-medium mb-4">Anatomia do Componente com Tailwind</h2>
+          <p className="text-gray-700 mb-4">
+            Uma implementação de divisor com Tailwind CSS tipicamente contém:
+          </p>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-6">
+            <li><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">div</code> - Elemento container para o divisor</li>
+            <li><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">border-b</code> - Adiciona uma borda na parte inferior</li>
+            <li><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">border-gray-200</code> - Define a cor da borda como cinza</li>
+            <li><code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm">mx-4</code> - Adiciona margem horizontal (opcional)</li>
+          </ul>
+
+          <h3 className="text-lg font-medium mb-4">Classes Tailwind Comuns</h3>
+          <CodeBlock code={`// Classes para o divisor básico
+<div className="border-b border-gray-200"></div>
+
+// Classes para o divisor com texto
+<div className="flex items-center">
+  <div className="flex-grow border-t border-gray-200"></div>
+  <span className="mx-4 text-gray-500">Ou</span>
+  <div className="flex-grow border-t border-gray-200"></div>
+</div>`} language="typescript" title="Classes Tailwind Comuns" />
+        </section>
+
+        {/* Melhores Práticas */}
+        <section className="mb-12">
+          <h2 className="text-xl font-medium mb-4">Melhores Práticas</h2>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700">
+            <li>Use divisores para criar separação visual clara entre diferentes seções de conteúdo.</li>
+            <li>Mantenha a cor do divisor consistente com o esquema de cores do seu design system.</li>
+            <li>Evite o uso excessivo de divisores, pois eles podem tornar a interface visualmente poluída.</li>
+            <li>Considere adicionar margem interna (<code>mx-4</code>, <code>mx-8</code>, etc.) para evitar que o divisor toque as bordas do container.</li>
+            <li>Use divisores com texto para indicar uma separação mais significativa entre seções.</li>
+          </ul>
+        </section>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default Dividers;

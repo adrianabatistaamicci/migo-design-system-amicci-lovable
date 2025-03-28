@@ -1,3 +1,9 @@
+/**
+ * @protected
+ * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
+ * Não deve ser alterado diretamente pelo assistente AI.
+ * Apenas atualizações de componentes devem ser refletidas.
+ */
 
 import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
@@ -7,7 +13,6 @@ import { cn } from '@/lib/utils';
 import CodeBlock from '@/components/CodeBlock';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
-// Example vertical navigation component with collapsible menus
 const VerticalNavigationExample = () => {
   const [openMenus, setOpenMenus] = React.useState({
     dashboard: false,
@@ -32,7 +37,6 @@ const VerticalNavigationExample = () => {
           <span>Home</span>
         </a>
 
-        {/* Dashboard Menu - The entire item is clickable to toggle the submenu */}
         <div className="relative">
           <div 
             onClick={() => toggleMenu('dashboard')} 
@@ -64,7 +68,6 @@ const VerticalNavigationExample = () => {
           </div>
         </div>
 
-        {/* Settings Menu - The entire item is clickable to toggle the submenu */}
         <div className="relative">
           <div 
             onClick={() => toggleMenu('settings')} 
@@ -96,7 +99,6 @@ const VerticalNavigationExample = () => {
           </div>
         </div>
 
-        {/* Regular menu items */}
         <a 
           href="#" 
           className="flex items-center px-3 py-2 text-sm rounded-md text-gray-700 hover:bg-gray-100"
@@ -117,7 +119,6 @@ const VerticalNavigationExample = () => {
   );
 };
 
-// Code example for implementation
 const verticalNavCode = `// Vertical Navigation with Collapsible Menus
 import React, { useState } from 'react';
 import { Menu, ChevronDown, ChevronRight, Home, Settings, Users, FileText } from 'lucide-react';
@@ -147,7 +148,6 @@ const VerticalNavigation = () => {
           <span>Home</span>
         </a>
 
-        {/* Dashboard Menu - The entire item is clickable */}
         <div className="relative">
           <div 
             onClick={() => toggleMenu('dashboard')} 
@@ -176,7 +176,6 @@ const VerticalNavigation = () => {
           </div>
         </div>
 
-        {/* Some parent items might only serve as category headers */}
         <div className="relative">
           <div 
             onClick={() => toggleMenu('settings')} 

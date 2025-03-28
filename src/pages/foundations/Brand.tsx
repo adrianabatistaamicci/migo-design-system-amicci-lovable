@@ -1,3 +1,9 @@
+/**
+ * @protected
+ * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
+ * Não deve ser alterado diretamente pelo assistente AI.
+ * Apenas atualizações de componentes devem ser refletidas.
+ */
 
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
@@ -429,4 +435,3 @@ const Brand = () => {
     </div>;
 };
 export default Brand;
-
