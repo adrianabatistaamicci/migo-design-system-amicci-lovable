@@ -64,11 +64,6 @@ const LibraryPage: React.FC = () => {
             <ComponentCard 
               title="Header" 
               description="Cabeçalho usado para seções principais do design system." 
-              code={`<Header 
-  title="Título de exemplo" 
-  description="Descrição de exemplo para demonstrar o componente Header." 
-  type="components" 
-/>`} 
               className="w-full"
             >
               <div className="w-full">
@@ -78,6 +73,15 @@ const LibraryPage: React.FC = () => {
                   type="components" 
                 />
               </div>
+              <CodeBlock 
+                code={`<Header 
+  title="Título de exemplo" 
+  description="Descrição de exemplo para demonstrar o componente Header." 
+  type="components" 
+/>`}
+                language="tsx"
+                showCode={true}
+              />
             </ComponentCard>
           </div>
           
@@ -86,16 +90,20 @@ const LibraryPage: React.FC = () => {
             <ComponentCard 
               title="EmptyState" 
               description="Usado para indicar páginas ou seções que estão em desenvolvimento." 
-              code={`<EmptyState 
-  title="Conteúdo em Desenvolvimento" 
-  description="Esta documentação está atualmente sendo desenvolvida." 
-  icon="construction" 
-/>`} 
               className="w-full"
             >
               <div className="w-full">
                 <EmptyState />
               </div>
+              <CodeBlock 
+                code={`<EmptyState 
+  title="Conteúdo em Desenvolvimento" 
+  description="Esta documentação está atualmente sendo desenvolvida." 
+  icon="construction" 
+/>`}
+                language="tsx"
+                showCode={true}
+              />
             </ComponentCard>
           </div>
           
@@ -120,15 +128,19 @@ const LibraryPage: React.FC = () => {
             <ComponentCard 
               title="Footer" 
               description="Rodapé para exibir créditos e links de governança" 
-              code={`<Footer 
-  additionalText="© 2024 Amicci" 
-  governanceUrl="/guidelines/technical-governance" 
-/>`} 
               className="w-full"
             >
               <div className="p-4 w-full">
                 <Footer additionalText="© 2024 Amicci" />
               </div>
+              <CodeBlock 
+                code={`<Footer 
+  additionalText="© 2024 Amicci" 
+  governanceUrl="/guidelines/technical-governance" 
+/>`}
+                language="tsx"
+                showCode={true}
+              />
             </ComponentCard>
           </div>
 
@@ -137,13 +149,6 @@ const LibraryPage: React.FC = () => {
             <ComponentCard 
               title="ComponentCard" 
               description="Card para exibir exemplos de componentes com código" 
-              code={`<ComponentCard 
-  title="Example Component" 
-  description="Description of the component"
-  code={\`const Example = () => <div>Example</div>\`}
->
-  <div>Component content goes here</div>
-</ComponentCard>`} 
               className="w-full"
             >
               <div className="p-4 w-full">
@@ -153,6 +158,17 @@ const LibraryPage: React.FC = () => {
                   </div>
                 </ComponentCard>
               </div>
+              <CodeBlock 
+                code={`<ComponentCard 
+  title="Example Component" 
+  description="Description of the component"
+  code={\`const Example = () => <div>Example</div>\`}
+>
+  <div>Component content goes here</div>
+</ComponentCard>`}
+                language="tsx"
+                showCode={true}
+              />
             </ComponentCard>
           </div>
 
@@ -161,11 +177,6 @@ const LibraryPage: React.FC = () => {
             <ComponentCard 
               title="ColorSwatch" 
               description="Componente para exibir amostras de cores com opção de cópia" 
-              code={`<ColorSwatch 
-  color="bg-primary-main" 
-  textOverlay="#10C2C0" 
-  className="h-12" 
-/>`} 
               className="w-full"
             >
               <div className="p-4 w-full">
@@ -188,6 +199,15 @@ const LibraryPage: React.FC = () => {
                   </div>
                 </div>
               </div>
+              <CodeBlock 
+                code={`<ColorSwatch 
+  color="bg-primary-main" 
+  textOverlay="#10C2C0" 
+  className="h-12" 
+/>`}
+                language="tsx"
+                showCode={true}
+              />
             </ComponentCard>
           </div>
 
@@ -196,20 +216,26 @@ const LibraryPage: React.FC = () => {
             <ComponentCard 
               title="CodeBlock" 
               description="Componente para exibir blocos de código com formatação e função de cópia" 
-              code={`<CodeBlock 
-  code="import { Button } from '@/components/ui/button';" 
-  language="tsx" 
-  title="Exemplo de importação" 
-/>`} 
               className="w-full"
             >
               <div className="p-4 w-full">
                 <CodeBlock 
                   code="import { Button } from '@/components/ui/button';" 
                   language="tsx" 
-                  title="Exemplo de importação" 
+                  title="Exemplo de importação"
+                  showCode={true}
                 />
               </div>
+              <CodeBlock 
+                code={`<CodeBlock 
+  code="import { Button } from '@/components/ui/button';" 
+  language="tsx" 
+  title="Exemplo de importação" 
+  showCode={true}
+/>`}
+                language="tsx"
+                showCode={true}
+              />
             </ComponentCard>
           </div>
         </div>
