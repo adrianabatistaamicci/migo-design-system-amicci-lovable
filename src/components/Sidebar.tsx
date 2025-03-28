@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
@@ -191,6 +192,7 @@ export const sidebarItems: SidebarItem[] = [
     icon: Coffee,
     items: [
       { title: 'Figma Library', href: '/resources/figma-library' },
+      { title: 'Handoff', href: '/resources/handoff' },
       { title: 'FAQ', href: '/resources/faq' },
     ]
   },
