@@ -14,7 +14,7 @@ const TechnicalGovernance = () => {
   return <div className="w-full animate-fade-in">
       <Header title="Governança Lovable" description="Processo de contribuição, manutenção e evolução dos componentes através da plataforma Lovable." type="foundations" hideChip={true} />
 
-      <div className="">
+      <div className="mt-6">
         <div className="w-fit">
           <TailwindTabs defaultValue="visao-geral" tabs={[{
           name: 'Visão geral',
