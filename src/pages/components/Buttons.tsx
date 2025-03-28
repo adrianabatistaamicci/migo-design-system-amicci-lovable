@@ -4,6 +4,7 @@ import Header from '@/components/library-components/Header';
 import { Button } from '@/components/ui/button';
 import { Plus, ChevronRight, ArrowRight } from 'lucide-react';
 import CodeBlock from '@/components/CodeBlock';
+import ComponentCard from '@/components/ComponentCard';
 
 const Buttons = () => {
   return (
@@ -15,11 +16,12 @@ const Buttons = () => {
       />
       
       <div className="mt-6 space-y-8">
-        <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
-          <div className="p-6">
-            <h2 className="text-xl font-medium mb-4">Botões por variante</h2>
-            
-            <div className="space-y-4 mb-6">
+        <ComponentCard 
+          title="Botões por variante"
+          className="w-full"
+        >
+          <div className="space-y-6">
+            <div className="space-y-4">
               <h3 className="text-base font-medium">Botões Primários</h3>
               <div className="flex flex-wrap gap-4">
                 <Button>Default</Button>
@@ -28,7 +30,7 @@ const Buttons = () => {
               </div>
             </div>
             
-            <div className="space-y-4 mb-6">
+            <div className="space-y-4">
               <h3 className="text-base font-medium">Botões de Status</h3>
               <div className="flex flex-wrap gap-4">
                 <Button variant="success">Success</Button>
@@ -38,22 +40,7 @@ const Buttons = () => {
               </div>
             </div>
           </div>
-          
-          <CodeBlock 
-            code={`// Botões Primários
-<Button>Default</Button>
-<Button variant="outline-secondary">Outline</Button>
-<Button variant="text-default">Text</Button>
-
-// Botões de Status
-<Button variant="success">Success</Button>
-<Button variant="warning">Warning</Button>
-<Button variant="error">Error</Button>
-<Button variant="info">Info</Button>`}
-            language="jsx"
-            title="Implementação de Botões por Variante"
-          />
-        </div>
+        </ComponentCard>
         
         <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
           <div className="p-6">
