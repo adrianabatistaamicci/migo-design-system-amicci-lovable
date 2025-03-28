@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Chip } from '@/components/ui/chip';
@@ -250,7 +249,7 @@ export const TailwindTabs = ({
                   </div>
                 </div>
               </button>)}
-          </nav>;
+        </nav>;
       default:
         return null;
     }
@@ -259,10 +258,8 @@ export const TailwindTabs = ({
   return <div className={`inline-flex flex-col ${className || ''}`}>{renderTabs()}{children}</div>;
 };
 
-// Re-export Radix UI Tabs components
 export const Tabs = TabsPrimitive.Root;
 
-// Define and export all needed components
 export const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
@@ -302,7 +299,6 @@ export const TabsContent = React.forwardRef<
 ));
 TabsContent.displayName = TabsPrimitive.Content.displayName;
 
-// Additional named exports for compatibility
 export { Tabs as TabsRoot };
 export { Tabs as TabsPrimitive };
 export { TabsPrimitive as TabsRadixPrimitive };
