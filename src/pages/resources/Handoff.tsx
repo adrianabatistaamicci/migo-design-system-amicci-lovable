@@ -145,6 +145,7 @@ const Handoff = () => {
         title="Handoff"
         description="Componentes e utilidades para facilitar a colaboração entre Design e Desenvolvimento"
         type="components"
+        className="mb-6"
       />
       
       <div className="max-w-[1280px] mx-auto">
