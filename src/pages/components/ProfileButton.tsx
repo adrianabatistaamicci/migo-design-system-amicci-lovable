@@ -10,9 +10,10 @@ import React from 'react';
 import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
 import { Menu, List, User } from 'lucide-react';
-import { ProfileButton } from '@/components/ui/profile-button';
+import { ProfileButton, profileButtonCode } from '@/components/ui/profile-button';
 import { cn } from '@/lib/utils';
 import defaultLogo from '@/pages/assets/client-logo.svg';
+import CodeBlock from '@/components/CodeBlock';
 
 const ProfileButtonPage = () => {
   return (
@@ -97,6 +98,18 @@ const ProfileButtonPage = () => {
             </div>
           } 
         />
+        
+        <div className="space-y-3">
+          <div className="px-4">
+            <h3 className="text-xl font-medium text-gray-900">Código de Implementação</h3>
+          </div>
+          
+          <CodeBlock
+            title="Código"
+            code={profileButtonCode}
+            language="tsx"
+          />
+        </div>
         
         <div className="space-y-3">
           <div className="px-4">
@@ -202,7 +215,7 @@ const LayoutComponent = ({
       </div>
       
       <div className="border rounded-lg overflow-hidden shadow-sm">
-        <div className="bg-gray-100 w-full py-8 overflow-hidden">
+        <div className="bg-white w-full py-8 overflow-hidden">
           {component}
         </div>
       </div>

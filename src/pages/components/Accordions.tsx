@@ -1,9 +1,7 @@
 
 import React from 'react';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import ComponentCard from '@/components/ComponentCard';
+import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
-import CodeBlock from '@/components/CodeBlock';
 
 const Accordions = () => {
   return (
@@ -14,66 +12,11 @@ const Accordions = () => {
         type="components"
       />
       
-      <div className="space-y-8 mt-8">
-        <ComponentCard
-          title="Accordion Básico"
-          description="Accordions são usados para organizar conteúdo em seções expansíveis."
-          code={`<Accordion type="single" collapsible>
-  <AccordionItem value="item-1">
-    <AccordionTrigger>Seção 1</AccordionTrigger>
-    <AccordionContent>
-      Conteúdo da primeira seção que pode ser expandido ou recolhido.
-    </AccordionContent>
-  </AccordionItem>
-  <AccordionItem value="item-2">
-    <AccordionTrigger>Seção 2</AccordionTrigger>
-    <AccordionContent>
-      Conteúdo da segunda seção que pode ser expandido ou recolhido.
-    </AccordionContent>
-  </AccordionItem>
-  <AccordionItem value="item-3">
-    <AccordionTrigger>Seção 3</AccordionTrigger>
-    <AccordionContent>
-      Conteúdo da terceira seção que pode ser expandido ou recolhido.
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>`}
-        >
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="item-1">
-              <AccordionTrigger>Seção 1</AccordionTrigger>
-              <AccordionContent>
-                Conteúdo da primeira seção que pode ser expandido ou recolhido.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-2">
-              <AccordionTrigger>Seção 2</AccordionTrigger>
-              <AccordionContent>
-                Conteúdo da segunda seção que pode ser expandido ou recolhido.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-3">
-              <AccordionTrigger>Seção 3</AccordionTrigger>
-              <AccordionContent>
-                Conteúdo da terceira seção que pode ser expandido ou recolhido.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </ComponentCard>
-        
-        <CodeBlock
-          title="Código"
-          code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-
-<Accordion type="single" collapsible>
-  <AccordionItem value="item-1">
-    <AccordionTrigger>Seção 1</AccordionTrigger>
-    <AccordionContent>
-      Conteúdo da primeira seção que pode ser expandido ou recolhido.
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>`}
-          language="tsx"
+      <div className="mt-6">
+        <EmptyState 
+          title="Conteúdo em Desenvolvimento" 
+          description="Os exemplos detalhados de Accordions estão sendo implementados. Volte em breve para visualizar os componentes." 
+          icon="construction"
         />
       </div>
     </div>
