@@ -101,6 +101,7 @@ const App = () => {
               <Route path="/guidelines/ux-guidelines" element={<UXGuidelines />} />
               <Route path="/components" element={<Components />} />
               <Route path="/components/:componentId" element={<ComponentDetail />} />
+              <Route path="/ui-kit" element={<UIKit />} />
               <Route path="/components/input" element={<InputPage />} />
               <Route path="/components/checkbox" element={<CheckboxPage />} />
               <Route path="/components/radio" element={<RadioPage />} />
