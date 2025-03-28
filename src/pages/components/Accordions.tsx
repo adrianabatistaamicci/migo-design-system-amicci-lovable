@@ -43,8 +43,9 @@ const Accordions = () => {
             </Accordion>
           </div>
           
-          <CodeBlock 
-            code={`<Accordion type="single" collapsible className="w-full">
+          <div className="w-full">
+            <CodeBlock 
+              code={`<Accordion type="single" collapsible className="w-full">
   <AccordionItem value="item-1">
     <AccordionTrigger>O que é o Design System?</AccordionTrigger>
     <AccordionContent>
@@ -61,10 +62,11 @@ const Accordions = () => {
     </AccordionContent>
   </AccordionItem>
 </Accordion>`}
-            language="tsx"
-            title="Exemplo de implementação"
-            showCode={true}
-          />
+              language="tsx"
+              title="Exemplo de implementação"
+              showCode={false}
+            />
+          </div>
         </div>
       </div>
     </div>

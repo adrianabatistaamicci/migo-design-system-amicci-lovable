@@ -73,15 +73,18 @@ const LibraryPage: React.FC = () => {
                   type="components" 
                 />
               </div>
-              <CodeBlock 
-                code={`<Header 
+              
+              <div className="w-full">
+                <CodeBlock 
+                  code={`<Header 
   title="Título de exemplo" 
   description="Descrição de exemplo para demonstrar o componente Header." 
   type="components" 
 />`}
-                language="tsx"
-                showCode={true}
-              />
+                  language="tsx"
+                  showCode={false}
+                />
+              </div>
             </ComponentCard>
           </div>
           
@@ -95,15 +98,18 @@ const LibraryPage: React.FC = () => {
               <div className="w-full">
                 <EmptyState />
               </div>
-              <CodeBlock 
-                code={`<EmptyState 
+              
+              <div className="w-full">
+                <CodeBlock 
+                  code={`<EmptyState 
   title="Conteúdo em Desenvolvimento" 
   description="Esta documentação está atualmente sendo desenvolvida." 
   icon="construction" 
 />`}
-                language="tsx"
-                showCode={true}
-              />
+                  language="tsx"
+                  showCode={false}
+                />
+              </div>
             </ComponentCard>
           </div>
           
@@ -133,14 +139,17 @@ const LibraryPage: React.FC = () => {
               <div className="p-4 w-full">
                 <Footer additionalText="© 2024 Amicci" />
               </div>
-              <CodeBlock 
-                code={`<Footer 
+              
+              <div className="w-full">
+                <CodeBlock 
+                  code={`<Footer 
   additionalText="© 2024 Amicci" 
   governanceUrl="/guidelines/technical-governance" 
 />`}
-                language="tsx"
-                showCode={true}
-              />
+                  language="tsx"
+                  showCode={false}
+                />
+              </div>
             </ComponentCard>
           </div>
 
@@ -158,17 +167,20 @@ const LibraryPage: React.FC = () => {
                   </div>
                 </ComponentCard>
               </div>
-              <CodeBlock 
-                code={`<ComponentCard 
+              
+              <div className="w-full">
+                <CodeBlock 
+                  code={`<ComponentCard 
   title="Example Component" 
   description="Description of the component"
   code={\`const Example = () => <div>Example</div>\`}
 >
   <div>Component content goes here</div>
 </ComponentCard>`}
-                language="tsx"
-                showCode={true}
-              />
+                  language="tsx"
+                  showCode={false}
+                />
+              </div>
             </ComponentCard>
           </div>
 
@@ -199,15 +211,18 @@ const LibraryPage: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <CodeBlock 
-                code={`<ColorSwatch 
+              
+              <div className="w-full">
+                <CodeBlock 
+                  code={`<ColorSwatch 
   color="bg-primary-main" 
   textOverlay="#10C2C0" 
   className="h-12" 
 />`}
-                language="tsx"
-                showCode={true}
-              />
+                  language="tsx"
+                  showCode={false}
+                />
+              </div>
             </ComponentCard>
           </div>
 
@@ -226,16 +241,19 @@ const LibraryPage: React.FC = () => {
                   showCode={true}
                 />
               </div>
-              <CodeBlock 
-                code={`<CodeBlock 
+              
+              <div className="w-full">
+                <CodeBlock 
+                  code={`<CodeBlock 
   code="import { Button } from '@/components/ui/button';" 
   language="tsx" 
   title="Exemplo de importação" 
   showCode={true}
 />`}
-                language="tsx"
-                showCode={true}
-              />
+                  language="tsx"
+                  showCode={false}
+                />
+              </div>
             </ComponentCard>
           </div>
         </div>
