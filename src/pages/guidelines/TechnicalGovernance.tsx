@@ -9,8 +9,10 @@
 import React, { useState } from 'react';
 import { TailwindTabs } from "@/components/ui/tabs";
 import Header from '@/components/library-components/Header';
+
 const TechnicalGovernance = () => {
   const [activeTab, setActiveTab] = useState('visao-geral');
+  
   return <div className="w-full animate-fade-in">
       <Header title="Governança Lovable" description="Processo de contribuição, manutenção e evolução dos componentes através da plataforma Lovable." type="foundations" hideChip={true} />
 
@@ -210,4 +212,5 @@ const TechnicalGovernance = () => {
       </div>
     </div>;
 };
+
 export default TechnicalGovernance;
