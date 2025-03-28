@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -90,6 +91,7 @@ export default TitleHeading;`;
             language="jsx"
             title="Implementação do Title Heading"
             showCopy={true}
+            showCode={true}
           />
         </div>
       </div>

@@ -13,6 +13,7 @@ interface CodeBlockProps {
   showCopy?: boolean;
   showFullscreen?: boolean;
   onFullscreen?: () => void;
+  showCode?: boolean;
 }
 
 const CodeBlock: React.FC<CodeBlockProps> = ({
@@ -22,10 +23,11 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   className,
   showCopy = true,
   showFullscreen = false,
-  onFullscreen
+  onFullscreen,
+  showCode = false
 }) => {
   const [copied, setCopied] = useState(false);
-  const [showCode, setShowCode] = useState(false);
+  const [isOpen, setIsOpen] = useState(showCode);
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(code);
@@ -73,8 +75,8 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
         </div>
       </div>
       <Collapsible
-        open={showCode}
-        onOpenChange={setShowCode}
+        open={isOpen}
+        onOpenChange={setIsOpen}
         className="bg-gray-50"
       >
         <CollapsibleTrigger asChild>
@@ -83,10 +85,10 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
             size="sm"
             className="flex w-full items-center justify-between px-4 py-2 text-xs text-gray-500 hover:bg-gray-100"
           >
-            <span>{showCode ? 'Ocultar código' : 'Mostrar código'}</span>
+            <span>{isOpen ? 'Ocultar código' : 'Mostrar código'}</span>
             <ChevronRight
               className={`h-4 w-4 transition-transform ${
-                showCode ? 'rotate-90' : ''
+                isOpen ? 'rotate-90' : ''
               }`}
             />
           </Button>

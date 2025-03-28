@@ -85,7 +85,81 @@ const Installation = () => {
       </section>
 
       <section className="space-y-6">
-        <h2 className="text-2xl font-medium text-gray-900">Instalação da biblioteca</h2>
+        <h2 className="text-2xl font-medium text-gray-900">Instalação do repositório via Git</h2>
+        
+        <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+          <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
+            <GitBranch size={20} className="text-primary-main" />
+            1. Clone o repositório do GitHub
+          </h3>
+          <CodeBlock 
+            code="git clone https://github.com/amicci/migo-design-system.git" 
+            language="bash"
+            title="Terminal"
+            showCode={true}
+          />
+        </div>
+
+        <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+          <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
+            <Terminal size={20} className="text-primary-main" />
+            2. Navegue para o diretório do projeto
+          </h3>
+          <CodeBlock 
+            code="cd migo-design-system" 
+            language="bash"
+            title="Terminal"
+            showCode={true}
+          />
+        </div>
+
+        <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+          <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
+            <Download size={20} className="text-primary-main" />
+            3. Instale as dependências
+          </h3>
+          <p className="text-sm text-text-secondary mb-4">
+            Instale todas as dependências necessárias para o projeto:
+          </p>
+          <CodeBlock 
+            code="npm install" 
+            language="bash"
+            title="Terminal"
+            showCode={true}
+          />
+          <p className="text-sm text-text-secondary mt-3">
+            Ou utilize o yarn se preferir:
+          </p>
+          <CodeBlock 
+            code="yarn install" 
+            language="bash"
+            title="Terminal"
+            showCode={true}
+          />
+        </div>
+
+        <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+          <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
+            <Terminal size={20} className="text-primary-main" />
+            4. Execute o projeto localmente
+          </h3>
+          <p className="text-sm text-text-secondary mb-4">
+            Inicie o servidor de desenvolvimento:
+          </p>
+          <CodeBlock 
+            code="npm run dev" 
+            language="bash"
+            title="Terminal"
+            showCode={true}
+          />
+          <p className="text-sm text-text-secondary mt-3">
+            O projeto estará disponível em <code>http://localhost:5173</code> (ou a porta indicada no terminal).
+          </p>
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <h2 className="text-2xl font-medium text-gray-900">Instalação da biblioteca via NPM</h2>
         
         <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
           <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
@@ -96,6 +170,7 @@ const Installation = () => {
             code="npm install @amicci/migo-ds" 
             language="bash"
             title="Terminal"
+            showCode={true}
           />
           <p className="text-sm text-text-secondary mt-3">
             Ou utilize o yarn se preferir:
@@ -104,6 +179,7 @@ const Installation = () => {
             code="yarn add @amicci/migo-ds" 
             language="bash"
             title="Terminal"
+            showCode={true}
           />
         </div>
 
@@ -119,6 +195,7 @@ const Installation = () => {
             code="npm install react react-dom tailwindcss @radix-ui/react-primitives" 
             language="bash"
             title="Terminal"
+            showCode={true}
           />
         </div>
 
@@ -161,6 +238,7 @@ module.exports = {
 };`} 
             language="javascript"
             title="tailwind.config.js"
+            showCode={true}
           />
         </div>
       </section>
@@ -201,6 +279,7 @@ function MyComponent() {
 export default MyComponent;`} 
             language="jsx"
             title="MyComponent.jsx"
+            showCode={true}
           />
         </div>
       </section>
@@ -230,6 +309,7 @@ Password: seu-token-github
 Email: seu-email@amicci.com.br`} 
                 language="bash"
                 title="Terminal"
+                showCode={true}
               />
             </li>
             <li>
@@ -239,6 +319,7 @@ Email: seu-email@amicci.com.br`}
 //npm.pkg.github.com/:_authToken=SEU_TOKEN_AQUI`} 
                 language="plaintext"
                 title=".npmrc"
+                showCode={true}
               />
             </li>
           </ol>
