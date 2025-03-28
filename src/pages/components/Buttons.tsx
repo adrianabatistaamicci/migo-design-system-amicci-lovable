@@ -37,9 +37,10 @@ const Buttons = () => {
                 <Button variant="info">Info</Button>
               </div>
             </div>
-            
-            <CodeBlock 
-              code={`// Botões Primários
+          </div>
+          
+          <CodeBlock 
+            code={`// Botões Primários
 <Button>Default</Button>
 <Button variant="outline-secondary">Outline</Button>
 <Button variant="text-default">Text</Button>
@@ -49,11 +50,10 @@ const Buttons = () => {
 <Button variant="warning">Warning</Button>
 <Button variant="error">Error</Button>
 <Button variant="info">Info</Button>`}
-              language="tsx"
-              title="Implementação de Botões por Variante"
-              showCode={false}
-            />
-          </div>
+            language="tsx"
+            title="Implementação de Botões por Variante"
+            showCode={false}
+          />
         </div>
         
         <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
@@ -67,16 +67,16 @@ const Buttons = () => {
                 <Button size="lg">Large</Button>
               </div>
             </div>
-            
-            <CodeBlock 
-              code={`<Button size="sm">Small</Button>
+          </div>
+          
+          <CodeBlock 
+            code={`<Button size="sm">Small</Button>
 <Button>Default</Button>
 <Button size="lg">Large</Button>`}
-              language="tsx"
-              title="Implementação de Botões por Tamanho"
-              showCode={false}
-            />
-          </div>
+            language="tsx"
+            title="Implementação de Botões por Tamanho"
+            showCode={false}
+          />
         </div>
         
         <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
@@ -90,16 +90,16 @@ const Buttons = () => {
                 <Button startIcon={<Plus />} endIcon={<ArrowRight />}>Add and continue</Button>
               </div>
             </div>
-            
-            <CodeBlock 
-              code={`<Button startIcon={<Plus />}>Add item</Button>
+          </div>
+          
+          <CodeBlock 
+            code={`<Button startIcon={<Plus />}>Add item</Button>
 <Button endIcon={<ChevronRight />}>Next step</Button>
 <Button startIcon={<Plus />} endIcon={<ArrowRight />}>Add and continue</Button>`}
-              language="tsx"
-              title="Implementação de Botões com Ícones"
-              showCode={false}
-            />
-          </div>
+            language="tsx"
+            title="Implementação de Botões com Ícones"
+            showCode={false}
+          />
         </div>
         
         <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
@@ -113,16 +113,16 @@ const Buttons = () => {
                 <Button isLoading>Loading</Button>
               </div>
             </div>
-            
-            <CodeBlock 
-              code={`<Button>Default</Button>
+          </div>
+          
+          <CodeBlock 
+            code={`<Button>Default</Button>
 <Button disabled>Disabled</Button>
 <Button isLoading>Loading</Button>`}
-              language="tsx"
-              title="Implementação de Estados do Botão"
-              showCode={false}
-            />
-          </div>
+            language="tsx"
+            title="Implementação de Estados do Botão"
+            showCode={false}
+          />
         </div>
       </div>
     </div>

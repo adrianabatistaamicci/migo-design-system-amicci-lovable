@@ -1,10 +1,10 @@
 
 import React, { useState } from 'react';
-import Header from '@/components/library-components/Header';
+import ComponentCard from '@/components/ComponentCard';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
-import CodeBlock from '@/components/CodeBlock';
+import Header from '@/components/library-components/Header';
 
 const RadioPage = () => {
   const [selectedOption, setSelectedOption] = useState("option-one");
@@ -30,28 +30,10 @@ const RadioPage = () => {
         </div>
         
         <div className="space-y-12">
-          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
-            <div className="p-6">
-              <h2 className="text-xl font-medium mb-4">Basic Radio Group</h2>
-              <p className="text-gray-600 mb-6">Basic radio group with two options.</p>
-              
-              <div className="space-y-4 mb-6">
-                <div className="max-w-sm">
-                  <RadioGroup defaultValue="option-one">
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="option-one" id="r1-option-one" />
-                      <Label htmlFor="r1-option-one">Option One</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="option-two" id="r1-option-two" />
-                      <Label htmlFor="r1-option-two">Option Two</Label>
-                    </div>
-                  </RadioGroup>
-                </div>
-              </div>
-              
-              <CodeBlock 
-                code={`<RadioGroup defaultValue="option-one">
+          <ComponentCard 
+            title="Basic Radio Group" 
+            description="Basic radio group with two options."
+            code={`<RadioGroup defaultValue="option-one">
   <div className="flex items-center space-x-2">
     <RadioGroupItem value="option-one" id="option-one" />
     <Label htmlFor="option-one">Option One</Label>
@@ -61,39 +43,25 @@ const RadioPage = () => {
     <Label htmlFor="option-two">Option Two</Label>
   </div>
 </RadioGroup>`}
-                language="tsx"
-                title="Implementação do Radio Group Básico"
-                showCode={false}
-              />
-            </div>
-          </div>
-          
-          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
-            <div className="p-6">
-              <h2 className="text-xl font-medium mb-4">Radio Group with Colors</h2>
-              <p className="text-gray-600 mb-6">Radio buttons in different colors.</p>
-              
-              <div className="space-y-4 mb-6">
-                <div className="max-w-sm">
-                  <RadioGroup defaultValue="option-one">
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="option-one" id="r2-option-one" className="text-primary-main border-primary-main" />
-                      <Label htmlFor="r2-option-one">Primary</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="option-two" id="r2-option-two" className="text-secondary-main border-secondary-main" />
-                      <Label htmlFor="r2-option-two">Secondary</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="option-three" id="r2-option-three" className="text-error-main border-error-main" />
-                      <Label htmlFor="r2-option-three">Error</Label>
-                    </div>
-                  </RadioGroup>
+          >
+            <div className="max-w-sm">
+              <RadioGroup defaultValue="option-one">
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="option-one" id="r1-option-one" />
+                  <Label htmlFor="r1-option-one">Option One</Label>
                 </div>
-              </div>
-              
-              <CodeBlock 
-                code={`<RadioGroup defaultValue="option-one">
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="option-two" id="r1-option-two" />
+                  <Label htmlFor="r1-option-two">Option Two</Label>
+                </div>
+              </RadioGroup>
+            </div>
+          </ComponentCard>
+          
+          <ComponentCard 
+            title="Radio Group with Colors" 
+            description="Radio buttons in different colors."
+            code={`<RadioGroup defaultValue="option-one">
   <div className="flex items-center space-x-2">
     <RadioGroupItem value="option-one" id="option-one" className="text-primary-main border-primary-main" />
     <Label htmlFor="option-one">Primary</Label>
@@ -107,39 +75,29 @@ const RadioPage = () => {
     <Label htmlFor="option-three">Error</Label>
   </div>
 </RadioGroup>`}
-                language="tsx"
-                title="Implementação do Radio Group com Cores"
-                showCode={false}
-              />
-            </div>
-          </div>
-          
-          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
-            <div className="p-6">
-              <h2 className="text-xl font-medium mb-4">Horizontal Radio Group</h2>
-              <p className="text-gray-600 mb-6">Radio buttons arranged horizontally.</p>
-              
-              <div className="space-y-4 mb-6">
-                <div className="max-w-sm">
-                  <RadioGroup defaultValue="option-one" className="flex space-x-4">
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="option-one" id="r3-option-one" />
-                      <Label htmlFor="r3-option-one">Option One</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="option-two" id="r3-option-two" />
-                      <Label htmlFor="r3-option-two">Option Two</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="option-three" id="r3-option-three" />
-                      <Label htmlFor="r3-option-three">Option Three</Label>
-                    </div>
-                  </RadioGroup>
+          >
+            <div className="max-w-sm">
+              <RadioGroup defaultValue="option-one">
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="option-one" id="r2-option-one" className="text-primary-main border-primary-main" />
+                  <Label htmlFor="r2-option-one">Primary</Label>
                 </div>
-              </div>
-              
-              <CodeBlock 
-                code={`<RadioGroup defaultValue="option-one" className="flex space-x-4">
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="option-two" id="r2-option-two" className="text-secondary-main border-secondary-main" />
+                  <Label htmlFor="r2-option-two">Secondary</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="option-three" id="r2-option-three" className="text-error-main border-error-main" />
+                  <Label htmlFor="r2-option-three">Error</Label>
+                </div>
+              </RadioGroup>
+            </div>
+          </ComponentCard>
+          
+          <ComponentCard 
+            title="Horizontal Radio Group" 
+            description="Radio buttons arranged horizontally."
+            code={`<RadioGroup defaultValue="option-one" className="flex space-x-4">
   <div className="flex items-center space-x-2">
     <RadioGroupItem value="option-one" id="option-one" />
     <Label htmlFor="option-one">Option One</Label>
@@ -153,35 +111,29 @@ const RadioPage = () => {
     <Label htmlFor="option-three">Option Three</Label>
   </div>
 </RadioGroup>`}
-                language="tsx"
-                title="Implementação do Radio Group Horizontal"
-                showCode={false}
-              />
-            </div>
-          </div>
-
-          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
-            <div className="p-6">
-              <h2 className="text-xl font-medium mb-4">Disabled Radio Buttons</h2>
-              <p className="text-gray-600 mb-6">Radio buttons that cannot be interacted with.</p>
-              
-              <div className="space-y-4 mb-6">
-                <div className="max-w-sm">
-                  <RadioGroup defaultValue="option-one">
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="option-one" id="r4-option-one" />
-                      <Label htmlFor="r4-option-one">Enabled Option</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="option-two" id="r4-option-two" disabled />
-                      <Label htmlFor="r4-option-two" className="text-muted-foreground">Disabled Option</Label>
-                    </div>
-                  </RadioGroup>
+          >
+            <div className="max-w-sm">
+              <RadioGroup defaultValue="option-one" className="flex space-x-4">
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="option-one" id="r3-option-one" />
+                  <Label htmlFor="r3-option-one">Option One</Label>
                 </div>
-              </div>
-              
-              <CodeBlock 
-                code={`<RadioGroup defaultValue="option-one">
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="option-two" id="r3-option-two" />
+                  <Label htmlFor="r3-option-two">Option Two</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="option-three" id="r3-option-three" />
+                  <Label htmlFor="r3-option-three">Option Three</Label>
+                </div>
+              </RadioGroup>
+            </div>
+          </ComponentCard>
+
+          <ComponentCard 
+            title="Disabled Radio Buttons" 
+            description="Radio buttons that cannot be interacted with."
+            code={`<RadioGroup defaultValue="option-one">
   <div className="flex items-center space-x-2">
     <RadioGroupItem value="option-one" id="option-one" />
     <Label htmlFor="option-one">Enabled Option</Label>
@@ -191,37 +143,25 @@ const RadioPage = () => {
     <Label htmlFor="option-two" className="text-muted-foreground">Disabled Option</Label>
   </div>
 </RadioGroup>`}
-                language="tsx"
-                title="Implementação de Radio Buttons Desabilitados"
-                showCode={false}
-              />
-            </div>
-          </div>
-          
-          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
-            <div className="p-6">
-              <h2 className="text-xl font-medium mb-4">Controlled Radio Group</h2>
-              <p className="text-gray-600 mb-6">Radio group with controlled state.</p>
-              
-              <div className="space-y-4 mb-6">
-                <div className="max-w-sm">
-                  <RadioGroup value={selectedOption} onValueChange={setSelectedOption}>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="option-one" id="r5-option-one" />
-                      <Label htmlFor="r5-option-one">Option One</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="option-two" id="r5-option-two" />
-                      <Label htmlFor="r5-option-two">Option Two</Label>
-                    </div>
-                  </RadioGroup>
-                  
-                  <p className="mt-4 text-sm text-mui-text-secondary">Selected value: {selectedOption}</p>
+          >
+            <div className="max-w-sm">
+              <RadioGroup defaultValue="option-one">
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="option-one" id="r4-option-one" />
+                  <Label htmlFor="r4-option-one">Enabled Option</Label>
                 </div>
-              </div>
-              
-              <CodeBlock 
-                code={`const [selectedOption, setSelectedOption] = useState("option-one");
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="option-two" id="r4-option-two" disabled />
+                  <Label htmlFor="r4-option-two" className="text-muted-foreground">Disabled Option</Label>
+                </div>
+              </RadioGroup>
+            </div>
+          </ComponentCard>
+          
+          <ComponentCard 
+            title="Controlled Radio Group" 
+            description="Radio group with controlled state."
+            code={`const [selectedOption, setSelectedOption] = useState("option-one");
 
 <RadioGroup value={selectedOption} onValueChange={setSelectedOption}>
   <div className="flex items-center space-x-2">
@@ -235,12 +175,22 @@ const RadioPage = () => {
 </RadioGroup>
 
 <p className="mt-4">Selected value: {selectedOption}</p>`}
-                language="tsx"
-                title="Implementação do Radio Group Controlado"
-                showCode={false}
-              />
+          >
+            <div className="max-w-sm">
+              <RadioGroup value={selectedOption} onValueChange={setSelectedOption}>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="option-one" id="r5-option-one" />
+                  <Label htmlFor="r5-option-one">Option One</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="option-two" id="r5-option-two" />
+                  <Label htmlFor="r5-option-two">Option Two</Label>
+                </div>
+              </RadioGroup>
+              
+              <p className="mt-4 text-sm text-mui-text-secondary">Selected value: {selectedOption}</p>
             </div>
-          </div>
+          </ComponentCard>
         </div>
         
         <div className="mt-12">

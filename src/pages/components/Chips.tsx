@@ -4,7 +4,6 @@ import Header from '@/components/library-components/Header';
 import CodeBlock from '@/components/CodeBlock';
 import { Badge } from '@/components/ui/badge';
 import { X } from 'lucide-react';
-import { Chip } from '@/components/ui/chip';
 
 const Chips = () => {
   return (
@@ -35,9 +34,10 @@ const Chips = () => {
                 </Badge>
               </div>
             </div>
+          </div>
           
-            <CodeBlock 
-              code={`<Badge variant="outline" className="flex gap-2 items-center px-3 py-1">
+          <CodeBlock 
+            code={`<Badge variant="outline" className="flex gap-2 items-center px-3 py-1">
   Basic chip
 </Badge>
 
@@ -50,11 +50,10 @@ const Chips = () => {
   With icon
   <X className="h-3.5 w-3.5 text-muted-foreground cursor-pointer" />
 </Badge>`}
-              language="tsx"
-              title="Implementação de Chips Básicos"
-              showCode={false}
-            />
-          </div>
+            language="tsx"
+            title="Implementação de Chips Básicos"
+            showCode={false}
+          />
         </div>
         
         <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
@@ -71,19 +70,19 @@ const Chips = () => {
                 <Badge className="bg-info-main text-white">Info</Badge>
               </div>
             </div>
+          </div>
           
-            <CodeBlock 
-              code={`<Badge className="bg-primary-main text-white">Primary</Badge>
+          <CodeBlock 
+            code={`<Badge className="bg-primary-main text-white">Primary</Badge>
 <Badge className="bg-secondary-main text-white">Secondary</Badge>
 <Badge className="bg-success-main text-white">Success</Badge>
 <Badge className="bg-warning-main text-black">Warning</Badge>
 <Badge className="bg-error-main text-white">Error</Badge>
 <Badge className="bg-info-main text-white">Info</Badge>`}
-              language="tsx"
-              title="Implementação de Chips Coloridos"
-              showCode={false}
-            />
-          </div>
+            language="tsx"
+            title="Implementação de Chips Coloridos"
+            showCode={false}
+          />
         </div>
         
         <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
@@ -106,9 +105,10 @@ const Chips = () => {
                 </Badge>
               </div>
             </div>
+          </div>
           
-            <CodeBlock 
-              code={`<Badge variant="outline" className="flex gap-2 items-center px-3 py-1.5">
+          <CodeBlock 
+            code={`<Badge variant="outline" className="flex gap-2 items-center px-3 py-1.5">
   Frontend
   <X className="h-3.5 w-3.5 text-muted-foreground cursor-pointer hover:text-foreground" />
 </Badge>
@@ -122,11 +122,10 @@ const Chips = () => {
   TypeScript
   <X className="h-3.5 w-3.5 text-muted-foreground cursor-pointer hover:text-foreground" />
 </Badge>`}
-              language="tsx"
-              title="Implementação de Chips com Ação de Remoção"
-              showCode={false}
-            />
-          </div>
+            language="tsx"
+            title="Implementação de Chips com Ação de Remoção"
+            showCode={false}
+          />
         </div>
       </div>
     </div>
