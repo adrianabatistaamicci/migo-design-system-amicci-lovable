@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Header from '@/components/library-components/Header';
 import CodeBlock from '@/components/CodeBlock';
@@ -149,7 +150,7 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
                   </ol>
                 </nav>
               </ComponentCard>
-              <CodeBlock code={basicExample} language="tsx" title="Exemplo Básico" />
+              <CodeBlock code={basicExample} language="tsx" title="Exemplo Básico" className="mt-4" />
             </div>
             
             <div>
@@ -187,7 +188,7 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
                   </ol>
                 </nav>
               </ComponentCard>
-              <CodeBlock code={withIconsExample} language="tsx" title="Com Ícones" />
+              <CodeBlock code={withIconsExample} language="tsx" title="Com Ícones" className="mt-4" />
             </div>
             
             <div>
@@ -231,7 +232,7 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
                   </ol>
                 </nav>
               </ComponentCard>
-              <CodeBlock code={collapsibleExample} language="tsx" title="Com Elipses (Colapsado)" />
+              <CodeBlock code={collapsibleExample} language="tsx" title="Com Elipses (Colapsado)" className="mt-4" />
             </div>
           </div>
         </section>

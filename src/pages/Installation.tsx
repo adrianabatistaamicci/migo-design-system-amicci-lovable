@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -84,112 +85,7 @@ const Installation = () => {
       </section>
 
       <section className="space-y-6">
-        <h2 className="text-2xl font-medium text-gray-900">Instalação direta do repositório Git</h2>
-        
-        <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-          <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
-            <GitBranch size={20} className="text-primary-main" />
-            1. Clone o repositório
-          </h3>
-          <p className="text-sm text-text-secondary mb-4">
-            Clone o repositório diretamente para sua máquina local:
-          </p>
-          <CodeBlock 
-            code="git clone https://github.com/amicci/migo-design-system.git" 
-            language="bash"
-            title="Terminal"
-            defaultOpen={true}
-          />
-        </div>
-
-        <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-          <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
-            <Terminal size={20} className="text-primary-main" />
-            2. Navegue até o diretório do projeto
-          </h3>
-          <CodeBlock 
-            code="cd migo-design-system" 
-            language="bash"
-            title="Terminal"
-            defaultOpen={true}
-          />
-        </div>
-
-        <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-          <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
-            <Package size={20} className="text-primary-main" />
-            3. Instale as dependências
-          </h3>
-          <CodeBlock 
-            code="npm install" 
-            language="bash"
-            title="Terminal"
-            defaultOpen={true}
-          />
-          <p className="text-sm text-text-secondary mt-3">
-            Ou se preferir usar Yarn:
-          </p>
-          <CodeBlock 
-            code="yarn install" 
-            language="bash"
-            title="Terminal"
-            defaultOpen={true}
-          />
-        </div>
-
-        <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-          <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
-            <Download size={20} className="text-primary-main" />
-            4. Execute o script de build
-          </h3>
-          <CodeBlock 
-            code="npm run build" 
-            language="bash"
-            title="Terminal"
-            defaultOpen={true}
-          />
-        </div>
-
-        <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-          <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
-            <Terminal size={20} className="text-primary-main" />
-            5. Inicie o ambiente de desenvolvimento (opcional)
-          </h3>
-          <p className="text-sm text-text-secondary mb-4">
-            Se quiser trabalhar no desenvolvimento dos componentes:
-          </p>
-          <CodeBlock 
-            code="npm run dev" 
-            language="bash"
-            title="Terminal"
-            defaultOpen={true}
-          />
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <h2 className="text-2xl font-medium text-gray-900">Usando como dependência local</h2>
-        
-        <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-          <h3 className="text-lg font-medium mb-4">Linkando ao seu projeto</h3>
-          <p className="text-sm text-text-secondary mb-4">
-            Você pode usar o Migo Design System como uma dependência local em seus projetos:
-          </p>
-          <CodeBlock 
-            code={`# No diretório do Migo Design System
-npm link
-
-# No diretório do seu projeto
-npm link @amicci/migo-ds`} 
-            language="bash"
-            title="Terminal"
-            defaultOpen={true}
-          />
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <h2 className="text-2xl font-medium text-gray-900">Instalação da biblioteca via NPM</h2>
+        <h2 className="text-2xl font-medium text-gray-900">Instalação da biblioteca</h2>
         
         <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
           <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
@@ -200,7 +96,6 @@ npm link @amicci/migo-ds`}
             code="npm install @amicci/migo-ds" 
             language="bash"
             title="Terminal"
-            defaultOpen={true}
           />
           <p className="text-sm text-text-secondary mt-3">
             Ou utilize o yarn se preferir:
@@ -209,7 +104,6 @@ npm link @amicci/migo-ds`}
             code="yarn add @amicci/migo-ds" 
             language="bash"
             title="Terminal"
-            defaultOpen={true}
           />
         </div>
 
@@ -225,7 +119,6 @@ npm link @amicci/migo-ds`}
             code="npm install react react-dom tailwindcss @radix-ui/react-primitives" 
             language="bash"
             title="Terminal"
-            defaultOpen={true}
           />
         </div>
 
@@ -268,7 +161,6 @@ module.exports = {
 };`} 
             language="javascript"
             title="tailwind.config.js"
-            defaultOpen={true}
           />
         </div>
       </section>
@@ -309,7 +201,6 @@ function MyComponent() {
 export default MyComponent;`} 
             language="jsx"
             title="MyComponent.jsx"
-            defaultOpen={true}
           />
         </div>
       </section>
@@ -339,7 +230,6 @@ Password: seu-token-github
 Email: seu-email@amicci.com.br`} 
                 language="bash"
                 title="Terminal"
-                defaultOpen={true}
               />
             </li>
             <li>
@@ -349,7 +239,6 @@ Email: seu-email@amicci.com.br`}
 //npm.pkg.github.com/:_authToken=SEU_TOKEN_AQUI`} 
                 language="plaintext"
                 title=".npmrc"
-                defaultOpen={true}
               />
             </li>
           </ol>
