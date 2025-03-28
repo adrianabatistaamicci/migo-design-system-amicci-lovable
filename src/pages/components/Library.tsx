@@ -173,7 +173,38 @@ const LibraryPage: React.FC = () => {
   title="Exemplo de importação" 
 />`} className="w-full">
               <div className="p-4 w-full">
-                <CodeBlock code="import { Button } from '@/components/ui/button';" language="tsx" title="Exemplo de importação" />
+                <CodeBlock 
+                  code="import { Button } from '@/components/ui/button';" 
+                  language="tsx" 
+                  title="Exemplo de importação" 
+                  defaultOpen={true}
+                />
+              </div>
+            </ComponentCard>
+          </div>
+
+          {/* Terminal CodeBlock variant */}
+          <div className="w-full">
+            <ComponentCard 
+              title="CodeBlock - Terminal Variant" 
+              description="Variante do CodeBlock com estilo de terminal para comandos de linha de comando" 
+              code={`<CodeBlock 
+  code="git clone https://github.com/amicci/migo-design-system.git" 
+  language="bash" 
+  title="Terminal" 
+  variant="terminal"
+  defaultOpen={true}
+/>`} 
+              className="w-full"
+            >
+              <div className="p-4 w-full">
+                <CodeBlock 
+                  code="git clone https://github.com/amicci/migo-design-system.git" 
+                  language="bash" 
+                  title="Terminal" 
+                  variant="terminal"
+                  defaultOpen={true}
+                />
               </div>
             </ComponentCard>
           </div>
