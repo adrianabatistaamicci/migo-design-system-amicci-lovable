@@ -109,7 +109,7 @@ const YourComponent = () => {
                     </tr>
                     <tr>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">onChange</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">(state: VerificationState) => void</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">(state: VerificationState) =&gt; void</td>
                       <td className="px-6 py-4 text-sm text-gray-500">Função chamada quando o usuário muda o estado selecionado</td>
                     </tr>
                   </tbody>
