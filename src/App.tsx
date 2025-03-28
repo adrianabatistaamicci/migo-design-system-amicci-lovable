@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -102,6 +103,11 @@ const App = () => {
               <Route path="/components" element={<Components />} />
               <Route path="/components/:componentId" element={<ComponentDetail />} />
               <Route path="/ui-kit" element={<UIKit />} />
+              <Route path="/foundations/colors" element={<Colors />} />
+              <Route path="/foundations/typography" element={<Typography />} />
+              <Route path="/foundations/spacing" element={<Spacing />} />
+              <Route path="/foundations/icons" element={<Icons />} />
+              <Route path="/foundations/brand" element={<Brand />} />
               <Route path="/components/input" element={<InputPage />} />
               <Route path="/components/checkbox" element={<CheckboxPage />} />
               <Route path="/components/radio" element={<RadioPage />} />
