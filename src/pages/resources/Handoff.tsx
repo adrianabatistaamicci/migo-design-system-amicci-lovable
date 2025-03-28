@@ -12,7 +12,7 @@ const Handoff = () => {
       <Header 
         title="Handoff"
         description="Componentes e utilidades para facilitar a colaboração entre Design e Desenvolvimento"
-        type="resources"
+        type="components"
       />
       
       <div className="max-w-[1280px] mx-auto">
