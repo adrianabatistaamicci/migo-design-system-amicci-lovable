@@ -11,7 +11,7 @@ import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@
 import { Badge } from '@/components/ui/badge';
 import { TailwindTabs } from '@/components/ui/tabs';
 import Header from '@/components/library-components/Header';
-import { Folder, Users, Calendar, FileText, Rocket, Factory, Settings, PenTool } from 'lucide-react';
+import { Folder, Users, Calendar, FileText, Rocket, Factory, Settings, PenTool, XCircle } from 'lucide-react';
 import CodeBlock from '@/components/CodeBlock';
 
 const TabsPage = () => {
@@ -322,8 +322,9 @@ const TabsPage = () => {
                       name: 'Produção',
                       value: 'production',
                       icon: <Rocket className="h-5 w-5" />,
-                      secondaryText: "Prazo 03/05/2024",
-                      chipStatus: "Em breve"
+                      secondaryText: "Prazo 05/07/2024",
+                      chipStatus: "Em breve",
+                      disabled: true
                     }
                   ]}
                   variant="projectTabs"
@@ -359,8 +360,9 @@ const TabsPage = () => {
       name: 'Produção',
       value: 'production',
       icon: <Rocket className="h-5 w-5" />,
-      secondaryText: "Prazo 03/05/2024",
-      chipStatus: "Em breve"
+      secondaryText: "Prazo 05/07/2024",
+      chipStatus: "Em breve",
+      disabled: true
     }
   ]}
   variant="projectTabs"
@@ -368,7 +370,6 @@ const TabsPage = () => {
 />`}
               language="tsx"
               title="Implementation of Project Tabs on Gray"
-              showCode={false}
             />
           </div>
         </div>
