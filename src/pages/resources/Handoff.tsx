@@ -3,9 +3,141 @@ import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import CodeBlock from '@/components/CodeBlock';
 import FloatingStateMenu, { VerificationState } from '@/components/handoff/FloatingStateMenu';
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { CheckCircle, AlertCircle, ArrowRight, Smartphone } from 'lucide-react';
 
 const Handoff = () => {
   const [currentState, setCurrentState] = useState<VerificationState>('phone-default');
+
+  // Function to render the appropriate screen based on current state
+  const renderStateExample = () => {
+    switch (currentState) {
+      case 'phone-default':
+        return (
+          <div className="max-w-sm mx-auto p-6 rounded-lg bg-white border border-gray-200">
+            <div className="mb-6 text-center">
+              <Smartphone className="h-10 w-10 text-gray-500 mx-auto mb-2" />
+              <h2 className="text-xl font-semibold mb-1">Verificação de WhatsApp</h2>
+              <p className="text-gray-600 text-sm">Informe seu número para receber um código de verificação</p>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium mb-1">Número de celular</label>
+                <Input placeholder="(11) 99999-9999" />
+              </div>
+              <Button className="w-full">Enviar código</Button>
+            </div>
+          </div>
+        );
+      
+      case 'phone-error':
+        return (
+          <div className="max-w-sm mx-auto p-6 rounded-lg bg-white border border-gray-200">
+            <div className="mb-6 text-center">
+              <Smartphone className="h-10 w-10 text-gray-500 mx-auto mb-2" />
+              <h2 className="text-xl font-semibold mb-1">Verificação de WhatsApp</h2>
+              <p className="text-gray-600 text-sm">Informe seu número para receber um código de verificação</p>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium mb-1">Número de celular</label>
+                <Input placeholder="(11) 99999-9999" className="border-red-500" />
+                <p className="text-red-500 text-sm mt-1">Formato de número inválido</p>
+              </div>
+              <Button className="w-full">Enviar código</Button>
+            </div>
+          </div>
+        );
+
+      case 'verification-default':
+        return (
+          <div className="max-w-sm mx-auto p-6 rounded-lg bg-white border border-gray-200">
+            <div className="mb-6 text-center">
+              <h2 className="text-xl font-semibold mb-1">Código de verificação</h2>
+              <p className="text-gray-600 text-sm">Insira o código de 6 dígitos enviado para seu WhatsApp</p>
+            </div>
+            <div className="space-y-4">
+              <div className="flex justify-between mb-4">
+                {[1, 2, 3, 4, 5, 6].map((num) => (
+                  <Input 
+                    key={num} 
+                    className="w-10 h-12 text-center text-lg font-bold"
+                    maxLength={1}
+                  />
+                ))}
+              </div>
+              <Button className="w-full">Verificar</Button>
+              <p className="text-center text-sm text-gray-500">
+                Não recebeu o código? <span className="text-blue-600 cursor-pointer">Reenviar</span>
+              </p>
+            </div>
+          </div>
+        );
+
+      case 'verification-error':
+        return (
+          <div className="max-w-sm mx-auto p-6 rounded-lg bg-white border border-gray-200">
+            <div className="mb-6 text-center">
+              <h2 className="text-xl font-semibold mb-1">Código de verificação</h2>
+              <p className="text-gray-600 text-sm">Insira o código de 6 dígitos enviado para seu WhatsApp</p>
+            </div>
+            <Alert variant="destructive" className="mb-4">
+              <AlertCircle className="h-4 w-4" />
+              <AlertTitle>Código inválido</AlertTitle>
+              <AlertDescription>
+                O código inserido não é válido. Por favor, tente novamente.
+              </AlertDescription>
+            </Alert>
+            <div className="space-y-4">
+              <div className="flex justify-between mb-4">
+                {[1, 2, 3, 4, 5, 6].map((num) => (
+                  <Input 
+                    key={num} 
+                    className="w-10 h-12 text-center text-lg font-bold border-red-500"
+                    maxLength={1}
+                  />
+                ))}
+              </div>
+              <Button className="w-full">Verificar</Button>
+              <p className="text-center text-sm text-gray-500">
+                Não recebeu o código? <span className="text-blue-600 cursor-pointer">Reenviar</span>
+              </p>
+            </div>
+          </div>
+        );
+
+      case 'success':
+        return (
+          <div className="max-w-sm mx-auto p-6 rounded-lg bg-white border border-gray-200 text-center">
+            <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+            <h2 className="text-xl font-semibold mb-2">Verificação concluída!</h2>
+            <p className="text-gray-600 mb-6">Seu número de WhatsApp foi verificado com sucesso.</p>
+            <Button className="w-full">
+              Continuar <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
+        );
+
+      case 'error-max-attempts':
+        return (
+          <div className="max-w-sm mx-auto p-6 rounded-lg bg-white border border-gray-200 text-center">
+            <AlertCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
+            <h2 className="text-xl font-semibold mb-2">Muitas tentativas</h2>
+            <p className="text-gray-600 mb-6">
+              Você excedeu o número máximo de tentativas de verificação. Por favor, aguarde 24 horas antes de tentar novamente.
+            </p>
+            <Button variant="outline" className="w-full">
+              Voltar para o início
+            </Button>
+          </div>
+        );
+
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="w-full animate-fade-in">
@@ -34,9 +166,8 @@ const Handoff = () => {
               </div>
               
               <div className="min-h-[400px] border border-gray-200 rounded-lg relative p-4 bg-gray-50">
-                <div className="text-center p-8">
-                  <p className="text-lg font-medium mb-2">Estado atual: {currentState}</p>
-                  <p className="text-gray-500">Use o menu flutuante para mudar de estado</p>
+                <div className="flex justify-center items-center py-4">
+                  {renderStateExample()}
                 </div>
                 
                 <FloatingStateMenu 
