@@ -58,7 +58,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
               ) : (
                 <Copy className="h-4 w-4" />
               )}
-              <span className="ml-2 text-xs">{copied ? 'Copied!' : 'Copy'}</span>
+              <span className="ml-2 text-xs">{copied ? 'Copiado!' : 'Copiar'}</span>
             </Button>
           )}
           {showFullscreen && onFullscreen && (
@@ -69,7 +69,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
               onClick={onFullscreen}
             >
               <Maximize2 className="h-4 w-4" />
-              <span className="ml-2 text-xs">Fullscreen</span>
+              <span className="ml-2 text-xs">Tela cheia</span>
             </Button>
           )}
         </div>
@@ -85,7 +85,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
             size="sm"
             className="flex w-full items-center justify-between px-4 py-2 text-xs text-gray-500 hover:bg-gray-100"
           >
-            <span>{isOpen ? 'Hide code' : 'Show code'}</span>
+            <span>{isOpen ? 'Ocultar código' : 'Mostrar código'}</span>
             <ChevronRight
               className={`h-4 w-4 transition-transform ${
                 isOpen ? 'rotate-90' : ''

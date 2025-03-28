@@ -62,7 +62,7 @@ const RadioPage = () => {
   </div>
 </RadioGroup>`}
                 language="tsx"
-                title="Basic Radio Group Implementation"
+                title="Implementação do Radio Group Básico"
                 showCode={false}
               />
             </div>
@@ -108,7 +108,7 @@ const RadioPage = () => {
   </div>
 </RadioGroup>`}
                 language="tsx"
-                title="Colored Radio Group Implementation"
+                title="Implementação do Radio Group com Cores"
                 showCode={false}
               />
             </div>
@@ -154,7 +154,7 @@ const RadioPage = () => {
   </div>
 </RadioGroup>`}
                 language="tsx"
-                title="Horizontal Radio Group Implementation"
+                title="Implementação do Radio Group Horizontal"
                 showCode={false}
               />
             </div>
@@ -192,7 +192,7 @@ const RadioPage = () => {
   </div>
 </RadioGroup>`}
                 language="tsx"
-                title="Disabled Radio Buttons Implementation"
+                title="Implementação de Radio Buttons Desabilitados"
                 showCode={false}
               />
             </div>
@@ -236,7 +236,7 @@ const RadioPage = () => {
 
 <p className="mt-4">Selected value: {selectedOption}</p>`}
                 language="tsx"
-                title="Controlled Radio Group Implementation"
+                title="Implementação do Radio Group Controlado"
                 showCode={false}
               />
             </div>
