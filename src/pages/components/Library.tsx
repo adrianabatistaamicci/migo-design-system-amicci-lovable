@@ -60,20 +60,22 @@ const LibraryPage: React.FC = () => {
         
         <div className="mt-6 grid grid-cols-1 gap-6">
           {/* Header component card */}
-          <div className="w-full">
-            <ComponentCard 
-              title="Header" 
-              description="Cabeçalho usado para seções principais do design system." 
-              className="w-full"
-            >
-              <div className="w-full">
-                <Header 
-                  title="Título de exemplo" 
-                  description="Descrição de exemplo para demonstrar o componente Header." 
-                  type="components" 
-                />
-              </div>
-            </ComponentCard>
+          <div className="w-full rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <ComponentCard 
+                title="Header" 
+                description="Cabeçalho usado para seções principais do design system." 
+                className="w-full"
+              >
+                <div className="w-full">
+                  <Header 
+                    title="Título de exemplo" 
+                    description="Descrição de exemplo para demonstrar o componente Header." 
+                    type="components" 
+                  />
+                </div>
+              </ComponentCard>
+            </div>
             <CodeBlock 
               code={`<Header 
   title="Título de exemplo" 
@@ -87,16 +89,18 @@ const LibraryPage: React.FC = () => {
           </div>
           
           {/* EmptyState component card */}
-          <div className="w-full">
-            <ComponentCard 
-              title="EmptyState" 
-              description="Usado para indicar páginas ou seções que estão em desenvolvimento." 
-              className="w-full"
-            >
-              <div className="w-full">
-                <EmptyState />
-              </div>
-            </ComponentCard>
+          <div className="w-full rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <ComponentCard 
+                title="EmptyState" 
+                description="Usado para indicar páginas ou seções que estão em desenvolvimento." 
+                className="w-full"
+              >
+                <div className="w-full">
+                  <EmptyState />
+                </div>
+              </ComponentCard>
+            </div>
             <CodeBlock 
               code={`<EmptyState 
   title="Conteúdo em Desenvolvimento" 
@@ -110,32 +114,42 @@ const LibraryPage: React.FC = () => {
           </div>
           
           {Object.entries(components).map(([name, Component]) => (
-            <div key={name} className="w-full">
-              <ComponentCard title={name} description="" className="w-full">
-                <div className="p-4 w-full">
-                  <div className="mb-4">
-                    <h3 className="text-lg font-medium text-gray-900">{name}</h3>
-                    <div className="-mx-4">
-                      <Separator className="mt-2" />
+            <div key={name} className="w-full rounded-lg border border-gray-200 overflow-hidden">
+              <div className="p-6">
+                <ComponentCard title={name} description="" className="w-full">
+                  <div className="p-4 w-full">
+                    <div className="mb-4">
+                      <h3 className="text-lg font-medium text-gray-900">{name}</h3>
+                      <div className="-mx-4">
+                        <Separator className="mt-2" />
+                      </div>
                     </div>
+                    <Component {...getDefaultProps(name)} />
                   </div>
-                  <Component {...getDefaultProps(name)} />
-                </div>
-              </ComponentCard>
+                </ComponentCard>
+              </div>
+              <CodeBlock 
+                code={`<${name} ${getCodeProps(name)} />`}
+                language="tsx"
+                title={`Implementação do ${name}`}
+                showCode={false}
+              />
             </div>
           ))}
 
-          {/* Footer component card - Mantendo apenas esta instância do Footer */}
-          <div className="w-full">
-            <ComponentCard 
-              title="Footer" 
-              description="Rodapé para exibir créditos e links de governança" 
-              className="w-full"
-            >
-              <div className="p-4 w-full">
-                <Footer additionalText="© 2024 Amicci" />
-              </div>
-            </ComponentCard>
+          {/* Footer component card */}
+          <div className="w-full rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <ComponentCard 
+                title="Footer" 
+                description="Rodapé para exibir créditos e links de governança" 
+                className="w-full"
+              >
+                <div className="p-4 w-full">
+                  <Footer additionalText="© 2024 Amicci" />
+                </div>
+              </ComponentCard>
+            </div>
             <CodeBlock 
               code={`<Footer 
   additionalText="© 2024 Amicci" 
@@ -148,20 +162,22 @@ const LibraryPage: React.FC = () => {
           </div>
 
           {/* Add ComponentCard component card */}
-          <div className="w-full">
-            <ComponentCard 
-              title="ComponentCard" 
-              description="Card para exibir exemplos de componentes com código" 
-              className="w-full"
-            >
-              <div className="p-4 w-full">
-                <ComponentCard title="Example Card" description="This is an example of ComponentCard">
-                  <div className="p-4 flex items-center justify-center text-center">
-                    <p>Example content inside a ComponentCard</p>
-                  </div>
-                </ComponentCard>
-              </div>
-            </ComponentCard>
+          <div className="w-full rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <ComponentCard 
+                title="ComponentCard" 
+                description="Card para exibir exemplos de componentes com código" 
+                className="w-full"
+              >
+                <div className="p-4 w-full">
+                  <ComponentCard title="Example Card" description="This is an example of ComponentCard">
+                    <div className="p-4 flex items-center justify-center text-center">
+                      <p>Example content inside a ComponentCard</p>
+                    </div>
+                  </ComponentCard>
+                </div>
+              </ComponentCard>
+            </div>
             <CodeBlock 
               code={`<ComponentCard 
   title="Example Component" 
@@ -177,33 +193,35 @@ const LibraryPage: React.FC = () => {
           </div>
 
           {/* ColorSwatch component card */}
-          <div className="w-full">
-            <ComponentCard 
-              title="ColorSwatch" 
-              description="Componente para exibir amostras de cores com opção de cópia" 
-              className="w-full"
-            >
-              <div className="p-4 w-full">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="space-y-2">
-                    <p className="text-sm text-gray-500">Cor Primária</p>
-                    <ColorSwatch color="bg-primary-main" textOverlay="#10C2C0" className="h-12" />
-                  </div>
-                  <div className="space-y-2">
-                    <p className="text-sm text-gray-500">Cor Secundária</p>
-                    <ColorSwatch color="bg-secondary-main" textOverlay="#14818A" className="h-12" />
-                  </div>
-                  <div className="space-y-2">
-                    <p className="text-sm text-gray-500">Cor de Erro</p>
-                    <ColorSwatch color="bg-error-main" textOverlay="#F04438" className="h-12" />
-                  </div>
-                  <div className="space-y-2">
-                    <p className="text-sm text-gray-500">Cor de Sucesso</p>
-                    <ColorSwatch color="bg-success-main" textOverlay="#12B76A" className="h-12" />
+          <div className="w-full rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <ComponentCard 
+                title="ColorSwatch" 
+                description="Componente para exibir amostras de cores com opção de cópia" 
+                className="w-full"
+              >
+                <div className="p-4 w-full">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div className="space-y-2">
+                      <p className="text-sm text-gray-500">Cor Primária</p>
+                      <ColorSwatch color="bg-primary-main" textOverlay="#10C2C0" className="h-12" />
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-sm text-gray-500">Cor Secundária</p>
+                      <ColorSwatch color="bg-secondary-main" textOverlay="#14818A" className="h-12" />
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-sm text-gray-500">Cor de Erro</p>
+                      <ColorSwatch color="bg-error-main" textOverlay="#F04438" className="h-12" />
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-sm text-gray-500">Cor de Sucesso</p>
+                      <ColorSwatch color="bg-success-main" textOverlay="#12B76A" className="h-12" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </ComponentCard>
+              </ComponentCard>
+            </div>
             <CodeBlock 
               code={`<ColorSwatch 
   color="bg-primary-main" 
@@ -217,21 +235,23 @@ const LibraryPage: React.FC = () => {
           </div>
 
           {/* CodeBlock component card */}
-          <div className="w-full">
-            <ComponentCard 
-              title="CodeBlock" 
-              description="Componente para exibir blocos de código com formatação e função de cópia" 
-              className="w-full"
-            >
-              <div className="p-4 w-full">
-                <CodeBlock 
-                  code="import { Button } from '@/components/ui/button';" 
-                  language="tsx" 
-                  title="Exemplo de importação"
-                  showCode={true}
-                />
-              </div>
-            </ComponentCard>
+          <div className="w-full rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <ComponentCard 
+                title="CodeBlock" 
+                description="Componente para exibir blocos de código com formatação e função de cópia" 
+                className="w-full"
+              >
+                <div className="p-4 w-full">
+                  <CodeBlock 
+                    code="import { Button } from '@/components/ui/button';" 
+                    language="tsx" 
+                    title="Exemplo de importação"
+                    showCode={true}
+                  />
+                </div>
+              </ComponentCard>
+            </div>
             <CodeBlock 
               code={`<CodeBlock 
   code="import { Button } from '@/components/ui/button';" 
@@ -267,6 +287,18 @@ const getDefaultProps = (componentName: string): Record<string, any> => {
       };
     default:
       return {};
+  }
+};
+
+// Helper function to generate code props for display
+const getCodeProps = (componentName: string): string => {
+  switch (componentName) {
+    case 'Header':
+      return 'title="Example Title" description="Example description" type="components"';
+    case 'EmptyState':
+      return 'title="Conteúdo em Desenvolvimento" description="Esta documentação está em desenvolvimento"';
+    default:
+      return '';
   }
 };
 
