@@ -73,16 +73,16 @@ const LibraryPage: React.FC = () => {
                   type="components" 
                 />
               </div>
-              <CodeBlock 
-                code={`<Header 
+            </ComponentCard>
+            <CodeBlock 
+              code={`<Header 
   title="Título de exemplo" 
   description="Descrição de exemplo para demonstrar o componente Header." 
   type="components" 
 />`}
-                language="tsx"
-                showCode={true}
-              />
-            </ComponentCard>
+              language="tsx"
+              showCode={false}
+            />
           </div>
           
           {/* EmptyState component card */}
@@ -95,16 +95,16 @@ const LibraryPage: React.FC = () => {
               <div className="w-full">
                 <EmptyState />
               </div>
-              <CodeBlock 
-                code={`<EmptyState 
+            </ComponentCard>
+            <CodeBlock 
+              code={`<EmptyState 
   title="Conteúdo em Desenvolvimento" 
   description="Esta documentação está atualmente sendo desenvolvida." 
   icon="construction" 
 />`}
-                language="tsx"
-                showCode={true}
-              />
-            </ComponentCard>
+              language="tsx"
+              showCode={false}
+            />
           </div>
           
           {Object.entries(components).map(([name, Component]) => (
@@ -133,15 +133,15 @@ const LibraryPage: React.FC = () => {
               <div className="p-4 w-full">
                 <Footer additionalText="© 2024 Amicci" />
               </div>
-              <CodeBlock 
-                code={`<Footer 
+            </ComponentCard>
+            <CodeBlock 
+              code={`<Footer 
   additionalText="© 2024 Amicci" 
   governanceUrl="/guidelines/technical-governance" 
 />`}
-                language="tsx"
-                showCode={true}
-              />
-            </ComponentCard>
+              language="tsx"
+              showCode={false}
+            />
           </div>
 
           {/* Add ComponentCard component card */}
@@ -158,18 +158,18 @@ const LibraryPage: React.FC = () => {
                   </div>
                 </ComponentCard>
               </div>
-              <CodeBlock 
-                code={`<ComponentCard 
+            </ComponentCard>
+            <CodeBlock 
+              code={`<ComponentCard 
   title="Example Component" 
   description="Description of the component"
   code={\`const Example = () => <div>Example</div>\`}
 >
   <div>Component content goes here</div>
 </ComponentCard>`}
-                language="tsx"
-                showCode={true}
-              />
-            </ComponentCard>
+              language="tsx"
+              showCode={false}
+            />
           </div>
 
           {/* ColorSwatch component card */}
@@ -199,16 +199,16 @@ const LibraryPage: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <CodeBlock 
-                code={`<ColorSwatch 
+            </ComponentCard>
+            <CodeBlock 
+              code={`<ColorSwatch 
   color="bg-primary-main" 
   textOverlay="#10C2C0" 
   className="h-12" 
 />`}
-                language="tsx"
-                showCode={true}
-              />
-            </ComponentCard>
+              language="tsx"
+              showCode={false}
+            />
           </div>
 
           {/* CodeBlock component card */}
@@ -226,17 +226,17 @@ const LibraryPage: React.FC = () => {
                   showCode={true}
                 />
               </div>
-              <CodeBlock 
-                code={`<CodeBlock 
+            </ComponentCard>
+            <CodeBlock 
+              code={`<CodeBlock 
   code="import { Button } from '@/components/ui/button';" 
   language="tsx" 
   title="Exemplo de importação" 
   showCode={true}
 />`}
-                language="tsx"
-                showCode={true}
-              />
-            </ComponentCard>
+              language="tsx"
+              showCode={false}
+            />
           </div>
         </div>
       </div>

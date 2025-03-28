@@ -63,7 +63,7 @@ const Accordions = () => {
 </Accordion>`}
             language="tsx"
             title="Exemplo de implementação"
-            showCode={true}
+            showCode={false}
           />
         </div>
       </div>
