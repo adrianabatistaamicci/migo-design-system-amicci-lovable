@@ -39,41 +39,53 @@ const Dividers = () => {
           <h2 className="text-xl font-medium mb-6">Exemplos</h2>
 
           <div className="space-y-8">
-            <div>
-              <h3 className="text-lg font-medium mb-4">Divisor Básico</h3>
-              <ComponentCard 
-                title="Divisor Simples" 
-                description="Uma linha horizontal simples para separar conteúdo."
-                code={basicDividerCode}
-              >
-                <div className="border-b border-gray-200"></div>
-              </ComponentCard>
-            </div>
-            
-            <div>
-              <h3 className="text-lg font-medium mb-4">Divisor Inserido</h3>
-              <ComponentCard 
-                title="Divisor com Margem Interna" 
-                description="Um divisor com margem interna para afastar das bordas."
-                code={insetDividerCode}
-              >
-                <div className="border-b border-gray-200 mx-4"></div>
-              </ComponentCard>
-            </div>
-            
-            <div>
-              <h3 className="text-lg font-medium mb-4">Divisor com Texto</h3>
-              <ComponentCard 
-                title="Divisor com Texto" 
-                description="Um divisor com texto no meio."
-                code={withTextDividerCode}
-              >
-                <div className="flex items-center">
-                  <div className="flex-grow border-t border-gray-200"></div>
-                  <span className="mx-4 text-gray-500">Ou</span>
-                  <div className="flex-grow border-t border-gray-200"></div>
+            <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+              <div className="p-6">
+                <h3 className="text-lg font-medium mb-4">Divisor Básico</h3>
+                <div className="mb-6">
+                  <div className="border-b border-gray-200"></div>
                 </div>
-              </ComponentCard>
+              </div>
+              <CodeBlock 
+                code={basicDividerCode}
+                language="tsx"
+                title="Implementação do Divisor Básico"
+                showCode={false}
+              />
+            </div>
+            
+            <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+              <div className="p-6">
+                <h3 className="text-lg font-medium mb-4">Divisor Inserido</h3>
+                <div className="mb-6">
+                  <div className="border-b border-gray-200 mx-4"></div>
+                </div>
+              </div>
+              <CodeBlock 
+                code={insetDividerCode}
+                language="tsx"
+                title="Implementação do Divisor com Margem"
+                showCode={false}
+              />
+            </div>
+            
+            <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+              <div className="p-6">
+                <h3 className="text-lg font-medium mb-4">Divisor com Texto</h3>
+                <div className="mb-6">
+                  <div className="flex items-center">
+                    <div className="flex-grow border-t border-gray-200"></div>
+                    <span className="mx-4 text-gray-500">Ou</span>
+                    <div className="flex-grow border-t border-gray-200"></div>
+                  </div>
+                </div>
+              </div>
+              <CodeBlock 
+                code={withTextDividerCode}
+                language="tsx"
+                title="Implementação do Divisor com Texto"
+                showCode={false}
+              />
             </div>
           </div>
         </section>
