@@ -81,6 +81,7 @@ const LibraryPage: React.FC = () => {
   type="components" 
 />`}
               language="tsx"
+              title="Implementação do Header"
               showCode={false}
             />
           </div>
@@ -103,6 +104,7 @@ const LibraryPage: React.FC = () => {
   icon="construction" 
 />`}
               language="tsx"
+              title="Implementação do EmptyState"
               showCode={false}
             />
           </div>
@@ -140,6 +142,7 @@ const LibraryPage: React.FC = () => {
   governanceUrl="/guidelines/technical-governance" 
 />`}
               language="tsx"
+              title="Implementação do Footer"
               showCode={false}
             />
           </div>
@@ -168,6 +171,7 @@ const LibraryPage: React.FC = () => {
   <div>Component content goes here</div>
 </ComponentCard>`}
               language="tsx"
+              title="Implementação do ComponentCard"
               showCode={false}
             />
           </div>
@@ -207,6 +211,7 @@ const LibraryPage: React.FC = () => {
   className="h-12" 
 />`}
               language="tsx"
+              title="Implementação do ColorSwatch"
               showCode={false}
             />
           </div>
@@ -235,6 +240,7 @@ const LibraryPage: React.FC = () => {
   showCode={true}
 />`}
               language="tsx"
+              title="Implementação do CodeBlock"
               showCode={false}
             />
           </div>
