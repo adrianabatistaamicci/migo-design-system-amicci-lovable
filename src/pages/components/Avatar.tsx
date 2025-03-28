@@ -1,9 +1,9 @@
 
 import React from 'react';
-import ComponentCard from '@/components/ComponentCard';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import Header from '@/components/library-components/Header';
+import CodeBlock from '@/components/CodeBlock';
 
 const AvatarPage = () => {
   return (
@@ -26,27 +26,43 @@ const AvatarPage = () => {
         </div>
         
         <div className="space-y-12">
-          <ComponentCard 
-            title="Basic Avatar" 
-            description="A simple avatar component with an image."
-            code={`<Avatar>
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Basic Avatar</h3>
+              <div className="flex items-center space-x-4 py-4">
+                <Avatar>
+                  <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+              </div>
+            </div>
+            <CodeBlock 
+              code={`<Avatar>
   <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
   <AvatarFallback>CN</AvatarFallback>
 </Avatar>
 `}
-          >
-            <div className="flex items-center space-x-4 py-4">
-              <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementation of Basic Avatar"
+              showCode={false}
+            />
+          </div>
           
-          <ComponentCard 
-            title="Avatar Fallback" 
-            description="An avatar with a fallback for when the image fails to load."
-            code={`<div className="flex items-center space-x-4">
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Avatar Fallback</h3>
+              <div className="flex items-center space-x-4 py-4">
+                <Avatar>
+                  <AvatarImage src="https://invalid-image.com" alt="@invalid" />
+                  <AvatarFallback>JD</AvatarFallback>
+                </Avatar>
+                <Avatar>
+                  <AvatarFallback>MK</AvatarFallback>
+                </Avatar>
+              </div>
+            </div>
+            <CodeBlock 
+              code={`<div className="flex items-center space-x-4">
   <Avatar>
     <AvatarImage src="https://invalid-image.com" alt="@invalid" />
     <AvatarFallback>JD</AvatarFallback>
@@ -56,22 +72,29 @@ const AvatarPage = () => {
   </Avatar>
 </div>
 `}
-          >
-            <div className="flex items-center space-x-4 py-4">
-              <Avatar>
-                <AvatarImage src="https://invalid-image.com" alt="@invalid" />
-                <AvatarFallback>JD</AvatarFallback>
-              </Avatar>
-              <Avatar>
-                <AvatarFallback>MK</AvatarFallback>
-              </Avatar>
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementation of Avatar Fallback"
+              showCode={false}
+            />
+          </div>
           
-          <ComponentCard 
-            title="Avatar Shapes" 
-            description="Avatars in different shape variants."
-            code={`<div className="flex items-center space-x-4">
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Avatar Shapes</h3>
+              <div className="flex items-center space-x-4 py-4">
+                <Avatar variant="circular">
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+                <Avatar variant="rounded">
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+                <Avatar variant="square">
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+              </div>
+            </div>
+            <CodeBlock 
+              code={`<div className="flex items-center space-x-4">
   <Avatar variant="circular">
     <AvatarFallback>CN</AvatarFallback>
   </Avatar>
@@ -83,24 +106,35 @@ const AvatarPage = () => {
   </Avatar>
 </div>
 `}
-          >
-            <div className="flex items-center space-x-4 py-4">
-              <Avatar variant="circular">
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-              <Avatar variant="rounded">
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-              <Avatar variant="square">
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementation of Avatar Shapes"
+              showCode={false}
+            />
+          </div>
           
-          <ComponentCard 
-            title="Avatar Sizes" 
-            description="Avatars in different size variants."
-            code={`<div className="flex items-center space-x-4">
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Avatar Sizes</h3>
+              <div className="flex items-center space-x-4 py-4">
+                <Avatar size="xs">
+                  <AvatarFallback>XS</AvatarFallback>
+                </Avatar>
+                <Avatar size="sm">
+                  <AvatarFallback>SM</AvatarFallback>
+                </Avatar>
+                <Avatar size="md">
+                  <AvatarFallback>MD</AvatarFallback>
+                </Avatar>
+                <Avatar size="lg">
+                  <AvatarFallback>LG</AvatarFallback>
+                </Avatar>
+                <Avatar size="xl">
+                  <AvatarFallback>XL</AvatarFallback>
+                </Avatar>
+              </div>
+            </div>
+            <CodeBlock 
+              code={`<div className="flex items-center space-x-4">
   <Avatar size="xs">
     <AvatarFallback>XS</AvatarFallback>
   </Avatar>
@@ -118,30 +152,38 @@ const AvatarPage = () => {
   </Avatar>
 </div>
 `}
-          >
-            <div className="flex items-center space-x-4 py-4">
-              <Avatar size="xs">
-                <AvatarFallback>XS</AvatarFallback>
-              </Avatar>
-              <Avatar size="sm">
-                <AvatarFallback>SM</AvatarFallback>
-              </Avatar>
-              <Avatar size="md">
-                <AvatarFallback>MD</AvatarFallback>
-              </Avatar>
-              <Avatar size="lg">
-                <AvatarFallback>LG</AvatarFallback>
-              </Avatar>
-              <Avatar size="xl">
-                <AvatarFallback>XL</AvatarFallback>
-              </Avatar>
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementation of Avatar Sizes"
+              showCode={false}
+            />
+          </div>
           
-          <ComponentCard 
-            title="Avatar Colors" 
-            description="Avatars in different color variants."
-            code={`<div className="flex items-center space-x-4">
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Avatar Colors</h3>
+              <div className="flex items-center space-x-4 py-4">
+                <Avatar color="primary">
+                  <AvatarFallback>P</AvatarFallback>
+                </Avatar>
+                <Avatar color="secondary">
+                  <AvatarFallback>S</AvatarFallback>
+                </Avatar>
+                <Avatar color="error">
+                  <AvatarFallback>E</AvatarFallback>
+                </Avatar>
+                <Avatar color="info">
+                  <AvatarFallback>I</AvatarFallback>
+                </Avatar>
+                <Avatar color="success">
+                  <AvatarFallback>S</AvatarFallback>
+                </Avatar>
+                <Avatar color="warning">
+                  <AvatarFallback>W</AvatarFallback>
+                </Avatar>
+              </div>
+            </div>
+            <CodeBlock 
+              code={`<div className="flex items-center space-x-4">
   <Avatar color="primary">
     <AvatarFallback>P</AvatarFallback>
   </Avatar>
@@ -162,28 +204,11 @@ const AvatarPage = () => {
   </Avatar>
 </div>
 `}
-          >
-            <div className="flex items-center space-x-4 py-4">
-              <Avatar color="primary">
-                <AvatarFallback>P</AvatarFallback>
-              </Avatar>
-              <Avatar color="secondary">
-                <AvatarFallback>S</AvatarFallback>
-              </Avatar>
-              <Avatar color="error">
-                <AvatarFallback>E</AvatarFallback>
-              </Avatar>
-              <Avatar color="info">
-                <AvatarFallback>I</AvatarFallback>
-              </Avatar>
-              <Avatar color="success">
-                <AvatarFallback>S</AvatarFallback>
-              </Avatar>
-              <Avatar color="warning">
-                <AvatarFallback>W</AvatarFallback>
-              </Avatar>
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementation of Avatar Colors"
+              showCode={false}
+            />
+          </div>
         </div>
         
         <div className="mt-12">

@@ -1,8 +1,8 @@
+
 import React, { useState } from 'react';
-import ComponentCard from '@/components/ComponentCard';
-import CodeBlock from '@/components/CodeBlock';
-import Header from '@/components/library-components/Header';
 import { X } from 'lucide-react';
+import Header from '@/components/library-components/Header';
+import CodeBlock from '@/components/CodeBlock';
 
 // Custom toggle switch component
 const Toggle = ({
@@ -38,51 +38,109 @@ const TogglePage = () => {
         className="mb-6"
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+      <div className="space-y-8">
         {/* Simple toggle */}
-        <ComponentCard title="Simple toggle" description="A basic toggle switch for on/off states." code={`const [enabled, setEnabled] = useState(false)
+        <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+          <div className="p-6">
+            <h3 className="text-lg font-medium mb-4">Simple toggle</h3>
+            <div className="p-4">
+              <Toggle enabled={simpleEnabled} onChange={setSimpleEnabled} />
+            </div>
+          </div>
+          <CodeBlock 
+            code={`const [enabled, setEnabled] = useState(false)
 
-<Toggle enabled={enabled} onChange={setEnabled} />`}>
-          <Toggle enabled={simpleEnabled} onChange={setSimpleEnabled} />
-        </ComponentCard>
+<Toggle enabled={enabled} onChange={setEnabled} />`}
+            language="tsx"
+            title="Implementation of Simple Toggle"
+            showCode={false}
+          />
+        </div>
 
         {/* Short toggle */}
-        <ComponentCard title="Short toggle" description="A smaller toggle switch for more compact UIs." code={`const [enabled, setEnabled] = useState(false)
+        <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+          <div className="p-6">
+            <h3 className="text-lg font-medium mb-4">Short toggle</h3>
+            <div className="p-4">
+              <Toggle enabled={shortEnabled} onChange={setShortEnabled} size="sm" />
+            </div>
+          </div>
+          <CodeBlock 
+            code={`const [enabled, setEnabled] = useState(false)
 
-<Toggle enabled={enabled} onChange={setEnabled} size="sm" />`}>
-          <Toggle enabled={shortEnabled} onChange={setShortEnabled} size="sm" />
-        </ComponentCard>
+<Toggle enabled={enabled} onChange={setEnabled} size="sm" />`}
+            language="tsx"
+            title="Implementation of Short Toggle"
+            showCode={false}
+          />
+        </div>
 
         {/* Toggle with icon */}
-        <ComponentCard title="Toggle with icon" description="A toggle switch with an icon indicator." code={`const [enabled, setEnabled] = useState(false)
+        <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+          <div className="p-6">
+            <h3 className="text-lg font-medium mb-4">Toggle with icon</h3>
+            <div className="p-4">
+              <div className="flex items-center gap-2">
+                {iconEnabled && <X size={16} className="text-gray-500" />}
+                <Toggle enabled={iconEnabled} onChange={setIconEnabled} />
+              </div>
+            </div>
+          </div>
+          <CodeBlock 
+            code={`const [enabled, setEnabled] = useState(false)
 
 <div className="flex items-center gap-2">
   {enabled && <X size={16} className="text-gray-500" />}
   <Toggle enabled={enabled} onChange={setEnabled} />
-</div>`}>
-          <div className="flex items-center gap-2">
-            {iconEnabled && <X size={16} className="text-gray-500" />}
-            <Toggle enabled={iconEnabled} onChange={setIconEnabled} />
-          </div>
-        </ComponentCard>
+</div>`}
+            language="tsx"
+            title="Implementation of Toggle with Icon"
+            showCode={false}
+          />
+        </div>
 
-        {/* Simulate toggle - the new example */}
-        <ComponentCard title="Simulate toggle" description="A toggle with 'Simular' label before the toggle." code={`const [enabled, setEnabled] = useState(false)
+        {/* Simulate toggle */}
+        <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+          <div className="p-6">
+            <h3 className="text-lg font-medium mb-4">Simulate toggle</h3>
+            <div className="p-4">
+              <div className="flex items-center">
+                <span className="mr-3 text-sm font-medium text-gray-900">Simular</span>
+                <Toggle enabled={simulateEnabled} onChange={setSimulateEnabled} />
+                {simulateEnabled && <span className="ml-2 text-sm text-green-500">(Ativado)</span>}
+              </div>
+            </div>
+          </div>
+          <CodeBlock 
+            code={`const [enabled, setEnabled] = useState(false)
 
 <div className="flex items-center">
   <span className="mr-3 text-sm font-medium text-gray-900">Simular</span>
   <Toggle enabled={enabled} onChange={setEnabled} />
   {enabled && <span className="ml-2 text-sm text-green-500">(Ativado)</span>}
-</div>`}>
-          <div className="flex items-center">
-            <span className="mr-3 text-sm font-medium text-gray-900">Simular</span>
-            <Toggle enabled={simulateEnabled} onChange={setSimulateEnabled} />
-            {simulateEnabled && <span className="ml-2 text-sm text-green-500">(Ativado)</span>}
-          </div>
-        </ComponentCard>
+</div>`}
+            language="tsx"
+            title="Implementation of Simulate Toggle"
+            showCode={false}
+          />
+        </div>
 
         {/* With left label and description */}
-        <ComponentCard title="With left label and description" description="A toggle with a label and detailed description on the left." code={`const [enabled, setEnabled] = useState(false)
+        <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+          <div className="p-6">
+            <h3 className="text-lg font-medium mb-4">With left label and description</h3>
+            <div className="p-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-sm font-medium text-gray-900">Available to hire</h3>
+                  <p className="text-sm text-gray-500">Nulla amet tempus sit accumsan. Aliquet turpis sed sit lacinia.</p>
+                </div>
+                <Toggle enabled={descriptionEnabled} onChange={setDescriptionEnabled} />
+              </div>
+            </div>
+          </div>
+          <CodeBlock 
+            code={`const [enabled, setEnabled] = useState(false)
 
 <div className="flex items-center justify-between">
   <div>
@@ -90,30 +148,38 @@ const TogglePage = () => {
     <p className="text-sm text-gray-500">Nulla amet tempus sit accumsan. Aliquet turpis sed sit lacinia.</p>
   </div>
   <Toggle enabled={enabled} onChange={setEnabled} />
-</div>`}>
-          <div className="flex items-center justify-between">
-            <div>
-              <h3 className="text-sm font-medium text-gray-900">Available to hire</h3>
-              <p className="text-sm text-gray-500">Nulla amet tempus sit accumsan. Aliquet turpis sed sit lacinia.</p>
-            </div>
-            <Toggle enabled={descriptionEnabled} onChange={setDescriptionEnabled} />
-          </div>
-        </ComponentCard>
+</div>`}
+            language="tsx"
+            title="Implementation of Toggle with Description"
+            showCode={false}
+          />
+        </div>
 
         {/* With right label */}
-        <ComponentCard title="With right label" description="A toggle with a label on the right side." code={`const [enabled, setEnabled] = useState(false)
+        <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+          <div className="p-6">
+            <h3 className="text-lg font-medium mb-4">With right label</h3>
+            <div className="p-4">
+              <div className="flex items-center">
+                <Toggle enabled={rightLabelEnabled} onChange={setRightLabelEnabled} />
+                <span className="ml-3 text-sm font-medium text-gray-900">Annual billing</span>
+                {rightLabelEnabled && <span className="ml-2 text-sm text-green-500">(Save 10%)</span>}
+              </div>
+            </div>
+          </div>
+          <CodeBlock 
+            code={`const [enabled, setEnabled] = useState(false)
 
 <div className="flex items-center">
   <Toggle enabled={enabled} onChange={setEnabled} />
   <span className="ml-3 text-sm font-medium text-gray-900">Annual billing</span>
   {enabled && <span className="ml-2 text-sm text-green-500">(Save 10%)</span>}
-</div>`}>
-          <div className="flex items-center">
-            <Toggle enabled={rightLabelEnabled} onChange={setRightLabelEnabled} />
-            <span className="ml-3 text-sm font-medium text-gray-900">Annual billing</span>
-            {rightLabelEnabled && <span className="ml-2 text-sm text-green-500">(Save 10%)</span>}
-          </div>
-        </ComponentCard>
+</div>`}
+            language="tsx"
+            title="Implementation of Toggle with Right Label"
+            showCode={false}
+          />
+        </div>
       </div>
     </div>;
 };

@@ -1,10 +1,10 @@
 
 import React, { useState } from 'react';
-import ComponentCard from '@/components/ComponentCard';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { Mail, Bell, MessageSquare, User } from 'lucide-react';
 import Header from '@/components/library-components/Header';
+import CodeBlock from '@/components/CodeBlock';
 
 const BadgePage = () => {
   return (
@@ -27,24 +27,45 @@ const BadgePage = () => {
         </div>
         
         <div className="space-y-12">
-          <ComponentCard 
-            title="Basic Badge" 
-            description="A simple badge component that wraps an element."
-            code={`<Badge badgeContent={4}>
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Basic Badge</h3>
+              <div className="flex items-center justify-center p-6">
+                <Badge badgeContent={4}>
+                  <Mail className="h-6 w-6" />
+                </Badge>
+              </div>
+            </div>
+            <CodeBlock 
+              code={`<Badge badgeContent={4}>
   <Mail className="h-6 w-6" />
 </Badge>`}
-          >
-            <div className="flex items-center justify-center p-6">
-              <Badge badgeContent={4}>
-                <Mail className="h-6 w-6" />
-              </Badge>
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementation of Basic Badge"
+              showCode={false}
+            />
+          </div>
           
-          <ComponentCard 
-            title="Badge Colors" 
-            description="Badges in different colors to represent different states or categories."
-            code={`<div className="flex items-center gap-6">
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Badge Colors</h3>
+              <div className="flex items-center justify-center gap-6 p-6">
+                <Badge badgeContent={4} color="primary">
+                  <Mail className="h-6 w-6" />
+                </Badge>
+                <Badge badgeContent={4} color="secondary">
+                  <Bell className="h-6 w-6" />
+                </Badge>
+                <Badge badgeContent={4} color="error">
+                  <MessageSquare className="h-6 w-6" />
+                </Badge>
+                <Badge badgeContent={4} color="success">
+                  <User className="h-6 w-6" />
+                </Badge>
+              </div>
+            </div>
+            <CodeBlock 
+              code={`<div className="flex items-center gap-6">
   <Badge badgeContent={4} color="primary">
     <Mail className="h-6 w-6" />
   </Badge>
@@ -58,27 +79,29 @@ const BadgePage = () => {
     <User className="h-6 w-6" />
   </Badge>
 </div>`}
-          >
-            <div className="flex items-center justify-center gap-6 p-6">
-              <Badge badgeContent={4} color="primary">
-                <Mail className="h-6 w-6" />
-              </Badge>
-              <Badge badgeContent={4} color="secondary">
-                <Bell className="h-6 w-6" />
-              </Badge>
-              <Badge badgeContent={4} color="error">
-                <MessageSquare className="h-6 w-6" />
-              </Badge>
-              <Badge badgeContent={4} color="success">
-                <User className="h-6 w-6" />
-              </Badge>
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementation of Badge Colors"
+              showCode={false}
+            />
+          </div>
           
-          <ComponentCard 
-            title="Dot Badges" 
-            description="Minimal badges showing only a dot indicator for subtle notifications."
-            code={`<div className="flex items-center gap-6">
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Dot Badges</h3>
+              <div className="flex items-center justify-center gap-6 p-6">
+                <Badge variant="dot" color="primary">
+                  <Mail className="h-6 w-6" />
+                </Badge>
+                <Badge variant="dot" color="secondary">
+                  <Bell className="h-6 w-6" />
+                </Badge>
+                <Badge variant="dot" color="error">
+                  <MessageSquare className="h-6 w-6" />
+                </Badge>
+              </div>
+            </div>
+            <CodeBlock 
+              code={`<div className="flex items-center gap-6">
   <Badge variant="dot" color="primary">
     <Mail className="h-6 w-6" />
   </Badge>
@@ -89,24 +112,26 @@ const BadgePage = () => {
     <MessageSquare className="h-6 w-6" />
   </Badge>
 </div>`}
-          >
-            <div className="flex items-center justify-center gap-6 p-6">
-              <Badge variant="dot" color="primary">
-                <Mail className="h-6 w-6" />
-              </Badge>
-              <Badge variant="dot" color="secondary">
-                <Bell className="h-6 w-6" />
-              </Badge>
-              <Badge variant="dot" color="error">
-                <MessageSquare className="h-6 w-6" />
-              </Badge>
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementation of Dot Badges"
+              showCode={false}
+            />
+          </div>
           
-          <ComponentCard 
-            title="Maximum Value" 
-            description="Badges that cap the displayed number with a maximum value."
-            code={`<div className="flex items-center gap-6">
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Maximum Value</h3>
+              <div className="flex items-center justify-center gap-6 p-6">
+                <Badge badgeContent={99} max={99}>
+                  <Mail className="h-6 w-6" />
+                </Badge>
+                <Badge badgeContent={1000} max={999}>
+                  <Bell className="h-6 w-6" />
+                </Badge>
+              </div>
+            </div>
+            <CodeBlock 
+              code={`<div className="flex items-center gap-6">
   <Badge badgeContent={99} max={99}>
     <Mail className="h-6 w-6" />
   </Badge>
@@ -114,21 +139,29 @@ const BadgePage = () => {
     <Bell className="h-6 w-6" />
   </Badge>
 </div>`}
-          >
-            <div className="flex items-center justify-center gap-6 p-6">
-              <Badge badgeContent={99} max={99}>
-                <Mail className="h-6 w-6" />
-              </Badge>
-              <Badge badgeContent={1000} max={999}>
-                <Bell className="h-6 w-6" />
-              </Badge>
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementation of Maximum Value Badges"
+              showCode={false}
+            />
+          </div>
           
-          <ComponentCard 
-            title="Badge Visibility" 
-            description="Control the visibility of badges with the invisible and showZero props."
-            code={`<div className="flex items-center gap-6">
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Badge Visibility</h3>
+              <div className="flex items-center justify-center gap-6 p-6">
+                <Badge badgeContent={0} showZero>
+                  <Mail className="h-6 w-6" />
+                </Badge>
+                <Badge badgeContent={0}>
+                  <Bell className="h-6 w-6" />
+                </Badge>
+                <Badge badgeContent={5} invisible>
+                  <MessageSquare className="h-6 w-6" />
+                </Badge>
+              </div>
+            </div>
+            <CodeBlock 
+              code={`<div className="flex items-center gap-6">
   <Badge badgeContent={0} showZero>
     <Mail className="h-6 w-6" />
   </Badge>
@@ -139,24 +172,44 @@ const BadgePage = () => {
     <MessageSquare className="h-6 w-6" />
   </Badge>
 </div>`}
-          >
-            <div className="flex items-center justify-center gap-6 p-6">
-              <Badge badgeContent={0} showZero>
-                <Mail className="h-6 w-6" />
-              </Badge>
-              <Badge badgeContent={0}>
-                <Bell className="h-6 w-6" />
-              </Badge>
-              <Badge badgeContent={5} invisible>
-                <MessageSquare className="h-6 w-6" />
-              </Badge>
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementation of Badge Visibility"
+              showCode={false}
+            />
+          </div>
           
-          <ComponentCard 
-            title="Badge Positioning" 
-            description="Customize the position of the badge relative to its child element."
-            code={`<div className="flex items-center gap-6">
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Badge Positioning</h3>
+              <div className="flex items-center justify-center gap-6 p-6">
+                <Badge 
+                  badgeContent={4} 
+                  anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                >
+                  <Mail className="h-6 w-6" />
+                </Badge>
+                <Badge 
+                  badgeContent={4} 
+                  anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                >
+                  <Bell className="h-6 w-6" />
+                </Badge>
+                <Badge 
+                  badgeContent={4} 
+                  anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                >
+                  <MessageSquare className="h-6 w-6" />
+                </Badge>
+                <Badge 
+                  badgeContent={4} 
+                  anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
+                >
+                  <User className="h-6 w-6" />
+                </Badge>
+              </div>
+            </div>
+            <CodeBlock 
+              code={`<div className="flex items-center gap-6">
   <Badge 
     badgeContent={4} 
     anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
@@ -182,39 +235,29 @@ const BadgePage = () => {
     <User className="h-6 w-6" />
   </Badge>
 </div>`}
-          >
-            <div className="flex items-center justify-center gap-6 p-6">
-              <Badge 
-                badgeContent={4} 
-                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-              >
-                <Mail className="h-6 w-6" />
-              </Badge>
-              <Badge 
-                badgeContent={4} 
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-              >
-                <Bell className="h-6 w-6" />
-              </Badge>
-              <Badge 
-                badgeContent={4} 
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-              >
-                <MessageSquare className="h-6 w-6" />
-              </Badge>
-              <Badge 
-                badgeContent={4} 
-                anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
-              >
-                <User className="h-6 w-6" />
-              </Badge>
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementation of Badge Positioning"
+              showCode={false}
+            />
+          </div>
           
-          <ComponentCard 
-            title="Badge Sizes" 
-            description="Badges in different sizes to match various UI element scales."
-            code={`<div className="flex items-center gap-6">
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Badge Sizes</h3>
+              <div className="flex items-center justify-center gap-6 p-6">
+                <Badge badgeContent={4} size="sm">
+                  <Mail className="h-4 w-4" />
+                </Badge>
+                <Badge badgeContent={4} size="default">
+                  <Bell className="h-6 w-6" />
+                </Badge>
+                <Badge badgeContent={4} size="lg">
+                  <MessageSquare className="h-8 w-8" />
+                </Badge>
+              </div>
+            </div>
+            <CodeBlock 
+              code={`<div className="flex items-center gap-6">
   <Badge badgeContent={4} size="sm">
     <Mail className="h-4 w-4" />
   </Badge>
@@ -225,35 +268,32 @@ const BadgePage = () => {
     <MessageSquare className="h-8 w-8" />
   </Badge>
 </div>`}
-          >
-            <div className="flex items-center justify-center gap-6 p-6">
-              <Badge badgeContent={4} size="sm">
-                <Mail className="h-4 w-4" />
-              </Badge>
-              <Badge badgeContent={4} size="default">
-                <Bell className="h-6 w-6" />
-              </Badge>
-              <Badge badgeContent={4} size="lg">
-                <MessageSquare className="h-8 w-8" />
-              </Badge>
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementation of Badge Sizes"
+              showCode={false}
+            />
+          </div>
           
-          <ComponentCard 
-            title="Standalone Badge" 
-            description="A badge without any child elements, displayed on its own."
-            code={`<div className="flex items-center gap-4">
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Standalone Badge</h3>
+              <div className="flex items-center justify-center gap-4 p-6">
+                <Badge badgeContent={4} />
+                <Badge badgeContent="New" color="secondary" />
+                <Badge badgeContent="Online" color="success" />
+              </div>
+            </div>
+            <CodeBlock 
+              code={`<div className="flex items-center gap-4">
   <Badge badgeContent={4} />
   <Badge badgeContent="New" color="secondary" />
   <Badge badgeContent="Online" color="success" />
 </div>`}
-          >
-            <div className="flex items-center justify-center gap-4 p-6">
-              <Badge badgeContent={4} />
-              <Badge badgeContent="New" color="secondary" />
-              <Badge badgeContent="Online" color="success" />
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementation of Standalone Badge"
+              showCode={false}
+            />
+          </div>
         </div>
         
         <div className="mt-12">

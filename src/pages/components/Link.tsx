@@ -9,8 +9,8 @@
 import React from 'react';
 import { Link } from '@/components/ui/link';
 import Header from '@/components/library-components/Header';
-import ComponentCard from '@/components/ComponentCard';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import CodeBlock from '@/components/CodeBlock';
 
 const LinkPage = () => {
   return (
@@ -28,53 +28,69 @@ const LinkPage = () => {
         </TabsList>
         
         <TabsContent value="overview" className="space-y-6 mt-6 w-full">
-          <ComponentCard 
-            title="Link Padrão" 
-            description="Link de texto padrão com cor primary-dark (Amicci-700)"
-            code={`<Link href="/components">Acessar componentes</Link>`}
-            className="w-full"
-          >
-            <div className="flex flex-col space-y-4 items-start p-4 w-full">
-              <Link href="/components">Acessar componentes</Link>
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Link Padrão</h3>
+              <div className="flex flex-col space-y-4 items-start p-4">
+                <Link href="/components">Acessar componentes</Link>
+              </div>
             </div>
-          </ComponentCard>
+            <CodeBlock 
+              code={`<Link href="/components">Acessar componentes</Link>`}
+              language="tsx"
+              title="Implementação do Link Padrão"
+              showCode={false}
+            />
+          </div>
           
-          <ComponentCard 
-            title="Link com Sublinhado" 
-            description="Variante de link com sublinhado para destaque visual"
-            code={`<Link href="/components" variant="underlined">Componentes sublinhado</Link>`}
-            className="w-full"
-          >
-            <div className="flex flex-col space-y-4 items-start p-4 w-full">
-              <Link href="/components" variant="underlined">Componentes sublinhado</Link>
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Link com Sublinhado</h3>
+              <div className="flex flex-col space-y-4 items-start p-4">
+                <Link href="/components" variant="underlined">Componentes sublinhado</Link>
+              </div>
             </div>
-          </ComponentCard>
+            <CodeBlock 
+              code={`<Link href="/components" variant="underlined">Componentes sublinhado</Link>`}
+              language="tsx"
+              title="Implementação do Link com Sublinhado"
+              showCode={false}
+            />
+          </div>
           
-          <ComponentCard 
-            title="Link Externo" 
-            description="Link para recursos externos com ícone indicativo"
-            code={`<Link href="https://lovable.dev" external>Site Lovable</Link>`}
-            className="w-full"
-          >
-            <div className="flex flex-col space-y-4 items-start p-4 w-full">
-              <Link href="https://lovable.dev" external>Site Lovable</Link>
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Link Externo</h3>
+              <div className="flex flex-col space-y-4 items-start p-4">
+                <Link href="https://lovable.dev" external>Site Lovable</Link>
+              </div>
             </div>
-          </ComponentCard>
+            <CodeBlock 
+              code={`<Link href="https://lovable.dev" external>Site Lovable</Link>`}
+              language="tsx"
+              title="Implementação do Link Externo"
+              showCode={false}
+            />
+          </div>
           
-          <ComponentCard 
-            title="Tamanhos de Link" 
-            description="Links com diferentes tamanhos"
-            code={`<Link href="/components" size="sm">Link pequeno</Link>
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Tamanhos de Link</h3>
+              <div className="flex flex-col space-y-4 items-start p-4">
+                <Link href="/components" size="sm">Link pequeno</Link>
+                <Link href="/components">Link padrão</Link>
+                <Link href="/components" size="lg">Link grande</Link>
+              </div>
+            </div>
+            <CodeBlock 
+              code={`<Link href="/components" size="sm">Link pequeno</Link>
 <Link href="/components">Link padrão</Link>
 <Link href="/components" size="lg">Link grande</Link>`}
-            className="w-full"
-          >
-            <div className="flex flex-col space-y-4 items-start p-4 w-full">
-              <Link href="/components" size="sm">Link pequeno</Link>
-              <Link href="/components">Link padrão</Link>
-              <Link href="/components" size="lg">Link grande</Link>
-            </div>
-          </ComponentCard>
+              language="tsx"
+              title="Implementação de Links com Diferentes Tamanhos"
+              showCode={false}
+            />
+          </div>
         </TabsContent>
         
         <TabsContent value="usage" className="space-y-6 mt-6 w-full">

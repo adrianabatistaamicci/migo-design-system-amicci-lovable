@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -6,7 +7,6 @@
  */
 
 import React from 'react';
-import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
 import { Menu, ChevronDown, ChevronRight, Home, Settings, Users, FileText } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -237,21 +237,17 @@ const VerticalNavigation = () => {
       <div className="max-w-[1280px] mx-auto">
         <section className="mb-10">
           <h2 className="text-2xl font-semibold mb-6">Navegação Vertical com Submenus</h2>
-          <div className="space-y-4">
-            <p className="text-gray-700">
-              A navegação vertical com submenus expansíveis é ideal para estruturar hierarquias complexas de conteúdo,
-              mantendo a interface limpa e organizada.
-            </p>
-            
-            <div className="border rounded-lg overflow-hidden shadow-sm">
-              <div className="p-6 bg-white flex justify-center">
-                <VerticalNavigationExample />
-              </div>
-              
-              <div className="border-t">
-                <CodeBlock code={verticalNavCode} language="tsx" />
-              </div>
+          
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6 flex justify-center">
+              <VerticalNavigationExample />
             </div>
+            <CodeBlock 
+              code={verticalNavCode} 
+              language="tsx" 
+              title="Implementação da Navegação Vertical"
+              showCode={false}
+            />
           </div>
         </section>
         

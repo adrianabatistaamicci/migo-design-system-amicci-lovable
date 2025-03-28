@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -6,12 +7,12 @@
  */
 
 import React from 'react';
-import ComponentCard from '@/components/ComponentCard';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { TailwindTabs } from '@/components/ui/tabs';
 import Header from '@/components/library-components/Header';
 import { Folder, Users, Calendar, FileText, Rocket, Factory, Settings, PenTool } from 'lucide-react';
+import CodeBlock from '@/components/CodeBlock';
 
 const TabsPage = () => {
   return <div className="w-full animate-slide-in">
@@ -29,7 +30,33 @@ const TabsPage = () => {
         </div>
         
         <div className="space-y-12">
-          <ComponentCard title="Tabs with Underline (Default)" description="The default tabs component with an underline indicator." code={`<TailwindTabs
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Tabs with Underline (Default)</h3>
+              <div className="w-full max-w-md mx-auto">
+                <TailwindTabs tabs={[{
+                  name: 'My Account',
+                  value: 'account'
+                }, {
+                  name: 'Company',
+                  value: 'company'
+                }, {
+                  name: 'Team Members',
+                  value: 'team'
+                }, {
+                  name: 'Billing',
+                  value: 'billing'
+                }]} variant="underline" />
+                <div className="p-4 border border-gray-200 rounded-md mt-3">
+                  <h3 className="text-lg font-medium mb-2">Account Settings</h3>
+                  <p className="text-sm text-gray-500">
+                    Manage your account settings and preferences.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <CodeBlock 
+              code={`<TailwindTabs
   tabs={[
     { name: 'My Account', value: 'account' },
     { name: 'Company', value: 'company' },
@@ -37,31 +64,37 @@ const TabsPage = () => {
     { name: 'Billing', value: 'billing' }
   ]}
   variant="underline"
-/>`}>
-            <div className="w-full max-w-md mx-auto">
-              <TailwindTabs tabs={[{
-              name: 'My Account',
-              value: 'account'
-            }, {
-              name: 'Company',
-              value: 'company'
-            }, {
-              name: 'Team Members',
-              value: 'team'
-            }, {
-              name: 'Billing',
-              value: 'billing'
-            }]} variant="underline" />
-              <div className="p-4 border border-gray-200 rounded-md mt-3">
-                <h3 className="text-lg font-medium mb-2">Account Settings</h3>
-                <p className="text-sm text-gray-500">
-                  Manage your account settings and preferences.
-                </p>
+/>`}
+              language="tsx"
+              title="Implementation of Tabs with Underline"
+              showCode={false}
+            />
+          </div>
+
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Tabs in Pills</h3>
+              <div className="w-full max-w-md mx-auto">
+                <TailwindTabs tabs={[{
+                  name: 'Dashboard',
+                  value: 'dashboard'
+                }, {
+                  name: 'Team',
+                  value: 'team'
+                }, {
+                  name: 'Projects',
+                  value: 'projects'
+                }, {
+                  name: 'Calendar',
+                  value: 'calendar'
+                }]} variant="pills" />
+                <div className="p-4 border border-gray-200 rounded-md mt-3">
+                  <p className="text-sm">Dashboard content</p>
+                </div>
               </div>
             </div>
-          </ComponentCard>
-
-          <ComponentCard title="Tabs in Pills" description="Tabs displayed as clickable pills with subtle background change." code={`<TailwindTabs
+            <CodeBlock 
+              code={`<TailwindTabs
   tabs={[
     { name: 'Dashboard', value: 'dashboard' },
     { name: 'Team', value: 'team' },
@@ -69,28 +102,37 @@ const TabsPage = () => {
     { name: 'Calendar', value: 'calendar' },
   ]}
   variant="pills"
-/>`}>
-            <div className="w-full max-w-md mx-auto">
-              <TailwindTabs tabs={[{
-              name: 'Dashboard',
-              value: 'dashboard'
-            }, {
-              name: 'Team',
-              value: 'team'
-            }, {
-              name: 'Projects',
-              value: 'projects'
-            }, {
-              name: 'Calendar',
-              value: 'calendar'
-            }]} variant="pills" />
-              <div className="p-4 border border-gray-200 rounded-md mt-3">
-                <p className="text-sm">Dashboard content</p>
+/>`}
+              language="tsx"
+              title="Implementation of Tabs in Pills"
+              showCode={false}
+            />
+          </div>
+
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Tabs in Pills on Gray</h3>
+              <div className="w-full max-w-md mx-auto">
+                <TailwindTabs tabs={[{
+                  name: 'Dashboard',
+                  value: 'dashboard'
+                }, {
+                  name: 'Team',
+                  value: 'team'
+                }, {
+                  name: 'Projects',
+                  value: 'projects'
+                }, {
+                  name: 'Calendar',
+                  value: 'calendar'
+                }]} variant="pillsGray" />
+                <div className="p-4 border border-gray-200 rounded-md mt-3">
+                  <p className="text-sm">Dashboard content</p>
+                </div>
               </div>
             </div>
-          </ComponentCard>
-
-          <ComponentCard title="Tabs in Pills on Gray" description="Tabs in a pill format on a gray background for better contrast." code={`<TailwindTabs
+            <CodeBlock 
+              code={`<TailwindTabs
   tabs={[
     { name: 'Dashboard', value: 'dashboard' },
     { name: 'Team', value: 'team' },
@@ -98,28 +140,37 @@ const TabsPage = () => {
     { name: 'Calendar', value: 'calendar' },
   ]}
   variant="pillsGray"
-/>`}>
-            <div className="w-full max-w-md mx-auto">
-              <TailwindTabs tabs={[{
-              name: 'Dashboard',
-              value: 'dashboard'
-            }, {
-              name: 'Team',
-              value: 'team'
-            }, {
-              name: 'Projects',
-              value: 'projects'
-            }, {
-              name: 'Calendar',
-              value: 'calendar'
-            }]} variant="pillsGray" />
-              <div className="p-4 border border-gray-200 rounded-md mt-3">
-                <p className="text-sm">Dashboard content</p>
+/>`}
+              language="tsx"
+              title="Implementation of Tabs in Pills on Gray"
+              showCode={false}
+            />
+          </div>
+
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Tabs in Pills with Brand Color</h3>
+              <div className="w-full max-w-md mx-auto">
+                <TailwindTabs tabs={[{
+                  name: 'Dashboard',
+                  value: 'dashboard'
+                }, {
+                  name: 'Team',
+                  value: 'team'
+                }, {
+                  name: 'Projects',
+                  value: 'projects'
+                }, {
+                  name: 'Calendar',
+                  value: 'calendar'
+                }]} variant="pillsBrand" />
+                <div className="p-4 border border-gray-200 rounded-md mt-3">
+                  <p className="text-sm">Dashboard content</p>
+                </div>
               </div>
             </div>
-          </ComponentCard>
-
-          <ComponentCard title="Tabs in Pills with Brand Color" description="Tabs in a pill format with the brand color for the active tab." code={`<TailwindTabs
+            <CodeBlock 
+              code={`<TailwindTabs
   tabs={[
     { name: 'Dashboard', value: 'dashboard' },
     { name: 'Team', value: 'team' },
@@ -127,53 +178,71 @@ const TabsPage = () => {
     { name: 'Calendar', value: 'calendar' },
   ]}
   variant="pillsBrand"
-/>`}>
-            <div className="w-full max-w-md mx-auto">
-              <TailwindTabs tabs={[{
-              name: 'Dashboard',
-              value: 'dashboard'
-            }, {
-              name: 'Team',
-              value: 'team'
-            }, {
-              name: 'Projects',
-              value: 'projects'
-            }, {
-              name: 'Calendar',
-              value: 'calendar'
-            }]} variant="pillsBrand" />
-              <div className="p-4 border border-gray-200 rounded-md mt-3">
-                <p className="text-sm">Dashboard content</p>
+/>`}
+              language="tsx"
+              title="Implementation of Tabs in Pills with Brand Color"
+              showCode={false}
+            />
+          </div>
+
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Full-width Tabs with Underline</h3>
+              <div className="w-full max-w-md mx-auto">
+                <TailwindTabs tabs={[{
+                  name: 'Dashboard',
+                  value: 'dashboard'
+                }, {
+                  name: 'Team',
+                  value: 'team'
+                }, {
+                  name: 'Projects',
+                  value: 'projects'
+                }]} variant="fullWidth" />
+                <div className="p-4 border-x border-b border-gray-200 rounded-b-md">
+                  <p className="text-sm">Dashboard content</p>
+                </div>
               </div>
             </div>
-          </ComponentCard>
-
-          <ComponentCard title="Full-width Tabs with Underline" description="Tabs that expand to fill the entire width with an underline for the active tab." code={`<TailwindTabs
+            <CodeBlock 
+              code={`<TailwindTabs
   tabs={[
     { name: 'Dashboard', value: 'dashboard' },
     { name: 'Team', value: 'team' },
     { name: 'Projects', value: 'projects' },
   ]}
   variant="fullWidth"
-/>`}>
-            <div className="w-full max-w-md mx-auto">
-              <TailwindTabs tabs={[{
-              name: 'Dashboard',
-              value: 'dashboard'
-            }, {
-              name: 'Team',
-              value: 'team'
-            }, {
-              name: 'Projects',
-              value: 'projects'
-            }]} variant="fullWidth" />
-              <div className="p-4 border-x border-b border-gray-200 rounded-b-md">
-                <p className="text-sm">Dashboard content</p>
+/>`}
+              language="tsx"
+              title="Implementation of Full-width Tabs with Underline"
+              showCode={false}
+            />
+          </div>
+
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Bar with Underline</h3>
+              <div className="w-full max-w-md mx-auto">
+                <TailwindTabs tabs={[{
+                  name: 'Overview',
+                  value: 'overview'
+                }, {
+                  name: 'Features',
+                  value: 'features'
+                }, {
+                  name: 'Pricing',
+                  value: 'pricing'
+                }, {
+                  name: 'FAQs',
+                  value: 'faqs'
+                }]} variant="bar" />
+                <div className="p-4 mt-4">
+                  <p className="text-sm">Overview content</p>
+                </div>
               </div>
             </div>
-          </ComponentCard>
-
-          <ComponentCard title="Bar with Underline" description="A minimalist bar with an underline for the active tab." code={`<TailwindTabs
+            <CodeBlock 
+              code={`<TailwindTabs
   tabs={[
     { name: 'Overview', value: 'overview' },
     { name: 'Features', value: 'features' },
@@ -181,53 +250,89 @@ const TabsPage = () => {
     { name: 'FAQs', value: 'faqs' },
   ]}
   variant="bar"
-/>`}>
-            <div className="w-full max-w-md mx-auto">
-              <TailwindTabs tabs={[{
-              name: 'Overview',
-              value: 'overview'
-            }, {
-              name: 'Features',
-              value: 'features'
-            }, {
-              name: 'Pricing',
-              value: 'pricing'
-            }, {
-              name: 'FAQs',
-              value: 'faqs'
-            }]} variant="bar" />
-              <div className="p-4 mt-4">
-                <p className="text-sm">Overview content</p>
+/>`}
+              language="tsx"
+              title="Implementation of Bar with Underline"
+              showCode={false}
+            />
+          </div>
+
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Tabs with Underline and Badges</h3>
+              <div className="w-full max-w-md mx-auto">
+                <TailwindTabs tabs={[{
+                  name: 'Inbox',
+                  value: 'inbox'
+                }, {
+                  name: 'Spam',
+                  value: 'spam'
+                }, {
+                  name: 'Archived',
+                  value: 'archived'
+                }]} variant="underlineBadges" />
+                <div className="p-4 border-x border-b border-gray-200 rounded-b-md">
+                  <p className="text-sm">Inbox content</p>
+                </div>
               </div>
             </div>
-          </ComponentCard>
-
-          <ComponentCard title="Tabs with Underline and Badges" description="Tabs with an underline and badges to display counters or status indicators." code={`<TailwindTabs
+            <CodeBlock 
+              code={`<TailwindTabs
   tabs={[
     { name: 'Inbox', value: 'inbox' },
     { name: 'Spam', value: 'spam' },
     { name: 'Archived', value: 'archived' },
   ]}
   variant="underlineBadges"
-/>`}>
-            <div className="w-full max-w-md mx-auto">
-              <TailwindTabs tabs={[{
-              name: 'Inbox',
-              value: 'inbox'
-            }, {
-              name: 'Spam',
-              value: 'spam'
-            }, {
-              name: 'Archived',
-              value: 'archived'
-            }]} variant="underlineBadges" />
-              <div className="p-4 border-x border-b border-gray-200 rounded-b-md">
-                <p className="text-sm">Inbox content</p>
+/>`}
+              language="tsx"
+              title="Implementation of Tabs with Underline and Badges"
+              showCode={false}
+            />
+          </div>
+
+          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <h3 className="text-lg font-medium mb-4">Project Tabs on Gray</h3>
+              <div className="w-full mx-auto">
+                <TailwindTabs
+                  tabs={[
+                    { 
+                      name: 'Especificação',
+                      value: 'specification',
+                      icon: <Settings className="h-5 w-5" />,
+                      secondaryText: "Prazo 03/05/2024",
+                      chipStatus: "Concluído"
+                    },
+                    { 
+                      name: 'Fornecedor',
+                      value: 'supplier',
+                      icon: <Factory className="h-5 w-5" />,
+                      secondaryText: "Prazo 03/05/2024",
+                      chipStatus: "Em andamento"
+                    },
+                    { 
+                      name: 'Embalagem',
+                      value: 'packaging',
+                      icon: <PenTool className="h-5 w-5" />,
+                      secondaryText: "Prazo 03/05/2024",
+                      chipStatus: "Não iniciado"
+                    },
+                    { 
+                      name: 'Produção',
+                      value: 'production',
+                      icon: <Rocket className="h-5 w-5" />,
+                      secondaryText: "Prazo 03/05/2024",
+                      chipStatus: "Em breve"
+                    }
+                  ]}
+                  variant="projectTabs"
+                  className="w-full"
+                />
               </div>
             </div>
-          </ComponentCard>
-
-          <ComponentCard title="Project Tabs on Gray" description="Rich tabs with icons, chips, and secondary text, designed for project navigation with a gray theme and full-width layout." code={`<TailwindTabs
+            <CodeBlock 
+              code={`<TailwindTabs
   tabs={[
     { 
       name: 'Especificação',
@@ -260,104 +365,11 @@ const TabsPage = () => {
   ]}
   variant="projectTabs"
   className="w-full"
-/>`}>
-            <div className="w-full mx-auto">
-              <TailwindTabs 
-                tabs={[{
-                  name: 'Especificação',
-                  value: 'specification',
-                  icon: <Settings className="h-5 w-5" />,
-                  secondaryText: "Prazo 03/05/2024",
-                  chipStatus: "Concluído"
-                }, {
-                  name: 'Fornecedor',
-                  value: 'supplier',
-                  icon: <Factory className="h-5 w-5" />,
-                  secondaryText: "Prazo 03/05/2024",
-                  chipStatus: "Em andamento"
-                }, {
-                  name: 'Embalagem',
-                  value: 'packaging',
-                  icon: <PenTool className="h-5 w-5" />,
-                  secondaryText: "Prazo 03/05/2024",
-                  chipStatus: "Não iniciado"
-                }, {
-                  name: 'Produção',
-                  value: 'production',
-                  icon: <Rocket className="h-5 w-5" />,
-                  secondaryText: "Prazo 03/05/2024",
-                  chipStatus: "Em breve"
-                }]} 
-                variant="projectTabs"
-                className="w-full" 
-              />
-            </div>
-          </ComponentCard>
-          
-          <div className="mt-12">
-            <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
-              API Reference
-            </h2>
-            
-            <div className="border border-mui-border rounded-lg overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow className="bg-mui-sidebar">
-                    <TableHead className="w-1/4">Component</TableHead>
-                    <TableHead className="w-3/4">Description</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell className="font-mono text-mui-text-primary">TailwindTabs</TableCell>
-                    <TableCell className="text-mui-text-secondary">A simple tab component with multiple style variants</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </div>
-            
-            <h3 className="text-xl font-medium text-mui-text-primary my-6">
-              TailwindTabs Props
-            </h3>
-            
-            <div className="border border-mui-border rounded-lg overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow className="bg-mui-sidebar">
-                    <TableHead className="w-1/4">Prop</TableHead>
-                    <TableHead className="w-1/4">Type</TableHead>
-                    <TableHead className="w-1/4">Default</TableHead>
-                    <TableHead className="w-1/4">Description</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell className="font-mono text-mui-text-primary">tabs</TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">Array&lt;{'{name: string, value: string, badge?: string, icon?: ReactNode, chip?: string, secondaryText?: string, chipStatus?: "Concluído" | "Em andamento" | "Não iniciado"}'}&gt;</TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">required</TableCell>
-                    <TableCell className="text-mui-text-secondary">Array of tab items with name, value, optional badge, icon, chip, chipStatus and secondaryText properties</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-mono text-mui-text-primary">defaultValue</TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">string</TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">tabs[0].value</TableCell>
-                    <TableCell className="text-mui-text-secondary">The default selected tab value</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-mono text-mui-text-primary">onChange</TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">(value: string) =&gt; void</TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">undefined</TableCell>
-                    <TableCell className="text-mui-text-secondary">Callback function when tab selection changes</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-mono text-mui-text-primary">variant</TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">"underline" | "pills" | "pillsGray" | "pillsBrand" | "fullWidth" | "bar" | "underlineBadges" | "projectTabs"</TableCell>
-                    <TableCell className="font-mono text-mui-text-secondary">"underline"</TableCell>
-                    <TableCell className="text-mui-text-secondary">Visual style variant of the tabs</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </div>
+/>`}
+              language="tsx"
+              title="Implementation of Project Tabs on Gray"
+              showCode={false}
+            />
           </div>
         </div>
       </div>
