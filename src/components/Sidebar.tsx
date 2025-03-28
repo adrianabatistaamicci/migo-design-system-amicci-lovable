@@ -40,7 +40,6 @@ export const sidebarItems: SidebarItem[] = [
     title: 'Introdução',
     items: [
       { title: 'Oi, Migo', href: '/' },
-      { title: 'Instalação', href: '/installation' },
       { title: 'UI Kit', href: '/ui-kit' },
       { 
         title: 'Diretrizes', 
@@ -50,6 +49,7 @@ export const sidebarItems: SidebarItem[] = [
           { title: 'Diretrizes de UX', href: '/guidelines/ux-guidelines' }
         ]
       },
+      { title: 'Instalação', href: '/installation' },
     ]
   },
   {
