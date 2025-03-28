@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -109,6 +110,28 @@ const TechnicalGovernance = () => {
                 <p className="mb-4">Siga estas etapas para integrar o Migo Design System em seus projetos Lovable:</p>
                 
                 <div className="space-y-8 mt-6">
+                  <div className="bg-primary-50 p-5 rounded-md border border-primary-100">
+                    <h3 className="text-xl font-semibold mb-4 text-primary-800">Remixar este projeto</h3>
+                    <p className="mb-4">A maneira mais rápida de começar é criar um remix deste projeto do Migo Design System:</p>
+                    <ol className="list-decimal pl-6 space-y-3 mb-4">
+                      <li>
+                        <strong>Acesse a interface do projeto:</strong> Navegue até a interface principal do projeto no Lovable.
+                      </li>
+                      <li>
+                        <strong>Clique no nome do projeto:</strong> No canto superior esquerdo da interface, clique no nome atual do projeto.
+                      </li>
+                      <li>
+                        <strong>Selecione "Remix":</strong> No menu suspenso, clique na opção "Remix" para criar sua própria cópia do projeto.
+                      </li>
+                      <li>
+                        <strong>Personalize:</strong> Após criar o remix, você terá sua própria versão do Migo Design System que pode modificar conforme necessário.
+                      </li>
+                    </ol>
+                    <div className="bg-white p-4 rounded border border-gray-200">
+                      <p className="text-sm text-gray-700"><strong>Vantagem:</strong> Ao remixar este projeto, você já terá uma base completa do design system configurada e pronta para uso, economizando tempo de desenvolvimento.</p>
+                    </div>
+                  </div>
+                  
                   <div className="bg-white p-5 rounded-md shadow-sm border border-gray-100">
                     <h3 className="text-xl font-semibold mb-4">1. Componentes Protegidos</h3>
                     <p className="mb-4">Uma grande vantagem do Design System como pacote NPM é que os componentes importados <strong>não podem ser editados diretamente</strong> pelos usuários, o que garante:</p>

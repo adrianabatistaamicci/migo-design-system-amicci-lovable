@@ -1,4 +1,3 @@
-
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -99,7 +98,7 @@ const Installation = () => {
             code="git clone https://github.com/amicci/migo-design-system.git" 
             language="bash"
             title="Terminal"
-            showCode={true}
+            defaultOpen={true}
           />
         </div>
 
@@ -112,7 +111,7 @@ const Installation = () => {
             code="cd migo-design-system" 
             language="bash"
             title="Terminal"
-            showCode={true}
+            defaultOpen={true}
           />
         </div>
 
@@ -125,7 +124,7 @@ const Installation = () => {
             code="npm install" 
             language="bash"
             title="Terminal"
-            showCode={true}
+            defaultOpen={true}
           />
           <p className="text-sm text-text-secondary mt-3">
             Ou se preferir usar Yarn:
@@ -134,7 +133,7 @@ const Installation = () => {
             code="yarn install" 
             language="bash"
             title="Terminal"
-            showCode={true}
+            defaultOpen={true}
           />
         </div>
 
@@ -147,7 +146,7 @@ const Installation = () => {
             code="npm run build" 
             language="bash"
             title="Terminal"
-            showCode={true}
+            defaultOpen={true}
           />
         </div>
 
@@ -163,7 +162,7 @@ const Installation = () => {
             code="npm run dev" 
             language="bash"
             title="Terminal"
-            showCode={true}
+            defaultOpen={true}
           />
         </div>
       </section>
@@ -184,7 +183,7 @@ npm link
 npm link @amicci/migo-ds`} 
             language="bash"
             title="Terminal"
-            showCode={true}
+            defaultOpen={true}
           />
         </div>
       </section>
@@ -201,7 +200,7 @@ npm link @amicci/migo-ds`}
             code="npm install @amicci/migo-ds" 
             language="bash"
             title="Terminal"
-            showCode={true}
+            defaultOpen={true}
           />
           <p className="text-sm text-text-secondary mt-3">
             Ou utilize o yarn se preferir:
@@ -210,7 +209,7 @@ npm link @amicci/migo-ds`}
             code="yarn add @amicci/migo-ds" 
             language="bash"
             title="Terminal"
-            showCode={true}
+            defaultOpen={true}
           />
         </div>
 
@@ -226,7 +225,7 @@ npm link @amicci/migo-ds`}
             code="npm install react react-dom tailwindcss @radix-ui/react-primitives" 
             language="bash"
             title="Terminal"
-            showCode={true}
+            defaultOpen={true}
           />
         </div>
 
@@ -269,7 +268,7 @@ module.exports = {
 };`} 
             language="javascript"
             title="tailwind.config.js"
-            showCode={true}
+            defaultOpen={true}
           />
         </div>
       </section>
@@ -310,7 +309,7 @@ function MyComponent() {
 export default MyComponent;`} 
             language="jsx"
             title="MyComponent.jsx"
-            showCode={true}
+            defaultOpen={true}
           />
         </div>
       </section>
@@ -340,7 +339,7 @@ Password: seu-token-github
 Email: seu-email@amicci.com.br`} 
                 language="bash"
                 title="Terminal"
-                showCode={true}
+                defaultOpen={true}
               />
             </li>
             <li>
@@ -350,7 +349,7 @@ Email: seu-email@amicci.com.br`}
 //npm.pkg.github.com/:_authToken=SEU_TOKEN_AQUI`} 
                 language="plaintext"
                 title=".npmrc"
-                showCode={true}
+                defaultOpen={true}
               />
             </li>
           </ol>
