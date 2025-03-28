@@ -50,9 +50,8 @@ const Buttons = () => {
 <Button variant="warning">Warning</Button>
 <Button variant="error">Error</Button>
 <Button variant="info">Info</Button>`}
-            language="tsx"
+            language="jsx"
             title="Implementação de Botões por Variante"
-            showCode={false}
           />
         </div>
         
@@ -73,9 +72,8 @@ const Buttons = () => {
             code={`<Button size="sm">Small</Button>
 <Button>Default</Button>
 <Button size="lg">Large</Button>`}
-            language="tsx"
+            language="jsx"
             title="Implementação de Botões por Tamanho"
-            showCode={false}
           />
         </div>
         
@@ -96,9 +94,8 @@ const Buttons = () => {
             code={`<Button startIcon={<Plus />}>Add item</Button>
 <Button endIcon={<ChevronRight />}>Next step</Button>
 <Button startIcon={<Plus />} endIcon={<ArrowRight />}>Add and continue</Button>`}
-            language="tsx"
+            language="jsx"
             title="Implementação de Botões com Ícones"
-            showCode={false}
           />
         </div>
         
@@ -119,9 +116,8 @@ const Buttons = () => {
             code={`<Button>Default</Button>
 <Button disabled>Disabled</Button>
 <Button isLoading>Loading</Button>`}
-            language="tsx"
+            language="jsx"
             title="Implementação de Estados do Botão"
-            showCode={false}
           />
         </div>
       </div>

@@ -50,9 +50,8 @@ const Chips = () => {
   With icon
   <X className="h-3.5 w-3.5 text-muted-foreground cursor-pointer" />
 </Badge>`}
-            language="tsx"
+            language="jsx"
             title="Implementação de Chips Básicos"
-            showCode={false}
           />
         </div>
         
@@ -79,9 +78,8 @@ const Chips = () => {
 <Badge className="bg-warning-main text-black">Warning</Badge>
 <Badge className="bg-error-main text-white">Error</Badge>
 <Badge className="bg-info-main text-white">Info</Badge>`}
-            language="tsx"
+            language="jsx"
             title="Implementação de Chips Coloridos"
-            showCode={false}
           />
         </div>
         
@@ -122,9 +120,8 @@ const Chips = () => {
   TypeScript
   <X className="h-3.5 w-3.5 text-muted-foreground cursor-pointer hover:text-foreground" />
 </Badge>`}
-            language="tsx"
+            language="jsx"
             title="Implementação de Chips com Ação de Remoção"
-            showCode={false}
           />
         </div>
       </div>
