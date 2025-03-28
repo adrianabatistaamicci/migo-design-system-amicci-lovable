@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -34,6 +35,7 @@ const SkeletonPage = () => {
         title="Skeletons"
         description="Placeholders animados para indicar conteúdo em carregamento."
         type="components"
+        className="mb-6"
       />
       
       <div className="grid gap-8">

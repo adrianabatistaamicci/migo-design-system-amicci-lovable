@@ -4,6 +4,36 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { Menu } from "lucide-react";
 import defaultLogo from '@/pages/assets/client-logo.svg';
+import CodeBlock from '@/components/CodeBlock';
+
+const profileButtonCode = `import { ProfileButton } from '@/components/ui/profile-button';
+
+// Basic usage
+<ProfileButton
+  userName="John Doe"
+  companyName="Acme Inc."
+  showClientLogo={true}
+  showAvatar={true}
+  showMenuIcon={true}
+/>
+
+// With custom logo
+<ProfileButton
+  userName="Jane Smith"
+  companyName="Tech Corp"
+  logoSrc="/path/to/logo.png"
+  showClientLogo={true}
+  showAvatar={true}
+/>
+
+// Avatar only
+<ProfileButton
+  userName="Alex Johnson"
+  companyName=""
+  showClientLogo={false}
+  showAvatar={true}
+  showMenuIcon={false}
+/>`;
 
 const profileButtonVariants = cva("inline-flex items-center rounded-full border border-[rgba(33,35,35,0.23)] bg-white shrink-0 transition-all duration-200 ease-in-out hover:bg-gray-50 hover:border-gray-300", {
   variants: {
@@ -92,4 +122,4 @@ const ProfileButton = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(({
 
 ProfileButton.displayName = "ProfileButton";
 
-export { ProfileButton, profileButtonVariants };
+export { ProfileButton, profileButtonVariants, profileButtonCode };

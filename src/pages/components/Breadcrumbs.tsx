@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -129,6 +130,7 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
               <ComponentCard 
                 title="Breadcrumb Básico" 
                 description="Um breadcrumb simples com links e separadores"
+                code={basicExample}
               >
                 <nav className="flex" aria-label="Breadcrumb">
                   <ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-600">
@@ -156,7 +158,6 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
                   </ol>
                 </nav>
               </ComponentCard>
-              <CodeBlock code={basicExample} language="tsx" title="Exemplo Básico" className="mt-4" />
             </div>
             
             <div>
@@ -164,6 +165,7 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
               <ComponentCard 
                 title="Breadcrumb com Ícones" 
                 description="Breadcrumb com ícones para cada item"
+                code={withIconsExample}
               >
                 <nav className="flex" aria-label="Breadcrumb">
                   <ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-600">
@@ -194,7 +196,6 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
                   </ol>
                 </nav>
               </ComponentCard>
-              <CodeBlock code={withIconsExample} language="tsx" title="Com Ícones" className="mt-4" />
             </div>
             
             <div>
@@ -202,6 +203,7 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
               <ComponentCard 
                 title="Breadcrumb Colapsado" 
                 description="Breadcrumb com elipses para caminhos longos"
+                code={collapsibleExample}
               >
                 <nav className="flex" aria-label="Breadcrumb">
                   <ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-600">
@@ -238,7 +240,6 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
                   </ol>
                 </nav>
               </ComponentCard>
-              <CodeBlock code={collapsibleExample} language="tsx" title="Com Elipses (Colapsado)" className="mt-4" />
             </div>
           </div>
         </section>

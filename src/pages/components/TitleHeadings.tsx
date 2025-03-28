@@ -91,7 +91,7 @@ export default TitleHeading;`;
             language="jsx"
             title="Implementação do Title Heading"
             showCopy={true}
-            showCode={true}
+            showCode={false}
           />
         </div>
       </div>

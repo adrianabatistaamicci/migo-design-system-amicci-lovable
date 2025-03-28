@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -43,10 +44,10 @@ const Dividers = () => {
               <ComponentCard 
                 title="Divisor Simples" 
                 description="Uma linha horizontal simples para separar conteúdo."
+                code={basicDividerCode}
               >
                 <div className="border-b border-gray-200"></div>
               </ComponentCard>
-              <CodeBlock code={basicDividerCode} language="tsx" title="Código do Divisor Básico" className="mt-4" />
             </div>
             
             <div>
@@ -54,10 +55,10 @@ const Dividers = () => {
               <ComponentCard 
                 title="Divisor com Margem Interna" 
                 description="Um divisor com margem interna para afastar das bordas."
+                code={insetDividerCode}
               >
                 <div className="border-b border-gray-200 mx-4"></div>
               </ComponentCard>
-              <CodeBlock code={insetDividerCode} language="tsx" title="Código do Divisor Inserido" className="mt-4" />
             </div>
             
             <div>
@@ -65,6 +66,7 @@ const Dividers = () => {
               <ComponentCard 
                 title="Divisor com Texto" 
                 description="Um divisor com texto no meio."
+                code={withTextDividerCode}
               >
                 <div className="flex items-center">
                   <div className="flex-grow border-t border-gray-200"></div>
@@ -72,7 +74,6 @@ const Dividers = () => {
                   <div className="flex-grow border-t border-gray-200"></div>
                 </div>
               </ComponentCard>
-              <CodeBlock code={withTextDividerCode} language="tsx" title="Código do Divisor com Texto" className="mt-4" />
             </div>
           </div>
         </section>

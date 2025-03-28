@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -29,7 +30,7 @@ const Spacing = () => {
       }, {
         name: 'Utilitários',
         value: 'utilities'
-      }]} variant="pillsGray" onChange={value => setActiveTab(value)} />
+      }]} variant="pillsGray" onChange={value => setActiveTab(value)} className="mt-6" />
         
         <div className="mt-6">
           {activeTab === 'overview' && <div className="space-y-6">
