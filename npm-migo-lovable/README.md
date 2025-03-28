@@ -5,12 +5,33 @@ O Design System oficial da Amicci, fornecendo componentes React consistentes e r
 
 ## Instalação
 
+### Via NPM
+
 ```bash
 npm install @amicci/migo-design-system
 # ou
 yarn add @amicci/migo-design-system
 # ou
 pnpm add @amicci/migo-design-system
+```
+
+### Via Repositório Git
+
+```bash
+# Clone o repositório
+git clone https://github.com/amicci/migo-design-system.git
+
+# Entre no diretório do projeto
+cd migo-design-system
+
+# Instale as dependências
+npm install
+
+# Execute o build
+npm run build
+
+# Opcional: inicie o ambiente de desenvolvimento
+npm run dev
 ```
 
 ## Uso
