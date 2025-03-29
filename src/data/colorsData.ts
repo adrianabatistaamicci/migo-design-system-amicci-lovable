@@ -1,3 +1,4 @@
+
 export const baseColorsData = [{
   name: 'Amicci',
   weights: [{

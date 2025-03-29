@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap');
 
 @tailwind base;
@@ -182,9 +183,9 @@
     /* Error (Red) */
     --error: 0 84% 60%;
     --error-foreground: 0 0% 100%;
-    --error-main: #F04438;
+    --error-main: #DC2626;
     --error-dark: #B42318;
-    --error-light: #FDA29B;
+    --error-light: #FEF3F2;
     --error-contrast: #ffffff;
     --error-hover: rgba(217, 45, 32, 0.04);
     --error-selected: rgba(217, 45, 32, 0.08);
