@@ -1,3 +1,9 @@
+/**
+ * @protected
+ * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
+ * Não deve ser alterado diretamente pelo assistente AI.
+ * Apenas atualizações de componentes devem ser refletidas.
+ */
 
 import React, { useState, useEffect } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
