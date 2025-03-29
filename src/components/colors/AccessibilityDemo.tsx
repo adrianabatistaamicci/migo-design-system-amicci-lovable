@@ -6,7 +6,24 @@ import { colorBlindnessFilters } from '@/utils/colorUtils';
 import ColorSwatch from '@/components/colors/ColorSwatch';
 import { cn } from '@/lib/utils';
 import { Chip } from "@/components/ui/chip";
-import { Toggle } from "@/components/ui/toggle";
+
+// Custom toggle component from the Toggle page
+const Toggle = ({
+  enabled,
+  onChange,
+  className = "",
+  size = "default"
+}) => {
+  const sizeClasses = {
+    default: "w-11 h-6",
+    sm: "w-9 h-5",
+    lg: "w-14 h-7"
+  };
+  return <button type="button" className={`${enabled ? 'bg-primary-main' : 'bg-gray-200'} relative inline-flex flex-shrink-0 ${sizeClasses[size]} border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-main ${className}`} role="switch" aria-checked={enabled} onClick={() => onChange(!enabled)}>
+      <span className="sr-only">Toggle</span>
+      <span aria-hidden="true" className={`${enabled ? `translate-x-${size === 'sm' ? '4' : size === 'lg' ? '7' : '5'}` : 'translate-x-0'} pointer-events-none ${size === 'sm' ? 'h-4 w-4' : size === 'lg' ? 'h-6 w-6' : 'h-5 w-5'} rounded-full bg-white shadow ring-0 transition ease-in-out duration-200`} />
+    </button>;
+};
 
 export interface AccessibilityDemoProps {
   simulationType: string;
@@ -79,7 +96,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="border rounded-lg p-4 space-y-3">
-              <div className="flex items-center gap-2 text-primary-main">
+              <div className="flex items-center gap-2 text-green-500">
                 <Check className="w-5 h-5" />
                 <span className="font-medium">Combinação com elementos visuais</span>
               </div>
@@ -91,7 +108,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
             </div>
             
             <div className="border rounded-lg p-4 space-y-3">
-              <div className="flex items-center gap-2 text-primary-main">
+              <div className="flex items-center gap-2 text-green-500">
                 <Check className="w-5 h-5" />
                 <span className="font-medium">Alternativas textuais</span>
               </div>
@@ -103,7 +120,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
             </div>
             
             <div className="border rounded-lg p-4 space-y-3">
-              <div className="flex items-center gap-2 text-primary-main">
+              <div className="flex items-center gap-2 text-green-500">
                 <Check className="w-5 h-5" />
                 <span className="font-medium">Contraste suficiente</span>
               </div>
@@ -133,8 +150,8 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-medium text-gray-900">Simular</span>
                     <Toggle
-                      pressed={simulationType === 'deuteranopia'}
-                      onPressedChange={() => handleSimulation(simulationType === 'deuteranopia' ? 'normal' : 'deuteranopia')}
+                      enabled={simulationType === 'deuteranopia'}
+                      onChange={() => handleSimulation(simulationType === 'deuteranopia' ? 'normal' : 'deuteranopia')}
                       size="sm"
                     />
                   </div>
@@ -159,8 +176,8 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-medium text-gray-900">Simular</span>
                     <Toggle
-                      pressed={simulationType === 'protanopia'}
-                      onPressedChange={() => handleSimulation(simulationType === 'protanopia' ? 'normal' : 'protanopia')}
+                      enabled={simulationType === 'protanopia'}
+                      onChange={() => handleSimulation(simulationType === 'protanopia' ? 'normal' : 'protanopia')}
                       size="sm"
                     />
                   </div>
@@ -187,8 +204,8 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-medium text-gray-900">Simular</span>
                     <Toggle
-                      pressed={simulationType === 'tritanopia'}
-                      onPressedChange={() => handleSimulation(simulationType === 'tritanopia' ? 'normal' : 'tritanopia')}
+                      enabled={simulationType === 'tritanopia'}
+                      onChange={() => handleSimulation(simulationType === 'tritanopia' ? 'normal' : 'tritanopia')}
                       size="sm"
                     />
                   </div>
@@ -213,8 +230,8 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-medium text-gray-900">Simular</span>
                     <Toggle
-                      pressed={simulationType === 'achromatopsia'}
-                      onPressedChange={() => handleSimulation(simulationType === 'achromatopsia' ? 'normal' : 'achromatopsia')}
+                      enabled={simulationType === 'achromatopsia'}
+                      onChange={() => handleSimulation(simulationType === 'achromatopsia' ? 'normal' : 'achromatopsia')}
                       size="sm"
                     />
                   </div>
