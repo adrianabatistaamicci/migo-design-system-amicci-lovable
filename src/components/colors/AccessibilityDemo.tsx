@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Check, AlertCircle, CircleInfo } from "lucide-react";
+import { Check, AlertCircle, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { colorBlindnessFilters } from '@/utils/colorUtils';
@@ -33,7 +33,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
             <div className="border rounded-lg p-4 space-y-3">
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 rounded-full flex items-center justify-center bg-blue-100 text-blue-600">
-                  <CircleInfo className="w-4 h-4" />
+                  <Info className="w-4 h-4" />
                 </div>
                 <span className="font-medium">Texto normal</span>
               </div>
@@ -46,7 +46,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
             <div className="border rounded-lg p-4 space-y-3">
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 rounded-full flex items-center justify-center bg-blue-100 text-blue-600">
-                  <CircleInfo className="w-4 h-4" />
+                  <Info className="w-4 h-4" />
                 </div>
                 <span className="font-medium">Texto grande (18pt ou 14pt bold)</span>
               </div>
@@ -59,7 +59,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
             <div className="border rounded-lg p-4 space-y-3">
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 rounded-full flex items-center justify-center bg-blue-100 text-blue-600">
-                  <CircleInfo className="w-4 h-4" />
+                  <Info className="w-4 h-4" />
                 </div>
                 <span className="font-medium">Componentes de interface e gráficos</span>
               </div>
