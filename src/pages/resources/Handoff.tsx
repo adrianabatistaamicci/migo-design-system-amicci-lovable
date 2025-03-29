@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import CodeBlock from '@/components/CodeBlock';
@@ -151,7 +152,7 @@ const Handoff = () => {
       <Header 
         title="Handoff"
         description="Recursos para facilitar a transição entre design e implementação."
-        type="resources"
+        type="components" 
         className="mb-6"
       />
       
