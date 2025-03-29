@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -81,6 +82,7 @@ import Spacing from "./pages/Spacing";
 import Icons from "./pages/Icons";
 import Brand from "./pages/foundations/Brand";
 import TitleHeadings from "./pages/components/TitleHeadings";
+import Handoff from "./pages/resources/Handoff";
 
 const queryClient = new QueryClient();
 
@@ -161,6 +163,7 @@ const App = () => {
               <Route path="/components/marketplace-screens" element={<NotificationToasts />} />
               <Route path="/resources/figma-library" element={<FigmaLibraryPage />} />
               <Route path="/resources/faq" element={<FAQPage />} />
+              <Route path="/resources/handoff" element={<Handoff />} />
               <Route path="/components/profile-button" element={<ProfileButtonPage />} />
               <Route path="/components/icon-button" element={<IconButtonPage />} />
               <Route path="/components/link" element={<LinkPage />} />
