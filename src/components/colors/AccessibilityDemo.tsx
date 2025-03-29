@@ -1,16 +1,10 @@
-/**
- * @protected
- * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
- * Não deve ser alterado diretamente pelo assistente AI.
- * Apenas atualizações de componentes devem ser refletidas.
- */
-
 import React from 'react';
 import { Check, AlertCircle, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { colorBlindnessFilters } from '@/utils/colorUtils';
 import ColorSwatch from '@/components/colors/ColorSwatch';
 import { cn } from '@/lib/utils';
+import { Chip } from "@/components/ui/chip";
 
 // Custom toggle component from the Toggle page
 const Toggle = ({
@@ -29,18 +23,15 @@ const Toggle = ({
       <span aria-hidden="true" className={`${enabled ? `translate-x-${size === 'sm' ? '4' : size === 'lg' ? '7' : '5'}` : 'translate-x-0'} pointer-events-none ${size === 'sm' ? 'h-4 w-4' : size === 'lg' ? 'h-6 w-6' : 'h-5 w-5'} rounded-full bg-white shadow ring-0 transition ease-in-out duration-200`} />
     </button>;
 };
-
 export interface AccessibilityDemoProps {
   simulationType: string;
   handleSimulation: (type: string) => void;
 }
-
-const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({ 
-  simulationType, 
-  handleSimulation 
+const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
+  simulationType,
+  handleSimulation
 }) => {
-  return (
-    <div className="space-y-8">
+  return <div className="space-y-8">
       <div className="space-y-3">
         <div className="border-b pb-3">
           <h2 className="text-xl font-medium">Acessibilidade de Cores</h2>
@@ -103,7 +94,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
             <div className="border rounded-lg p-4 space-y-3">
               <div className="flex items-center gap-2 text-green-500">
                 <Check className="w-5 h-5" />
-                <span className="font-medium">Combinação com elementos visuais</span>
+                <span className="font-mediumy">Combinação com elementos visuais</span>
               </div>
               <p className="text-sm text-gray-600">Combinamos cores com ícones, textos e padrões</p>
               <div className="flex items-center gap-2 text-error-main mt-3">
@@ -131,8 +122,8 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
               </div>
               <p className="text-sm text-gray-600">Mantemos contraste suficiente mesmo em visualizações monocromáticas</p>
               <div className="flex gap-3 mt-3">
-                <span className="px-3 py-1 border border-gray-400 rounded text-sm">Normal</span>
-                <span className="px-3 py-1 border border-gray-400 rounded text-sm">Outline</span>
+                <Chip variant="outlined" color="primary">Chip</Chip>
+                <Button variant="outline-secondary">Button</Button>
               </div>
             </div>
           </div>
@@ -154,16 +145,12 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-medium text-gray-900">Simular</span>
-                    <Toggle
-                      enabled={simulationType === 'deuteranopia'}
-                      onChange={() => handleSimulation(simulationType === 'deuteranopia' ? 'normal' : 'deuteranopia')}
-                      size="sm"
-                    />
+                    <Toggle enabled={simulationType === 'deuteranopia'} onChange={() => handleSimulation(simulationType === 'deuteranopia' ? 'normal' : 'deuteranopia')} size="sm" />
                   </div>
                 </div>
                 <div className="grid grid-cols-4 gap-2" style={{
-                  filter: simulationType === 'deuteranopia' ? colorBlindnessFilters.deuteranopia : ''
-                }}>
+                filter: simulationType === 'deuteranopia' ? colorBlindnessFilters.deuteranopia : ''
+              }}>
                   <ColorSwatch color="bg-primary-main" className="h-12" disableCopy={true} />
                   <ColorSwatch color="bg-secondary-main" className="h-12" disableCopy={true} />
                   <ColorSwatch color="bg-error-main" className="h-12" disableCopy={true} />
@@ -180,16 +167,12 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-medium text-gray-900">Simular</span>
-                    <Toggle
-                      enabled={simulationType === 'protanopia'}
-                      onChange={() => handleSimulation(simulationType === 'protanopia' ? 'normal' : 'protanopia')}
-                      size="sm"
-                    />
+                    <Toggle enabled={simulationType === 'protanopia'} onChange={() => handleSimulation(simulationType === 'protanopia' ? 'normal' : 'protanopia')} size="sm" />
                   </div>
                 </div>
                 <div className="grid grid-cols-4 gap-2" style={{
-                  filter: simulationType === 'protanopia' ? colorBlindnessFilters.protanopia : ''
-                }}>
+                filter: simulationType === 'protanopia' ? colorBlindnessFilters.protanopia : ''
+              }}>
                   <ColorSwatch color="bg-primary-main" className="h-12" disableCopy={true} />
                   <ColorSwatch color="bg-secondary-main" className="h-12" disableCopy={true} />
                   <ColorSwatch color="bg-error-main" className="h-12" disableCopy={true} />
@@ -208,16 +191,12 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-medium text-gray-900">Simular</span>
-                    <Toggle
-                      enabled={simulationType === 'tritanopia'}
-                      onChange={() => handleSimulation(simulationType === 'tritanopia' ? 'normal' : 'tritanopia')}
-                      size="sm"
-                    />
+                    <Toggle enabled={simulationType === 'tritanopia'} onChange={() => handleSimulation(simulationType === 'tritanopia' ? 'normal' : 'tritanopia')} size="sm" />
                   </div>
                 </div>
                 <div className="grid grid-cols-4 gap-2" style={{
-                  filter: simulationType === 'tritanopia' ? colorBlindnessFilters.tritanopia : ''
-                }}>
+                filter: simulationType === 'tritanopia' ? colorBlindnessFilters.tritanopia : ''
+              }}>
                   <ColorSwatch color="bg-primary-main" className="h-12" disableCopy={true} />
                   <ColorSwatch color="bg-secondary-main" className="h-12" disableCopy={true} />
                   <ColorSwatch color="bg-error-main" className="h-12" disableCopy={true} />
@@ -234,16 +213,12 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-medium text-gray-900">Simular</span>
-                    <Toggle
-                      enabled={simulationType === 'achromatopsia'}
-                      onChange={() => handleSimulation(simulationType === 'achromatopsia' ? 'normal' : 'achromatopsia')}
-                      size="sm"
-                    />
+                    <Toggle enabled={simulationType === 'achromatopsia'} onChange={() => handleSimulation(simulationType === 'achromatopsia' ? 'normal' : 'achromatopsia')} size="sm" />
                   </div>
                 </div>
                 <div className="grid grid-cols-4 gap-2" style={{
-                  filter: simulationType === 'achromatopsia' ? colorBlindnessFilters.achromatopsia : ''
-                }}>
+                filter: simulationType === 'achromatopsia' ? colorBlindnessFilters.achromatopsia : ''
+              }}>
                   <ColorSwatch color="bg-primary-main" className="h-12" disableCopy={true} />
                   <ColorSwatch color="bg-secondary-main" className="h-12" disableCopy={true} />
                   <ColorSwatch color="bg-error-main" className="h-12" disableCopy={true} />
@@ -254,8 +229,6 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
           </div>
         </section>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default AccessibilityDemo;
