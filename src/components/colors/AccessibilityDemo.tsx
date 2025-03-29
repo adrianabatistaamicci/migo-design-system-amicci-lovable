@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { colorBlindnessFilters } from '@/utils/colorUtils';
 import ColorSwatch from '@/components/colors/ColorSwatch';
 import { cn } from '@/lib/utils';
-import { Chip } from "@/components/ui/chip";
 
 // Custom toggle component from the Toggle page
 const Toggle = ({
@@ -126,8 +125,8 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
               </div>
               <p className="text-sm text-gray-600">Mantemos contraste suficiente mesmo em visualizações monocromáticas</p>
               <div className="flex gap-3 mt-3">
-                <Chip variant="outlined" color="primary">Chip</Chip>
-                <Button variant="outline-secondary">Button</Button>
+                <span className="px-3 py-1 border border-gray-400 rounded text-sm">Normal</span>
+                <span className="px-3 py-1 border border-gray-400 rounded text-sm">Outline</span>
               </div>
             </div>
           </div>
