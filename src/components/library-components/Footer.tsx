@@ -1,3 +1,9 @@
+/**
+ * @protected
+ * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
+ * Não deve ser alterado diretamente pelo assistente AI.
+ * Apenas atualizações de componentes devem ser refletidas.
+ */
 
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -25,7 +31,7 @@ const Footer = ({
         <div className="flex items-center gap-4">
           {additionalText && <span>{additionalText}</span>}
           <Link to={governanceUrl} className="underline hover:text-foreground transition-colors">
-            Governança
+            Governança Migo Lovable
           </Link>
         </div>
       </div>
