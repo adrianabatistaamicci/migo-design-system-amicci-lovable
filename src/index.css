@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap');
 
 @tailwind base;
@@ -144,21 +145,21 @@
     /* Secondary (AmicciDark) */
     --secondary: 210 20% 96%;
     --secondary-foreground: 215 25% 27%;
-    --secondary-main: #0A686F;
-    --secondary-dark: #06454A;
-    --secondary-light: #10C2C0;
-    --secondary-contrast: #ffffff;
-    --secondary-hover: #075B61;
-    --secondary-selected: #06454A;
+    --secondary-main: var(--amicciDark-500);
+    --secondary-dark: var(--amicciDark-700);
+    --secondary-light: var(--amicci-500);
+    --secondary-contrast: var(--common-white-main);
+    --secondary-hover: var(--amicciDark-600);
+    --secondary-selected: var(--amicciDark-700);
     --secondary-focus: rgba(10, 104, 111, 0.12);
     --secondary-focusVisible: #6FE0DC;
     --secondary-outlinedBorder: #D9F4F2;
 
     /* Tertiary (Magenta) */
-    --tertiary-main: #9B247F;
-    --tertiary-dark: #681855;
-    --tertiary-light: #F9E5F4;
-    --tertiary-contrast: #ffffff;
+    --tertiary-main: var(--magenta-500);
+    --tertiary-dark: var(--magenta-700);
+    --tertiary-light: var(--magenta-100);
+    --tertiary-contrast: var(--common-white-main);
     --tertiary-hover: rgba(155, 36, 127, 0.04);
     --tertiary-selected: rgba(155, 36, 127, 0.08);
     --tertiary-focus: rgba(155, 36, 127, 0.12);
@@ -169,23 +170,23 @@
     --amy-avatar-url: url('@/pages/assets/amy.svg');
 
     /* Action (Gray) - Updated to use the new gray values */
-    --action-main: #71717A;
-    --action-dark: #3F3F46;
-    --action-light: #E4E4E7;
-    --action-contrast: #ffffff;
-    --action-hover: #F3F6F5;
-    --action-selected: #808586;
-    --action-focus: #AFB9BA;
-    --action-disabled: #AFB9BA;
-    --action-disabledBackground: #CED6D6;
+    --action-main: var(--gray-500);
+    --action-dark: var(--gray-700);
+    --action-light: var(--gray-200);
+    --action-contrast: var(--common-white-main);
+    --action-hover: var(--gray-100);
+    --action-selected: var(--gray-500);
+    --action-focus: var(--gray-400);
+    --action-disabled: var(--gray-400);
+    --action-disabledBackground: var(--gray-300);
 
     /* Error (Red) */
     --error: 0 84% 60%;
     --error-foreground: 0 0% 100%;
-    --error-main: #DC2626;
-    --error-dark: #B42318;
-    --error-light: #FEF3F2;
-    --error-contrast: #ffffff;
+    --error-main: var(--red-600);
+    --error-dark: var(--red-700);
+    --error-light: var(--red-50);
+    --error-contrast: var(--common-white-main);
     --error-hover: rgba(217, 45, 32, 0.04);
     --error-selected: rgba(217, 45, 32, 0.08);
     --error-focus: rgba(217, 45, 32, 0.12);
@@ -193,9 +194,9 @@
     --error-outlinedBorder: rgba(217, 45, 32, 0.50);
 
     /* Warning (Yellow) */
-    --warning-main: #FDB022;
-    --warning-dark: #DC6803;
-    --warning-light: #FEF0C7;
+    --warning-main: var(--orange-400);
+    --warning-dark: var(--orange-600);
+    --warning-light: var(--orange-100);
     --warning-contrast: #000000;
     --warning-hover: rgba(220, 104, 3, 0.04);
     --warning-selected: rgba(220, 104, 3, 0.08);
@@ -204,10 +205,10 @@
     --warning-outlinedBorder: rgba(220, 104, 3, 0.50);
 
     /* Info (Blue) */
-    --info-main: #2970FF;
-    --info-dark: #0C41A0;
-    --info-light: #D6E8FF;
-    --info-contrast: #ffffff;
+    --info-main: var(--blue-500);
+    --info-dark: var(--blue-800);
+    --info-light: var(--blue-100);
+    --info-contrast: var(--common-white-main);
     --info-hover: rgba(0, 87, 178, 0.04);
     --info-selected: rgba(0, 87, 178, 0.08);
     --info-focus: rgba(0, 87, 178, 0.12);
@@ -215,10 +216,10 @@
     --info-outlinedBorder: rgba(0, 87, 178, 0.50);
 
     /* Success (Green) */
-    --success-main: #12B76A;
-    --success-dark: #027A48;
-    --success-light: #D1FADF;
-    --success-contrast: #ffffff;
+    --success-main: var(--green-500);
+    --success-dark: var(--green-700);
+    --success-light: var(--green-100);
+    --success-contrast: var(--common-white-main);
     --success-hover: rgba(18, 183, 106, 0.04);
     --success-selected: rgba(18, 183, 106, 0.08);
     --success-focus: rgba(18, 183, 106, 0.12);
