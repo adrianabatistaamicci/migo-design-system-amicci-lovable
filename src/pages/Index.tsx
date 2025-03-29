@@ -16,7 +16,7 @@ const Index = () => {
       <section className="w-full relative overflow-hidden rounded-xl">
         {/* Background image without overlay gradient */}
         <div className="absolute inset-0 w-full h-full">
-          <img src="/lovable-uploads/3f0e12b8-4897-4ca4-aaeb-656250de8c5c.png" alt="Design fluid background" className="w-full h-full object-cover object-center" />
+          <img src="/src/pages/assets/bg-migo.png" alt="Design fluid background" className="w-full h-full object-cover object-center" />
           {/* Dark overlay removed */}
         </div>
         
