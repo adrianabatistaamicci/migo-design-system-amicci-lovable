@@ -170,6 +170,8 @@ const App = () => {
               <Route path="/resources/figma-library" element={<FigmaLibraryPage />} />
               <Route path="/resources/handoff" element={<Handoff />} />
               <Route path="/resources/faq" element={<FAQPage />} />
+              <Route path="/components/button" element={<ButtonPage />} />
+              <Route path="/components/icon-button" element={<IconButtonPage />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

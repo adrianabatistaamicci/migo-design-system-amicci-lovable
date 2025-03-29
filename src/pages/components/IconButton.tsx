@@ -3,8 +3,14 @@ import React from 'react';
 import Header from '@/components/library-components/Header';
 import { Search, Plus, ChevronRight, ChevronLeft, Check, Edit, Trash, X } from 'lucide-react';
 import CodeBlock from '@/components/CodeBlock';
+import { IconButton } from '@/components/ui/icon-button';
+import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
+import ComponentCard from '@/components/ComponentCard';
+import { TailwindTabs } from '@/components/ui/tabs';
 
-const IconButton = () => {
+const IconButtonPage = () => {
+  const [activeTab, setActiveTab] = React.useState('examples');
+
   return (
     <div className="w-full animate-fade-in">
       <Header 
@@ -13,194 +19,223 @@ const IconButton = () => {
         type="components"
       />
       
-      <div className="mt-6 space-y-8">
-        <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
-          <div className="p-6">
-            <h2 className="text-xl font-medium mb-4">Icon Buttons Básicos</h2>
+      <TailwindTabs 
+        defaultValue="examples" 
+        className="mt-8" 
+        tabs={[
+          { name: 'Exemplos', value: 'examples' },
+          { name: 'Variantes', value: 'variants' }
+        ]} 
+        variant="pillsGray" 
+        onChange={value => setActiveTab(value)} 
+      />
+
+      <div className="mt-6">
+        {activeTab === 'examples' && (
+          <div className="space-y-8">
+            <ComponentCard 
+              title="Icon Buttons Básicos" 
+              description="Botões de ícone com estilos simples."
+              code={`<IconButton variant="text-secondary" icon={<Search />} />\n<IconButton variant="text-secondary" icon={<Plus />} />\n<IconButton variant="text-secondary" icon={<Edit />} />\n<IconButton variant="text-secondary" icon={<Trash />} />`}
+            >
+              <div className="flex gap-4 flex-wrap">
+                <IconButton variant="text-secondary" icon={<Search />} />
+                <IconButton variant="text-secondary" icon={<Plus />} />
+                <IconButton variant="text-secondary" icon={<Edit />} />
+                <IconButton variant="text-secondary" icon={<Trash />} />
+              </div>
+            </ComponentCard>
             
-            <div className="flex gap-4 flex-wrap mb-6">
-              <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-                <Search className="h-5 w-5" />
-              </button>
-              <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-                <Plus className="h-5 w-5" />
-              </button>
-              <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-                <Edit className="h-5 w-5" />
-              </button>
-              <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-                <Trash className="h-5 w-5" />
-              </button>
+            <ComponentCard 
+              title="Icon Buttons com Cores" 
+              description="Botões de ícone com diferentes variantes de cores."
+              code={`<IconButton icon={<Plus />} />\n<IconButton variant="success" icon={<Check />} />\n<IconButton variant="warning" icon={<Edit />} />\n<IconButton variant="error" icon={<Trash />} />`}
+            >
+              <div className="flex gap-4 flex-wrap">
+                <IconButton icon={<Plus />} />
+                <IconButton variant="success" icon={<Check />} />
+                <IconButton variant="warning" icon={<Edit />} />
+                <IconButton variant="error" icon={<Trash />} />
+              </div>
+            </ComponentCard>
+            
+            <ComponentCard 
+              title="Icon Buttons com Bordas" 
+              description="Botões de ícone com variantes outlined."
+              code={`<IconButton variant="outline-secondary" icon={<ChevronLeft />} />\n<IconButton variant="outline-secondary" icon={<ChevronRight />} />\n<IconButton variant="outline-secondary" icon={<X />} />`}
+            >
+              <div className="flex gap-4 flex-wrap">
+                <IconButton variant="outline-secondary" icon={<ChevronLeft />} />
+                <IconButton variant="outline-secondary" icon={<ChevronRight />} />
+                <IconButton variant="outline-secondary" icon={<X />} />
+              </div>
+            </ComponentCard>
+            
+            <ComponentCard 
+              title="Icon Buttons em Tamanhos Diferentes" 
+              description="Botões de ícone em diferentes tamanhos."
+              code={`<IconButton variant="text-secondary" size="sm" icon={<Plus />} />\n<IconButton variant="text-secondary" icon={<Plus />} />\n<IconButton variant="text-secondary" size="lg" icon={<Plus />} />`}
+            >
+              <div className="flex gap-4 items-center flex-wrap">
+                <IconButton variant="text-secondary" size="sm" icon={<Plus />} />
+                <IconButton variant="text-secondary" icon={<Plus />} />
+                <IconButton variant="text-secondary" size="lg" icon={<Plus />} />
+              </div>
+            </ComponentCard>
+            
+            <ComponentCard 
+              title="Icon Buttons Desabilitados" 
+              description="Botões de ícone em estado desabilitado."
+              code={`<IconButton variant="text-secondary" disabled icon={<Plus />} />\n<IconButton variant="outline-secondary" disabled icon={<Edit />} />`}
+            >
+              <div className="flex gap-4 flex-wrap">
+                <IconButton variant="text-secondary" disabled icon={<Plus />} />
+                <IconButton variant="outline-secondary" disabled icon={<Edit />} />
+              </div>
+            </ComponentCard>
+          </div>
+        )}
+
+        {activeTab === 'variants' && (
+          <div className="space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Default IconButton */}
+              <ComponentCard 
+                title="Default IconButton" 
+                description="Botão de ícone com cor sólida para ações primárias."
+                code={`<IconButton size="sm" icon={<Plus />} />\n<IconButton icon={<Plus />} />\n<IconButton size="lg" icon={<Plus />} />`}
+              >
+                <div className="flex justify-center items-center gap-2">
+                  <IconButton size="sm" icon={<Plus />} />
+                  <IconButton icon={<Plus />} />
+                  <IconButton size="lg" icon={<Plus />} />
+                </div>
+              </ComponentCard>
+
+              {/* Secondary IconButton */}
+              <ComponentCard 
+                title="Secondary IconButton" 
+                description="Botão de ícone secundário."
+                code={`<IconButton variant="secondary" size="sm" icon={<Plus />} />\n<IconButton variant="secondary" icon={<Plus />} />\n<IconButton variant="secondary" size="lg" icon={<Plus />} />`}
+              >
+                <div className="flex justify-center items-center gap-2">
+                  <IconButton variant="secondary" size="sm" icon={<Plus />} />
+                  <IconButton variant="secondary" icon={<Plus />} />
+                  <IconButton variant="secondary" size="lg" icon={<Plus />} />
+                </div>
+              </ComponentCard>
+
+              {/* Error IconButton */}
+              <ComponentCard 
+                title="Error IconButton" 
+                description="Botão de ícone vermelho para ações críticas ou destrutivas."
+                code={`<IconButton variant="error" size="sm" icon={<Trash />} />\n<IconButton variant="error" icon={<Trash />} />\n<IconButton variant="error" size="lg" icon={<Trash />} />`}
+              >
+                <div className="flex justify-center items-center gap-2">
+                  <IconButton variant="error" size="sm" icon={<Trash />} />
+                  <IconButton variant="error" icon={<Trash />} />
+                  <IconButton variant="error" size="lg" icon={<Trash />} />
+                </div>
+              </ComponentCard>
+
+              {/* Outline Default IconButton */}
+              <ComponentCard 
+                title="Outline Default IconButton" 
+                description="Botão de ícone com contorno para ações primárias mais sutis."
+                code={`<IconButton variant="outline-default" size="sm" icon={<Plus />} />\n<IconButton variant="outline-default" icon={<Plus />} />\n<IconButton variant="outline-default" size="lg" icon={<Plus />} />`}
+              >
+                <div className="flex justify-center items-center gap-2">
+                  <IconButton variant="outline-default" size="sm" icon={<Plus />} />
+                  <IconButton variant="outline-default" icon={<Plus />} />
+                  <IconButton variant="outline-default" size="lg" icon={<Plus />} />
+                </div>
+              </ComponentCard>
+
+              {/* Outline Secondary IconButton */}
+              <ComponentCard 
+                title="Outline Secondary IconButton" 
+                description="Botão de ícone com contorno cinza para ações secundárias."
+                code={`<IconButton variant="outline-secondary" size="sm" icon={<Plus />} />\n<IconButton variant="outline-secondary" icon={<Plus />} />\n<IconButton variant="outline-secondary" size="lg" icon={<Plus />} />`}
+              >
+                <div className="flex justify-center items-center gap-2">
+                  <IconButton variant="outline-secondary" size="sm" icon={<Plus />} />
+                  <IconButton variant="outline-secondary" icon={<Plus />} />
+                  <IconButton variant="outline-secondary" size="lg" icon={<Plus />} />
+                </div>
+              </ComponentCard>
+
+              {/* Text Default IconButton */}
+              <ComponentCard 
+                title="Text Default IconButton" 
+                description="Botão de ícone de texto para ações sutis."
+                code={`<IconButton variant="text-default" size="sm" icon={<Plus />} />\n<IconButton variant="text-default" icon={<Plus />} />\n<IconButton variant="text-default" size="lg" icon={<Plus />} />`}
+              >
+                <div className="flex justify-center items-center gap-2">
+                  <IconButton variant="text-default" size="sm" icon={<Plus />} />
+                  <IconButton variant="text-default" icon={<Plus />} />
+                  <IconButton variant="text-default" size="lg" icon={<Plus />} />
+                </div>
+              </ComponentCard>
+            </div>
+            
+            {/* API Reference Table */}
+            <div className="mt-12">
+              <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
+                API Reference
+              </h2>
+              
+              <div className="border border-mui-border rounded-lg overflow-x-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-[180px]">Prop</TableHead>
+                      <TableHead className="w-[250px]">Type</TableHead>
+                      <TableHead className="w-[150px]">Default</TableHead>
+                      <TableHead>Description</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell className="font-medium">variant</TableCell>
+                      <TableCell className="font-mono text-xs">
+                        "default" | "secondary" | "error" | "warning" | "info" | "success" | "outline-default" | "outline-secondary" | "outline-error" | "outline-warning" | "outline-info" | "outline-success" | "text-default" | "text-secondary" | "text-error" | "text-warning" | "text-info" | "text-success"
+                      </TableCell>
+                      <TableCell>"default"</TableCell>
+                      <TableCell>Controls the visual style of the button.</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="font-medium">size</TableCell>
+                      <TableCell className="font-mono text-xs">"default" | "sm" | "lg"</TableCell>
+                      <TableCell>"default"</TableCell>
+                      <TableCell>Controls the size of the button.</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="font-medium">icon</TableCell>
+                      <TableCell className="font-mono text-xs">ReactNode</TableCell>
+                      <TableCell>required</TableCell>
+                      <TableCell>The icon to display in the button.</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="font-medium">asChild</TableCell>
+                      <TableCell className="font-mono text-xs">boolean</TableCell>
+                      <TableCell>false</TableCell>
+                      <TableCell>Whether to render as a child element instead of a button.</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="font-medium">isLoading</TableCell>
+                      <TableCell className="font-mono text-xs">boolean</TableCell>
+                      <TableCell>false</TableCell>
+                      <TableCell>Controls whether the button shows a loading spinner.</TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </div>
             </div>
           </div>
-          
-          <CodeBlock 
-            code={`<button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-  <Search className="h-5 w-5" />
-</button>
-
-<button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-  <Plus className="h-5 w-5" />
-</button>
-
-<button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-  <Edit className="h-5 w-5" />
-</button>
-
-<button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-  <Trash className="h-5 w-5" />
-</button>`}
-            language="tsx"
-            title="Implementação de Icon Buttons Básicos"
-            showCode={false}
-          />
-        </div>
-        
-        <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
-          <div className="p-6">
-            <h2 className="text-xl font-medium mb-4">Icon Buttons com Cores</h2>
-            
-            <div className="flex gap-4 flex-wrap mb-6">
-              <button className="p-2 rounded-full bg-primary-main text-white hover:bg-primary-dark transition-colors">
-                <Plus className="h-5 w-5" />
-              </button>
-              <button className="p-2 rounded-full bg-success-main text-white hover:bg-success-dark transition-colors">
-                <Check className="h-5 w-5" />
-              </button>
-              <button className="p-2 rounded-full bg-warning-main text-white hover:bg-warning-dark transition-colors">
-                <Edit className="h-5 w-5" />
-              </button>
-              <button className="p-2 rounded-full bg-error-main text-white hover:bg-error-dark transition-colors">
-                <Trash className="h-5 w-5" />
-              </button>
-            </div>
-          </div>
-          
-          <CodeBlock 
-            code={`<button className="p-2 rounded-full bg-primary-main text-white hover:bg-primary-dark transition-colors">
-  <Plus className="h-5 w-5" />
-</button>
-
-<button className="p-2 rounded-full bg-success-main text-white hover:bg-success-dark transition-colors">
-  <Check className="h-5 w-5" />
-</button>
-
-<button className="p-2 rounded-full bg-warning-main text-white hover:bg-warning-dark transition-colors">
-  <Edit className="h-5 w-5" />
-</button>
-
-<button className="p-2 rounded-full bg-error-main text-white hover:bg-error-dark transition-colors">
-  <Trash className="h-5 w-5" />
-</button>`}
-            language="tsx"
-            title="Implementação de Icon Buttons com Cores"
-            showCode={false}
-          />
-        </div>
-        
-        <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
-          <div className="p-6">
-            <h2 className="text-xl font-medium mb-4">Icon Buttons com Bordas</h2>
-            
-            <div className="flex gap-4 flex-wrap mb-6">
-              <button className="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors">
-                <ChevronLeft className="h-5 w-5" />
-              </button>
-              <button className="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors">
-                <ChevronRight className="h-5 w-5" />
-              </button>
-              <button className="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors">
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-          </div>
-          
-          <CodeBlock 
-            code={`<button className="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors">
-  <ChevronLeft className="h-5 w-5" />
-</button>
-
-<button className="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors">
-  <ChevronRight className="h-5 w-5" />
-</button>
-
-<button className="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors">
-  <X className="h-5 w-5" />
-</button>`}
-            language="tsx"
-            title="Implementação de Icon Buttons com Bordas"
-            showCode={false}
-          />
-        </div>
-        
-        <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
-          <div className="p-6">
-            <h2 className="text-xl font-medium mb-4">Icon Buttons em Tamanhos Diferentes</h2>
-            
-            <div className="flex gap-4 items-center flex-wrap mb-6">
-              <button className="p-1 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
-                <Plus className="h-4 w-4" />
-              </button>
-              <button className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
-                <Plus className="h-5 w-5" />
-              </button>
-              <button className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
-                <Plus className="h-6 w-6" />
-              </button>
-            </div>
-          </div>
-          
-          <CodeBlock 
-            code={`<!-- Pequeno -->
-<button className="p-1 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
-  <Plus className="h-4 w-4" />
-</button>
-
-<!-- Médio -->
-<button className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
-  <Plus className="h-5 w-5" />
-</button>
-
-<!-- Grande -->
-<button className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
-  <Plus className="h-6 w-6" />
-</button>`}
-            language="html"
-            title="Implementação de Icon Buttons em Tamanhos Diferentes"
-            showCode={false}
-          />
-        </div>
-        
-        <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
-          <div className="p-6">
-            <h2 className="text-xl font-medium mb-4">Icon Buttons Desabilitados</h2>
-            
-            <div className="flex gap-4 flex-wrap mb-6">
-              <button className="p-2 rounded-full bg-gray-100 text-gray-400 cursor-not-allowed" disabled>
-                <Plus className="h-5 w-5" />
-              </button>
-              <button className="p-2 rounded-full border border-gray-200 text-gray-400 cursor-not-allowed" disabled>
-                <Edit className="h-5 w-5" />
-              </button>
-            </div>
-          </div>
-          
-          <CodeBlock 
-            code={`<button className="p-2 rounded-full bg-gray-100 text-gray-400 cursor-not-allowed" disabled>
-  <Plus className="h-5 w-5" />
-</button>
-
-<button className="p-2 rounded-full border border-gray-200 text-gray-400 cursor-not-allowed" disabled>
-  <Edit className="h-5 w-5" />
-</button>`}
-            language="tsx"
-            title="Implementação de Icon Buttons Desabilitados"
-            showCode={false}
-          />
-        </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default IconButton;
+export default IconButtonPage;

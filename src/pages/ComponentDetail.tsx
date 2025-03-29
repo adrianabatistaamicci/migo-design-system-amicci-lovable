@@ -1,14 +1,16 @@
+
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import ComponentCard from '@/components/ComponentCard';
 import CodeBlock from '@/components/CodeBlock';
 import { Button } from '@/components/ui/button';
+import { IconButton } from '@/components/ui/icon-button';
 import { Input } from '@/components/ui/input';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import Header from '@/components/library-components/Header';
-import { Heart, ArrowRight, Save, Check } from 'lucide-react';
+import { Heart, ArrowRight, Save, Check, Plus, Edit, Search } from 'lucide-react';
 
 const componentData = {
   buttons: {
@@ -110,6 +112,70 @@ const componentData = {
       code: `<Button startIcon={<Heart size={18} />}>Like</Button>
 <Button endIcon={<ArrowRight size={18} />}>Next</Button>
 <Button startIcon={<Save size={18} />} endIcon={<Check size={18} />}>Save</Button>`
+    }]
+  },
+  iconbutton: {
+    title: 'Icon Button',
+    description: 'Botões que contêm apenas ícones, úteis para ações compactas na interface.',
+    api: [{
+      prop: 'variant',
+      type: '"default" | "error" | "warning" | "info" | "success" | "outline-default" | "outline-secondary" | "outline-error" | "text-default" | "text-secondary" | "text-error"',
+      default: '"default"',
+      description: 'Visual style of the icon button'
+    }, {
+      prop: 'size',
+      type: '"default" | "sm" | "lg"',
+      default: '"default"',
+      description: 'Size of the icon button'
+    }, {
+      prop: 'icon',
+      type: 'ReactNode',
+      default: 'required',
+      description: 'Icon element to display inside the button'
+    }, {
+      prop: 'disabled',
+      type: 'boolean',
+      default: 'false',
+      description: 'When true, prevents user interaction'
+    }, {
+      prop: 'isLoading',
+      type: 'boolean',
+      default: 'false',
+      description: 'When true, shows a loading spinner'
+    }],
+    examples: [{
+      title: 'Icon Buttons Básicos',
+      description: 'Botões de ícone com estilos simples.',
+      component: <div className="flex gap-4 flex-wrap">
+            <IconButton variant="text-secondary" icon={<Search />} />
+            <IconButton variant="text-secondary" icon={<Plus />} />
+            <IconButton variant="text-secondary" icon={<Edit />} />
+          </div>,
+      code: `<IconButton variant="text-secondary" icon={<Search />} />
+<IconButton variant="text-secondary" icon={<Plus />} />
+<IconButton variant="text-secondary" icon={<Edit />} />`
+    }, {
+      title: 'Icon Buttons com Cores',
+      description: 'Botões de ícone com diferentes variantes de cores.',
+      component: <div className="flex gap-4 flex-wrap">
+            <IconButton icon={<Plus />} />
+            <IconButton variant="success" icon={<Check />} />
+            <IconButton variant="error" icon={<Search />} />
+          </div>,
+      code: `<IconButton icon={<Plus />} />
+<IconButton variant="success" icon={<Check />} />
+<IconButton variant="error" icon={<Search />} />`
+    }, {
+      title: 'Icon Buttons em Tamanhos Diferentes',
+      description: 'Botões de ícone em diferentes tamanhos.',
+      component: <div className="flex gap-4 items-center flex-wrap">
+            <IconButton variant="text-secondary" size="sm" icon={<Plus />} />
+            <IconButton variant="text-secondary" icon={<Plus />} />
+            <IconButton variant="text-secondary" size="lg" icon={<Plus />} />
+          </div>,
+      code: `<IconButton variant="text-secondary" size="sm" icon={<Plus />} />
+<IconButton variant="text-secondary" icon={<Plus />} />
+<IconButton variant="text-secondary" size="lg" icon={<Plus />} />`
     }]
   },
   input: {
@@ -215,14 +281,10 @@ const ComponentDetail = () => {
         <Header title={component.title} description={component.description} type="components" />
         
         <div className="mb-12">
-          
-          
           <CodeBlock code={`import { ${component.title} } from "@/components/ui/${component.title.toLowerCase()}";`} language="jsx" />
         </div>
         
         <div className="mb-12">
-          
-          
           <div className="space-y-8">
             {component.examples.map((example, index) => <ComponentCard key={index} title={example.title} description={example.description} code={example.code}>
                 {example.component}
