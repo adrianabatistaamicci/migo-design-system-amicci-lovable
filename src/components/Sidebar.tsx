@@ -18,7 +18,9 @@ import {
   MessageSquare,
   Bell,
   Palette,
-  FileText
+  FileText,
+  Square,
+  FileCode
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
@@ -75,6 +77,26 @@ export const sidebarItems: SidebarItem[] = [
     href: '/components',
     icon: Package,
     items: [
+      {
+        title: 'Button',
+        href: '/components/buttons',
+        icon: Square,
+      },
+      {
+        title: 'Input',
+        href: '/components/input',
+        icon: Square,
+      },
+      {
+        title: 'Radio Group',
+        href: '/components/radiogroup',
+        icon: Square,
+      },
+      {
+        title: 'CodeBlock',
+        href: '/components/codeblock',
+        icon: FileCode,
+      },
       {
         title: 'Application Shells',
         items: [
