@@ -1,4 +1,3 @@
-
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -323,7 +322,8 @@ const TabsPage = () => {
                       value: 'production',
                       icon: <Rocket className="h-5 w-5" />,
                       secondaryText: "Prazo 03/05/2024",
-                      chipStatus: "Em breve"
+                      chipStatus: "Em breve",
+                      disabled: true
                     }
                   ]}
                   variant="projectTabs"
@@ -360,7 +360,8 @@ const TabsPage = () => {
       value: 'production',
       icon: <Rocket className="h-5 w-5" />,
       secondaryText: "Prazo 03/05/2024",
-      chipStatus: "Em breve"
+      chipStatus: "Em breve",
+      disabled: true
     }
   ]}
   variant="projectTabs"
