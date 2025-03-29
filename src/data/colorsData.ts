@@ -1,4 +1,3 @@
-
 export const baseColorsData = [{
   name: 'Amicci',
   weights: [{
@@ -498,7 +497,7 @@ export const paletteData = [
     description: 'red',
     variants: [
       { name: 'main', colorClass: 'bg-error-main', hexValue: '#DC2626', baseColor: 'Red-600' },
-      { name: 'light', colorClass: 'bg-error-light', hexValue: '#FEE2E2', baseColor: 'Red-100' },
+      { name: 'light', colorClass: 'bg-error-light', hexValue: '#FEF3F2', baseColor: 'Red-50' },
       { name: 'dark', colorClass: 'bg-error-dark', hexValue: '#7F1D1D', baseColor: 'Red-900' },
       { name: 'hover', colorClass: 'bg-error-hover', hexValue: 'rgba(220, 38, 38, 0.04)', baseColor: 'Red-600', opacity: '4%' },
       { name: 'selected', colorClass: 'bg-error-selected', hexValue: 'rgba(220, 38, 38, 0.08)', baseColor: 'Red-600', opacity: '8%' },
