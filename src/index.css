@@ -316,3 +316,20 @@
   display: none !important;
   visibility: hidden !important;
 }
+
+/* Color blindness filters */
+.filter-deuteranopia {
+  filter: contrast(0.8) sepia(0.2) brightness(1.1) hue-rotate(305deg) saturate(0.7);
+}
+
+.filter-protanopia {
+  filter: contrast(0.9) sepia(0.1) brightness(0.9) hue-rotate(345deg) saturate(0.6);
+}
+
+.filter-tritanopia {
+  filter: contrast(1.1) sepia(0.1) hue-rotate(190deg) saturate(0.8);
+}
+
+.filter-grayscale {
+  filter: grayscale(1);
+}
