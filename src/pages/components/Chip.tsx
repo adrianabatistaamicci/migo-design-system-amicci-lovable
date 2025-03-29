@@ -39,7 +39,7 @@ const ChipPage = () => {
           <ComponentCard 
             title="Basic Chips" 
             description="Simple chips for displaying information."
-            <CodeBlock code={`<div className="flex flex-wrap gap-2">
+            code={`<div className="flex flex-wrap gap-2">
   <Chip>Basic Chip</Chip>
   <Chip>React</Chip>
   <Chip>Angular</Chip>
@@ -57,7 +57,7 @@ const ChipPage = () => {
           <ComponentCard 
             title="Chip Variants" 
             description="Different variant styles for chips."
-            <CodeBlock code={`<div className="flex flex-wrap gap-2">
+            code={`<div className="flex flex-wrap gap-2">
   <Chip variant="default">Default</Chip>
   <Chip variant="filled">Filled</Chip>
   <Chip variant="filledlight">Filled Light</Chip>
@@ -75,7 +75,7 @@ const ChipPage = () => {
           <ComponentCard 
             title="Chip Colors" 
             description="Chips with different color options."
-            <CodeBlock code={`<div className="space-y-4">
+            code={`<div className="space-y-4">
   <div className="flex flex-wrap gap-2">
     <Chip variant="filled" color="primary">Primary</Chip>
     <Chip variant="filled" color="secondary">Secondary</Chip>
@@ -137,7 +137,7 @@ const ChipPage = () => {
           <ComponentCard 
             title="Deletable Chips" 
             description="Chips with delete functionality."
-            <CodeBlock code={`const [chips, setChips] = useState(['React', 'Angular', 'Vue', 'Svelte']);
+            code={`const [chips, setChips] = useState(['React', 'Angular', 'Vue', 'Svelte']);
   
 const handleDelete = (chipToDelete) => {
   setChips(chips.filter(chip => chip !== chipToDelete));
@@ -185,12 +185,12 @@ const handleDelete = (chipToDelete) => {
           <ComponentCard 
             title="Chips with Icons" 
             description="Chips that include icons for additional visual information."
-            <CodeBlock code={`<div className="flex flex-wrap gap-2">
-  <Chip icon={<Check className="h-3.5 w-3.5" />}&gt;Completed</Chip>
-  <Chip icon={<User className="h-3.5 w-3.5" />}&gt;Profile</Chip>
-  <Chip icon={<Mail className="h-3.5 w-3.5" />}&gt;Messages</Chip>
-  <Chip icon={<Heart className="h-3.5 w-3.5" />}&gt;Favorites</Chip>
-  <Chip icon={<Star className="h-3.5 w-3.5" />}&gt;Starred</Chip>
+            code={`<div className="flex flex-wrap gap-2">
+  <Chip icon={<Check className="h-3.5 w-3.5" />}>Completed</Chip>
+  <Chip icon={<User className="h-3.5 w-3.5" />}>Profile</Chip>
+  <Chip icon={<Mail className="h-3.5 w-3.5" />}>Messages</Chip>
+  <Chip icon={<Heart className="h-3.5 w-3.5" />}>Favorites</Chip>
+  <Chip icon={<Star className="h-3.5 w-3.5" />}>Starred</Chip>
 </div>`}
           >
             <div className="flex flex-wrap gap-2 p-6">
@@ -205,7 +205,7 @@ const handleDelete = (chipToDelete) => {
           <ComponentCard 
             title="Chips with Avatars" 
             description="Chips that include avatars for user representation."
-            <CodeBlock code={`<div className="flex flex-wrap gap-2">
+            code={`<div className="flex flex-wrap gap-2">
   <Chip 
     avatar={
       <Avatar className="h-6 w-6">
@@ -305,7 +305,7 @@ const handleDelete = (chipToDelete) => {
           <ComponentCard 
             title="Clickable Chips" 
             description="Chips that can be clicked to trigger an action."
-            <CodeBlock code={`<div className="flex flex-wrap gap-2">
+            code={`<div className="flex flex-wrap gap-2">
   <Chip clickable onClick={() => alert('Chip clicked!')}>
     Click me
   </Chip>
@@ -357,7 +357,7 @@ const handleDelete = (chipToDelete) => {
           <ComponentCard 
             title="Disabled Chips" 
             description="Chips in a disabled state."
-            <CodeBlock code={`<div className="flex flex-wrap gap-2">
+            code={`<div className="flex flex-wrap gap-2">
   <Chip disabled>Disabled</Chip>
   <Chip disabled variant="filled" color="primary">Disabled</Chip>
   <Chip disabled variant="outlined" color="secondary">Disabled</Chip>
