@@ -4,6 +4,9 @@ import { Label } from "@/components/ui/label";
 import { Check, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Toggle } from "@/components/ui/toggle";
+import ComponentCard from '@/components/ComponentCard';
+import ColorSwatch from '@/components/colors/ColorSwatch';
+import { colorBlindnessFilters } from '@/utils/colorUtils';
 
 export interface AccessibilityDemoProps {
   simulationType: string;
@@ -16,10 +19,10 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
 }) => {
   return (
     <div className="space-y-8">
-      <div>
-        <h2 className="text-2xl font-semibold mb-1">Acessibilidade de Cores</h2>
-        <p className="text-primary-main mb-6">Garantindo que nosso sistema de cores seja acessível a todos.</p>
-        
+      <ComponentCard 
+        title="Acessibilidade" 
+        description="Garantindo que nosso sistema de cores seja acessível a todos"
+      >
         <div className="space-y-8">
           {/* Contraste Section */}
           <section>
@@ -48,7 +51,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                   <span className="font-medium">Texto grande (18pt ou 14pt bold)</span>
                 </div>
                 <p className="text-sm text-primary-main">Contraste mínimo de 3:1</p>
-                <div className="bg-primary-light text-primary-dark text-lg p-3 rounded font-medium">
+                <div className="bg-amicci-100 text-amicci-600 text-lg p-3 rounded font-medium">
                   Texto grande
                 </div>
               </div>
@@ -62,7 +65,7 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                 </div>
                 <p className="text-sm text-primary-main">Contraste mínimo de 3:1</p>
                 <Button variant="default" className="bg-primary-main hover:bg-primary-dark text-white">
-                  Botão de exemplo
+                  Default Button Contained
                 </Button>
               </div>
             </div>
@@ -105,8 +108,8 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                 </div>
                 <p className="text-sm text-primary-main">Mantemos contraste suficiente mesmo em visualizações monocromáticas</p>
                 <div className="flex gap-3 mt-3">
-                  <span className="border border-primary-main px-3 py-1 rounded text-sm">Normal</span>
-                  <span className="border border-primary-dark px-3 py-1 rounded text-sm">Outline</span>
+                  <span className="border border-primary-main px-3 py-1 rounded text-sm">Chip Outlined Primary</span>
+                  <span className="border border-secondary-main px-3 py-1 rounded text-sm">Button Outline Secondary</span>
                 </div>
               </div>
             </div>
@@ -123,13 +126,12 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                 <div className="border rounded-lg p-4">
                   <div className="flex justify-between items-center mb-4">
                     <div>
-                      <h4 className="font-medium">Deuteranopia</h4>
-                      <p className="text-sm text-primary-main">Deficiência de percepção do verde</p>
+                      <h4 className="font-medium text-base text-gray-900">Deuteranopia</h4>
+                      <p className="text-sm text-gray-500">Deficiência de percepção do verde</p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Label htmlFor="deuteranopia-sim" className="text-sm text-primary-main">Simular</Label>
+                      <span className="text-sm font-medium text-gray-900">Simular</span>
                       <Toggle
-                        id="deuteranopia-sim"
                         variant="primary"
                         size="sm"
                         pressed={simulationType === 'deuteranopia'}
@@ -137,11 +139,13 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                       />
                     </div>
                   </div>
-                  <div className={`grid grid-cols-4 gap-2 ${simulationType === 'deuteranopia' ? 'filter-deuteranopia' : ''}`}>
-                    <div className="h-8 bg-primary-main rounded"></div>
-                    <div className="h-8 bg-primary-dark rounded"></div>
-                    <div className="h-8 bg-error-main rounded"></div>
-                    <div className="h-8 bg-success-main rounded"></div>
+                  <div className="grid grid-cols-4 gap-2" style={{
+                    filter: simulationType === 'deuteranopia' ? colorBlindnessFilters.deuteranopia : ''
+                  }}>
+                    <ColorSwatch color="bg-primary-main" className="h-12" disableCopy={true} />
+                    <ColorSwatch color="bg-secondary-main" className="h-12" disableCopy={true} />
+                    <ColorSwatch color="bg-error-main" className="h-12" disableCopy={true} />
+                    <ColorSwatch color="bg-success-main" className="h-12" disableCopy={true} />
                   </div>
                 </div>
                 
@@ -149,13 +153,12 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                 <div className="border rounded-lg p-4">
                   <div className="flex justify-between items-center mb-4">
                     <div>
-                      <h4 className="font-medium">Protanopia</h4>
-                      <p className="text-sm text-primary-main">Deficiência de percepção do vermelho</p>
+                      <h4 className="font-medium text-base text-gray-900">Protanopia</h4>
+                      <p className="text-sm text-gray-500">Deficiência de percepção do vermelho</p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Label htmlFor="protanopia-sim" className="text-sm text-primary-main">Simular</Label>
+                      <span className="text-sm font-medium text-gray-900">Simular</span>
                       <Toggle
-                        id="protanopia-sim"
                         variant="primary"
                         size="sm"
                         pressed={simulationType === 'protanopia'}
@@ -163,11 +166,13 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                       />
                     </div>
                   </div>
-                  <div className={`grid grid-cols-4 gap-2 ${simulationType === 'protanopia' ? 'filter-protanopia' : ''}`}>
-                    <div className="h-8 bg-primary-main rounded"></div>
-                    <div className="h-8 bg-primary-dark rounded"></div>
-                    <div className="h-8 bg-error-main rounded"></div>
-                    <div className="h-8 bg-success-main rounded"></div>
+                  <div className="grid grid-cols-4 gap-2" style={{
+                    filter: simulationType === 'protanopia' ? colorBlindnessFilters.protanopia : ''
+                  }}>
+                    <ColorSwatch color="bg-primary-main" className="h-12" disableCopy={true} />
+                    <ColorSwatch color="bg-secondary-main" className="h-12" disableCopy={true} />
+                    <ColorSwatch color="bg-error-main" className="h-12" disableCopy={true} />
+                    <ColorSwatch color="bg-success-main" className="h-12" disableCopy={true} />
                   </div>
                 </div>
               </div>
@@ -177,13 +182,12 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                 <div className="border rounded-lg p-4">
                   <div className="flex justify-between items-center mb-4">
                     <div>
-                      <h4 className="font-medium">Tritanopia</h4>
-                      <p className="text-sm text-primary-main">Deficiência de percepção do azul</p>
+                      <h4 className="font-medium text-base text-gray-900">Tritanopia</h4>
+                      <p className="text-sm text-gray-500">Deficiência de percepção do azul</p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Label htmlFor="tritanopia-sim" className="text-sm text-primary-main">Simular</Label>
+                      <span className="text-sm font-medium text-gray-900">Simular</span>
                       <Toggle
-                        id="tritanopia-sim"
                         variant="primary"
                         size="sm"
                         pressed={simulationType === 'tritanopia'}
@@ -191,11 +195,13 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                       />
                     </div>
                   </div>
-                  <div className={`grid grid-cols-4 gap-2 ${simulationType === 'tritanopia' ? 'filter-tritanopia' : ''}`}>
-                    <div className="h-8 bg-primary-main rounded"></div>
-                    <div className="h-8 bg-primary-dark rounded"></div>
-                    <div className="h-8 bg-error-main rounded"></div>
-                    <div className="h-8 bg-success-main rounded"></div>
+                  <div className="grid grid-cols-4 gap-2" style={{
+                    filter: simulationType === 'tritanopia' ? colorBlindnessFilters.tritanopia : ''
+                  }}>
+                    <ColorSwatch color="bg-primary-main" className="h-12" disableCopy={true} />
+                    <ColorSwatch color="bg-secondary-main" className="h-12" disableCopy={true} />
+                    <ColorSwatch color="bg-error-main" className="h-12" disableCopy={true} />
+                    <ColorSwatch color="bg-success-main" className="h-12" disableCopy={true} />
                   </div>
                 </div>
                 
@@ -203,13 +209,12 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                 <div className="border rounded-lg p-4">
                   <div className="flex justify-between items-center mb-4">
                     <div>
-                      <h4 className="font-medium">Acromatopsia</h4>
-                      <p className="text-sm text-primary-main">Ausência completa de percepção de cores</p>
+                      <h4 className="font-medium text-base text-gray-900">Acromatopsia</h4>
+                      <p className="text-sm text-gray-500">Ausência completa de percepção de cores</p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Label htmlFor="achromatopsia-sim" className="text-sm text-primary-main">Simular</Label>
+                      <span className="text-sm font-medium text-gray-900">Simular</span>
                       <Toggle
-                        id="achromatopsia-sim"
                         variant="primary"
                         size="sm"
                         pressed={simulationType === 'achromatopsia'}
@@ -217,18 +222,20 @@ const AccessibilityDemo: React.FC<AccessibilityDemoProps> = ({
                       />
                     </div>
                   </div>
-                  <div className={`grid grid-cols-4 gap-2 ${simulationType === 'achromatopsia' ? 'filter-grayscale' : ''}`}>
-                    <div className="h-8 bg-primary-main rounded"></div>
-                    <div className="h-8 bg-primary-dark rounded"></div>
-                    <div className="h-8 bg-error-main rounded"></div>
-                    <div className="h-8 bg-success-main rounded"></div>
+                  <div className="grid grid-cols-4 gap-2" style={{
+                    filter: simulationType === 'achromatopsia' ? colorBlindnessFilters.achromatopsia : ''
+                  }}>
+                    <ColorSwatch color="bg-primary-main" className="h-12" disableCopy={true} />
+                    <ColorSwatch color="bg-secondary-main" className="h-12" disableCopy={true} />
+                    <ColorSwatch color="bg-error-main" className="h-12" disableCopy={true} />
+                    <ColorSwatch color="bg-success-main" className="h-12" disableCopy={true} />
                   </div>
                 </div>
               </div>
             </div>
           </section>
         </div>
-      </div>
+      </ComponentCard>
     </div>
   );
 };
