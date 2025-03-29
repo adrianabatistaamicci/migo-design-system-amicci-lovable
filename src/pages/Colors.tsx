@@ -38,7 +38,7 @@ const Colors = () => {
           tabs={[
             { name: 'Visão geral', value: 'overview' },
             { name: 'Cores Base', value: 'base-colors' },
-            { name: 'Paletas Semânticas', value: 'semantic-palettes' },
+            { name: 'Paletas', value: 'semantic-palettes' },
             { name: 'Acessibilidade', value: 'accessibility' }
           ]}
           onChange={value => setActiveTab(value)}
