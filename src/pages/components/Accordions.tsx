@@ -40,7 +40,7 @@ const Accordions = () => {
                     Use Accordions quando houver muitas informações para mostrar em um espaço limitado. Não aninhe muitos níveis de acordeões, pois isso pode confundir os usuários.
                   </AccordionContent>
                 </AccordionItem>
-              </Accordion>
+            </Accordion>
             </div>
           </div>
           

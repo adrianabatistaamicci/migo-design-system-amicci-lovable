@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -82,7 +81,6 @@ import Spacing from "./pages/Spacing";
 import Icons from "./pages/Icons";
 import Brand from "./pages/foundations/Brand";
 import TitleHeadings from "./pages/components/TitleHeadings";
-import Handoff from "./pages/resources/Handoff";
 
 const queryClient = new QueryClient();
 
@@ -102,12 +100,6 @@ const App = () => {
               <Route path="/guidelines/ux-guidelines" element={<UXGuidelines />} />
               <Route path="/components" element={<Components />} />
               <Route path="/components/:componentId" element={<ComponentDetail />} />
-              <Route path="/ui-kit" element={<UIKit />} />
-              <Route path="/foundations/colors" element={<Colors />} />
-              <Route path="/foundations/typography" element={<Typography />} />
-              <Route path="/foundations/spacing" element={<Spacing />} />
-              <Route path="/foundations/icons" element={<Icons />} />
-              <Route path="/foundations/brand" element={<Brand />} />
               <Route path="/components/input" element={<InputPage />} />
               <Route path="/components/checkbox" element={<CheckboxPage />} />
               <Route path="/components/radio" element={<RadioPage />} />
@@ -168,10 +160,22 @@ const App = () => {
               <Route path="/components/projects-screens" element={<ProjectsScreensPage />} />
               <Route path="/components/marketplace-screens" element={<NotificationToasts />} />
               <Route path="/resources/figma-library" element={<FigmaLibraryPage />} />
-              <Route path="/resources/handoff" element={<Handoff />} />
               <Route path="/resources/faq" element={<FAQPage />} />
-              <Route path="/components/button" element={<ButtonPage />} />
+              <Route path="/components/profile-button" element={<ProfileButtonPage />} />
               <Route path="/components/icon-button" element={<IconButtonPage />} />
+              <Route path="/components/link" element={<LinkPage />} />
+              <Route path="/colors" element={<Colors />} />
+              <Route path="/foundations/colors" element={<Colors />} />
+              <Route path="/typography" element={<Typography />} />
+              <Route path="/foundations/typography" element={<Typography />} />
+              <Route path="/spacing" element={<Spacing />} />
+              <Route path="/foundations/spacing" element={<Spacing />} />
+              <Route path="/icons" element={<Icons />} />
+              <Route path="/foundations/icons" element={<Icons />} />
+              <Route path="/foundations/brand" element={<Brand />} />
+              <Route path="/ui-kit" element={<UIKit />} />
+              <Route path="/components/dividers" element={<Dividers />} />
+              <Route path="/components/buttons" element={<ButtonPage />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

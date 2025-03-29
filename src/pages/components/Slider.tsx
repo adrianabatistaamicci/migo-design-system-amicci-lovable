@@ -7,7 +7,7 @@
  */
 
 import React, { useState } from 'react';
-import CodeBlock from '@/components/CodeBlock';
+import ComponentCard from '@/components/ComponentCard';
 import { Slider } from '@/components/ui/slider';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import Header from '@/components/library-components/Header';
@@ -35,63 +35,39 @@ const SliderPage = () => {
         </div>
         
         <div className="space-y-12">
-          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
-            <div className="p-6">
-              <h2 className="text-xl font-medium mb-4">Basic Slider</h2>
-              <div className="max-w-sm py-6">
-                <Slider defaultValue={[50]} max={100} step={1} />
-              </div>
+          <ComponentCard 
+            title="Basic Slider" 
+            description="A simple slider component."
+            code={`<Slider defaultValue={[50]} max={100} step={1} />
+`}
+          >
+            <div className="max-w-sm py-6">
+              <Slider defaultValue={[50]} max={100} step={1} />
             </div>
-            <CodeBlock 
-              code={`<Slider defaultValue={[50]} max={100} step={1} />`}
-              language="tsx"
-              title="Implementação do Slider Básico"
-              showCode={false}
-            />
-          </div>
+          </ComponentCard>
           
-          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
-            <div className="p-6">
-              <h2 className="text-xl font-medium mb-4">Slider with Custom Colors</h2>
-              <div className="max-w-sm space-y-8 py-6">
-                <Slider defaultValue={[30]} max={100} color="primary" />
-                <Slider defaultValue={[40]} max={100} color="secondary" />
-                <Slider defaultValue={[60]} max={100} color="error" />
-                <Slider defaultValue={[70]} max={100} color="success" />
-              </div>
-            </div>
-            <CodeBlock 
-              code={`<div className="space-y-8">
+          <ComponentCard 
+            title="Slider with Custom Colors" 
+            description="Slider components with different color variants."
+            code={`<div className="space-y-8">
   <Slider defaultValue={[30]} max={100} color="primary" />
   <Slider defaultValue={[40]} max={100} color="secondary" />
   <Slider defaultValue={[60]} max={100} color="error" />
   <Slider defaultValue={[70]} max={100} color="success" />
 </div>`}
-              language="tsx"
-              title="Implementação de Sliders com Cores Personalizadas"
-              showCode={false}
-            />
-          </div>
-          
-          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
-            <div className="p-6">
-              <h2 className="text-xl font-medium mb-4">Slider with Marks</h2>
-              <div className="max-w-sm py-10">
-                <Slider 
-                  defaultValue={[50]} 
-                  max={100}
-                  marks={[
-                    { value: 0, label: '0%' },
-                    { value: 25, label: '25%' },
-                    { value: 50, label: '50%' },
-                    { value: 75, label: '75%' },
-                    { value: 100, label: '100%' }
-                  ]}
-                />
-              </div>
+          >
+            <div className="max-w-sm space-y-8 py-6">
+              <Slider defaultValue={[30]} max={100} color="primary" />
+              <Slider defaultValue={[40]} max={100} color="secondary" />
+              <Slider defaultValue={[60]} max={100} color="error" />
+              <Slider defaultValue={[70]} max={100} color="success" />
             </div>
-            <CodeBlock 
-              code={`<Slider 
+          </ComponentCard>
+          
+          <ComponentCard 
+            title="Slider with Marks" 
+            description="A slider with marks to indicate specific values."
+            code={`<Slider 
   defaultValue={[50]} 
   max={100}
   marks={[
@@ -101,50 +77,45 @@ const SliderPage = () => {
     { value: 75, label: '75%' },
     { value: 100, label: '100%' }
   ]}
-/>`}
-              language="tsx"
-              title="Implementação de Slider com Marcadores"
-              showCode={false}
-            />
-          </div>
-          
-          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
-            <div className="p-6">
-              <h2 className="text-xl font-medium mb-4">Range Slider</h2>
-              <div className="max-w-sm py-6">
-                <Slider 
-                  defaultValue={[25, 75]} 
-                  max={100}
-                />
-              </div>
+/>
+`}
+          >
+            <div className="max-w-sm py-10">
+              <Slider 
+                defaultValue={[50]} 
+                max={100}
+                marks={[
+                  { value: 0, label: '0%' },
+                  { value: 25, label: '25%' },
+                  { value: 50, label: '50%' },
+                  { value: 75, label: '75%' },
+                  { value: 100, label: '100%' }
+                ]}
+              />
             </div>
-            <CodeBlock 
-              code={`<Slider 
+          </ComponentCard>
+          
+          <ComponentCard 
+            title="Range Slider" 
+            description="A slider that allows selecting a range between two values."
+            code={`<Slider 
   defaultValue={[25, 75]} 
   max={100}
-/>`}
-              language="tsx"
-              title="Implementação de Range Slider"
-              showCode={false}
-            />
-          </div>
-          
-          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
-            <div className="p-6">
-              <h2 className="text-xl font-medium mb-4">Slider with Value Display</h2>
-              <div className="max-w-sm py-6">
-                <Slider 
-                  value={value}
-                  onValueChange={setValue}
-                  max={100}
-                  valueLabelDisplay="auto" 
-                />
-                
-                <p className="mt-4 text-sm text-mui-text-secondary">Selected value: {value}</p>
-              </div>
+/>
+`}
+          >
+            <div className="max-w-sm py-6">
+              <Slider 
+                defaultValue={[25, 75]} 
+                max={100}
+              />
             </div>
-            <CodeBlock 
-              code={`const [value, setValue] = useState([50]);
+          </ComponentCard>
+          
+          <ComponentCard 
+            title="Slider with Value Display" 
+            description="A slider that displays its current value."
+            code={`const [value, setValue] = useState([50]);
 
 <Slider 
   value={value}
@@ -153,33 +124,37 @@ const SliderPage = () => {
   valueLabelDisplay="auto" 
 />
 
-<p className="mt-4">Selected value: {value}</p>`}
-              language="tsx"
-              title="Implementação de Slider com Exibição de Valor"
-              showCode={false}
-            />
-          </div>
-          
-          <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
-            <div className="p-6">
-              <h2 className="text-xl font-medium mb-4">Slider Sizes</h2>
-              <div className="max-w-sm space-y-8 py-6">
-                <Slider defaultValue={[50]} max={100} size="sm" />
-                <Slider defaultValue={[50]} max={100} size="md" />
-                <Slider defaultValue={[50]} max={100} size="lg" />
-              </div>
+<p className="mt-4">Selected value: {value}</p>
+`}
+          >
+            <div className="max-w-sm py-6">
+              <Slider 
+                value={value}
+                onValueChange={setValue}
+                max={100}
+                valueLabelDisplay="auto" 
+              />
+              
+              <p className="mt-4 text-sm text-mui-text-secondary">Selected value: {value}</p>
             </div>
-            <CodeBlock 
-              code={`<div className="space-y-8">
+          </ComponentCard>
+          
+          <ComponentCard 
+            title="Slider Sizes" 
+            description="Sliders in different sizes."
+            code={`<div className="space-y-8">
   <Slider defaultValue={[50]} max={100} size="sm" />
   <Slider defaultValue={[50]} max={100} size="md" />
   <Slider defaultValue={[50]} max={100} size="lg" />
-</div>`}
-              language="tsx"
-              title="Implementação de Sliders com Diferentes Tamanhos"
-              showCode={false}
-            />
-          </div>
+</div>
+`}
+          >
+            <div className="max-w-sm space-y-8 py-6">
+              <Slider defaultValue={[50]} max={100} size="sm" />
+              <Slider defaultValue={[50]} max={100} size="md" />
+              <Slider defaultValue={[50]} max={100} size="lg" />
+            </div>
+          </ComponentCard>
         </div>
         
         <div className="mt-12">
