@@ -1,3 +1,10 @@
+/**
+ * @protected
+ * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
+ * Não deve ser alterado diretamente pelo assistente AI.
+ * Apenas atualizações de componentes devem ser refletidas.
+ */
+
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { X } from "lucide-react"
