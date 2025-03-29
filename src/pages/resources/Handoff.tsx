@@ -1,10 +1,8 @@
-
 import React, { useState } from 'react';
 import Header from '@/components/library-components/Header';
 import CodeBlock from '@/components/CodeBlock';
 import FloatingStateMenu, { VerificationState } from '@/components/ui/floating-state-menu';
 
-// Visual examples components for different states
 const PhoneDefaultState = () => (
   <div className="bg-white p-4 rounded-md border border-gray-200">
     <h3 className="text-lg font-medium mb-2">Phone Input (Default)</h3>
@@ -129,7 +127,6 @@ const ErrorMaxAttemptsState = () => (
 const Handoff = () => {
   const [currentState, setCurrentState] = useState<VerificationState>('phone-default');
 
-  // Function to render the appropriate state component
   const renderStateComponent = () => {
     switch(currentState) {
       case 'phone-default':
@@ -159,7 +156,6 @@ const Handoff = () => {
       />
       
       <div className="space-y-8">
-        {/* Floating State Menu Component */}
         <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
           <div className="p-6">
             <h2 className="text-xl font-medium mb-4">FloatingStateMenu</h2>
@@ -200,7 +196,6 @@ const [currentState, setCurrentState] = useState<VerificationState>('phone-defau
           />
         </div>
         
-        {/* API Reference */}
         <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
           <div className="p-6">
             <h2 className="text-xl font-medium mb-4">API Reference</h2>
@@ -222,7 +217,7 @@ const [currentState, setCurrentState] = useState<VerificationState>('phone-defau
                   </tr>
                   <tr>
                     <td className="px-4 py-2 font-medium">onChange</td>
-                    <td className="px-4 py-2 text-gray-600">(state: VerificationState) => void</td>
+                    <td className="px-4 py-2 text-gray-600">(state: VerificationState) =&gt; void</td>
                     <td className="px-4 py-2 text-gray-600">Callback que é chamado quando o estado é alterado</td>
                   </tr>
                 </tbody>
