@@ -1,4 +1,11 @@
 
+/**
+ * @protected
+ * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
+ * Não deve ser alterado diretamente pelo assistente AI.
+ * Apenas atualizações de componentes devem ser refletidas.
+ */
+
 import React from 'react';
 import UIKitHeader from '@/components/ui-kit/UIKitHeader';
 import ApplicationShellsSection from '@/components/ui-kit/ApplicationShellsSection';
