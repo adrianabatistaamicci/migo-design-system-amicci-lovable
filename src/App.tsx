@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,75 +13,7 @@ import Components from "./pages/Components";
 import ComponentDetail from "./pages/ComponentDetail";
 import NotFound from "./pages/NotFound";
 import UIKit from "./pages/UIKit";
-import Accordions from "./pages/components/Accordions";
-import ActionPanels from "./pages/components/ActionPanels";
-import AlertsToasts from "./pages/components/AlertsToasts";
-import Avatar from "./pages/components/Avatar";
-import Badge from "./pages/components/Badge";
-import ButtonPage from "./pages/components/Button";
-import CheckboxPage from "./pages/components/Checkbox";
-import ChipPage from "./pages/components/Chip";
-import Breadcrumbs from "./pages/components/Breadcrumbs";
-import ButtonGroups from "./pages/components/ButtonGroups";
-import Calendars from "./pages/components/Calendars";
-import CardHeadings from "./pages/components/CardHeadings";
-import Cards from "./pages/components/Cards";
-import CommandBars from "./pages/components/CommandBars";
-import Containers from "./pages/components/Containers";
-import DetailScreens from "./pages/components/DetailScreens";
-import DescriptionLists from "./pages/components/DescriptionLists";
-import MediaObjects from "./pages/components/MediaObjects";
-import ModalDialogs from "./pages/components/ModalDialogs";
-import MultiColumnLayouts from "./pages/components/MultiColumnLayouts";
-import NotificationToasts from "./pages/components/NotificationToasts";
-import PageHeadings from "./pages/components/PageHeadings";
-import Pagination from "./pages/components/Pagination";
-import Stats from "./pages/components/Stats";
-import Tables from "./pages/components/Tables";
-import Textareas from "./pages/components/Textareas";
-import Tooltips from "./pages/components/Tooltips";
-import VerticalNavigation from "./pages/components/VerticalNavigation";
-import Dividers from "./pages/components/Dividers";
-import DrawersPage from "./pages/components/Drawers";
-import DropdownsPage from "./pages/components/Dropdowns";
-import EmptyStatesPage from "./pages/components/EmptyStates";
-import FAQPage from "./pages/components/FAQ";
-import FeedsPage from "./pages/components/Feeds";
-import FigmaLibraryPage from "./pages/components/FigmaLibrary";
-import FormLayoutsPage from "./pages/components/FormLayouts";
-import GridListsPage from "./pages/components/GridLists";
-import HomeScreensPage from "./pages/components/HomeScreens";
-import IconButtonPage from "./pages/components/IconButton";
-import InputPage from "./pages/components/Input";
-import LibraryPage from "./pages/components/Library";
-import LinkPage from "./pages/components/Link";
-import ListContainersPage from "./pages/components/ListContainers";
-import NavbarPage from "./pages/components/Navbar";
-import ProfileButtonPage from "./pages/components/ProfileButton";
-import ProgressPage from "./pages/components/Progress";
-import ProgressSteppersPage from "./pages/components/ProgressSteppers";
-import ProjectsScreensPage from "./pages/components/ProjectsScreens";
-import RadioPage from "./pages/components/Radio";
-import SectionHeadingsPage from "./pages/components/SectionHeadings";
-import SelectPage from "./pages/components/Select";
-import SettingsScreensPage from "./pages/components/SettingsScreens";
-import SidebarLayoutsPage from "./pages/components/SidebarLayouts";
-import SidebarNavigationPage from "./pages/components/SidebarNavigation";
-import SignInRegistrationPage from "./pages/components/SignInRegistration";
-import SkeletonPage from "./pages/components/Skeleton";
-import SliderPage from "./pages/components/Slider";
-import StackedLayoutsPage from "./pages/components/StackedLayouts";
-import StackedListsPage from "./pages/components/StackedLists";
-import SwitchPage from "./pages/components/Switch";
-import TabsPage from "./pages/components/Tabs";
-import TogglePage from "./pages/components/Toggle";
-import Colors from "./pages/Colors";
-import Typography from "./pages/Typography";
-import Spacing from "./pages/Spacing";
-import Icons from "./pages/Icons";
-import Brand from "./pages/foundations/Brand";
-import TitleHeadings from "./pages/components/TitleHeadings";
-import Handoff from "./pages/resources/Handoff";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -96,12 +27,34 @@ const App = () => {
           <Routes>
             <Route element={<MainLayout />}>
               <Route path="/" element={<Index />} />
-              <Route path="/installation" element={<Installation />} />
-              <Route path="/guidelines" element={<Guidelines />} />
-              <Route path="/guidelines/technical-governance" element={<TechnicalGovernance />} />
-              <Route path="/guidelines/ux-guidelines" element={<UXGuidelines />} />
+              <Route path="/installation" element={
+                <ProtectedRoute>
+                  <Installation />
+                </ProtectedRoute>
+              } />
+              <Route path="/guidelines" element={
+                <ProtectedRoute>
+                  <Guidelines />
+                </ProtectedRoute>
+              } />
+              <Route path="/guidelines/technical-governance" element={
+                <ProtectedRoute>
+                  <TechnicalGovernance />
+                </ProtectedRoute>
+              } />
+              <Route path="/guidelines/ux-guidelines" element={
+                <ProtectedRoute>
+                  <UXGuidelines />
+                </ProtectedRoute>
+              } />
+              <Route path="/ui-kit" element={
+                <ProtectedRoute>
+                  <UIKit />
+                </ProtectedRoute>
+              } />
               <Route path="/components" element={<Components />} />
               <Route path="/components/:componentId" element={<ComponentDetail />} />
+              
               <Route path="/components/input" element={<InputPage />} />
               <Route path="/components/checkbox" element={<CheckboxPage />} />
               <Route path="/components/radio" element={<RadioPage />} />
@@ -176,7 +129,6 @@ const App = () => {
               <Route path="/icons" element={<Icons />} />
               <Route path="/foundations/icons" element={<Icons />} />
               <Route path="/foundations/brand" element={<Brand />} />
-              <Route path="/ui-kit" element={<UIKit />} />
               <Route path="/components/dividers" element={<Dividers />} />
               <Route path="/components/buttons" element={<ButtonPage />} />
             </Route>
