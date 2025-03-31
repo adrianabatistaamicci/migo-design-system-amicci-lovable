@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import Header from '@/components/library-components/Header';
@@ -188,6 +187,47 @@ const LibraryPage: React.FC = () => {
 </ComponentCard>`}
               language="tsx"
               title="Implementação do ComponentCard"
+              showCode={false}
+            />
+          </div>
+
+          {/* Add ComponentCard with showCodeBlockInside variant */}
+          <div className="w-full rounded-lg border border-gray-200 overflow-hidden">
+            <div className="p-6">
+              <ComponentCard 
+                title="ComponentCard com CodeBlock interno" 
+                description="Variante do ComponentCard com CodeBlock embutido"
+                className="w-full"
+              >
+                <div className="p-4 w-full">
+                  <ComponentCard 
+                    title="Exemplo com CodeBlock interno" 
+                    description="Este componente exibe o bloco de código dentro do card" 
+                    showCodeBlockInside={true}
+                    code="const Example = () => <div>Internal code example</div>"
+                    codeBlockTitle="Código integrado"
+                    codeBlockLanguage="tsx"
+                  >
+                    <div className="p-4 flex items-center justify-center text-center">
+                      <p>Conteúdo com bloco de código integrado abaixo</p>
+                    </div>
+                  </ComponentCard>
+                </div>
+              </ComponentCard>
+            </div>
+            <CodeBlock 
+              code={`<ComponentCard 
+  title="Exemplo com CodeBlock interno" 
+  description="Este componente exibe o bloco de código dentro do card"
+  showCodeBlockInside={true}
+  code="const Example = () => <div>Internal code example</div>"
+  codeBlockTitle="Código integrado"
+  codeBlockLanguage="tsx"
+>
+  <div>Conteúdo do componente</div>
+</ComponentCard>`}
+              language="tsx"
+              title="Implementação do ComponentCard com CodeBlock interno"
               showCode={false}
             />
           </div>
