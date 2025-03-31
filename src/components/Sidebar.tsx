@@ -98,6 +98,7 @@ export const sidebarItems: SidebarItem[] = [
           { title: 'Avatars', href: '/components/avatar' },
           { title: 'Chips', href: '/components/chip' },
           { title: 'Badges', href: '/components/badge' },
+          { title: 'Contextual Help', href: '/components/contextual-help' },
           { title: 'Dropdowns', href: '/components/dropdown' },
           { title: 'Buttons', href: '/components/buttons' },
           { title: 'Icon Button', href: '/components/icon-button' },
