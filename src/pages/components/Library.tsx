@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import Header from '@/components/library-components/Header';
@@ -66,13 +67,11 @@ const LibraryPage: React.FC = () => {
                 description="Cabeçalho usado para seções principais do design system." 
                 className="w-full"
               >
-                <div className="w-full">
-                  <Header 
-                    title="Título de exemplo" 
-                    description="Descrição de exemplo para demonstrar o componente Header." 
-                    type="components" 
-                  />
-                </div>
+                <Header 
+                  title="Título de exemplo" 
+                  description="Descrição de exemplo para demonstrar o componente Header." 
+                  type="components" 
+                />
               </ComponentCard>
             </div>
             <CodeBlock 
@@ -95,9 +94,7 @@ const LibraryPage: React.FC = () => {
                 description="Usado para indicar páginas ou seções que estão em desenvolvimento." 
                 className="w-full"
               >
-                <div className="w-full">
-                  <EmptyState />
-                </div>
+                <EmptyState />
               </ComponentCard>
             </div>
             <CodeBlock 
@@ -116,15 +113,13 @@ const LibraryPage: React.FC = () => {
             <div key={name} className="w-full rounded-lg border border-gray-200 overflow-hidden">
               <div className="p-6">
                 <ComponentCard title={name} description="" className="w-full">
-                  <div className="p-4 w-full">
-                    <div className="mb-4">
-                      <h3 className="text-lg font-medium text-gray-900">{name}</h3>
-                      <div className="-mx-4">
-                        <Separator className="mt-2" />
-                      </div>
+                  <div className="mb-4">
+                    <h3 className="text-lg font-medium text-gray-900">{name}</h3>
+                    <div className="-mx-4">
+                      <Separator className="mt-2" />
                     </div>
-                    <Component {...getDefaultProps(name)} />
                   </div>
+                  <Component {...getDefaultProps(name)} />
                 </ComponentCard>
               </div>
               <CodeBlock 
@@ -144,9 +139,7 @@ const LibraryPage: React.FC = () => {
                 description="Rodapé para exibir créditos e links de governança" 
                 className="w-full"
               >
-                <div className="p-4 w-full">
-                  <Footer additionalText="© 2024 Amicci" />
-                </div>
+                <Footer additionalText="© 2024 Amicci" />
               </ComponentCard>
             </div>
             <CodeBlock 
@@ -168,13 +161,7 @@ const LibraryPage: React.FC = () => {
                 description="Card para exibir exemplos de componentes com código" 
                 className="w-full"
               >
-                <div className="p-4 w-full">
-                  <ComponentCard title="Example Card" description="This is an example of ComponentCard">
-                    <div className="p-4 flex items-center justify-center text-center">
-                      <p>Example content inside a ComponentCard</p>
-                    </div>
-                  </ComponentCard>
-                </div>
+                <p>Example content inside a ComponentCard</p>
               </ComponentCard>
             </div>
             <CodeBlock 
@@ -199,20 +186,16 @@ const LibraryPage: React.FC = () => {
                 description="Variante do ComponentCard com CodeBlock embutido"
                 className="w-full"
               >
-                <div className="p-4 w-full">
-                  <ComponentCard 
-                    title="Exemplo com CodeBlock interno" 
-                    description="Este componente exibe o bloco de código dentro do card" 
-                    showCodeBlockInside={true}
-                    code="const Example = () => <div>Internal code example</div>"
-                    codeBlockTitle="Código integrado"
-                    codeBlockLanguage="tsx"
-                  >
-                    <div className="p-4 flex items-center justify-center text-center">
-                      <p>Conteúdo com bloco de código integrado abaixo</p>
-                    </div>
-                  </ComponentCard>
-                </div>
+                <ComponentCard 
+                  title="Exemplo com CodeBlock interno" 
+                  description="Este componente exibe o bloco de código dentro do card" 
+                  showCodeBlockInside={true}
+                  code="const Example = () => <div>Internal code example</div>"
+                  codeBlockTitle="Código integrado"
+                  codeBlockLanguage="tsx"
+                >
+                  <p>Conteúdo com bloco de código integrado abaixo</p>
+                </ComponentCard>
               </ComponentCard>
             </div>
             <CodeBlock 
@@ -240,24 +223,22 @@ const LibraryPage: React.FC = () => {
                 description="Componente para exibir amostras de cores com opção de cópia" 
                 className="w-full"
               >
-                <div className="p-4 w-full">
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="space-y-2">
-                      <p className="text-sm text-gray-500">Cor Primária</p>
-                      <ColorSwatch color="bg-primary-main" textOverlay="#10C2C0" className="h-12" />
-                    </div>
-                    <div className="space-y-2">
-                      <p className="text-sm text-gray-500">Cor Secundária</p>
-                      <ColorSwatch color="bg-secondary-main" textOverlay="#14818A" className="h-12" />
-                    </div>
-                    <div className="space-y-2">
-                      <p className="text-sm text-gray-500">Cor de Erro</p>
-                      <ColorSwatch color="bg-error-main" textOverlay="#F04438" className="h-12" />
-                    </div>
-                    <div className="space-y-2">
-                      <p className="text-sm text-gray-500">Cor de Sucesso</p>
-                      <ColorSwatch color="bg-success-main" textOverlay="#12B76A" className="h-12" />
-                    </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="space-y-2">
+                    <p className="text-sm text-gray-500">Cor Primária</p>
+                    <ColorSwatch color="bg-primary-main" textOverlay="#10C2C0" className="h-12" />
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-sm text-gray-500">Cor Secundária</p>
+                    <ColorSwatch color="bg-secondary-main" textOverlay="#14818A" className="h-12" />
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-sm text-gray-500">Cor de Erro</p>
+                    <ColorSwatch color="bg-error-main" textOverlay="#F04438" className="h-12" />
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-sm text-gray-500">Cor de Sucesso</p>
+                    <ColorSwatch color="bg-success-main" textOverlay="#12B76A" className="h-12" />
                   </div>
                 </div>
               </ComponentCard>
@@ -282,14 +263,12 @@ const LibraryPage: React.FC = () => {
                 description="Componente para exibir blocos de código com formatação e função de cópia" 
                 className="w-full"
               >
-                <div className="p-4 w-full">
-                  <CodeBlock 
-                    code="import { Button } from '@/components/ui/button';" 
-                    language="tsx" 
-                    title="Exemplo de importação"
-                    showCode={true}
-                  />
-                </div>
+                <CodeBlock 
+                  code="import { Button } from '@/components/ui/button';" 
+                  language="tsx" 
+                  title="Exemplo de importação"
+                  showCode={true}
+                />
               </ComponentCard>
             </div>
             <CodeBlock 
