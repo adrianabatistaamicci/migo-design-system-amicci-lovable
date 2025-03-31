@@ -17,7 +17,7 @@ const Index = () => {
         {/* Background image without overlay gradient */}
         <div className="absolute inset-0 w-full h-full">
           <img 
-            src="/lovable-uploads/2df1e87b-5689-4215-b359-351157f3415a.png" 
+            src="/lovable-uploads/6d04ddec-9054-4db3-b9e5-16353280c499.png" 
             alt="Design fluid background" 
             className="w-full h-full object-cover object-center"
             loading="eager"
