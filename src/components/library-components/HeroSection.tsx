@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -11,14 +12,14 @@ interface HeroSectionProps {
   title: string;
   subtitle: string;
   description: string;
-  backgroundImage: string;
+  backgroundImage?: string;
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   title,
   subtitle,
   description,
-  backgroundImage
+  backgroundImage = "/lovable-uploads/2df1e87b-5689-4215-b359-351157f3415a.png"
 }) => {
   return (
     <section className="w-full relative overflow-hidden rounded-xl">
@@ -28,6 +29,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           src={backgroundImage} 
           alt="Design fluid background" 
           className="w-full h-full object-cover"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-black/60"></div>
       </div>

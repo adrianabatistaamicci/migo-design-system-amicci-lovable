@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -39,7 +40,9 @@ const ComponentPreview = ({
             src={imageSrc} 
             alt={title} 
             className="max-w-full max-h-full object-contain" 
-            onError={handleImageError} 
+            onError={handleImageError}
+            loading="lazy"
+            decoding="async"
           />
         ) : imageError ? (
           <div className="text-sm text-white bg-[#000000] w-full h-full flex flex-col items-center justify-center">
