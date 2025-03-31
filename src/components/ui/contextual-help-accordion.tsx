@@ -36,7 +36,7 @@ export const ContextualHelpAccordion = ({
           </AccordionTrigger>
           <AccordionContent className="pb-2 px-6">
             <div className="flex flex-col">
-              <div>
+              <div className="text-base text-text-secondary">
                 {content}
               </div>
               
