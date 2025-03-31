@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -10,6 +11,7 @@ import { Copy, CheckCheck, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import CodeBlock from '@/components/CodeBlock';
 
 interface ComponentCardProps {
   title: string;
@@ -17,6 +19,9 @@ interface ComponentCardProps {
   children: React.ReactNode;
   code?: string;
   className?: string;
+  showCodeBlockInside?: boolean;
+  codeBlockTitle?: string;
+  codeBlockLanguage?: string;
 }
 
 const ComponentCard: React.FC<ComponentCardProps> = ({
@@ -24,7 +29,10 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
   description,
   children,
   code,
-  className
+  className,
+  showCodeBlockInside = false,
+  codeBlockTitle,
+  codeBlockLanguage = 'tsx'
 }) => {
   const [showCode, setShowCode] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -53,7 +61,17 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
         </div>
       </div>
       
-      {code && (
+      {showCodeBlockInside && code && (
+        <CodeBlock 
+          code={code} 
+          language={codeBlockLanguage} 
+          title={codeBlockTitle} 
+          showCode={false}
+          className="mt-0 rounded-t-none border-t-0"
+        />
+      )}
+      
+      {code && !showCodeBlockInside && (
         <div className="mt-auto">
           <div className="border-t border-gray-200 flex justify-between items-center px-4 py-3 bg-gray-50">
             <Button 

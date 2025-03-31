@@ -237,90 +237,93 @@ export const HelpAccordionExample = () => {
                 </div>
               </ComponentCard>
 
-              <div className="w-full bg-white rounded-lg border border-gray-200 overflow-hidden">
-                <div className="p-6">
-                  <h3 className="text-lg font-medium mb-4">Exemplo com Passos Numerados</h3>
-                  <ContextualHelpAccordion
-                    title="Como participar de concorrências?"
-                    content={
-                      <>
-                        <div className="self-stretch inline-flex justify-start items-start gap-4 mt-3">
-                          <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
-                            <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
-                              <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">1</div>
-                            </div>
-                          </div>
-                          <div className="flex-1 inline-flex flex-col justify-start items-start">
-                            <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Explore oportunidades disponíveis</div>
-                            <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
-                              Navegue pelas concorrências em negociação ou descubra novas oportunidades na seção "Outras oportunidades disponíveis".
-                            </div>
+              <ComponentCard 
+                title="Exemplo com Passos Numerados"
+                description="Exemplo de ajuda contextual com passos numerados para guiar o usuário."
+                showCodeBlockInside={true}
+                code={stepsExample}
+                codeBlockTitle="Exemplo com Passos Numerados"
+                codeBlockLanguage="tsx"
+              >
+                <ContextualHelpAccordion
+                  title="Como participar de concorrências?"
+                  content={
+                    <>
+                      <div className="self-stretch inline-flex justify-start items-start gap-4 mt-3">
+                        <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
+                          <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
+                            <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">1</div>
                           </div>
                         </div>
-                        
-                        <div className="self-stretch inline-flex justify-start items-start gap-4 mt-6">
-                          <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
-                            <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
-                              <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">2</div>
-                            </div>
-                          </div>
-                          <div className="flex-1 inline-flex flex-col justify-start items-start">
-                            <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Analise os requisitos do projeto</div>
-                            <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
-                              Verifique cuidadosamente todos os SKUs, quantidades e especificações técnicas antes de participar.
-                            </div>
+                        <div className="flex-1 inline-flex flex-col justify-start items-start">
+                          <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Explore oportunidades disponíveis</div>
+                          <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
+                            Navegue pelas concorrências em negociação ou descubra novas oportunidades na seção "Outras oportunidades disponíveis".
                           </div>
                         </div>
-                        
-                        <div className="self-stretch inline-flex justify-start items-start gap-4 mt-6">
-                          <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
-                            <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
-                              <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">3</div>
-                            </div>
-                          </div>
-                          <div className="flex-1 inline-flex flex-col justify-start items-start">
-                            <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Envie sua proposta</div>
-                            <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
-                              Clique em "Responder concorrência" para submeter sua cotação com preços, prazos e condições comerciais.
-                            </div>
+                      </div>
+                      
+                      <div className="self-stretch inline-flex justify-start items-start gap-4 mt-6">
+                        <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
+                          <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
+                            <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">2</div>
                           </div>
                         </div>
-                        
-                        <div className="self-stretch inline-flex justify-start items-start gap-4 mt-6">
-                          <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
-                            <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
-                              <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">4</div>
-                            </div>
-                          </div>
-                          <div className="flex-1 inline-flex flex-col justify-start items-start">
-                            <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Acompanhe o status</div>
-                            <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
-                              Monitore o andamento da negociação através do status da concorrência e as notificações recebidas.
-                            </div>
+                        <div className="flex-1 inline-flex flex-col justify-start items-start">
+                          <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Analise os requisitos do projeto</div>
+                          <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
+                            Verifique cuidadosamente todos os SKUs, quantidades e especificações técnicas antes de participar.
                           </div>
                         </div>
-                        
-                        <div className="self-stretch inline-flex justify-start items-start gap-4 mt-6 mb-3">
-                          <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
-                            <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
-                              <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">5</div>
-                            </div>
-                          </div>
-                          <div className="flex-1 inline-flex flex-col justify-start items-start">
-                            <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Projeto em andamento</div>
-                            <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
-                              Se selecionado, a concorrência se tornará um projeto que poderá ser gerenciado através da seção "Meus projetos".
-                            </div>
+                      </div>
+                      
+                      <div className="self-stretch inline-flex justify-start items-start gap-4 mt-6">
+                        <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
+                          <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
+                            <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">3</div>
                           </div>
                         </div>
-                      </>
-                    }
-                    actionLabel="Ver mais na FAQ"
-                    actionUrl="https://docs.example.com/concorrencias"
-                  />
-                </div>
-                <CodeBlock code={stepsExample} language="tsx" title="Exemplo com Passos Numerados" />
-              </div>
+                        <div className="flex-1 inline-flex flex-col justify-start items-start">
+                          <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Envie sua proposta</div>
+                          <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
+                            Clique em "Responder concorrência" para submeter sua cotação com preços, prazos e condições comerciais.
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="self-stretch inline-flex justify-start items-start gap-4 mt-6">
+                        <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
+                          <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
+                            <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">4</div>
+                          </div>
+                        </div>
+                        <div className="flex-1 inline-flex flex-col justify-start items-start">
+                          <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Acompanhe o status</div>
+                          <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
+                            Monitore o andamento da negociação através do status da concorrência e as notificações recebidas.
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="self-stretch inline-flex justify-start items-start gap-4 mt-6 mb-3">
+                        <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
+                          <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
+                            <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">5</div>
+                          </div>
+                        </div>
+                        <div className="flex-1 inline-flex flex-col justify-start items-start">
+                          <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Projeto em andamento</div>
+                          <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
+                            Se selecionado, a concorrência se tornará um projeto que poderá ser gerenciado através da seção "Meus projetos".
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  }
+                  actionLabel="Ver mais na FAQ"
+                  actionUrl="https://docs.example.com/concorrencias"
+                />
+              </ComponentCard>
 
               <ComponentCard 
                 title="Guia de Uso"
