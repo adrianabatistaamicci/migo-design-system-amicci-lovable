@@ -29,7 +29,7 @@ const ElementsSection = () => {
         <Link to="/components/contextual-help">
           <ComponentPreview 
             title="Contextual Help" 
-            imageSrc="/lovable-uploads/93eec571-57df-4c3a-9958-cb6930361d88.png" 
+            imageSrc="/lovable-uploads/a0b60754-1501-40c2-ae6e-951fcf78dc0d.png" 
             variantCount={2} 
           />
         </Link>

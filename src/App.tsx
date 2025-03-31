@@ -29,6 +29,7 @@ import CardHeadings from "./pages/components/CardHeadings";
 import Cards from "./pages/components/Cards";
 import CommandBars from "./pages/components/CommandBars";
 import Containers from "./pages/components/Containers";
+import ContextualHelp from "./pages/components/ContextualHelp";
 import DetailScreens from "./pages/components/DetailScreens";
 import DescriptionLists from "./pages/components/DescriptionLists";
 import MediaObjects from "./pages/components/MediaObjects";
@@ -112,6 +113,7 @@ const App = () => {
               <Route path="/components/avatar" element={<Avatar />} />
               <Route path="/components/badge" element={<Badge />} />
               <Route path="/components/chip" element={<ChipPage />} />
+              <Route path="/components/contextual-help" element={<ContextualHelp />} />
               <Route path="/components/tabs" element={<TabsPage />} />
               <Route path="/components/progress" element={<ProgressPage />} />
               <Route path="/components/library" element={<LibraryPage />} />
