@@ -184,7 +184,7 @@
     --error-foreground: 0 0% 100%;
     --error-main: #F04438;
     --error-dark: #B42318;
-    --error-light: #FDA29B;
+    --error-light: #FEE4E2;
     --error-contrast: #ffffff;
     --error-hover: rgba(217, 45, 32, 0.04);
     --error-selected: rgba(217, 45, 32, 0.08);
