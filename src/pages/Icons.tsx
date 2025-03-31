@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/accordion";
 import CodeBlock from '@/components/CodeBlock';
 import ComponentCard from '@/components/ComponentCard';
+import { Link } from '@/components/ui/link';
 
 const Icons = () => {
   const [activeTab, setActiveTab] = useState('escala');
@@ -99,11 +100,11 @@ const Icons = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-slate-50 p-4 rounded-md flex justify-between items-center mt-8">
+                  <div className="bg-slate-50 p-4 rounded-md flex flex-col md:flex-row md:justify-between md:items-center gap-4 mt-8">
                     <p className="text-sm">A biblioteca completa pode ser acessada no site oficial.</p>
-                    <Button variant="default" className="bg-primary-main hover:bg-primary-dark">
+                    <Link href="https://lucide.dev" external className="bg-primary-main hover:bg-primary-dark text-white px-4 py-2 rounded-md">
                       Acessar Lucide Icons
-                    </Button>
+                    </Link>
                   </div>
                 </div>
               </ComponentCard>
@@ -156,9 +157,21 @@ const Icons = () => {
                 description="Links úteis para a documentação oficial e recursos do Lucide Icons."
               >
                 <ul className="list-disc pl-5 space-y-3 text-gray-600">
-                  <li>Site Oficial Lucide - Navegue e busque ícones</li>
-                  <li>GitHub Lucide - Repositório oficial</li>
-                  <li>Documentação lucide-react - Guia completo de uso com React</li>
+                  <li>
+                    <Link href="https://lucide.dev" external variant="underlined">
+                      Site Oficial Lucide - Navegue e busque ícones
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="https://github.com/lucide-icons/lucide" external variant="underlined">
+                      GitHub Lucide - Repositório oficial
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="https://lucide.dev/docs/lucide-react" external variant="underlined">
+                      Documentação lucide-react - Guia completo de uso com React
+                    </Link>
+                  </li>
                 </ul>
               </ComponentCard>
             </div>
