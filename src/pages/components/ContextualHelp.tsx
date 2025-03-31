@@ -163,7 +163,6 @@ export const HelpAccordionExample = () => {
           defaultValue="visaogeral"
           tabs={[
             { name: 'Visão Geral', value: 'visaogeral' },
-            { name: 'Acessibilidade', value: 'acessibilidade' },
             { name: 'API', value: 'api' }
           ]}
           variant="pillsGray"
@@ -346,41 +345,6 @@ export const HelpAccordionExample = () => {
                     <li>Para mensagens de erro ou avisos (use componentes de alerta ou toast)</li>
                     <li>Quando a interface já é clara e não necessita de explicações adicionais</li>
                     <li>Em excesso em uma única página, o que pode sobrecarregar o usuário</li>
-                  </ul>
-                </div>
-              </ComponentCard>
-            </div>
-          )}
-
-          {activeTab === 'acessibilidade' && (
-            <div className="space-y-6">
-              <ComponentCard 
-                title="Acessibilidade" 
-                description="Práticas de acessibilidade para o componente ContextualHelpAccordion."
-              >
-                <div className="space-y-6">
-                  <h3 className="text-lg font-medium mb-3">Navegação por Teclado</h3>
-                  <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                    <li><code>Tab</code>: Navega até o componente de ajuda</li>
-                    <li><code>Enter</code> ou <code>Space</code>: Expande ou colapsa o conteúdo de ajuda</li>
-                    <li><code>Tab</code> (quando expandido): Navega para o link de ação, se disponível</li>
-                  </ul>
-
-                  <h3 className="text-lg font-medium mt-6 mb-3">Leitores de Tela</h3>
-                  <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                    <li>O componente utiliza HTML semântico para garantir compatibilidade com leitores de tela</li>
-                    <li>Os estados expandido/colapsado são anunciados apropriadamente</li>
-                    <li>O ícone de ajuda é puramente decorativo e não é anunciado para leitores de tela</li>
-                    <li>Links externos são marcados apropriadamente para informar que abrem em nova janela</li>
-                  </ul>
-
-                  <h3 className="text-lg font-medium mt-6 mb-3">Boas Práticas</h3>
-                  <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                    <li>Mantenha o título claro e conciso para fácil compreensão</li>
-                    <li>Use linguagem simples no conteúdo para garantir que seja compreensível para todos os usuários</li>
-                    <li>Evite depender apenas de cores para transmitir informações importantes</li>
-                    <li>Verifique se os textos têm contraste suficiente com o fundo</li>
-                    <li>Teste com usuários que utilizam tecnologias assistivas para garantir uma boa experiência</li>
                   </ul>
                 </div>
               </ComponentCard>
