@@ -1,4 +1,3 @@
-
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -15,7 +14,6 @@ import { Chip } from '@/components/ui/chip';
 import { cn } from '@/lib/utils';
 import CodeBlock from '@/components/CodeBlock';
 import ComponentCard from '@/components/ComponentCard';
-
 const SidebarExample = () => {
   const [isOpen, setIsOpen] = useState(true);
   return <div className="relative h-[400px] border rounded-lg overflow-hidden">
@@ -61,7 +59,6 @@ const SidebarExample = () => {
       </div>
     </div>;
 };
-
 const sidebarCode = `import React, { useState } from 'react';
 import { Home, Mail, Settings, Users, ChevronRight, ChevronLeft } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -139,7 +136,6 @@ const SidebarExample = () => {
     </div>
   );
 };`;
-
 const SidebarNavigation = () => {
   return <div className="w-full animate-fade-in">
       <Header title="Sidebar Navigation" description="Componentes de navegação lateral para organizar e facilitar o acesso à diversas áreas de sua aplicação" type="components" />
@@ -153,21 +149,13 @@ const SidebarNavigation = () => {
               oferecendo uma navegação consistente e acessível.
             </p>
             
-            <ComponentCard 
-              title="Barra Lateral" 
-              description="Exemplo de uma barra lateral recolhível com navegação principal" 
-              className="w-full" 
-              showCodeBlockInside={true} 
-              code={sidebarCode} 
-              codeBlockTitle="Implementação da Barra Lateral" 
-              codeBlockLanguage="tsx"
-            >
+            <ComponentCard title="Barra Lateral" description="Exemplo de uma barra lateral recolhível com navegação principal" className="w-full" showCodeBlockInside={true} code={sidebarCode} codeBlockTitle="Implementação da Barra Lateral" codeBlockLanguage="tsx">
               <SidebarExample />
             </ComponentCard>
           </div>
         </section>
         
-        <section className="mb-10">
+        <section className="mb-10mt-6">
           <h2 className="text-2xl font-semibold mb-6">Melhores Práticas</h2>
           <ul className="list-disc pl-6 space-y-2 text-gray-700">
             <li>Mantenha a navegação principal sempre visível, mesmo quando a barra lateral estiver recolhida.</li>
@@ -202,5 +190,4 @@ const SidebarNavigation = () => {
       </div>
     </div>;
 };
-
 export default SidebarNavigation;
