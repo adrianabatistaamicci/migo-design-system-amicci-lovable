@@ -37,6 +37,7 @@ interface SidebarItem {
     variant?: string;
   };
   isToggleOnly?: boolean;
+  hideInProduction?: boolean;
 }
 
 interface SidebarProps {
@@ -53,7 +54,7 @@ export const sidebarItems: SidebarItem[] = [
         title: 'Diretrizes', 
         isToggleOnly: true,
         items: [
-          { title: 'Governança Lovable', href: '/guidelines/technical-governance' },
+          { title: 'Governança Lovable', href: '/guidelines/technical-governance', hideInProduction: true },
           { title: 'Diretrizes de UX', href: '/guidelines/ux-guidelines' }
         ]
       },
@@ -241,6 +242,16 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
   
   const active = isActive(item.href, item.items);
   
+  // Check if item should be hidden in production
+  if (item.hideInProduction && process.env.NODE_ENV === 'production') {
+    return null;
+  }
+  
+  // Filter out hidden items in production
+  const filteredItems = item.items?.filter(subItem => 
+    !(subItem.hideInProduction && process.env.NODE_ENV === 'production')
+  );
+  
   if (level === 0) {
     return (
       <div className="mb-6">
@@ -254,7 +265,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
             </div>
             
             <div className="pl-3">
-              {item.items && item.items.map((child, index) => (
+              {filteredItems && filteredItems.map((child, index) => (
                 <SidebarSection key={index} item={child} level={level + 1} />
               ))}
             </div>
@@ -306,7 +317,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
               <div className={cn(
                 level === 1 ? "ml-6" : level > 1 ? `ml-${level + 5}` : ""
               )}>
-                {item.items.map((child, index) => (
+                {filteredItems && filteredItems.map((child, index) => (
                   <SidebarSection key={index} item={child} level={level + 1} />
                 ))}
               </div>
@@ -316,7 +327,7 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
 
         {!item.title && (
           <div className="mt-1">
-            {item.items.map((child, index) => (
+            {filteredItems && filteredItems.map((child, index) => (
               <SidebarSection key={index} item={child} level={level} />
             ))}
           </div>

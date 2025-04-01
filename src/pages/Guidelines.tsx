@@ -30,6 +30,8 @@ const Guidelines = () => {
     return <DocumentationSkeleton />;
   }
 
+  const isProduction = process.env.NODE_ENV === 'production';
+
   return (
     <div className="w-full animate-fade-in">
       <Header 
@@ -43,15 +45,17 @@ const Guidelines = () => {
         <div className="p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
           <h2 className="text-2xl font-semibold mb-4">Recursos Disponíveis</h2>
           <div className="grid gap-6 md:grid-cols-2">
-            <button
-              onClick={handleGoToGovernance}
-              className="flex flex-col p-5 bg-gray-50 hover:bg-gray-100 transition-colors border border-gray-200 rounded-lg text-left"
-            >
-              <h3 className="text-lg font-medium mb-2">Governança Lovable</h3>
-              <p className="text-gray-600">
-                Processo de contribuição, manutenção e evolução dos componentes através da plataforma Lovable.
-              </p>
-            </button>
+            {!isProduction && (
+              <button
+                onClick={handleGoToGovernance}
+                className="flex flex-col p-5 bg-gray-50 hover:bg-gray-100 transition-colors border border-gray-200 rounded-lg text-left"
+              >
+                <h3 className="text-lg font-medium mb-2">Governança Lovable</h3>
+                <p className="text-gray-600">
+                  Processo de contribuição, manutenção e evolução dos componentes através da plataforma Lovable.
+                </p>
+              </button>
+            )}
             
             <button
               onClick={handleGoToUXGuidelines}
