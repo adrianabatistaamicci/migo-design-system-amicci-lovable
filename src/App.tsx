@@ -8,6 +8,9 @@ import UIKit from './pages/UIKit'
 import SidebarNavigation from './pages/components/SidebarNavigation'
 import Library from './pages/components/Library'
 import CommandBars from './pages/components/CommandBars'
+import Installation from './pages/Installation'
+import Colors from './pages/Colors'
+import NotFound from './pages/NotFound'
 
 function App() {
   return (
@@ -21,7 +24,9 @@ function App() {
           <Route path="/components/sidebar-navigation" element={<SidebarNavigation />} />
           <Route path="/components/library" element={<Library />} />
           <Route path="/components/command-bars" element={<CommandBars />} />
-          {/* Adicione outras rotas aqui */}
+          <Route path="/installation" element={<Installation />} />
+          <Route path="/foundations/colors" element={<Colors />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
