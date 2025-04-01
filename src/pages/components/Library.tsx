@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
 import Header from '@/components/library-components/Header';
@@ -17,7 +16,6 @@ type ModuleRecord = Record<string, {
 const LibraryPage: React.FC = () => {
   const [components, setComponents] = useState<Record<string, React.ComponentType<any>>>({});
   const [isLoading, setIsLoading] = useState(true);
-  const [fullscreenCode, setFullscreenCode] = useState<string | null>(null);
   
   useEffect(() => {
     // This is a special Vite function that will import all files from a directory
@@ -49,14 +47,6 @@ const LibraryPage: React.FC = () => {
   if (isLoading) {
     return <DocumentationSkeleton />;
   }
-
-  const handleOpenFullscreen = (code: string) => {
-    setFullscreenCode(code);
-  };
-
-  const handleCloseFullscreen = () => {
-    setFullscreenCode(null);
-  };
 
   return (
     <div className="animate-fade-in w-full max-w-[1280px] mx-auto">
@@ -236,7 +226,7 @@ const LibraryPage: React.FC = () => {
             code={`<CodeBlock 
   code="import { Button } from '@/components/ui/button';" 
   language="tsx" 
-  title="Exemplo de importação"
+  title="Exemplo de importação" 
   showCode={true}
 />`}
             codeBlockTitle="Implementação do CodeBlock"
@@ -249,56 +239,8 @@ const LibraryPage: React.FC = () => {
               showCode={true}
             />
           </ComponentCard>
-
-          {/* CodeBlock with fullscreen component card */}
-          <ComponentCard 
-            title="CodeBlock com Tela Cheia" 
-            description="Componente para exibir blocos de código com opção de visualização em tela cheia" 
-            className="w-full"
-            showCodeBlockInside={true}
-            code={`<CodeBlock 
-  code="function Example() {\\n  return <div>Exemplo de código com opção de tela cheia</div>;\\n}" 
-  language="tsx" 
-  title="Exemplo com tela cheia"
-  showCode={true}
-  showFullscreen={true}
-  onFullscreen={() => handleOpenFullscreen("function Example() {\\n  return <div>Exemplo de código com opção de tela cheia</div>;\\n}")}
-/>`}
-            codeBlockTitle="Implementação do CodeBlock com Tela Cheia"
-            codeBlockLanguage="tsx"
-          >
-            <CodeBlock 
-              code="function Example() {\n  return <div>Exemplo de código com opção de tela cheia</div>;\n}" 
-              language="tsx" 
-              title="Exemplo com tela cheia"
-              showCode={true}
-              showFullscreen={true}
-              onFullscreen={() => handleOpenFullscreen("function Example() {\n  return <div>Exemplo de código com opção de tela cheia</div>;\n}")}
-            />
-          </ComponentCard>
         </div>
       </div>
-
-      {fullscreenCode && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-6">
-          <div className="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] flex flex-col">
-            <div className="p-4 border-b border-gray-200 flex justify-between items-center">
-              <h3 className="text-lg font-medium">Visualização em Tela Cheia</h3>
-              <button 
-                onClick={handleCloseFullscreen}
-                className="text-gray-500 hover:text-gray-700"
-              >
-                Fechar
-              </button>
-            </div>
-            <div className="overflow-auto flex-1 p-4">
-              <pre className="bg-gray-900 p-4 text-sm text-gray-50 rounded-md h-full overflow-auto">
-                <code>{fullscreenCode}</code>
-              </pre>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
