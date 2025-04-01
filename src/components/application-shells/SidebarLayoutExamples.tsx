@@ -1,139 +1,6 @@
 
 import React, { useState } from 'react';
-import Header from '@/components/library-components/Header';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import CodeBlock from '@/components/CodeBlock';
-import { ChevronDown, ChevronRight, Computer, Copy, CheckCheck, Maximize2, X } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { TailwindTabs } from '@/components/ui/tabs';
-import { SidePanelExample, NestedSideNavExample, SearchSidebarExample, AdminLayoutExample } from '@/components/application-shells/SidebarLayoutExamples';
-
-const SidebarLayouts = () => {
-  const [activeTab, setActiveTab] = useState('overview');
-  const [isFullscreen, setIsFullscreen] = useState(false);
-  const [fullscreenCode, setFullscreenCode] = useState('');
-  const [fullscreenTitle, setFullscreenTitle] = useState('');
-  const [fullscreenLanguage, setFullscreenLanguage] = useState('jsx');
-
-  const handleFullscreen = (code, title = 'Código em tela cheia', language = 'jsx') => {
-    setFullscreenCode(code);
-    setFullscreenTitle(title);
-    setFullscreenLanguage(language);
-    setIsFullscreen(true);
-  };
-
-  const closeFullscreen = () => {
-    setIsFullscreen(false);
-  };
-
-  return (
-    <div className="w-full animate-fade-in">
-      <Header 
-        title="Sidebar Layouts" 
-        description="Layouts de barra lateral são uma estrutura comum para aplicações onde a navegação principal é mostrada em uma barra lateral." 
-        type="components" 
-      />
-      
-      <TailwindTabs 
-        defaultValue="overview" 
-        className="mt-6" 
-        tabs={[
-          { name: 'Visão geral', value: 'overview' },
-          { name: 'Uso no marketplace', value: 'marketplace' },
-          { name: 'Uso no site institucional', value: 'institutional' }
-        ]} 
-        variant="pillsGray" 
-        onChange={value => setActiveTab(value)} 
-      />
-
-      {activeTab === 'overview' && <div className="mt-6 space-y-12">
-          <LayoutComponent 
-            title="Sidebar básica com navegação" 
-            component={<SidePanelExample />} 
-            code={sidePanelExampleCode}
-            onFullscreen={() => handleFullscreen(sidePanelExampleCode, "Sidebar básica com navegação", "jsx")}
-          />
-          
-          <LayoutComponent 
-            title="Navegação aninhada em sidebar" 
-            component={<NestedSideNavExample />} 
-            code={nestedSideNavExampleCode}
-            onFullscreen={() => handleFullscreen(nestedSideNavExampleCode, "Navegação aninhada em sidebar", "jsx")}
-          />
-          
-          <LayoutComponent 
-            title="Sidebar com campo de busca" 
-            component={<SearchSidebarExample />} 
-            code={searchSidebarExampleCode}
-            onFullscreen={() => handleFullscreen(searchSidebarExampleCode, "Sidebar com campo de busca", "jsx")}
-          />
-          
-          <LayoutComponent 
-            title="Layout administrativo completo" 
-            component={<AdminLayoutExample />} 
-            code={adminLayoutExampleCode}
-            onFullscreen={() => handleFullscreen(adminLayoutExampleCode, "Layout administrativo completo", "jsx")}
-          />
-        </div>}
-
-      {activeTab === 'marketplace' && <div className="mt-6 space-y-12">
-          <div className="rounded-lg border-4 border-dashed border-gray-200 p-8 text-center">
-            <p className="text-gray-500">Exemplos de uso no marketplace em breve.</p>
-          </div>
-        </div>}
-
-      {activeTab === 'institutional' && <div className="mt-6 space-y-12">
-          <div className="rounded-lg border-4 border-dashed border-gray-200 p-8 text-center">
-            <p className="text-gray-500">Exemplos de uso institucional em breve.</p>
-          </div>
-        </div>}
-
-      {isFullscreen && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg w-full max-w-6xl max-h-[90vh] flex flex-col">
-            <div className="flex items-center justify-between p-4 border-b">
-              <h3 className="text-lg font-medium">{fullscreenTitle}</h3>
-              <Button variant="ghost" size="sm" onClick={closeFullscreen}>
-                <X className="h-4 w-4" />
-              </Button>
-            </div>
-            <div className="flex-1 overflow-auto p-4">
-              <CodeBlock 
-                code={fullscreenCode} 
-                language={fullscreenLanguage} 
-                title={fullscreenTitle}
-                showCopy={true}
-                showCode={true}
-              />
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
-const LayoutComponent = ({ title, component, code, onFullscreen }) => (
-  <div className="flex flex-col gap-6">
-    <h2 className="text-2xl font-medium tracking-tight">{title}</h2>
-    <div className="border border-gray-200 rounded-lg overflow-hidden">
-      <div className="h-[500px] overflow-auto border-b border-gray-200">
-        {component}
-      </div>
-      <CodeBlock 
-        code={code} 
-        language="jsx" 
-        showCopy={true} 
-        showFullscreen={true}
-        onFullscreen={onFullscreen}
-      />
-    </div>
-  </div>
-);
-
-const sidePanelExampleCode = `import React, { useState } from 'react';
-import { Users, Home, Settings, Menu, X } from 'lucide-react';
+import { ChevronDown, Users, Home, Settings, Menu, X, ShoppingBag, FileText, CreditCard, BarChart2, PieChart, Layers, Star, Mail, HelpCircle, LogOut, Search, Bell } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export const SidePanelExample = () => {
@@ -217,11 +84,7 @@ export const SidePanelExample = () => {
       </div>
     </div>
   );
-};`;
-
-const nestedSideNavExampleCode = `import React, { useState } from 'react';
-import { ChevronDown, Users, Home, Settings, Menu, X, ShoppingBag, FileText, CreditCard } from 'lucide-react';
-import { cn } from '@/lib/utils';
+};
 
 export const NestedSideNavExample = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -424,11 +287,7 @@ export const NestedSideNavExample = () => {
       </div>
     </div>
   );
-};`;
-
-const searchSidebarExampleCode = `import React, { useState } from 'react';
-import { Users, Home, Settings, Menu, X, Search, Bell, ChevronDown } from 'lucide-react';
-import { cn } from '@/lib/utils';
+};
 
 export const SearchSidebarExample = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -600,11 +459,7 @@ export const SearchSidebarExample = () => {
       </div>
     </div>
   );
-};`;
-
-const adminLayoutExampleCode = `import React, { useState } from 'react';
-import { Users, Home, Settings, Menu, X, Search, Bell, ChevronDown, BarChart2, PieChart, Layers, Star, Mail, HelpCircle, LogOut } from 'lucide-react';
-import { cn } from '@/lib/utils';
+};
 
 export const AdminLayoutExample = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -830,7 +685,7 @@ export const AdminLayoutExample = () => {
                   {Array.from({ length: 5 }).map((_, i) => (
                     <li key={i} className="py-3">
                       <div className="flex space-x-3">
-                        <img className="h-8 w-8 rounded-full" src={\`https://randomuser.me/api/portraits/\${i % 2 === 0 ? 'men' : 'women'}/\${i + 20}.jpg\`} alt="User" />
+                        <img className="h-8 w-8 rounded-full" src={`https://randomuser.me/api/portraits/${i % 2 === 0 ? 'men' : 'women'}/${i + 20}.jpg`} alt="User" />
                         <div className="flex-1 space-y-1">
                           <div className="flex items-center justify-between">
                             <h3 className="text-sm font-medium">User {i + 1}</h3>
@@ -914,7 +769,4 @@ const SidebarLink = ({ icon, text, active = false, collapsed = false, badge }) =
       )}
     </a>
   );
-};`;
-
-export default SidebarLayouts;
-
+};
