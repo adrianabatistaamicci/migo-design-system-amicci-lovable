@@ -83,6 +83,7 @@ const SkeletonPage = () => {
           <div className="mt-8">
             <ComponentCard
               title="Exemplo de uso"
+              showCodeBlockInside={true}
               code={`
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -98,6 +99,8 @@ export function SkeletonDemo() {
   )
 }
               `}
+              codeBlockTitle="Implementação do Skeleton Demo"
+              codeBlockLanguage="tsx"
             >
               <div className="flex items-center space-x-4 p-4 border rounded-md">
                 <Skeleton className="h-12 w-12 rounded-full bg-gray-200" />
@@ -125,6 +128,7 @@ export function SkeletonDemo() {
           <h2 className="text-xl font-semibold">Implementação</h2>
           <ComponentCard
             title="Componente Skeleton"
+            showCodeBlockInside={true}
             code={`
 import { cn } from "@/lib/utils"
 
@@ -142,6 +146,8 @@ function Skeleton({
 
 export { Skeleton }
             `}
+            codeBlockTitle="Código do componente Skeleton"
+            codeBlockLanguage="tsx"
           >
             <div className="p-4 flex flex-col space-y-3 border rounded-md">
               <Skeleton className="h-8 w-full bg-gray-200" />
