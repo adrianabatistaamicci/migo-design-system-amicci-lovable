@@ -38,13 +38,13 @@ const CommandBars = () => {
                   </Button>
                 </div>
                 <div className="flex items-center gap-2">
-                  <IconButton variant="ghost" size="sm">
+                  <IconButton variant="outline" size="sm">
                     <Search className="h-4 w-4" />
                   </IconButton>
-                  <IconButton variant="ghost" size="sm">
+                  <IconButton variant="outline" size="sm">
                     <Filter className="h-4 w-4" />
                   </IconButton>
-                  <IconButton variant="ghost" size="sm">
+                  <IconButton variant="outline" size="sm">
                     <MoreVertical className="h-4 w-4" />
                   </IconButton>
                 </div>
@@ -91,7 +91,7 @@ const CommandBars = () => {
                 <div className="flex items-center gap-1">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <IconButton variant="ghost" size="sm">
+                      <IconButton variant="outline" size="sm">
                         <SortAsc className="h-4 w-4" />
                       </IconButton>
                     </DropdownMenuTrigger>
@@ -103,10 +103,10 @@ const CommandBars = () => {
                     </DropdownMenuContent>
                   </DropdownMenu>
                   <Separator orientation="vertical" className="h-6" />
-                  <IconButton variant="ghost" size="sm">
+                  <IconButton variant="outline" size="sm">
                     <Grid3X3 className="h-4 w-4" />
                   </IconButton>
-                  <IconButton variant="ghost" size="sm">
+                  <IconButton variant="outline" size="sm">
                     <List className="h-4 w-4" />
                   </IconButton>
                 </div>
@@ -141,10 +141,10 @@ const CommandBars = () => {
         className="pl-8 pr-3 py-1.5 text-sm border rounded-md"
       />
     </div>
-    <IconButton variant="ghost">
+    <IconButton variant="outline">
       <Filter className="h-4 w-4" />
     </IconButton>
-    <IconButton variant="ghost">
+    <IconButton variant="outline">
       <MoreVertical className="h-4 w-4" />
     </IconButton>
   </div>
@@ -170,10 +170,10 @@ const CommandBars = () => {
                       className="pl-8 pr-3 py-1.5 text-sm border rounded-md"
                     />
                   </div>
-                  <IconButton variant="ghost">
+                  <IconButton variant="outline">
                     <Filter className="h-4 w-4" />
                   </IconButton>
-                  <IconButton variant="ghost">
+                  <IconButton variant="outline">
                     <MoreVertical className="h-4 w-4" />
                   </IconButton>
                 </div>
@@ -214,10 +214,10 @@ const CommandBars = () => {
                   </DropdownMenu>
                   
                   <div className="flex items-center border rounded-md overflow-hidden">
-                    <IconButton variant="ghost" size="sm" className="rounded-none border-r">
+                    <IconButton variant="outline" size="sm" className="rounded-none border-r">
                       <Grid3X3 className="h-4 w-4" />
                     </IconButton>
-                    <IconButton variant="ghost" size="sm" className="rounded-none bg-gray-50">
+                    <IconButton variant="outline" size="sm" className="rounded-none bg-gray-50">
                       <List className="h-4 w-4" />
                     </IconButton>
                   </div>
