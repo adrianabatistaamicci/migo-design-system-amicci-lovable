@@ -1,4 +1,3 @@
-
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -15,26 +14,13 @@ import { Chip } from '@/components/ui/chip';
 import { cn } from '@/lib/utils';
 import CodeBlock from '@/components/CodeBlock';
 import ComponentCard from '@/components/ComponentCard';
-
 const SidebarExample = () => {
   const [isOpen, setIsOpen] = useState(true);
-  
-  return (
-    <div className="relative h-[400px] border rounded-lg overflow-hidden">
-      <div className={cn(
-        "h-full transition-all duration-300 ease-in-out bg-white border-r",
-        isOpen ? "w-64" : "w-20"
-      )}>
+  return <div className="relative h-[400px] border rounded-lg overflow-hidden">
+      <div className={cn("h-full transition-all duration-300 ease-in-out bg-white border-r", isOpen ? "w-64" : "w-20")}>
         <div className="flex items-center justify-between p-4 border-b">
-          {isOpen ? (
-            <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg" alt="Amicci" className="h-6" />
-          ) : (
-            <img src="/src/pages/assets/Amicci-Simbolo_Turquesa_Escuro.svg" alt="Amicci" className="h-6 mx-auto" />
-          )}
-          <button 
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-500 hover:text-gray-700"
-          >
+          {isOpen ? <img src="/src/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg" alt="Amicci" className="h-6" /> : <img src="/src/pages/assets/Amicci-Simbolo_Turquesa_Escuro.svg" alt="Amicci" className="h-6 mx-auto" />}
+          <button onClick={() => setIsOpen(!isOpen)} className="text-gray-500 hover:text-gray-700">
             {isOpen ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
           </button>
         </div>
@@ -42,56 +28,26 @@ const SidebarExample = () => {
         <nav className="p-2">
           <ul className="space-y-1">
             <li>
-              <a 
-                href="#" 
-                className={cn(
-                  "flex items-center py-2 px-3 rounded-md",
-                  isOpen ? "" : "justify-center",
-                  "text-primary-main hover:bg-gray-100"
-                )}
-              >
+              <a href="#" className={cn("flex items-center py-2 px-3 rounded-md", isOpen ? "" : "justify-center", "text-primary-main hover:bg-gray-100")}>
                 <Home size={20} className={isOpen ? "mr-3" : ""} />
                 {isOpen && <span>Dashboard</span>}
               </a>
             </li>
             <li>
-              <a 
-                href="#" 
-                className={cn(
-                  "flex items-center py-2 px-3 rounded-md",
-                  isOpen ? "" : "justify-center",
-                  "text-gray-700 hover:bg-gray-100"
-                )}
-              >
+              <a href="#" className={cn("flex items-center py-2 px-3 rounded-md", isOpen ? "" : "justify-center", "text-gray-700 hover:bg-gray-100")}>
                 <Mail size={20} className={isOpen ? "mr-3" : ""} />
                 {isOpen && <span>Messages</span>}
-                {isOpen && (
-                  <Chip variant="filled" color="primary" size="sm" className="ml-2">New</Chip>
-                )}
+                {isOpen && <Chip variant="filled" color="primary" size="sm" className="ml-2">New</Chip>}
               </a>
             </li>
             <li>
-              <a 
-                href="#" 
-                className={cn(
-                  "flex items-center py-2 px-3 rounded-md",
-                  isOpen ? "" : "justify-center",
-                  "text-gray-700 hover:bg-gray-100"
-                )}
-              >
+              <a href="#" className={cn("flex items-center py-2 px-3 rounded-md", isOpen ? "" : "justify-center", "text-gray-700 hover:bg-gray-100")}>
                 <Users size={20} className={isOpen ? "mr-3" : ""} />
                 {isOpen && <span>Team</span>}
               </a>
             </li>
             <li>
-              <a 
-                href="#" 
-                className={cn(
-                  "flex items-center justify-between py-2 px-3 rounded-md",
-                  isOpen ? "" : "justify-center",
-                  "text-gray-700 hover:bg-gray-100"
-                )}
-              >
+              <a href="#" className={cn("flex items-center justify-between py-2 px-3 rounded-md", isOpen ? "" : "justify-center", "text-gray-700 hover:bg-gray-100")}>
                 <div className="flex items-center">
                   <Settings size={20} className={isOpen ? "mr-3" : ""} />
                   {isOpen && <span>Settings</span>}
@@ -101,10 +57,8 @@ const SidebarExample = () => {
           </ul>
         </nav>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 const sidebarCode = `import React, { useState } from 'react';
 import { Home, Mail, Settings, Users, ChevronRight, ChevronLeft } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -182,18 +136,12 @@ const SidebarExample = () => {
     </div>
   );
 };`;
-
 const SidebarNavigation = () => {
-  return (
-    <div className="w-full animate-fade-in">
-      <Header 
-        title="Sidebar Navigation"
-        description="Componentes de navegação lateral para organizar e facilitar o acesso à diversas áreas de sua aplicação"
-        type="components"
-      />
+  return <div className="w-full animate-fade-in">
+      <Header title="Sidebar Navigation" description="Componentes de navegação lateral para organizar e facilitar o acesso à diversas áreas de sua aplicação" type="components" />
       
       <div className="max-w-[1280px] mx-auto">
-        <section className="mb-10">
+        <section className="mb-106">
           <h2 className="text-2xl font-semibold mb-6">Barra Lateral Básica</h2>
           <div className="space-y-4">
             <p className="text-gray-700">
@@ -201,15 +149,7 @@ const SidebarNavigation = () => {
               oferecendo uma navegação consistente e acessível.
             </p>
             
-            <ComponentCard 
-              title="Barra Lateral"
-              description="Exemplo de uma barra lateral recolhível com navegação principal"
-              className="w-full"
-              showCodeBlockInside={true}
-              code={sidebarCode}
-              codeBlockTitle="Implementação da Barra Lateral"
-              codeBlockLanguage="tsx"
-            >
+            <ComponentCard title="Barra Lateral" description="Exemplo de uma barra lateral recolhível com navegação principal" className="w-full" showCodeBlockInside={true} code={sidebarCode} codeBlockTitle="Implementação da Barra Lateral" codeBlockLanguage="tsx">
               <SidebarExample />
             </ComponentCard>
           </div>
@@ -248,8 +188,6 @@ const SidebarNavigation = () => {
           </p>
         </section>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default SidebarNavigation;
