@@ -1,7 +1,10 @@
+
 import React, { useState, useEffect } from 'react';
 import Header from '@/components/library-components/Header';
 import { Separator } from "@/components/ui/separator";
 import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
+import AmyImage from '@/pages/assets/Amy 001.png';
+
 const TomEVoz = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -217,10 +220,22 @@ const TomEVoz = () => {
         <section id="amy">
           <h2 className="text-2xl font-semibold mb-6">A Voz da Amy</h2>
           <div className="prose prose-gray max-w-none">
-            <div className="bg-primary-main/5 p-6 rounded-lg border border-primary-main/20 mb-8">
-              <p className="text-gray-800">
-                Amy é nossa assistente virtual e representa uma persona especial dentro do ecossistema Amicci. Ela tem voz própria e um nível de humanização mais elevado em comparação com outras partes de nossa interface.
-              </p>
+            <div className="flex flex-col lg:flex-row items-center gap-8 mb-8">
+              <div className="flex-1">
+                <div className="bg-primary-main/5 p-6 rounded-lg border border-primary-main/20">
+                  <p className="text-gray-800">
+                    Amy é nossa assistente virtual e representa uma persona especial dentro do ecossistema Amicci. Ela tem voz própria e um nível de humanização mais elevado em comparação com outras partes de nossa interface.
+                  </p>
+                </div>
+              </div>
+              <div className="flex-1">
+                <img 
+                  src={AmyImage} 
+                  alt="Amy, a assistente virtual da Amicci" 
+                  className="rounded-lg shadow-lg max-w-full h-auto object-cover border-4 border-tertiary-main/20" 
+                  style={{ maxHeight: '400px' }}
+                />
+              </div>
             </div>
             
             <h3 className="text-xl font-medium mt-8 mb-4">Características distintivas da Amy:</h3>
@@ -340,10 +355,6 @@ const TomEVoz = () => {
             </div>
           </div>
         </section>
-        
-        
-        
-        
       </div>
     </div>;
 };

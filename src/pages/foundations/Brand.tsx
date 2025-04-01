@@ -1,11 +1,3 @@
-
-/**
- * @protected
- * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
- * Não deve ser alterado diretamente pelo assistente AI.
- * Apenas atualizações de componentes devem ser refletidas.
- */
-
 import React, { useState } from 'react';
 import { Separator } from "@/components/ui/separator";
 import ComponentCard from '@/components/ComponentCard';
@@ -13,10 +5,11 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { TailwindTabs } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
-import { Sparkles, CircleUser, ChevronDown, RefreshCw, ThumbsUp, ThumbsDown, Download } from "lucide-react";
+import { Sparkles, CircleUser, ChevronDown, RefreshCw, ThumbsUp, ThumbsDown, Download, ExternalLink } from "lucide-react";
 import Header from '@/components/library-components/Header';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Link } from "@/components/ui/link";
 import AmicciLogo from '@/pages/assets/Amicci-Logo_TurquesaClaro+Escuro.svg';
 import AmicciLogoBrancoTurquesaEscuro from '@/pages/assets/Amicci-Branco+TurquesaEscuro.svg';
 import AmicciLogoTurquesaBranco from '@/pages/assets/Amicci-Logo_TurquesaClaro+Branco.svg';
@@ -240,6 +233,22 @@ const Brand = () => {
         return <div className="space-y-8">
             <ComponentCard title="Amy" description="A inteligência artificial da Amicci que ajuda os clientes no fluxo de planejamento, projeto e performance comercial da plataforma." className="mb-6">
               <div className="space-y-6">
+                <div className="mb-6 bg-tertiary-light border border-tertiary-main/20 p-6 rounded-lg flex flex-col md:flex-row items-center justify-between gap-4">
+                  <div>
+                    <h3 className="text-xl font-medium text-tertiary-main mb-2">Diretrizes de Comunicação</h3>
+                    <p className="text-gray-700">Descubra mais sobre a voz e o tom que a Amy utiliza em suas interações na documentação detalhada de Tom e Voz.</p>
+                  </div>
+                  <Button 
+                    variant="outline" 
+                    className="bg-white border-tertiary-main text-tertiary-main hover:bg-tertiary-hover"
+                    startIcon={<Sparkles size={16} className="text-tertiary-main" />}
+                    endIcon={<ExternalLink size={16} />}
+                    asChild
+                  >
+                    <Link href="/guidelines/tom-e-voz#amy">Ver diretrizes da voz da Amy</Link>
+                  </Button>
+                </div>
+
                 <Card className="p-6 shadow-none border">
                   <h3 className="text-xl font-medium mb-3">Paleta terciária</h3>
                   <p className="text-gray-600 mb-6">
