@@ -47,25 +47,6 @@ const ProfileButtonPage = () => {
         </ComponentCard>
         
         <ComponentCard 
-          title="Profile Button com Hover" 
-          description="Demonstração do efeito hover no botão de perfil."
-          code={`<ProfileButton
-  userName="José Silva"
-  companyName="Amicci Tech"
-/>`}
-          showCodeBlockInside={true}
-          codeBlockTitle="Profile Button com Hover"
-          codeBlockLanguage="tsx"
-        >
-          <div className="flex justify-center items-center p-4">
-            <ProfileButton
-              userName="José Silva"
-              companyName="Amicci Tech"
-            />
-          </div>
-        </ComponentCard>
-        
-        <ComponentCard 
           title="Variação: Sem Logo da Empresa" 
           description="Botão de perfil sem o logo da empresa e sem o ícone de menu."
           code={`<ProfileButton
