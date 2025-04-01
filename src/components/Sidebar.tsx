@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -48,6 +49,7 @@ export const sidebarItems: SidebarItem[] = [
     items: [
       { title: 'Oi, Migo', href: '/' },
       { title: 'UI Kit', href: '/ui-kit' },
+      { title: 'Tom e Voz', href: '/guidelines/tom-e-voz' },
       { 
         title: 'Diretrizes', 
         isToggleOnly: true,
