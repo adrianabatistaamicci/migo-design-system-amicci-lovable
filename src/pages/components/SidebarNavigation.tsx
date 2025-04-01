@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -6,13 +7,13 @@
  */
 
 import React, { useState } from 'react';
-import { Home, Mail, Settings, Users, ChevronRight, ChevronLeft } from 'lucide-react';
 import EmptyState from '@/components/library-components/EmptyState';
 import Header from '@/components/library-components/Header';
 import { Badge } from '@/components/ui/badge';
 import { Chip } from '@/components/ui/chip';
 import { cn } from '@/lib/utils';
-import CodeBlock from '@/components/CodeBlock';
+import ComponentCard from '@/components/library-components/ComponentCard';
+import { Home, Mail, Settings, Users, ChevronRight, ChevronLeft } from 'lucide-react';
 
 const SidebarExample = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -199,12 +200,15 @@ const SidebarNavigation = () => {
               oferecendo uma navegação consistente e acessível.
             </p>
             
-            <SidebarExample />
-            
-            <div className="mt-6">
-              <h3 className="text-lg font-medium mb-3">Implementação</h3>
-              <CodeBlock code={sidebarCode} language="tsx" />
-            </div>
+            <ComponentCard
+              title="Sidebar básico retrátil"
+              description="Uma barra lateral responsiva que pode ser expandida ou recolhida."
+              showComponent={true}
+              component={<SidebarExample />}
+              showCodeBlockInside={true}
+              code={sidebarCode}
+              language="tsx"
+            />
           </div>
         </section>
         
