@@ -38,15 +38,9 @@ const CommandBars = () => {
                   </Button>
                 </div>
                 <div className="flex items-center gap-2">
-                  <IconButton variant="outline-secondary" size="sm">
-                    <Search className="h-4 w-4" />
-                  </IconButton>
-                  <IconButton variant="outline-secondary" size="sm">
-                    <Filter className="h-4 w-4" />
-                  </IconButton>
-                  <IconButton variant="outline-secondary" size="sm">
-                    <MoreVertical className="h-4 w-4" />
-                  </IconButton>
+                  <IconButton icon={<Search className="h-4 w-4" />} variant="outline-secondary" size="sm" />
+                  <IconButton icon={<Filter className="h-4 w-4" />} variant="outline-secondary" size="sm" />
+                  <IconButton icon={<MoreVertical className="h-4 w-4" />} variant="outline-secondary" size="sm" />
                 </div>
               </div>
             </div>
@@ -91,9 +85,7 @@ const CommandBars = () => {
                 <div className="flex items-center gap-1">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <IconButton variant="outline-secondary" size="sm">
-                        <SortAsc className="h-4 w-4" />
-                      </IconButton>
+                      <IconButton icon={<SortAsc className="h-4 w-4" />} variant="outline-secondary" size="sm" />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                       <DropdownMenuItem>Mais recentes</DropdownMenuItem>
@@ -103,12 +95,8 @@ const CommandBars = () => {
                     </DropdownMenuContent>
                   </DropdownMenu>
                   <Separator orientation="vertical" className="h-6" />
-                  <IconButton variant="outline-secondary" size="sm">
-                    <Grid3X3 className="h-4 w-4" />
-                  </IconButton>
-                  <IconButton variant="outline-secondary" size="sm">
-                    <List className="h-4 w-4" />
-                  </IconButton>
+                  <IconButton icon={<Grid3X3 className="h-4 w-4" />} variant="outline-secondary" size="sm" />
+                  <IconButton icon={<List className="h-4 w-4" />} variant="outline-secondary" size="sm" />
                 </div>
               </div>
             </div>
@@ -141,12 +129,8 @@ const CommandBars = () => {
         className="pl-8 pr-3 py-1.5 text-sm border rounded-md"
       />
     </div>
-    <IconButton variant="outline-secondary">
-      <Filter className="h-4 w-4" />
-    </IconButton>
-    <IconButton variant="outline-secondary">
-      <MoreVertical className="h-4 w-4" />
-    </IconButton>
+    <IconButton icon={<Filter className="h-4 w-4" />} variant="outline-secondary" />
+    <IconButton icon={<MoreVertical className="h-4 w-4" />} variant="outline-secondary" />
   </div>
 </div>`}
         >
@@ -170,12 +154,8 @@ const CommandBars = () => {
                       className="pl-8 pr-3 py-1.5 text-sm border rounded-md"
                     />
                   </div>
-                  <IconButton variant="outline-secondary">
-                    <Filter className="h-4 w-4" />
-                  </IconButton>
-                  <IconButton variant="outline-secondary">
-                    <MoreVertical className="h-4 w-4" />
-                  </IconButton>
+                  <IconButton icon={<Filter className="h-4 w-4" />} variant="outline-secondary" />
+                  <IconButton icon={<MoreVertical className="h-4 w-4" />} variant="outline-secondary" />
                 </div>
               </div>
               
@@ -214,12 +194,8 @@ const CommandBars = () => {
                   </DropdownMenu>
                   
                   <div className="flex items-center border rounded-md overflow-hidden">
-                    <IconButton variant="outline-secondary" size="sm" className="rounded-none border-r">
-                      <Grid3X3 className="h-4 w-4" />
-                    </IconButton>
-                    <IconButton variant="outline-secondary" size="sm" className="rounded-none bg-gray-50">
-                      <List className="h-4 w-4" />
-                    </IconButton>
+                    <IconButton icon={<Grid3X3 className="h-4 w-4" />} variant="outline-secondary" size="sm" className="rounded-none border-r" />
+                    <IconButton icon={<List className="h-4 w-4" />} variant="outline-secondary" size="sm" className="rounded-none bg-gray-50" />
                   </div>
                 </div>
               </div>
