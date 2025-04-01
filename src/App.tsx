@@ -8,8 +8,11 @@ import UIKit from './pages/UIKit'
 import SidebarNavigation from './pages/components/SidebarNavigation'
 import Library from './pages/components/Library'
 import CommandBars from './pages/components/CommandBars'
+import TechnicalGovernance from './pages/guidelines/TechnicalGovernance'
 
 function App() {
+  const isProduction = import.meta.env.PROD;
+  
   return (
     <BrowserRouter>
       <Routes>
@@ -21,6 +24,10 @@ function App() {
           <Route path="/components/sidebar-navigation" element={<SidebarNavigation />} />
           <Route path="/components/library" element={<Library />} />
           <Route path="/components/command-bars" element={<CommandBars />} />
+          {/* Hide TechnicalGovernance in production */}
+          {!isProduction && (
+            <Route path="/guidelines/technical-governance" element={<TechnicalGovernance />} />
+          )}
           {/* Adicione outras rotas aqui */}
         </Route>
       </Routes>

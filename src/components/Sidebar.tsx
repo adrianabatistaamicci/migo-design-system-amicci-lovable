@@ -37,6 +37,7 @@ interface SidebarItem {
     variant?: string;
   };
   isToggleOnly?: boolean;
+  hideInProduction?: boolean;
 }
 
 interface SidebarProps {
@@ -53,7 +54,7 @@ export const sidebarItems: SidebarItem[] = [
         title: 'Diretrizes', 
         isToggleOnly: true,
         items: [
-          { title: 'Governança Lovable', href: '/guidelines/technical-governance' },
+          { title: 'Governança Lovable', href: '/guidelines/technical-governance', hideInProduction: true },
           { title: 'Diretrizes de UX', href: '/guidelines/ux-guidelines' }
         ]
       },
@@ -208,13 +209,36 @@ export const sidebarItems: SidebarItem[] = [
 ];
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
+  const isProduction = import.meta.env.PROD;
+  
+  // Filter out items that should be hidden in production
+  const filteredItems = sidebarItems.map(section => {
+    if (isProduction) {
+      // Filter out items that should be hidden in production
+      const filteredItems = section.items?.filter(item => !item.hideInProduction)
+        .map(item => {
+          // Also filter nested items
+          if (item.items) {
+            return {
+              ...item,
+              items: item.items.filter(subItem => !subItem.hideInProduction)
+            };
+          }
+          return item;
+        });
+      
+      return { ...section, items: filteredItems };
+    }
+    return section;
+  });
+  
   return (
     <aside className={cn(
       "fixed top-16 left-0 bottom-0 w-64 bg-white border-r border-gray-200 flex flex-col transition-transform duration-300 ease-elastic z-30",
       isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
     )}>
       <div className="flex-1 overflow-y-auto py-6 px-3">
-        {sidebarItems.map((section, sectionIndex) => (
+        {filteredItems.map((section, sectionIndex) => (
           <SidebarSection key={sectionIndex} item={section} />
         ))}
       </div>
@@ -228,6 +252,12 @@ const SidebarSection: React.FC<{ item: SidebarItem, level?: number }> = ({
 }) => {
   const location = useLocation();
   const [expanded, setExpanded] = useState(false);
+  const isProduction = import.meta.env.PROD;
+  
+  // Skip rendering this item if it should be hidden in production
+  if (isProduction && item.hideInProduction) {
+    return null;
+  }
   
   const isActive = (href?: string, items?: SidebarItem[]): boolean => {
     if (href && location.pathname === href) return true;
