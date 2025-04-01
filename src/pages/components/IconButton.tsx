@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -38,9 +39,11 @@ const IconButtonPage = () => {
           <ComponentCard
             title="Basic Icon Buttons"
             description="Icon buttons in various variants."
+            showCodeBlockInside={true}
             code={`<IconButton icon={<Heart size={18} />} />
 <IconButton icon={<Trash size={18} />} variant="error" />
 <IconButton icon={<Plus size={18} />} variant="success" />`}
+            codeBlockLanguage="tsx"
           >
             <div className="flex gap-4">
               <IconButton icon={<Heart size={18} />} />
@@ -53,9 +56,11 @@ const IconButtonPage = () => {
           <ComponentCard
             title="Outlined Icon Buttons"
             description="Icon buttons with outlined style."
+            showCodeBlockInside={true}
             code={`<IconButton icon={<Edit size={18} />} variant="outline-default" />
 <IconButton icon={<Search size={18} />} variant="outline-secondary" />
 <IconButton icon={<Settings size={18} />} variant="outline-error" />`}
+            codeBlockLanguage="tsx"
           >
             <div className="flex gap-4">
               <IconButton icon={<Edit size={18} />} variant="outline-default" />
@@ -68,9 +73,11 @@ const IconButtonPage = () => {
           <ComponentCard
             title="Text Icon Buttons"
             description="Icon buttons with text style (minimal background)."
+            showCodeBlockInside={true}
             code={`<IconButton icon={<Mail size={18} />} variant="text-default" />
 <IconButton icon={<Check size={18} />} variant="text-success" />
 <IconButton icon={<Trash size={18} />} variant="text-error" />`}
+            codeBlockLanguage="tsx"
           >
             <div className="flex gap-4">
               <IconButton icon={<Mail size={18} />} variant="text-default" />
@@ -83,9 +90,11 @@ const IconButtonPage = () => {
           <ComponentCard
             title="Button Sizes"
             description="Icon buttons in different sizes."
+            showCodeBlockInside={true}
             code={`<IconButton icon={<Save size={14} />} size="sm" />
 <IconButton icon={<Save size={18} />} />
 <IconButton icon={<Save size={22} />} size="lg" />`}
+            codeBlockLanguage="tsx"
           >
             <div className="flex items-center gap-4">
               <IconButton icon={<Save size={14} />} size="sm" />
@@ -98,9 +107,11 @@ const IconButtonPage = () => {
           <ComponentCard
             title="Button States"
             description="Icon buttons in different states."
+            showCodeBlockInside={true}
             code={`<IconButton icon={<ArrowRight size={18} />} />
 <IconButton icon={<ArrowRight size={18} />} disabled />
 <IconButton icon={<ArrowRight size={18} />} isLoading />`}
+            codeBlockLanguage="tsx"
           >
             <div className="flex gap-4">
               <IconButton icon={<ArrowRight size={18} />} />
@@ -113,9 +124,15 @@ const IconButtonPage = () => {
         {activeTab === 'variants' && <div className="space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Default Icon Button */}
-            <ComponentCard title="Default Icon Button" description="Botão de ícone com cor sólida para ações primárias." code={`<IconButton icon={<Plus size={14} />} size="sm" />
+            <ComponentCard 
+              title="Default Icon Button" 
+              description="Botão de ícone com cor sólida para ações primárias." 
+              showCodeBlockInside={true}
+              code={`<IconButton icon={<Plus size={14} />} size="sm" />
 <IconButton icon={<Plus size={18} />} />
-<IconButton icon={<Plus size={22} />} size="lg" />`}>
+<IconButton icon={<Plus size={22} />} size="lg" />`}
+              codeBlockLanguage="tsx"
+            >
               <div className="flex justify-center items-center gap-2">
                 <IconButton icon={<Plus size={14} />} size="sm" />
                 <IconButton icon={<Plus size={18} />} />
@@ -124,9 +141,15 @@ const IconButtonPage = () => {
             </ComponentCard>
 
             {/* Error Icon Button */}
-            <ComponentCard title="Error Icon Button" description="Botão de ícone vermelho para ações críticas ou destrutivas." code={`<IconButton icon={<Trash size={14} />} variant="error" size="sm" />
+            <ComponentCard 
+              title="Error Icon Button" 
+              description="Botão de ícone vermelho para ações críticas ou destrutivas." 
+              showCodeBlockInside={true}
+              code={`<IconButton icon={<Trash size={14} />} variant="error" size="sm" />
 <IconButton icon={<Trash size={18} />} variant="error" />
-<IconButton icon={<Trash size={22} />} variant="error" size="lg" />`}>
+<IconButton icon={<Trash size={22} />} variant="error" size="lg" />`}
+              codeBlockLanguage="tsx"
+            >
               <div className="flex justify-center items-center gap-2">
                 <IconButton icon={<Trash size={14} />} variant="error" size="sm" />
                 <IconButton icon={<Trash size={18} />} variant="error" />
@@ -135,9 +158,15 @@ const IconButtonPage = () => {
             </ComponentCard>
 
             {/* Secondary Icon Button */}
-            <ComponentCard title="Secondary Icon Button" description="Botão de ícone secundário para ações alternativas." code={`<IconButton icon={<Edit size={14} />} variant="secondary" size="sm" />
+            <ComponentCard 
+              title="Secondary Icon Button" 
+              description="Botão de ícone secundário para ações alternativas." 
+              showCodeBlockInside={true}
+              code={`<IconButton icon={<Edit size={14} />} variant="secondary" size="sm" />
 <IconButton icon={<Edit size={18} />} variant="secondary" />
-<IconButton icon={<Edit size={22} />} variant="secondary" size="lg" />`}>
+<IconButton icon={<Edit size={22} />} variant="secondary" size="lg" />`}
+              codeBlockLanguage="tsx"
+            >
               <div className="flex justify-center items-center gap-2">
                 <IconButton icon={<Edit size={14} />} variant="secondary" size="sm" />
                 <IconButton icon={<Edit size={18} />} variant="secondary" />
@@ -146,9 +175,15 @@ const IconButtonPage = () => {
             </ComponentCard>
 
             {/* Success Icon Button */}
-            <ComponentCard title="Success Icon Button" description="Botão de ícone verde para ações de confirmação ou sucesso." code={`<IconButton icon={<Check size={14} />} variant="success" className="bg-success-main text-success-contrast hover:bg-success-dark" size="sm" />
+            <ComponentCard 
+              title="Success Icon Button" 
+              description="Botão de ícone verde para ações de confirmação ou sucesso." 
+              showCodeBlockInside={true}
+              code={`<IconButton icon={<Check size={14} />} variant="success" className="bg-success-main text-success-contrast hover:bg-success-dark" size="sm" />
 <IconButton icon={<Check size={18} />} variant="success" className="bg-success-main text-success-contrast hover:bg-success-dark" />
-<IconButton icon={<Check size={22} />} variant="success" className="bg-success-main text-success-contrast hover:bg-success-dark" size="lg" />`}>
+<IconButton icon={<Check size={22} />} variant="success" className="bg-success-main text-success-contrast hover:bg-success-dark" size="lg" />`}
+              codeBlockLanguage="tsx"
+            >
               <div className="flex justify-center items-center gap-2">
                 <IconButton icon={<Check size={14} />} variant="success" className="bg-success-main text-success-contrast hover:bg-success-dark" size="sm" />
                 <IconButton icon={<Check size={18} />} variant="success" className="bg-success-main text-success-contrast hover:bg-success-dark" />
@@ -157,9 +192,15 @@ const IconButtonPage = () => {
             </ComponentCard>
 
             {/* Warning Icon Button */}
-            <ComponentCard title="Warning Icon Button" description="Botão de ícone amarelo para ações de alerta." code={`<IconButton icon={<X size={14} />} variant="warning" className="bg-warning-main text-white hover:bg-warning-dark" size="sm" />
+            <ComponentCard 
+              title="Warning Icon Button" 
+              description="Botão de ícone amarelo para ações de alerta." 
+              showCodeBlockInside={true}
+              code={`<IconButton icon={<X size={14} />} variant="warning" className="bg-warning-main text-white hover:bg-warning-dark" size="sm" />
 <IconButton icon={<X size={18} />} variant="warning" className="bg-warning-main text-white hover:bg-warning-dark" />
-<IconButton icon={<X size={22} />} variant="warning" className="bg-warning-main text-white hover:bg-warning-dark" size="lg" />`}>
+<IconButton icon={<X size={22} />} variant="warning" className="bg-warning-main text-white hover:bg-warning-dark" size="lg" />`}
+              codeBlockLanguage="tsx"
+            >
               <div className="flex justify-center items-center gap-2">
                 <IconButton icon={<X size={14} />} variant="warning" className="bg-warning-main text-white hover:bg-warning-dark" size="sm" />
                 <IconButton icon={<X size={18} />} variant="warning" className="bg-warning-main text-white hover:bg-warning-dark" />
@@ -168,9 +209,15 @@ const IconButtonPage = () => {
             </ComponentCard>
 
             {/* Info Icon Button */}
-            <ComponentCard title="Info Icon Button" description="Botão de ícone azul para ações informativas." code={`<IconButton icon={<Mail size={14} />} variant="info" className="bg-info-main text-info-contrast hover:bg-info-dark" size="sm" />
+            <ComponentCard 
+              title="Info Icon Button" 
+              description="Botão de ícone azul para ações informativas." 
+              showCodeBlockInside={true}
+              code={`<IconButton icon={<Mail size={14} />} variant="info" className="bg-info-main text-info-contrast hover:bg-info-dark" size="sm" />
 <IconButton icon={<Mail size={18} />} variant="info" className="bg-info-main text-info-contrast hover:bg-info-dark" />
-<IconButton icon={<Mail size={22} />} variant="info" className="bg-info-main text-info-contrast hover:bg-info-dark" size="lg" />`}>
+<IconButton icon={<Mail size={22} />} variant="info" className="bg-info-main text-info-contrast hover:bg-info-dark" size="lg" />`}
+              codeBlockLanguage="tsx"
+            >
               <div className="flex justify-center items-center gap-2">
                 <IconButton icon={<Mail size={14} />} variant="info" className="bg-info-main text-info-contrast hover:bg-info-dark" size="sm" />
                 <IconButton icon={<Mail size={18} />} variant="info" className="bg-info-main text-info-contrast hover:bg-info-dark" />
@@ -179,9 +226,15 @@ const IconButtonPage = () => {
             </ComponentCard>
 
             {/* Outline Default Icon Button */}
-            <ComponentCard title="Outline Default Icon Button" description="Botão de ícone com contorno azul para ações primárias sutis." code={`<IconButton icon={<Plus size={14} />} variant="outline-default" size="sm" />
+            <ComponentCard 
+              title="Outline Default Icon Button" 
+              description="Botão de ícone com contorno azul para ações primárias sutis." 
+              showCodeBlockInside={true}
+              code={`<IconButton icon={<Plus size={14} />} variant="outline-default" size="sm" />
 <IconButton icon={<Plus size={18} />} variant="outline-default" />
-<IconButton icon={<Plus size={22} />} variant="outline-default" size="lg" />`}>
+<IconButton icon={<Plus size={22} />} variant="outline-default" size="lg" />`}
+              codeBlockLanguage="tsx"
+            >
               <div className="flex justify-center items-center gap-2">
                 <IconButton icon={<Plus size={14} />} variant="outline-default" size="sm" />
                 <IconButton icon={<Plus size={18} />} variant="outline-default" />
@@ -190,9 +243,15 @@ const IconButtonPage = () => {
             </ComponentCard>
 
             {/* Outline Secondary Icon Button */}
-            <ComponentCard title="Outline Secondary Icon Button" description="Botão de ícone com contorno cinza para ações secundárias." code={`<IconButton icon={<Edit size={14} />} variant="outline-secondary" size="sm" />
+            <ComponentCard 
+              title="Outline Secondary Icon Button" 
+              description="Botão de ícone com contorno cinza para ações secundárias." 
+              showCodeBlockInside={true}
+              code={`<IconButton icon={<Edit size={14} />} variant="outline-secondary" size="sm" />
 <IconButton icon={<Edit size={18} />} variant="outline-secondary" />
-<IconButton icon={<Edit size={22} />} variant="outline-secondary" size="lg" />`}>
+<IconButton icon={<Edit size={22} />} variant="outline-secondary" size="lg" />`}
+              codeBlockLanguage="tsx"
+            >
               <div className="flex justify-center items-center gap-2">
                 <IconButton icon={<Edit size={14} />} variant="outline-secondary" size="sm" />
                 <IconButton icon={<Edit size={18} />} variant="outline-secondary" />
@@ -201,9 +260,15 @@ const IconButtonPage = () => {
             </ComponentCard>
 
             {/* Outline Error Icon Button */}
-            <ComponentCard title="Outline Error Icon Button" description="Botão de ícone com contorno vermelho para ações críticas sutis." code={`<IconButton icon={<Trash size={14} />} variant="outline-error" size="sm" />
+            <ComponentCard 
+              title="Outline Error Icon Button" 
+              description="Botão de ícone com contorno vermelho para ações críticas sutis." 
+              showCodeBlockInside={true}
+              code={`<IconButton icon={<Trash size={14} />} variant="outline-error" size="sm" />
 <IconButton icon={<Trash size={18} />} variant="outline-error" />
-<IconButton icon={<Trash size={22} />} variant="outline-error" size="lg" />`}>
+<IconButton icon={<Trash size={22} />} variant="outline-error" size="lg" />`}
+              codeBlockLanguage="tsx"
+            >
               <div className="flex justify-center items-center gap-2">
                 <IconButton icon={<Trash size={14} />} variant="outline-error" size="sm" />
                 <IconButton icon={<Trash size={18} />} variant="outline-error" />
@@ -212,9 +277,15 @@ const IconButtonPage = () => {
             </ComponentCard>
 
             {/* Text Default Icon Button */}
-            <ComponentCard title="Text Default Icon Button" description="Botão de ícone de texto sem fundo para ações sutis." code={`<IconButton icon={<Plus size={14} />} variant="text-default" size="sm" />
+            <ComponentCard 
+              title="Text Default Icon Button" 
+              description="Botão de ícone de texto sem fundo para ações sutis." 
+              showCodeBlockInside={true}
+              code={`<IconButton icon={<Plus size={14} />} variant="text-default" size="sm" />
 <IconButton icon={<Plus size={18} />} variant="text-default" />
-<IconButton icon={<Plus size={22} />} variant="text-default" size="lg" />`}>
+<IconButton icon={<Plus size={22} />} variant="text-default" size="lg" />`}
+              codeBlockLanguage="tsx"
+            >
               <div className="flex justify-center items-center gap-2">
                 <IconButton icon={<Plus size={14} />} variant="text-default" size="sm" />
                 <IconButton icon={<Plus size={18} />} variant="text-default" />
@@ -223,9 +294,15 @@ const IconButtonPage = () => {
             </ComponentCard>
 
             {/* Text Secondary Icon Button */}
-            <ComponentCard title="Text Secondary Icon Button" description="Botão de ícone de texto cinza para ações secundárias discretas." code={`<IconButton icon={<Edit size={14} />} variant="text-secondary" size="sm" />
+            <ComponentCard 
+              title="Text Secondary Icon Button" 
+              description="Botão de ícone de texto cinza para ações secundárias discretas." 
+              showCodeBlockInside={true}
+              code={`<IconButton icon={<Edit size={14} />} variant="text-secondary" size="sm" />
 <IconButton icon={<Edit size={18} />} variant="text-secondary" />
-<IconButton icon={<Edit size={22} />} variant="text-secondary" size="lg" />`}>
+<IconButton icon={<Edit size={22} />} variant="text-secondary" size="lg" />`}
+              codeBlockLanguage="tsx"
+            >
               <div className="flex justify-center items-center gap-2">
                 <IconButton icon={<Edit size={14} />} variant="text-secondary" size="sm" />
                 <IconButton icon={<Edit size={18} />} variant="text-secondary" />
@@ -234,9 +311,15 @@ const IconButtonPage = () => {
             </ComponentCard>
 
             {/* Text Error Icon Button */}
-            <ComponentCard title="Text Error Icon Button" description="Botão de ícone de texto vermelho para ações críticas discretas." code={`<IconButton icon={<Trash size={14} />} variant="text-error" size="sm" />
+            <ComponentCard 
+              title="Text Error Icon Button" 
+              description="Botão de ícone de texto vermelho para ações críticas discretas." 
+              showCodeBlockInside={true}
+              code={`<IconButton icon={<Trash size={14} />} variant="text-error" size="sm" />
 <IconButton icon={<Trash size={18} />} variant="text-error" />
-<IconButton icon={<Trash size={22} />} variant="text-error" size="lg" />`}>
+<IconButton icon={<Trash size={22} />} variant="text-error" size="lg" />`}
+              codeBlockLanguage="tsx"
+            >
               <div className="flex justify-center items-center gap-2">
                 <IconButton icon={<Trash size={14} />} variant="text-error" size="sm" />
                 <IconButton icon={<Trash size={18} />} variant="text-error" />
