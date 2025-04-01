@@ -49,7 +49,6 @@ export const sidebarItems: SidebarItem[] = [
     items: [
       { title: 'Oi, Migo', href: '/' },
       { title: 'UI Kit', href: '/ui-kit' },
-      { title: 'Tom e Voz', href: '/guidelines/tom-e-voz' },
       { 
         title: 'Diretrizes', 
         isToggleOnly: true,
@@ -65,6 +64,7 @@ export const sidebarItems: SidebarItem[] = [
     title: 'Foundations',
     icon: Layers,
     items: [
+      { title: 'Tom e Voz', href: '/guidelines/tom-e-voz' },
       { title: 'Colors', href: '/foundations/colors' },
       { title: 'Typography', href: '/foundations/typography' },
       { title: 'Spacing', href: '/foundations/spacing' },
