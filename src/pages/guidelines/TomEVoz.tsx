@@ -2,30 +2,20 @@ import React, { useState, useEffect } from 'react';
 import Header from '@/components/library-components/Header';
 import { Separator } from "@/components/ui/separator";
 import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
-
 const TomEVoz = () => {
   const [isLoading, setIsLoading] = useState(true);
-  
   useEffect(() => {
     // Simulate loading delay
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 600);
-    
     return () => clearTimeout(timer);
   }, []);
-  
   if (isLoading) {
     return <DocumentationSkeleton />;
   }
-
-  return (
-    <div className="w-full animate-fade-in">
-      <Header 
-        title="Tom e Voz" 
-        description="Diretrizes para comunicação textual consistente e autêntica" 
-        type="foundations" 
-      />
+  return <div className="w-full animate-fade-in">
+      <Header title="Tom e Voz" description="Diretrizes para comunicação textual consistente e autêntica" type="foundations" />
       
       <div className="max-w-[1280px] mx-auto mt-12 space-y-16">
         <section>
@@ -325,13 +315,7 @@ const TomEVoz = () => {
               </div>
             </div>
             
-            <div className="flex justify-center my-12">
-              <img 
-                src="/lovable-uploads/ed9857d3-7533-4235-a8ff-db575e33e9c8.png" 
-                alt="Amy - Nossa assistente virtual"
-                className="max-w-[240px] rounded-lg shadow-md"
-              />
-            </div>
+            
             
             <div className="bg-primary-main/10 p-6 rounded-lg border border-primary-main/20 mt-12">
               <h3 className="text-xl font-medium mb-4">Lembretes importantes</h3>
@@ -357,40 +341,10 @@ const TomEVoz = () => {
           </div>
         </section>
         
-        <Separator />
         
-        <section id="exemplos-praticos">
-          <h2 className="text-2xl font-semibold mb-6">Exemplos Práticos</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-            <div>
-              <img 
-                src="/lovable-uploads/b71ba5a3-2558-4edc-8054-773907c23043.png" 
-                alt="Exemplo de nosso tom e voz"
-                className="w-full rounded-md border border-gray-200" 
-              />
-            </div>
-            <div>
-              <img 
-                src="/lovable-uploads/4cfe2f5f-5687-4a23-9a68-4efa14d874eb.png" 
-                alt="Exemplo de nosso tom e voz"
-                className="w-full rounded-md border border-gray-200" 
-              />
-            </div>
-          </div>
-          
-          <div className="bg-gray-50 p-6 rounded-lg mt-8">
-            <h3 className="text-xl font-medium mb-4">Aplicação prática</h3>
-            <p className="text-gray-700">
-              Os exemplos acima ilustram como aplicamos nosso tom e voz em diferentes contextos de comunicação. 
-              Note como mantemos nossa personalidade consistente, mas ajustamos o nível de formalidade e o tom 
-              emocional de acordo com o tipo de mensagem e a necessidade do usuário.
-            </p>
-          </div>
-        </section>
+        
+        
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default TomEVoz;
