@@ -1,4 +1,3 @@
-
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -146,11 +145,8 @@ const SidebarNavigation = () => {
           <h2 className="text-2xl font-semibold">Barra Lateral Básica</h2>
           <div className="space-y-4">
             <p className="text-gray-700">
-              Imagine sua aplicação como uma casa aconchegante. A barra lateral é aquela porta especial que conecta todos os cômodos, permitindo que seus usuários naveguem com naturalidade e confiança.
-            </p>
-            
-            <p className="text-gray-700">
-              Mais que um simples menu, a barra lateral é o companheiro constante do usuário durante toda sua jornada. Ela transmite segurança ao mostrar: "Ei, você pode explorar tranquilamente, pois sempre estará a um clique de voltar para o caminho principal".
+              A barra lateral é um componente essencial para aplicações web modernas, 
+              oferecendo uma navegação consistente e acessível.
             </p>
             
             <ComponentCard title="Barra Lateral" description="Exemplo de uma barra lateral recolhível com navegação principal" className="w-full" showCodeBlockInside={true} code={sidebarCode} codeBlockTitle="Implementação da Barra Lateral" codeBlockLanguage="tsx">
