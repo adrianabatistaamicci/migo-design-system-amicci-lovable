@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -741,8 +742,11 @@ const SidebarLayouts = () => {
               </div>
             </div>
             
-            <LayoutComponentFooter 
-              code={sidebarCode}
+            <CodeBlock 
+              code={sidebarCode} 
+              language="jsx" 
+              showCopy={true} 
+              showFullscreen={true}
               onFullscreen={() => openFullscreen('basic')}
             />
           </div>
@@ -812,8 +816,11 @@ const SidebarLayouts = () => {
               </div>
             </div>
             
-            <LayoutComponentFooter 
-              code={collapsibleSidebarCode}
+            <CodeBlock 
+              code={collapsibleSidebarCode} 
+              language="jsx" 
+              showCopy={true} 
+              showFullscreen={true}
               onFullscreen={() => openFullscreen('collapsible')}
             />
           </div>
@@ -977,8 +984,11 @@ const SidebarLayouts = () => {
               </div>
             </div>
             
-            <LayoutComponentFooter 
-              code={advancedSidebarCode}
+            <CodeBlock 
+              code={advancedSidebarCode} 
+              language="jsx" 
+              showCopy={true} 
+              showFullscreen={true}
               onFullscreen={() => openFullscreen('advanced')}
             />
           </div>
