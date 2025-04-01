@@ -1,4 +1,3 @@
-
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -19,8 +18,7 @@ import {
   MessageSquare,
   Bell,
   Palette,
-  FileText,
-  MessageCircle
+  FileText
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
@@ -50,7 +48,6 @@ export const sidebarItems: SidebarItem[] = [
     items: [
       { title: 'Oi, Migo', href: '/' },
       { title: 'UI Kit', href: '/ui-kit' },
-      { title: 'Tom e Voz', href: '/introduction/tone-and-voice' },
       { 
         title: 'Diretrizes', 
         isToggleOnly: true,

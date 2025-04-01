@@ -8,7 +8,7 @@ const NotificationToasts = () => {
     <div className="w-full animate-fade-in">
       <Header 
         title="Notification Toasts"
-        description="Em breve"
+        description="Notificações temporárias informativas para feedback ao usuário."
         type="components"
       />
       

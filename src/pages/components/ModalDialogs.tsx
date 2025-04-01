@@ -8,7 +8,7 @@ const ModalDialogs = () => {
     <div className="w-full animate-fade-in">
       <Header 
         title="Modal Dialogs"
-        description="Em breve"
+        description="Implementações de caixas de diálogo modal para interações importantes."
         type="components"
       />
       
