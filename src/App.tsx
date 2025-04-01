@@ -1,7 +1,8 @@
+
 import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout'
-import Home from './pages/Home'
+import Home from './pages/Index'  // Changed from './pages/Home' to './pages/Index'
 import UXGuidelines from './pages/guidelines/UXGuidelines'
 import TomEVoz from './pages/guidelines/TomEVoz'
 import UIKit from './pages/UIKit'
@@ -11,7 +12,7 @@ import CommandBars from './pages/components/CommandBars'
 import { usePageTransition } from './utils/transitionUtils'
 
 function App() {
-  const { startTransition } = usePageTransition();
+  const { isTransitioning, showContent } = usePageTransition();  // Removed startTransition
 
   return (
     <BrowserRouter>
