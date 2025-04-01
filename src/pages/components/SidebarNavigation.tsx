@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -14,6 +15,7 @@ import { Chip } from '@/components/ui/chip';
 import { cn } from '@/lib/utils';
 import CodeBlock from '@/components/CodeBlock';
 import ComponentCard from '@/components/ComponentCard';
+
 const SidebarExample = () => {
   const [isOpen, setIsOpen] = useState(true);
   return <div className="relative h-[400px] border rounded-lg overflow-hidden">
@@ -59,6 +61,7 @@ const SidebarExample = () => {
       </div>
     </div>;
 };
+
 const sidebarCode = `import React, { useState } from 'react';
 import { Home, Mail, Settings, Users, ChevronRight, ChevronLeft } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -136,6 +139,7 @@ const SidebarExample = () => {
     </div>
   );
 };`;
+
 const SidebarNavigation = () => {
   return <div className="w-full animate-fade-in">
       <Header title="Sidebar Navigation" description="Componentes de navegação lateral para organizar e facilitar o acesso à diversas áreas de sua aplicação" type="components" />
@@ -149,7 +153,15 @@ const SidebarNavigation = () => {
               oferecendo uma navegação consistente e acessível.
             </p>
             
-            <ComponentCard title="Barra Lateral" description="Exemplo de uma barra lateral recolhível com navegação principal" className="w-full" showCodeBlockInside={true} code={sidebarCode} codeBlockTitle="Implementação da Barra Lateral" codeBlockLanguage="tsx">
+            <ComponentCard 
+              title="Barra Lateral" 
+              description="Exemplo de uma barra lateral recolhível com navegação principal" 
+              className="w-full" 
+              showCodeBlockInside={true} 
+              code={sidebarCode} 
+              codeBlockTitle="Implementação da Barra Lateral" 
+              codeBlockLanguage="tsx"
+            >
               <SidebarExample />
             </ComponentCard>
           </div>
@@ -190,4 +202,5 @@ const SidebarNavigation = () => {
       </div>
     </div>;
 };
+
 export default SidebarNavigation;
