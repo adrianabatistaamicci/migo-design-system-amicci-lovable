@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState } from 'react';
 import { useLocation, Outlet } from 'react-router-dom';
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
@@ -26,7 +27,7 @@ const PageTitleUpdater = () => {
     return undefined;
   };
   
-  useEffect(() => {
+  React.useEffect(() => {
     const title = findPageTitle(sidebarItems, location.pathname);
     if (title) {
       setPageTitle(title);
