@@ -1,9 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import Header from '@/components/library-components/Header';
 import { Separator } from "@/components/ui/separator";
 import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
-import HeroSection from '@/components/library-components/HeroSection';
 
 const TomEVoz = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,12 +25,6 @@ const TomEVoz = () => {
         title="Tom e Voz" 
         description="Diretrizes para comunicação textual consistente e autêntica" 
         type="foundations" 
-      />
-      
-      <HeroSection
-        title="Tom e Voz da Plataforma"
-        subtitle="Diretrizes para comunicação humanizada e consistente"
-        description="A forma como nos comunicamos define nossa personalidade e fortalece a conexão com nossos usuários."
       />
       
       <div className="max-w-[1280px] mx-auto mt-12 space-y-16">
