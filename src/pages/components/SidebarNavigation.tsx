@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -13,6 +14,7 @@ import { Badge } from '@/components/ui/badge';
 import { Chip } from '@/components/ui/chip';
 import { cn } from '@/lib/utils';
 import CodeBlock from '@/components/CodeBlock';
+import ComponentCard from '@/components/ComponentCard';
 
 const SidebarExample = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -199,12 +201,17 @@ const SidebarNavigation = () => {
               oferecendo uma navegação consistente e acessível.
             </p>
             
-            <SidebarExample />
-            
-            <div className="mt-6">
-              <h3 className="text-lg font-medium mb-3">Implementação</h3>
-              <CodeBlock code={sidebarCode} language="tsx" />
-            </div>
+            <ComponentCard 
+              title="Barra Lateral"
+              description="Exemplo de uma barra lateral recolhível com navegação principal"
+              className="w-full"
+              showCodeBlockInside={true}
+              code={sidebarCode}
+              codeBlockTitle="Implementação da Barra Lateral"
+              codeBlockLanguage="tsx"
+            >
+              <SidebarExample />
+            </ComponentCard>
           </div>
         </section>
         
