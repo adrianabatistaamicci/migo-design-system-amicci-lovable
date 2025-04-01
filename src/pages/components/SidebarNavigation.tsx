@@ -142,7 +142,7 @@ const SidebarNavigation = () => {
       
       <div className="max-w-[1280px] mx-autospacey-6">
         <section className="mb-106mt-6 mt-6">
-          <h2 className="text-2xl font-semibold mb-6">Barra Lateral Básica</h2>
+          <h2 className="text-2xl font-semibold">Barra Lateral Básica</h2>
           <div className="space-y-4">
             <p className="text-gray-700">
               A barra lateral é um componente essencial para aplicações web modernas, 
