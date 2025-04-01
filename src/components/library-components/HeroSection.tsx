@@ -30,7 +30,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           alt="Design fluid background" 
           className="w-full h-full object-cover"
           loading="eager"
-          fetchPriority="high"
+          fetchpriority="high"
           decoding="async"
         />
         <div className="absolute inset-0 bg-black/60"></div>

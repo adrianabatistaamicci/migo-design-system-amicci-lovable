@@ -21,7 +21,7 @@ const Index = () => {
             alt="Design fluid background" 
             className="w-full h-full object-cover object-center"
             loading="eager"
-            fetchPriority="high"
+            fetchpriority="high"
             decoding="async"
           />
           {/* Dark overlay removed */}

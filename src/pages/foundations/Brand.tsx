@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -147,7 +148,7 @@ const Brand = () => {
                   <h3 className="text-xl font-medium">Versão Principal</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="border rounded-lg p-8 flex items-center justify-center bg-white">
-                      <img src={AmicciLogo} alt="Amicci logo com diferentes versões" className="max-w-[250px] h-auto" />
+                      <img src={AmicciLogo} alt="Amicci logo com diferentes versões" className="max-w-[250px] h-auto" loading="eager" fetchpriority="high" />
                     </div>
                     <div className="space-y-4">
                       <h4 className="font-medium">Logo principal</h4>
@@ -164,8 +165,8 @@ const Brand = () => {
                   <h3 className="text-xl font-medium">Versão para fundo escuro</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="border rounded-lg p-8 flex flex-col items-center justify-center gap-8 bg-[#016071] py-[44px]">
-                      <img src={AmicciLogoTurquesaBranco} alt="Amicci logo para fundo Amicci-500" className="max-w-[250px] h-auto" />
-                      <img src={AmicciLogoBranco} alt="Amicci logo para fundo Amicci-500" className="max-w-[250px] h-auto" />
+                      <img src={AmicciLogoTurquesaBranco} alt="Amicci logo para fundo Amicci-500" className="max-w-[250px] h-auto" loading="lazy" />
+                      <img src={AmicciLogoBranco} alt="Amicci logo para fundo Amicci-500" className="max-w-[250px] h-auto" loading="lazy" />
                     </div>
                     <div className="space-y-4">
                       <h4 className="font-medium">Logo para fundo escuro</h4>
@@ -188,10 +189,10 @@ const Brand = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="border rounded-lg p-8 flex items-center justify-center bg-white">
                       <div className="flex flex-col items-start gap-4">
-                        <img src={AmicciTagDesignSystem} alt="Amicci logo com tag design system" className="max-w-[300px] h-auto" />
-                        <img src={AmicciTagBlog} alt="Amicci logo com tag blog" className="max-w-[300px] h-auto" />
-                        <img src={AmicciTagEngenharia} alt="Amicci logo com tag engenharia" className="max-w-[300px] h-auto" />
-                        <img src={AmicciTagUpdates} alt="Amicci logo com tag updates" className="max-w-[300px] h-auto" />
+                        <img src={AmicciTagDesignSystem} alt="Amicci logo com tag design system" className="max-w-[300px] h-auto" loading="lazy" />
+                        <img src={AmicciTagBlog} alt="Amicci logo com tag blog" className="max-w-[300px] h-auto" loading="lazy" />
+                        <img src={AmicciTagEngenharia} alt="Amicci logo com tag engenharia" className="max-w-[300px] h-auto" loading="lazy" />
+                        <img src={AmicciTagUpdates} alt="Amicci logo com tag updates" className="max-w-[300px] h-auto" loading="lazy" />
                       </div>
                     </div>
                     <div className="space-y-4 flex flex-col justify-center">
@@ -203,7 +204,7 @@ const Brand = () => {
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
                     <div className="border rounded-lg p-8 flex items-center justify-center bg-white">
-                      <img src={AmicciSimbolo} alt="Smbolo Amicci" className="max-w-[250px] h-[117px]" />
+                      <img src={AmicciSimbolo} alt="Smbolo Amicci" className="max-w-[250px] h-[117px]" loading="lazy" />
                     </div>
                     <div className="space-y-4">
                       <h4 className="font-medium">Símbolo</h4>
@@ -274,19 +275,19 @@ const Brand = () => {
                     <h3 className="text-xl font-medium mb-4">Imagens da Amy</h3>
                     <div className="grid grid-cols-3 gap-4">
                       <div className="flex flex-col items-center gap-4">
-                        <img src={Amy001} alt="Amy, a IA da Amicci" className="w-full h-auto object-contain rounded-md" />
+                        <img src={Amy001} alt="Amy, a IA da Amicci" className="w-full h-auto object-contain rounded-md" loading="lazy" />
                         <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amy 001.png', 'amy-image-1.png')}>
                           Download PNG
                         </Button>
                       </div>
                       <div className="flex flex-col items-center gap-2">
-                        <img src={Amy002} alt="Amy, a IA da Amicci em outra pose" className="w-full h-auto object-contain rounded-md" />
+                        <img src={Amy002} alt="Amy, a IA da Amicci em outra pose" className="w-full h-auto object-contain rounded-md" loading="lazy" />
                         <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amy 002.png', 'amy-image-2.png')}>
                           Download PNG
                         </Button>
                       </div>
                       <div className="flex flex-col items-center gap-2">
-                        <img src={Amy004} alt="Amy, avatar em formato de perfil" className="w-full h-auto object-contain rounded-md" />
+                        <img src={Amy004} alt="Amy, avatar em formato de perfil" className="w-full h-auto object-contain rounded-md" loading="lazy" />
                         <Button variant="outline" onClick={() => handleDownload('/src/pages/assets/Amy 004.png', 'amy-avatar.png')}>
                           Download PNG
                         </Button>
@@ -332,7 +333,7 @@ const Brand = () => {
                         <div className="px-6 py-4">
                           <div className="flex items-center w-full">
                             <div className="flex items-center gap-1 mr-2">
-                              <img src={AmySvg} alt="Avatar da Amy" className="w-9 h-9 rounded-full" />
+                              <img src={AmySvg} alt="Avatar da Amy" className="w-9 h-9 rounded-full" loading="lazy" />
                               <div className="inline-flex flex-col justify-start items-start ml-2">
                                 <div className="text-text-primary text-sm font-medium font-['Roboto'] leading-snug tracking-tight">Insight da Amy</div>
                               </div>
@@ -355,7 +356,7 @@ const Brand = () => {
                           <div className="px-6 py-4">
                             <div className="flex items-center justify-between w-full">
                               <div className="flex items-center gap-2">
-                                <img src={AmySvg} alt="Avatar da Amy" className="w-9 h-9 rounded-full" />
+                                <img src={AmySvg} alt="Avatar da Amy" className="w-9 h-9 rounded-full" loading="lazy" />
                                 <div className="inline-flex flex-col justify-start items-start">
                                   <div className="text-text-primary text-sm font-medium font-['Roboto'] leading-snug tracking-tight">Insight da Amy</div>
                                 </div>
