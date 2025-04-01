@@ -1,7 +1,6 @@
 
 import React from 'react';
 import Header from '@/components/library-components/Header';
-import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { HelpCircle, Info } from 'lucide-react';
@@ -16,7 +15,7 @@ const ContextualHelp = () => {
         type="components"
       />
       
-      <DocumentationSkeleton>
+      <div className="mt-8">
         <p className="text-gray-600 mb-6">
           Componentes de ajuda contextual fornecem informações adicionais e orientações aos usuários no momento e local exatos em que precisam. 
           Eles ajudam a melhorar a experiência do usuário, reduzindo a curva de aprendizado e a frustração.
@@ -142,7 +141,7 @@ const ContextualHelp = () => {
             </p>
           </CardContent>
         </Card>
-      </DocumentationSkeleton>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,6 @@
 
 import React from 'react';
 import Header from '@/components/library-components/Header';
-import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
 import { Chip } from '@/components/ui/chip';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -14,7 +13,7 @@ const ChipPage = () => {
         type="components"
       />
       
-      <DocumentationSkeleton>
+      <div className="mt-8">
         <p className="text-gray-600 mb-6">
           Chips são elementos compactos que representam uma entrada, atributo ou ação. Eles são comumente usados para filtros, tags, 
           seleções e indicadores de status.
@@ -79,7 +78,7 @@ const ChipPage = () => {
             </p>
           </CardContent>
         </Card>
-      </DocumentationSkeleton>
+      </div>
     </div>
   );
 };

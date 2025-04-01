@@ -1,7 +1,6 @@
 
 import React from 'react';
 import Header from '@/components/library-components/Header';
-import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -14,7 +13,7 @@ const BadgePage = () => {
         type="components"
       />
       
-      <DocumentationSkeleton>
+      <div className="mt-8">
         <p className="text-gray-600 mb-6">
           Badges são pequenos elementos visuais usados para destacar informações como contagens, status ou rótulos. 
           Eles ajudam a chamar a atenção para elementos importantes e fornecer contexto adicional.
@@ -88,7 +87,7 @@ const BadgePage = () => {
             </p>
           </CardContent>
         </Card>
-      </DocumentationSkeleton>
+      </div>
     </div>
   );
 };

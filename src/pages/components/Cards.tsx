@@ -1,7 +1,6 @@
 
 import React from 'react';
 import Header from '@/components/library-components/Header';
-import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
@@ -14,7 +13,7 @@ const Cards = () => {
         type="components"
       />
       
-      <DocumentationSkeleton>
+      <div className="mt-8">
         <p className="text-gray-600 mb-6">
           Cards são contêineres de conteúdo versáteis que agrupam informações relacionadas de forma visualmente distinta. 
           Eles são fundamentais para organizar e apresentar diversos tipos de conteúdo de forma clara e acessível.
@@ -119,7 +118,7 @@ const Cards = () => {
             </p>
           </CardContent>
         </Card>
-      </DocumentationSkeleton>
+      </div>
     </div>
   );
 };

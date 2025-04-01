@@ -10,7 +10,6 @@ import {
   InstitutionalExample
 } from '@/components/application-shells/StackedLayoutExamples';
 import { Card, CardContent } from '@/components/ui/card';
-import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
 
 const StackedLayoutsPage = () => {
   return (
@@ -21,7 +20,7 @@ const StackedLayoutsPage = () => {
         type="components"
       />
       
-      <DocumentationSkeleton>
+      <div className="mt-8">
         <p className="text-gray-600 mb-6">
           Os layouts empilhados são estruturas de interface que organizam o conteúdo em seções verticais, 
           geralmente com um cabeçalho fixo, uma área de navegação e conteúdo principal. São ideais para aplicativos 
@@ -122,7 +121,7 @@ const StackedLayoutsPage = () => {
           <li>Avalie a necessidade de fixar o cabeçalho para melhorar a usabilidade em páginas longas</li>
           <li>Utilize espaçamento adequado para criar hierarquia visual e melhorar a legibilidade</li>
         </ul>
-      </DocumentationSkeleton>
+      </div>
     </div>
   );
 };

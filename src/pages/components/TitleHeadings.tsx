@@ -1,7 +1,6 @@
 
 import React from 'react';
 import Header from '@/components/library-components/Header';
-import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
 import { Card, CardContent } from '@/components/ui/card';
 
 const TitleHeadings = () => {
@@ -13,7 +12,7 @@ const TitleHeadings = () => {
         type="components"
       />
       
-      <DocumentationSkeleton>
+      <div className="mt-8">
         <p className="text-gray-600 mb-6">
           Os componentes de título são elementos fundamentais para estabelecer hierarquia visual e organizar o conteúdo de forma clara e acessível.
           Eles ajudam os usuários a compreender a estrutura da informação e a navegar pelo conteúdo com facilidade.
@@ -89,7 +88,7 @@ const TitleHeadings = () => {
             </p>
           </CardContent>
         </Card>
-      </DocumentationSkeleton>
+      </div>
     </div>
   );
 };

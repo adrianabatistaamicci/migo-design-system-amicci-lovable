@@ -1,7 +1,6 @@
 
 import React from 'react';
 import Header from '@/components/library-components/Header';
-import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -14,7 +13,7 @@ const TabsPage = () => {
         type="components"
       />
       
-      <DocumentationSkeleton>
+      <div className="mt-8">
         <p className="text-gray-600 mb-6">
           Tabs (abas) são componentes de navegação que permitem organizar e alternar entre diferentes seções de conteúdo relacionado 
           em um mesmo espaço, sem necessidade de navegar para outra página.
@@ -144,7 +143,7 @@ const TabsPage = () => {
             </p>
           </CardContent>
         </Card>
-      </DocumentationSkeleton>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,6 @@
 
 import React from 'react';
 import Header from '@/components/library-components/Header';
-import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
 import { Card, CardContent } from '@/components/ui/card';
 
 const SidebarLayoutsPage = () => {
@@ -13,7 +12,7 @@ const SidebarLayoutsPage = () => {
         type="components"
       />
       
-      <DocumentationSkeleton>
+      <div className="mt-8">
         <p className="text-gray-600 mb-6">
           Os layouts com barra lateral (sidebar) são estruturas de interface que organizam a navegação e o conteúdo em seções laterais e principais.
           São ideais para aplicativos com muitas opções de navegação e hierarquias complexas de informação.
@@ -68,7 +67,7 @@ const SidebarLayoutsPage = () => {
             </p>
           </CardContent>
         </Card>
-      </DocumentationSkeleton>
+      </div>
     </div>
   );
 };
