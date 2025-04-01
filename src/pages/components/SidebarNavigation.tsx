@@ -141,7 +141,7 @@ const SidebarNavigation = () => {
       <Header title="Sidebar Navigation" description="Componentes de navegação lateral para organizar e facilitar o acesso à diversas áreas de sua aplicação" type="components" />
       
       <div className="max-w-[1280px] mx-autospacey-6">
-        <section className="mb-106">
+        <section className="mb-106mt-6">
           <h2 className="text-2xl font-semibold mb-6">Barra Lateral Básica</h2>
           <div className="space-y-4">
             <p className="text-gray-700">
