@@ -40,6 +40,9 @@ const SliderPage = () => {
             description="A simple slider component."
             code={`<Slider defaultValue={[50]} max={100} step={1} />
 `}
+            showCodeBlockInside={true}
+            codeBlockTitle="Basic Slider Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="max-w-sm py-6">
               <Slider defaultValue={[50]} max={100} step={1} />
@@ -55,6 +58,9 @@ const SliderPage = () => {
   <Slider defaultValue={[60]} max={100} color="error" />
   <Slider defaultValue={[70]} max={100} color="success" />
 </div>`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Colored Sliders Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="max-w-sm space-y-8 py-6">
               <Slider defaultValue={[30]} max={100} color="primary" />
@@ -79,6 +85,9 @@ const SliderPage = () => {
   ]}
 />
 `}
+            showCodeBlockInside={true}
+            codeBlockTitle="Slider with Marks Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="max-w-sm py-10">
               <Slider 
@@ -103,6 +112,9 @@ const SliderPage = () => {
   max={100}
 />
 `}
+            showCodeBlockInside={true}
+            codeBlockTitle="Range Slider Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="max-w-sm py-6">
               <Slider 
@@ -126,6 +138,9 @@ const SliderPage = () => {
 
 <p className="mt-4">Selected value: {value}</p>
 `}
+            showCodeBlockInside={true}
+            codeBlockTitle="Slider with Value Display Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="max-w-sm py-6">
               <Slider 
@@ -148,6 +163,9 @@ const SliderPage = () => {
   <Slider defaultValue={[50]} max={100} size="lg" />
 </div>
 `}
+            showCodeBlockInside={true}
+            codeBlockTitle="Slider Sizes Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="max-w-sm space-y-8 py-6">
               <Slider defaultValue={[50]} max={100} size="sm" />

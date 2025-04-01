@@ -44,6 +44,9 @@ const SelectPage = () => {
     <SelectItem value="pineapple">Pineapple</SelectItem>
   </SelectContent>
 </Select>`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Basic Select Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="max-w-sm">
               <Select>
@@ -77,6 +80,9 @@ const SelectPage = () => {
     </SelectContent>
   </Select>
 </div>`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Select with Label Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="fruit">Favorite Fruit</Label>
@@ -106,6 +112,9 @@ const SelectPage = () => {
     <SelectItem value="blueberry">Blueberry</SelectItem>
   </SelectContent>
 </Select>`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Disabled Select Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="max-w-sm">
               <Select disabled>
@@ -138,6 +147,9 @@ const SelectPage = () => {
 </Select>
 
 <p className="mt-4">Selected value: {value}</p>`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Controlled Select Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="max-w-sm">
               <Select value={value} onValueChange={setValue}>

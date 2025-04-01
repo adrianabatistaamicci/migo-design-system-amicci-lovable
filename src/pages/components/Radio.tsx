@@ -43,6 +43,9 @@ const RadioPage = () => {
     <Label htmlFor="option-two">Option Two</Label>
   </div>
 </RadioGroup>`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Basic Radio Group Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="max-w-sm">
               <RadioGroup defaultValue="option-one">
@@ -75,6 +78,9 @@ const RadioPage = () => {
     <Label htmlFor="option-three">Error</Label>
   </div>
 </RadioGroup>`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Colored Radio Buttons Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="max-w-sm">
               <RadioGroup defaultValue="option-one">
@@ -111,6 +117,9 @@ const RadioPage = () => {
     <Label htmlFor="option-three">Option Three</Label>
   </div>
 </RadioGroup>`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Horizontal Radio Group Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="max-w-sm">
               <RadioGroup defaultValue="option-one" className="flex space-x-4">
@@ -143,6 +152,9 @@ const RadioPage = () => {
     <Label htmlFor="option-two" className="text-muted-foreground">Disabled Option</Label>
   </div>
 </RadioGroup>`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Disabled Radio Buttons Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="max-w-sm">
               <RadioGroup defaultValue="option-one">
@@ -175,6 +187,9 @@ const RadioPage = () => {
 </RadioGroup>
 
 <p className="mt-4">Selected value: {selectedOption}</p>`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Controlled Radio Group Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="max-w-sm">
               <RadioGroup value={selectedOption} onValueChange={setSelectedOption}>

@@ -138,6 +138,9 @@ const StackedLists = () => {
           title="Lista de notificações" 
           description="Uma lista de notificações empilhadas com ícones, títulos, descrições e timestamp."
           code={notificationsListExample}
+          showCodeBlockInside={true}
+          codeBlockTitle="Implementação da Lista de Notificações"
+          codeBlockLanguage="tsx"
           className="w-full"
         >
           <div className="p-6 max-w-2xl mx-auto w-full">
@@ -182,6 +185,9 @@ const StackedLists = () => {
           title="Lista de usuários" 
           description="Uma lista de usuários com avatar, nome, email e papel/função."
           code={usersListExample}
+          showCodeBlockInside={true}
+          codeBlockTitle="Implementação da Lista de Usuários"
+          codeBlockLanguage="tsx"
           className="w-full"
         >
           <div className="p-6 max-w-2xl mx-auto w-full">
@@ -216,6 +222,9 @@ const StackedLists = () => {
           title="Lista de configurações" 
           description="Uma lista de opções de configurações com ícones e descrições."
           code={settingsListExample}
+          showCodeBlockInside={true}
+          codeBlockTitle="Implementação da Lista de Configurações"
+          codeBlockLanguage="tsx"
           className="w-full"
         >
           <div className="p-6 max-w-2xl mx-auto w-full">

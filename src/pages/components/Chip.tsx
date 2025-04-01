@@ -45,6 +45,9 @@ const ChipPage = () => {
   <Chip>Angular</Chip>
   <Chip>Vue</Chip>
 </div>`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Basic Chips Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="flex flex-wrap gap-2 p-6">
               <Chip>Basic Chip</Chip>
@@ -63,6 +66,9 @@ const ChipPage = () => {
   <Chip variant="filledlight">Filled Light</Chip>
   <Chip variant="outlined">Outlined</Chip>
 </div>`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Chip Variants Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="flex flex-wrap gap-2 p-6">
               <Chip variant="default">Default</Chip>
@@ -103,6 +109,9 @@ const ChipPage = () => {
     <Chip variant="outlined" color="info">Info</Chip>
   </div>
 </div>`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Chip Colors Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="space-y-4 p-6">
               <div className="flex flex-wrap gap-2">
@@ -160,6 +169,9 @@ const handleDelete = (chipToDelete) => {
 >
   Reset chips
 </button>`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Deletable Chips Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="p-6">
               <div className="flex flex-wrap gap-2">
@@ -192,6 +204,9 @@ const handleDelete = (chipToDelete) => {
   <Chip icon={<Heart className="h-3.5 w-3.5" />}>Favorites</Chip>
   <Chip icon={<Star className="h-3.5 w-3.5" />}>Starred</Chip>
 </div>`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Chips with Icons Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="flex flex-wrap gap-2 p-6">
               <Chip icon={<Check className="h-3.5 w-3.5" />}>Completed</Chip>
@@ -244,6 +259,9 @@ const handleDelete = (chipToDelete) => {
     Alex Johnson
   </Chip>
 </div>`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Chips with Avatars Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="flex flex-wrap gap-2 p-6">
               <Chip 
@@ -294,6 +312,9 @@ const handleDelete = (chipToDelete) => {
   <Chip size="default">Default</Chip>
   <Chip size="lg">Large</Chip>
 </div>`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Chip Sizes Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="flex flex-wrap gap-2 items-center p-6">
               <Chip size="sm">Small</Chip>
@@ -328,6 +349,9 @@ const handleDelete = (chipToDelete) => {
     And me
   </Chip>
 </div>`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Clickable Chips Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="flex flex-wrap gap-2 p-6">
               <Chip clickable onClick={() => alert('Chip clicked!')}>
@@ -395,6 +419,9 @@ const handleDelete = (chipToDelete) => {
     <Chip disabled variant="outlined" color="info">Info</Chip>
   </div>
 </div>`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Disabled Chips Implementation"
+            codeBlockLanguage="tsx"
           >
             <div className="p-6">
               <div className="flex flex-wrap gap-2">
