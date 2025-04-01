@@ -8,8 +8,7 @@
 
 import React from 'react';
 import Header from '@/components/library-components/Header';
-import CodeBlock from '@/components/CodeBlock';
-import { ChevronRight, Home, Folder, FileText, Circle, MoreHorizontal } from 'lucide-react';
+import { ChevronRight, Home, Folder, FileText, MoreHorizontal } from 'lucide-react';
 import ComponentCard from '@/components/ComponentCard';
 
 const Breadcrumbs = () => {
@@ -131,6 +130,9 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
                 title="Breadcrumb Básico" 
                 description="Um breadcrumb simples com links e separadores"
                 code={basicExample}
+                showCodeBlockInside={true}
+                codeBlockTitle="Implementação do Breadcrumb Básico"
+                codeBlockLanguage="tsx"
               >
                 <nav className="flex" aria-label="Breadcrumb">
                   <ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-600">
@@ -166,6 +168,9 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
                 title="Breadcrumb com Ícones" 
                 description="Breadcrumb com ícones para cada item"
                 code={withIconsExample}
+                showCodeBlockInside={true}
+                codeBlockTitle="Implementação do Breadcrumb com Ícones"
+                codeBlockLanguage="tsx"
               >
                 <nav className="flex" aria-label="Breadcrumb">
                   <ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-600">
@@ -204,6 +209,9 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
                 title="Breadcrumb Colapsado" 
                 description="Breadcrumb com elipses para caminhos longos"
                 code={collapsibleExample}
+                showCodeBlockInside={true}
+                codeBlockTitle="Implementação do Breadcrumb Colapsado"
+                codeBlockLanguage="tsx"
               >
                 <nav className="flex" aria-label="Breadcrumb">
                   <ol className="flex flex-wrap items-center gap-1.5 text-sm text-gray-600">
@@ -260,7 +268,10 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
           </ul>
 
           <h3 className="text-lg font-medium mb-4">Classes Tailwind Comuns</h3>
-          <CodeBlock code={`// Classes para o container principal
+          <ComponentCard
+            title="Classes Tailwind Comuns"
+            description="Classes fundamentais para implementar breadcrumbs com Tailwind"
+            code={`// Classes para o container principal
 nav className="flex" aria-label="Breadcrumb"
 
 // Classes para a lista
@@ -276,7 +287,13 @@ a className="hover:text-gray-900 transition-colors"
 span className="font-normal text-gray-900"
 
 // Classes para separadores
-li role="presentation" aria-hidden="true" className="flex items-center"`} language="typescript" title="Classes Tailwind Comuns" />
+li role="presentation" aria-hidden="true" className="flex items-center"`}
+            showCodeBlockInside={true}
+            codeBlockTitle="Classes Tailwind para Breadcrumbs"
+            codeBlockLanguage="typescript"
+          >
+            <p className="text-sm text-gray-600">Estas são as classes Tailwind mais comuns utilizadas para implementar breadcrumbs consistentes.</p>
+          </ComponentCard>
         </section>
 
         {/* Melhores Práticas */}
