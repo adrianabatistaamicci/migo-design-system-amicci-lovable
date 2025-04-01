@@ -1,4 +1,3 @@
-
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -23,8 +22,6 @@ const Footer = ({
   additionalText,
   governanceUrl = "/guidelines/technical-governance"
 }: FooterProps) => {
-  const isProduction = import.meta.env.PROD;
-  
   return <footer className="py-6 border-t border-border w-full mt-auto">
       <div className="container flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 text-sm text-gray-500">
         <div className="flex items-center gap-1">
@@ -33,11 +30,9 @@ const Footer = ({
         
         <div className="flex items-center gap-4">
           {additionalText && <span>{additionalText}</span>}
-          {!isProduction && (
-            <Link to={governanceUrl} className="underline hover:text-foreground transition-colors">
-              Governança Migo Lovable
-            </Link>
-          )}
+          <Link to={governanceUrl} className="underline hover:text-foreground transition-colors">
+            Governança Migo Lovable
+          </Link>
         </div>
       </div>
     </footer>;
