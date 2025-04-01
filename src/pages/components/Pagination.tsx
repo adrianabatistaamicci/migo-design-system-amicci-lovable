@@ -1,3 +1,4 @@
+
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -15,7 +16,6 @@ import Header from '@/components/library-components/Header';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import CodeBlock from '@/components/CodeBlock';
 
 const PaginationPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -36,15 +36,22 @@ const PaginationPage = () => {
             Import
           </h2>
           
-          <pre className="bg-mui-sidebar p-4 rounded-md overflow-x-auto text-sm">
-            <code>import {'{ Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious }'} from "@/components/ui/pagination";</code>
-          </pre>
+          <ComponentCard
+            title="Import statement"
+            showCodeBlockInside={true}
+            code={`import {'{ Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious }'} from "@/components/ui/pagination";`}
+            codeBlockTitle="Importação dos componentes de paginação"
+            codeBlockLanguage="tsx"
+          >
+            <p className="text-sm text-gray-700">Import os componentes de paginação para utilizá-los em seu projeto.</p>
+          </ComponentCard>
         </div>
         
         <div className="space-y-12">
           <ComponentCard 
             title="Paginação Simples" 
             description="Estilo básico de paginação com botões de anterior/próximo e números de página."
+            showCodeBlockInside={true}
             code={`<Pagination>
   <PaginationContent>
     <PaginationItem>
@@ -67,6 +74,8 @@ const PaginationPage = () => {
     </PaginationItem>
   </PaginationContent>
 </Pagination>`}
+            codeBlockTitle="Exemplo de Paginação Simples"
+            codeBlockLanguage="tsx"
           >
             <div className="flex items-center justify-center p-6">
               <Pagination>
@@ -97,6 +106,7 @@ const PaginationPage = () => {
           <ComponentCard 
             title="Paginação Compacta" 
             description="Versão menor da paginação para espaços restritos."
+            showCodeBlockInside={true}
             code={`<Pagination>
   <PaginationContent className="gap-0.5">
     <PaginationItem>
@@ -110,6 +120,8 @@ const PaginationPage = () => {
     </PaginationItem>
   </PaginationContent>
 </Pagination>`}
+            codeBlockTitle="Exemplo de Paginação Compacta"
+            codeBlockLanguage="tsx"
           >
             <div className="flex items-center justify-center p-6">
               <Pagination>
@@ -131,6 +143,7 @@ const PaginationPage = () => {
           <ComponentCard 
             title="Paginação com Select de Itens por Página" 
             description="Paginação com seletor para controlar o número de itens exibidos por página."
+            showCodeBlockInside={true}
             code={`<div className="flex flex-col sm:flex-row items-center justify-end w-full gap-4">
   <div className="flex items-center gap-2">
     <label htmlFor="linhas-por-pagina" className="text-sm text-gray-700">
@@ -162,6 +175,8 @@ const PaginationPage = () => {
     </Button>
   </div>
 </div>`}
+            codeBlockTitle="Exemplo de Paginação com Select"
+            codeBlockLanguage="tsx"
           >
             <div className="flex items-center justify-center p-6 w-full">
               <div className="flex flex-col sm:flex-row items-center justify-end w-full gap-4">
@@ -201,6 +216,7 @@ const PaginationPage = () => {
           <ComponentCard 
             title="Card Footer com Botões de Página" 
             description="Uma variante de paginação incorporada em um rodapé de card, ideal para tabelas ou listas de dados."
+            showCodeBlockInside={true}
             code={`<div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
   <div className="flex flex-1 justify-between sm:hidden">
     <a
@@ -283,6 +299,8 @@ const PaginationPage = () => {
     </div>
   </div>
 </div>`}
+            codeBlockTitle="Exemplo de Card Footer com Paginação"
+            codeBlockLanguage="tsx"
           >
             <div className="w-full">
               <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
@@ -373,6 +391,7 @@ const PaginationPage = () => {
           <ComponentCard 
             title="Números de Página Centralizados" 
             description="Uma variante com números de página centralizados, ideal para interfaces limpas."
+            showCodeBlockInside={true}
             code={`<div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
   <div className="flex flex-1 justify-between sm:hidden">
     <a
@@ -449,6 +468,8 @@ const PaginationPage = () => {
     </div>
   </div>
 </div>`}
+            codeBlockTitle="Exemplo de Paginação Centralizada"
+            codeBlockLanguage="tsx"
           >
             <div className="w-full">
               <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
@@ -533,6 +554,7 @@ const PaginationPage = () => {
           <ComponentCard 
             title="Rodapé de Card Simples" 
             description="Uma versão minimalista para rodapés de cards que economiza espaço."
+            showCodeBlockInside={true}
             code={`<nav className="flex items-center justify-between border-t border-gray-200 px-4 sm:px-0">
   <div className="-mt-px flex w-0 flex-1">
     <a
@@ -595,6 +617,8 @@ const PaginationPage = () => {
     </a>
   </div>
 </nav>`}
+            codeBlockTitle="Exemplo de Rodapé de Card com Paginação"
+            codeBlockLanguage="tsx"
           >
             <div className="w-full">
               <nav className="flex items-center justify-between border-t border-gray-200 px-4 sm:px-0">
@@ -665,6 +689,7 @@ const PaginationPage = () => {
           <ComponentCard 
             title="Card Footer com Componentes shadcn/ui" 
             description="Uma variante de paginação incorporada em um card utilizando componentes shadcn/ui."
+            showCodeBlockInside={true}
             code={`<Card>
   <CardContent className="p-6">
     <p>Conteúdo do card aqui...</p>
@@ -690,6 +715,8 @@ const PaginationPage = () => {
     </div>
   </CardFooter>
 </Card>`}
+            codeBlockTitle="Exemplo de Card Footer com shadcn/ui"
+            codeBlockLanguage="tsx"
           >
             <Card>
               <CardContent className="p-6">
@@ -727,8 +754,9 @@ const PaginationPage = () => {
               Para implementar paginação em componentes React interativos, utilize state para controlar a página atual:
             </p>
             
-            <CodeBlock
+            <ComponentCard
               title="Exemplo Básico de Paginação com React"
+              showCodeBlockInside={true}
               code={`import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -800,8 +828,38 @@ const PaginationExample = ({ totalItems, itemsPerPage = 10 }) => {
 };
 
 export default PaginationExample;`}
-              language="jsx"
-            />
+              codeBlockTitle="Implementação de Paginação com React"
+              codeBlockLanguage="tsx"
+            >
+              <p className="mb-4">Este exemplo demonstra como criar uma paginação interativa utilizando React state e componentes do shadcn/ui.</p>
+              <div className="p-4 border rounded-md">
+                <div className="mb-2 text-sm text-gray-700">
+                  Mostrando 1 a 10 de 35 resultados
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                  >
+                    <ChevronLeft className="h-4 w-4 mr-1" />
+                    Anterior
+                  </Button>
+                  <div className="flex items-center space-x-1">
+                    <Button variant="default" size="sm" className="h-8 w-8 p-0">1</Button>
+                    <Button variant="outline" size="sm" className="h-8 w-8 p-0">2</Button>
+                    <Button variant="outline" size="sm" className="h-8 w-8 p-0">3</Button>
+                    <Button variant="outline" size="sm" className="h-8 w-8 p-0">4</Button>
+                  </div>
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                  >
+                    Próximo
+                    <ChevronRight className="h-4 w-4 ml-1" />
+                  </Button>
+                </div>
+              </div>
+            </ComponentCard>
           </div>
         </div>
       </div>
