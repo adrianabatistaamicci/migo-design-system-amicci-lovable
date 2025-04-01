@@ -12,7 +12,7 @@ import Header from '@/components/library-components/Header';
 import { Badge } from '@/components/ui/badge';
 import { Chip } from '@/components/ui/chip';
 import { cn } from '@/lib/utils';
-import ComponentCard from '@/components/library-components/ComponentCard';
+import ComponentCard from '@/components/ComponentCard';
 import { Home, Mail, Settings, Users, ChevronRight, ChevronLeft } from 'lucide-react';
 
 const SidebarExample = () => {
