@@ -1,4 +1,3 @@
-
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -54,8 +53,7 @@ export const sidebarItems: SidebarItem[] = [
         isToggleOnly: true,
         items: [
           { title: 'Governança Lovable', href: '/guidelines/technical-governance' },
-          { title: 'Diretrizes de UX', href: '/guidelines/ux-guidelines' },
-          { title: 'Tom e Voz', href: '/guidelines/tone-and-voice' }
+          { title: 'Diretrizes de UX', href: '/guidelines/ux-guidelines' }
         ]
       },
       { title: 'Instalação', href: '/installation' },

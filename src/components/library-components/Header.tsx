@@ -1,28 +1,46 @@
+/**
+ * @protected
+ * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
+ * Não deve ser alterado diretamente pelo assistente AI.
+ * Apenas atualizações de componentes devem ser refletidas.
+ */
 
-import React from 'react';
-
+import React, { useEffect } from 'react';
+import { Chip } from '@/components/ui/chip';
+import { cn } from '@/lib/utils';
+import { usePageTitle } from '@/contexts/PageTitleContext';
 interface HeaderProps {
-  title: string;
+  title?: string;
   description: string;
-  type: "foundations" | "components" | "guidelines";
+  type?: 'foundations' | 'components';
   className?: string;
   hideChip?: boolean;
 }
+const Header = ({
+  title: propTitle,
+  description,
+  type = 'components',
+  className,
+  hideChip = false
+}: HeaderProps) => {
+  const {
+    pageTitle
+  } = usePageTitle();
 
-const Header: React.FC<HeaderProps> = ({ title, description, type, className, hideChip }) => {
-  return (
-    <header className={`mb-8 ${className || ''}`}>
-      {!hideChip && (
-        <div className="flex items-center mb-2">
-          <div className="px-2 py-1 text-xs font-medium text-primary-600 bg-primary-50 rounded uppercase">
-            {type}
-          </div>
-        </div>
-      )}
-      <h1 className="text-3xl font-bold text-gray-900 mb-2">{title}</h1>
-      <p className="text-gray-600 max-w-3xl">{description}</p>
-    </header>
-  );
+  // Use the context page title if available, otherwise use the prop title
+  const displayTitle = pageTitle || propTitle;
+  return <div className={cn("w-full animate-fade-in", className)}>
+      <div className="space-y-266">
+        {!hideChip && <div className="flex items-center gap-2 text-sm font-medium mb-2">
+            <Chip variant="filled" className="bg-amicciDark-100 text-amicciDark-700" size="sm">
+              {type === 'foundations' ? 'Foundations' : 'Components'}
+            </Chip>
+          </div>}
+        <h1 className="text-4xl font-medium tracking-tight text-gray-950">
+          {displayTitle}
+        </h1>
+        <p className="max-w-none text-gray-700">{description}</p>
+      </div>
+    </div>;
 };
-
 export default Header;
