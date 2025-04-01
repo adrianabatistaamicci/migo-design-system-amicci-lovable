@@ -191,6 +191,10 @@ export const HelpAccordionExample = () => {
               <ComponentCard 
                 title="Exemplo Básico"
                 description="Implementação básica do componente ContextualHelpAccordion."
+                code={basicExample}
+                showCodeBlockInside={true}
+                codeBlockTitle="Exemplo Básico"
+                codeBlockLanguage="tsx"
               >
                 <div className="space-y-6">
                   <ContextualHelpAccordion 
@@ -204,14 +208,16 @@ export const HelpAccordionExample = () => {
                     actionLabel="Aprender mais sobre ajuda contextual"
                     actionUrl="https://documentation.example.com/contextual-help"
                   />
-
-                  <CodeBlock code={basicExample} language="tsx" title="Exemplo Básico" />
                 </div>
               </ComponentCard>
 
               <ComponentCard 
                 title="Exemplo com Conteúdo Personalizado"
                 description="O componente permite utilizar diferentes formatos de conteúdo."
+                code={customExample}
+                showCodeBlockInside={true}
+                codeBlockTitle="Exemplo com Conteúdo Rico"
+                codeBlockLanguage="tsx"
               >
                 <div className="space-y-6">
                   <ContextualHelpAccordion 
@@ -232,8 +238,6 @@ export const HelpAccordionExample = () => {
                     actionLabel="Ver guia de tokens de design"
                     actionUrl="/foundations/design-tokens"
                   />
-
-                  <CodeBlock code={customExample} language="tsx" title="Exemplo com Conteúdo Rico" />
                 </div>
               </ComponentCard>
 
@@ -324,97 +328,60 @@ export const HelpAccordionExample = () => {
                   actionUrl="https://docs.example.com/concorrencias"
                 />
               </ComponentCard>
-
-              <ComponentCard 
-                title="Guia de Uso"
-                description="Melhores práticas para utilizar ajuda contextual eficientemente."
-              >
-                <div className="space-y-4">
-                  <h3 className="text-lg font-medium mb-2">Quando Usar</h3>
-                  <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                    <li>Para explicar conceitos complexos ou termos técnicos</li>
-                    <li>Para fornecer instruções passo a passo sobre como completar uma tarefa</li>
-                    <li>Para esclarecer requisitos ou limitações de um campo ou função</li>
-                    <li>Em telas com muitos elementos que podem não ser intuitivos para todos os usuários</li>
-                    <li>Para fornecer links para documentação ou recursos adicionais</li>
-                  </ul>
-
-                  <h3 className="text-lg font-medium mt-6 mb-2">Quando Não Usar</h3>
-                  <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                    <li>Para informações críticas que todos os usuários precisam ver</li>
-                    <li>Para mensagens de erro ou avisos (use componentes de alerta ou toast)</li>
-                    <li>Quando a interface já é clara e não necessita de explicações adicionais</li>
-                    <li>Em excesso em uma única página, o que pode sobrecarregar o usuário</li>
-                  </ul>
-                </div>
-              </ComponentCard>
             </div>
           )}
-
+          
           {activeTab === 'api' && (
             <div className="space-y-6">
               <ComponentCard 
-                title="API Reference" 
-                description="Documentação da API do componente ContextualHelpAccordion."
+                title="API Reference"
+                description="Detalhes das propriedades do componente ContextualHelpAccordion."
+                code={apiReference}
+                showCodeBlockInside={true}
+                codeBlockTitle="Interface TypeScript"
+                codeBlockLanguage="typescript"
               >
-                <div className="space-y-6">
-                  <CodeBlock code={apiReference} language="typescript" title="ContextualHelpAccordionProps" />
+                <div className="space-y-4">
+                  <p className="text-gray-700">
+                    O componente ContextualHelpAccordion aceita as seguintes propriedades:
+                  </p>
                   
-                  <div className="mt-6">
-                    <h3 className="text-lg font-medium mb-4">Props</h3>
-                    
-                    <div className="overflow-x-auto">
-                      <table className="min-w-full border-collapse">
-                        <thead>
-                          <tr className="border-b border-gray-200 bg-gray-50">
-                            <th className="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Propriedade</th>
-                            <th className="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tipo</th>
-                            <th className="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Padrão</th>
-                            <th className="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descrição</th>
-                          </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-200">
-                          <tr>
-                            <td className="py-4 px-4 text-sm font-medium">title</td>
-                            <td className="py-4 px-4 text-sm text-gray-600">string</td>
-                            <td className="py-4 px-4 text-sm text-gray-600">-</td>
-                            <td className="py-4 px-4 text-sm text-gray-600">Título do componente de ajuda contextual.</td>
-                          </tr>
-                          <tr>
-                            <td className="py-4 px-4 text-sm font-medium">content</td>
-                            <td className="py-4 px-4 text-sm text-gray-600">React.ReactNode</td>
-                            <td className="py-4 px-4 text-sm text-gray-600">-</td>
-                            <td className="py-4 px-4 text-sm text-gray-600">Conteúdo do componente. Pode ser texto ou elementos JSX.</td>
-                          </tr>
-                          <tr>
-                            <td className="py-4 px-4 text-sm font-medium">actionLabel</td>
-                            <td className="py-4 px-4 text-sm text-gray-600">string</td>
-                            <td className="py-4 px-4 text-sm text-gray-600">"Ver mais na FAQ"</td>
-                            <td className="py-4 px-4 text-sm text-gray-600">Texto do link de ação (opcional).</td>
-                          </tr>
-                          <tr>
-                            <td className="py-4 px-4 text-sm font-medium">actionUrl</td>
-                            <td className="py-4 px-4 text-sm text-gray-600">string</td>
-                            <td className="py-4 px-4 text-sm text-gray-600">"#"</td>
-                            <td className="py-4 px-4 text-sm text-gray-600">URL do link de ação (opcional).</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                  
-                  <div className="mt-6">
-                    <h3 className="text-lg font-medium mb-4">Customização</h3>
-                    <p className="text-gray-700 mb-4">
-                      O componente ContextualHelpAccordion pode ser customizado através de props e classes CSS. 
-                      As cores seguem o tema do Design System Migo, mas podem ser substituídas conforme necessário.
-                    </p>
-                    
-                    <p className="text-gray-700">
-                      Para necessidades de customização avançada, você pode estender o componente ou criar uma 
-                      variação personalizada.
-                    </p>
-                  </div>
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="text-left py-2 px-4">Propriedade</th>
+                        <th className="text-left py-2 px-4">Tipo</th>
+                        <th className="text-left py-2 px-4">Obrigatório</th>
+                        <th className="text-left py-2 px-4">Descrição</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b">
+                        <td className="py-2 px-4 font-medium">title</td>
+                        <td className="py-2 px-4">string</td>
+                        <td className="py-2 px-4">Sim</td>
+                        <td className="py-2 px-4">O título da ajuda contextual</td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="py-2 px-4 font-medium">content</td>
+                        <td className="py-2 px-4">React.ReactNode</td>
+                        <td className="py-2 px-4">Sim</td>
+                        <td className="py-2 px-4">O conteúdo da ajuda, pode ser texto ou elementos JSX</td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="py-2 px-4 font-medium">actionLabel</td>
+                        <td className="py-2 px-4">string</td>
+                        <td className="py-2 px-4">Não</td>
+                        <td className="py-2 px-4">O texto do link de ação</td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="py-2 px-4 font-medium">actionUrl</td>
+                        <td className="py-2 px-4">string</td>
+                        <td className="py-2 px-4">Não</td>
+                        <td className="py-2 px-4">A URL do link de ação</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </ComponentCard>
             </div>

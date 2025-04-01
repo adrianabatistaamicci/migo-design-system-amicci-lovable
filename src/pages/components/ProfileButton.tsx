@@ -14,6 +14,7 @@ import { ProfileButton, profileButtonCode } from '@/components/ui/profile-button
 import { cn } from '@/lib/utils';
 import defaultLogo from '@/pages/assets/client-logo.svg';
 import CodeBlock from '@/components/CodeBlock';
+import ComponentCard from '@/components/ComponentCard';
 
 const ProfileButtonPage = () => {
   return (
@@ -25,91 +26,139 @@ const ProfileButtonPage = () => {
       />
       
       <div className="space-y-12 mt-10">
-        <LayoutComponent 
+        <ComponentCard 
           title="Profile Button Padrão" 
-          component={
-            <div className="flex flex-col gap-4 justify-center items-center p-4">
-              <div className="mb-2 text-sm text-gray-500">Passe o mouse sobre o botão para ver o efeito hover</div>
-              <ProfileButton
-                userName="Maria Rita"
-                companyName="Nome da Empresa"
-              />
-            </div>
-          } 
-        />
-        
-        <LayoutComponent 
-          title="Profile Button com Hover" 
-          component={
-            <div className="flex justify-center items-center p-4">
-              <ProfileButton
-                userName="José Silva"
-                companyName="Amicci Tech"
-              />
-            </div>
-          } 
-        />
-        
-        <LayoutComponent 
-          title="Variação: Sem Logo da Empresa" 
-          component={
-            <div className="flex justify-center items-center p-4">
-              <ProfileButton
-                userName="Fernanda Rodrigues"
-                companyName="Creative Design"
-                showClientLogo={false}
-                showMenuIcon={false}
-              />
-            </div>
-          } 
-        />
-        
-        <LayoutComponent 
-          title="Exemplos de Uso" 
-          component={
-            <div className="flex flex-col gap-6 justify-center items-center p-4">
-              <div className="p-4 bg-white shadow-md rounded-md w-full max-w-xl">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-medium">Seller com Avatar e Ícone</h3>
-                  <ProfileButton
-                    userName="Amanda Silva"
-                    companyName="Empresa XYZ"
-                    showClientLogo={false}
-                    avatarText="AS"
-                    showMenuIcon={false}
-                  />
-                </div>
-              </div>
-              
-              <div className="p-4 bg-white shadow-md rounded-md w-full max-w-xl">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-medium">Buyer com Logo e Avatar</h3>
-                  <ProfileButton
-                    logoSrc={defaultLogo}
-                    companyName=""
-                    userName=""
-                    showClientLogo={true}
-                    showAvatar={true}
-                    showMenuIcon={false}
-                    avatarText="AA"
-                  />
-                </div>
-              </div>
-            </div>
-          } 
-        />
-        
-        <div className="space-y-3">
-          <div className="px-4">
-            <h3 className="text-xl font-medium text-gray-900">Código de Implementação</h3>
+          description="Implementação padrão do botão de perfil com todas as opções."
+          code={`<ProfileButton
+  userName="Maria Rita"
+  companyName="Nome da Empresa"
+/>`}
+          showCodeBlockInside={true}
+          codeBlockTitle="Profile Button Padrão"
+          codeBlockLanguage="tsx"
+        >
+          <div className="flex flex-col gap-4 justify-center items-center p-4">
+            <div className="mb-2 text-sm text-gray-500">Passe o mouse sobre o botão para ver o efeito hover</div>
+            <ProfileButton
+              userName="Maria Rita"
+              companyName="Nome da Empresa"
+            />
           </div>
-          
-          <CodeBlock
-            title="Código"
-            code={profileButtonCode}
-            language="tsx"
-          />
-        </div>
+        </ComponentCard>
+        
+        <ComponentCard 
+          title="Profile Button com Hover" 
+          description="Demonstração do efeito hover no botão de perfil."
+          code={`<ProfileButton
+  userName="José Silva"
+  companyName="Amicci Tech"
+/>`}
+          showCodeBlockInside={true}
+          codeBlockTitle="Profile Button com Hover"
+          codeBlockLanguage="tsx"
+        >
+          <div className="flex justify-center items-center p-4">
+            <ProfileButton
+              userName="José Silva"
+              companyName="Amicci Tech"
+            />
+          </div>
+        </ComponentCard>
+        
+        <ComponentCard 
+          title="Variação: Sem Logo da Empresa" 
+          description="Botão de perfil sem o logo da empresa e sem o ícone de menu."
+          code={`<ProfileButton
+  userName="Fernanda Rodrigues"
+  companyName="Creative Design"
+  showClientLogo={false}
+  showMenuIcon={false}
+/>`}
+          showCodeBlockInside={true}
+          codeBlockTitle="Profile Button sem Logo"
+          codeBlockLanguage="tsx"
+        >
+          <div className="flex justify-center items-center p-4">
+            <ProfileButton
+              userName="Fernanda Rodrigues"
+              companyName="Creative Design"
+              showClientLogo={false}
+              showMenuIcon={false}
+            />
+          </div>
+        </ComponentCard>
+        
+        <ComponentCard 
+          title="Exemplos de Uso" 
+          description="Exemplos de como o componente pode ser utilizado em diferentes contextos."
+          code={`// Seller com Avatar e Ícone
+<ProfileButton
+  userName="Amanda Silva"
+  companyName="Empresa XYZ"
+  showClientLogo={false}
+  avatarText="AS"
+  showMenuIcon={false}
+/>
+
+// Buyer com Logo e Avatar
+<ProfileButton
+  logoSrc={defaultLogo}
+  companyName=""
+  userName=""
+  showClientLogo={true}
+  showAvatar={true}
+  showMenuIcon={false}
+  avatarText="AA"
+/>`}
+          showCodeBlockInside={true}
+          codeBlockTitle="Exemplos de Uso"
+          codeBlockLanguage="tsx"
+        >
+          <div className="flex flex-col gap-6 justify-center items-center p-4">
+            <div className="p-4 bg-white shadow-md rounded-md w-full max-w-xl">
+              <div className="flex items-center justify-between">
+                <h3 className="text-lg font-medium">Seller com Avatar e Ícone</h3>
+                <ProfileButton
+                  userName="Amanda Silva"
+                  companyName="Empresa XYZ"
+                  showClientLogo={false}
+                  avatarText="AS"
+                  showMenuIcon={false}
+                />
+              </div>
+            </div>
+            
+            <div className="p-4 bg-white shadow-md rounded-md w-full max-w-xl">
+              <div className="flex items-center justify-between">
+                <h3 className="text-lg font-medium">Buyer com Logo e Avatar</h3>
+                <ProfileButton
+                  logoSrc={defaultLogo}
+                  companyName=""
+                  userName=""
+                  showClientLogo={true}
+                  showAvatar={true}
+                  showMenuIcon={false}
+                  avatarText="AA"
+                />
+              </div>
+            </div>
+          </div>
+        </ComponentCard>
+        
+        <ComponentCard 
+          title="Código de Implementação"
+          description="Código de exemplo para implementação do Profile Button"
+          code={profileButtonCode}
+          showCodeBlockInside={true}
+          codeBlockTitle="Implementação"
+          codeBlockLanguage="tsx"
+        >
+          <div className="p-4">
+            <p className="text-gray-700 mb-4">
+              Exemplo de como implementar e utilizar o componente ProfileButton em seus projetos.
+            </p>
+          </div>
+        </ComponentCard>
         
         <div className="space-y-3">
           <div className="px-4">
