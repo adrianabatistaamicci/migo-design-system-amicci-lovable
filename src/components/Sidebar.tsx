@@ -1,4 +1,3 @@
-
 /**
  * @protected
  * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
@@ -50,14 +49,7 @@ export const sidebarItems: SidebarItem[] = [
     items: [
       { title: 'Oi, Migo', href: '/' },
       { title: 'UI Kit', href: '/ui-kit' },
-      { 
-        title: 'Diretrizes', 
-        isToggleOnly: true,
-        items: [
-          { title: 'Governança Lovable', href: '/guidelines/technical-governance', hideInProduction: true },
-          { title: 'Diretrizes de UX', href: '/guidelines/ux-guidelines' }
-        ]
-      },
+      { title: 'Diretrizes de UX', href: '/guidelines/ux-guidelines' },
       { title: 'Instalação', href: '/installation' },
     ]
   },
