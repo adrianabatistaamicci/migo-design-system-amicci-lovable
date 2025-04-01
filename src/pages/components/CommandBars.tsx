@@ -12,13 +12,11 @@ const CommandBars = () => {
         type="components"
       />
       
-      <div className="mt-6">
-        <EmptyState 
-          title="Conteúdo em Desenvolvimento" 
-          description="Os exemplos detalhados de Command Bars estão sendo implementados. Volte em breve para visualizar os componentes." 
-          icon="construction"
-        />
-      </div>
+      <EmptyState 
+        title="Conteúdo em Desenvolvimento" 
+        description="Os exemplos detalhados de Command Bars estão sendo implementados. Volte em breve para visualizar os componentes." 
+        icon="construction"
+      />
     </div>
   );
 };

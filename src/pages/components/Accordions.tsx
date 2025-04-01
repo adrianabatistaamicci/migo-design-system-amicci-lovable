@@ -4,7 +4,7 @@ import Header from '@/components/library-components/Header';
 import CodeBlock from '@/components/CodeBlock';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
-const Accordions = () => {
+const AccordionsPage = () => {
   return (
     <div className="w-full animate-fade-in">
       <Header 
@@ -72,4 +72,4 @@ const Accordions = () => {
   );
 };
 
-export default Accordions;
+export default AccordionsPage;

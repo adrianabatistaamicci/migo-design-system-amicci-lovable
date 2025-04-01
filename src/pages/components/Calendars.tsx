@@ -12,13 +12,11 @@ const Calendars = () => {
         type="components"
       />
       
-      <div className="mt-6">
-        <EmptyState 
-          title="Conteúdo em Desenvolvimento" 
-          description="Os exemplos detalhados de Calendars estão sendo implementados. Volte em breve para visualizar os componentes." 
-          icon="construction"
-        />
-      </div>
+      <EmptyState 
+        title="Conteúdo em Desenvolvimento" 
+        description="Os exemplos detalhados de Calendars estão sendo implementados. Volte em breve para visualizar os componentes." 
+        icon="construction"
+      />
     </div>
   );
 };
