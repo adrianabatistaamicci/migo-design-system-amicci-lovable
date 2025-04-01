@@ -155,7 +155,7 @@ const SidebarNavigation = () => {
           </div>
         </section>
         
-        <section className="mb-10mt-6">
+        <section className="mb-10 mt-6">
           <h2 className="text-2xl font-semibold mb-6">Melhores Práticas</h2>
           <ul className="list-disc pl-6 space-y-2 text-gray-700">
             <li>Mantenha a navegação principal sempre visível, mesmo quando a barra lateral estiver recolhida.</li>
