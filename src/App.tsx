@@ -10,6 +10,8 @@ import Library from './pages/components/Library'
 import CommandBars from './pages/components/CommandBars'
 import Installation from './pages/Installation'
 import Colors from './pages/Colors'
+import Typography from './pages/foundations/Typography'
+import Guidelines from './pages/Guidelines'
 import NotFound from './pages/NotFound'
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
           <Route path="/components/command-bars" element={<CommandBars />} />
           <Route path="/installation" element={<Installation />} />
           <Route path="/foundations/colors" element={<Colors />} />
+          <Route path="/foundations/typography" element={<Typography />} />
+          <Route path="/guidelines" element={<Guidelines />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
