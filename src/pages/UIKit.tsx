@@ -8,6 +8,7 @@
 
 import React from 'react';
 import UIKitHeader from '@/components/ui-kit/UIKitHeader';
+import FoundationsSection from '@/components/ui-kit/FoundationsSection';
 import ApplicationShellsSection from '@/components/ui-kit/ApplicationShellsSection';
 import HeadingsSection from '@/components/ui-kit/HeadingsSection';
 import ElementsSection from '@/components/ui-kit/ElementsSection';
@@ -24,6 +25,7 @@ const UIKit = () => {
   return (
     <div className="space-y-12">
       <UIKitHeader />
+      <FoundationsSection />
       <ApplicationShellsSection />
       <HeadingsSection />
       <ElementsSection />
