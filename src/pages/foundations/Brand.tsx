@@ -26,11 +26,9 @@ import AmySvg from '@/pages/assets/amy.svg';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { IconButton } from "@/components/ui/icon-button";
 import { Chip } from "@/components/ui/chip";
-
 const Brand = () => {
   const [activeTab, setActiveTab] = useState('logo');
   const [insightExpanded, setInsightExpanded] = useState(false);
-
   const handleDownload = (url: string, filename: string) => {
     const link = document.createElement('a');
     link.href = url;
@@ -39,98 +37,90 @@ const Brand = () => {
     link.click();
     document.body.removeChild(link);
   };
-
-  const tertiaryColors = [
-    {
-      name: 'tertiary-50',
-      hex: '#FDF5FA',
-      className: 'bg-tertiary-light'
-    }, {
-      name: 'tertiary-100',
-      hex: '#F9E5F4',
-      className: 'bg-tertiary-light'
-    }, {
-      name: 'tertiary-200',
-      hex: '#F2CAEB',
-      className: 'bg-tertiary-light'
-    }, {
-      name: 'tertiary-300',
-      hex: '#E7A4DD',
-      className: 'bg-tertiary-light'
-    }, {
-      name: 'tertiary-400',
-      hex: '#C963BA',
-      className: 'bg-tertiary-light'
-    }, {
-      name: 'tertiary-500',
-      hex: '#9B247F',
-      className: 'bg-tertiary-main'
-    }, {
-      name: 'tertiary-600',
-      hex: '#841E6C',
-      className: 'bg-tertiary-dark'
-    }, {
-      name: 'tertiary-700',
-      hex: '#6D1959',
-      className: 'bg-tertiary-dark'
-    }, {
-      name: 'tertiary-800',
-      hex: '#571447',
-      className: 'bg-tertiary-dark'
-    }, {
-      name: 'tertiary-900',
-      hex: '#49123C',
-      className: 'bg-tertiary-dark'
-    }, {
-      name: 'tertiary-950',
-      hex: '#3E0F32',
-      className: 'bg-tertiary-dark'
-    }
-  ];
-
-  const tertiaryPalette = [
-    {
-      name: 'main',
-      color: 'bg-tertiary-main',
-      hex: '#9B247F',
-      tailwindClass: 'bg-tertiary-main'
-    }, {
-      name: 'light',
-      color: 'bg-tertiary-light',
-      hex: '#F9E5F4',
-      tailwindClass: 'bg-tertiary-light'
-    }, {
-      name: 'dark',
-      color: 'bg-tertiary-dark',
-      hex: '#6D1959',
-      tailwindClass: 'bg-tertiary-dark'
-    }, {
-      name: 'hover',
-      color: 'bg-tertiary-hover',
-      hex: 'rgba(155, 36, 127, 0.04)',
-      tailwindClass: 'bg-tertiary-hover'
-    }, {
-      name: 'selected',
-      color: 'bg-tertiary-selected',
-      hex: 'rgba(155, 36, 127, 0.08)',
-      tailwindClass: 'bg-tertiary-selected'
-    }, {
-      name: 'focus',
-      color: 'bg-tertiary-focus',
-      hex: 'rgba(155, 36, 127, 0.12)',
-      tailwindClass: 'bg-tertiary-focus'
-    }, {
-      name: 'focusVisible',
-      color: 'bg-tertiary-focusVisible',
-      hex: 'rgba(155, 36, 127, 0.30)',
-      tailwindClass: 'bg-tertiary-focusVisible'
-    }
-  ];
-
+  const tertiaryColors = [{
+    name: 'tertiary-50',
+    hex: '#FDF5FA',
+    className: 'bg-tertiary-light'
+  }, {
+    name: 'tertiary-100',
+    hex: '#F9E5F4',
+    className: 'bg-tertiary-light'
+  }, {
+    name: 'tertiary-200',
+    hex: '#F2CAEB',
+    className: 'bg-tertiary-light'
+  }, {
+    name: 'tertiary-300',
+    hex: '#E7A4DD',
+    className: 'bg-tertiary-light'
+  }, {
+    name: 'tertiary-400',
+    hex: '#C963BA',
+    className: 'bg-tertiary-light'
+  }, {
+    name: 'tertiary-500',
+    hex: '#9B247F',
+    className: 'bg-tertiary-main'
+  }, {
+    name: 'tertiary-600',
+    hex: '#841E6C',
+    className: 'bg-tertiary-dark'
+  }, {
+    name: 'tertiary-700',
+    hex: '#6D1959',
+    className: 'bg-tertiary-dark'
+  }, {
+    name: 'tertiary-800',
+    hex: '#571447',
+    className: 'bg-tertiary-dark'
+  }, {
+    name: 'tertiary-900',
+    hex: '#49123C',
+    className: 'bg-tertiary-dark'
+  }, {
+    name: 'tertiary-950',
+    hex: '#3E0F32',
+    className: 'bg-tertiary-dark'
+  }];
+  const tertiaryPalette = [{
+    name: 'main',
+    color: 'bg-tertiary-main',
+    hex: '#9B247F',
+    tailwindClass: 'bg-tertiary-main'
+  }, {
+    name: 'light',
+    color: 'bg-tertiary-light',
+    hex: '#F9E5F4',
+    tailwindClass: 'bg-tertiary-light'
+  }, {
+    name: 'dark',
+    color: 'bg-tertiary-dark',
+    hex: '#6D1959',
+    tailwindClass: 'bg-tertiary-dark'
+  }, {
+    name: 'hover',
+    color: 'bg-tertiary-hover',
+    hex: 'rgba(155, 36, 127, 0.04)',
+    tailwindClass: 'bg-tertiary-hover'
+  }, {
+    name: 'selected',
+    color: 'bg-tertiary-selected',
+    hex: 'rgba(155, 36, 127, 0.08)',
+    tailwindClass: 'bg-tertiary-selected'
+  }, {
+    name: 'focus',
+    color: 'bg-tertiary-focus',
+    hex: 'rgba(155, 36, 127, 0.12)',
+    tailwindClass: 'bg-tertiary-focus'
+  }, {
+    name: 'focusVisible',
+    color: 'bg-tertiary-focusVisible',
+    hex: 'rgba(155, 36, 127, 0.30)',
+    tailwindClass: 'bg-tertiary-focusVisible'
+  }];
   const toggleInsightExpanded = () => {
     setInsightExpanded(!insightExpanded);
   };
-
   const renderTabContent = () => {
     switch (activeTab) {
       case 'logo':
@@ -217,10 +207,7 @@ const Brand = () => {
                       <p className="text-gray-700 mb-4">Faça o download do manual de diretrizes da marca Amicci para acessar todas as informações detalhadas sobre o uso correto da nossa identidade visual.</p>
                     </div>
                     <div className="flex-shrink-0">
-                      <Button 
-                        onClick={() => handleDownload('/src/pages/assets/241122_Amicci_Brandbook_v2Bmenor.pdf', 'Amicci_Brandbook.pdf')}
-                        startIcon={<Download size={16} />}
-                      >
+                      <Button onClick={() => handleDownload('/src/pages/assets/241122_Amicci_Brandbook_v2Bmenor.pdf', 'Amicci_Brandbook.pdf')} startIcon={<Download size={16} />}>
                         Baixar manual de marca
                       </Button>
                     </div>
@@ -233,21 +220,7 @@ const Brand = () => {
         return <div className="space-y-8">
             <ComponentCard title="Amy" description="A inteligência artificial da Amicci que ajuda os clientes no fluxo de planejamento, projeto e performance comercial da plataforma." className="mb-6">
               <div className="space-y-6">
-                <div className="mb-6 bg-tertiary-light border border-tertiary-main/20 p-6 rounded-lg flex flex-col md:flex-row items-center justify-between gap-4">
-                  <div>
-                    <h3 className="text-xl font-medium text-tertiary-main mb-2">Diretrizes de Comunicação</h3>
-                    <p className="text-gray-700">Descubra mais sobre a voz e o tom que a Amy utiliza em suas interações na documentação detalhada de Tom e Voz.</p>
-                  </div>
-                  <Button 
-                    variant="outline" 
-                    className="bg-white border-tertiary-main text-tertiary-main hover:bg-tertiary-hover"
-                    startIcon={<Sparkles size={16} className="text-tertiary-main" />}
-                    endIcon={<ExternalLink size={16} />}
-                    asChild
-                  >
-                    <Link href="/guidelines/tom-e-voz#amy">Ver diretrizes da voz da Amy</Link>
-                  </Button>
-                </div>
+                
 
                 <Card className="p-6 shadow-none border">
                   <h3 className="text-xl font-medium mb-3">Paleta terciária</h3>
@@ -338,8 +311,7 @@ const Brand = () => {
                   
                   <div className="space-y-4">
                     <div className="bg-magenta-50 rounded-lg border border-magenta-200">
-                      {!insightExpanded ? (
-                        <div className="px-6 py-4">
+                      {!insightExpanded ? <div className="px-6 py-4">
                           <div className="flex items-center w-full">
                             <div className="flex items-center gap-1 mr-2">
                               <img src={AmySvg} alt="Avatar da Amy" className="w-9 h-9 rounded-full" loading="lazy" />
@@ -353,15 +325,10 @@ const Brand = () => {
                               <p className="text-gray-700 text-sm whitespace-nowrap overflow-hidden text-ellipsis flex-1">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                               </p>
-                              <ChevronDown 
-                                className="h-4 w-4 shrink-0 transition-transform duration-200 ml-2 flex-shrink-0 cursor-pointer" 
-                                onClick={toggleInsightExpanded}
-                              />
+                              <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 ml-2 flex-shrink-0 cursor-pointer" onClick={toggleInsightExpanded} />
                             </div>
                           </div>
-                        </div>
-                      ) : (
-                        <>
+                        </div> : <>
                           <div className="px-6 py-4">
                             <div className="flex items-center justify-between w-full">
                               <div className="flex items-center gap-2">
@@ -374,10 +341,7 @@ const Brand = () => {
                               <Button variant="outline-secondary" size="sm" className="ml-auto mr-4" startIcon={<RefreshCw size={16} />}>
                                 Gerar novo insight
                               </Button>
-                              <ChevronDown 
-                                className="h-4 w-4 shrink-0 rotate-180 transition-transform duration-200 cursor-pointer" 
-                                onClick={toggleInsightExpanded}
-                              />
+                              <ChevronDown className="h-4 w-4 shrink-0 rotate-180 transition-transform duration-200 cursor-pointer" onClick={toggleInsightExpanded} />
                             </div>
                           </div>
                           <div className="px-6 pb-4">
@@ -413,8 +377,7 @@ const Brand = () => {
                               </div>
                             </div>
                           </div>
-                        </>
-                      )}
+                        </>}
                     </div>
                   </div>
                 </Card>
@@ -425,7 +388,6 @@ const Brand = () => {
         return null;
     }
   };
-
   return <div className="w-full animate-fade-in">
       <Header title="Brand" description="Nossa identidade visual é o reflexo dos nossos valores e da nossa missão, transmitindo confiança e inovação." type="foundations" />
 
