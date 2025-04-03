@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Flag } from "lucide-react";
 import { Link } from "@/components/ui/link";
+import { GridContainer } from "@/components/layout/Grid";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/hooks/use-toast";
 
@@ -44,7 +45,7 @@ const NotFound = () => {
   };
   
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <GridContainer className="py-20">
       <div className="flex flex-col md:flex-row justify-start items-center gap-12">
         <div className="w-full md:w-1/2 relative">
           {!imageLoaded && (
@@ -97,7 +98,7 @@ const NotFound = () => {
           </div>
         </div>
       </div>
-    </div>
+    </GridContainer>
   );
 };
 
