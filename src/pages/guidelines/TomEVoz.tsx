@@ -54,26 +54,26 @@ const TomEVoz = () => {
             </p>
             
             <div className="space-y-8 mt-8">
-              <div className="border-l-4 border-primary-main pl-6 py-2">
+              <div className="border-l-4 border-gray-300 pl-6 py-2">
                 <h3 className="text-xl font-medium mb-2">Profissional, mas não formal</h3>
                 <p className="text-gray-700">
                   Mantemos uma postura profissional, mas evitamos linguagem excessivamente formal ou corporativa. Buscamos um equilíbrio que transmita competência sem criar distanciamento.
                 </p>
               </div>
               
-              <div className="border-l-4 border-primary-main pl-6 py-2">
+              <div className="border-l-4 border-gray-300 pl-6 py-2">
                 <h3 className="text-xl font-medium mb-2">Amigável, mas não casual demais</h3>
                 <p className="text-gray-700">Nosso tom é acolhedor e cordial, mas mantemos o foco na resolução de necessidades. Evitamos gírias excessivas ou humor que possa não ressoar com todos os usuários.</p>
               </div>
               
-              <div className="border-l-4 border-primary-main pl-6 py-2">
+              <div className="border-l-4 border-gray-300 pl-6 py-2">
                 <h3 className="text-xl font-medium mb-2">Confiante, mas não arrogante</h3>
                 <p className="text-gray-700">
                   Comunicamos com segurança nossa expertise, mas sempre com humildade. Reconhecemos quando não temos todas as respostas e valorizamos o feedback dos usuários.
                 </p>
               </div>
               
-              <div className="border-l-4 border-primary-main pl-6 py-2">
+              <div className="border-l-4 border-gray-300 pl-6 py-2">
                 <h3 className="text-xl font-medium mb-2">Direto, mas não ríspido</h3>
                 <p className="text-gray-700">
                   Priorizamos objetividade e clareza, mas sempre com gentileza. Em situações de erro ou problema, comunicamos com empatia e foco na solução.
@@ -94,7 +94,7 @@ const TomEVoz = () => {
             
             <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-xl font-medium text-primary-main mb-4">O que fazer</h3>
+                <h3 className="text-xl font-medium mb-4">O que fazer</h3>
                 <ul className="space-y-4 list-disc pl-6">
                   <li>
                     <p className="text-gray-700">Use a primeira pessoa do plural (nós, nosso) para criar senso de comunidade</p>
@@ -161,7 +161,7 @@ const TomEVoz = () => {
             
             <div className="mt-4 space-y-6">
               <div className="bg-gray-50 p-6 rounded-lg">
-                <h4 className="font-medium text-lg text-primary-main">Mensagens de Sucesso</h4>
+                <h4 className="font-medium text-lg mb-2">Mensagens de Sucesso</h4>
                 <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <div className="text-sm text-gray-500 mb-2">Como fazer:</div>
@@ -179,7 +179,7 @@ const TomEVoz = () => {
               </div>
               
               <div className="bg-gray-50 p-6 rounded-lg">
-                <h4 className="font-medium text-lg text-primary-mai">Mensagens de Erro</h4>
+                <h4 className="font-medium text-lg mb-2">Mensagens de Erro</h4>
                 <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <div className="text-sm text-gray-500 mb-2">Como fazer:</div>
@@ -197,7 +197,7 @@ const TomEVoz = () => {
               </div>
               
               <div className="bg-gray-50 p-6 rounded-lg">
-                <h4 className="font-medium text-lg text-primary-main">Instruções e Onboarding</h4>
+                <h4 className="font-medium text-lg mb-2">Instruções e Onboarding</h4>
                 <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <div className="text-sm text-gray-500 mb-2">Como fazer:</div>
@@ -248,21 +248,21 @@ const TomEVoz = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
               <div className="bg-white shadow-sm rounded-xl border border-gray-100 p-6 hover:shadow-md transition-shadow">
-                <h4 className="font-medium text-lg mb-3 text-primary-main">Mais pessoal e conversacional</h4>
+                <h4 className="font-medium text-lg mb-3">Mais pessoal e conversacional</h4>
                 <p className="text-gray-700">
                   Amy usa linguagem mais informal e próxima, como uma assistente real faria.
                 </p>
               </div>
               
               <div className="bg-white shadow-sm rounded-xl border border-gray-100 p-6 hover:shadow-md transition-shadow">
-                <h4 className="font-medium text-lg mb-3 text-primary-main">Expressões de personalidade</h4>
+                <h4 className="font-medium text-lg mb-3">Expressões de personalidade</h4>
                 <p className="text-gray-700">
                   Amy demonstra entusiasmo, empatia e outras emoções de forma equilibrada.
                 </p>
               </div>
               
               <div className="bg-white shadow-sm rounded-xl border border-gray-100 p-6 hover:shadow-md transition-shadow">
-                <h4 className="font-medium text-lg mb-3 text-primary-main">Adaptabilidade contextual</h4>
+                <h4 className="font-medium text-lg mb-3">Adaptabilidade contextual</h4>
                 <p className="text-gray-700">
                   Amy ajusta seu tom conforme o contexto da interação — mais formal em assuntos sérios, mais descontraída em momentos leves.
                 </p>
@@ -274,7 +274,7 @@ const TomEVoz = () => {
             <div className="space-y-4">
               <div className="bg-white shadow-sm rounded-xl border border-gray-100 overflow-hidden">
                 <div className="bg-primary-main/5 p-3 border-b border-gray-100">
-                  <div className="text-sm font-medium text-primary-dark">Mensagem de boas-vindas:</div>
+                  <div className="text-sm font-medium">Mensagem de boas-vindas:</div>
                 </div>
                 <div className="p-5">
                   <p className="text-gray-800 bg-gray-50 p-4 rounded-lg border border-gray-100">
@@ -285,7 +285,7 @@ const TomEVoz = () => {
               
               <div className="bg-white shadow-sm rounded-xl border border-gray-100 overflow-hidden">
                 <div className="bg-primary-main/5 p-3 border-b border-gray-100">
-                  <div className="text-sm font-medium text-primary-dark">Confirmação de ação:</div>
+                  <div className="text-sm font-medium">Confirmação de ação:</div>
                 </div>
                 <div className="p-5">
                   <p className="text-gray-800 bg-gray-50 p-4 rounded-lg border border-gray-100">
@@ -296,7 +296,7 @@ const TomEVoz = () => {
               
               <div className="bg-white shadow-sm rounded-xl border border-gray-100 overflow-hidden">
                 <div className="bg-primary-main/5 p-3 border-b border-gray-100">
-                  <div className="text-sm font-medium text-primary-dark">Mensagem de erro:</div>
+                  <div className="text-sm font-medium">Mensagem de erro:</div>
                 </div>
                 <div className="p-5">
                   <p className="text-gray-800 bg-gray-50 p-4 rounded-lg border border-gray-100">
@@ -308,7 +308,7 @@ const TomEVoz = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
               <div className="bg-white shadow-sm rounded-xl border border-gray-100 p-6">
-                <h3 className="text-xl font-medium text-primary-main mb-4">Quando usar a voz da Amy</h3>
+                <h3 className="text-xl font-medium mb-4">Quando usar a voz da Amy</h3>
                 <ul className="list-disc pl-6 space-y-3">
                   <li><strong>Onboarding e boas-vindas</strong> - Primeiras impressões que estabelecem relacionamento</li>
                   <li><strong>Mensagens de celebração</strong> - Reconhecimento de conquistas e marcos importantes</li>
@@ -319,7 +319,7 @@ const TomEVoz = () => {
               
               <div className="bg-white shadow-sm rounded-xl border border-gray-100 overflow-hidden">
                 <div className="bg-primary-main/5 p-3 border-b border-gray-100">
-                  <h3 className="text-lg font-medium text-primary-dark">Diferenças-chave da Amy</h3>
+                  <h3 className="text-lg font-medium">Diferenças-chave da Amy</h3>
                 </div>
                 <div className="p-4">
                   <table className="w-full text-sm">
@@ -356,19 +356,19 @@ const TomEVoz = () => {
               <h3 className="text-xl font-medium mb-5">Lembretes importantes</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex gap-3 items-start">
-                  <span className="text-primary-main text-xl">•</span>
+                  <span className="text-gray-800 text-xl">•</span>
                   <span className="text-gray-800">A voz da Amy não é apropriada para <strong>todos</strong> os contextos — use com discernimento</span>
                 </div>
                 <div className="flex gap-3 items-start">
-                  <span className="text-primary-main text-xl">•</span>
+                  <span className="text-gray-800 text-xl">•</span>
                   <span className="text-gray-800">Humanização não significa informalidade excessiva — mantenha o profissionalismo</span>
                 </div>
                 <div className="flex gap-3 items-start">
-                  <span className="text-primary-main text-xl">•</span>
+                  <span className="text-gray-800 text-xl">•</span>
                   <span className="text-gray-800">Personalize com base em dados reais, nunca presuma informações sobre o usuário</span>
                 </div>
                 <div className="flex gap-3 items-start">
-                  <span className="text-primary-main text-xl">•</span>
+                  <span className="text-gray-800 text-xl">•</span>
                   <span className="text-gray-800">A humanização deve sempre servir ao propósito de melhorar a experiência do usuário</span>
                 </div>
               </div>
