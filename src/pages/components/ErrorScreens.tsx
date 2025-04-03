@@ -40,40 +40,44 @@ const ErrorScreens = () => {
             A página de erro 404 é exibida quando o usuário tenta acessar uma rota que não existe na aplicação.
           </p>
           
-          <ComponentCard 
-            title="Erro 404" 
-            description="Tela completa de página não encontrada com imagem, mensagem e ações"
-            className="w-full mb-8"
-            showCodeBlockInside={true}
-            code={notFoundCode}
-            codeBlockTitle="Implementação de 404"
-            codeBlockLanguage="tsx"
-          >
-            <div className="p-6 border border-gray-200 rounded-lg overflow-hidden scale-[0.7] origin-top-left min-h-[400px]">
+          <div className="border border-gray-200 rounded-lg overflow-hidden mb-8">
+            <div className="p-4 border-b border-gray-200 bg-gray-50 flex justify-between items-center">
+              <h3 className="text-lg font-medium">Erro 404</h3>
+              <span className="text-sm text-gray-500">Página não encontrada</span>
+            </div>
+            <div className="p-6">
               <NotFound />
             </div>
-          </ComponentCard>
+          </div>
+          
+          <CodeBlock
+            code={notFoundCode}
+            language="tsx"
+            title="Implementação de 404"
+          />
         </section>
         
-        <section>
+        <section className="mt-12">
           <h2 className="text-2xl font-semibold mb-4">ErrorBoundary</h2>
           <p className="text-gray-700 mb-6">
             O ErrorBoundary captura erros de JavaScript durante a renderização, em métodos do ciclo de vida e nos construtores de componentes filhos, exibindo uma interface de erro amigável.
           </p>
           
-          <ComponentCard 
-            title="Erro de Carregamento" 
-            description="Tela de erro para falhas durante a renderização com opções para recarregar ou reportar o problema"
-            className="w-full mb-8"
-            showCodeBlockInside={true}
-            code={errorBoundaryCode}
-            codeBlockTitle="Implementação de ErrorBoundary"
-            codeBlockLanguage="tsx"
-          >
-            <div className="p-6 border border-gray-200 rounded-lg overflow-hidden scale-[0.7] origin-top-left min-h-[400px]">
+          <div className="border border-gray-200 rounded-lg overflow-hidden mb-8">
+            <div className="p-4 border-b border-gray-200 bg-gray-50 flex justify-between items-center">
+              <h3 className="text-lg font-medium">Erro de Carregamento</h3>
+              <span className="text-sm text-gray-500">Falha durante a renderização</span>
+            </div>
+            <div className="p-6">
               <ErrorDisplay error={mockError} onReload={mockReload} />
             </div>
-          </ComponentCard>
+          </div>
+          
+          <CodeBlock
+            code={errorBoundaryCode}
+            language="tsx"
+            title="Implementação de ErrorBoundary"
+          />
         </section>
         
         <section>
