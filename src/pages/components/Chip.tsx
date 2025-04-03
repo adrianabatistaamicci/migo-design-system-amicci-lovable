@@ -29,27 +29,25 @@ const ChipComponent = () => {
 // Variante Outlined
 <Chip variant="outlined" color="primary">Outlined</Chip>
 
-// Variante Light
-<Chip variant="light" color="primary">Light</Chip>`;
+// Variante FilledLight
+<Chip variant="filledlight" color="primary">Filled Light</Chip>`;
 
   const chipSizesCode = `import { Chip } from "@/components/ui/chip"
 
 // Tamanho pequeno (sm)
 <Chip size="sm">Small</Chip>
 
-// Tamanho médio (md) - padrão
-<Chip size="md">Medium</Chip>
+// Tamanho médio (default) - padrão
+<Chip>Medium/Default</Chip>
 
 // Tamanho grande (lg)
 <Chip size="lg">Large</Chip>`;
 
   const deletableChipsCode = `import { Chip } from "@/components/ui/chip"
-import { X } from "lucide-react"
 
 // Chip deletável
 <Chip 
   onDelete={() => console.log('Chip deleted')}
-  deleteIcon={<X size={14} />}
 >
   Deletable
 </Chip>
@@ -58,7 +56,6 @@ import { X } from "lucide-react"
 <Chip 
   color="primary"
   onDelete={() => console.log('Primary chip deleted')}
-  deleteIcon={<X size={14} />}
 >
   Primary
 </Chip>`;
@@ -117,7 +114,7 @@ import { X } from "lucide-react"
             <div className="flex flex-wrap justify-center items-center gap-3 p-10">
               <Chip variant="filled" color="primary">Filled</Chip>
               <Chip variant="outlined" color="primary">Outlined</Chip>
-              <Chip variant="light" color="primary">Light</Chip>
+              <Chip variant="filledlight" color="primary">Filled Light</Chip>
             </div>
           </ComponentCard>
         </section>
@@ -139,7 +136,7 @@ import { X } from "lucide-react"
           >
             <div className="flex flex-wrap justify-center items-center gap-3 p-10">
               <Chip size="sm">Small</Chip>
-              <Chip size="md">Medium</Chip>
+              <Chip>Medium/Default</Chip>
               <Chip size="lg">Large</Chip>
             </div>
           </ComponentCard>
@@ -163,28 +160,24 @@ import { X } from "lucide-react"
             <div className="flex flex-wrap justify-center items-center gap-3 p-10">
               <Chip 
                 onDelete={() => console.log('Chip deleted')}
-                deleteIcon={<X size={14} />}
               >
                 Deletable
               </Chip>
               <Chip 
                 color="primary"
                 onDelete={() => console.log('Primary chip deleted')}
-                deleteIcon={<X size={14} />}
               >
                 Primary
               </Chip>
               <Chip 
                 color="secondary"
                 onDelete={() => console.log('Secondary chip deleted')}
-                deleteIcon={<X size={14} />}
               >
                 Secondary
               </Chip>
               <Chip 
                 color="error"
                 onDelete={() => console.log('Error chip deleted')}
-                deleteIcon={<X size={14} />}
               >
                 Error
               </Chip>
