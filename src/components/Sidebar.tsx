@@ -187,6 +187,7 @@ export const sidebarItems: SidebarItem[] = [
       { title: 'Settings Screens', href: '/components/settings-screens' },
       { title: 'Projects Screens', href: '/components/projects-screens' },
       { title: 'Marketplace Screens', href: '/components/marketplace-screens' },
+      { title: 'Error Screens', href: '/components/error-screens' },
     ]
   },
   {

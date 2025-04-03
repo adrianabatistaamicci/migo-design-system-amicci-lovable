@@ -1,7 +1,6 @@
-
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout'
-import Home from './pages/Index'  // Changed from './pages/Home' to './pages/Index'
+import Home from './pages/Index'
 import UXGuidelines from './pages/guidelines/UXGuidelines'
 import TomEVoz from './pages/guidelines/TomEVoz'
 import UIKit from './pages/UIKit'
@@ -67,6 +66,7 @@ import DetailScreen from './pages/components/DetailScreens'
 import SettingsScreen from './pages/components/SettingsScreens'
 import ProjectsScreen from './pages/components/ProjectsScreens'
 import MarketplaceScreen from './pages/components/MarketplaceScreens'
+import ErrorScreens from './pages/components/ErrorScreens'
 import FigmaLibrary from './pages/components/FigmaLibrary'
 import Handoff from './pages/resources/Handoff'
 import FAQ from './pages/components/FAQ'
@@ -92,25 +92,21 @@ function App() {
           <Route path="/guidelines/technical-governance" element={<TechnicalGovernance />} />
           <Route path="/installation" element={<Installation />} />
           
-          {/* Foundations */}
           <Route path="/foundations/colors" element={<Colors />} />
           <Route path="/foundations/typography" element={<Typography />} />
           <Route path="/foundations/spacing" element={<Spacing />} />
           <Route path="/foundations/icons" element={<Icons />} />
           <Route path="/foundations/brand" element={<Brand />} />
           
-          {/* Application Shells */}
           <Route path="/components/stacked-layouts" element={<StackedLayout />} />
           <Route path="/components/sidebar-layouts" element={<SidebarLayout />} />
           <Route path="/components/multi-column-layouts" element={<MultiColumnLayout />} />
           
-          {/* Headings */}
           <Route path="/components/page-headings" element={<PageHeadings />} />
           <Route path="/components/title-headings" element={<TitleHeading />} />
           <Route path="/components/card-headings" element={<CardHeadings />} />
           <Route path="/components/section-headings" element={<SectionHeadings />} />
           
-          {/* Elements */}
           <Route path="/components/avatar" element={<Avatar />} />
           <Route path="/components/chip" element={<Chip />} />
           <Route path="/components/badge" element={<Badge />} />
@@ -124,18 +120,15 @@ function App() {
           <Route path="/components/accordion" element={<Accordion />} />
           <Route path="/components/tooltips" element={<Tooltip />} />
           
-          {/* Data Display */}
           <Route path="/components/description-lists" element={<DescriptionList />} />
           <Route path="/components/stats" element={<Stats />} />
           <Route path="/components/calendars" element={<Calendar />} />
           
-          {/* Lists */}
           <Route path="/components/stacked-lists" element={<StackedList />} />
           <Route path="/components/table" element={<Table />} />
           <Route path="/components/grid-lists" element={<GridList />} />
           <Route path="/components/feeds" element={<Feed />} />
           
-          {/* Forms */}
           <Route path="/components/form-layouts" element={<FormLayout />} />
           <Route path="/components/sign-in-registration" element={<SignInRegistration />} />
           <Route path="/components/input" element={<Input />} />
@@ -147,11 +140,9 @@ function App() {
           <Route path="/components/slider" element={<Slider />} />
           <Route path="/components/action-panels" element={<ActionPanels />} />
           
-          {/* Feedback */}
           <Route path="/components/alert" element={<AlertsToasts />} />
           <Route path="/components/empty-states" element={<EmptyState />} />
           
-          {/* Navigation */}
           <Route path="/components/navbar" element={<Navbar />} />
           <Route path="/components/pagination" element={<Pagination />} />
           <Route path="/components/tabs" element={<Tab />} />
@@ -161,12 +152,10 @@ function App() {
           <Route path="/components/stepper" element={<ProgressStepper />} />
           <Route path="/components/command-bars" element={<CommandBars />} />
           
-          {/* Overlays */}
           <Route path="/components/dialog" element={<Modal />} />
           <Route path="/components/drawer" element={<Drawer />} />
           <Route path="/components/snackbar" element={<NotificationToast />} />
           
-          {/* Layout */}
           <Route path="/components/containers" element={<Container />} />
           <Route path="/components/cards" element={<Card />} />
           <Route path="/components/list-containers" element={<ListContainer />} />
@@ -175,19 +164,17 @@ function App() {
           <Route path="/components/skeleton" element={<Skeleton />} />
           <Route path="/components/library" element={<Library />} />
           
-          {/* Template */}
           <Route path="/components/home-screens" element={<HomeScreen />} />
           <Route path="/components/detail-screens" element={<DetailScreen />} />
           <Route path="/components/settings-screens" element={<SettingsScreen />} />
           <Route path="/components/projects-screens" element={<ProjectsScreen />} />
           <Route path="/components/marketplace-screens" element={<MarketplaceScreen />} />
+          <Route path="/components/error-screens" element={<ErrorScreens />} />
           
-          {/* Resources */}
           <Route path="/resources/figma-library" element={<FigmaLibrary />} />
           <Route path="/resources/handoff" element={<Handoff />} />
           <Route path="/resources/faq" element={<FAQ />} />
           
-          {/* Catch all route for 404 pages */}
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

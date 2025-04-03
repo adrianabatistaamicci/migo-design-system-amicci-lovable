@@ -47,6 +47,14 @@ const PageExamplesSection = () => {
             variantCount={2} 
           />
         </Link>
+        
+        <Link to="/components/error-screens">
+          <ComponentPreview 
+            title="Error Screens" 
+            imageSrc="/lovable-uploads/d23ff9a4-d021-4e25-ae93-bd30bec32fe4.png" 
+            variantCount={2} 
+          />
+        </Link>
       </div>
     </section>
   );
