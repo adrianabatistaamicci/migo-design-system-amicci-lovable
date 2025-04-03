@@ -19,7 +19,7 @@ const TomEVoz = () => {
   return <div className="w-full animate-fade-in">
       <Header title="Tom e Voz" description="Diretrizes para comunicação textual consistente e autêntica" type="foundations" />
       
-      <div className="max-w-[1280px] mx-auto mt-12 space-y-16">
+      <div className="max-w-[1280px] mx-auto mt-12 space-y-6">
         <section>
           <h2 className="text-2xl font-semibold mb-6">Visão Geral</h2>
           <div className="prose prose-gray max-w-none">
