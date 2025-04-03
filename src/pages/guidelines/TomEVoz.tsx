@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Header from '@/components/library-components/Header';
 import { Separator } from "@/components/ui/separator";
@@ -61,7 +60,7 @@ const TomEVoz = () => {
               <div className="border-l-4 border-primary-main pl-6 py-2">
                 <h3 className="text-xl font-medium mb-2">Amigável, mas não casual demais</h3>
                 <p className="text-gray-700">
-                  Nosso tom é acolhedor e cordial, mas mantemos o foco na resolução de necessidades. Evitamos gírias excessivas ou humor que possa não ressoar com todos os usuários.
+                  Nosso tom é acolhedor e cordial, mas mantemos o foco na resolu��ão de necessidades. Evitamos gírias excessivas ou humor que possa não ressoar com todos os usuários.
                 </p>
               </div>
               
@@ -222,26 +221,25 @@ const TomEVoz = () => {
           <h2 className="text-2xl font-semibold mb-6">A Voz da Amy</h2>
           <div className="prose prose-gray max-w-none">
             <div className="bg-background-subtle p-8 rounded-xl shadow-sm mb-10">
-              <GridRow className="items-center">
-                <GridCol span={6} className="md:pr-10">
-                  <div className="bg-primary-main/5 p-6 rounded-xl border border-primary-main/20 mb-6 md:mb-0">
+              <div className="flex flex-col md:flex-row items-center gap-8">
+                <div className="flex-shrink-0">
+                  <div className="relative w-48 h-48 mx-auto">
+                    <div className="absolute inset-0 bg-gradient-to-b from-primary-light/30 to-transparent rounded-full -z-10 blur-lg"></div>
+                    <img 
+                      src={AmyImage} 
+                      alt="Amy, a assistente virtual da Amicci" 
+                      className="rounded-full w-48 h-48 object-cover border-4 border-white bg-white shadow-lg"
+                    />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <div className="bg-primary-main/5 p-6 rounded-xl border border-primary-main/20">
                     <p className="text-gray-800 text-lg leading-relaxed">
                       Amy é nossa assistente virtual e representa uma persona especial dentro do ecossistema Amicci. Ela tem voz própria e um nível de humanização mais elevado em comparação com outras partes de nossa interface.
                     </p>
                   </div>
-                </GridCol>
-                <GridCol span={6} className="flex justify-center">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-b from-primary-light/30 to-transparent rounded-xl -z-10 blur-lg transform -translate-y-4"></div>
-                    <img 
-                      src={AmyImage} 
-                      alt="Amy, a assistente virtual da Amicci" 
-                      className="rounded-xl shadow-lg max-w-full h-auto object-cover border-4 border-white bg-white" 
-                      style={{ maxHeight: '400px' }}
-                    />
-                  </div>
-                </GridCol>
-              </GridRow>
+                </div>
+              </div>
             </div>
             
             <h3 className="text-xl font-medium mt-12 mb-4">Características distintivas da Amy:</h3>
