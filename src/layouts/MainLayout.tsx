@@ -5,13 +5,13 @@ import Sidebar from '@/components/Sidebar'
 import { Toaster } from "@/components/ui/toaster";
 import { Outlet } from 'react-router-dom'
 import { cn } from '@/lib/utils';
-import { useMobile } from '@/hooks/use-mobile';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { Link } from 'react-router-dom';
 import { Settings } from 'lucide-react';
 
 export default function MainLayout() {
-  const [collapsed, setCollapsed] = useState(false);
-  const isMobile = useMobile();
+  const [isOpen, setIsOpen] = useState(false);
+  const isMobile = useIsMobile();
   
   // Check if user is logged in
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,21 +24,27 @@ export default function MainLayout() {
   
   useEffect(() => {
     if (isMobile) {
-      setCollapsed(true);
+      setIsOpen(false);
+    } else {
+      setIsOpen(true);
     }
   }, [isMobile]);
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <div className='h-full relative'>
       <div className="flex h-screen overflow-hidden">
-        <Sidebar collapsed={collapsed} setCollapsed={setCollapsed} />
+        <Sidebar isOpen={isOpen} />
 
         <div className={cn(
           "flex flex-col flex-1 overflow-x-hidden bg-secondary/5",
-          collapsed ? "ml-[80px]" : "ml-[280px]",
+          isOpen ? "ml-[280px]" : "ml-[80px]",
           isMobile && "ml-0"
         )}>
-          <Header />
+          <Header toggleSidebar={toggleSidebar} isSidebarOpen={isOpen} />
           <main className="flex-1 overflow-y-auto py-2">
             <Outlet />
           </main>
