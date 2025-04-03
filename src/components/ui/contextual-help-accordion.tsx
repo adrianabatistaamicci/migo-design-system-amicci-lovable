@@ -14,6 +14,7 @@ export interface ContextualHelpAccordionProps {
   content: React.ReactNode;
   actionLabel?: string;
   actionUrl?: string;
+  numbered?: boolean;
 }
 
 export const ContextualHelpAccordion = ({
@@ -21,6 +22,7 @@ export const ContextualHelpAccordion = ({
   content,
   actionLabel = "Ver mais na FAQ",
   actionUrl = "#",
+  numbered = false,
 }: ContextualHelpAccordionProps) => {
   return (
     <div className="bg-blue-50 rounded-lg border-l-4 border-info-main w-full">
@@ -41,7 +43,7 @@ export const ContextualHelpAccordion = ({
               </div>
               
               {actionLabel && actionUrl && (
-                <div className="flex justify-end items-start gap-1.5 mb-5">
+                <div className="flex justify-end items-start gap-1.5 mb-5 mt-2">
                   <Link 
                     href={actionUrl}
                     external

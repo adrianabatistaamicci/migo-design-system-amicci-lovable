@@ -38,21 +38,52 @@ const ContextualHelpComponent = () => {
   const numberedExampleCode = `import { ContextualHelpAccordion } from "@/components/ui/contextual-help-accordion"
 
 <ContextualHelpAccordion
-  title="Passos para completar seu cadastro"
+  title="Como participar de concorrências?"
   content={
-    <div className="space-y-3">
-      <p>Siga estas etapas para finalizar seu cadastro:</p>
-      <ol className="list-decimal pl-5 space-y-2">
-        <li>Preencha seus dados pessoais</li>
-        <li>Verifique seu e-mail (enviaremos um código)</li>
-        <li>Configure suas preferências de notificação</li>
-        <li>Adicione um método de pagamento</li>
-        <li>Confirme suas informações</li>
-      </ol>
+    <div className="space-y-4">
+      <div className="flex gap-3">
+        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">1</div>
+        <div>
+          <h3 className="font-medium text-gray-800">Explore oportunidades disponíveis</h3>
+          <p>Navegue pelas concorrências em negociação ou descubra novas oportunidades na seção "Outras oportunidades disponíveis".</p>
+        </div>
+      </div>
+      
+      <div className="flex gap-3">
+        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">2</div>
+        <div>
+          <h3 className="font-medium text-gray-800">Analise os requisitos da concorrência</h3>
+          <p>Verifique cuidadosamente todos os SKUs, quantidades e especificações técnicas antes de participar.</p>
+        </div>
+      </div>
+      
+      <div className="flex gap-3">
+        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">3</div>
+        <div>
+          <h3 className="font-medium text-gray-800">Envie sua proposta</h3>
+          <p>Clique em "Enviar cotação" para submeter sua cotação com preços, prazos e condições comerciais.</p>
+        </div>
+      </div>
+      
+      <div className="flex gap-3">
+        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">4</div>
+        <div>
+          <h3 className="font-medium text-gray-800">Acompanhe o status</h3>
+          <p>Monitore o andamento da negociação através do status da concorrência e as notificações recebidas.</p>
+        </div>
+      </div>
+      
+      <div className="flex gap-3">
+        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">5</div>
+        <div>
+          <h3 className="font-medium text-gray-800">Projeto em andamento</h3>
+          <p>Se selecionado, a concorrência se tornará um projeto que poderá ser gerenciado através da seção "Meus projetos".</p>
+        </div>
+      </div>
     </div>
   }
-  actionLabel="Ver guia detalhado"
-  actionUrl="/guides/registration"
+  actionLabel="Ver mais na FAQ"
+  actionUrl="/faq"
 />`;
 
   return (
@@ -129,12 +160,12 @@ const ContextualHelpComponent = () => {
         <section>
           <h2 className="text-2xl font-semibold mb-4">Ajuda Contextual com Lista Numerada</h2>
           <p className="text-gray-700 mb-6">
-            Para instruções sequenciais ou procedimentos passo a passo, o componente pode exibir uma lista numerada.
+            Para instruções sequenciais ou procedimentos passo a passo, o componente pode exibir uma lista numerada com círculos coloridos.
           </p>
           
           <ComponentCard 
             title="Ajuda Contextual com Lista Numerada" 
-            description="Exibindo instruções sequenciais com lista numerada"
+            description="Exibindo instruções sequenciais com lista numerada destacada"
             className="w-full mb-8"
             showCodeBlockInside={true}
             code={numberedExampleCode}
@@ -143,21 +174,52 @@ const ContextualHelpComponent = () => {
           >
             <div className="p-6">
               <ContextualHelpAccordion
-                title="Passos para completar seu cadastro"
+                title="Como participar de concorrências?"
                 content={
-                  <div className="space-y-3">
-                    <p>Siga estas etapas para finalizar seu cadastro:</p>
-                    <ol className="list-decimal pl-5 space-y-2">
-                      <li>Preencha seus dados pessoais</li>
-                      <li>Verifique seu e-mail (enviaremos um código)</li>
-                      <li>Configure suas preferências de notificação</li>
-                      <li>Adicione um método de pagamento</li>
-                      <li>Confirme suas informações</li>
-                    </ol>
+                  <div className="space-y-4">
+                    <div className="flex gap-3">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">1</div>
+                      <div>
+                        <h3 className="font-medium text-gray-800">Explore oportunidades disponíveis</h3>
+                        <p>Navegue pelas concorrências em negociação ou descubra novas oportunidades na seção "Outras oportunidades disponíveis".</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-3">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">2</div>
+                      <div>
+                        <h3 className="font-medium text-gray-800">Analise os requisitos da concorrência</h3>
+                        <p>Verifique cuidadosamente todos os SKUs, quantidades e especificações técnicas antes de participar.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-3">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">3</div>
+                      <div>
+                        <h3 className="font-medium text-gray-800">Envie sua proposta</h3>
+                        <p>Clique em "Enviar cotação" para submeter sua cotação com preços, prazos e condições comerciais.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-3">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">4</div>
+                      <div>
+                        <h3 className="font-medium text-gray-800">Acompanhe o status</h3>
+                        <p>Monitore o andamento da negociação através do status da concorrência e as notificações recebidas.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-3">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">5</div>
+                      <div>
+                        <h3 className="font-medium text-gray-800">Projeto em andamento</h3>
+                        <p>Se selecionado, a concorrência se tornará um projeto que poderá ser gerenciado através da seção "Meus projetos".</p>
+                      </div>
+                    </div>
                   </div>
                 }
-                actionLabel="Ver guia detalhado"
-                actionUrl="/guides/registration"
+                actionLabel="Ver mais na FAQ"
+                actionUrl="/faq"
               />
             </div>
           </ComponentCard>
