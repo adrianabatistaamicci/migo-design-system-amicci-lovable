@@ -19,7 +19,7 @@ const ElementsSection = () => {
         <Link to="/components/badge">
           <ComponentPreview 
             title="Badges" 
-            imageSrc="/lovable-uploads/5433cbd8-f42c-4e06-82e4-ef5095fb1e12.png" 
+            imageSrc="/lovable-uploads/1a49900f-db84-42ee-9604-23cb63cf3bf5.png" 
             variantCount={7} 
           />
         </Link>
@@ -27,7 +27,7 @@ const ElementsSection = () => {
         <Link to="/components/chip">
           <ComponentPreview 
             title="Chips" 
-            imageSrc="/lovable-uploads/32f25029-df3a-4b82-87b9-079b68c29374.png" 
+            imageSrc="/lovable-uploads/1a49900f-db84-42ee-9604-23cb63cf3bf5.png" 
             variantCount={6} 
           />
         </Link>
