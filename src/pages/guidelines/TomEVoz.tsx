@@ -222,7 +222,7 @@ const TomEVoz = () => {
             <div className="bg-background-subtle p-8 rounded-xl shadow-sm mb-10">
               <div className="flex flex-col md:flex-row items-center gap-8">
                 <div className="flex-shrink-0">
-                  <div className="relative w-48 h-48 mx-auto">
+                  <div className="relative w-30 h-30 mx-auto">
                     <div className="absolute inset-0 bg-gradient-to-b from-primary-light/30 to-transparent rounded-full -z-10 blur-lg"></div>
                     <img src={AmyImage} alt="Amy, a assistente virtual da Amicci" className="rounded-full w-48 h-48 object-cover border-4 border-white bg-white shadow-lg" />
                   </div>
