@@ -4,6 +4,7 @@ import Header from '@/components/library-components/Header';
 import { Separator } from "@/components/ui/separator";
 import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
 import AmyImage from '@/pages/assets/Amy 001.png';
+import { GridContainer, GridRow, GridCol } from '@/components/layout/Grid';
 
 const TomEVoz = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -220,43 +221,48 @@ const TomEVoz = () => {
         <section id="amy">
           <h2 className="text-2xl font-semibold mb-6">A Voz da Amy</h2>
           <div className="prose prose-gray max-w-none">
-            <div className="flex flex-col lg:flex-row items-center gap-8 mb-8">
-              <div className="flex-1">
-                <div className="bg-primary-main/5 p-6 rounded-lg border border-primary-main/20">
-                  <p className="text-gray-800">
-                    Amy é nossa assistente virtual e representa uma persona especial dentro do ecossistema Amicci. Ela tem voz própria e um nível de humanização mais elevado em comparação com outras partes de nossa interface.
-                  </p>
-                </div>
-              </div>
-              <div className="flex-1">
-                <img 
-                  src={AmyImage} 
-                  alt="Amy, a assistente virtual da Amicci" 
-                  className="rounded-lg shadow-lg max-w-full h-auto object-cover border-4 border-tertiary-main/20" 
-                  style={{ maxHeight: '400px' }}
-                />
-              </div>
+            <div className="bg-background-subtle p-8 rounded-xl shadow-sm mb-10">
+              <GridRow className="items-center">
+                <GridCol span={6} className="md:pr-10">
+                  <div className="bg-primary-main/5 p-6 rounded-xl border border-primary-main/20 mb-6 md:mb-0">
+                    <p className="text-gray-800 text-lg leading-relaxed">
+                      Amy é nossa assistente virtual e representa uma persona especial dentro do ecossistema Amicci. Ela tem voz própria e um nível de humanização mais elevado em comparação com outras partes de nossa interface.
+                    </p>
+                  </div>
+                </GridCol>
+                <GridCol span={6} className="flex justify-center">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-b from-primary-light/30 to-transparent rounded-xl -z-10 blur-lg transform -translate-y-4"></div>
+                    <img 
+                      src={AmyImage} 
+                      alt="Amy, a assistente virtual da Amicci" 
+                      className="rounded-xl shadow-lg max-w-full h-auto object-cover border-4 border-white bg-white" 
+                      style={{ maxHeight: '400px' }}
+                    />
+                  </div>
+                </GridCol>
+              </GridRow>
             </div>
             
-            <h3 className="text-xl font-medium mt-8 mb-4">Características distintivas da Amy:</h3>
+            <h3 className="text-xl font-medium mt-12 mb-4">Características distintivas da Amy:</h3>
             
-            <div className="space-y-6">
-              <div className="border-l-4 border-primary-main pl-6 py-2">
-                <h4 className="font-medium text-lg mb-2">Mais pessoal e conversacional</h4>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              <div className="bg-white shadow-sm rounded-xl border border-gray-100 p-6 hover:shadow-md transition-shadow">
+                <h4 className="font-medium text-lg mb-3 text-primary-main">Mais pessoal e conversacional</h4>
                 <p className="text-gray-700">
                   Amy usa linguagem mais informal e próxima, como uma assistente real faria.
                 </p>
               </div>
               
-              <div className="border-l-4 border-primary-main pl-6 py-2">
-                <h4 className="font-medium text-lg mb-2">Expressões de personalidade</h4>
+              <div className="bg-white shadow-sm rounded-xl border border-gray-100 p-6 hover:shadow-md transition-shadow">
+                <h4 className="font-medium text-lg mb-3 text-primary-main">Expressões de personalidade</h4>
                 <p className="text-gray-700">
                   Amy demonstra entusiasmo, empatia e outras emoções de forma equilibrada.
                 </p>
               </div>
               
-              <div className="border-l-4 border-primary-main pl-6 py-2">
-                <h4 className="font-medium text-lg mb-2">Adaptabilidade contextual</h4>
+              <div className="bg-white shadow-sm rounded-xl border border-gray-100 p-6 hover:shadow-md transition-shadow">
+                <h4 className="font-medium text-lg mb-3 text-primary-main">Adaptabilidade contextual</h4>
                 <p className="text-gray-700">
                   Amy ajusta seu tom conforme o contexto da interação — mais formal em assuntos sérios, mais descontraída em momentos leves.
                 </p>
@@ -265,33 +271,45 @@ const TomEVoz = () => {
             
             <h3 className="text-xl font-medium mt-12 mb-4">Exemplos de comunicação:</h3>
             
-            <div className="space-y-6">
-              <div className="bg-white border border-gray-200 p-6 rounded-lg">
-                <div className="text-sm text-gray-500 mb-2">Mensagem de boas-vindas:</div>
-                <p className="text-gray-800 bg-gray-50 p-4 rounded">
-                  "Oi! Sou a Amy, sua assistente Amicci. Estou aqui para ajudar você a explorar nossa plataforma. Como posso facilitar seu dia hoje?"
-                </p>
+            <div className="space-y-4">
+              <div className="bg-white shadow-sm rounded-xl border border-gray-100 overflow-hidden">
+                <div className="bg-primary-main/5 p-3 border-b border-gray-100">
+                  <div className="text-sm font-medium text-primary-dark">Mensagem de boas-vindas:</div>
+                </div>
+                <div className="p-5">
+                  <p className="text-gray-800 bg-gray-50 p-4 rounded-lg border border-gray-100">
+                    "Oi! Sou a Amy, sua assistente Amicci. Estou aqui para ajudar você a explorar nossa plataforma. Como posso facilitar seu dia hoje?"
+                  </p>
+                </div>
               </div>
               
-              <div className="bg-white border border-gray-200 p-6 rounded-lg">
-                <div className="text-sm text-gray-500 mb-2">Confirmação de ação:</div>
-                <p className="text-gray-800 bg-gray-50 p-4 rounded">
-                  "Pronto! Acabei de salvar suas alterações. Tudo está configurado do jeito que você pediu. Mais alguma coisa que eu possa ajudar?"
-                </p>
+              <div className="bg-white shadow-sm rounded-xl border border-gray-100 overflow-hidden">
+                <div className="bg-primary-main/5 p-3 border-b border-gray-100">
+                  <div className="text-sm font-medium text-primary-dark">Confirmação de ação:</div>
+                </div>
+                <div className="p-5">
+                  <p className="text-gray-800 bg-gray-50 p-4 rounded-lg border border-gray-100">
+                    "Pronto! Acabei de salvar suas alterações. Tudo está configurado do jeito que você pediu. Mais alguma coisa que eu possa ajudar?"
+                  </p>
+                </div>
               </div>
               
-              <div className="bg-white border border-gray-200 p-6 rounded-lg">
-                <div className="text-sm text-gray-500 mb-2">Mensagem de erro:</div>
-                <p className="text-gray-800 bg-gray-50 p-4 rounded">
-                  "Hmm, parece que encontramos um obstáculo. Não consegui conectar ao servidor neste momento. Vamos tentar novamente? Se persistir, podemos explorar outras alternativas."
-                </p>
+              <div className="bg-white shadow-sm rounded-xl border border-gray-100 overflow-hidden">
+                <div className="bg-primary-main/5 p-3 border-b border-gray-100">
+                  <div className="text-sm font-medium text-primary-dark">Mensagem de erro:</div>
+                </div>
+                <div className="p-5">
+                  <p className="text-gray-800 bg-gray-50 p-4 rounded-lg border border-gray-100">
+                    "Hmm, parece que encontramos um obstáculo. Não consegui conectar ao servidor neste momento. Vamos tentar novamente? Se persistir, podemos explorar outras alternativas."
+                  </p>
+                </div>
               </div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-              <div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+              <div className="bg-white shadow-sm rounded-xl border border-gray-100 p-6">
                 <h3 className="text-xl font-medium text-primary-main mb-4">Quando usar a voz da Amy</h3>
-                <ul className="list-disc pl-6 space-y-2">
+                <ul className="list-disc pl-6 space-y-3">
                   <li><strong>Onboarding e boas-vindas</strong> - Primeiras impressões que estabelecem relacionamento</li>
                   <li><strong>Mensagens de celebração</strong> - Reconhecimento de conquistas e marcos importantes</li>
                   <li><strong>Suporte e assistência</strong> - Momentos de dificuldade onde empatia é essencial</li>
@@ -299,59 +317,61 @@ const TomEVoz = () => {
                 </ul>
               </div>
               
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-xl font-medium text-primary-main mb-4">Diferenças-chave da Amy</h3>
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-gray-200">
-                      <th className="text-left py-2">Aspecto</th>
-                      <th className="text-left py-2">Comunicação Padrão</th>
-                      <th className="text-left py-2">Comunicação Amy</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="border-b border-gray-200">
-                      <td className="py-3 font-medium">Tratamento</td>
-                      <td className="py-3">Formal, impessoal</td>
-                      <td className="py-3">Utiliza o primeiro nome</td>
-                    </tr>
-                    <tr className="border-b border-gray-200">
-                      <td className="py-3 font-medium">Linguagem</td>
-                      <td className="py-3">Objetiva, direta</td>
-                      <td className="py-3">Conversacional, natural</td>
-                    </tr>
-                    <tr>
-                      <td className="py-3 font-medium">Emoção</td>
-                      <td className="py-3">Neutra, contida</td>
-                      <td className="py-3">Expressiva, empática</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div className="bg-white shadow-sm rounded-xl border border-gray-100 overflow-hidden">
+                <div className="bg-primary-main/5 p-3 border-b border-gray-100">
+                  <h3 className="text-lg font-medium text-primary-dark">Diferenças-chave da Amy</h3>
+                </div>
+                <div className="p-4">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-gray-200">
+                        <th className="text-left py-2 px-3">Aspecto</th>
+                        <th className="text-left py-2 px-3">Comunicação Padrão</th>
+                        <th className="text-left py-2 px-3">Comunicação Amy</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b border-gray-200">
+                        <td className="py-3 px-3 font-medium">Tratamento</td>
+                        <td className="py-3 px-3">Formal, impessoal</td>
+                        <td className="py-3 px-3">Utiliza o primeiro nome</td>
+                      </tr>
+                      <tr className="border-b border-gray-200">
+                        <td className="py-3 px-3 font-medium">Linguagem</td>
+                        <td className="py-3 px-3">Objetiva, direta</td>
+                        <td className="py-3 px-3">Conversacional, natural</td>
+                      </tr>
+                      <tr>
+                        <td className="py-3 px-3 font-medium">Emoção</td>
+                        <td className="py-3 px-3">Neutra, contida</td>
+                        <td className="py-3 px-3">Expressiva, empática</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
             
-            
-            
-            <div className="bg-primary-main/10 p-6 rounded-lg border border-primary-main/20 mt-12">
-              <h3 className="text-xl font-medium mb-4">Lembretes importantes</h3>
-              <ul className="space-y-3">
-                <li className="flex gap-3">
-                  <span className="text-primary-main">•</span>
+            <div className="bg-primary-main/10 p-8 rounded-xl border border-primary-main/20 mt-12">
+              <h3 className="text-xl font-medium mb-5">Lembretes importantes</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="flex gap-3 items-start">
+                  <span className="text-primary-main text-xl">•</span>
                   <span className="text-gray-800">A voz da Amy não é apropriada para <strong>todos</strong> os contextos — use com discernimento</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary-main">•</span>
+                </div>
+                <div className="flex gap-3 items-start">
+                  <span className="text-primary-main text-xl">•</span>
                   <span className="text-gray-800">Humanização não significa informalidade excessiva — mantenha o profissionalismo</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary-main">•</span>
+                </div>
+                <div className="flex gap-3 items-start">
+                  <span className="text-primary-main text-xl">•</span>
                   <span className="text-gray-800">Personalize com base em dados reais, nunca presuma informações sobre o usuário</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-primary-main">•</span>
+                </div>
+                <div className="flex gap-3 items-start">
+                  <span className="text-primary-main text-xl">•</span>
                   <span className="text-gray-800">A humanização deve sempre servir ao propósito de melhorar a experiência do usuário</span>
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
           </div>
         </section>
