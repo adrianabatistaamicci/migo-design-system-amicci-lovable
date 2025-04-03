@@ -37,50 +37,81 @@ const ContextualHelpComponent = () => {
 
   const numberedExampleCode = `import { ContextualHelpAccordion } from "@/components/ui/contextual-help-accordion"
 
+// Componente de ajuda contextual com etapas numeradas
 <ContextualHelpAccordion
   title="Como participar de concorrências?"
   content={
-    <div className="space-y-4">
-      <div className="flex gap-3">
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">1</div>
-        <div>
-          <h3 className="font-medium text-gray-800">Explore oportunidades disponíveis</h3>
-          <p>Navegue pelas concorrências em negociação ou descubra novas oportunidades na seção "Outras oportunidades disponíveis".</p>
+    <>
+      <div className="self-stretch inline-flex justify-start items-start gap-4 mt-3">
+        <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
+          <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
+            <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">1</div>
+          </div>
+        </div>
+        <div className="flex-1 inline-flex flex-col justify-start items-start">
+          <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Explore oportunidades disponíveis</div>
+          <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
+            Navegue pelas concorrências em negociação ou descubra novas oportunidades na seção "Outras oportunidades disponíveis".
+          </div>
         </div>
       </div>
       
-      <div className="flex gap-3">
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">2</div>
-        <div>
-          <h3 className="font-medium text-gray-800">Analise os requisitos da concorrência</h3>
-          <p>Verifique cuidadosamente todos os SKUs, quantidades e especificações técnicas antes de participar.</p>
+      <div className="self-stretch inline-flex justify-start items-start gap-4 mt-6">
+        <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
+          <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
+            <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">2</div>
+          </div>
+        </div>
+        <div className="flex-1 inline-flex flex-col justify-start items-start">
+          <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Analise os requisitos da concorrência</div>
+          <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
+            Verifique cuidadosamente todos os SKUs, quantidades e especificações técnicas antes de participar.
+          </div>
         </div>
       </div>
       
-      <div className="flex gap-3">
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">3</div>
-        <div>
-          <h3 className="font-medium text-gray-800">Envie sua proposta</h3>
-          <p>Clique em "Enviar cotação" para submeter sua cotação com preços, prazos e condições comerciais.</p>
+      <div className="self-stretch inline-flex justify-start items-start gap-4 mt-6">
+        <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
+          <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
+            <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">3</div>
+          </div>
+        </div>
+        <div className="flex-1 inline-flex flex-col justify-start items-start">
+          <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Envie sua proposta</div>
+          <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
+            Clique em "Enviar cotação" para submeter sua cotação com preços, prazos e condições comerciais.
+          </div>
         </div>
       </div>
       
-      <div className="flex gap-3">
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">4</div>
-        <div>
-          <h3 className="font-medium text-gray-800">Acompanhe o status</h3>
-          <p>Monitore o andamento da negociação através do status da concorrência e as notificações recebidas.</p>
+      <div className="self-stretch inline-flex justify-start items-start gap-4 mt-6">
+        <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
+          <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
+            <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">4</div>
+          </div>
+        </div>
+        <div className="flex-1 inline-flex flex-col justify-start items-start">
+          <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Acompanhe o status</div>
+          <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
+            Monitore o andamento da negociação através do status da concorrência e as notificações recebidas.
+          </div>
         </div>
       </div>
       
-      <div className="flex gap-3">
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">5</div>
-        <div>
-          <h3 className="font-medium text-gray-800">Projeto em andamento</h3>
-          <p>Se selecionado, a concorrência se tornará um projeto que poderá ser gerenciado através da seção "Meus projetos".</p>
+      <div className="self-stretch inline-flex justify-start items-start gap-4 mt-6 mb-3">
+        <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
+          <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
+            <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">5</div>
+          </div>
+        </div>
+        <div className="flex-1 inline-flex flex-col justify-start items-start">
+          <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Projeto em andamento</div>
+          <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
+            Se selecionado, a concorrência se tornará um projeto que poderá ser gerenciado através da seção "Meus projetos".
+          </div>
         </div>
       </div>
-    </div>
+    </>
   }
   actionLabel="Ver mais na FAQ"
   actionUrl="/faq"
@@ -176,47 +207,77 @@ const ContextualHelpComponent = () => {
               <ContextualHelpAccordion
                 title="Como participar de concorrências?"
                 content={
-                  <div className="space-y-4">
-                    <div className="flex gap-3">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">1</div>
-                      <div>
-                        <h3 className="font-medium text-gray-800">Explore oportunidades disponíveis</h3>
-                        <p>Navegue pelas concorrências em negociação ou descubra novas oportunidades na seção "Outras oportunidades disponíveis".</p>
+                  <>
+                    <div className="self-stretch inline-flex justify-start items-start gap-4 mt-3">
+                      <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
+                        <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
+                          <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">1</div>
+                        </div>
+                      </div>
+                      <div className="flex-1 inline-flex flex-col justify-start items-start">
+                        <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Explore oportunidades disponíveis</div>
+                        <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
+                          Navegue pelas concorrências em negociação ou descubra novas oportunidades na seção "Outras oportunidades disponíveis".
+                        </div>
                       </div>
                     </div>
                     
-                    <div className="flex gap-3">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">2</div>
-                      <div>
-                        <h3 className="font-medium text-gray-800">Analise os requisitos da concorrência</h3>
-                        <p>Verifique cuidadosamente todos os SKUs, quantidades e especificações técnicas antes de participar.</p>
+                    <div className="self-stretch inline-flex justify-start items-start gap-4 mt-6">
+                      <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
+                        <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
+                          <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">2</div>
+                        </div>
+                      </div>
+                      <div className="flex-1 inline-flex flex-col justify-start items-start">
+                        <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Analise os requisitos da concorrência</div>
+                        <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
+                          Verifique cuidadosamente todos os SKUs, quantidades e especificações técnicas antes de participar.
+                        </div>
                       </div>
                     </div>
                     
-                    <div className="flex gap-3">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">3</div>
-                      <div>
-                        <h3 className="font-medium text-gray-800">Envie sua proposta</h3>
-                        <p>Clique em "Enviar cotação" para submeter sua cotação com preços, prazos e condições comerciais.</p>
+                    <div className="self-stretch inline-flex justify-start items-start gap-4 mt-6">
+                      <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
+                        <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
+                          <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">3</div>
+                        </div>
+                      </div>
+                      <div className="flex-1 inline-flex flex-col justify-start items-start">
+                        <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Envie sua proposta</div>
+                        <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
+                          Clique em "Enviar cotação" para submeter sua cotação com preços, prazos e condições comerciais.
+                        </div>
                       </div>
                     </div>
                     
-                    <div className="flex gap-3">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">4</div>
-                      <div>
-                        <h3 className="font-medium text-gray-800">Acompanhe o status</h3>
-                        <p>Monitore o andamento da negociação através do status da concorrência e as notificações recebidas.</p>
+                    <div className="self-stretch inline-flex justify-start items-start gap-4 mt-6">
+                      <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
+                        <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
+                          <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">4</div>
+                        </div>
+                      </div>
+                      <div className="flex-1 inline-flex flex-col justify-start items-start">
+                        <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Acompanhe o status</div>
+                        <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
+                          Monitore o andamento da negociação através do status da concorrência e as notificações recebidas.
+                        </div>
                       </div>
                     </div>
                     
-                    <div className="flex gap-3">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">5</div>
-                      <div>
-                        <h3 className="font-medium text-gray-800">Projeto em andamento</h3>
-                        <p>Se selecionado, a concorrência se tornará um projeto que poderá ser gerenciado através da seção "Meus projetos".</p>
+                    <div className="self-stretch inline-flex justify-start items-start gap-4 mt-6 mb-3">
+                      <div className="p-1 bg-blue-100 rounded-[100px] flex justify-start items-center gap-2.5">
+                        <div className="p-[3px] bg-info-main rounded-[100px] inline-flex flex-col justify-center items-center gap-2.5">
+                          <div className="w-4 h-4 flex items-center justify-center text-common-white-main text-base font-medium font-['Roboto'] leading-none">5</div>
+                        </div>
+                      </div>
+                      <div className="flex-1 inline-flex flex-col justify-start items-start">
+                        <div className="self-stretch justify-start text-text-primary text-base font-medium font-['Roboto'] leading-7 tracking-tight">Projeto em andamento</div>
+                        <div className="self-stretch justify-start text-text-primary text-base font-normal font-['Roboto'] leading-normal tracking-tight">
+                          Se selecionado, a concorrência se tornará um projeto que poderá ser gerenciado através da seção "Meus projetos".
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </>
                 }
                 actionLabel="Ver mais na FAQ"
                 actionUrl="/faq"
