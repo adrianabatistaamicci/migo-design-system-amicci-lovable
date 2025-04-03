@@ -2,8 +2,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ComponentPreview from '@/components/ComponentPreview';
+import NotFound from '@/components/error/404';
+import { ErrorDisplay } from '@/components/error/ErrorBoundary';
 
 const PageExamplesSection = () => {
+  // Mock error for ErrorDisplay demonstration
+  const mockError = new Error("Exemplo de erro");
+  const mockReload = () => console.log("Reload clicked");
+
   return (
     <section>
       <h2 className="text-xl font-normal mb-6">Templates</h2>
@@ -51,8 +57,12 @@ const PageExamplesSection = () => {
         <Link to="/components/error-screens">
           <ComponentPreview 
             title="Error Screens" 
-            imageSrc="/lovable-uploads/d23ff9a4-d021-4e25-ae93-bd30bec32fe4.png" 
-            variantCount={2} 
+            variantCount={2}
+            preview={
+              <div className="scale-[0.3] origin-top-left w-[300%] h-[300%] overflow-hidden">
+                <NotFound />
+              </div>
+            } 
           />
         </Link>
       </div>

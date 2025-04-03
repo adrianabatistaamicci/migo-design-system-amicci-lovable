@@ -4,6 +4,9 @@ import Header from '@/components/library-components/Header';
 import ComponentCard from '@/components/ComponentCard';
 import CodeBlock from '@/components/CodeBlock';
 import { GridContainer, GridRow, GridCol } from '@/components/layout/Grid';
+import NotFound from '@/components/error/404'; 
+import { ErrorDisplay } from '@/components/error/ErrorBoundary';
+import { Button } from '@/components/ui/button';
 
 const ErrorScreens = () => {
   const errorBoundaryCode = `import { ErrorBoundary } from "@/components/error/ErrorBoundary";
@@ -17,6 +20,10 @@ const ErrorScreens = () => {
 
 // In your routing configuration
 <Route path="*" element={<NotFound />} />`;
+
+  // Mock error for ErrorDisplay demonstration
+  const mockError = new Error("Exemplo de erro para demonstração");
+  const mockReload = () => console.log("Reload clicked");
 
   return (
     <div className="w-full animate-fade-in">
@@ -42,12 +49,8 @@ const ErrorScreens = () => {
             codeBlockTitle="Implementação de 404"
             codeBlockLanguage="tsx"
           >
-            <div className="p-6">
-              <img 
-                src="/lovable-uploads/d23ff9a4-d021-4e25-ae93-bd30bec32fe4.png" 
-                alt="Prévia de Página 404" 
-                className="w-full max-w-lg mx-auto rounded-lg border border-gray-200"
-              />
+            <div className="p-6 border border-gray-200 rounded-lg overflow-hidden scale-[0.7] origin-top-left min-h-[400px]">
+              <NotFound />
             </div>
           </ComponentCard>
         </section>
@@ -67,12 +70,8 @@ const ErrorScreens = () => {
             codeBlockTitle="Implementação de ErrorBoundary"
             codeBlockLanguage="tsx"
           >
-            <div className="p-6">
-              <img 
-                src="/lovable-uploads/382af6ac-4a41-4d5e-bf4c-42278049b2a3.png" 
-                alt="Prévia de Error Boundary" 
-                className="w-full max-w-lg mx-auto rounded-lg border border-gray-200"
-              />
+            <div className="p-6 border border-gray-200 rounded-lg overflow-hidden scale-[0.7] origin-top-left min-h-[400px]">
+              <ErrorDisplay error={mockError} onReload={mockReload} />
             </div>
           </ComponentCard>
         </section>
