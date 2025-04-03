@@ -33,7 +33,7 @@ const ErrorScreens = () => {
         type="components"
       />
       
-      <GridContainer className="space-y-8 mt-8">
+      <GridContainer fullWidth className="space-y-8 mt-8">
         <section>
           <h2 className="text-2xl font-semibold mb-4">Página de Erro 404</h2>
           <p className="text-gray-700 mb-6">

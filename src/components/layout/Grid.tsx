@@ -1,19 +1,21 @@
-
 import React from 'react';
 import { cn } from '@/lib/utils';
 
 interface GridContainerProps {
   children: React.ReactNode;
   className?: string;
+  fullWidth?: boolean; // Added option to control padding
 }
 
 export const GridContainer: React.FC<GridContainerProps> = ({ 
   children, 
-  className 
+  className,
+  fullWidth = false
 }) => {
   return (
     <div className={cn(
-      "container mx-auto px-4 sm:px-6 lg:px-8",
+      "container mx-auto",
+      !fullWidth && "px-4 sm:px-6 lg:px-8", // Only apply padding if not fullWidth
       className
     )}>
       {children}
