@@ -1,129 +1,89 @@
 
-import React from 'react';
-import { Book, FileText, Layers, Package, Shield } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-/**
- * @protected
- * ATENÇÃO: Este arquivo contém conteúdo finalizado e aprovado.
- * Não deve ser alterado diretamente pelo assistente AI.
- * Apenas atualizações de componentes devem ser refletidas.
- */
+const Home = () => {
+  // Check if user is logged in
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
+  useEffect(() => {
+    // Check login status
+    const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    setIsLoggedIn(loggedIn);
+  }, []);
 
-const Index = () => {
-  return <div className="space-y-16">
-      {/* Hero section directly on the page */}
-      <section className="w-full relative overflow-hidden rounded-xl">
-        {/* Background image without overlay gradient */}
-        <div className="absolute inset-0 w-full h-full">
-          <img 
-            src="/lovable-uploads/6d04ddec-9054-4db3-b9e5-16353280c499.png" 
-            alt="Design fluid background" 
-            className="w-full h-full object-cover object-center"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-          />
-          {/* Dark overlay removed */}
-        </div>
-        
-        {/* Hero content */}
-        <div className="relative z-10 px-4 py-24 md:py-32 max-w-5xl mx-auto text-center">
-          <div className="p-8 rounded-xl bg-gray-950/80 backdrop-blur-sm">
-            <h2 className="text-4xl tracking-tight mb-4 text-white font-normal md:text-6xl">
-              Migo, o Design System da Amicci
-            </h2>
-            <h6 className="text-lg mb-6 text-white/90">
-              Um sistema de design consistente para criar interfaces de usuário modernas e acessíveis.
-            </h6>
-            <p className="text-white/80 mb-4 max-w-3xl mx-auto">
-              Migo é a essência da Amicci: um amigo de confiança para seus projetos digitais. Ele trabalha nas entrelinhas do código e design, trazendo harmonia e claridade às suas interfaces, construindo pontes entre sua visão e a realidade.
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <div className="max-w-5xl mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-between">
+          <div className="mb-8 md:mb-0 md:mr-8">
+            <h1 className="text-4xl font-extrabold tracking-tight mb-4">Amicci Design System</h1>
+            <p className="text-lg text-gray-600 mb-6">
+              Uma biblioteca de componentes, padrões e práticas que ajudam a criar experiências de usuário consistentes para nossos produtos.
             </p>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                to="/ui-kit"
+                className="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+              >
+                Explorar Componentes
+              </Link>
+              <Link
+                to="/guidelines"
+                className="border border-gray-300 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+              >
+                Ver Guidelines
+              </Link>
+              
+              {isLoggedIn ? (
+                <Link
+                  to="/admin/dashboard"
+                  className="border border-gray-300 bg-gray-100 px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors"
+                >
+                  Acessar Painel Admin
+                </Link>
+              ) : (
+                <Link
+                  to="/admin/login"
+                  className="border border-gray-300 bg-gray-100 px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors"
+                >
+                  Login Administrativo
+                </Link>
+              )}
+            </div>
+          </div>
+          <div className="w-full md:w-1/2">
+            <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center shadow-lg">
+              <div className="p-8 text-center">
+                <h3 className="text-xl font-semibold mb-2">Amicci Design System</h3>
+                <p className="text-gray-600">Explore componentes, diretrizes e recursos para construir produtos de alta qualidade.</p>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
 
-      <section>
-        <div className="w-full">
-          <h5 className="text-xl tracking-tight mb-8 text-text-primary font-medium md:text-3xl">
-            Recursos principais
-          </h5>
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-primary-light/30 rounded-lg text-primary-main flex items-center justify-center mb-4">
-                <Layers size={24} />
-              </div>
-              <h6 className="text-base mb-2 text-text-primary font-medium">UI Kit</h6>
-              <p className="text-sm mb-4 text-text-secondary">
-                Cores, tipografia, espaçamento e outros elementos fundamentais do sistema.
-              </p>
-              <Link to="/ui-kit" className="text-primary-main hover:text-primary-dark inline-flex items-center">
-                Explorar kit
-                <svg className="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </Link>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-primary-light/30 rounded-lg text-primary-main flex items-center justify-center mb-4">
-                <Book size={24} />
-              </div>
-              <h6 className="text-base mb-2 text-text-primary font-medium">Diretrizes de UX</h6>
-              <p className="text-sm mb-4 text-text-secondary">Boas práticas para acessibilidade, responsividade e experiência do usuário.</p>
-              <Link to="/guidelines/ux-guidelines" className="text-primary-main hover:text-primary-dark inline-flex items-center">
-                Ler diretrizes
-                <svg className="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </Link>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-primary-light/30 rounded-lg text-primary-main flex items-center justify-center mb-4">
-                <Shield size={24} />
-              </div>
-              <h6 className="text-base mb-2 text-text-primary font-medium">Governança Lovable</h6>
-              <p className="text-sm mb-4 text-text-secondary">
-                Processo de contribuição, manutenção e gestão do Design System através da plataforma Lovable.
-              </p>
-              <Link to="/guidelines/technical-governance" className="text-primary-main hover:text-primary-dark inline-flex items-center">
-                Ver governança
-                <svg className="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </Link>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-primary-light/30 rounded-lg text-primary-main flex items-center justify-center mb-4">
-                <Package size={24} />
-              </div>
-              <h6 className="text-base mb-2 text-text-primary font-medium">Instalação</h6>
-              <p className="text-sm mb-4 text-text-secondary">
-                Biblioteca de componentes reutilizáveis prontos para uso em seus projetos.
-              </p>
-              <Link to="/installation" className="text-primary-main hover:text-primary-dark inline-flex items-center">
-                Acessar instalação
-                <svg className="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </Link>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-primary-light/30 rounded-lg text-primary-main flex items-center justify-center mb-4">
-                <FileText size={24} />
-              </div>
-              <h6 className="text-base mb-2 text-text-primary font-medium">Recursos</h6>
-              <p className="text-sm text-text-secondary">
-                Bibliotecas de design, kits de UI e outros recursos complementares.
-              </p>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h2 className="text-xl font-semibold mb-2">Componentes</h2>
+            <p className="text-gray-600 mb-4">Biblioteca completa de componentes UI reutilizáveis para agilizar o desenvolvimento.</p>
+            <Link to="/ui-kit" className="text-primary font-medium hover:underline">Ver componentes →</Link>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h2 className="text-xl font-semibold mb-2">Fundamentos</h2>
+            <p className="text-gray-600 mb-4">Cores, tipografia, espaçamento e outros elementos fundamentais do design system.</p>
+            <Link to="/foundations/colors" className="text-primary font-medium hover:underline">Explorar fundamentos →</Link>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h2 className="text-xl font-semibold mb-2">Recursos</h2>
+            <p className="text-gray-600 mb-4">Ferramentas, guias e documentação para auxiliar no uso do design system.</p>
+            <Link to="/resources/figma-library" className="text-primary font-medium hover:underline">Ver recursos →</Link>
           </div>
         </div>
-      </section>
-    </div>;
+      </div>
+    </div>
+  );
 };
 
-export default Index;
+export default Home;

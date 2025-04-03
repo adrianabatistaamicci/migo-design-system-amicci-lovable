@@ -1,105 +1,62 @@
 
-import React, { useState } from 'react';
-import { useLocation, Outlet } from 'react-router-dom';
-import Header from '@/components/Header';
-import Sidebar from '@/components/Sidebar';
-import Search from '@/components/Search';
-import Footer from '@/components/library-components/Footer';
-import { usePageTransition } from '@/utils/transitionUtils';
+import React, { useState, useEffect } from 'react';
+import Header from '@/components/Header'
+import Sidebar from '@/components/Sidebar'
+import { Toaster } from "@/components/ui/toaster";
+import { Outlet } from 'react-router-dom'
 import { cn } from '@/lib/utils';
-import { PageTitleProvider, usePageTitle } from '@/contexts/PageTitleContext';
-import { sidebarItems } from '@/components/Sidebar';
+import { useMobile } from '@/hooks/use-mobile';
+import { Link } from 'react-router-dom';
+import { Settings } from 'lucide-react';
 
-const PageTitleUpdater = () => {
-  const location = useLocation();
-  const { setPageTitle } = usePageTitle();
+export default function MainLayout() {
+  const [collapsed, setCollapsed] = useState(false);
+  const isMobile = useMobile();
   
-  const findPageTitle = (items: any[], pathname: string): string | undefined => {
-    for (const item of items) {
-      if (item.href === pathname) {
-        return item.title;
-      }
-      if (item.items) {
-        const foundTitle = findPageTitle(item.items, pathname);
-        if (foundTitle) return foundTitle;
-      }
+  // Check if user is logged in
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
+  useEffect(() => {
+    // Check login status
+    const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    setIsLoggedIn(loggedIn);
+  }, []);
+  
+  useEffect(() => {
+    if (isMobile) {
+      setCollapsed(true);
     }
-    return undefined;
-  };
-  
-  React.useEffect(() => {
-    const title = findPageTitle(sidebarItems, location.pathname);
-    if (title) {
-      setPageTitle(title);
-      document.title = `Migo Design System | ${title}`;
-    }
-  }, [location.pathname, setPageTitle]);
-  
-  return null;
-};
-
-const MainLayoutContent = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
-  const location = useLocation();
-  const { isTransitioning, showContent } = usePageTransition();
-
-  React.useEffect(() => {
-    setSidebarOpen(false);
-  }, [location.pathname]);
+  }, [isMobile]);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <PageTitleUpdater />
-      <Header 
-        toggleSidebar={() => setSidebarOpen(!sidebarOpen)} 
-        isSidebarOpen={sidebarOpen}
-      />
-      
-      <div className="flex-1 flex flex-col">
-        <div className="flex flex-1">
-          <Sidebar isOpen={sidebarOpen} />
+    <div className='h-full relative'>
+      <div className="flex h-screen overflow-hidden">
+        <Sidebar collapsed={collapsed} setCollapsed={setCollapsed} />
+
+        <div className={cn(
+          "flex flex-col flex-1 overflow-x-hidden bg-secondary/5",
+          collapsed ? "ml-[80px]" : "ml-[280px]",
+          isMobile && "ml-0"
+        )}>
+          <Header />
+          <main className="flex-1 overflow-y-auto py-2">
+            <Outlet />
+          </main>
           
-          <div 
-            className={cn(
-              "flex-1 transition-all duration-300 ease-elastic flex flex-col min-h-[calc(100vh-88px)]",
-              "md:ml-64"
-            )}
-          >
-            <main 
-              className={cn(
-                "transition-opacity duration-300 mx-auto px-6 w-full flex-1",
-                "max-w-[1280px] py-8",
-                isTransitioning ? "opacity-0" : "opacity-100",
-                !showContent && "hidden"
-              )}
-            >
-              <Outlet />
-            </main>
-            
-            <Footer />
-          </div>
+          {/* Admin link */}
+          {isLoggedIn && (
+            <div className="fixed bottom-4 right-4">
+              <Link 
+                to="/admin/dashboard" 
+                className="flex items-center justify-center w-12 h-12 bg-primary rounded-full text-white shadow-lg hover:bg-primary/90 transition-colors"
+              >
+                <Settings className="w-6 h-6" />
+              </Link>
+            </div>
+          )}
         </div>
       </div>
-      
-      {sidebarOpen && (
-        <div 
-          className="md:hidden fixed inset-0 bg-black/20 z-20"
-          onClick={() => setSidebarOpen(false)}
-        />
-      )}
-      
-      <Search isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
+      <Toaster />
     </div>
   );
-};
-
-const MainLayout: React.FC = () => {
-  return (
-    <PageTitleProvider>
-      <MainLayoutContent />
-    </PageTitleProvider>
-  );
-};
-
-export default MainLayout;
+}

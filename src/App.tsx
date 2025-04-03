@@ -1,5 +1,8 @@
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout'
+import AdminLayout from './layouts/AdminLayout'
+import ProtectedRoute from './components/auth/ProtectedRoute'
 import Home from './pages/Index'
 import UXGuidelines from './pages/guidelines/UXGuidelines'
 import TomEVoz from './pages/guidelines/TomEVoz'
@@ -78,6 +81,13 @@ import Icons from './pages/Icons'
 import Spacing from './pages/Spacing'
 import Brand from './pages/foundations/Brand'
 import TechnicalGovernance from './pages/guidelines/TechnicalGovernance'
+
+// Admin pages
+import AdminLogin from './pages/admin/Login'
+import Dashboard from './pages/admin/Dashboard'
+import EditPages from './pages/admin/EditPages'
+import PageEditor from './pages/admin/PageEditor'
+import Settings from './pages/admin/Settings'
 
 function App() {
   return (
@@ -176,6 +186,19 @@ function App() {
           <Route path="/resources/faq" element={<FAQ />} />
           
           <Route path="*" element={<NotFound />} />
+        </Route>
+        
+        {/* Admin routes */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route element={
+          <ProtectedRoute>
+            <AdminLayout />
+          </ProtectedRoute>
+        }>
+          <Route path="/admin/dashboard" element={<Dashboard />} />
+          <Route path="/admin/edit-pages" element={<EditPages />} />
+          <Route path="/admin/settings" element={<Settings />} />
+          <Route path="/admin/editor/*" element={<PageEditor />} />
         </Route>
       </Routes>
     </BrowserRouter>
