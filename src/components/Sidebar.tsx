@@ -58,11 +58,11 @@ export const sidebarItems: SidebarItem[] = [
     icon: Layers,
     items: [
       { title: 'Tom e Voz', href: '/guidelines/tom-e-voz' },
+      { title: 'Brand', href: '/foundations/brand' },
       { title: 'Colors', href: '/foundations/colors' },
       { title: 'Typography', href: '/foundations/typography' },
       { title: 'Spacing', href: '/foundations/spacing' },
       { title: 'Icons', href: '/foundations/icons' },
-      { title: 'Brand', href: '/foundations/brand' },
     ]
   },
   {
