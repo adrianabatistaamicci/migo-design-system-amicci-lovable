@@ -1,11 +1,14 @@
+
 import React, { useState, useEffect } from 'react';
 import Header from '@/components/library-components/Header';
 import { Separator } from "@/components/ui/separator";
 import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
 import AmyImage from '@/pages/assets/Amy 001.png';
 import { GridContainer, GridRow, GridCol } from '@/components/layout/Grid';
+
 const TomEVoz = () => {
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     // Simulate loading delay
     const timer = setTimeout(() => {
@@ -13,9 +16,11 @@ const TomEVoz = () => {
     }, 600);
     return () => clearTimeout(timer);
   }, []);
+
   if (isLoading) {
     return <DocumentationSkeleton />;
   }
+
   return <div className="w-full animate-fade-in">
       <Header title="Tom e Voz" description="Diretrizes para comunicação textual consistente e autêntica" type="foundations" />
       
@@ -220,9 +225,13 @@ const TomEVoz = () => {
             <div className="bg-background-subtle p-8 rounded-xl shadow-sm mb-10">
               <div className="flex flex-col md:flex-row items-center gap-8">
                 <div className="flex-shrink-0">
-                  <div className="relative w-30 h-30 mx-auto">
+                  <div className="relative w-24 h-24 md:w-32 md:h-32 mx-auto overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-primary-light/30 to-transparent rounded-full -z-10 blur-lg"></div>
-                    <img src={AmyImage} alt="Amy, a assistente virtual da Amicci" className="rounded-full w-48 h-48 object-cover border-4 border-white bg-white shadow-lg" />
+                    <img 
+                      src={AmyImage} 
+                      alt="Amy, a assistente virtual da Amicci" 
+                      className="rounded-full w-24 h-24 md:w-32 md:h-32 object-cover border-4 border-white bg-white shadow-lg object-top" 
+                    />
                   </div>
                 </div>
                 <div className="flex-1">
@@ -369,4 +378,5 @@ const TomEVoz = () => {
       </div>
     </div>;
 };
+
 export default TomEVoz;
