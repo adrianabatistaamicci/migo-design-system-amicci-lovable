@@ -4,7 +4,7 @@ import Header from '@/components/library-components/Header';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { Bell, ShoppingCart, Mail, Calendar, User, Notification } from 'lucide-react';
+import { Bell, ShoppingCart, Mail, Calendar, User } from 'lucide-react';
 import ComponentCard from '@/components/ComponentCard';
 import CodeBlock from '@/components/CodeBlock';
 
