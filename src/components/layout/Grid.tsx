@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { cn } from '@/lib/utils';
 
@@ -15,7 +16,7 @@ export const GridContainer: React.FC<GridContainerProps> = ({
   return (
     <div className={cn(
       "container mx-auto",
-      !fullWidth
+      !fullWidth && "px-8",
       className
     )}>
       {children}

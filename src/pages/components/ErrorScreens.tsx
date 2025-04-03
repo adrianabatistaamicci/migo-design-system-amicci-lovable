@@ -34,7 +34,7 @@ const ErrorScreens = () => {
       />
       
       <GridContainer fullWidth className="space-y-8 mt-8">
-        <section className="px-8">
+        <section>
           <h2 className="text-2xl font-semibold mb-4">Página de Erro 404</h2>
           <p className="text-gray-700 mb-6">
             A página de erro 404 é exibida quando o usuário tenta acessar uma rota que não existe na aplicação.
@@ -57,7 +57,7 @@ const ErrorScreens = () => {
           />
         </section>
         
-        <section className="mt-12 px-8">
+        <section className="mt-12">
           <h2 className="text-2xl font-semibold mb-4">ErrorBoundary</h2>
           <p className="text-gray-700 mb-6">
             O ErrorBoundary captura erros de JavaScript durante a renderização, em métodos do ciclo de vida e nos construtores de componentes filhos, exibindo uma interface de erro amigável.
@@ -80,7 +80,7 @@ const ErrorScreens = () => {
           />
         </section>
         
-        <section className="px-8">
+        <section>
           <h2 className="text-2xl font-semibold mb-4">Casos de Uso</h2>
           <GridRow>
             <GridCol span={6}>
@@ -107,7 +107,7 @@ const ErrorScreens = () => {
           </GridRow>
         </section>
         
-        <section className="px-8">
+        <section>
           <h2 className="text-2xl font-semibold mb-4">Melhores Práticas</h2>
           <ul className="list-disc pl-6 space-y-2 text-gray-700">
             <li>Use ErrorBoundary para envolver componentes ou seções específicas da aplicação, não toda a aplicação de uma vez</li>
