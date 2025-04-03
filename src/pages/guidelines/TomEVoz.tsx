@@ -4,7 +4,6 @@ import { Separator } from "@/components/ui/separator";
 import DocumentationSkeleton from '@/components/library-components/DocumentationSkeleton';
 import AmyImage from '@/pages/assets/Amy 001.png';
 import { GridContainer, GridRow, GridCol } from '@/components/layout/Grid';
-
 const TomEVoz = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -225,15 +224,11 @@ const TomEVoz = () => {
                 <div className="flex-shrink-0">
                   <div className="relative w-48 h-48 mx-auto">
                     <div className="absolute inset-0 bg-gradient-to-b from-primary-light/30 to-transparent rounded-full -z-10 blur-lg"></div>
-                    <img 
-                      src={AmyImage} 
-                      alt="Amy, a assistente virtual da Amicci" 
-                      className="rounded-full w-48 h-48 object-cover border-4 border-white bg-white shadow-lg"
-                    />
+                    <img src={AmyImage} alt="Amy, a assistente virtual da Amicci" className="rounded-full w-48 h-48 object-cover border-4 border-white bg-white shadow-lg" />
                   </div>
                 </div>
                 <div className="flex-1">
-                  <div className="bg-primary-main/5 p-6 rounded-xl border border-primary-main/20">
+                  <div className="">
                     <p className="text-gray-800 text-lg leading-relaxed">
                       Amy é nossa assistente virtual e representa uma persona especial dentro do ecossistema Amicci. Ela tem voz própria e um nível de humanização mais elevado em comparação com outras partes de nossa interface.
                     </p>
