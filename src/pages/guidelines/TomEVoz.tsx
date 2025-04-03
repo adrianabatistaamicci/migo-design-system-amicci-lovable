@@ -176,7 +176,7 @@ const TomEVoz = () => {
               </div>
               
               <div className="bg-gray-50 p-6 rounded-lg">
-                <h4 className="font-medium text-lg text-primary-main">Mensagens de Erro</h4>
+                <h4 className="font-medium text-lg text-primary-mai">Mensagens de Erro</h4>
                 <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <div className="text-sm text-gray-500 mb-2">Como fazer:</div>
