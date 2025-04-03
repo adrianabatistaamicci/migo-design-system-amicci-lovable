@@ -19,7 +19,7 @@ const ElementsSection = () => {
         <Link to="/components/badge">
           <ComponentPreview 
             title="Badges" 
-            imageSrc="/lovable-uploads/1a49900f-db84-42ee-9604-23cb63cf3bf5.png" 
+            imageSrc="/lovable-uploads/a5cf1a98-f68b-4fbe-baba-70629ff4d141.png" 
             variantCount={7} 
           />
         </Link>
@@ -35,7 +35,7 @@ const ElementsSection = () => {
         <Link to="/components/contextual-help">
           <ComponentPreview 
             title="Contextual Help" 
-            imageSrc="/lovable-uploads/a0b60754-1501-40c2-ae6e-951fcf78dc0d.png" 
+            imageSrc="/lovable-uploads/896fb970-1c02-4c77-a567-5d204d9ee7ba.png" 
             variantCount={2} 
           />
         </Link>
@@ -59,7 +59,7 @@ const ElementsSection = () => {
         <Link to="/components/link">
           <ComponentPreview 
             title="Links" 
-            imageSrc="/lovable-uploads/93eec571-57df-4c3a-9958-cb6930361d88.png" 
+            imageSrc="/lovable-uploads/fb9b16b0-fb65-43fc-b8b2-32792ec302d3.png" 
             variantCount={4} 
           />
         </Link>
