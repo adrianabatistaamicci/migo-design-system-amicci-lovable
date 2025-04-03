@@ -15,7 +15,7 @@ export const GridContainer: React.FC<GridContainerProps> = ({
   return (
     <div className={cn(
       "container mx-auto",
-      !fullWidth && "px-4 sm:px-6 lg:px-8", // Only apply padding if not fullWidth
+      !fullWidth
       className
     )}>
       {children}
