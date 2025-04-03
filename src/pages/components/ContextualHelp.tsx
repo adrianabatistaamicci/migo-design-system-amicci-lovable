@@ -35,6 +35,26 @@ const ContextualHelpComponent = () => {
   actionUrl="/tutorials/advanced-filters"
 />`;
 
+  const numberedExampleCode = `import { ContextualHelpAccordion } from "@/components/ui/contextual-help-accordion"
+
+<ContextualHelpAccordion
+  title="Passos para completar seu cadastro"
+  content={
+    <div className="space-y-3">
+      <p>Siga estas etapas para finalizar seu cadastro:</p>
+      <ol className="list-decimal pl-5 space-y-2">
+        <li>Preencha seus dados pessoais</li>
+        <li>Verifique seu e-mail (enviaremos um código)</li>
+        <li>Configure suas preferências de notificação</li>
+        <li>Adicione um método de pagamento</li>
+        <li>Confirme suas informações</li>
+      </ol>
+    </div>
+  }
+  actionLabel="Ver guia detalhado"
+  actionUrl="/guides/registration"
+/>`;
+
   return (
     <div className="w-full animate-fade-in">
       <Header 
@@ -101,6 +121,43 @@ const ContextualHelpComponent = () => {
                 }
                 actionLabel="Ver tutorial completo"
                 actionUrl="/tutorials/advanced-filters"
+              />
+            </div>
+          </ComponentCard>
+        </section>
+        
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">Ajuda Contextual com Lista Numerada</h2>
+          <p className="text-gray-700 mb-6">
+            Para instruções sequenciais ou procedimentos passo a passo, o componente pode exibir uma lista numerada.
+          </p>
+          
+          <ComponentCard 
+            title="Ajuda Contextual com Lista Numerada" 
+            description="Exibindo instruções sequenciais com lista numerada"
+            className="w-full mb-8"
+            showCodeBlockInside={true}
+            code={numberedExampleCode}
+            codeBlockTitle="Implementação com Lista Numerada"
+            codeBlockLanguage="tsx"
+          >
+            <div className="p-6">
+              <ContextualHelpAccordion
+                title="Passos para completar seu cadastro"
+                content={
+                  <div className="space-y-3">
+                    <p>Siga estas etapas para finalizar seu cadastro:</p>
+                    <ol className="list-decimal pl-5 space-y-2">
+                      <li>Preencha seus dados pessoais</li>
+                      <li>Verifique seu e-mail (enviaremos um código)</li>
+                      <li>Configure suas preferências de notificação</li>
+                      <li>Adicione um método de pagamento</li>
+                      <li>Confirme suas informações</li>
+                    </ol>
+                  </div>
+                }
+                actionLabel="Ver guia detalhado"
+                actionUrl="/guides/registration"
               />
             </div>
           </ComponentCard>
