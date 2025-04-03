@@ -1,508 +1,514 @@
 
-import React from 'react';
-import Header from '@/components/library-components/Header';
-import { Chip } from '@/components/ui/chip';
-import { X, Check, Plus, User } from 'lucide-react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import React, { useState } from 'react';
 import ComponentCard from '@/components/ComponentCard';
-import CodeBlock from '@/components/CodeBlock';
+import { Chip } from '@/components/ui/chip';
+import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
+import { X, Check, Info, AlertTriangle, Loader2, User, Mail, Heart, Star } from 'lucide-react';
+import Header from '@/components/library-components/Header';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
-const ChipComponent = () => {
-  // Código do componente Chip
-  const importCode = `import { Chip } from "@/components/ui/chip"`;
-
-  const basicChipsCode = `import { Chip } from "@/components/ui/chip"
-
-// Chip básico
-<Chip>Default</Chip>`;
-
-  const chipSizesCode = `import { Chip } from "@/components/ui/chip"
-
-// Tamanho pequeno (sm)
-<Chip size="sm">Small</Chip>
-
-// Tamanho médio (default) - padrão
-<Chip>Medium/Default</Chip>
-
-// Tamanho grande (lg)
-<Chip size="lg">Large</Chip>`;
-
-  const chipColorsCode = `import { Chip } from "@/components/ui/chip"
-
-// Cores disponíveis
-<Chip color="primary">Primary</Chip>
-<Chip color="secondary">Secondary</Chip>
-<Chip color="success">Success</Chip>
-<Chip color="error">Error</Chip>
-<Chip color="warning">Warning</Chip>
-<Chip color="info">Info</Chip>
-
-// Variantes com cores
-<Chip variant="filled" color="primary">Primary</Chip>
-<Chip variant="outlined" color="primary">Primary</Chip>
-<Chip variant="filledlight" color="primary">Primary</Chip>
-
-// Cor padrão com diferentes variantes
-<Chip variant="filled">Default</Chip>
-<Chip variant="outlined">Default</Chip>
-<Chip variant="filledlight">Default</Chip>`;
-
-  const deletableChipsCode = `import { Chip } from "@/components/ui/chip"
-
-// Chip deletável
-<Chip onDelete={() => console.log('Chip deleted')}>
-  Deletable
-</Chip>
-
-// Chip deletável com cor primária
-<Chip 
-  color="primary"
-  onDelete={() => console.log('Primary chip deleted')}
->
-  Primary
-</Chip>`;
-
-  const disabledChipsCode = `import { Chip } from "@/components/ui/chip"
-
-// Chip desabilitado
-<Chip disabled>
-  Disabled
-</Chip>
-
-// Chip desabilitado com variante outlined
-<Chip disabled variant="outlined">
-  Disabled
-</Chip>
-
-// Chip desabilitado com onDelete
-<Chip 
-  disabled
-  onDelete={() => console.log('Will not be called')}
->
-  Disabled
-</Chip>`;
-
-  const clickableChipsCode = `import { Chip } from "@/components/ui/chip"
-
-// Chip clicável
-<Chip 
-  clickable
-  onClick={() => console.log('Chip clicked')}
->
-  Clickable
-</Chip>
-
-// Chip clicável com variante outlined
-<Chip 
-  variant="outlined" 
-  clickable
-  onClick={() => console.log('Outlined chip clicked')}
->
-  Outlined
-</Chip>`;
-
-  const chipWithIconsCode = `import { Chip } from "@/components/ui/chip"
-import { Check, Plus, User } from "lucide-react"
-
-// Chip com ícone
-<Chip 
-  icon={<Check className="h-4 w-4" />}
->
-  With Icon
-</Chip>
-
-// Chip com ícone e deletável
-<Chip 
-  icon={<Plus className="h-4 w-4" />}
-  onDelete={() => console.log('Chip deleted')}
->
-  With Icon
-</Chip>
-
-// Chip com ícone colorido
-<Chip 
-  color="primary"
-  icon={<User className="h-4 w-4" />}
->
-  With Icon
-</Chip>`;
-
-  const chipWithAvatarCode = `import { Chip } from "@/components/ui/chip"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-
-// Chip com avatar
-<Chip 
-  avatar={
-    <Avatar className="h-6 w-6">
-      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-      <AvatarFallback>CN</AvatarFallback>
-    </Avatar>
-  }
->
-  John Doe
-</Chip>
-
-// Chip com avatar e deletável
-<Chip 
-  avatar={
-    <Avatar className="h-6 w-6">
-      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-      <AvatarFallback>CN</AvatarFallback>
-    </Avatar>
-  }
-  onDelete={() => console.log('Chip deleted')}
->
-  John Doe
-</Chip>`;
-
-  const apiReferenceItems = [
-    { prop: 'children', type: 'React.ReactNode', default: 'undefined', description: 'O conteúdo do Chip' },
-    { prop: 'color', type: '"default" | "primary" | "secondary" | "success" | "error" | "info" | "warning"', default: '"default"', description: 'A cor principal do Chip' },
-    { prop: 'variant', type: '"default" | "filled" | "filledlight" | "outlined"', default: '"default"', description: 'A variante visual do Chip' },
-    { prop: 'size', type: '"default" | "sm" | "lg"', default: '"default"', description: 'O tamanho do Chip' },
-    { prop: 'icon', type: 'React.ReactNode', default: 'undefined', description: 'Um ícone para exibir no início do Chip' },
-    { prop: 'avatar', type: 'React.ReactNode', default: 'undefined', description: 'Um avatar para exibir no início do Chip' },
-    { prop: 'onDelete', type: '() => void', default: 'undefined', description: 'Callback chamado quando o botão de exclusão é clicado' },
-    { prop: 'clickable', type: 'boolean', default: 'false', description: 'Se o Chip deve ter estilo e comportamento clicável' },
-    { prop: 'disabled', type: 'boolean', default: 'false', description: 'Se o Chip está desabilitado' }
-  ];
-
+const ChipPage = () => {
+  const [chips, setChips] = useState(['React', 'Angular', 'Vue', 'Svelte']);
+  
+  const handleDelete = (chipToDelete: string) => {
+    setChips(chips.filter(chip => chip !== chipToDelete));
+  };
+  
   return (
-    <div className="w-full animate-fade-in">
-      <Header 
-        title="Chips"
-        description="Chips são elementos compactos que representam uma entrada, atributo ou ação."
-        type="components"
-      />
-      
-      <div className="max-w-[1280px] mx-auto space-y-8 mt-8">
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Import</h2>
-          <CodeBlock 
-            code={importCode}
-            language="tsx"
-            className="mb-8"
-          />
-        </section>
+    <div className="w-full animate-slide-in">
+      <div className="mb-12">
+        <Header 
+          title="Chip"
+          description="Chips are compact elements that represent an input, attribute, or action."
+          type="components"
+          className="mb-6"
+        />
         
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Basic Chips</h2>
-          <p className="text-gray-700 mb-6">
-            Chips permitem que os usuários façam seleções, filtrem conteúdo ou acionem ações. Eles podem ser usados para exibir tags, contatos, ou opções de filtro em um formulário.
-          </p>
+        <div className="mb-12">
+          <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
+            Import
+          </h2>
           
+          <pre className="bg-mui-sidebar p-4 rounded-md overflow-x-auto text-sm">
+            <code>import {'{ Chip }'} from "@/components/ui/chip";</code>
+          </pre>
+        </div>
+        
+        <div className="space-y-12">
           <ComponentCard 
             title="Basic Chips" 
-            description="Chip básico padrão"
-            className="w-full mb-8"
-            showCodeBlockInside={true}
-            code={basicChipsCode}
-            codeBlockTitle="Implementação de Basic Chips"
-            codeBlockLanguage="tsx"
+            description="Simple chips for displaying information."
+            code={`<div className="flex flex-wrap gap-2">
+  <Chip>Basic Chip</Chip>
+  <Chip>React</Chip>
+  <Chip>Angular</Chip>
+  <Chip>Vue</Chip>
+</div>`}
           >
-            <div className="flex flex-wrap justify-center items-center gap-3 p-10">
-              <Chip>Default</Chip>
+            <div className="flex flex-wrap gap-2 p-6">
+              <Chip>Basic Chip</Chip>
+              <Chip>React</Chip>
+              <Chip>Angular</Chip>
+              <Chip>Vue</Chip>
             </div>
           </ComponentCard>
-        </section>
-        
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Chip Variants</h2>
-          <p className="text-gray-700 mb-6">
-            Chips estão disponíveis em diferentes variantes para atender a diversos estilos de UI.
-          </p>
           
           <ComponentCard 
             title="Chip Variants" 
-            description="Diferentes estilos de apresentação para o componente Chip"
-            className="w-full mb-8"
-            showCodeBlockInside={true}
-            code={`import { Chip } from "@/components/ui/chip"
-
-// Variante Filled (padrão)
-<Chip variant="filled">Filled</Chip>
-
-// Variante Outlined
-<Chip variant="outlined">Outlined</Chip>
-
-// Variante FilledLight
-<Chip variant="filledlight">Filled Light</Chip>`}
-            codeBlockTitle="Implementação de Chip Variants"
-            codeBlockLanguage="tsx"
+            description="Different variant styles for chips."
+            code={`<div className="flex flex-wrap gap-2">
+  <Chip variant="default">Default</Chip>
+  <Chip variant="filled">Filled</Chip>
+  <Chip variant="filledlight">Filled Light</Chip>
+  <Chip variant="outlined">Outlined</Chip>
+</div>`}
           >
-            <div className="flex flex-wrap justify-center items-center gap-3 p-10">
+            <div className="flex flex-wrap gap-2 p-6">
+              <Chip variant="default">Default</Chip>
               <Chip variant="filled">Filled</Chip>
-              <Chip variant="outlined">Outlined</Chip>
               <Chip variant="filledlight">Filled Light</Chip>
+              <Chip variant="outlined">Outlined</Chip>
             </div>
           </ComponentCard>
-        </section>
-        
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Chip Colors</h2>
-          <p className="text-gray-700 mb-6">
-            Chips estão disponíveis em diferentes cores para representar diferentes significados e contextos.
-          </p>
           
           <ComponentCard 
             title="Chip Colors" 
-            description="Diferentes cores disponíveis para chips"
-            className="w-full mb-8"
-            showCodeBlockInside={true}
-            code={chipColorsCode}
-            codeBlockTitle="Implementação de Chip Colors"
-            codeBlockLanguage="tsx"
+            description="Chips with different color options."
+            code={`<div className="space-y-4">
+  <div className="flex flex-wrap gap-2">
+    <Chip variant="filled" color="primary">Primary</Chip>
+    <Chip variant="filled" color="secondary">Secondary</Chip>
+    <Chip variant="filled" color="success">Success</Chip>
+    <Chip variant="filled" color="error">Error</Chip>
+    <Chip variant="filled" color="warning">Warning</Chip>
+    <Chip variant="filled" color="info">Info</Chip>
+  </div>
+  
+  <div className="flex flex-wrap gap-2">
+    <Chip variant="filledlight" color="primary">Primary</Chip>
+    <Chip variant="filledlight" color="secondary">Secondary</Chip>
+    <Chip variant="filledlight" color="success">Success</Chip>
+    <Chip variant="filledlight" color="error">Error</Chip>
+    <Chip variant="filledlight" color="warning">Warning</Chip>
+    <Chip variant="filledlight" color="info">Info</Chip>
+  </div>
+  
+  <div className="flex flex-wrap gap-2">
+    <Chip variant="outlined" color="primary">Primary</Chip>
+    <Chip variant="outlined" color="secondary">Secondary</Chip>
+    <Chip variant="outlined" color="success">Success</Chip>
+    <Chip variant="outlined" color="error">Error</Chip>
+    <Chip variant="outlined" color="warning">Warning</Chip>
+    <Chip variant="outlined" color="info">Info</Chip>
+  </div>
+</div>`}
           >
-            <div className="flex flex-wrap justify-center items-center gap-3 p-10">
-              <div className="flex flex-wrap gap-2 mb-4 w-full justify-center">
-                <Chip color="primary">Primary</Chip>
-                <Chip color="secondary">Secondary</Chip>
-                <Chip color="success">Success</Chip>
-                <Chip color="error">Error</Chip>
-                <Chip color="warning">Warning</Chip>
-                <Chip color="info">Info</Chip>
-              </div>
-              
-              <div className="flex flex-wrap gap-2 mb-4 w-full justify-center">
+            <div className="space-y-4 p-6">
+              <div className="flex flex-wrap gap-2">
                 <Chip variant="filled" color="primary">Primary</Chip>
-                <Chip variant="outlined" color="primary">Primary</Chip>
-                <Chip variant="filledlight" color="primary">Primary</Chip>
+                <Chip variant="filled" color="secondary">Secondary</Chip>
+                <Chip variant="filled" color="success">Success</Chip>
+                <Chip variant="filled" color="error">Error</Chip>
+                <Chip variant="filled" color="warning">Warning</Chip>
+                <Chip variant="filled" color="info">Info</Chip>
               </div>
               
-              <div className="flex flex-wrap gap-2 w-full justify-center">
-                <Chip variant="filled">Default</Chip>
-                <Chip variant="outlined">Default</Chip>
-                <Chip variant="filledlight">Default</Chip>
+              <div className="flex flex-wrap gap-2">
+                <Chip variant="filledlight" color="primary">Primary</Chip>
+                <Chip variant="filledlight" color="secondary">Secondary</Chip>
+                <Chip variant="filledlight" color="success">Success</Chip>
+                <Chip variant="filledlight" color="error">Error</Chip>
+                <Chip variant="filledlight" color="warning">Warning</Chip>
+                <Chip variant="filledlight" color="info">Info</Chip>
+              </div>
+              
+              <div className="flex flex-wrap gap-2">
+                <Chip variant="outlined" color="primary">Primary</Chip>
+                <Chip variant="outlined" color="secondary">Secondary</Chip>
+                <Chip variant="outlined" color="success">Success</Chip>
+                <Chip variant="outlined" color="error">Error</Chip>
+                <Chip variant="outlined" color="warning">Warning</Chip>
+                <Chip variant="outlined" color="info">Info</Chip>
               </div>
             </div>
           </ComponentCard>
-        </section>
-        
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Deletable Chips</h2>
-          <p className="text-gray-700 mb-6">
-            Chips podem incluir um ícone de exclusão para permitir que o usuário os remova.
-          </p>
           
           <ComponentCard 
             title="Deletable Chips" 
-            description="Chips com funcionalidade de exclusão"
-            className="w-full mb-8"
-            showCodeBlockInside={true}
-            code={deletableChipsCode}
-            codeBlockTitle="Implementação de Deletable Chips"
-            codeBlockLanguage="tsx"
+            description="Chips with delete functionality."
+            code={`const [chips, setChips] = useState(['React', 'Angular', 'Vue', 'Svelte']);
+  
+const handleDelete = (chipToDelete) => {
+  setChips(chips.filter(chip => chip !== chipToDelete));
+};
+
+<div className="flex flex-wrap gap-2">
+  {chips.map((chip) => (
+    <Chip 
+      key={chip} 
+      onDelete={() => handleDelete(chip)}
+    >
+      {chip}
+    </Chip>
+  ))}
+</div>
+
+<button 
+  className="mt-4 text-sm text-primary-main"
+  onClick={() => setChips(['React', 'Angular', 'Vue', 'Svelte'])}
+>
+  Reset chips
+</button>`}
           >
-            <div className="flex flex-wrap justify-center items-center gap-3 p-10">
-              <Chip 
-                onDelete={() => console.log('Chip deleted')}
+            <div className="p-6">
+              <div className="flex flex-wrap gap-2">
+                {chips.map((chip) => (
+                  <Chip 
+                    key={chip} 
+                    onDelete={() => handleDelete(chip)}
+                  >
+                    {chip}
+                  </Chip>
+                ))}
+              </div>
+              
+              <button 
+                className="mt-4 text-sm text-primary-main"
+                onClick={() => setChips(['React', 'Angular', 'Vue', 'Svelte'])}
               >
-                Deletable
-              </Chip>
-              <Chip 
-                color="primary"
-                onDelete={() => console.log('Primary chip deleted')}
-              >
-                Primary
-              </Chip>
+                Reset chips
+              </button>
             </div>
           </ComponentCard>
-        </section>
-        
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Clickable Chips</h2>
-          <p className="text-gray-700 mb-6">
-            Chips podem ser clicáveis, servindo como botões ou seletores.
-          </p>
-          
-          <ComponentCard 
-            title="Clickable Chips" 
-            description="Chips com comportamento clicável"
-            className="w-full mb-8"
-            showCodeBlockInside={true}
-            code={clickableChipsCode}
-            codeBlockTitle="Implementação de Clickable Chips"
-            codeBlockLanguage="tsx"
-          >
-            <div className="flex flex-wrap justify-center items-center gap-3 p-10">
-              <Chip 
-                clickable
-                onClick={() => console.log('Chip clicked')}
-              >
-                Clickable
-              </Chip>
-              <Chip 
-                variant="outlined" 
-                clickable
-                onClick={() => console.log('Outlined chip clicked')}
-              >
-                Outlined
-              </Chip>
-            </div>
-          </ComponentCard>
-        </section>
-        
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Chips with Icons</h2>
-          <p className="text-gray-700 mb-6">
-            Chips podem incluir ícones para comunicar significado adicional.
-          </p>
           
           <ComponentCard 
             title="Chips with Icons" 
-            description="Chips com ícones incorporados"
-            className="w-full mb-8"
-            showCodeBlockInside={true}
-            code={chipWithIconsCode}
-            codeBlockTitle="Implementação de Chips with Icons"
-            codeBlockLanguage="tsx"
+            description="Chips that include icons for additional visual information."
+            code={`<div className="flex flex-wrap gap-2">
+  <Chip icon={<Check className="h-3.5 w-3.5" />}>Completed</Chip>
+  <Chip icon={<User className="h-3.5 w-3.5" />}>Profile</Chip>
+  <Chip icon={<Mail className="h-3.5 w-3.5" />}>Messages</Chip>
+  <Chip icon={<Heart className="h-3.5 w-3.5" />}>Favorites</Chip>
+  <Chip icon={<Star className="h-3.5 w-3.5" />}>Starred</Chip>
+</div>`}
           >
-            <div className="flex flex-wrap justify-center items-center gap-3 p-10">
-              <Chip 
-                icon={<Check className="h-4 w-4" />}
-              >
-                With Icon
-              </Chip>
-              <Chip 
-                icon={<Plus className="h-4 w-4" />}
-                onDelete={() => console.log('Chip deleted')}
-              >
-                With Icon
-              </Chip>
-              <Chip 
-                color="primary"
-                icon={<User className="h-4 w-4" />}
-              >
-                With Icon
-              </Chip>
+            <div className="flex flex-wrap gap-2 p-6">
+              <Chip icon={<Check className="h-3.5 w-3.5" />}>Completed</Chip>
+              <Chip icon={<User className="h-3.5 w-3.5" />}>Profile</Chip>
+              <Chip icon={<Mail className="h-3.5 w-3.5" />}>Messages</Chip>
+              <Chip icon={<Heart className="h-3.5 w-3.5" />}>Favorites</Chip>
+              <Chip icon={<Star className="h-3.5 w-3.5" />}>Starred</Chip>
             </div>
           </ComponentCard>
-        </section>
-        
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Chips with Avatars</h2>
-          <p className="text-gray-700 mb-6">
-            Chips podem incluir avatares, úteis para representar usuários.
-          </p>
           
           <ComponentCard 
             title="Chips with Avatars" 
-            description="Chips com avatares incorporados"
-            className="w-full mb-8"
-            showCodeBlockInside={true}
-            code={chipWithAvatarCode}
-            codeBlockTitle="Implementação de Chips with Avatars"
-            codeBlockLanguage="tsx"
+            description="Chips that include avatars for user representation."
+            code={`<div className="flex flex-wrap gap-2">
+  <Chip 
+    avatar={
+      <Avatar className="h-6 w-6">
+        <AvatarImage src="https://github.com/shadcn.png" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
+    }
+  >
+    John Doe
+  </Chip>
+  
+  <Chip 
+    avatar={
+      <Avatar className="h-6 w-6">
+        <AvatarImage src="https://github.com/shadcn.png" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
+    }
+    variant="filled"
+    color="primary"
+  >
+    Jane Smith
+  </Chip>
+  
+  <Chip 
+    avatar={
+      <Avatar className="h-6 w-6">
+        <AvatarImage src="https://github.com/shadcn.png" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
+    }
+    variant="outlined"
+    color="secondary"
+    onDelete={() => {}}
+  >
+    Alex Johnson
+  </Chip>
+</div>`}
           >
-            <div className="flex flex-wrap justify-center items-center gap-3 p-10">
+            <div className="flex flex-wrap gap-2 p-6">
               <Chip 
                 avatar={
                   <Avatar className="h-6 w-6">
-                    <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                    <AvatarImage src="https://github.com/shadcn.png" />
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>
                 }
               >
                 John Doe
               </Chip>
+              
               <Chip 
                 avatar={
                   <Avatar className="h-6 w-6">
-                    <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                    <AvatarImage src="https://github.com/shadcn.png" />
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>
                 }
-                onDelete={() => console.log('Chip deleted')}
+                variant="filled"
+                color="primary"
               >
-                John Doe
+                Jane Smith
+              </Chip>
+              
+              <Chip 
+                avatar={
+                  <Avatar className="h-6 w-6">
+                    <AvatarImage src="https://github.com/shadcn.png" />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+                }
+                variant="outlined"
+                color="secondary"
+                onDelete={() => {}}
+              >
+                Alex Johnson
               </Chip>
             </div>
           </ComponentCard>
-        </section>
-        
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Chip Sizes</h2>
-          <p className="text-gray-700 mb-6">
-            Chips estão disponíveis em diferentes tamanhos para adequar-se a diversos contextos de UI.
-          </p>
           
           <ComponentCard 
             title="Chip Sizes" 
-            description="Variações de tamanho para o componente Chip"
-            className="w-full mb-8"
-            showCodeBlockInside={true}
-            code={chipSizesCode}
-            codeBlockTitle="Implementação de Chip Sizes"
-            codeBlockLanguage="tsx"
+            description="Chips in different sizes."
+            code={`<div className="flex flex-wrap gap-2 items-center">
+  <Chip size="sm">Small</Chip>
+  <Chip size="default">Default</Chip>
+  <Chip size="lg">Large</Chip>
+</div>`}
           >
-            <div className="flex flex-wrap justify-center items-center gap-3 p-10">
+            <div className="flex flex-wrap gap-2 items-center p-6">
               <Chip size="sm">Small</Chip>
-              <Chip>Medium/Default</Chip>
+              <Chip size="default">Default</Chip>
               <Chip size="lg">Large</Chip>
             </div>
           </ComponentCard>
-        </section>
-        
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Disabled Chips</h2>
-          <p className="text-gray-700 mb-6">
-            Chips podem ser desabilitados para indicar opções não disponíveis.
-          </p>
           
           <ComponentCard 
-            title="Disabled Chips" 
-            description="Chips em estado desabilitado"
-            className="w-full mb-8"
-            showCodeBlockInside={true}
-            code={disabledChipsCode}
-            codeBlockTitle="Implementação de Disabled Chips"
-            codeBlockLanguage="tsx"
+            title="Clickable Chips" 
+            description="Chips that can be clicked to trigger an action."
+            code={`<div className="flex flex-wrap gap-2">
+  <Chip clickable onClick={() => alert('Chip clicked!')}>
+    Click me
+  </Chip>
+  
+  <Chip 
+    clickable 
+    variant="filled" 
+    color="primary"
+    onClick={() => alert('Primary chip clicked!')}
+  >
+    Click me too
+  </Chip>
+  
+  <Chip 
+    clickable 
+    variant="outlined" 
+    color="secondary"
+    onClick={() => alert('Secondary chip clicked!')}
+  >
+    And me
+  </Chip>
+</div>`}
           >
-            <div className="flex flex-wrap justify-center items-center gap-3 p-10">
-              <Chip disabled>
-                Disabled
+            <div className="flex flex-wrap gap-2 p-6">
+              <Chip clickable onClick={() => alert('Chip clicked!')}>
+                Click me
               </Chip>
-              <Chip disabled variant="outlined">
-                Disabled
-              </Chip>
+              
               <Chip 
-                disabled
-                onDelete={() => console.log('Will not be called')}
+                clickable 
+                variant="filled" 
+                color="primary"
+                onClick={() => alert('Primary chip clicked!')}
               >
-                Disabled
+                Click me too
+              </Chip>
+              
+              <Chip 
+                clickable 
+                variant="outlined" 
+                color="secondary"
+                onClick={() => alert('Secondary chip clicked!')}
+              >
+                And me
               </Chip>
             </div>
           </ComponentCard>
-        </section>
+          
+          <ComponentCard 
+            title="Disabled Chips" 
+            description="Chips in a disabled state."
+            code={`<div className="flex flex-wrap gap-2">
+  <Chip disabled>Disabled</Chip>
+  <Chip disabled variant="filled" color="primary">Disabled</Chip>
+  <Chip disabled variant="outlined" color="secondary">Disabled</Chip>
+  <Chip disabled onDelete={() => {}}>Disabled</Chip>
+</div>
+
+<div className="mt-4 space-y-4">
+  <h3 className="text-sm font-medium text-gray-700">Disabled Filled Variants</h3>
+  <div className="flex flex-wrap gap-2">
+    <Chip disabled variant="filled" color="primary">Primary</Chip>
+    <Chip disabled variant="filled" color="secondary">Secondary</Chip>
+    <Chip disabled variant="filled" color="success">Success</Chip>
+    <Chip disabled variant="filled" color="error">Error</Chip>
+    <Chip disabled variant="filled" color="warning">Warning</Chip>
+    <Chip disabled variant="filled" color="info">Info</Chip>
+  </div>
+
+  <h3 className="text-sm font-medium text-gray-700">Disabled Filled Light Variants</h3>
+  <div className="flex flex-wrap gap-2">
+    <Chip disabled variant="filledlight" color="primary">Primary</Chip>
+    <Chip disabled variant="filledlight" color="secondary">Secondary</Chip>
+    <Chip disabled variant="filledlight" color="success">Success</Chip>
+    <Chip disabled variant="filledlight" color="error">Error</Chip>
+    <Chip disabled variant="filledlight" color="warning">Warning</Chip>
+    <Chip disabled variant="filledlight" color="info">Info</Chip>
+  </div>
+
+  <h3 className="text-sm font-medium text-gray-700">Disabled Outlined Variants</h3>
+  <div className="flex flex-wrap gap-2">
+    <Chip disabled variant="outlined" color="primary">Primary</Chip>
+    <Chip disabled variant="outlined" color="secondary">Secondary</Chip>
+    <Chip disabled variant="outlined" color="success">Success</Chip>
+    <Chip disabled variant="outlined" color="error">Error</Chip>
+    <Chip disabled variant="outlined" color="warning">Warning</Chip>
+    <Chip disabled variant="outlined" color="info">Info</Chip>
+  </div>
+</div>`}
+          >
+            <div className="p-6">
+              <div className="flex flex-wrap gap-2">
+                <Chip disabled>Disabled</Chip>
+                <Chip disabled variant="filled" color="primary">Disabled</Chip>
+                <Chip disabled variant="outlined" color="secondary">Disabled</Chip>
+                <Chip disabled onDelete={() => {}}>Disabled</Chip>
+              </div>
+              
+              <div className="mt-4 space-y-4">
+                <h3 className="text-sm font-medium text-gray-700">Disabled Filled Variants</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Chip disabled variant="filled" color="primary">Primary</Chip>
+                  <Chip disabled variant="filled" color="secondary">Secondary</Chip>
+                  <Chip disabled variant="filled" color="success">Success</Chip>
+                  <Chip disabled variant="filled" color="error">Error</Chip>
+                  <Chip disabled variant="filled" color="warning">Warning</Chip>
+                  <Chip disabled variant="filled" color="info">Info</Chip>
+                </div>
+                
+                <h3 className="text-sm font-medium text-gray-700">Disabled Filled Light Variants</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Chip disabled variant="filledlight" color="primary">Primary</Chip>
+                  <Chip disabled variant="filledlight" color="secondary">Secondary</Chip>
+                  <Chip disabled variant="filledlight" color="success">Success</Chip>
+                  <Chip disabled variant="filledlight" color="error">Error</Chip>
+                  <Chip disabled variant="filledlight" color="warning">Warning</Chip>
+                  <Chip disabled variant="filledlight" color="info">Info</Chip>
+                </div>
+                
+                <h3 className="text-sm font-medium text-gray-700">Disabled Outlined Variants</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Chip disabled variant="outlined" color="primary">Primary</Chip>
+                  <Chip disabled variant="outlined" color="secondary">Secondary</Chip>
+                  <Chip disabled variant="outlined" color="success">Success</Chip>
+                  <Chip disabled variant="outlined" color="error">Error</Chip>
+                  <Chip disabled variant="outlined" color="warning">Warning</Chip>
+                  <Chip disabled variant="outlined" color="info">Info</Chip>
+                </div>
+              </div>
+            </div>
+          </ComponentCard>
+        </div>
         
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">API Reference</h2>
-          <div className="overflow-x-auto">
-            <table className="min-w-full border-collapse border border-gray-200">
-              <thead>
-                <tr className="bg-gray-50">
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border border-gray-200">Prop</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border border-gray-200">Type</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border border-gray-200">Default</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border border-gray-200">Description</th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {apiReferenceItems.map((item, index) => (
-                  <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border border-gray-200">{item.prop}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border border-gray-200"><code>{item.type}</code></td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border border-gray-200"><code>{item.default}</code></td>
-                    <td className="px-6 py-4 text-sm text-gray-500 border border-gray-200">{item.description}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        <div className="mt-12">
+          <h2 className="text-2xl font-medium text-mui-text-primary mb-6">
+            API Reference
+          </h2>
+          
+          <div className="border border-mui-border rounded-lg overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-mui-sidebar">
+                  <TableHead className="w-1/4">Prop</TableHead>
+                  <TableHead className="w-1/4">Type</TableHead>
+                  <TableHead className="w-1/4">Default</TableHead>
+                  <TableHead className="w-1/4">Description</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell className="font-mono text-mui-text-primary">variant</TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">"default" | "filled" | "filledlight" | "outlined"</TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">"default"</TableCell>
+                  <TableCell className="text-mui-text-secondary">The visual style of the chip.</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-mono text-mui-text-primary">size</TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">"default" | "sm" | "lg"</TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">"default"</TableCell>
+                  <TableCell className="text-mui-text-secondary">The size of the chip.</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-mono text-mui-text-primary">color</TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">"default" | "primary" | "secondary" | "success" | "error" | "info" | "warning"</TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">"default"</TableCell>
+                  <TableCell className="text-mui-text-secondary">The color of the chip.</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-mono text-mui-text-primary">onDelete</TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">() =&gt; void</TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">undefined</TableCell>
+                  <TableCell className="text-mui-text-secondary">Callback when the delete button is clicked.</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-mono text-mui-text-primary">icon</TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">React.ReactNode</TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">undefined</TableCell>
+                  <TableCell className="text-mui-text-secondary">Icon element displayed at the start of the chip.</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-mono text-mui-text-primary">avatar</TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">React.ReactNode</TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">undefined</TableCell>
+                  <TableCell className="text-mui-text-secondary">Avatar element displayed at the start of the chip.</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-mono text-mui-text-primary">clickable</TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">boolean</TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">false</TableCell>
+                  <TableCell className="text-mui-text-secondary">Whether the chip is clickable.</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-mono text-mui-text-primary">disabled</TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">boolean</TableCell>
+                  <TableCell className="font-mono text-mui-text-secondary">false</TableCell>
+                  <TableCell className="text-mui-text-secondary">Whether the chip is disabled.</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   );
 };
 
-export default ChipComponent;
+export default ChipPage;
