@@ -58,9 +58,7 @@ const TomEVoz = () => {
               
               <div className="border-l-4 border-primary-main pl-6 py-2">
                 <h3 className="text-xl font-medium mb-2">Amigável, mas não casual demais</h3>
-                <p className="text-gray-700">
-                  Nosso tom é acolhedor e cordial, mas mantemos o foco na resolu��ão de necessidades. Evitamos gírias excessivas ou humor que possa não ressoar com todos os usuários.
-                </p>
+                <p className="text-gray-700">Nosso tom é acolhedor e cordial, mas mantemos o foco na resolução de necessidades. Evitamos gírias excessivas ou humor que possa não ressoar com todos os usuários.</p>
               </div>
               
               <div className="border-l-4 border-primary-main pl-6 py-2">
