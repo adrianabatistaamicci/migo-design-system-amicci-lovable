@@ -2,8 +2,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ComponentPreview from '@/components/ComponentPreview';
-import { IconButton } from '@/components/ui/icon-button';
-import { Star } from 'lucide-react';
 
 const ElementsSection = () => {
   return (
@@ -21,7 +19,15 @@ const ElementsSection = () => {
         <Link to="/components/badge">
           <ComponentPreview 
             title="Badges" 
-            imageSrc="/lovable-uploads/93eec571-57df-4c3a-9958-cb6930361d88.png" 
+            imageSrc="/lovable-uploads/5433cbd8-f42c-4e06-82e4-ef5095fb1e12.png" 
+            variantCount={7} 
+          />
+        </Link>
+        
+        <Link to="/components/chip">
+          <ComponentPreview 
+            title="Chips" 
+            imageSrc="/lovable-uploads/32f25029-df3a-4b82-87b9-079b68c29374.png" 
             variantCount={6} 
           />
         </Link>
