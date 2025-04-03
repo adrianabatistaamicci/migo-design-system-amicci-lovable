@@ -42,7 +42,7 @@ const ContextualHelpComponent = () => {
   content={
     <div className="space-y-4">
       <div className="flex gap-3">
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">1</div>
+        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">1</div>
         <div>
           <h3 className="font-medium text-gray-800">Explore oportunidades disponíveis</h3>
           <p>Navegue pelas concorrências em negociação ou descubra novas oportunidades na seção "Outras oportunidades disponíveis".</p>
@@ -50,7 +50,7 @@ const ContextualHelpComponent = () => {
       </div>
       
       <div className="flex gap-3">
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">2</div>
+        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">2</div>
         <div>
           <h3 className="font-medium text-gray-800">Analise os requisitos da concorrência</h3>
           <p>Verifique cuidadosamente todos os SKUs, quantidades e especificações técnicas antes de participar.</p>
@@ -58,7 +58,7 @@ const ContextualHelpComponent = () => {
       </div>
       
       <div className="flex gap-3">
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">3</div>
+        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">3</div>
         <div>
           <h3 className="font-medium text-gray-800">Envie sua proposta</h3>
           <p>Clique em "Enviar cotação" para submeter sua cotação com preços, prazos e condições comerciais.</p>
@@ -66,7 +66,7 @@ const ContextualHelpComponent = () => {
       </div>
       
       <div className="flex gap-3">
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">4</div>
+        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">4</div>
         <div>
           <h3 className="font-medium text-gray-800">Acompanhe o status</h3>
           <p>Monitore o andamento da negociação através do status da concorrência e as notificações recebidas.</p>
@@ -74,7 +74,7 @@ const ContextualHelpComponent = () => {
       </div>
       
       <div className="flex gap-3">
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">5</div>
+        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">5</div>
         <div>
           <h3 className="font-medium text-gray-800">Projeto em andamento</h3>
           <p>Se selecionado, a concorrência se tornará um projeto que poderá ser gerenciado através da seção "Meus projetos".</p>
@@ -178,7 +178,7 @@ const ContextualHelpComponent = () => {
                 content={
                   <div className="space-y-4">
                     <div className="flex gap-3">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">1</div>
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">1</div>
                       <div>
                         <h3 className="font-medium text-gray-800">Explore oportunidades disponíveis</h3>
                         <p>Navegue pelas concorrências em negociação ou descubra novas oportunidades na seção "Outras oportunidades disponíveis".</p>
@@ -186,7 +186,7 @@ const ContextualHelpComponent = () => {
                     </div>
                     
                     <div className="flex gap-3">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">2</div>
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">2</div>
                       <div>
                         <h3 className="font-medium text-gray-800">Analise os requisitos da concorrência</h3>
                         <p>Verifique cuidadosamente todos os SKUs, quantidades e especificações técnicas antes de participar.</p>
@@ -194,7 +194,7 @@ const ContextualHelpComponent = () => {
                     </div>
                     
                     <div className="flex gap-3">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">3</div>
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">3</div>
                       <div>
                         <h3 className="font-medium text-gray-800">Envie sua proposta</h3>
                         <p>Clique em "Enviar cotação" para submeter sua cotação com preços, prazos e condições comerciais.</p>
@@ -202,7 +202,7 @@ const ContextualHelpComponent = () => {
                     </div>
                     
                     <div className="flex gap-3">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">4</div>
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">4</div>
                       <div>
                         <h3 className="font-medium text-gray-800">Acompanhe o status</h3>
                         <p>Monitore o andamento da negociação através do status da concorrência e as notificações recebidas.</p>
@@ -210,7 +210,7 @@ const ContextualHelpComponent = () => {
                     </div>
                     
                     <div className="flex gap-3">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-info-main text-white flex items-center justify-center font-medium">5</div>
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">5</div>
                       <div>
                         <h3 className="font-medium text-gray-800">Projeto em andamento</h3>
                         <p>Se selecionado, a concorrência se tornará um projeto que poderá ser gerenciado através da seção "Meus projetos".</p>
