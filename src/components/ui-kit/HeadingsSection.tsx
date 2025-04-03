@@ -7,20 +7,12 @@ const HeadingsSection = () => {
   return (
     <section>
       <h2 className="text-xl font-normal mb-6">Headings</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <Link to="/components/page-headings">
           <ComponentPreview 
             title="Page Headings" 
             imageSrc="/lovable-uploads/5ae2c9b9-8171-41af-a6c2-2002cc7425f5.png" 
             variantCount={3} 
-          />
-        </Link>
-        
-        <Link to="/components/title-headings">
-          <ComponentPreview 
-            title="Title Headings" 
-            imageSrc="/lovable-uploads/a0b9776c-7b4b-46b0-ac98-a5f9762be611.png" 
-            variantCount={2} 
           />
         </Link>
         
