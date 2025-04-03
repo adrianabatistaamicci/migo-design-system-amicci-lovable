@@ -16,7 +16,7 @@ const NotFound = () => {
     
     // Preload the image
     const img = new Image();
-    img.src = "/lovable-uploads/c282063e-8e38-4f84-82c7-370380ee2e30.png";
+    img.src = "/lovable-uploads/593a4344-b612-4363-85c4-983e90ca2641.png";
     img.onload = () => setImageLoaded(true);
   }, [location.pathname]);
   
@@ -29,7 +29,7 @@ const NotFound = () => {
           )}
           <img 
             className={`w-full max-w-[500px] h-auto mx-auto ${!imageLoaded ? 'hidden' : ''}`} 
-            src="/lovable-uploads/c282063e-8e38-4f84-82c7-370380ee2e30.png" 
+            src="/lovable-uploads/593a4344-b612-4363-85c4-983e90ca2641.png" 
             alt="Erro 404" 
             onLoad={() => setImageLoaded(true)}
             onError={() => console.error("Failed to load 404 image")}

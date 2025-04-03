@@ -62,7 +62,7 @@ const ErrorDisplay: React.FC<ErrorDisplayProps> = ({ error, onReload }) => {
   useEffect(() => {
     // Preload the image
     const img = new Image();
-    img.src = "/lovable-uploads/382af6ac-4a41-4d5e-bf4c-42278049b2a3.png";
+    img.src = "/lovable-uploads/853ba065-3c93-481e-b20a-2e18da19fc56.png";
     img.onload = () => setImageLoaded(true);
   }, []);
   
@@ -97,7 +97,7 @@ const ErrorDisplay: React.FC<ErrorDisplayProps> = ({ error, onReload }) => {
           )}
           <img 
             className={`w-full max-w-[500px] h-auto mx-auto ${!imageLoaded ? 'hidden' : ''}`} 
-            src="/lovable-uploads/382af6ac-4a41-4d5e-bf4c-42278049b2a3.png" 
+            src="/lovable-uploads/853ba065-3c93-481e-b20a-2e18da19fc56.png" 
             alt="Error"
             onLoad={() => setImageLoaded(true)}
             onError={() => console.error("Failed to load error image")}
